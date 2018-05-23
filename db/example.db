@@ -1,0 +1,5 @@
+record (bi, "$(IOC):name_of_pv") 
+{
+    field (INP, "@$(PLC) name_of_tag")
+}
+

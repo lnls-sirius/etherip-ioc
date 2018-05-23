@@ -1,0 +1,3 @@
+[submodule "ether_ip"]
+	path = ether_ip
+	url = git://github.com/EPICSTools/ether_ip.git
