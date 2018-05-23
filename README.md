@@ -53,13 +53,13 @@ To run this application, execute one of the scripts located at iocBoot directory
 The first line of script file must be the correct path to the application executable. If the system CPU is an ARM core, the first line must be:
 
 ```
-#!../bin/linux-arm/streamApp
+#!../bin/linux-arm/eipIoc
 ```
 
 Instead, if we are working in a 64-bit computer:
 
 ```
-#!../bin/linux-x86_64/streamApp
+#!../bin/linux-x86_64/eipIoc
 ```
 
 In the script file, four environment variables must be correctly defined:
