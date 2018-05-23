@@ -2,6 +2,8 @@
 
 This project is an EPICS IOC based on Ether_IP. All etherip-ioc-based EPICS interfaces created by LNLS Controls Group for Sirius control system will be contained in this application.
 
+Wiki Doc - https://wiki-sirius.lnls.br/mediawiki/index.php/CON:EPICS_clients_on_Allen_Bradley_PLC
+
 ## System requirements
 
 In order to get this software running, you should have installed in your system EPICS base (version 3.14.12.7 recommended). etherip-ioc is intended to run in a Linux environment.
@@ -34,7 +36,7 @@ This software is distributed in the form of source code. In order to compile it,
 
 ```
 EPICS_VER=master
-EPICS_BASE_RELEASE=/root/base-3.14.12.7/
+EPICS_BASE_RELEASE=/opt/base-3.14.12.7/
 
 ```
 
