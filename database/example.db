@@ -1,5 +1,34 @@
-record (bi, "$(IOC):name_of_pv") 
+
+record (bo, "aureo121pvasdbi")
 {
-    field (INP, "@$(PLC) name_of_tag")
+    field(SCAN, "Passive")
+    field(DTYP, "EtherIP")
+    field(OUT, "aureotagasda")
+    field(ZNAM, "False")
+    field(ONAM, "True")
 }
 
+record (ai, "pv")
+{
+    field(SCAN, "scan")
+    field(DTYP, "EtherIP")
+    field(INP, "tag")
+    field(EGUF, "eguf")
+    field(EGU, "egu")
+    field(HOPR, "hopr")
+    field(LOPR, "lopr")
+    field(HIHI, "hihi")
+    field(HIGH, "high")
+    field(LOW, "low")
+    field(LOLO, "lolo")
+    field(HHSV, "hhsv")
+    field(HSV, "hsv")
+    field(LSV, "lsv")
+    field(LLSV, "llsv")
+    field(PREC, "prec")
+}
+
+record (bi, "aureo121pvasdbi")
+{
+    field (INP, "aureotagasda")
+}
