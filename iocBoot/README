@@ -18,7 +18,7 @@ To use the script just follow the commands below:
     nameplc - name of plc. Example PLC = plc where plc is the same name of the second parameter; 
     prefix - prefix of EPICS PV names to be written to the database directory.
 
-    OBS: All parameters must be passed, otherwise the code will not work. The script adds a new file .cmd, if you use the name of an existing file you will overwrite the file deleting everything that was contained within it.
+    NOTE: All parameters must be passed, otherwise the code will not work. The script adds a new file .cmd, if you use the name of an existing file you will overwrite the file deleting everything that was contained within it. 
  
 
 #################################################################################################
