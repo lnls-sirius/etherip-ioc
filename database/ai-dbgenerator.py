@@ -25,7 +25,7 @@ try:
     file = open(arquivo,'r')
     conteudo = file.readlines()
 
-    conteudo.append('\n' + 'record (ai, "{}")'.format(pv) + '\n' + '{' + '\n' \
+    conteudo.append('\n' + 'record (ai, "$(IOC):{}")'.format(pv) + '\n' + '{' + '\n' \
                     + '    field(SCAN, "{}")'.format(scan)+ '\n' \
                     + '    field(DTYP, "EtherIP")' + '\n' \
                     + '    field(INP, "{}")'.format(tag) + '\n'
@@ -41,7 +41,8 @@ try:
                     + '    field(HSV, "{}")'.format(hsv) + '\n' \
                     + '    field(LSV, "{}")'.format(lsv) + '\n' \
                     + '    field(LLSV, "{}")'.format(llsv) + '\n' \
-                    + '    field(PREC, "{}")'.format(prec) + '\n'  + '}' + '\n')
+                    + '    field(PREC, "{}")'.format(prec) + '\n' \
+                    + '}' + '\n')
 
     file = open(arquivo,'w')
     file.writelines(conteudo)

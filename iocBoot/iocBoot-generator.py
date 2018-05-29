@@ -16,10 +16,10 @@ try:
     file = open(arquivo, 'a')
     file = open(arquivo, 'w')
 
-    file.writelines('#! ../../bin/linux-arm/eipIoc\n' 
+    file.writelines('#! ../ether_ip/bin/linux-x86_64/eipIoc\n' 
                     '# 3.14 example startup file for a Host - * - shell-script - * -\n'  
                     '# Load dbd, register the drvEtherIP .. commands\n' 
-                    'dbLoadDatabase ("../../../ether_ip-ether_ip-2-27/dbd/eipIoc.dbd)\n' 
+                    'dbLoadDatabase ("../ether_ip/dbd/eipIoc.dbd")\n' 
                     'eipIoc_registerRecordDeviceDriver (pdbbase)\n' 
                     'epicsEnvSet ("EPICS_IOC_LOG_INET", "127.0.0.1")\n' 
                     'epicsEnvSet ("EPICS_IOC_LOG_PORT", "6505")\n' 
@@ -29,7 +29,7 @@ try:
                     'drvEtherIP_init ()\n' 
                     'EIP_verbosity (7)\n' 
                     'drvEtherIP_define_PLC ("{}", "{}", {})'.format(plc, ip, module) + '\n' 
-                    'dbLoadRecords ("../database/{}", "{},{}")'.format(database, nameplc, prefx) + '\n' 
+                    'dbLoadRecords ("../database/{}", "PLC={},IOC={}")'.format(database, nameplc, prefx) + '\n' 
                     'iocInit () \n'
                     )
 
