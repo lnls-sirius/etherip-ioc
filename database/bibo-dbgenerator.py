@@ -8,6 +8,8 @@ arquivo = str(sys.argv[2])
 pv = str(sys.argv[3])
 tag = str(sys.argv[4])
 scan = str(sys.argv[5])
+highname = str(sys.argv[6])
+lowname = str(sys.argv[7])
 
 try:
     file = open(arquivo, 'r')
@@ -17,18 +19,17 @@ try:
         conteudo.append('\n' + 'record (bi, "$(IOC):{}")'.format(pv) + '\n' + '{' + '\n' \
                         + '    field(INP, "@$(PLC) {}")'.format(tag) + '\n' \
                         + '    field(SCAN, "{} second")'.format(scan) + '\n' \
-                        + '    field(ZNAM, "False")' + '\n' \
-                        + '    field(ONAM, "True")' + '\n' \
+                        + '    field(ZNAM, "{}")'.format(lowname) + '\n' \
+                        + '    field(ONAM, "{}")'.format(highname) + '\n' \
                         + '    field(DTYP, "EtherIP")' + '\n' \
                         + '}' + '\n')
 
     elif tipo == "bo":
         conteudo.append('\n' + 'record (bo, "$(IOC):{}")'.format(pv) + '\n' + '{' + '\n' \
-                        + '    field(SCAN, "Passive")'+ '\n' \
                         + '    field(DTYP, "EtherIP")'+ '\n' \
                         + '    field(OUT, "@$(PLC) {}")'.format(tag) + '\n' \
-                        + '    field(ZNAM, "False")' + '\n' \
-                        + '    field(ONAM, "True")' + '\n' \
+                        + '    field(ZNAM, "{}")'.format(lowname) + '\n' \
+                        + '    field(ONAM, "{}")',format(highname) + '\n' \
                         + '    field(SCAN, "{} second")'.format(scan) + '\n' \
                         + '}' + '\n')
 
