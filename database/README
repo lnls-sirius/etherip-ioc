@@ -16,6 +16,8 @@ A - ai-dbgenerator.py
     pv - name of your PV EPICS to be recorded
     tag - name of the corresponding tag of your PLC
     scan - scan time in seconds
+    highname - name field on high situation
+    lowname - name field on low situation
     * The rest of the parameters are according to your need.
     NOTE: All parameters must be passed, otherwise the code will not work. The script adds a new record element always at the end of the existing .db.
     *** NOTE: You must pass a .db file, the code will not create a .db file ***
@@ -37,6 +39,8 @@ B - bibo-dbgenerator.py
     pv - name of your PV EPICS to be recorded
     tag - name of the corresponding tag of your PLC
     scan - scan time in seconds
+    highname - name field on high situation
+    lowname - name field on low situation
     * The rest of the parameters are according to your need.
     NOTE: The first argument to be passed (bi or bo) defines the type of file to be written. All parameters must be passed, otherwise the code will not work. The script adds a new record element always at the end of the existing .db.
     *** NOTE: You must pass a .db file, the code will not create a .db file ***
