@@ -16,8 +16,6 @@ A - ai-dbgenerator.py
     pv - name of your PV EPICS to be recorded
     tag - name of the corresponding tag of your PLC
     scan - scan time in seconds
-    highname - name field on high situation
-    lowname - name field on low situation
     * The rest of the parameters are according to your need.
     NOTE: All parameters must be passed, otherwise the code will not work. The script adds a new record element always at the end of the existing .db.
     *** NOTE: You must pass a .db file, the code will not create a .db file ***
@@ -29,10 +27,10 @@ B - bibo-dbgenerator.py
     - Execute the following comnado in the terminal below inside the directory folder of its etherip-ioc directory for each case:
 
     If you want to generate a bo:
-    $ python bibo-dbgenerator.py bo file pv tag scan
+    $ python bibo-dbgenerator.py bo file pv tag scan highname lowname
     
     If you want to generate a bi:
-    $ python bibo-dbgenerator.py bi file pv tag scan
+    $ python bibo-dbgenerator.py bi file pv tag scan highname lowname
 
     At where:
     file - your database file exists
