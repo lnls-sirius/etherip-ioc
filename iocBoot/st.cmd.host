@@ -41,6 +41,6 @@ drvEtherIP_define_PLC("plc1", "10.0.28.199", 1)
 #dbLoadRecords("../../db/test.db", "PLC=plc1,IOC=test")
 #dbLoadRecords("../../db/mod.db", "PLC=plc1,IOC=test")
 #dbLoadRecords("../../db/brad2.db", "PLC=plc1,IOC=test")
-dbLoadRecords("../../db/testeclp.db", "PLC=plc1,IOC=test")
+dbLoadRecords("../database/testeclp.db", "PLC=plc1,IOC=test")
 iocInit()
 
