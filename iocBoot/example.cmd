@@ -1,4 +1,4 @@
-#! ../../bin/linux-arm/eipIoc
+#! ../ether_ip/bin/linux-x86_64/eipIoc
 # 3.14 example startup file for a Host - * - shell-script - * -
 # Load dbd, register the drvEtherIP .. commands
 dbLoadDatabase ("../../dbd/eipIoc.dbd")
