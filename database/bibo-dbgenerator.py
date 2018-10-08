@@ -16,21 +16,21 @@ try:
     conteudo = file.readlines()
 
     if tipo == "bi":
-        conteudo.append('\n' + 'record (bi, "$(IOC):{}")'.format(pv) + '\n' + '{' + '\n' \
+        conteudo.append('\n' + 'record (bi, "{}")'.format(pv) + '\n' + '{' + '\n' \
                         + '    field(INP, "@$(PLC) {}")'.format(tag) + '\n' \
-                        + '    field(SCAN, "{} second")'.format(scan) + '\n' \
+                        + '    field(SCAN, "{}")'.format(scan) + '\n' \
                         + '    field(ZNAM, "{}")'.format(lowname) + '\n' \
                         + '    field(ONAM, "{}")'.format(highname) + '\n' \
                         + '    field(DTYP, "EtherIP")' + '\n' \
                         + '}' + '\n')
 
     elif tipo == "bo":
-        conteudo.append('\n' + 'record (bo, "$(IOC):{}")'.format(pv) + '\n' + '{' + '\n' \
-                        + '    field(DTYP, "EtherIP")'+ '\n' \
-                        + '    field(OUT, "@$(PLC) {}")'.format(tag) + '\n' \
+        conteudo.append('\n' + 'record (bo, "{}")'.format(pv) + '\n' + '{' + '\n' \
+                        + '    field(INP, "@$(PLC) {}")'.format(tag) + '\n' \
+                        + '    field(SCAN, "{}")'.format(scan) + '\n' \
                         + '    field(ZNAM, "{}")'.format(lowname) + '\n' \
-                        + '    field(ONAM, "{}")',format(highname) + '\n' \
-                        + '    field(SCAN, "{} second")'.format(scan) + '\n' \
+                        + '    field(ONAM, "{}")'.format(highname) + '\n' \
+                        + '    field(DTYP, "EtherIP")' + '\n' \
                         + '}' + '\n')
 
     file = open(arquivo, 'w')
