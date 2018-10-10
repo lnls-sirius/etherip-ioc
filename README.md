@@ -32,21 +32,8 @@ Here is a brief explanation of the directory structure:
 
 ## Compiling
 
-This software is distributed in the form of source code. In order to compile it, first define at the `ether_ip/configure/RELEASE` file the system paths to EPICS base and asynDriver. By default, these configurations are:
-
-```
-EPICS_VER=master
-EPICS_BASE_RELEASE=/opt/base-3.14.12.7/
-
-```
-
-After editing `ether_ip/configure/RELEASE`, run these commands at the top directory:
-
-```
-$ cd ..
-$ make
-
-```
+Check your folder installation on install.sh and you EPICS base folder.
+After that execute intall.sh with sudo.
 
 ## Executing the IOC
 
