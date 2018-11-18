@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 from string import Template
 
-cmd_template = Template("""
-#! ../ether_ip/bin/${arch}/eipIoc 
+cmd_template = Template(
+"""#! ../ether_ip/bin/${arch}/eipIoc 
 # 3.14 example startup file for a Host - * - shell-script - * -
 # Load dbd, register the drvEtherIP .. commands
 dbLoadDatabase("../ether_ip/dbd/eipIoc.dbd") 
-eipIoc_registerRecordDeviceDriver (pdbbase)
+eipIoc_registerRecordDeviceDriver(pdbbase)
 
 epicsEnvSet("EPICS_IOC_LOG_INET", "127.0.0.1")
 epicsEnvSet("EPICS_IOC_LOG_PORT", "6505")
@@ -16,9 +16,9 @@ iocLogInit
 EIP_buffer_limit(450)
 drvEtherIP_init()
 EIP_verbosity(7)
-drvEtherIP_define_PLC ("${plc}", "${ip}", ${module})
+drvEtherIP_define_PLC("${plc}", "${ip}", ${module})
 
-dbLoadRecords("../database/${database}", "PLC=${nameplc}")
+dbLoadRecords("../database/${database}.db", "PLC=${plc}")
 iocInit()
 
 """)
