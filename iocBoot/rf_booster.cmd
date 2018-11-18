@@ -1,4 +1,4 @@
-#! ../ether_ip/bin/linux-x86_64/eipIoc
+#!/opt/epics-R3.14.12.7/modules/ether_ip-ether_ip-2-27/bin/linux-x86_64/eipIoc
 # 3.14 example startup file for a Host  -*- shell-script -*-
 
 # Load dbd, register the drvEtherIP.. commands
@@ -17,31 +17,8 @@ drvEtherIP_init()
 EIP_verbosity(7)
 
 # drvEtherIP_define_PLC <name>, <ip_addr>, <slot>
-# The driver/device uses the <name> to indentify the PLC.
-# 
-# <ip_addr> can be an IP address in dot-notation
-# or a name about which the IOC knows.
-# The IP address gets us to the ENET interface.
-# To get to the PLC itself, we need the slot that
-# it resides in. The first, left-most slot in the
-# ControlLogix crate is slot 0.
-#drvEtherIP_define_PLC("plc1", "172.31.72.94", 0)
-#drvEtherIP_define_PLC("plc1", "172.31.74.78", 0)
-drvEtherIP_define_PLC("plc1", "10.0.28.199", 1)
+drvEtherIP_define_PLC("plc1", "10.0.28.199", 0)
 
-#dbLoadRecords("db/ramp.db",    "IOC=test")
-#dbLoadRecords("db/eip_stat.db","PLC=plc1,IOC=test,TAG=REAL")
-#dbLoadRecords("db/ai.db",      "PLC=plc1,IOC=test")
-#dbLoadRecords("db/ana.db",     "PLC=plc1,IOC=test")
-#dbLoadRecords("db/bi.db",      "PLC=plc1,IOC=test")
-#dbLoadRecords("db/bin.db",     "PLC=plc1,IOC=test")
-#dbLoadRecords("db/mbbi.db",    "PLC=plc1,IOC=test")
-#dbLoadRecords("db/ao.db",      "PLC=plc1,IOC=test")
-#dbLoadRecords("db/bo.db",      "PLC=plc1,IOC=test")
-#dbLoadRecords("db/mbbo.db",    "PLC=plc1,IOC=test")
-#dbLoadRecords("../../db/test.db", "PLC=plc1,IOC=test")
-#dbLoadRecords("../../db/mod.db", "PLC=plc1,IOC=test")
-#dbLoadRecords("../../db/brad2.db", "PLC=plc1,IOC=test")
-dbLoadRecords("../database/testeclp.db", "PLC=plc1,IOC=test")
+dbLoadRecords("../database/testeclp.db", "PLC=plc1")
 iocInit()
 

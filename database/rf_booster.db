@@ -4,7 +4,7 @@
 
 record (bi, "RA-TL:RF-ArcDetec-BO:Sts-Mon")
 {
-    field(INP, "@$(PLC) N7[7].5")
+    field(INP, "@$(PLC) Memorias[1].5")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -13,7 +13,7 @@ record (bi, "RA-TL:RF-ArcDetec-BO:Sts-Mon")
 
 record (bi, "RA-TL:RF-Circulator-BO:Heater-Mon")
 {
-    field(INP, "@$(PLC) Memorias[28]")
+    field(INP, "@$(PLC) Memorias[0].28")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -22,7 +22,7 @@ record (bi, "RA-TL:RF-Circulator-BO:Heater-Mon")
 
 record (bi, "RA-TL:RF-Circulator-BO:IntlkOp-Mon")
 {
-    field(INP, "@$(PLC) Memorias[29]")
+    field(INP, "@$(PLC) Memorias[0].29")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -31,7 +31,7 @@ record (bi, "RA-TL:RF-Circulator-BO:IntlkOp-Mon")
 
 record (bi, "RA-TL:RF-Circulator-BO:FlwRt-Mon")
 {
-    field(INP, "@$(PLC) Memorias[30]")
+    field(INP, "@$(PLC) Memorias[0].30")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -40,7 +40,7 @@ record (bi, "RA-TL:RF-Circulator-BO:FlwRt-Mon")
 
 record (bi, "RA-TL:RF-Circulator-BO:Sts-Mon")
 {
-    field(INP, "@$(PLC) N7[7].0")
+    field(INP, "@$(PLC) Memorias[1].0")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -49,7 +49,7 @@ record (bi, "RA-TL:RF-Circulator-BO:Sts-Mon")
 
 record (bi, "RA-TL:RF-Circulator-BO:TDown-Mon")
 {
-    field(INP, "@$(PLC) N7[7].1")
+    field(INP, "@$(PLC) Memorias[1].1")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -58,7 +58,7 @@ record (bi, "RA-TL:RF-Circulator-BO:TDown-Mon")
 
 record (bi, "RA-TL:RF-Circulator-BO:TUp-Mon")
 {
-    field(INP, "@$(PLC) N7[7].2")
+    field(INP, "@$(PLC) Memorias[1].2")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -67,7 +67,7 @@ record (bi, "RA-TL:RF-Circulator-BO:TUp-Mon")
 
 record (bi, "RA-TL:RF-Circulator-BO:TDrift-Mon")
 {
-    field(INP, "@$(PLC) N7[7].3")
+    field(INP, "@$(PLC) Memorias[1].3")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -76,7 +76,7 @@ record (bi, "RA-TL:RF-Circulator-BO:TDrift-Mon")
 
 record (bi, "RA-TL:RF-Circulator-BO:TEnvi-Mon")
 {
-    field(INP, "@$(PLC) N7[7].4")
+    field(INP, "@$(PLC) Memorias[1].4")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -85,7 +85,7 @@ record (bi, "RA-TL:RF-Circulator-BO:TEnvi-Mon")
 
 record (bi, "RA-TL:RF-Circulator-BO:LoadFlwRt-Mon")
 {
-    field(INP, "@$(PLC) Memorias[31]")
+    field(INP, "@$(PLC) Memorias[0].31")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -94,7 +94,7 @@ record (bi, "RA-TL:RF-Circulator-BO:LoadFlwRt-Mon")
 
 record (bi, "RA-TL:RF-Circulator-BO:Sts-Mon")
 {
-    field(INP, "@$(PLC) N7[8].0")
+    field(INP, "@$(PLC) Memorias[5].7")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -103,7 +103,7 @@ record (bi, "RA-TL:RF-Circulator-BO:Sts-Mon")
 
 record (bi, "RA-ToBO:RF-HeatSink-H01:Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[21]")
+    field(INP, "@$(PLC) Memorias[0].21")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -112,7 +112,7 @@ record (bi, "RA-ToBO:RF-HeatSink-H01:Tms-Mon")
 
 record (bi, "RA-ToBO:RF-HeatSink-H02:Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[22]")
+    field(INP, "@$(PLC) Memorias[0].22")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -121,7 +121,7 @@ record (bi, "RA-ToBO:RF-HeatSink-H02:Tms-Mon")
 
 record (bi, "RA-ToBO:RF-HeatSink-H03:Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[23]")
+    field(INP, "@$(PLC) Memorias[0].23")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -130,7 +130,7 @@ record (bi, "RA-ToBO:RF-HeatSink-H03:Tms-Mon")
 
 record (bi, "RA-ToBO:RF-HeatSink-H04:Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[24]")
+    field(INP, "@$(PLC) Memorias[0].24")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -139,7 +139,7 @@ record (bi, "RA-ToBO:RF-HeatSink-H04:Tms-Mon")
 
 record (bi, "RA-ToBO:RF-HeatSink-H05:Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[25]")
+    field(INP, "@$(PLC) Memorias[0].25")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -148,7 +148,7 @@ record (bi, "RA-ToBO:RF-HeatSink-H05:Tms-Mon")
 
 record (bi, "RA-ToBO:RF-HeatSink-H06:Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[26]")
+    field(INP, "@$(PLC) Memorias[0].26")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -157,7 +157,7 @@ record (bi, "RA-ToBO:RF-HeatSink-H06:Tms-Mon")
 
 record (bi, "BO-05D:RF-Intlk:BO-Mon")
 {
-    field(INP, "@$(PLC) Memorias[2]")
+    field(INP, "@$(PLC) Memorias[0].2")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -166,7 +166,7 @@ record (bi, "BO-05D:RF-Intlk:BO-Mon")
 
 record (bo, "BO-05D:RF-Intlk:LLRF-Mon")
 {
-    field(INP, "@$(PLC) Local:1:O.Pt01.Data")
+    field(INP, "@$(PLC) Memorias[6].3")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -176,7 +176,7 @@ record (bo, "BO-05D:RF-Intlk:LLRF-Mon")
 
 record (bi, "BO-05D:RF-Intlk:EStop-Mon")
 {
-    field(INP, "@$(PLC) N7[6].0")
+    field(INP, "@$(PLC) Memorias[1].6")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -185,7 +185,7 @@ record (bi, "BO-05D:RF-Intlk:EStop-Mon")
 
 record (bi, "BO-05D:RF-Intlk:Reset-Sel")
 {
-    field(INP, "@$(PLC) Memorias[63]")
+    field(INP, "@$(PLC) Memorias[5].19")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -194,7 +194,7 @@ record (bi, "BO-05D:RF-Intlk:Reset-Sel")
 
 record (bi, "BO-05D:RF-LLRF:Status-Mon")
 {
-    field(INP, "@$(PLC) Memorias[0]")
+    field(INP, "@$(PLC) Memorias[0].0")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -203,7 +203,7 @@ record (bi, "BO-05D:RF-LLRF:Status-Mon")
 
 record (bi, "BO-05D:RF-LLRF:Intlk-Mon")
 {
-    field(INP, "@$(PLC) Memorias[1]")
+    field(INP, "@$(PLC) Memorias[0].1")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -220,9 +220,9 @@ record (bi, "BO-05D:RF-LLRFPreAmp:Tms-Mon")
 }
 
 
-record (bo, "BO-05D:RF-LLRFPreAmp:Endl-Mon")
+record (bo, "BO-05D:RF-LLRFPreAmp:Enbl-Mon")
 {
-    field(INP, "@$(PLC) Torre_Booster:8:O.Pt01.Data")
+    field(INP, "@$(PLC) Memorias[55]")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -231,7 +231,7 @@ record (bo, "BO-05D:RF-LLRFPreAmp:Endl-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Pressure-Mon")
 {
-    field(INP, "@$(PLC) Memorias[3]")
+    field(INP, "@$(PLC) Memorias[0].3")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -240,7 +240,7 @@ record (bi, "BO-05D:RF-P5Cav:Pressure-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Disc1Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[4]")
+    field(INP, "@$(PLC) Memorias[0].4")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -249,7 +249,7 @@ record (bi, "BO-05D:RF-P5Cav:Disc1Tms-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Cilin1Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[5]")
+    field(INP, "@$(PLC) Memorias[0].5")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -258,7 +258,7 @@ record (bi, "BO-05D:RF-P5Cav:Cilin1Tms-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Disc2Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[6]")
+    field(INP, "@$(PLC) Memorias[0].6")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -267,7 +267,7 @@ record (bi, "BO-05D:RF-P5Cav:Disc2Tms-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Cilin2Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[7]")
+    field(INP, "@$(PLC) Memorias[0].7")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -276,7 +276,7 @@ record (bi, "BO-05D:RF-P5Cav:Cilin2Tms-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Disc3Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[8]")
+    field(INP, "@$(PLC) Memorias[0].8")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -285,7 +285,7 @@ record (bi, "BO-05D:RF-P5Cav:Disc3Tms-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Cilin3Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[9]")
+    field(INP, "@$(PLC) Memorias[0].9")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -294,7 +294,7 @@ record (bi, "BO-05D:RF-P5Cav:Cilin3Tms-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Disc4Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[10]")
+    field(INP, "@$(PLC) Memorias[0].10")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -303,7 +303,7 @@ record (bi, "BO-05D:RF-P5Cav:Disc4Tms-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Cilin4Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[11]")
+    field(INP, "@$(PLC) Memorias[0].11")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -312,7 +312,7 @@ record (bi, "BO-05D:RF-P5Cav:Cilin4Tms-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Disc5Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[12]")
+    field(INP, "@$(PLC) Memorias[0].12")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -321,7 +321,7 @@ record (bi, "BO-05D:RF-P5Cav:Disc5Tms-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Cilin5Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[13]")
+    field(INP, "@$(PLC) Memorias[0].13")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -330,7 +330,7 @@ record (bi, "BO-05D:RF-P5Cav:Cilin5Tms-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Disc6Tms-Mon")
 {
-    field(INP, "@$(PLC) Memorias[14]")
+    field(INP, "@$(PLC) Memorias[0].14")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -339,7 +339,7 @@ record (bi, "BO-05D:RF-P5Cav:Disc6Tms-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Hd1FlwRt-Mon")
 {
-    field(INP, "@$(PLC) Memorias[15]")
+    field(INP, "@$(PLC) Memorias[0].15")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -348,7 +348,7 @@ record (bi, "BO-05D:RF-P5Cav:Hd1FlwRt-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Hd2FlwRt-Mon")
 {
-    field(INP, "@$(PLC) Memorias[16]")
+    field(INP, "@$(PLC) Memorias[0].16")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -357,7 +357,7 @@ record (bi, "BO-05D:RF-P5Cav:Hd2FlwRt-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:Hd3FlwRt-Mon")
 {
-    field(INP, "@$(PLC) Memorias[17]")
+    field(INP, "@$(PLC) Memorias[0].17")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -366,7 +366,7 @@ record (bi, "BO-05D:RF-P5Cav:Hd3FlwRt-Mon")
 
 record (bi, "BO-05D:RF-P5Cav:CoupPressure-Mon")
 {
-    field(INP, "@$(PLC) Memorias[18]")
+    field(INP, "@$(PLC) Memorias[0].18")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -375,7 +375,7 @@ record (bi, "BO-05D:RF-P5Cav:CoupPressure-Mon")
 
 record (bo, "BO-05D:RF-P5Cav:Sts-Mon")
 {
-    field(INP, "@$(PLC) Memorias[44]")
+    field(INP, "@$(PLC) Memorias[7].16")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -384,7 +384,7 @@ record (bo, "BO-05D:RF-P5Cav:Sts-Mon")
 
 record (bi, "RA-ToBO:RF-SSAmpTower:PwrACOp-Mon")
 {
-    field(INP, "@$(PLC) Memorias[19]")
+    field(INP, "@$(PLC) Memorias[0].19")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -393,7 +393,7 @@ record (bi, "RA-ToBO:RF-SSAmpTower:PwrACOp-Mon")
 
 record (bi, "RA-ToBO:RF-SSAmpTower:HdFlwRt-Mon")
 {
-    field(INP, "@$(PLC) Memorias[20]")
+    field(INP, "@$(PLC) Memorias[0].20")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -402,7 +402,7 @@ record (bi, "RA-ToBO:RF-SSAmpTower:HdFlwRt-Mon")
 
 record (bo, "RA-ToBO:RF-SSAmpTower:PinSw-Mon")
 {
-    field(INP, "@$(PLC) Torre_Booster:8:O.Pt00.Data")
+    field(INP, "@$(PLC) Memorias[6].1")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -411,16 +411,34 @@ record (bo, "RA-ToBO:RF-SSAmpTower:PinSw-Mon")
 
 record (bo, "RA-ToBO:RF-SSAmpTower:PwrCnvEnbl-Sel")
 {
-    field(INP, "@$(PLC) Memorias[57]")
+    field(INP, "@$(PLC) Memorias[5].23")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
     field(DTYP, "EtherIP")
 }
 
-record (bo, "RA-ToBO:RF-SSAmpTower:PwrCnvEnbl-Sts")
+record (bo, "RA-ToBO:RF-SSAmpTower:PwrCnvDsbl-Sel")
 {
-    field(INP, "@$(PLC) Torre_Booster:8:O.Pt02.Data")
+    field(INP, "@$(PLC) Memorias[5].29")
+    field(SCAN, "Passive")
+    field(ZNAM, "False")
+    field(ONAM, "True")
+    field(DTYP, "EtherIP")
+}
+
+record (bo, "RA-ToBO:RF-SSAmpTower:PwrCnv-Sts")
+{
+    field(INP, "@$(PLC) Memorias[6].0")
+    field(SCAN, "Passive")
+    field(ZNAM, "False")
+    field(ONAM, "True")
+    field(DTYP, "EtherIP")
+}
+
+record (bo, "RA-ToBO:RF-SSAmpTower:300VdcDsbl-Sel")
+{
+    field(INP, "@$(PLC) Memorias[0].27")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -429,16 +447,16 @@ record (bo, "RA-ToBO:RF-SSAmpTower:PwrCnvEnbl-Sts")
 
 record (bo, "RA-ToBO:RF-SSAmpTower:300VdcEnbl-Sel")
 {
-    field(INP, "@$(PLC) Memorias[58]")
+    field(INP, "@$(PLC) Memorias[0].20")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
     field(DTYP, "EtherIP")
 }
 
-record (bo, "RA-ToBO:RF-SSAmpTower:300VdcEnbl-Sts")
+record (bo, "RA-ToBO:RF-SSAmpTower:300Vdc-Sts")
 {
-    field(INP, "@$(PLC) Torre_Booster:8:O.Pt03.Data")
+    field(INP, "@$(PLC) Memorias[6].2")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -447,7 +465,7 @@ record (bo, "RA-ToBO:RF-SSAmpTower:300VdcEnbl-Sts")
 
 record (bo, "RA-ToBO:RF-SSAmpTower:Sts-Mon")
 {
-    field(INP, "@$(PLC) Memorias[43]")
+    field(INP, "@$(PLC) Memorias[5].12")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -456,7 +474,7 @@ record (bo, "RA-ToBO:RF-SSAmpTower:Sts-Mon")
 
 record (bo, "RA-TL:RF-TrLine-BO:Sts-Mon")
 {
-    field(INP, "@$(PLC) N7[8].0")
+    field(INP, "@$(PLC) Memorias[5].7")
     field(SCAN, "Passive")
     field(ZNAM, "False")
     field(ONAM, "True")
@@ -465,7 +483,7 @@ record (bo, "RA-TL:RF-TrLine-BO:Sts-Mon")
 
 # Analogicas
 
-record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H01:T-Mon")
+record (ai, "RA-ToBO:RF-HeatSink-H01:T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -474,7 +492,7 @@ record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H01:T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H02:T-Mon")
+record (ai, "RA-ToBO:RF-HeatSink-H02:T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -483,7 +501,7 @@ record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H02:T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H03:T-Mon")
+record (ai, "RA-ToBO:RF-HeatSink-H03:T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -492,7 +510,7 @@ record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H03:T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H04:T-Mon")
+record (ai, "RA-ToBO:RF-HeatSink-H04:T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -501,7 +519,7 @@ record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H04:T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H05:T-Mon")
+record (ai, "RA-ToBO:RF-HeatSink-H05:T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -510,7 +528,7 @@ record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H05:T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H06:T-Mon")
+record (ai, "RA-ToBO:RF-HeatSink-H06:T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -519,7 +537,7 @@ record (ai, "$(IOC):RA-ToBO:RF-HeatSink-H06:T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):BO-05D:RF-LLRFPreAmp:T-Mon")
+record (ai, "BO-05D:RF-LLRFPreAmp:T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -528,7 +546,7 @@ record (ai, "$(IOC):BO-05D:RF-LLRFPreAmp:T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):BO-05D:RF-P5Cav:Cilin1T-Mon")
+record (ai, "BO-05D:RF-P5Cav:Cilin1T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -537,7 +555,7 @@ record (ai, "$(IOC):BO-05D:RF-P5Cav:Cilin1T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):BO-05D:RF-P5Cav:Cilin2T-Mon")
+record (ai, "BO-05D:RF-P5Cav:Cilin2T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -546,7 +564,7 @@ record (ai, "$(IOC):BO-05D:RF-P5Cav:Cilin2T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):BO-05D:RF-P5Cav:Cilin3T-Mon")
+record (ai, "BO-05D:RF-P5Cav:Cilin3T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -555,7 +573,7 @@ record (ai, "$(IOC):BO-05D:RF-P5Cav:Cilin3T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):BO-05D:RF-P5Cav:Cilin4T-Mon")
+record (ai, "BO-05D:RF-P5Cav:Cilin4T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -564,7 +582,7 @@ record (ai, "$(IOC):BO-05D:RF-P5Cav:Cilin4T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):BO-05D:RF-P5Cav:Cilin5T-Mon")
+record (ai, "BO-05D:RF-P5Cav:Cilin5T-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -573,7 +591,7 @@ record (ai, "$(IOC):BO-05D:RF-P5Cav:Cilin5T-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):BO-05D:RF-P5Cav:CoupT-Mon")
+record (ai, "BO-05D:RF-P5Cav:CoupT-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
@@ -582,7 +600,7 @@ record (ai, "$(IOC):BO-05D:RF-P5Cav:CoupT-Mon")
     field(PREC, "3")
 }
 
-record (ai, "$(IOC):RA-ToBO:RF-SSAmpTower:PwrRF-Mon")
+record (ai, "RA-ToBO:RF-SSAmpTower:PwrRF-Mon")
 {
     field(SCAN, "1")
     field(DTYP, "EtherIP")
