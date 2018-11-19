@@ -35,6 +35,14 @@ Here is a brief explanation of the directory structure:
 Check your folder installation on install.sh and you EPICS base folder.
 After that execute intall.sh with sudo.
 
+## IOC Generation
+To generate the ioc the user must run the `scripts/ioc.py` file, passing the required arguments. To provide the PV structure, a correct structured xlsx file is needed. The `-h` section of the `/scripts/ioc.py` will contain additional information. It's recommended to keep the xlsx files inside the `etc` folder, so that the reference is clear to identify and easy to find.
+In order to simplify things a build script has been made.
+```
+cd scripts
+./build.sh
+```
+
 ## Executing the IOC
 
 To run this application, execute one of the scripts located at iocBoot directory.

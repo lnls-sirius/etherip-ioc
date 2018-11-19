@@ -2,6 +2,7 @@
 import argparse
 import pandas
 import logging
+import os
 
 from templates import cmd_template, ai_template, bi_template, bo_template
 
@@ -30,27 +31,33 @@ parser.add_argument('--col-inout', default='Input/Output', help='Input/Output co
 parser.add_argument('--col-dtype', default='Tipo de dado', help='Data type column name.')
 parser.add_argument('--col-egu', default='EGU', help='EPICS egu column name.')
 
+parser.add_argument('--epics-ca-server-port', default=5064, help='EPICS_CA_SERVER_PORT value.',
+                    type=int)
 parser.add_argument('--arch', choices=['linux-x86_64', 'linux-arm'], default='linux-x86_64',
                     help='System architecture.')
 
 args = parser.parse_args()
 
 logger.info('Args, {}.'.format(vars(args)))
+
+path = os.path.dirname(os.path.abspath(__file__))
+
 def generate(sheet):
     logger.info('Sheet: {}'.format(sheet.head()))
-    logger.info('Generating {}.cmd file.'.format(args.ioc_name))
+    logger.info('Generating {}.cmd file. At {}.'.format(args.ioc_name, path + '/../database'))
     
-    with open('../iocBoot/' + args.ioc_name + '.cmd', 'w+') as f:
+    with open(path + '/../iocBoot/' + args.ioc_name + '.cmd', 'w+') as f:
         f.write(cmd_template.safe_substitute(
             arch=args.arch,
             database=args.ioc_name,
             plc=args.plc_name,
             ip=args.plc_ip,
+            epics_ca_server_port=args.epics_ca_server_port,
             module=args.plc_module
         ))
-
-    logger.info('Generating {}.db file.'.format(args.ioc_name))
-    with open('../database/' + args.ioc_name + '.db', 'w+') as f:
+    tags = {}
+    logger.info('Generating {}.db file. At {}.'.format(args.ioc_name, path + '/../database'))
+    with open(path + '/../database/' + args.ioc_name + '.db', 'w+') as f:
         for pv, desc, tag, inout, dtype, egu in \
                 zip(
                     sheet[args.col_pv],
@@ -60,40 +67,58 @@ def generate(sheet):
                     sheet[args.col_dtype],
                     sheet[args.col_egu]
                 ):
-            if tag != None and tag != 'N/A' and tag != 'nan':
-                if dtype == 'Digital':
-                    if inout == 'Input' or dtype == 'Control':
-                        f.write(bi_template.safe_substitute(
-                           pv=pv,
-                           tag=tag,
-                           desc=desc,
-                           scan='1',
-                           highname='True', 
-                           lowname='False' 
-                        ))
-                    elif dtype == 'Output':
-                        f.write(bi_template.safe_substitute(
-                           pv=pv,
-                           tag=tag,
-                           desc=desc,
-                           scan='1',
-                           highname='True', 
-                           lowname='False' 
-                        ))
-                elif dtype == 'Analog':
-                    if inout == 'Input':
-                       f.write(ai_template.safe_substitute(
-                           pv=pv,
-                           tag=tag,
-                           desc=desc,
-                           scan='1',
-                           prec='3',
-                           egu=egu
-                       ))
-                    elif dtype == 'Output':
-                        print('Type Analog Out Not - Supported ')
 
+            if not tag or tag == '':
+                logger.error('Tag not defined! {}'.format(pv))
+                continue
+            if tag == 'N/A':
+                logger.warning('Tag not set! {}'.format(pv))
+                continue
+        
+            if tag not in tags:
+                tags[tag] = [pv]
+            else:
+                tags[tag].append(pv)
+        
+            if dtype == 'Digital':
+                if inout == 'Input' or dtype == 'Control':
+                    f.write(bi_template.safe_substitute(
+                        pv=pv,
+                        tag=tag,
+                        desc=desc,
+                        scan='1',
+                        highname='True', 
+                        lowname='False' 
+                    ))
+                else:
+                # elif dtype == 'Output':
+                    f.write(bo_template.safe_substitute(
+                        pv=pv,
+                        tag=tag,
+                        desc=desc,
+                        scan='1',
+                        highname='True', 
+                        lowname='False' 
+                    ))
+            elif dtype == 'Analog':
+                if inout == 'Input':
+                    f.write(ai_template.safe_substitute(
+                        pv=pv,
+                        tag=tag,
+                        desc=desc,
+                        scan='1',
+                        prec='3',
+                        egu=egu
+                    ))
+                else:
+                # elif dtype == 'Output':
+                    logger.warning('Type Analog Out Not - Supported {}.'.format(pv))
+
+        for tag, vals in tags.items():
+            if len(vals) > 1:
+                logger.error('Tag {} already exist {}.'.format(tag, tags[tag]))
 if __name__ == '__main__':
-    sheet = pandas.read_excel(args.spreadsheet, sheet_name=args.sheet)
+    sheet = pandas.read_excel(args.spreadsheet, sheet_name=args.sheet, dtype=str)
+    sheet = sheet.replace('nan', '')
     generate(sheet) 
 
