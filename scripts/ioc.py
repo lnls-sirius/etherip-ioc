@@ -26,7 +26,7 @@ parser.add_argument('--ioc-name', required=True, help='IOC name.')
 
 parser.add_argument('--col-pv', default='EPICS', help='PV column name.')
 parser.add_argument('--col-desc', default='Descrição', help='Desc column name.')
-parser.add_argument('--col-tag', default='RS Logix', help='Desc column name.')
+parser.add_argument('--col-tag', default='TAG', help='Desc column name.')
 parser.add_argument('--col-inout', default='Input/Output', help='Input/Output column name.')
 parser.add_argument('--col-dtype', default='Tipo de dado', help='Data type column name.')
 parser.add_argument('--col-egu', default='EGU', help='EPICS egu column name.')

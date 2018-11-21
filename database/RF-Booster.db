@@ -1,7 +1,7 @@
 
 record(bi, "RA-TL:RF-ArcDetec-BO:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[1] S 5")
+    field(INP, "@$(PLC) Memorias[1] B 5")
     field(DESC, "Detector de Arco ")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -10,7 +10,7 @@ record(bi, "RA-TL:RF-ArcDetec-BO:Sts-Mon"){
 
 record(bi, "RA-TL:RF-Circulator-BO:Heater-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 28")
+    field(INP, "@$(PLC) Memorias[0] B 28")
     field(DESC, "Aquecedor (via Controlador do Circulador)")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -19,7 +19,7 @@ record(bi, "RA-TL:RF-Circulator-BO:Heater-Mon"){
 
 record(bi, "RA-TL:RF-Circulator-BO:IntlkOp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 29")
+    field(INP, "@$(PLC) Memorias[0] B 29")
     field(DESC, "Sistema de Interlock circulador operacional")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -28,7 +28,7 @@ record(bi, "RA-TL:RF-Circulator-BO:IntlkOp-Mon"){
 
 record(bi, "RA-TL:RF-Circulator-BO:FlwRt-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 30")
+    field(INP, "@$(PLC) Memorias[0] B 30")
     field(DESC, "Vazão Circulador (Via Skid)")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -37,7 +37,7 @@ record(bi, "RA-TL:RF-Circulator-BO:FlwRt-Mon"){
 
 record(bi, "RA-TL:RF-Circulator-BO:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[1] S 0")
+    field(INP, "@$(PLC) Memorias[1] B 0")
     field(DESC, "Bobinas do circulador ")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -46,7 +46,7 @@ record(bi, "RA-TL:RF-Circulator-BO:Sts-Mon"){
 
 record(bi, "RA-TL:RF-Circulator-BO:TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[1] S 1")
+    field(INP, "@$(PLC) Memorias[1] B 1")
     field(DESC, "Temp. do Circulador Abaixo do Set")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -55,7 +55,7 @@ record(bi, "RA-TL:RF-Circulator-BO:TDown-Mon"){
 
 record(bi, "RA-TL:RF-Circulator-BO:TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[1] S 2")
+    field(INP, "@$(PLC) Memorias[1] B 2")
     field(DESC, "Temp. do Circulador Acima do Set")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -64,7 +64,7 @@ record(bi, "RA-TL:RF-Circulator-BO:TUp-Mon"){
 
 record(bi, "RA-TL:RF-Circulator-BO:TDrift-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[1] S 3")
+    field(INP, "@$(PLC) Memorias[1] B 3")
     field(DESC, "Drift de Temp muito Alto")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -73,7 +73,7 @@ record(bi, "RA-TL:RF-Circulator-BO:TDrift-Mon"){
 
 record(bi, "RA-TL:RF-Circulator-BO:TEnvi-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[1] S 4")
+    field(INP, "@$(PLC) Memorias[1] B 4")
     field(DESC, "Temp. Ambiente Abaixo do Set")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -82,7 +82,7 @@ record(bi, "RA-TL:RF-Circulator-BO:TEnvi-Mon"){
 
 record(bi, "RA-TL:RF-Circulator-BO:LoadFlwRt-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 31")
+    field(INP, "@$(PLC) Memorias[0] B 31")
     field(DESC, "Vazão Carga 70kW")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -91,7 +91,7 @@ record(bi, "RA-TL:RF-Circulator-BO:LoadFlwRt-Mon"){
 
 record(bo, "RA-TL:RF-Circulator-BO:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[5] S 7")
+    field(INP, "@$(PLC) Memorias[5] B 7")
     field(DESC, "Interlock geral Circulador")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -100,7 +100,7 @@ record(bo, "RA-TL:RF-Circulator-BO:Sts-Mon"){
 
 record(bi, "RA-ToBO:RF-HeatSink-H01:Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 21")
+    field(INP, "@$(PLC) Memorias[0] B 21")
     field(DESC, "Termostato Barra Dissipadora 01")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -109,7 +109,7 @@ record(bi, "RA-ToBO:RF-HeatSink-H01:Tms-Mon"){
 
 record(bi, "RA-ToBO:RF-HeatSink-H02:Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 22")
+    field(INP, "@$(PLC) Memorias[0] B 22")
     field(DESC, "Termostato Barra Dissipadora 02")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -118,7 +118,7 @@ record(bi, "RA-ToBO:RF-HeatSink-H02:Tms-Mon"){
 
 record(bi, "RA-ToBO:RF-HeatSink-H03:Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 23")
+    field(INP, "@$(PLC) Memorias[0] B 23")
     field(DESC, "Termostato Barra Dissipadora 03")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -127,7 +127,7 @@ record(bi, "RA-ToBO:RF-HeatSink-H03:Tms-Mon"){
 
 record(bi, "RA-ToBO:RF-HeatSink-H04:Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 24")
+    field(INP, "@$(PLC) Memorias[0] B 24")
     field(DESC, "Termostato Barra Dissipadora 04")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -136,7 +136,7 @@ record(bi, "RA-ToBO:RF-HeatSink-H04:Tms-Mon"){
 
 record(bi, "RA-ToBO:RF-HeatSink-H05:Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 25")
+    field(INP, "@$(PLC) Memorias[0] B 25")
     field(DESC, "Termostato Barra Dissipadora 05")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -145,7 +145,7 @@ record(bi, "RA-ToBO:RF-HeatSink-H05:Tms-Mon"){
 
 record(bi, "RA-ToBO:RF-HeatSink-H06:Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 26")
+    field(INP, "@$(PLC) Memorias[0] B 26")
     field(DESC, "Termostato Barra Dissipadora 06")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -208,7 +208,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H06:T-Mon"){
 
 record(bi, "BO-05D:RF-Intlk:BO-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 2")
+    field(INP, "@$(PLC) Memorias[0] B 2")
     field(DESC, "Interlock Sirius")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -217,7 +217,7 @@ record(bi, "BO-05D:RF-Intlk:BO-Mon"){
 
 record(bo, "BO-05D:RF-Intlk:LLRF-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[6] S 3")
+    field(INP, "@$(PLC) Memorias[6] B 3")
     field(DESC, "Sinal de erro do CLP para o LLRF")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -226,7 +226,7 @@ record(bo, "BO-05D:RF-Intlk:LLRF-Mon"){
 
 record(bi, "BO-05D:RF-Intlk:EStop-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[1] S 6")
+    field(INP, "@$(PLC) Memorias[1] B 6")
     field(DESC, "Emergencia sistema de interlock")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -235,7 +235,7 @@ record(bi, "BO-05D:RF-Intlk:EStop-Mon"){
 
 record(bi, "BO-05D:RF-Intlk:Reset-Sel"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[5] S 19")
+    field(INP, "@$(PLC) Memorias[5] B 19")
     field(DESC, "Reset de Falhas (Reseta todas as falhas do sistema remotamente)")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -244,7 +244,7 @@ record(bi, "BO-05D:RF-Intlk:Reset-Sel"){
 
 record(bi, "BO-05D:RF-LLRF:Status-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 0")
+    field(INP, "@$(PLC) Memorias[0] B 0")
     field(DESC, "LLRF Operacional")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -253,7 +253,7 @@ record(bi, "BO-05D:RF-LLRF:Status-Mon"){
 
 record(bi, "BO-05D:RF-LLRF:Intlk-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 1")
+    field(INP, "@$(PLC) Memorias[0] B 1")
     field(DESC, "Interlock LLRF para o CLP")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -271,7 +271,7 @@ record(ai, "BO-05D:RF-LLRFPreAmp:T-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Pressure-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 3")
+    field(INP, "@$(PLC) Memorias[0] B 3")
     field(DESC, "Vácuo Petra V")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -280,7 +280,7 @@ record(bi, "BO-05D:RF-P5Cav:Pressure-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Disc1Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 4")
+    field(INP, "@$(PLC) Memorias[0] B 4")
     field(DESC, "Petra V Termostato Disco 01 ")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -289,7 +289,7 @@ record(bi, "BO-05D:RF-P5Cav:Disc1Tms-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cilin1Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 5")
+    field(INP, "@$(PLC) Memorias[0] B 5")
     field(DESC, "Petra V Termostato Cilindro 01")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -298,7 +298,7 @@ record(bi, "BO-05D:RF-P5Cav:Cilin1Tms-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Disc2Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 6")
+    field(INP, "@$(PLC) Memorias[0] B 6")
     field(DESC, "Petra V Termostato Disco 02")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -307,7 +307,7 @@ record(bi, "BO-05D:RF-P5Cav:Disc2Tms-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cilin2Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 7")
+    field(INP, "@$(PLC) Memorias[0] B 7")
     field(DESC, "Petra V Termostato Cilindro 02")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -316,7 +316,7 @@ record(bi, "BO-05D:RF-P5Cav:Cilin2Tms-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Disc3Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 8")
+    field(INP, "@$(PLC) Memorias[0] B 8")
     field(DESC, "Petra V Termostato Disco 03")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -325,7 +325,7 @@ record(bi, "BO-05D:RF-P5Cav:Disc3Tms-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cilin3Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 9")
+    field(INP, "@$(PLC) Memorias[0] B 9")
     field(DESC, "Petra V Termostato Cilindro 03")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -334,7 +334,7 @@ record(bi, "BO-05D:RF-P5Cav:Cilin3Tms-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Disc4Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 10")
+    field(INP, "@$(PLC) Memorias[0] B 10")
     field(DESC, "Petra V Termostato Disco 04")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -343,7 +343,7 @@ record(bi, "BO-05D:RF-P5Cav:Disc4Tms-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cilin4Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 11")
+    field(INP, "@$(PLC) Memorias[0] B 11")
     field(DESC, "Petra V Termostato Cilindro 04")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -352,7 +352,7 @@ record(bi, "BO-05D:RF-P5Cav:Cilin4Tms-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Disc5Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 12")
+    field(INP, "@$(PLC) Memorias[0] B 12")
     field(DESC, "Petra V Termostato Disco 05")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -361,7 +361,7 @@ record(bi, "BO-05D:RF-P5Cav:Disc5Tms-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cilin5Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 13")
+    field(INP, "@$(PLC) Memorias[0] B 13")
     field(DESC, "Petra V Termostato Cilindro 05")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -370,7 +370,7 @@ record(bi, "BO-05D:RF-P5Cav:Cilin5Tms-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Disc6Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 14")
+    field(INP, "@$(PLC) Memorias[0] B 14")
     field(DESC, "Petra V Termostato Disco 06")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -379,7 +379,7 @@ record(bi, "BO-05D:RF-P5Cav:Disc6Tms-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Hd1FlwRt-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 15")
+    field(INP, "@$(PLC) Memorias[0] B 15")
     field(DESC, "Petra V Chave de Fluxo 01")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -388,7 +388,7 @@ record(bi, "BO-05D:RF-P5Cav:Hd1FlwRt-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Hd2FlwRt-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 16")
+    field(INP, "@$(PLC) Memorias[0] B 16")
     field(DESC, "Petra V Chave de Fluxo 02")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -397,7 +397,7 @@ record(bi, "BO-05D:RF-P5Cav:Hd2FlwRt-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Hd3FlwRt-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 17")
+    field(INP, "@$(PLC) Memorias[0] B 17")
     field(DESC, "Petra V Chave de Fluxo 03")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -406,7 +406,7 @@ record(bi, "BO-05D:RF-P5Cav:Hd3FlwRt-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:CoupPressure-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 18")
+    field(INP, "@$(PLC) Memorias[0] B 18")
     field(DESC, "Petra V Sensor de Pressão")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -469,7 +469,7 @@ record(ai, "BO-05D:RF-P5Cav:CoupT-Mon"){
 
 record(bo, "BO-05D:RF-P5Cav:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[7] S 16")
+    field(INP, "@$(PLC) Memorias[7] B 16")
     field(DESC, "Interlock Geral Petra V")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -487,7 +487,7 @@ record(ai, "RA-ToBO:RF-SSAmpTower:PwrRF-Mon"){
 
 record(bi, "RA-ToBO:RF-SSAmpTower:PwrACOp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 19")
+    field(INP, "@$(PLC) Memorias[0] B 19")
     field(DESC, "Status do Trafo 150kVA")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -496,7 +496,7 @@ record(bi, "RA-ToBO:RF-SSAmpTower:PwrACOp-Mon"){
 
 record(bi, "RA-ToBO:RF-SSAmpTower:HdFlwRt-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 20")
+    field(INP, "@$(PLC) Memorias[0] B 20")
     field(DESC, "Vazão Rotâmetro (via Skid)")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -505,7 +505,7 @@ record(bi, "RA-ToBO:RF-SSAmpTower:HdFlwRt-Mon"){
 
 record(bo, "RA-ToBO:RF-SSAmpTower:PinSw-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[6] S 1")
+    field(INP, "@$(PLC) Memorias[6] B 1")
     field(DESC, "Chave Pin Lenta")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -514,7 +514,7 @@ record(bo, "RA-ToBO:RF-SSAmpTower:PinSw-Mon"){
 
 record(bo, "RA-ToBO:RF-SSAmpTower:PwrCnvDsbl-Sel"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[5] S 29")
+    field(INP, "@$(PLC) Memorias[5] B 29")
     field(DESC, "Desliga Conversores DC/DC")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -523,7 +523,7 @@ record(bo, "RA-ToBO:RF-SSAmpTower:PwrCnvDsbl-Sel"){
 
 record(bo, "RA-ToBO:RF-SSAmpTower:PwrCnvEnbl-Sel"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[5] S 23")
+    field(INP, "@$(PLC) Memorias[5] B 23")
     field(DESC, "Liga Conversores DC/DC")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -532,7 +532,7 @@ record(bo, "RA-ToBO:RF-SSAmpTower:PwrCnvEnbl-Sel"){
 
 record(bo, "RA-ToBO:RF-SSAmpTower:PwrCnv-Sts"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[6] S 0")
+    field(INP, "@$(PLC) Memorias[6] B 0")
     field(DESC, "Leitura Conversores DC/DC")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -541,7 +541,7 @@ record(bo, "RA-ToBO:RF-SSAmpTower:PwrCnv-Sts"){
 
 record(bo, "RA-ToBO:RF-SSAmpTower:300VdcDsbl-Sel"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 27")
+    field(INP, "@$(PLC) Memorias[0] B 27")
     field(DESC, "Desliga 300VDC")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -550,7 +550,7 @@ record(bo, "RA-ToBO:RF-SSAmpTower:300VdcDsbl-Sel"){
 
 record(bo, "RA-ToBO:RF-SSAmpTower:300VdcEnbl-Sel"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] S 20")
+    field(INP, "@$(PLC) Memorias[0] B 20")
     field(DESC, "Liga 300 VDC")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -559,7 +559,7 @@ record(bo, "RA-ToBO:RF-SSAmpTower:300VdcEnbl-Sel"){
 
 record(bo, "RA-ToBO:RF-SSAmpTower:300Vdc-Sts"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[6] S 2")
+    field(INP, "@$(PLC) Memorias[6] B 2")
     field(DESC, "Leitura Liga 300 VDC")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -568,7 +568,7 @@ record(bo, "RA-ToBO:RF-SSAmpTower:300Vdc-Sts"){
 
 record(bo, "BO-ToBO:RF-SSAmpTower:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[5] S 12")
+    field(INP, "@$(PLC) Memorias[5] B 12")
     field(DESC, "Interlock Geral SSA")
     field(SCAN, "1")
     field(ONAM, "True")
@@ -577,7 +577,7 @@ record(bo, "BO-ToBO:RF-SSAmpTower:Sts-Mon"){
 
 record(bo, "RA-TL:RF-TrLine-BO:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[5] S 7")
+    field(INP, "@$(PLC) Memorias[5] B 7")
     field(DESC, "Interlock geral Linha de Transmissao")
     field(SCAN, "1")
     field(ONAM, "True")
