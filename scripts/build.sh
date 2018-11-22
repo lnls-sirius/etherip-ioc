@@ -8,5 +8,6 @@
     --plc-module 0 \
     --ioc-name RF-Booster \
     --sheet Booster \
-    --epics-ca-server-port 5064 \
+    --epics-ca-server-port 5100 \
+    --epics-cas-intf-addr-list 10.0.6.57 \
     --arch linux-x86_64

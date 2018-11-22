@@ -33,6 +33,7 @@ parser.add_argument('--col-egu', default='EGU', help='EPICS egu column name.')
 
 parser.add_argument('--epics-ca-server-port', default=5064, help='EPICS_CA_SERVER_PORT value.',
                     type=int)
+parser.add_argument('--epics-cas-intf-addr-list', default='127.0.0.1', help='EPICS_CAS_INTF_ADDR_LIST ip.')
 parser.add_argument('--arch', choices=['linux-x86_64', 'linux-arm'], default='linux-x86_64',
                     help='System architecture.')
 
@@ -53,6 +54,7 @@ def generate(sheet):
             plc=args.plc_name,
             ip=args.plc_ip,
             epics_ca_server_port=args.epics_ca_server_port,
+            epics_cas_intf_addr_list=args.epics_cas_intf_addr_list,
             module=args.plc_module
         ))
     tags = {}
@@ -67,12 +69,17 @@ def generate(sheet):
                     sheet[args.col_dtype],
                     sheet[args.col_egu]
                 ):
+            if len(desc) > 28:
+                desc = desc[0:28]
 
+            if egu == 'C':
+                egu = '°C'
+                
             if not tag or tag == '':
                 logger.error('Tag not defined! {}'.format(pv))
                 continue
             if tag == 'N/A':
-                logger.warning('Tag not set! {}'.format(pv))
+                logger.warning('Tag not set! {}. EPICS record won\'t be generated.'.format(pv))
                 continue
         
             if tag not in tags:
