@@ -3,6 +3,7 @@ import argparse
 import pandas
 import logging
 import os
+import re
 
 from templates import cmd_template, ai_template, bi_template, bo_template
 
@@ -72,8 +73,7 @@ def generate(sheet):
             if len(desc) > 28:
                 desc = desc[0:28]
 
-            if egu == 'C':
-                egu = '°C'
+            egu = re.sub('[^A-Za-z0-9 ]+','', egu)
                 
             if not tag or tag == '':
                 logger.error('Tag not defined! {}'.format(pv))
