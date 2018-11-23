@@ -35,7 +35,7 @@ record(bi, "RA-TL:RF-Circulator-BO:FlwRt-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "EPICS"){
+record(bi, "RA-TL:RF-Circulator-BO:Sts-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[1] B 0")
     field(DESC, "Bobinas do circulador ")
@@ -84,15 +84,6 @@ record(bi, "RA-TL:RF-Circulator-BO:LoadFlwRt-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[0] B 31")
     field(DESC, "Vazão Carga 70kW")
-    field(SCAN, "1 second")
-    field(ONAM, "True")
-    field(ZNAM, "False")
-}
-
-record(bo, "RA-TL:RF-Circulator-BO:Sts-Mon"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[5] B 7")
-    field(DESC, "Interlock geral Circulador")
     field(SCAN, "1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
@@ -158,7 +149,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H01:T-Mon"){
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H02:T-Mon"){
@@ -167,7 +158,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H02:T-Mon"){
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H03:T-Mon"){
@@ -176,7 +167,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H03:T-Mon"){
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H04:T-Mon"){
@@ -185,7 +176,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H04:T-Mon"){
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H05:T-Mon"){
@@ -194,7 +185,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H05:T-Mon"){
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H06:T-Mon"){
@@ -203,7 +194,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H06:T-Mon"){
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(bi, "BO-05D:RF-Intlk:BO-Mon"){
@@ -233,9 +224,9 @@ record(bi, "BO-05D:RF-Intlk:EStop-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-05D:RF-Intlk:Reset-Sel"){
+record(bo, "BO-05D:RF-Intlk:Reset-Sel"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[5] B 19")
+    field(OUT, "@$(PLC) Memorias[5] B 19")
     field(DESC, "Reset de Falhas - Reseta tod")
     field(SCAN, "1 second")
     field(ONAM, "True")
@@ -266,7 +257,7 @@ record(ai, "BO-05D:RF-LLRFPreAmp:T-Mon"){
     field(DESC, "PT - 100 Pré - Amplificador ")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(bi, "BO-05D:RF-P5Cav:Pressure-Mon"){
@@ -419,7 +410,7 @@ record(ai, "BO-05D:RF-P5Cav:Cilin1T-Mon"){
     field(DESC, "Petra V Pt - 100 Cilindro 01")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cilin2T-Mon"){
@@ -428,7 +419,7 @@ record(ai, "BO-05D:RF-P5Cav:Cilin2T-Mon"){
     field(DESC, "Petra V Pt - 100 Cilindro 02")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cilin3T-Mon"){
@@ -437,7 +428,7 @@ record(ai, "BO-05D:RF-P5Cav:Cilin3T-Mon"){
     field(DESC, "Petra V Pt - 100 Cilindro 03")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cilin4T-Mon"){
@@ -446,7 +437,7 @@ record(ai, "BO-05D:RF-P5Cav:Cilin4T-Mon"){
     field(DESC, "Petra V Pt - 100 Cilindro 04")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cilin5T-Mon"){
@@ -455,7 +446,7 @@ record(ai, "BO-05D:RF-P5Cav:Cilin5T-Mon"){
     field(DESC, "Petra V Pt - 100 Cilindro 05")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(ai, "BO-05D:RF-P5Cav:CoupT-Mon"){
@@ -464,12 +455,12 @@ record(ai, "BO-05D:RF-P5Cav:CoupT-Mon"){
     field(DESC, "Petra V PT - 100 Acoplador")
     field(SCAN, "1 second")
     field(PREC, "3")
-    field(EGU, "°C")
+    field(EGU, "C")
 }
 
 record(bo, "BO-05D:RF-P5Cav:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[7] B 16")
+    field(OUT, "@$(PLC) Memorias[5] B 15")
     field(DESC, "Interlock Geral Petra V")
     field(SCAN, "1 second")
     field(ONAM, "True")
@@ -541,7 +532,7 @@ record(bo, "RA-ToBO:RF-SSAmpTower:PwrCnv-Sts"){
 
 record(bo, "RA-ToBO:RF-SSAmpTower:300VdcDsbl-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[0] B 27")
+    field(OUT, "@$(PLC) Memorias[5] B 27")
     field(DESC, "Desliga 300VDC")
     field(SCAN, "1 second")
     field(ONAM, "True")
@@ -550,7 +541,7 @@ record(bo, "RA-ToBO:RF-SSAmpTower:300VdcDsbl-Sel"){
 
 record(bo, "RA-ToBO:RF-SSAmpTower:300VdcEnbl-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[0] B 20")
+    field(OUT, "@$(PLC) Memorias[5] B 20")
     field(DESC, "Liga 300 VDC")
     field(SCAN, "1 second")
     field(ONAM, "True")
