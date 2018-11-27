@@ -31,6 +31,7 @@ parser.add_argument('--col-tag', default='TAG', help='Desc column name.')
 parser.add_argument('--col-inout', default='Input/Output', help='Input/Output column name.')
 parser.add_argument('--col-dtype', default='Tipo de dado', help='Data type column name.')
 parser.add_argument('--col-egu', default='EGU', help='EPICS egu column name.')
+parser.add_argument('--col-scan', default='Scan', help='EPICS scan time.')
 
 parser.add_argument('--epics-ca-server-port', default=5064, help='EPICS_CA_SERVER_PORT value.',
                     type=int)
@@ -43,6 +44,8 @@ args = parser.parse_args()
 logger.info('Args, {}.'.format(vars(args)))
 
 path = os.path.dirname(os.path.abspath(__file__))
+
+SCAN_VALUES = ['.1', '.2', '.5', '1', '2', '5', '10', 'I/O Intr', 'Event', 'Passive']
 
 def generate(sheet):
     logger.info('Sheet: {}'.format(sheet.head()))
@@ -61,24 +64,26 @@ def generate(sheet):
     tags = {}
     logger.info('Generating {}.db file. At {}.'.format(args.ioc_name, path + '/../database'))
     with open(path + '/../database/' + args.ioc_name + '.db', 'w+') as f:
-        for pv, desc, tag, inout, dtype, egu in \
+        for pv, desc, tag, inout, dtype, egu, scan in \
                 zip(
                     sheet[args.col_pv],
                     sheet[args.col_desc],
                     sheet[args.col_tag],
                     sheet[args.col_inout],
                     sheet[args.col_dtype],
-                    sheet[args.col_egu]
+                    sheet[args.col_egu],
+                    sheet[args.col_scan]
                 ):
             if len(desc) > 28:
                 desc = desc[0:28]
 
             egu = re.sub('[^A-Za-z0-9 ]+','', egu)
-                
-            if not tag or tag == '':
-                logger.error('Tag not defined! {}'.format(pv))
-                continue
-            if tag == 'N/A':
+            
+            if scan not in SCAN_VALUES:
+                scan = SCAN_VALUES[0]
+                logger.error('Invalid scan vaelue defined for pv {}! Use one of the following {}'.format(pv, SCAN_VALUES))
+
+            if not tag or tag == '' or tag == 'N/A':
                 logger.warning('Tag not set! {}. EPICS record won\'t be generated.'.format(pv))
                 continue
         
@@ -93,7 +98,7 @@ def generate(sheet):
                         pv=pv,
                         tag=tag,
                         desc=desc,
-                        scan='1',
+                        scan=scan,
                         highname='True', 
                         lowname='False' 
                     ))
@@ -103,7 +108,7 @@ def generate(sheet):
                         pv=pv,
                         tag=tag,
                         desc=desc,
-                        scan='1',
+                        scan=scan,
                         highname='True', 
                         lowname='False' 
                     ))
@@ -113,7 +118,7 @@ def generate(sheet):
                         pv=pv,
                         tag=tag,
                         desc=desc,
-                        scan='1',
+                        scan=scan,
                         prec='3',
                         egu=egu
                     ))
