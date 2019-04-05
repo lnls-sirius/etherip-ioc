@@ -30,6 +30,7 @@ parser.add_argument('--col-desc', default='Descrição', help='Desc column name.
 parser.add_argument('--col-tag', default='TAG', help='Desc column name.')
 parser.add_argument('--col-inout', default='Input/Output', help='Input/Output column name.')
 parser.add_argument('--col-dtype', default='Tipo de dado', help='Data type column name.')
+parser.add_argument('--col-egu', default='EGU', help='EPICS egu column name.')
 parser.add_argument('--col-scan', default='Scan', help='EPICS scan time.')
 
 parser.add_argument('--epics-ca-server-port', default=5064, help='EPICS_CA_SERVER_PORT value.',
