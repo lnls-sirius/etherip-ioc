@@ -30,7 +30,6 @@ parser.add_argument('--col-desc', default='Descrição', help='Desc column name.
 parser.add_argument('--col-tag', default='TAG', help='Desc column name.')
 parser.add_argument('--col-inout', default='Input/Output', help='Input/Output column name.')
 parser.add_argument('--col-dtype', default='Tipo de dado', help='Data type column name.')
-parser.add_argument('--col-egu', default='EGU', help='EPICS egu column name.')
 parser.add_argument('--col-scan', default='Scan', help='EPICS scan time.')
 
 parser.add_argument('--epics-ca-server-port', default=5064, help='EPICS_CA_SERVER_PORT value.',
@@ -123,12 +122,12 @@ def generate(sheet):
                         egu=egu
                     ))
                 else:
-                # elif dtype == 'Output':
                     logger.warning('Type Analog Out Not - Supported {}.'.format(pv))
 
         for tag, vals in tags.items():
             if len(vals) > 1:
                 logger.error('Tag {} already exist {}.'.format(tag, tags[tag]))
+
 if __name__ == '__main__':
     sheet = pandas.read_excel(args.spreadsheet, sheet_name=args.sheet, dtype=str)
     sheet = sheet.replace('nan', '')
