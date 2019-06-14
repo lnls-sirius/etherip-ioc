@@ -1196,7 +1196,7 @@ record(bi, "RA-RaBO01:RF-LLRFPreAmp:PinSwEnbl-Sel"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-RaBO02:RF-LLRFPreAmp:PinSwDsbl-Sel"){
+record(bi, "RA-RaBO01:RF-LLRFPreAmp:PinSwDsbl-Sel"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[22] B 14")
     field(DESC, "Desabilita Chave Pin Lenta")
@@ -1234,7 +1234,7 @@ record(bi, "BO-05D:RF-LLRF:Intlk-Mon"){
 
 record(ai, "BO-RaToBO01:RF-LLRFPreAmp:T1-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT_100_T_Booster_02.Ch02.Data")
+    field(INP, "@$(PLC) RF_Booster_Compact:3:I.Ch02.Data")
     field(DESC, "PT - 100 01 Pré - Amplificad")
     field(SCAN, ".1 second")
     field(PREC, "3")
