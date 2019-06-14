@@ -91,7 +91,7 @@ record(bi, "RA-ToBO:RF-HeatSink-H06:Tms-Mon"){
 
 record(ai, "RA-ToBO:RF-HeatSink-H01:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT_100_T_Booster_01.Ch00.Data")
+    field(INP, "@$(PLC) PT_100_T_Booster_04.Ch00.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, ".1 second")
     field(PREC, "3")
@@ -100,7 +100,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H01:T-Mon"){
 
 record(ai, "RA-ToBO:RF-HeatSink-H02:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT_100_T_Booster_01.Ch01.Data")
+    field(INP, "@$(PLC) PT_100_T_Booster_04.Ch01.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, ".1 second")
     field(PREC, "3")
@@ -109,7 +109,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H02:T-Mon"){
 
 record(ai, "RA-ToBO:RF-HeatSink-H03:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT_100_T_Booster_01.Ch02.Data")
+    field(INP, "@$(PLC) PT_100_T_Booster_04.Ch02.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, ".1 second")
     field(PREC, "3")
@@ -118,7 +118,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H03:T-Mon"){
 
 record(ai, "RA-ToBO:RF-HeatSink-H04:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT_100_T_Booster_01.Ch03.Data")
+    field(INP, "@$(PLC) PT_100_T_Booster_04.Ch03.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, ".1 second")
     field(PREC, "3")
@@ -127,7 +127,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H04:T-Mon"){
 
 record(ai, "RA-ToBO:RF-HeatSink-H05:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT_100_T_Booster_02.Ch00.Data")
+    field(INP, "@$(PLC) PT_100_T_Booster_05.Ch00.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, ".1 second")
     field(PREC, "3")
@@ -136,7 +136,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H05:T-Mon"){
 
 record(ai, "RA-ToBO:RF-HeatSink-H06:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT_100_T_Booster_02.Ch01.Data")
+    field(INP, "@$(PLC) PT_100_T_Booster_05.Ch01.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, ".1 second")
     field(PREC, "3")
