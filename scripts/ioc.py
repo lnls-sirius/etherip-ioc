@@ -4,7 +4,7 @@ import pandas
 import logging
 import os
 import re
-
+import math
 from templates import cmd_template, ai_template, bi_template, bo_template
 
 logger = logging.getLogger()
@@ -25,11 +25,11 @@ parser.add_argument('--plc-module', required=True, dest='plc_module', help='Modu
 parser.add_argument('--sheet', required=True, help='Sheet name.')
 parser.add_argument('--ioc-name', required=True, help='IOC name.')
 
-parser.add_argument('--col-pv', default='EPICS', help='PV column name.')
-parser.add_argument('--col-desc', default='Descrição', help='Desc column name.')
+parser.add_argument('--col-pv', default='NAME', help='PV column name.')
+parser.add_argument('--col-desc', default='Description', help='Desc column name.')
 parser.add_argument('--col-tag', default='TAG', help='Desc column name.')
-parser.add_argument('--col-inout', default='Input/Output', help='Input/Output column name.')
-parser.add_argument('--col-dtype', default='Tipo de dado', help='Data type column name.')
+parser.add_argument('--col-inout', default='In/Out', help='Input/Output column name.')
+parser.add_argument('--col-dtype', default='Data Type', help='Data type column name.')
 parser.add_argument('--col-egu', default='EGU', help='EPICS egu column name.')
 parser.add_argument('--col-scan', default='Scan', help='EPICS scan time.')
 
@@ -50,7 +50,7 @@ SCAN_VALUES = ['.1', '.2', '.5', '1', '2', '5', '10', 'I/O Intr', 'Event', 'Pass
 def generate(sheet):
     logger.info('Sheet: {}'.format(sheet.head()))
     logger.info('Generating {}.cmd file. At {}.'.format(args.ioc_name, path + '/../database'))
-    
+
     with open(path + '/../iocBoot/' + args.ioc_name + '.cmd', 'w+') as f:
         f.write(cmd_template.safe_substitute(
             arch=args.arch,
@@ -74,24 +74,31 @@ def generate(sheet):
                     sheet[args.col_egu],
                     sheet[args.col_scan]
                 ):
+
+            if not pv or pv == '' or pv == '-:--:':
+                continue
+
             if len(desc) > 28:
                 desc = desc[0:28]
 
-            egu = re.sub('[^A-Za-z0-9 ]+','', egu)
-            
+            if type(egu) == float:
+                egu = ''
+            else:
+                egu = re.sub(r'[^A-Za-z0-9 ]+','', egu)
+
             if scan not in SCAN_VALUES:
                 scan = SCAN_VALUES[0]
                 logger.error('Invalid scan vaelue defined for pv {}! Use one of the following {}'.format(pv, SCAN_VALUES))
 
-            if not tag or tag == '' or tag == 'N/A':
+            if not tag or type(tag) != str or tag == '' or tag == 'N/A':
                 logger.warning('Tag not set! {}. EPICS record won\'t be generated.'.format(pv))
                 continue
-        
+
             if tag not in tags:
                 tags[tag] = [pv]
             else:
                 tags[tag].append(pv)
-        
+
             if dtype == 'Digital':
                 if inout == 'Input' or dtype == 'Control':
                     f.write(bi_template.safe_substitute(
@@ -99,8 +106,8 @@ def generate(sheet):
                         tag=tag,
                         desc=desc,
                         scan=scan,
-                        highname='True', 
-                        lowname='False' 
+                        highname='True',
+                        lowname='False'
                     ))
                 else:
                 # elif dtype == 'Output':
@@ -109,8 +116,8 @@ def generate(sheet):
                         tag=tag,
                         desc=desc,
                         scan=scan,
-                        highname='True', 
-                        lowname='False' 
+                        highname='True',
+                        lowname='False'
                     ))
             elif dtype == 'Analog':
                 if inout == 'Input':
@@ -130,7 +137,8 @@ def generate(sheet):
                 logger.error('Tag {} already exist {}.'.format(tag, tags[tag]))
 
 if __name__ == '__main__':
+    sheet_name = ['Interlock', 'Petra5', 'LLRF', 'Transmission Line']
     sheet = pandas.read_excel(args.spreadsheet, sheet_name=args.sheet, dtype=str)
     sheet = sheet.replace('nan', '')
-    generate(sheet) 
+    generate(sheet)
 
