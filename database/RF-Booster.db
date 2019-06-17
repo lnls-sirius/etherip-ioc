@@ -1232,7 +1232,7 @@ record(bi, "BO-05D:RF-LLRF:Intlk-Mon"){
     field(ZNAM, "False")
 }
 
-record(ai, "BO-RaToBO01:RF-LLRFPreAmp:T1-Mon"){
+record(ai, "BO-RaBO01:RF-LLRFPreAmp:T1-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:3:I.Ch02.Data")
     field(DESC, "PT - 100 01 Pré - Amplificad")
@@ -1241,7 +1241,7 @@ record(ai, "BO-RaToBO01:RF-LLRFPreAmp:T1-Mon"){
     field(EGU, "C")
 }
 
-record(bo, "BO-RaToBO01:RF-LLRFPreAmp:T1Up-Mon"){
+record(bo, "BO-RaBO01:RF-LLRFPreAmp:T1Up-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Memorias[2] B 6")
     field(DESC, "PT - 100 01 Pré - Amplificad")
@@ -1367,7 +1367,7 @@ record(bo, "RA-TL:RF-TrLine-BO:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "BO-05D:RF-ArcDetec-BO:Reset-Sel"){
+record(bo, "RA-TL:RF-ArcDetec-BO:Reset-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Output_Reset_Det_Arc")
     field(DESC, "Reset Detector de Arco")
