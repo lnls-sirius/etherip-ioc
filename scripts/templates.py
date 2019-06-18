@@ -6,7 +6,7 @@ cmd_template = Template(
 # 3.14 example startup file for a Host - * - shell-script - * -
 
 # Load dbd, register the drvEtherIP .. commands
-dbLoadDatabase("/opt/epics-R3.14.12.7/modules/ether_ip-ether_ip-2-27/dbd/eipIoc.dbd") 
+dbLoadDatabase("/opt/epics-R3.14.12.7/modules/ether_ip-ether_ip-2-27/dbd/eipIoc.dbd")
 eipIoc_registerRecordDeviceDriver(pdbbase)
 
 # epicsEnvSet("EPICS_IOC_LOG_INET", "127.0.0.1")
@@ -23,6 +23,7 @@ EIP_verbosity(7)
 drvEtherIP_define_PLC("${plc}", "${ip}", ${module})
 
 dbLoadRecords("../database/${database}.db", "PLC=${plc}")
+dbLoadRecords("../database/${database}-Calc.db", "PLC=${plc}")
 iocInit()
 
 """)
