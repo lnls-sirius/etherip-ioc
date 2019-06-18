@@ -1,0 +1,17 @@
+#BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon_RAW
+#BO-ToBO:RF-ACDCPanel:300Vdc-Mon_RAW
+
+record(calc, "BO-ToBO:RF-ACDCPanel:300Vdc-Mon"){
+    field(CALC, "A*40")
+    field(INPA, "BO-ToBO:RF-ACDCPanel:300Vdc-Mon_RAW CP MSS")
+    field(PREC, "2")
+    field(EGU,  "V")
+}
+
+record(calc, "BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon"){
+    field(CALC, "A*40")
+    field(EGU,  "A")
+    field(PREC, "2")
+    field(INPA, "BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon_RAW CP MSS")
+}
+

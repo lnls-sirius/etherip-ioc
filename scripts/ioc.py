@@ -47,8 +47,8 @@ path = os.path.dirname(os.path.abspath(__file__))
 
 SCAN_VALUES = ['.1', '.2', '.5', '1', '2', '5', '10', 'I/O Intr', 'Event', 'Passive']
 
-def generate(sheet):
-    logger.info('Sheet: {}'.format(sheet.head()))
+def generate(sheet_name):
+
     logger.info('Generating {}.cmd file. At {}.'.format(args.ioc_name, path + '/../database'))
 
     with open(path + '/../iocBoot/' + args.ioc_name + '.cmd', 'w+') as f:
@@ -64,81 +64,84 @@ def generate(sheet):
     tags = {}
     logger.info('Generating {}.db file. At {}.'.format(args.ioc_name, path + '/../database'))
     with open(path + '/../database/' + args.ioc_name + '.db', 'w+') as f:
-        for pv, desc, tag, inout, dtype, egu, scan in \
-                zip(
-                    sheet[args.col_pv],
-                    sheet[args.col_desc],
-                    sheet[args.col_tag],
-                    sheet[args.col_inout],
-                    sheet[args.col_dtype],
-                    sheet[args.col_egu],
-                    sheet[args.col_scan]
-                ):
+        for s_name in sheet_name:
+            sheet = pandas.read_excel(args.spreadsheet, sheet_name=s_name, dtype=str)
+            sheet = sheet.replace('nan', '')
+            #logger.info('Sheet: {}'.format(sheet.head()))
+            for pv, desc, tag, inout, dtype, egu, scan in \
+                    zip(
+                        sheet[args.col_pv],
+                        sheet[args.col_desc],
+                        sheet[args.col_tag],
+                        sheet[args.col_inout],
+                        sheet[args.col_dtype],
+                        sheet[args.col_egu],
+                        sheet[args.col_scan]
+                    ):
 
-            if not pv or pv == '' or pv == '-:--:':
-                continue
+                if not pv or pv == '' or pv == '-:--:':
+                    continue
 
-            if len(desc) > 28:
-                desc = desc[0:28]
+                if len(desc) > 28:
+                    desc = desc[0:28]
 
-            if type(egu) == float:
-                egu = ''
-            else:
-                egu = re.sub(r'[^A-Za-z0-9 ]+','', egu)
-
-            if scan not in SCAN_VALUES:
-                scan = SCAN_VALUES[0]
-                logger.error('Invalid scan vaelue defined for pv {}! Use one of the following {}'.format(pv, SCAN_VALUES))
-
-            if not tag or type(tag) != str or tag == '' or tag == 'N/A':
-                logger.warning('Tag not set! {}. EPICS record won\'t be generated.'.format(pv))
-                continue
-
-            if tag not in tags:
-                tags[tag] = [pv]
-            else:
-                tags[tag].append(pv)
-
-            if dtype == 'Digital':
-                if inout == 'Input' or dtype == 'Control':
-                    f.write(bi_template.safe_substitute(
-                        pv=pv,
-                        tag=tag,
-                        desc=desc,
-                        scan=scan,
-                        highname='True',
-                        lowname='False'
-                    ))
+                if type(egu) == float:
+                    egu = ''
                 else:
-                # elif dtype == 'Output':
-                    f.write(bo_template.safe_substitute(
-                        pv=pv,
-                        tag=tag,
-                        desc=desc,
-                        scan=scan,
-                        highname='True',
-                        lowname='False'
-                    ))
-            elif dtype == 'Analog':
-                if inout == 'Input':
-                    f.write(ai_template.safe_substitute(
-                        pv=pv,
-                        tag=tag,
-                        desc=desc,
-                        scan=scan,
-                        prec='3',
-                        egu=egu
-                    ))
-                else:
-                    logger.warning('Type Analog Out Not - Supported {}.'.format(pv))
+                    egu = re.sub(r'[^A-Za-z0-9 ]+','', egu)
 
-        for tag, vals in tags.items():
-            if len(vals) > 1:
-                logger.error('Tag {} already exist {}.'.format(tag, tags[tag]))
+                if scan not in SCAN_VALUES:
+                    scan = SCAN_VALUES[0]
+                    logger.error('Invalid scan vaelue defined for pv {}! Use one of the following {}'.format(pv, SCAN_VALUES))
+
+                if not tag or type(tag) != str or tag == '' or tag == 'N/A':
+                    logger.warning('Tag not set! {}. EPICS record won\'t be generated.'.format(pv))
+                    continue
+
+                if tag not in tags:
+                    tags[tag] = [pv]
+                else:
+                    tags[tag].append(pv)
+
+                if dtype == 'Digital':
+                    if inout == 'Input' or dtype == 'Control':
+                        f.write(bi_template.safe_substitute(
+                            pv=pv,
+                            tag=tag,
+                            desc=desc,
+                            scan=scan,
+                            highname='True',
+                            lowname='False'
+                        ))
+                    else:
+                    # elif dtype == 'Output':
+                        f.write(bo_template.safe_substitute(
+                            pv=pv,
+                            tag=tag,
+                            desc=desc,
+                            scan=scan,
+                            highname='True',
+                            lowname='False'
+                        ))
+                elif dtype == 'Analog':
+                    if inout == 'Input':
+                        f.write(ai_template.safe_substitute(
+                            pv=pv,
+                            tag=tag,
+                            desc=desc,
+                            scan=scan,
+                            prec='3',
+                            egu=egu
+                        ))
+                    else:
+                        logger.warning('Type Analog Out Not - Supported {}.'.format(pv))
+
+            for tag, vals in tags.items():
+                if len(vals) > 1:
+                    logger.error('Tag {} already exist {}.'.format(tag, tags[tag]))
 
 if __name__ == '__main__':
-    sheet_name = ['Interlock', 'Petra5', 'LLRF', 'Transmission Line']
-    sheet = pandas.read_excel(args.spreadsheet, sheet_name=args.sheet, dtype=str)
-    sheet = sheet.replace('nan', '')
-    generate(sheet)
+    sheet_name = ['SSAmp Tower','Interlock', 'Petra 5', 'LLRF', 'Transmission Line']
+
+    generate(sheet_name)
 
