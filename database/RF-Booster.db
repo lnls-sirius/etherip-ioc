@@ -1009,7 +1009,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin1TDown-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin1TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[3] B 8")
+    field(INP, "@$(PLC) Memorias[2] B 7")
     field(DESC, "Petra V PT-100 Cilindro 01 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1018,7 +1018,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin1TUp-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin2TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[3] B 9")
+    field(INP, "@$(PLC) Memorias[3] B 8")
     field(DESC, "Petra V PT-100 Cilindro 02 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1027,7 +1027,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin2TDown-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin2TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[3] B 10")
+    field(INP, "@$(PLC) Memorias[2] B 8")
     field(DESC, "Petra V PT-100 Cilindro 02 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1036,7 +1036,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin2TUp-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin3TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[3] B 11")
+    field(INP, "@$(PLC) Memorias[3] B 9")
     field(DESC, "Petra V PT-100 Cilindro 03 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1045,7 +1045,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin3TDown-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin3TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[2] B 7")
+    field(INP, "@$(PLC) Memorias[2] B 9")
     field(DESC, "Petra V PT-100 Cilindro 03 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1054,7 +1054,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin3TUp-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin4TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[2] B 8")
+    field(INP, "@$(PLC) Memorias[3] B 10")
     field(DESC, "Petra V PT-100 Cilindro 04 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1063,7 +1063,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin4TDown-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin4TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[2] B 9")
+    field(INP, "@$(PLC) Memorias[2] B 10")
     field(DESC, "Petra V PT-100 Cilindro 04 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1072,7 +1072,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin4TUp-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin5TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[2] B 10")
+    field(INP, "@$(PLC) Memorias[3] B 11")
     field(DESC, "Petra V PT-100 Cilindro 05 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
