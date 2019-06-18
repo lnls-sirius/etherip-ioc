@@ -1375,3 +1375,21 @@ record(bo, "RA-TL:RF-ArcDetec-BO:Reset-Mon"){
     field(ONAM, "True")
     field(ZNAM, "False")
 }
+
+record(ai, "BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Corrente_300V_Painel_ACDC")
+    field(DESC, "Corrente AC/DC")
+    field(SCAN, ".1 second")
+    field(PREC, "3")
+    field(EGU, "A")
+}
+
+record(ai, "BO-ToBO:RF-ACDCPanel:300Vdc-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Tensao_300V_Painel_ACDC")
+    field(DESC, "Tensão AC/DC")
+    field(SCAN, ".1 second")
+    field(PREC, "3")
+    field(EGU, "V")
+}
