@@ -370,7 +370,7 @@ record(bi, "BO-05D:RF-P5Cav:CoupTUp-Mon"){
 
 record(ai, "BO-05D:RF-P5Cav:Cylin1T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT_100_PetraV_01.Ch02.Data")
+    field(INP, "@$(PLC) Offset[2]")
     field(DESC, "Petra V Pt - 100 Cilindro 01")
     field(SCAN, ".1 second")
     field(PREC, "3")
