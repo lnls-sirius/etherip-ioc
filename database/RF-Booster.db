@@ -91,7 +91,7 @@ record(bi, "RA-ToBO:RF-HeatSink-H06:Tms-Mon"){
 
 record(ai, "RA-ToBO:RF-HeatSink-H01:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Set_Offset[8]")
+    field(INP, "@$(PLC) Offset[0]")
     field(DESC, "PT - 100 Barra Dissipadora 0")
     field(SCAN, ".1 second")
     field(PREC, "3")
