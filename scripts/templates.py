@@ -35,7 +35,8 @@ record(ai, "${pv}"){
     field(DESC, "${desc}")
     field(SCAN, "${scan} second")
     field(PREC, "${prec}")
-    field(EGU, "${egu}")
+    field(EGU,  "${egu}")
+    field(MDEL, "${mdel}")
 }
 """)
 
