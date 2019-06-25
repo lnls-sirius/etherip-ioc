@@ -133,7 +133,6 @@ def generate(sheet_name):
                             desc=desc,
                             scan=scan,
                             prec=str(prec),
-                            mdel=str(10**-float(prec)),
                             egu=egu
                         ))
                     else:

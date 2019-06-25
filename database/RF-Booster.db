@@ -96,7 +96,6 @@ record(ai, "RA-ToBO:RF-HeatSink-H01:T-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H02:T-Mon"){
@@ -106,7 +105,6 @@ record(ai, "RA-ToBO:RF-HeatSink-H02:T-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H03:T-Mon"){
@@ -116,7 +114,6 @@ record(ai, "RA-ToBO:RF-HeatSink-H03:T-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H04:T-Mon"){
@@ -126,7 +123,6 @@ record(ai, "RA-ToBO:RF-HeatSink-H04:T-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H05:T-Mon"){
@@ -136,7 +132,6 @@ record(ai, "RA-ToBO:RF-HeatSink-H05:T-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H06:T-Mon"){
@@ -146,7 +141,6 @@ record(ai, "RA-ToBO:RF-HeatSink-H06:T-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(bi, "RA-ToBO:RF-HeatSink-H01:TUp-Mon"){
@@ -264,7 +258,6 @@ record(ai, "RA-ToBO:RF-SSAmpTower:PwrRF-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "4")
     field(EGU,  "dBm")
-    field(MDEL, "0.0001")
 }
 
 record(bi, "RA-ToBO:RF-SSAmpTower:HdFlwRt-Mon"){
@@ -319,7 +312,6 @@ record(ai, "BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon_RAW"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "A")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-ToBO:RF-ACDCPanel:300Vdc-Mon_RAW"){
@@ -329,7 +321,6 @@ record(ai, "BO-ToBO:RF-ACDCPanel:300Vdc-Mon_RAW"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "V")
-    field(MDEL, "0.01")
 }
 
 record(bi, "BO-05D:RF-Intlk:BO-Mon"){
@@ -384,7 +375,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare01-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare02-Mon"){
@@ -394,7 +384,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare02-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare03-Mon"){
@@ -404,7 +393,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare03-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare04-Mon"){
@@ -414,7 +402,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare04-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare05-Mon"){
@@ -424,7 +411,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare05-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare06-Mon"){
@@ -434,7 +420,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare06-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare07-Mon"){
@@ -444,7 +429,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare07-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare08-Mon"){
@@ -454,7 +438,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare08-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare09-Mon"){
@@ -464,7 +447,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare09-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare10-Mon"){
@@ -474,7 +456,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare10-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare11-Mon"){
@@ -484,7 +465,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare11-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare12-Mon"){
@@ -494,7 +474,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare12-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare13-Mon"){
@@ -504,7 +483,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare13-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare14-Mon"){
@@ -514,7 +492,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare14-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare15-Mon"){
@@ -524,7 +501,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare15-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare16-Mon"){
@@ -534,7 +510,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare16-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare17-Mon"){
@@ -544,7 +519,6 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare17-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "")
-    field(MDEL, "0.01")
 }
 
 record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare01-Mon"){
@@ -959,7 +933,6 @@ record(ai, "BO-05D:RF-P5Cav:CoupT-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(bi, "BO-05D:RF-P5Cav:CoupTDown-Mon"){
@@ -987,7 +960,6 @@ record(ai, "BO-05D:RF-P5Cav:Cylin1T-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cylin2T-Mon"){
@@ -997,7 +969,6 @@ record(ai, "BO-05D:RF-P5Cav:Cylin2T-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cylin3T-Mon"){
@@ -1007,7 +978,6 @@ record(ai, "BO-05D:RF-P5Cav:Cylin3T-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cylin4T-Mon"){
@@ -1017,7 +987,6 @@ record(ai, "BO-05D:RF-P5Cav:Cylin4T-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cylin5T-Mon"){
@@ -1027,7 +996,6 @@ record(ai, "BO-05D:RF-P5Cav:Cylin5T-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(bi, "BO-05D:RF-P5Cav:Cylin1TDown-Mon"){
@@ -1289,7 +1257,6 @@ record(ai, "BO-RaBO01:RF-LLRFPreAmp:T1-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "2")
     field(EGU,  "C")
-    field(MDEL, "0.01")
 }
 
 record(bo, "BO-RaBO01:RF-LLRFPreAmp:T1Up-Mon"){
