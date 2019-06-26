@@ -93,54 +93,54 @@ record(ai, "RA-ToBO:RF-HeatSink-H01:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Offset[0]")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H02:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:4:I.Ch01.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H03:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:4:I.Ch02.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H04:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:4:I.Ch03.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H05:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:5:I.Ch00.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "RA-ToBO:RF-HeatSink-H06:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:5:I.Ch01.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(bi, "RA-ToBO:RF-HeatSink-H01:TUp-Mon"){
@@ -256,8 +256,8 @@ record(ai, "RA-ToBO:RF-SSAmpTower:PwrRF-Mon"){
     field(INP, "@$(PLC) Potencia_RF_BO")
     field(DESC, "Potência de RF")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "dBm")
+    field(PREC, "4")
+    field(EGU,  "dBm")
 }
 
 record(bi, "RA-ToBO:RF-SSAmpTower:HdFlwRt-Mon"){
@@ -310,8 +310,8 @@ record(ai, "BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon_RAW"){
     field(INP, "@$(PLC) Corrente_300V_Painel_ACDC")
     field(DESC, "Corrente AC/DC")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "A")
+    field(PREC, "2")
+    field(EGU,  "A")
 }
 
 record(ai, "BO-ToBO:RF-ACDCPanel:300Vdc-Mon_RAW"){
@@ -319,8 +319,8 @@ record(ai, "BO-ToBO:RF-ACDCPanel:300Vdc-Mon_RAW"){
     field(INP, "@$(PLC) Tensao_300V_Painel_ACDC")
     field(DESC, "Tensão AC/DC")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "V")
+    field(PREC, "2")
+    field(EGU,  "V")
 }
 
 record(bi, "BO-05D:RF-Intlk:BO-Mon"){
@@ -373,8 +373,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare01-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Control_Card_04.Ch03.Data")
     field(DESC, "Analog Input Reserva CLP Boo")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare02-Mon"){
@@ -382,8 +382,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare02-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Control_Card_05.Ch00.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare03-Mon"){
@@ -391,8 +391,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare03-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Control_Card_05.Ch01.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare04-Mon"){
@@ -400,8 +400,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare04-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Control_Card_05.Ch02.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare05-Mon"){
@@ -409,8 +409,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare05-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Control_Card_05.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare06-Mon"){
@@ -418,8 +418,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare06-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_04.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare07-Mon"){
@@ -427,8 +427,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare07-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_01.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare08-Mon"){
@@ -436,8 +436,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare08-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_05.Ch02.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare09-Mon"){
@@ -445,8 +445,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare09-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_05.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare10-Mon"){
@@ -454,8 +454,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare10-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_06.Ch00.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare11-Mon"){
@@ -463,8 +463,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare11-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_06.Ch01.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare12-Mon"){
@@ -472,8 +472,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare12-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_06.Ch02.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare13-Mon"){
@@ -481,8 +481,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare13-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_06.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare14-Mon"){
@@ -490,8 +490,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare14-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_07.Ch00.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare15-Mon"){
@@ -499,8 +499,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare15-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_07.Ch01.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare16-Mon"){
@@ -508,8 +508,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare16-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_07.Ch02.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare17-Mon"){
@@ -517,8 +517,8 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare17-Mon"){
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_07.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
     field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "")
+    field(PREC, "2")
+    field(EGU,  "")
 }
 
 record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare01-Mon"){
@@ -930,9 +930,9 @@ record(ai, "BO-05D:RF-P5Cav:CoupT-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) PT_100_PetraV_01.Ch01.Data")
     field(DESC, "Petra V PT - 100 Acoplador")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(bi, "BO-05D:RF-P5Cav:CoupTDown-Mon"){
@@ -957,45 +957,45 @@ record(ai, "BO-05D:RF-P5Cav:Cylin1T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Offset[2]")
     field(DESC, "Petra V Pt - 100 Cilindro 01")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cylin2T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) PT_100_PetraV_01.Ch03.Data")
     field(DESC, "Petra V Pt - 100 Cilindro 02")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cylin3T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) PT_100_PetraV_02.Ch00.Data")
     field(DESC, "Petra V Pt - 100 Cilindro 03")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cylin4T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) PT_100_PetraV_02.Ch01.Data")
     field(DESC, "Petra V Pt - 100 Cilindro 04")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "BO-05D:RF-P5Cav:Cylin5T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) PT_100_PetraV_02.Ch02.Data")
     field(DESC, "Petra V Pt - 100 Cilindro 05")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(bi, "BO-05D:RF-P5Cav:Cylin1TDown-Mon"){
@@ -1009,7 +1009,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin1TDown-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin1TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[3] B 8")
+    field(INP, "@$(PLC) Memorias[2] B 7")
     field(DESC, "Petra V PT-100 Cilindro 01 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1018,7 +1018,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin1TUp-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin2TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[3] B 9")
+    field(INP, "@$(PLC) Memorias[3] B 8")
     field(DESC, "Petra V PT-100 Cilindro 02 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1027,7 +1027,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin2TDown-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin2TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[3] B 10")
+    field(INP, "@$(PLC) Memorias[2] B 8")
     field(DESC, "Petra V PT-100 Cilindro 02 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1036,7 +1036,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin2TUp-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin3TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[3] B 11")
+    field(INP, "@$(PLC) Memorias[3] B 9")
     field(DESC, "Petra V PT-100 Cilindro 03 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1045,7 +1045,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin3TDown-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin3TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[2] B 7")
+    field(INP, "@$(PLC) Memorias[2] B 9")
     field(DESC, "Petra V PT-100 Cilindro 03 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1054,7 +1054,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin3TUp-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin4TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[2] B 8")
+    field(INP, "@$(PLC) Memorias[3] B 10")
     field(DESC, "Petra V PT-100 Cilindro 04 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1063,7 +1063,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin4TDown-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin4TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[2] B 9")
+    field(INP, "@$(PLC) Memorias[2] B 10")
     field(DESC, "Petra V PT-100 Cilindro 04 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1072,7 +1072,7 @@ record(bi, "BO-05D:RF-P5Cav:Cylin4TUp-Mon"){
 
 record(bi, "BO-05D:RF-P5Cav:Cylin5TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[2] B 10")
+    field(INP, "@$(PLC) Memorias[3] B 11")
     field(DESC, "Petra V PT-100 Cilindro 05 a")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1254,9 +1254,9 @@ record(ai, "BO-RaBO01:RF-LLRFPreAmp:T1-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:3:I.Ch02.Data")
     field(DESC, "PT - 100 01 Pré - Amplificad")
-    field(SCAN, ".1 second")
-    field(PREC, "3")
-    field(EGU, "C")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(bo, "BO-RaBO01:RF-LLRFPreAmp:T1Up-Mon"){

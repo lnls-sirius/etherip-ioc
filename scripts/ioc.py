@@ -32,6 +32,7 @@ parser.add_argument('--col-inout', default='In/Out', help='Input/Output column n
 parser.add_argument('--col-dtype', default='Data Type', help='Data type column name.')
 parser.add_argument('--col-egu', default='EGU', help='EPICS egu column name.')
 parser.add_argument('--col-scan', default='Scan', help='EPICS scan time.')
+parser.add_argument('--col-prec', default='Prec', help='EPICS scan time.')
 
 parser.add_argument('--epics-ca-server-port', default=5064, help='EPICS_CA_SERVER_PORT value.',
                     type=int)
@@ -66,9 +67,9 @@ def generate(sheet_name):
     with open(path + '/../database/' + args.ioc_name + '.db', 'w+') as f:
         for s_name in sheet_name:
             sheet = pandas.read_excel(args.spreadsheet, sheet_name=s_name, dtype=str)
+            sheet = sheet.replace(float('nan'), '')
             sheet = sheet.replace('nan', '')
-            #logger.info('Sheet: {}'.format(sheet.head()))
-            for pv, desc, tag, inout, dtype, egu, scan in \
+            for pv, desc, tag, inout, dtype, egu, scan, prec in \
                     zip(
                         sheet[args.col_pv],
                         sheet[args.col_desc],
@@ -76,7 +77,8 @@ def generate(sheet_name):
                         sheet[args.col_inout],
                         sheet[args.col_dtype],
                         sheet[args.col_egu],
-                        sheet[args.col_scan]
+                        sheet[args.col_scan],
+                        sheet[args.col_prec]
                     ):
 
                 if not pv or pv == '' or pv == '-:--:':
@@ -130,7 +132,7 @@ def generate(sheet_name):
                             tag=tag,
                             desc=desc,
                             scan=scan,
-                            prec='3',
+                            prec=str(prec),
                             egu=egu
                         ))
                     else:
