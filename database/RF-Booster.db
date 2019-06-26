@@ -93,7 +93,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H01:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Offset[0]")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -102,7 +102,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H02:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:4:I.Ch01.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -111,7 +111,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H03:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:4:I.Ch02.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -120,7 +120,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H04:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:4:I.Ch03.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -129,7 +129,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H05:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:5:I.Ch00.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -138,7 +138,7 @@ record(ai, "RA-ToBO:RF-HeatSink-H06:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:5:I.Ch01.Data")
     field(DESC, "PT - 100 Barra Dissipadora 0")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -930,7 +930,7 @@ record(ai, "BO-05D:RF-P5Cav:CoupT-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) PT_100_PetraV_01.Ch01.Data")
     field(DESC, "Petra V PT - 100 Acoplador")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -957,7 +957,7 @@ record(ai, "BO-05D:RF-P5Cav:Cylin1T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Offset[2]")
     field(DESC, "Petra V Pt - 100 Cilindro 01")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -966,7 +966,7 @@ record(ai, "BO-05D:RF-P5Cav:Cylin2T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) PT_100_PetraV_01.Ch03.Data")
     field(DESC, "Petra V Pt - 100 Cilindro 02")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -975,7 +975,7 @@ record(ai, "BO-05D:RF-P5Cav:Cylin3T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) PT_100_PetraV_02.Ch00.Data")
     field(DESC, "Petra V Pt - 100 Cilindro 03")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -984,7 +984,7 @@ record(ai, "BO-05D:RF-P5Cav:Cylin4T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) PT_100_PetraV_02.Ch01.Data")
     field(DESC, "Petra V Pt - 100 Cilindro 04")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -993,7 +993,7 @@ record(ai, "BO-05D:RF-P5Cav:Cylin5T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) PT_100_PetraV_02.Ch02.Data")
     field(DESC, "Petra V Pt - 100 Cilindro 05")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
@@ -1254,7 +1254,7 @@ record(ai, "BO-RaBO01:RF-LLRFPreAmp:T1-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:3:I.Ch02.Data")
     field(DESC, "PT - 100 01 Pré - Amplificad")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }

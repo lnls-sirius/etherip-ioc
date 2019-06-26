@@ -67,8 +67,8 @@ def generate(sheet_name):
     with open(path + '/../database/' + args.ioc_name + '.db', 'w+') as f:
         for s_name in sheet_name:
             sheet = pandas.read_excel(args.spreadsheet, sheet_name=s_name, dtype=str)
+            sheet = sheet.replace(float('nan'), '')
             sheet = sheet.replace('nan', '')
-            #logger.info('Sheet: {}'.format(sheet.head()))
             for pv, desc, tag, inout, dtype, egu, scan, prec in \
                     zip(
                         sheet[args.col_pv],
