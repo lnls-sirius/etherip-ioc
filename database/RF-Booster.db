@@ -251,15 +251,6 @@ record(bi, "RA-ToBO:RF-HeatSink-H06:TDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(ai, "RA-ToBO:RF-SSAmpTower:PwrRF-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Potencia_RF_BO")
-    field(DESC, "Potência de RF")
-    field(SCAN, ".1 second")
-    field(PREC, "4")
-    field(EGU,  "dBm")
-}
-
 record(bi, "RA-ToBO:RF-SSAmpTower:HdFlwRt-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[0] B 20")
@@ -1205,6 +1196,15 @@ record(bi, "BO-05D:RF-P5Cav:Pressure-Mon"){
     field(ZNAM, "False")
 }
 
+record(ai, "BO-05D:RF-P5Cav:PwrRFIntlk-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Potencia_RF_BO")
+    field(DESC, "Potência de RF")
+    field(SCAN, ".1 second")
+    field(PREC, "4")
+    field(EGU,  "dBm")
+}
+
 record(bo, "RA-RaBO01:RF-LLRFPreAmp:PinSwEnbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Memorias[22] B 10")
@@ -1349,7 +1349,7 @@ record(bi, "RA-TL:RF-Circulator-BO:TDrift-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-BO:Tamb-Mon"){
+record(bi, "RA-TL:RF-Circulator-BO:TEnv-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[1] B 4")
     field(DESC, "Temp. Ambiente Abaixo do Set")
