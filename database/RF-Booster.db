@@ -1295,15 +1295,6 @@ record(bi, "RA-TL:RF-ArcDetec-BO:Test-Sts"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-BO:Heater-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] B 28")
-    field(DESC, "Aquecedor - via Controlador ")
-    field(SCAN, ".1 second")
-    field(ONAM, "True")
-    field(ZNAM, "False")
-}
-
 record(bi, "RA-TL:RF-Circulator-BO:IntlkOp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[0] B 29")
@@ -1331,7 +1322,7 @@ record(bi, "RA-TL:RF-Circulator-BO:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-BO:TDown-Mon"){
+record(bi, "RA-TL:RF-Circulator-BO:TinDown-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[1] B 1")
     field(DESC, "Temp. do Circulador Abaixo d")
@@ -1340,7 +1331,7 @@ record(bi, "RA-TL:RF-Circulator-BO:TDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-BO:TUp-Mon"){
+record(bi, "RA-TL:RF-Circulator-BO:TinUp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[1] B 2")
     field(DESC, "Temp. do Circulador Acima do")
@@ -1358,7 +1349,7 @@ record(bi, "RA-TL:RF-Circulator-BO:TDrift-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-BO:TEnvi-Mon"){
+record(bi, "RA-TL:RF-Circulator-BO:Tamb-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[1] B 4")
     field(DESC, "Temp. Ambiente Abaixo do Set")
