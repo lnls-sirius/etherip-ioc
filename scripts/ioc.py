@@ -106,7 +106,7 @@ def generate(sheet_name):
                     tags[tag].append(pv)
 
                 if dtype == 'Digital':
-                    if inout == 'Input' or dtype == 'Control':
+                    if inout == 'Input' or inout == 'Output':
                         f.write(bi_template.safe_substitute(
                             pv=pv,
                             tag=tag,
@@ -115,8 +115,7 @@ def generate(sheet_name):
                             highname='True',
                             lowname='False'
                         ))
-                    else:
-                    # elif dtype == 'Output':
+                    elif inout == 'Control':
                         f.write(bo_template.safe_substitute(
                             pv=pv,
                             tag=tag,
@@ -125,6 +124,9 @@ def generate(sheet_name):
                             highname='True',
                             lowname='False'
                         ))
+                    else:
+                        logger.warning('Invalid Type {}.'.format(inout+'  '+pv))
+
                 elif dtype == 'Analog':
                     if inout == 'Input':
                         f.write(ai_template.safe_substitute(
