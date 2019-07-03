@@ -26,9 +26,9 @@ record(bo, "RA-ToBO:RF-ACDCPanel:300VdcEnbl-Sel"){
     field(ZNAM, "False")
 }
 
-record(bo, "RA-ToBO:RF-ACDCPanel:300Vdc-Sts"){
+record(bi, "RA-ToBO:RF-ACDCPanel:300Vdc-Sts"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[6] B 2")
+    field(INP, "@$(PLC) Memorias[6] B 2")
     field(DESC, "Leitura Liga 300 VDC")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -251,15 +251,6 @@ record(bi, "RA-ToBO:RF-HeatSink-H06:TDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(ai, "RA-ToBO:RF-SSAmpTower:PwrRF-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Potencia_RF_BO")
-    field(DESC, "Potência de RF")
-    field(SCAN, ".1 second")
-    field(PREC, "4")
-    field(EGU,  "dBm")
-}
-
 record(bi, "RA-ToBO:RF-SSAmpTower:HdFlwRt-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[0] B 20")
@@ -287,9 +278,9 @@ record(bo, "RA-ToBO:RF-SSAmpTower:PwrCnvEnbl-Sel"){
     field(ZNAM, "False")
 }
 
-record(bo, "RA-ToBO:RF-SSAmpTower:PwrCnv-Sts"){
+record(bi, "RA-ToBO:RF-SSAmpTower:PwrCnv-Sts"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[6] B 0")
+    field(INP, "@$(PLC) Memorias[6] B 0")
     field(DESC, "Leitura Conversores DC/DC")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -332,18 +323,18 @@ record(bi, "BO-05D:RF-Intlk:BO-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "BO-05D:RF-Intlk:LLRF-Mon"){
+record(bi, "BO-05D:RF-Intlk:LLRF-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[6] B 3")
+    field(INP, "@$(PLC) Memorias[6] B 3")
     field(DESC, "Sinal de erro do CLP para o ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-05D:RF-Intlk:SSAOn-Mon"){
+record(bi, "BO-05D:RF-Intlk:SSAOn-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[6] B 5")
+    field(INP, "@$(PLC) Memorias[6] B 5")
     field(DESC, "Sinal SSA Ligado para LLRF")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -746,144 +737,144 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare25-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare01-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare01-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt03.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt03.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare02-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare02-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt04.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt04.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare03-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare03-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt05.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt05.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare04-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare04-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt06.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt06.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare05-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare05-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt08.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt08.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare06-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare06-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt09.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt09.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare07-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare07-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt10.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt10.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare08-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare08-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt11.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt11.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare09-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare09-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt03.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt03.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare10-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare10-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt04.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt04.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare11-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare11-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt05.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt05.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare12-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare12-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt06.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt06.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare13-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare13-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt08.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt08.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare14-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare14-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt09.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt09.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare15-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare15-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt10.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt10.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-IntlkCtrl:DOSpare16-Mon"){
+record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare16-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt11.Data")
+    field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt11.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1205,6 +1196,15 @@ record(bi, "BO-05D:RF-P5Cav:Pressure-Mon"){
     field(ZNAM, "False")
 }
 
+record(ai, "BO-05D:RF-P5Cav:PwrRFIntlk-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Potencia_RF_BO")
+    field(DESC, "Potência de RF")
+    field(SCAN, ".1 second")
+    field(PREC, "4")
+    field(EGU,  "dBm")
+}
+
 record(bo, "RA-RaBO01:RF-LLRFPreAmp:PinSwEnbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Memorias[22] B 10")
@@ -1223,9 +1223,9 @@ record(bo, "RA-RaBO01:RF-LLRFPreAmp:PinSwDsbl-Sel"){
     field(ZNAM, "False")
 }
 
-record(bo, "RA-RaBO01:RF-LLRFPreAmp:PinSw-Mon"){
+record(bi, "RA-RaBO01:RF-LLRFPreAmp:PinSw-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[6] B 1")
+    field(INP, "@$(PLC) Memorias[6] B 1")
     field(DESC, "Chave Pin Lenta")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1259,9 +1259,9 @@ record(ai, "BO-RaBO01:RF-LLRFPreAmp:T1-Mon"){
     field(EGU,  "C")
 }
 
-record(bo, "BO-RaBO01:RF-LLRFPreAmp:T1Up-Mon"){
+record(bi, "BO-RaBO01:RF-LLRFPreAmp:T1Up-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[2] B 6")
+    field(INP, "@$(PLC) Memorias[2] B 6")
     field(DESC, "PT - 100 01 Pré - Amplificad")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1295,15 +1295,6 @@ record(bi, "RA-TL:RF-ArcDetec-BO:Test-Sts"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-BO:Heater-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Memorias[0] B 28")
-    field(DESC, "Aquecedor - via Controlador ")
-    field(SCAN, ".1 second")
-    field(ONAM, "True")
-    field(ZNAM, "False")
-}
-
 record(bi, "RA-TL:RF-Circulator-BO:IntlkOp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[0] B 29")
@@ -1331,7 +1322,7 @@ record(bi, "RA-TL:RF-Circulator-BO:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-BO:TDown-Mon"){
+record(bi, "RA-TL:RF-Circulator-BO:TinDown-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[1] B 1")
     field(DESC, "Temp. do Circulador Abaixo d")
@@ -1340,7 +1331,7 @@ record(bi, "RA-TL:RF-Circulator-BO:TDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-BO:TUp-Mon"){
+record(bi, "RA-TL:RF-Circulator-BO:TinUp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[1] B 2")
     field(DESC, "Temp. do Circulador Acima do")
@@ -1358,7 +1349,7 @@ record(bi, "RA-TL:RF-Circulator-BO:TDrift-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-BO:TEnvi-Mon"){
+record(bi, "RA-TL:RF-Circulator-BO:TEnv-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[1] B 4")
     field(DESC, "Temp. Ambiente Abaixo do Set")
@@ -1385,9 +1376,9 @@ record(bo, "RA-TL:RF-TrLine-BO:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "RA-TL:RF-ArcDetec-BO:Reset-Mon"){
+record(bi, "RA-TL:RF-ArcDetec-BO:Reset-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Output_Reset_Det_Arc")
+    field(INP, "@$(PLC) Output_Reset_Det_Arc")
     field(DESC, "Reset Detector de Arco")
     field(SCAN, ".1 second")
     field(ONAM, "True")
