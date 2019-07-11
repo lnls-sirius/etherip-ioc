@@ -81,7 +81,7 @@ def generate(sheet_name):
                         sheet[args.col_prec]
                     ):
 
-                if not pv or pv == '' or pv == '-:--:':
+                if not pv or pv == '' or pv.startswith('-'):
                     continue
 
                 if len(desc) > 28:
@@ -145,7 +145,6 @@ def generate(sheet_name):
                     logger.error('Tag {} already exist {}.'.format(tag, tags[tag]))
 
 if __name__ == '__main__':
-    sheet_name = ['SSAmp Tower','Interlock', 'Petra 5', 'LLRF', 'Transmission Line']
-
+    sheet_name = args.sheet.split(',')
     generate(sheet_name)
 
