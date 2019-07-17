@@ -9,5 +9,5 @@
     --plc-module 0 \
     --ioc-name RF-Ring1 \
     --epics-ca-server-port  5068\
-    --epics-cas-intf-addr-list 10.128.124.204 \
+    --epics-cas-intf-addr-list 10.128.124.140 \
     --arch linux-x86_64
