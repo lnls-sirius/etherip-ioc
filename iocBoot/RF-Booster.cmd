@@ -1,4 +1,5 @@
 #!/opt/epics-R3.15.5/modules/ether_ip-ether_ip-3-1/bin/linux-x86_64/eipIoc
+# 3.14 example startup file for a Host - * - shell-script - * -
 
 # Load dbd, register the drvEtherIP .. commands
 dbLoadDatabase("/opt/epics-R3.15.5/modules/ether_ip-ether_ip-3-1/dbd/eipIoc.dbd")

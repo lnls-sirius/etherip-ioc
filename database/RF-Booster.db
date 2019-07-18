@@ -883,7 +883,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare16-Mon"){
 
 record(bo, "BO-05D:RF-P5Cav:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[5] B 15")
+    field(OUT, "@$(PLC) Memorias[7] B 16")
     field(DESC, "Interlock Geral Petra V")
     field(SCAN, ".1 second")
     field(ONAM, "True")
