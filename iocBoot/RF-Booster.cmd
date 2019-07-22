@@ -16,7 +16,7 @@ iocLogInit
 EIP_buffer_limit(450)
 drvEtherIP_init()
 EIP_verbosity(7)
-drvEtherIP_define_PLC("plc1", "10.128.124.150", 0)
+drvEtherIP_define_PLC("plc1", "10.128.130.150", 0)
 
 dbLoadRecords("../database/RF-Booster.db", "PLC=plc1")
 dbLoadRecords("../database/RF-Booster-Calc.db", "PLC=plc1")
