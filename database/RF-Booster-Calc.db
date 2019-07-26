@@ -9,7 +9,7 @@ record(calc, "BO-ToBO:RF-ACDCPanel:300Vdc-Mon"){
 }
 
 record(calc, "BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon"){
-    field(CALC, "A*40")
+    field(CALC, "A*40*1.22")
     field(EGU,  "A")
     field(PREC, "2")
     field(INPA, "BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon_RAW CP MSS")
