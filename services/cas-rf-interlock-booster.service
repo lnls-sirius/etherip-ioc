@@ -12,11 +12,10 @@ Group=ioc
 
 WorkingDirectory=/opt/etherip-ioc
 
-Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/epics-R3.15.5/base/bin/linux-x86_64
-Environment=EPICS_BASE=/opt/epics-R3.15.5/base
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/epics-R3.15.6/base/bin/linux-x86_64
+Environment=EPICS_BASE=/opt/epics-R3.15.6/base
 Environment=EPICS_HOST_ARCH=linux-x86_64
 Environment=EPICS_CA_AUTO_ADDR_LIST=YES
-Environment=EPICAS_CAS_SERVER_PORT=5100
 
 ExecStart=/usr/local/bin/procServ -f --allow -L - --chdir /opt/etherip-ioc/iocBoot 20202 ./RF-Booster.cmd
 
