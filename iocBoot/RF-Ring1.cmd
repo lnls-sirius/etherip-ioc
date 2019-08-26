@@ -8,7 +8,7 @@ eipIoc_registerRecordDeviceDriver(pdbbase)
 # epicsEnvSet("EPICS_IOC_LOG_PORT", "6505")
 
 epicsEnvSet("EPICS_CA_SERVER_PORT", "5068")
-epicsEnvSet("EPICS_CAS_INTF_ADDR_LIST", "10.128.124.140")
+epicsEnvSet("EPICS_CAS_INTF_ADDR_LIST", "10.128.124.141")
 iocLogInit
 
 # Initialize EtherIP driver, define PLCs
