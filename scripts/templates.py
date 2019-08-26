@@ -2,11 +2,10 @@
 from string import Template
 
 cmd_template = Template(
-"""#!/opt/epics-R3.15.5/modules/ether_ip-ether_ip-3-1/bin/linux-x86_64/eipIoc
-# 3.14 example startup file for a Host - * - shell-script - * -
+"""#!/opt/epics-R3.15.6/modules/ether_ip-ether_ip-3-1/bin/linux-x86_64/eipIoc
 
 # Load dbd, register the drvEtherIP .. commands
-dbLoadDatabase("/opt/epics-R3.15.5/modules/ether_ip-ether_ip-3-1/dbd/eipIoc.dbd")
+dbLoadDatabase("/opt/epics-R3.15.6/modules/ether_ip-ether_ip-3-1/dbd/eipIoc.dbd")
 eipIoc_registerRecordDeviceDriver(pdbbase)
 
 # epicsEnvSet("EPICS_IOC_LOG_INET", "127.0.0.1")
