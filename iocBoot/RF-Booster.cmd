@@ -7,7 +7,7 @@ eipIoc_registerRecordDeviceDriver(pdbbase)
 # epicsEnvSet("EPICS_IOC_LOG_INET", "127.0.0.1")
 # epicsEnvSet("EPICS_IOC_LOG_PORT", "6505")
 
-epicsEnvSet("EPICS_CA_SERVER_PORT", "5064")
+#epicsEnvSet("EPICS_CA_SERVER_PORT", "5064")
 epicsEnvSet("EPICS_CAS_INTF_ADDR_LIST", "10.128.124.140")
 iocLogInit
 
