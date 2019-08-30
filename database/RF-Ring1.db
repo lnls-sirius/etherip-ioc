@@ -638,9 +638,9 @@ record(bi, "RA-ToSIA01:RF-SSAmpTower:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-ToSIA01:RF-SSAmpTower:HDFlwRt-Mon"){
+record(bi, "RA-ToSIA01:RF-SSAmpTower:HdFlwRt-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_SSAmpTower_HDFlwRtMon")
+    field(INP, "@$(PLC) RA_ToSIA01_RF_SSAmpTower_HdFlwRtMon")
     field(DESC, "Rotâmetro Torre 01 do Anel ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -719,10 +719,19 @@ record(bi, "RA-ToSIA01:RF-Intlk:IntlkACPanel-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-ToSIA01:RF-SSAmpTower:HdFlwRt-Mon"){
+record(bi, "RA-ToSIA01:RF-SSAmpTower:Enbl-Sel"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_SSAmpTower_HdFlwRtMon")
-    field(DESC, "Rotâmetro torre 01")
+    field(INP, "@$(PLC) RA_ToSIA01_RF_SSAmpTower_EnblSel")
+    field(DESC, "Torre 1 Enbl")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-ToSIA01:RF-SSAmpTower:Enbl-Sts"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA01_RF_SSAmpTower_EnblSts")
+    field(DESC, "Torre 1 Enbl Sts")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
@@ -1443,6 +1452,24 @@ record(bi, "RA-ToSIA02:RF-Intlk:IntlkACPanel-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA02_RF_Intlk_IntlkACPanelMon")
     field(DESC, "Interlock externo do CLP par")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-ToSIA02:RF-SSAmpTower:Enbl-Sel"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA02_RF_SSAmpTower_EnblSel")
+    field(DESC, "Torre 2 Enbl")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-ToSIA02:RF-SSAmpTower:Enbl-Sts"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA02_RF_SSAmpTower_EnblSts")
+    field(DESC, "Torre 2 Enbl Sts")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
