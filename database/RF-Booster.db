@@ -1268,7 +1268,7 @@ record(bi, "BO-RaBO01:RF-LLRFPreAmp:T1Up-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-BO:Sts-Mon"){
+record(bi, "RA-TL:RF-ArcDetec-BOCirc:Sts-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[1] B 5")
     field(DESC, "Detector de Arco ")
@@ -1277,7 +1277,7 @@ record(bi, "RA-TL:RF-ArcDetec-BO:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "RA-TL:RF-ArcDetec-BO:Test-Sel"){
+record(bo, "RA-TL:RF-ArcDetec-BOCirc:Test-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Memorias[22] B 1")
     field(DESC, "Teste detector de Arco")
@@ -1286,7 +1286,7 @@ record(bo, "RA-TL:RF-ArcDetec-BO:Test-Sel"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-BO:Test-Sts"){
+record(bi, "RA-TL:RF-ArcDetec-BOCirc:Test-Sts"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[6] B 6")
     field(DESC, "Leitura Teste Detector de Ar")
@@ -1376,7 +1376,7 @@ record(bo, "RA-TL:RF-TrLine-BO:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-BO:Reset-Mon"){
+record(bi, "RA-TL:RF-ArcDetec-BOCirc:Reset-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Output_Reset_Det_Arc")
     field(DESC, "Reset Detector de Arco")
