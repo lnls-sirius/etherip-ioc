@@ -26,9 +26,9 @@ record(bo, "RA-ToSIA01:RF-ACPanel:PwrACEnbl-Sel"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-ToSIA01:RF-ACPanel:PhsFlr-Mon"){
+record(bi, "RA-ToSIA01:RF-ACPanel:PhsFlt-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_ACPanel_PhsFlrMon")
+    field(INP, "@$(PLC) RA_ToSIA01_RF_ACPanel_PhsFltMon")
     field(DESC, "Falta de Fase do Painel Torr")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -714,6 +714,15 @@ record(bi, "RA-ToSIA01:RF-Intlk:IntlkACPanel-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA01_RF_Intlk_IntlkACPanelMon")
     field(DESC, "Interlock externo do CLP par")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-ToSIA01:RF-SSAmpTower:HdFlwRt-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA01_RF_SSAmpTower_HdFlwRtMon")
+    field(DESC, "Rotâmetro torre 01")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
@@ -1493,6 +1502,24 @@ record(bi, "SI-03SP:RF-Intlk:RFOn-Mon"){
     field(ZNAM, "False")
 }
 
+record(bi, "RA-RaSIA02:RF-IntlkCtrl:Dr1Enbl-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaSIA02_RF_IntlkCtrl_Dr1EnblMon")
+    field(DESC, "Habilita Plunger 01")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaSIA02:RF-IntlkCtrl:Dr2Enbl-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaSIA02_RF_IntlkCtrl_Dr2EnblMon")
+    field(DESC, "Habilita Plunger 02")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
 record(bi, "SI-03SP:RF-P7Cav:Pressure-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_PressureMon")
@@ -2087,18 +2114,18 @@ record(bi, "RA-TL:RF-Circulator-SIA:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:TDown-Mon"){
+record(bi, "RA-TL:RF-Circulator-SIA:TinDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_TDownMon")
+    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_TinDownMon")
     field(DESC, "Temp. do Circulador Abaixo d")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:TUp-Mon"){
+record(bi, "RA-TL:RF-Circulator-SIA:TinUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_TUpMon")
+    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_TinUpMon")
     field(DESC, "Temp. do Circulador Acima do")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -2114,9 +2141,9 @@ record(bi, "RA-TL:RF-Circulator-SIA:TDrift-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:TEnvi-Mon"){
+record(bi, "RA-TL:RF-Circulator-SIA:TEnv-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_TEnviMon")
+    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_TEnvMon")
     field(DESC, "Temp. Ambiente Abaixo do Set")
     field(SCAN, ".1 second")
     field(ONAM, "True")
