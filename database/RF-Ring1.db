@@ -719,9 +719,9 @@ record(bi, "RA-ToSIA01:RF-Intlk:IntlkACPanel-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-ToSIA01:RF-SSAmpTower:Enbl-Sel"){
+record(bo, "RA-ToSIA01:RF-SSAmpTower:Enbl-Sel"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_SSAmpTower_EnblSel")
+    field(OUT, "@$(PLC) RA_ToSIA01_RF_SSAmpTower_EnblSel")
     field(DESC, "Torre 1 Enbl")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -735,6 +735,42 @@ record(bi, "RA-ToSIA01:RF-SSAmpTower:Enbl-Sts"){
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
+}
+
+record(ai, "RA-ToSIA01:RF-Mux-1:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_1_TMon")
+    field(DESC, "Temperatura Minirack 01")
+    field(SCAN, ".1 second")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(ai, "RA-ToSIA01:RF-Mux-2:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_2_TMon")
+    field(DESC, "Temperatura Minirack 02")
+    field(SCAN, ".1 second")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(ai, "RA-ToSIA01:RF-Mux-3:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_3_TMon")
+    field(DESC, "Temperatura Minirack 03")
+    field(SCAN, ".1 second")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(ai, "RA-ToSIA01:RF-Mux-4:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_4_TMon")
+    field(DESC, "Temperatura Minirack 04")
+    field(SCAN, ".1 second")
+    field(PREC, "")
+    field(EGU,  "")
 }
 
 record(bi, "RA-ToSIA02:RF-ACPanel:PwrACOp-Mon"){
@@ -1457,9 +1493,9 @@ record(bi, "RA-ToSIA02:RF-Intlk:IntlkACPanel-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-ToSIA02:RF-SSAmpTower:Enbl-Sel"){
+record(bo, "RA-ToSIA02:RF-SSAmpTower:Enbl-Sel"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_SSAmpTower_EnblSel")
+    field(OUT, "@$(PLC) RA_ToSIA02_RF_SSAmpTower_EnblSel")
     field(DESC, "Torre 2 Enbl")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1473,6 +1509,42 @@ record(bi, "RA-ToSIA02:RF-SSAmpTower:Enbl-Sts"){
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
+}
+
+record(ai, "RA-ToSIA02:RF-Mux-1:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_1_TMon")
+    field(DESC, "Temperatura Minirack 01")
+    field(SCAN, ".1 second")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(ai, "RA-ToSIA02:RF-Mux-2:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_2_TMon")
+    field(DESC, "Temperatura Minirack 02")
+    field(SCAN, ".1 second")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(ai, "RA-ToSIA02:RF-Mux-3:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_3_TMon")
+    field(DESC, "Temperatura Minirack 03")
+    field(SCAN, ".1 second")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(ai, "RA-ToSIA02:RF-Mux-4:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_4_TMon")
+    field(DESC, "Temperatura Minirack 04")
+    field(SCAN, ".1 second")
+    field(PREC, "")
+    field(EGU,  "")
 }
 
 record(bi, "SI-03SP:RF-Intlk:SIA-Mon"){
@@ -2208,6 +2280,15 @@ record(bi, "RA-TL:RF-ArcDetec-SIALoad:Reset-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_TL_RF_ArcDetec_SIALoad_ResetMon")
     field(DESC, "Reset Detector de Arco Carga")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-TL:RF-Combiner-A1:Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_TL_RF_Combiner_A1_TMon")
+    field(DESC, "Combinador")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
