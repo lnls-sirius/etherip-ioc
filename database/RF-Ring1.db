@@ -719,9 +719,9 @@ record(bi, "RA-ToSIA01:RF-Intlk:IntlkACPanel-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "RA-ToSIA01:RF-SSAmpTower:Enbl-Sel"){
+record(bi, "RA-ToSIA01:RF-SSAmpTower:Enbl-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_ToSIA01_RF_SSAmpTower_EnblSel")
+    field(INP, "@$(PLC) RA_ToSIA01_RF_SSAmpTower_EnblSel")
     field(DESC, "Torre 1 Enbl")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1457,9 +1457,9 @@ record(bi, "RA-ToSIA02:RF-Intlk:IntlkACPanel-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "RA-ToSIA02:RF-SSAmpTower:Enbl-Sel"){
+record(bi, "RA-ToSIA02:RF-SSAmpTower:Enbl-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_ToSIA02_RF_SSAmpTower_EnblSel")
+    field(INP, "@$(PLC) RA_ToSIA02_RF_SSAmpTower_EnblSel")
     field(DESC, "Torre 2 Enbl")
     field(SCAN, ".1 second")
     field(ONAM, "True")
