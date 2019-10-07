@@ -1601,19 +1601,19 @@ record(bi, "SI-03SP:RF-Intlk:RFOn-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-RaSIA02:RF-IntlkCtrl:Dr1Enbl-Mon"){
+record(bi, "RA-RaSIA01:RF-CavPlDrivers:DrEnbl-Sel"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_RaSIA02_RF_IntlkCtrl_Dr1EnblMon")
-    field(DESC, "Habilita Plunger 01")
+    field(INP, "@$(PLC) RA_RaSIA01_RF_CavPlDrivers_DrEnblSel")
+    field(DESC, "Habilita Plungers")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-RaSIA02:RF-IntlkCtrl:Dr2Enbl-Mon"){
+record(bi, "RA-RaSIA01:RF-CavPlDrivers:DrEnbl-Sts"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_RaSIA02_RF_IntlkCtrl_Dr2EnblMon")
-    field(DESC, "Habilita Plunger 02")
+    field(INP, "@$(PLC) RA_RaSIA01_RF_CavPlDrivers_DrEnblSts")
+    field(DESC, "Readback Habilita Plungers")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
@@ -2285,11 +2285,11 @@ record(bi, "RA-TL:RF-ArcDetec-SIALoad:Reset-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Combiner-A1:Mon"){
+record(ai, "RA-TL:RF-Combiner-SIA1:Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Combiner_A1_TMon")
+    field(INP, "@$(PLC) RA_TL_RF_Combiner_SIA1_TMon")
     field(DESC, "Combinador")
     field(SCAN, ".1 second")
-    field(ONAM, "True")
-    field(ZNAM, "False")
+    field(PREC, "")
+    field(EGU,  "")
 }
