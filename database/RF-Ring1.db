@@ -1601,9 +1601,9 @@ record(bi, "SI-03SP:RF-Intlk:RFOn-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-RaSIA01:RF-CavPlDrivers:DrEnbl-Sel"){
+record(bo, "RA-RaSIA01:RF-CavPlDrivers:DrEnbl-Sel"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_RaSIA01_RF_CavPlDrivers_DrEnblSel")
+    field(OUT, "@$(PLC) RA_RaSIA01_RF_CavPlDrivers_DrEnblSel")
     field(DESC, "Habilita Plungers")
     field(SCAN, ".1 second")
     field(ONAM, "True")
