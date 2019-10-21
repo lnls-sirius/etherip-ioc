@@ -1547,7 +1547,7 @@ record(ai, "RA-ToSIA02:RF-Mux-4:T-Mon"){
     field(EGU,  "")
 }
 
-record(bi, "SI-03SP:RF-Intlk:SIA-Mon"){
+record(bi, "SI-02SB:RF-Intlk:SIA-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_Intlk_SIAMon")
     field(DESC, "Sistema Anel A Interlock Sir")
@@ -1556,7 +1556,7 @@ record(bi, "SI-03SP:RF-Intlk:SIA-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-Intlk:LLRF-Mon"){
+record(bi, "SI-02SB:RF-Intlk:LLRF-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_Intlk_LLRFMon")
     field(DESC, "Interlock para LLRF")
@@ -1565,7 +1565,7 @@ record(bi, "SI-03SP:RF-Intlk:LLRF-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-Intlk:EStop-Mon"){
+record(bi, "SI-02SB:RF-Intlk:EStop-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_Intlk_EStopMon")
     field(DESC, "Botão de emergencia do siste")
@@ -1574,7 +1574,7 @@ record(bi, "SI-03SP:RF-Intlk:EStop-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "SI-03SP:RF-Intlk:Reset-Sel"){
+record(bo, "SI-02SB:RF-Intlk:Reset-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) SI_03SP_RF_Intlk_ResetSel")
     field(DESC, "Reset de Falhas")
@@ -1592,7 +1592,7 @@ record(bi, "RA-ToSIA:RF-SSAmpTower:RFOn-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-Intlk:RFOn-Mon"){
+record(bi, "SI-02SB:RF-Intlk:RFOn-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_Intlk_RFOnMon")
     field(DESC, "RF Operando para Interlock S")
@@ -1619,7 +1619,7 @@ record(bi, "RA-RaSIA01:RF-CavPlDrivers:DrEnbl-Sts"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Pressure-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Pressure-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_PressureMon")
     field(DESC, "Vácuo Petra VII")
@@ -1628,7 +1628,7 @@ record(bi, "SI-03SP:RF-P7Cav:Pressure-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:HDFlwRt1-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:HDFlwRt1-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_HDFlwRt1Mon")
     field(DESC, "Chave de Fluxo 01 Petra VII")
@@ -1637,7 +1637,7 @@ record(bi, "SI-03SP:RF-P7Cav:HDFlwRt1-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:HDFlwRt2-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:HDFlwRt2-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_HDFlwRt2Mon")
     field(DESC, "Chave de Fluxo 02 Petra VII")
@@ -1646,7 +1646,7 @@ record(bi, "SI-03SP:RF-P7Cav:HDFlwRt2-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:HDFlwRt3-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:HDFlwRt3-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_HDFlwRt3Mon")
     field(DESC, "Chave de Fluxo 03 Petra VII")
@@ -1655,7 +1655,7 @@ record(bi, "SI-03SP:RF-P7Cav:HDFlwRt3-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:CoupPressure-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:CoupPressure-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_CoupPressureMon")
     field(DESC, "Sensor de Pressão do Acoplad")
@@ -1664,7 +1664,7 @@ record(bi, "SI-03SP:RF-P7Cav:CoupPressure-Mon"){
     field(ZNAM, "False")
 }
 
-record(ai, "SI-03SP:RF-P7Cav:Cylin1T-Mon"){
+record(ai, "SI-02SB:RF-P7Cav:Cylin1T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin1TMon")
     field(DESC, "PT - 100 Cilindro 01 PetraVI")
@@ -1673,7 +1673,7 @@ record(ai, "SI-03SP:RF-P7Cav:Cylin1T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "SI-03SP:RF-P7Cav:Cylin2T-Mon"){
+record(ai, "SI-02SB:RF-P7Cav:Cylin2T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin2TMon")
     field(DESC, "PT - 100 Cilindro 02 PetraVI")
@@ -1682,7 +1682,7 @@ record(ai, "SI-03SP:RF-P7Cav:Cylin2T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "SI-03SP:RF-P7Cav:Cylin3T-Mon"){
+record(ai, "SI-02SB:RF-P7Cav:Cylin3T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin3TMon")
     field(DESC, "PT - 100 Cilindro 03 PetraVI")
@@ -1691,7 +1691,7 @@ record(ai, "SI-03SP:RF-P7Cav:Cylin3T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "SI-03SP:RF-P7Cav:Cylin4T-Mon"){
+record(ai, "SI-02SB:RF-P7Cav:Cylin4T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin4TMon")
     field(DESC, "PT - 100 Cilindro 04 PetraVI")
@@ -1700,7 +1700,7 @@ record(ai, "SI-03SP:RF-P7Cav:Cylin4T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "SI-03SP:RF-P7Cav:Cylin5T-Mon"){
+record(ai, "SI-02SB:RF-P7Cav:Cylin5T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin5TMon")
     field(DESC, "PT - 100 Cilindro 05 PetraVI")
@@ -1709,7 +1709,7 @@ record(ai, "SI-03SP:RF-P7Cav:Cylin5T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "SI-03SP:RF-P7Cav:Cylin6T-Mon"){
+record(ai, "SI-02SB:RF-P7Cav:Cylin6T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin6TMon")
     field(DESC, "PT - 100 Cilindro 06 PetraVI")
@@ -1718,7 +1718,7 @@ record(ai, "SI-03SP:RF-P7Cav:Cylin6T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "SI-03SP:RF-P7Cav:Cylin7T-Mon"){
+record(ai, "SI-02SB:RF-P7Cav:Cylin7T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin7TMon")
     field(DESC, "PT - 100 Cilindro 07 PetraVI")
@@ -1727,7 +1727,7 @@ record(ai, "SI-03SP:RF-P7Cav:Cylin7T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "SI-03SP:RF-P7Cav:CoupT-Mon"){
+record(ai, "SI-02SB:RF-P7Cav:CoupT-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_CoupTMon")
     field(DESC, "Temperatura do Acoplador Pet")
@@ -1736,7 +1736,7 @@ record(ai, "SI-03SP:RF-P7Cav:CoupT-Mon"){
     field(EGU,  "C")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Sts-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Sts-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_StsMon")
     field(DESC, "Interlock Geral Petra 7")
@@ -1745,7 +1745,7 @@ record(bi, "SI-03SP:RF-P7Cav:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:CoupTDown-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:CoupTDown-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_CoupTDownMon")
     field(DESC, "PT - 100 Acoplador Abaixo do")
@@ -1754,7 +1754,7 @@ record(bi, "SI-03SP:RF-P7Cav:CoupTDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:CoupTUp-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:CoupTUp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_CoupTUpMon")
     field(DESC, "PT - 100 Acoplador Acima do ")
@@ -1763,7 +1763,7 @@ record(bi, "SI-03SP:RF-P7Cav:CoupTUp-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin1TDown-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin1TDown-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin1TDownMon")
     field(DESC, "PT100 Cilindro 01 Abaixo do ")
@@ -1772,7 +1772,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin1TDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin2TDown-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin2TDown-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin2TDownMon")
     field(DESC, "PT100 Cilindro 02 Abaixo do ")
@@ -1781,7 +1781,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin2TDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin3TDown-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin3TDown-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin3TDownMon")
     field(DESC, "PT100 Cilindro 03 Abaixo do ")
@@ -1790,7 +1790,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin3TDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin4TDown-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin4TDown-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin4TDownMon")
     field(DESC, "PT100 Cilindro 04 Abaixo do ")
@@ -1799,7 +1799,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin4TDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin5TDown-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin5TDown-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin5TDownMon")
     field(DESC, "PT100 Cilindro 05 Abaixo do ")
@@ -1808,7 +1808,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin5TDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin6TDown-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin6TDown-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin6TDownMon")
     field(DESC, "PT100 Cilindro 06 Abaixo do ")
@@ -1817,7 +1817,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin6TDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin7TDown-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin7TDown-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin7TDownMon")
     field(DESC, "PT100 Cilindro 07 Abaixo do ")
@@ -1826,7 +1826,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin7TDown-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin1TUp-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin1TUp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin1TUpMon")
     field(DESC, "PT100 Cilindro 01 Acima do S")
@@ -1835,7 +1835,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin1TUp-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin2TUp-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin2TUp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin2TUpMon")
     field(DESC, "PT100 Cilindro 02 Acima do S")
@@ -1844,7 +1844,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin2TUp-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin3TUp-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin3TUp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin3TUpMon")
     field(DESC, "PT100 Cilindro 03 Acima do S")
@@ -1853,7 +1853,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin3TUp-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin4TUp-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin4TUp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin4TUpMon")
     field(DESC, "PT100 Cilindro 04 Acima do S")
@@ -1862,7 +1862,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin4TUp-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin5TUp-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin5TUp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin5TUpMon")
     field(DESC, "PT100 Cilindro 05 Acima do S")
@@ -1871,7 +1871,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin5TUp-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin6TUp-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin6TUp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin6TUpMon")
     field(DESC, "PT100 Cilindro 06 Acima do S")
@@ -1880,7 +1880,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin6TUp-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin7TUp-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin7TUp-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin7TUpMon")
     field(DESC, "PT100 Cilindro 07 Acima do S")
@@ -1889,7 +1889,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin7TUp-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Disc1Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Disc1Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc1TmsMon")
     field(DESC, "Termostato Disco 01")
@@ -1898,7 +1898,7 @@ record(bi, "SI-03SP:RF-P7Cav:Disc1Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Disc2Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Disc2Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc2TmsMon")
     field(DESC, "Termostato Disco 02")
@@ -1907,7 +1907,7 @@ record(bi, "SI-03SP:RF-P7Cav:Disc2Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Disc3Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Disc3Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc3TmsMon")
     field(DESC, "Termostato Disco 03")
@@ -1916,7 +1916,7 @@ record(bi, "SI-03SP:RF-P7Cav:Disc3Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Disc4Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Disc4Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc4TmsMon")
     field(DESC, "Termostato Disco 04")
@@ -1925,7 +1925,7 @@ record(bi, "SI-03SP:RF-P7Cav:Disc4Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Disc5Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Disc5Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc5TmsMon")
     field(DESC, "Termostato Disco 05")
@@ -1934,7 +1934,7 @@ record(bi, "SI-03SP:RF-P7Cav:Disc5Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Disc6Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Disc6Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc6TmsMon")
     field(DESC, "Termostato Disco 06")
@@ -1943,7 +1943,7 @@ record(bi, "SI-03SP:RF-P7Cav:Disc6Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Disc7Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Disc7Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc7TmsMon")
     field(DESC, "Termostato Disco 07")
@@ -1952,7 +1952,7 @@ record(bi, "SI-03SP:RF-P7Cav:Disc7Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Disc8Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Disc8Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc8TmsMon")
     field(DESC, "Termostato Disco 08")
@@ -1961,7 +1961,7 @@ record(bi, "SI-03SP:RF-P7Cav:Disc8Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin1Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin1Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin1TmsMon")
     field(DESC, "Termostato Cilindro 01")
@@ -1970,7 +1970,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin1Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin2Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin2Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin2TmsMon")
     field(DESC, "Termostato Cilindro 02")
@@ -1979,7 +1979,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin2Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin3Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin3Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin3TmsMon")
     field(DESC, "Termostato Cilindro 03")
@@ -1988,7 +1988,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin3Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin4Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin4Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin4TmsMon")
     field(DESC, "Termostato Cilindro 04")
@@ -1997,7 +1997,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin4Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin5Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin5Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin5TmsMon")
     field(DESC, "Termostato Cilindro 05")
@@ -2006,7 +2006,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin5Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin6Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin6Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin6TmsMon")
     field(DESC, "Termostato Cilindro 06")
@@ -2015,7 +2015,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin6Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-03SP:RF-P7Cav:Cylin7Tms-Mon"){
+record(bi, "SI-02SB:RF-P7Cav:Cylin7Tms-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin7TmsMon")
     field(DESC, "Termostato Cilindro 07")
@@ -2024,7 +2024,7 @@ record(bi, "SI-03SP:RF-P7Cav:Cylin7Tms-Mon"){
     field(ZNAM, "False")
 }
 
-record(ai, "SI-03SP:RF-P7Cav:PwrRFIntlk-Mon"){
+record(ai, "SI-02SB:RF-P7Cav:PwrRFIntlk-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_P7Cav_PwrRFIntlkMon")
     field(DESC, "Potencia RF para o Interlock")
@@ -2033,7 +2033,7 @@ record(ai, "SI-03SP:RF-P7Cav:PwrRFIntlk-Mon"){
     field(EGU,  "dBm")
 }
 
-record(bi, "SI-03SP:RF-LLRF:Intlk-Mon"){
+record(bi, "SI-02SB:RF-LLRF:Intlk-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) SI_03SP_RF_LLRF_IntlkMon")
     field(DESC, "Interlock LLRF")
