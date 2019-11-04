@@ -7,12 +7,9 @@ After=network-online.target
 Restart=always
 RestartSec=10
 Type=simple
-User=iocuser
-Group=ioc
 
 WorkingDirectory=/opt/etherip-ioc
 
-Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/epics-R3.15.6/base/bin/linux-x86_64
 Environment=EPICS_BASE=/opt/epics-R3.15.6/base
 Environment=EPICS_HOST_ARCH=linux-x86_64
 Environment=EPICS_CA_AUTO_ADDR_LIST=YES
