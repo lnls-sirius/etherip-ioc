@@ -287,7 +287,7 @@ record(bi, "RA-ToBO:RF-SSAmpTower:PwrCnv-Sts"){
     field(ZNAM, "False")
 }
 
-record(bo, "BO-ToBO:RF-SSAmpTower:Sts-Mon"){
+record(bo, "RA-ToBO:RF-SSAmpTower:Sts-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Memorias[5] B 12")
     field(DESC, "Interlock Geral SSA")
@@ -296,7 +296,7 @@ record(bo, "BO-ToBO:RF-SSAmpTower:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(ai, "BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon_RAW"){
+record(ai, "RA-ToBO:RF-ACDCPanel:CurrentVdc-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Corrente_300V_Painel_ACDC")
     field(DESC, "Corrente AC/DC")
@@ -305,7 +305,7 @@ record(ai, "BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon_RAW"){
     field(EGU,  "A")
 }
 
-record(ai, "BO-ToBO:RF-ACDCPanel:300Vdc-Mon_RAW"){
+record(ai, "RA-ToBO:RF-ACDCPanel:300Vdc-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Tensao_300V_Painel_ACDC")
     field(DESC, "Tensão AC/DC")
@@ -359,7 +359,7 @@ record(bo, "BO-05D:RF-Intlk:Reset-Sel"){
     field(ZNAM, "False")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare01-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare01-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Control_Card_04.Ch03.Data")
     field(DESC, "Analog Input Reserva CLP Boo")
@@ -368,7 +368,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare01-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare02-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare02-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Control_Card_05.Ch00.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -377,7 +377,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare02-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare03-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare03-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Control_Card_05.Ch01.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -386,7 +386,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare03-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare04-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare04-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Control_Card_05.Ch02.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -395,7 +395,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare04-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare05-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare05-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Control_Card_05.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -404,7 +404,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare05-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare06-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare06-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_04.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -413,7 +413,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare06-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare07-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare07-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_01.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -422,7 +422,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare07-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare08-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare08-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_05.Ch02.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -431,7 +431,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare08-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare09-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare09-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_05.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -440,7 +440,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare09-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare10-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare10-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_06.Ch00.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -449,7 +449,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare10-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare11-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare11-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_06.Ch01.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -458,7 +458,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare11-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare12-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare12-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_06.Ch02.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -467,7 +467,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare12-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare13-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare13-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_06.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -476,7 +476,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare13-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare14-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare14-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_07.Ch00.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -485,7 +485,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare14-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare15-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare15-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_07.Ch01.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -494,7 +494,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare15-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare16-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare16-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_07.Ch02.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -503,7 +503,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare16-Mon"){
     field(EGU,  "")
 }
 
-record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare17-Mon"){
+record(ai, "RA-RaBO02:RF-IntlkCtrl:AISpare17-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Analog_Booster_Reserva_Comapact_Card_07.Ch03.Data")
     field(DESC, "Entrada Analogica Reserva CL")
@@ -512,7 +512,7 @@ record(ai, "BO-RaBO02:RF-IntlkCtrl:AISpare17-Mon"){
     field(EGU,  "")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare01-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare01-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Control_Card_02.Pt12.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -521,7 +521,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare01-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare02-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare02-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Control_Card_02.Pt13.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -530,7 +530,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare02-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare03-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare03-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Control_Card_02.Pt14.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -539,7 +539,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare03-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare04-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare04-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Control_Card_02.Pt15.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -548,7 +548,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare04-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare05-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare05-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_01.Pt05.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -557,7 +557,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare05-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare06-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare06-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_01.Pt06.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -566,7 +566,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare06-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare07-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare07-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_01.Pt07.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -575,7 +575,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare07-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare08-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare08-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_01.Pt08.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -584,7 +584,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare08-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare09-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare09-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_01.Pt09.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -593,7 +593,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare09-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare10-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare10-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_01.Pt10.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -602,7 +602,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare10-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare11-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare11-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_01.Pt11.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -611,7 +611,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare11-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare12-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare12-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_01.Pt12.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -620,7 +620,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare12-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare13-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare13-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_01.Pt13.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -629,7 +629,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare13-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare14-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare14-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_01.Pt14.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -638,7 +638,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare14-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare15-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare15-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_01.Pt15.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -647,7 +647,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare15-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare16-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare16-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_02.Pt06.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -656,7 +656,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare16-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare17-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare17-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_02.Pt07.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -665,7 +665,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare17-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare18-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare18-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_02.Pt08.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -674,7 +674,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare18-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare19-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare19-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_02.Pt09.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -683,7 +683,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare19-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare20-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare20-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_02.Pt10.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -692,7 +692,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare20-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare21-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare21-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_02.Pt11.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -701,7 +701,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare21-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare22-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare22-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_02.Pt12.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -710,7 +710,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare22-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare23-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare23-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_02.Pt13.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -719,7 +719,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare23-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare24-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare24-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_02.Pt14.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -728,7 +728,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare24-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare25-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DISpare25-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) IN_Dig_Booster_Reserva_Compact_Card_02.Pt15.Data")
     field(DESC, "Entrada Digital Reserva CLP ")
@@ -737,7 +737,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DISpare25-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare01-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare01-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt03.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -746,7 +746,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare01-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare02-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare02-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt04.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -755,7 +755,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare02-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare03-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare03-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt05.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -764,7 +764,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare03-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare04-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare04-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt06.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -773,7 +773,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare04-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare05-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare05-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt08.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -782,7 +782,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare05-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare06-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare06-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt09.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -791,7 +791,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare06-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare07-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare07-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt10.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -800,7 +800,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare07-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare08-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare08-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Control_Card_06.Pt11.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -809,7 +809,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare08-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare09-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare09-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt03.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -818,7 +818,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare09-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare10-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare10-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt04.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -827,7 +827,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare10-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare11-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare11-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt05.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -836,7 +836,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare11-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare12-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare12-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt06.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -845,7 +845,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare12-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare13-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare13-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt08.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -854,7 +854,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare13-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare14-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare14-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt09.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -863,7 +863,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare14-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare15-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare15-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt10.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -872,7 +872,7 @@ record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare15-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:DOSpare16-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:DOSpare16-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Out_Dig_Booster_Reserva_Compact_Card_08.Pt11.Data")
     field(DESC, "Saída Digital Reserva CLP Bo")
@@ -1250,7 +1250,7 @@ record(bi, "BO-05D:RF-LLRF:Intlk-Mon"){
     field(ZNAM, "False")
 }
 
-record(ai, "BO-RaBO01:RF-LLRFPreAmp:T1-Mon"){
+record(ai, "RA-RaBO01:RF-LLRFPreAmp:T1-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RF_Booster_Compact:3:I.Ch02.Data")
     field(DESC, "PT - 100 01 Pré - Amplificad")
@@ -1259,7 +1259,7 @@ record(ai, "BO-RaBO01:RF-LLRFPreAmp:T1-Mon"){
     field(EGU,  "C")
 }
 
-record(bi, "BO-RaBO01:RF-LLRFPreAmp:T1Up-Mon"){
+record(bi, "RA-RaBO01:RF-LLRFPreAmp:T1Up-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[2] B 6")
     field(DESC, "PT - 100 01 Pré - Amplificad")
@@ -1268,7 +1268,7 @@ record(bi, "BO-RaBO01:RF-LLRFPreAmp:T1Up-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-BOCirc:Sts-Mon"){
+record(bi, "RA-TL:RF-Circulator-BO:Arc-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[1] B 5")
     field(DESC, "Detector de Arco ")
@@ -1277,7 +1277,7 @@ record(bi, "RA-TL:RF-ArcDetec-BOCirc:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "RA-TL:RF-ArcDetec-BOCirc:Test-Sel"){
+record(bo, "RA-RaBO02:RF-ArcDetec-Circ:Test-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Memorias[22] B 1")
     field(DESC, "Teste detector de Arco")
@@ -1286,7 +1286,7 @@ record(bo, "RA-TL:RF-ArcDetec-BOCirc:Test-Sel"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-BOCirc:Test-Sts"){
+record(bi, "RA-RaBO02:RF-ArcDetec-Circ:Test-Sts"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[6] B 6")
     field(DESC, "Leitura Teste Detector de Ar")
@@ -1358,7 +1358,7 @@ record(bi, "RA-TL:RF-Circulator-BO:TEnv-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-BO:LoadFlwRt-Mon"){
+record(bi, "RA-TL:RF-Load-BO:FlwRt-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Memorias[0] B 31")
     field(DESC, "Vazão Carga 70kW")
@@ -1376,7 +1376,7 @@ record(bo, "RA-TL:RF-TrLine-BO:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-BOCirc:Reset-Mon"){
+record(bi, "RA-RaBO02:RF-ArcDetec-Circ:Reset-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Output_Reset_Det_Arc")
     field(DESC, "Reset Detector de Arco")
