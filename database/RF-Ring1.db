@@ -710,9 +710,9 @@ record(bi, "RA-ToSIA01:RF-TDKSource-R4:StsAC-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-ToSIA01:RF-Intlk:IntlkACPanel-Mon"){
+record(bi, "SI-02SB:RF-Intlk:IntlkACPanel01-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_Intlk_IntlkACPanelMon")
+    field(INP, "@$(PLC) SI_02SB_RF_Intlk_IntlkACPanel01Mon")
     field(DESC, "Interlock externo do CLP par")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1484,9 +1484,9 @@ record(bi, "RA-ToSIA02:RF-TDKSource-R4:StsAC-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-ToSIA02:RF-Intlk:IntlkACPanel-Mon"){
+record(bi, "SI-02SB:RF-Intlk:IntlkACPanel02-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_Intlk_IntlkACPanelMon")
+    field(INP, "@$(PLC) SI_02SB_RF_Intlk_IntlkACPanel02Mon")
     field(DESC, "Interlock externo do CLP par")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1565,9 +1565,9 @@ record(bi, "SI-02SB:RF-Intlk:LLRF-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "SI-02SB:RF-Intlk:EStop-Mon"){
+record(bi, "RA-RaSIA02:RF-IntlkCtrl:EStop-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_Intlk_EStopMon")
+    field(INP, "@$(PLC) RA_RaSIA02_RF_IntlkCtrl_EStopMon")
     field(DESC, "Botão de emergencia do siste")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -2132,54 +2132,54 @@ record(bi, "RA-RaSIA01:RF-LLRFPreAmp-1:T2Up-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-SIACirc:Sts-Mon"){
+record(bi, "RA-TL:RF-Circulator-SIA:Arc-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_ArcDetec_SIACirc_StsMon")
+    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_ArcMon")
     field(DESC, "Detector de Arco  Circulador")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-SIALoad:Sts-Mon"){
+record(bi, "RA-TL:RF-Load-SIA:Arc-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_ArcDetec_SIALoad_StsMon")
+    field(INP, "@$(PLC) RA_TL_RF_Load_SIA_ArcMon")
     field(DESC, "Detector de Arco  Carga 300 ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "RA-TL:RF-ArcDetec-SIACirc:Test-Sel"){
+record(bo, "RA-RaSIA02:RF-ArcDetec-Circ:Test-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_TL_RF_ArcDetec_SIACirc_TestSel")
+    field(OUT, "@$(PLC) RA_RaSIA02_RF_ArcDetec_Circ_TestSel")
     field(DESC, "Teste detector de Arco Circu")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "RA-TL:RF-ArcDetec-SIALoad:Test-Sel"){
+record(bo, "RA-RaSIA02:RF-ArcDetec-Load:Test-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_TL_RF_ArcDetec_SIALoad_TestSel")
+    field(OUT, "@$(PLC) RA_RaSIA02_RF_ArcDetec_Load_TestSel")
     field(DESC, "Teste detector de Arco Carga")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-SIACirc:Test-Sts"){
+record(bi, "RA-RaSIA02:RF-ArcDetec-Circ:Test-Sts"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_ArcDetec_SIACirc_TestSts")
+    field(INP, "@$(PLC) RA_RaSIA02_RF_ArcDetec_Circ_TestSts")
     field(DESC, "Leitura Teste Detector de Ar")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-SIALoad:Test-Sts"){
+record(bi, "RA-RaSIA02:RF-ArcDetec-Load:Test-Sts"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_ArcDetec_SIALoad_TestSts")
+    field(INP, "@$(PLC) RA_RaSIA02_RF_ArcDetec_Load_TestSts")
     field(DESC, "Leitura Teste Detector de Ar")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -2249,9 +2249,9 @@ record(bi, "RA-TL:RF-Circulator-SIA:TEnv-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:LoadFlwRt-Mon"){
+record(bi, "RA-TL:RF-Load-SIA:FlwRt-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_LoadFlwRtMon")
+    field(INP, "@$(PLC) RA_TL_RF_Load_SIA_FlwRtMon")
     field(DESC, "Vazão Carga 300kW")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -2267,18 +2267,18 @@ record(bi, "RA-TL:RF-TrLine-SIA:Sts-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-SIACirc:Reset-Mon"){
+record(bi, "RA-RaSIA02:RF-ArcDetec-Circ:Reset-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_ArcDetec_SIACirc_ResetMon")
+    field(INP, "@$(PLC) RA_RaSIA02_RF_ArcDetec_Circ_ResetMon")
     field(DESC, "Reset Detector de Arco Circu")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-ArcDetec-SIALoad:Reset-Mon"){
+record(bi, "RA-RaSIA02:RF-ArcDetec-Load:Reset-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_ArcDetec_SIALoad_ResetMon")
+    field(INP, "@$(PLC) RA_RaSIA02_RF_ArcDetec_Load_ResetMon")
     field(DESC, "Reset Detector de Arco Carga")
     field(SCAN, ".1 second")
     field(ONAM, "True")
