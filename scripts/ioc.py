@@ -94,7 +94,7 @@ def generate(sheet_name):
 
                 if scan not in SCAN_VALUES:
                     scan = SCAN_VALUES[0]
-                    logger.error('Invalid scan vaelue defined for pv {}! Use one of the following {}'.format(pv, SCAN_VALUES))
+                    logger.error('Invalid scan value defined for pv {}! Use one of the following {}'.format(pv, SCAN_VALUES))
 
                 if not tag or type(tag) != str or tag == '' or tag == 'N/A':
                     logger.warning('Tag not set! {}. EPICS record won\'t be generated.'.format(pv))
