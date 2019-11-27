@@ -11,3 +11,4 @@
     --plc-module 0 \
     --ioc-name RF-Booster \
     --arch linux-x86_64
+sed -i -e  's/\n")/")/g' ../database/RF-Booster.db
