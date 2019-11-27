@@ -741,36 +741,36 @@ record(ai, "RA-ToSIA01:RF-Mux-1:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_1_TMon")
     field(DESC, "Temperatura Minirack 01")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "")
-    field(EGU,  "")
+    field(EGU,  "C")
 }
 
 record(ai, "RA-ToSIA01:RF-Mux-2:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_2_TMon")
     field(DESC, "Temperatura Minirack 02")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "")
-    field(EGU,  "")
+    field(EGU,  "C")
 }
 
 record(ai, "RA-ToSIA01:RF-Mux-3:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_3_TMon")
     field(DESC, "Temperatura Minirack 03")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "")
-    field(EGU,  "")
+    field(EGU,  "C")
 }
 
 record(ai, "RA-ToSIA01:RF-Mux-4:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_4_TMon")
     field(DESC, "Temperatura Minirack 04")
-    field(SCAN, ".1 second")
+    field(SCAN, ".5 second")
     field(PREC, "")
-    field(EGU,  "")
+    field(EGU,  "C")
 }
 
 record(bi, "RA-ToSIA02:RF-ACPanel:PwrACOp-Mon"){
@@ -1515,36 +1515,36 @@ record(ai, "RA-ToSIA02:RF-Mux-1:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_1_TMon")
     field(DESC, "Temperatura Minirack 01")
-    field(SCAN, ".1 second")
-    field(PREC, "")
-    field(EGU,  "")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "RA-ToSIA02:RF-Mux-2:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_2_TMon")
     field(DESC, "Temperatura Minirack 02")
-    field(SCAN, ".1 second")
-    field(PREC, "")
-    field(EGU,  "")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "RA-ToSIA02:RF-Mux-3:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_3_TMon")
     field(DESC, "Temperatura Minirack 03")
-    field(SCAN, ".1 second")
-    field(PREC, "")
-    field(EGU,  "")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(ai, "RA-ToSIA02:RF-Mux-4:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_4_TMon")
     field(DESC, "Temperatura Minirack 04")
-    field(SCAN, ".1 second")
-    field(PREC, "")
-    field(EGU,  "")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
 }
 
 record(bi, "SI-02SB:RF-Intlk:SIA-Mon"){
