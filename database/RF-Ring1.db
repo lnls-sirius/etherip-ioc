@@ -737,7 +737,7 @@ record(bi, "RA-ToSIA01:RF-SSAmpTower:Enbl-Sts"){
     field(ZNAM, "False")
 }
 
-record(ai, "RA-ToSIA01:RF-Mux-1:T-Mon"){
+record(ai, "RA-ToSIA01:RF-SSAMux-1:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_1_TMon")
     field(DESC, "Temperatura Minirack 01")
@@ -746,7 +746,7 @@ record(ai, "RA-ToSIA01:RF-Mux-1:T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "RA-ToSIA01:RF-Mux-2:T-Mon"){
+record(ai, "RA-ToSIA01:RF-SSAMux-2:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_2_TMon")
     field(DESC, "Temperatura Minirack 02")
@@ -755,7 +755,7 @@ record(ai, "RA-ToSIA01:RF-Mux-2:T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "RA-ToSIA01:RF-Mux-3:T-Mon"){
+record(ai, "RA-ToSIA01:RF-SSAMux-3:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_3_TMon")
     field(DESC, "Temperatura Minirack 03")
@@ -764,7 +764,7 @@ record(ai, "RA-ToSIA01:RF-Mux-3:T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "RA-ToSIA01:RF-Mux-4:T-Mon"){
+record(ai, "RA-ToSIA01:RF-SSAMux-4:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_4_TMon")
     field(DESC, "Temperatura Minirack 04")
@@ -1511,7 +1511,7 @@ record(bi, "RA-ToSIA02:RF-SSAmpTower:Enbl-Sts"){
     field(ZNAM, "False")
 }
 
-record(ai, "RA-ToSIA02:RF-Mux-1:T-Mon"){
+record(ai, "RA-ToSIA02:RF-SSAMux-1:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_1_TMon")
     field(DESC, "Temperatura Minirack 01")
@@ -1520,7 +1520,7 @@ record(ai, "RA-ToSIA02:RF-Mux-1:T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "RA-ToSIA02:RF-Mux-2:T-Mon"){
+record(ai, "RA-ToSIA02:RF-SSAMux-2:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_2_TMon")
     field(DESC, "Temperatura Minirack 02")
@@ -1529,7 +1529,7 @@ record(ai, "RA-ToSIA02:RF-Mux-2:T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "RA-ToSIA02:RF-Mux-3:T-Mon"){
+record(ai, "RA-ToSIA02:RF-SSAMux-3:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_3_TMon")
     field(DESC, "Temperatura Minirack 03")
@@ -1538,7 +1538,7 @@ record(ai, "RA-ToSIA02:RF-Mux-3:T-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "RA-ToSIA02:RF-Mux-4:T-Mon"){
+record(ai, "RA-ToSIA02:RF-SSAMux-4:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_4_TMon")
     field(DESC, "Temperatura Minirack 04")
