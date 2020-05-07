@@ -2,7 +2,7 @@
 from string import Template
 
 cmd_template = Template(
-"""#!/opt/epics-R3.15.6/modules/ether_ip-ether_ip-3-1/bin/linux-x86_64/eipIoc
+    """#!/opt/epics-R3.15.6/modules/ether_ip-ether_ip-3-1/bin/linux-x86_64/eipIoc
 
 # Load dbd, register the drvEtherIP .. commands
 dbLoadDatabase("/opt/epics-R3.15.6/modules/ether_ip-ether_ip-3-1/dbd/eipIoc.dbd")
@@ -25,9 +25,11 @@ dbLoadRecords("../database/${database}.db", "PLC=${plc}")
 dbLoadRecords("../database/${database}-Calc.db", "PLC=${plc}")
 iocInit()
 
-""")
+"""
+)
 
-ai_template = Template("""
+ai_template = Template(
+    """
 record(ai, "${pv}"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ${tag}")
@@ -36,9 +38,11 @@ record(ai, "${pv}"){
     field(PREC, "${prec}")
     field(EGU,  "${egu}")
 }
-""")
+"""
+)
 
-bo_template = Template("""
+bo_template = Template(
+    """
 record(bo, "${pv}"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) ${tag}")
@@ -47,9 +51,11 @@ record(bo, "${pv}"){
     field(ONAM, "${highname}")
     field(ZNAM, "${lowname}")
 }
-""")
+"""
+)
 
-bi_template = Template("""
+bi_template = Template(
+    """
 record(bi, "${pv}"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ${tag}")
@@ -58,4 +64,5 @@ record(bi, "${pv}"){
     field(ONAM, "${highname}")
     field(ZNAM, "${lowname}")
 }
-""")
+"""
+)
