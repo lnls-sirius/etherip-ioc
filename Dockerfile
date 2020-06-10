@@ -4,9 +4,6 @@
 FROM  lnlscon/epics-r3.15.8:v1.0
 LABEL maintainer="Claudio Carneiro <claudio.carneiro@lnls.br>"
 
-# Python3
-RUN pip3 install pandas==0.23.4 xlrd==1.2.0
-
 # VIM
 RUN apt-get -y update && apt-get -y install procps vim
 
@@ -27,12 +24,14 @@ RUN cd ${EPICS_MODULES} &&\
     sed -i -e '1iEPICS_BASE='${EPICS_BASE} configure/RELEASE && make
 ENV ETHER_IP ${EPICS_MODULES}/ether_ip-ether_ip-3-2
 
-RUN mkdir /opt/etheriopIOC
+RUN mkdir -p /opt/etheriopIOC
 WORKDIR /opt/etheriopIOC
 
-ADD etheriopIOC        etheriopIOC 
-ADD Makefile           Makefile
-ADD configure          configure
-ADD iocBoot            iocBoot
+COPY ./etheripIOCApp    /opt/etheriopIOC/etheripIOCApp
+COPY ./Makefile         /opt/etheriopIOC/Makefile
+COPY ./configure        /opt/etheriopIOC/configure
+COPY ./iocBoot          /opt/etheriopIOC/iocBoot
+COPY ./database         /opt/etheriopIOC/database
+RUN envsubst < configure/RELEASE.tmplt > configure/RELEASE && make
 
 CMD sleep infinity

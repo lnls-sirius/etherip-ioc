@@ -7,7 +7,7 @@ cd "${TOP}"
 dbLoadDatabase("dbd/etheripIOC.dbd")
 etheripIOC_registerRecordDeviceDriver(pdbbase)
 
-asSetFilename("${TOP}/log/Security.as")
+asSetFilename("${TOP}/db/Security.as")
 
 epicsEnvSet("EPICS_IOC_LOG_INET", "0.0.0.0")
 epicsEnvSet("EPICS_IOC_LOG_PORT", "7011")
