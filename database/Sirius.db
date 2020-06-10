@@ -1,5 +1,5 @@
 
-record(bi, "IHM:EXT_BO_01D_MA_B.Input_Temperatura"){
+record(bi, "IHM:EXT_BO_01D_MA_B:Input_Temperatura"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Input_Temperatura")
     field(DESC, "")
@@ -8,7 +8,7 @@ record(bi, "IHM:EXT_BO_01D_MA_B.Input_Temperatura"){
     field(ZNAM, "Disable")
 }
 
-record(bi, "IHM:EXT_BO_01D_MA_B.Input_Protecao"){
+record(bi, "IHM:EXT_BO_01D_MA_B:Input_Protecao"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Input_Protecao")
     field(DESC, "")
@@ -17,16 +17,16 @@ record(bi, "IHM:EXT_BO_01D_MA_B.Input_Protecao"){
     field(ZNAM, "Disable")
 }
 
-record(bi, "IHM:EXT_BO_01D_MA_B.Input_Protecao"){
+record(bi, "IHM:EXT_BO_01D_MA_B:Alimentacao"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Input_Protecao")
+    field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Alimentacao")
     field(DESC, "")
     field(SCAN, ".1 second")
     field(ONAM, "Enable")
     field(ZNAM, "Disable")
 }
 
-record(bi, "IHM:EXT_BO_01D_MA_B.Falha_Temperatura"){
+record(bi, "IHM:EXT_BO_01D_MA_B:Falha_Temperatura"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Falha_Temperatura")
     field(DESC, "")
@@ -35,7 +35,7 @@ record(bi, "IHM:EXT_BO_01D_MA_B.Falha_Temperatura"){
     field(ZNAM, "Disable")
 }
 
-record(bi, "IHM:EXT_BO_01D_MA_B.Falha_Protecao"){
+record(bi, "IHM:EXT_BO_01D_MA_B:Falha_Protecao"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Falha_Protecao")
     field(DESC, "")
@@ -44,7 +44,7 @@ record(bi, "IHM:EXT_BO_01D_MA_B.Falha_Protecao"){
     field(ZNAM, "Disable")
 }
 
-record(bi, "IHM:EXT_BO_01D_MA_B.Falha_Geral"){
+record(bi, "IHM:EXT_BO_01D_MA_B:Falha_Geral"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Falha_Geral")
     field(DESC, "")
