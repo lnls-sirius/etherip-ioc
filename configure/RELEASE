@@ -1,5 +1,7 @@
 # EPICS_BASE should appear last so earlier modules can override stuff:
-ETHER_IP=/opt/epics-R3.15.8/modules/ether_ip-ether_ip-3-2/
+ETHER_IP=
+CALC=
+CAPUTLOG=
 EPICS_BASE=/opt/epics-R3.15.8/base
 
 # Set RULES here if you want to use build rules from somewhere
