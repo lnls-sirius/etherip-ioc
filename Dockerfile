@@ -23,9 +23,9 @@ ENV EPICS_IOC_LOG_PORT 7011
 # EtherIP
 RUN cd ${EPICS_MODULES} &&\
     wget https://github.com/EPICSTools/ether_ip/archive/ether_ip-3-2.tar.gz &&\
-    tar -zxvf ether_ip-3-2.tar.gz && rm -f ether_ip-3-2.tar.gz && cd ether_ip-3-2 &&\
+    tar -zxvf ether_ip-3-2.tar.gz && rm -f ether_ip-3-2.tar.gz && cd ether_ip-ether_ip-3-2 &&\
     sed -i -e '1iEPICS_BASE='${EPICS_BASE} configure/RELEASE && make
-ENV ETHER_IP ${EPICS_MODULES}/ether_ip-3-2
+ENV ETHER_IP ${EPICS_MODULES}/ether_ip-ether_ip-3-2
 
 RUN mkdir /opt/etheriopIOC
 WORKDIR /opt/etheriopIOC

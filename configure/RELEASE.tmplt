@@ -1,5 +1,7 @@
 # EPICS_BASE should appear last so earlier modules can override stuff:
 ETHER_IP=${ETHER_IP}
+CALC=${CALC}
+CAPUTLOG=${CAPUTLOG}
 EPICS_BASE=${EPICS_BASE}
 
 # Set RULES here if you want to use build rules from somewhere
