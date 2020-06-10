@@ -24,14 +24,15 @@ RUN cd ${EPICS_MODULES} &&\
     sed -i -e '1iEPICS_BASE='${EPICS_BASE} configure/RELEASE && make
 ENV ETHER_IP ${EPICS_MODULES}/ether_ip-ether_ip-3-2
 
-RUN mkdir -p /opt/etheriopIOC
-WORKDIR /opt/etheriopIOC
+RUN mkdir -p /opt/etheripIOC
+WORKDIR /opt/etheripIOC
 
-COPY ./etheripIOCApp    /opt/etheriopIOC/etheripIOCApp
-COPY ./Makefile         /opt/etheriopIOC/Makefile
-COPY ./configure        /opt/etheriopIOC/configure
-COPY ./iocBoot          /opt/etheriopIOC/iocBoot
-COPY ./database         /opt/etheriopIOC/database
+COPY ./etheripIOCApp    /opt/etheripIOC/etheripIOCApp
+COPY ./Makefile         /opt/etheripIOC/Makefile
+COPY ./configure        /opt/etheripIOC/configure
+COPY ./iocBoot          /opt/etheripIOC/iocBoot
+COPY ./database         /opt/etheripIOC/database
 RUN envsubst < configure/RELEASE.tmplt > configure/RELEASE && make
+ENV PROCSERVPORT 27001
 
-CMD sleep infinity
+CMD procServ --allow -f -L - --chdir /opt/etheripIOC/iocBoot/iocetheripIOC ${PROCSERVPORT} /opt/etheripIOC/iocBoot/iocetheripIOC/Sirius.cmd
