@@ -1,8 +1,7 @@
-record(bi, "RA-ToBO:RF-ACDCPanel:300Vdc-Sts"){
+record(bi, "EXT_BO_01D_MA_B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ACDCPanel_300VdcSts")
-    field(DESC, "Leitura Liga 300 VDC")
-    field(SCAN, ".1 second")
+    field(INP, "@$(PLC) EXT_BO_01D_MA_B.Input_Temperatura")
+    field(SCAN, "1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
