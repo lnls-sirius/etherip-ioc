@@ -1,0 +1,8 @@
+record(bi, "RA-ToBO:RF-ACDCPanel:300Vdc-Sts"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ACDCPanel_300VdcSts")
+    field(DESC, "Leitura Liga 300 VDC")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
