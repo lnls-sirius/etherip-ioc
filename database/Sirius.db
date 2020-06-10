@@ -1,0 +1,54 @@
+
+record(bi, "${pv}"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Input_Temperatura")
+    field(DESC, "")
+    field(SCAN, ".1 second")
+    field(ONAM, "Enable")
+    field(ZNAM, "Disable")
+}
+
+record(bi, "${pv}"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Input_Protecao")
+    field(DESC, "")
+    field(SCAN, ".1 second")
+    field(ONAM, "Enable")
+    field(ZNAM, "Disable")
+}
+
+record(bi, "${pv}"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Input_Protecao")
+    field(DESC, "")
+    field(SCAN, ".1 second")
+    field(ONAM, "Enable")
+    field(ZNAM, "Disable")
+}
+
+record(bi, "${pv}"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Falha_Temperatura")
+    field(DESC, "")
+    field(SCAN, ".1 second")
+    field(ONAM, "Enable")
+    field(ZNAM, "Disable")
+}
+
+record(bi, "${pv}"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Falha_Protecao")
+    field(DESC, "")
+    field(SCAN, ".1 second")
+    field(ONAM, "Enable")
+    field(ZNAM, "Disable")
+}
+
+record(bi, "${pv}"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Falha_Geral")
+    field(DESC, "")
+    field(SCAN, ".1 second")
+    field(ONAM, "Enable")
+    field(ZNAM, "Disable")
+}
