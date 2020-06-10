@@ -1,0 +1,5 @@
+version: "3.7"
+services:
+    etherip:
+        build: "."
+        image: "lnlscon/etheripioc_sirius:v1.0"
