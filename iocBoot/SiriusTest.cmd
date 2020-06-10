@@ -15,7 +15,7 @@ iocLogInit
 EIP_buffer_limit(450)
 drvEtherIP_init()
 EIP_verbosity(7)
-drvEtherIP_define_PLC("plc1", "10.0.38.199", 0)
+drvEtherIP_define_PLC("plc1", "10.0.38.199", 1)
 
 dbLoadRecords("../database/SiriusTest.db", "PLC=plc1")
 iocInit()

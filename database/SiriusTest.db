@@ -1,7 +1,8 @@
 record(bi, "EXT_BO_01D_MA_B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) EXT_BO_01D_MA_B.Input_Temperatura")
+    field(INP, "@$(PLC) Program:IHM.EXT_BO_01D_MA_B.Input_Temperatura")
     field(SCAN, "1 second")
+    #field(SCAN, "I/O Intr")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
