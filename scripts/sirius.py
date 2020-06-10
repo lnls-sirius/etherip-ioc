@@ -4,7 +4,7 @@ from string import Template
 
 bi_template = Template(
     """
-record(bi, "${pv}"){
+record(bi, "${name}"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ${tag}")
     field(DESC, "${desc}")
