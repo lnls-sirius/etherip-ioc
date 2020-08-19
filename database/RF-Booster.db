@@ -341,9 +341,9 @@ record(bi, "BO-05D:RF-Intlk:BO-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-05D:RF-Intlk:LLRF-MOn"){
+record(bi, "BO-05D:RF-Intlk:LLRF-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) BO_05D_RF_Intlk_LLRFMOn")
+    field(INP, "@$(PLC) BO_05D_RF_Intlk_LLRFMon")
     field(DESC, "Sinal de erro do CLP para o ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
