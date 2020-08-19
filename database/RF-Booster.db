@@ -359,9 +359,9 @@ record(bi, "BO-05D:RF-Intlk:SSAOn-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-05D:RF-Intlk:Estop-Mon"){
+record(bi, "BO-05D:RF-Intlk:EStop-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) BO_05D_RF_Intlk_EstopMon")
+    field(INP, "@$(PLC) BO_05D_RF_Intlk_EStopMon")
     field(DESC, "Emergencia sistema de interl")
     field(SCAN, ".1 second")
     field(ONAM, "True")
