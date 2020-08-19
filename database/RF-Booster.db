@@ -721,7 +721,7 @@ record(bo, "RA-RaBO01:RF-LLRFPreAmp:PinSwDsbl-Sel"){
 
 record(bi, "RA-RaBO01:RF-LLRFPreAmp:PinSw-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) LLRFPreAmp_PinSwMon")
+    field(INP, "@$(PLC) RA_RaBO01_RF_LLRFPreAmp_PinSwMon")
     field(DESC, "Chave Pin Lenta")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -730,7 +730,7 @@ record(bi, "RA-RaBO01:RF-LLRFPreAmp:PinSw-Mon"){
 
 record(bi, "BO-05D:RF-LLRF:Status-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) LLRF_StatusMon")
+    field(INP, "@$(PLC) BO_05D_RF_LLRF_StatusMon")
     field(DESC, "LLRF Operacional")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -739,7 +739,7 @@ record(bi, "BO-05D:RF-LLRF:Status-Mon"){
 
 record(ai, "RA-RaBO01:RF-LLRFPreAmp:T1-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) LLRFPreAmp_T1Mon")
+    field(INP, "@$(PLC) RA_RaBO01_RF_LLRFPreAmp_T1Mon")
     field(DESC, "PT - 100 01 Pré - Amplificad")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -748,7 +748,7 @@ record(ai, "RA-RaBO01:RF-LLRFPreAmp:T1-Mon"){
 
 record(bi, "RA-RaBO01:RF-LLRFPreAmp:T1Up-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) LLRFPreAmp_T1UpMon")
+    field(INP, "@$(PLC) RA_RaBO01_RF_LLRFPreAmp_T1UpMon")
     field(DESC, "PT - 100 01 Pré - Amplificad")
     field(SCAN, ".1 second")
     field(ONAM, "True")
