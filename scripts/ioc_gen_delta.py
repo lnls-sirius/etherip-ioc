@@ -184,6 +184,30 @@ def get_args():
         default="HYST",
         help="EPICS Alarm Deadband column name."
     )
+    parser.add_argument(
+        "--bi",
+        nargs='+',
+        default="Binary Input",
+        help="EPICS bi data type alias (can be more than one)."
+    )
+    parser.add_argument(
+        "--bo",
+        nargs='+',
+        default="Binary Output",
+        help="EPICS bo data type alias (can be more than one)."
+    )
+    parser.add_argument(
+        "--ai",
+        nargs='+',
+        default="Analog Input",
+        help="EPICS ai data type alias (can be more than one)."
+    )
+    parser.add_argument(
+        "--ao",
+        nargs='+',
+        default="Analog Output",
+        help="EPICS ao data type alias (can be more than one)."
+    )
 
     args = parser.parse_args()
     return args
@@ -224,14 +248,16 @@ def generate(args):
             sheet.replace(replace_info, inplace=True, regex=True)
             sheet.fillna("", inplace=True)
             for n, row in sheet.iterrows():
+                # main columnn
                 pv = row[args.col_pv]
-                desc = row[args.col_desc]
                 tag = row[args.col_tag]
-                inout = row[args.col_inout]
                 dtype = row[args.col_dtype]
-                egu = row[args.col_egu]
-                scan = row[args.col_scan]
-                prec = row[args.col_prec]
+                # optional columns
+                inout = row.get(args.col_inout, '')
+                desc = row.get(args.col_desc, defaults['desc'])
+                egu = row.get(args.col_egu, defaults['egu'])
+                scan = row.get(args.col_scan, defaults['scan'])
+                prec = row.get(args.col_prec, defaults['prec'])
                 znam = row.get(args.col_znam, defaults['znam'])
                 onam = row.get(args.col_onam, defaults['onam'])
                 zsv = row.get(args.col_zsv, defaults['zsv'])
@@ -278,85 +304,88 @@ def generate(args):
                 else:
                     tags[tag].append(pv)
 
-                if dtype == "Digital":
-                    if inout == "Input" or inout == "Output":
-                        f.write(
-                            bi_template.safe_substitute(
-                                pv=pv,
-                                tag=tag,
-                                desc=desc,
-                                scan=scan,
-                                znam=znam,
-                                onam=onam,
-                                zsv=zsv,
-                                osv=osv,
-                            )
-                        )
-                    elif inout == "Control":
-                        f.write(
-                            bo_template.safe_substitute(
-                                pv=pv,
-                                tag=tag,
-                                desc=desc,
-                                scan=scan,
-                                znam=znam,
-                                onam=onam,
-                                zsv=zsv,
-                                osv=osv,
-                            )
-                        )
-                    else:
-                        logger.warning('Invalid Type "{}".'.format(inout + "  " + pv))
+                # Concatenate dtype and inout information.
+                #     Ex: dype='Analog', inout='Ouput' =>
+                #         full_type = 'Analog Output'
+                #     If inout has no value, full_type = dtype
+                full_type = dtype
+                if inout != '' and not inout.startswith("-") and inout.lower != 'n/a':
+                    full_type = dtype + ' ' + inout
 
-                elif dtype == "Analog":
-                    if inout == "Input":
-                        f.write(
-                            ai_template.safe_substitute(
-                                pv=pv,
-                                tag=tag,
-                                desc=desc,
-                                scan=scan,
-                                prec=str(prec),
-                                egu=egu,
-                                hopr=hopr,
-                                lopr=lopr,
-                                hihi=hihi,
-                                high=high,
-                                low=low,
-                                lolo=lolo,
-                                hhsv=hhsv,
-                                hsv=hsv,
-                                lsv=lsv,
-                                llsv=llsv,
-                                hyst=hyst,
-                            )
+                if full_type in args.bi:
+                    f.write(
+                        bi_template.safe_substitute(
+                            pv=pv,
+                            tag=tag,
+                            desc=desc,
+                            scan=scan,
+                            onam=onam,
+                            znam=znam,
+                            zsv=zsv,
+                            osv=osv,
                         )
-                    elif inout == "Output":
-                        f.write(
-                            ao_template.safe_substitute(
-                                pv=pv,
-                                tag=tag,
-                                desc=desc,
-                                scan=scan,
-                                prec=str(prec),
-                                egu=egu,
-                                drvh=drvh,
-                                drvl=drvl,
-                                hopr=hopr,
-                                lopr=lopr,
-                                hihi=hihi,
-                                high=high,
-                                low=low,
-                                lolo=lolo,
-                                hhsv=hhsv,
-                                hsv=hsv,
-                                lsv=lsv,
-                                llsv=llsv,
-                                hyst=hyst,
-                            )
+                    )
+                elif full_type in args.bo:
+                    f.write(
+                        bo_template.safe_substitute(
+                            pv=pv,
+                            tag=tag,
+                            desc=desc,
+                            scan=scan,
+                            onam=onam,
+                            znam=znam,
+                                zsv=zsv,
+                                osv=osv,
                         )
-                    else:
-                        logger.warning('Invalid Type "{}".'.format(inout + "  " + pv))
+                    )
+                elif full_type in args.ai:
+                    f.write(
+                        ai_template.safe_substitute(
+                            pv=pv,
+                            tag=tag,
+                            desc=desc,
+                            scan=scan,
+                            prec=str(prec),
+                            egu=egu,
+                            hopr=hopr,
+                            lopr=lopr,
+                            hihi=hihi,
+                            high=high,
+                            low=low,
+                            lolo=lolo,
+                            hhsv=hhsv,
+                            hsv=hsv,
+                            lsv=lsv,
+                            llsv=llsv,
+                            hyst=hyst,
+                        )
+                    )
+                elif full_type in args.ao:
+                    f.write(
+                        ao_template.safe_substitute(
+                            pv=pv,
+                            tag=tag,
+                            desc=desc,
+                            scan=scan,
+                            prec=str(prec),
+                            egu=egu,
+                            drvh=drvh,
+                            drvl=drvl,
+                            hopr=hopr,
+                            lopr=lopr,
+                            hihi=hihi,
+                            high=high,
+                            low=low,
+                            lolo=lolo,
+                            hhsv=hhsv,
+                            hsv=hsv,
+                            lsv=lsv,
+                            llsv=llsv,
+                            hyst=hyst,
+                        )
+                    )
+                else:
+                    logger.warning('Invalid Type "{}".'.format(full_type + " for " + pv))
 
             for tag, vals in tags.items():
                 if len(vals) > 1:

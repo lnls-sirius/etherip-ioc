@@ -19,10 +19,15 @@ python3 $AUTO_GEN_SCRIPT \
 --plc-ip "1.1.1.1" \
 --plc-name MyPLC \
 --plc-module 0 \
---col-desc Description \
 --col-dtype "Data Type" \
---col-egu EGU \
+--bi "Digital Input" \
+     "Digital Output" \
+--bo "Digital Control" \
+--ai "Analog Input" \
+--ao "Analog Output" \
+--col-desc Description \
 --col-inout "In/Out" \
+--col-egu EGU \
 --col-prec "Prec" \
 --col-pv NAME \
 --col-scan Scan \
