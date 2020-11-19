@@ -408,7 +408,7 @@ def generate(args):
 
             for tag, vals in tags.items():
                 if len(vals) > 1:
-                    logger.error('Tag "{}" already exists {}.'.format(tag, tags[tag]))
+                    logger.warning('Tag "{}" already exists {}.'.format(tag, tags[tag]))
 
 
 if __name__ == "__main__":
