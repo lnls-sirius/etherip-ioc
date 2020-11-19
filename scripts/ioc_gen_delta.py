@@ -247,6 +247,25 @@ def generate(args):
             replace_info = {"\n": ""}
             sheet.replace(replace_info, inplace=True, regex=True)
             sheet.fillna("", inplace=True)
+            # check required columns
+            if args.col_pv not in sheet.columns:
+                logger.error(
+                    'Could not find required {} column in {} sheet.'
+                    .format(args.col_pv, s_name)
+                )
+                continue
+            if args.col_tag not in sheet.columns:
+                logger.error(
+                    'Could not find required {} column in {} sheet.'
+                    .format(args.col_tag, s_name)
+                )
+                continue
+            if args.col_dtype not in sheet.columns:
+                logger.error(
+                    'Could not find required {} column in {} sheet.'
+                    .format(args.col_dtype, s_name)
+                )
+                continue
             for n, row in sheet.iterrows():
                 # main columnn
                 pv = row[args.col_pv]
