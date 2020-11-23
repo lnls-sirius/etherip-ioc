@@ -1,0 +1,38 @@
+[
+    {
+        "tag": "Program:IHM.EXT_BO_01D_MA_B.Input_Temperatura",
+        "scan": ".1",
+        "type": "bi",
+        "name": "IHM:EXT_BO_01D_MA_B:Input_Temperatura"
+    },
+    {
+        "tag": "Program:IHM.EXT_BO_01D_MA_B.Input_Protecao",
+        "scan": ".1",
+        "type": "bi",
+        "name": "IHM:EXT_BO_01D_MA_B:Input_Protecao"
+    },
+    {
+        "tag": "Program:IHM.EXT_BO_01D_MA_B.Alimentacao",
+        "scan": ".1",
+        "type": "bi",
+        "name": "IHM:EXT_BO_01D_MA_B:Alimentacao"
+    },
+    {
+        "tag": "Program:IHM.EXT_BO_01D_MA_B.Falha_Temperatura",
+        "scan": ".1",
+        "type": "bi",
+        "name": "IHM:EXT_BO_01D_MA_B:Falha_Temperatura"
+    },
+    {
+        "tag": "Program:IHM.EXT_BO_01D_MA_B.Falha_Protecao",
+        "scan": ".1",
+        "type": "bi",
+        "name": "IHM:EXT_BO_01D_MA_B:Falha_Protecao"
+    },
+    {
+        "tag": "Program:IHM.EXT_BO_01D_MA_B.Falha_Geral",
+        "scan": ".1",
+        "type": "bi",
+        "name": "IHM:EXT_BO_01D_MA_B:Falha_Geral"
+    }
+]

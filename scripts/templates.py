@@ -30,7 +30,7 @@ iocInit()
 
 ai_template = Template(
     """
-record(ai, "${pv}"){
+record(ai, "${name}"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ${tag}")
     field(DESC, "${desc}")
@@ -43,26 +43,26 @@ record(ai, "${pv}"){
 
 bo_template = Template(
     """
-record(bo, "${pv}"){
+record(bo, "${name}"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) ${tag}")
     field(DESC, "${desc}")
     field(SCAN, "${scan} second")
-    field(ONAM, "${highname}")
-    field(ZNAM, "${lowname}")
+    field(ONAM, "${onam}")
+    field(ZNAM, "${znam}")
 }
 """
 )
 
 bi_template = Template(
     """
-record(bi, "${pv}"){
+record(bi, "${name}"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ${tag}")
     field(DESC, "${desc}")
     field(SCAN, "${scan} second")
-    field(ONAM, "${highname}")
-    field(ZNAM, "${lowname}")
+    field(ONAM, "${onam}")
+    field(ZNAM, "${znam}")
 }
 """
 )
