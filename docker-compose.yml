@@ -1,5 +1,12 @@
 version: "3.7"
 services:
-    etherip:
-        build: "."
-        image: "lnlscon/etheripioc_sirius:v1.0"
+  etherip:
+    build: "."
+    image: "lnlscon/etheripioc_sirius:v1.0"
+
+  sirius:
+    image: "lnlscon/etheripioc_rf_bo:v1.0"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: sirius

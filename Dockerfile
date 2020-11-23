@@ -1,11 +1,11 @@
 # Author: Cláudio Ferreira Carneiro
 # LNLS - Brazilian Synchrotron Light Source Laboratory
 
-FROM  lnlscon/epics-r3.15.8:v1.2
+FROM  lnlscon/epics-r3.15.8:v1.2 AS base
 LABEL maintainer="Claudio Carneiro <claudio.carneiro@lnls.br>"
 
 # VIM
-RUN apt-get -y update && apt-get -y install procps vim
+RUN apt-get -y update && apt-get -y install procps socat vim
 
 # Epics auto addr list
 ENV EPICS_CA_AUTO_ADDR_LIST YES
@@ -13,9 +13,11 @@ ENV EPICS_CA_AUTO_ADDR_LIST YES
 # Base procServ port
 ENV EPICS_IOC_CAPUTLOG_INET 0.0.0.0
 ENV EPICS_IOC_CAPUTLOG_PORT 7012
-
 ENV EPICS_IOC_LOG_INET 0.0.0.0
 ENV EPICS_IOC_LOG_PORT 7011
+
+ENV IOC_PROCSERV_SOCK /opt/etheripIOC/sockets/ioc.sock
+ENV PCTRL_SOCK /opt/etheripIOC/procCtrl/sockets/pCtrl.sock
 
 # EtherIP
 RUN cd ${EPICS_MODULES} &&\
@@ -30,8 +32,16 @@ WORKDIR /opt/etheripIOC
 
 COPY . /opt/etheripIOC
 
-RUN envsubst < configure/RELEASE.tmplt > configure/RELEASE && make && make distclean
+RUN cd /opt/etheripIOC/procCtrl && envsubst < configure/RELEASE.tmplt > configure/RELEASE &&\
+    cat configure/RELEASE && make distclean && make clean && make -j$(nproc) && mkdir sockets &&\
+    \
+    cd /opt/etheripIOC/ && mkdir sockets && envsubst < configure/RELEASE.tmplt > configure/RELEASE &&\
+    make -j$(nproc) && make distclean
 
-ENV PROCSERVPORT 27001
+CMD [ "/bin/bash", "/opt/etheripIOC/entrypoint.sh" ]
 
-CMD make clean && make distclean && make && procServ --allow -f -L - --chdir /opt/etheripIOC/iocBoot/iocetheripIOC ${PROCSERVPORT} /opt/etheripIOC/iocBoot/iocetheripIOC/Sirius.cmd
+FROM base AS sirius
+ENV NAME SIRIUS-INTLK
+ENV CMD Sirius.cmd
+ENV IOC_PROCSERV_PREFIX PCtrl:SiriusIntlk
+ENV DEVIP localhost
