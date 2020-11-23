@@ -110,3 +110,27 @@ record(bi, "${pv}"){
 }
 """
 )
+
+lsi_template = Template(
+    """
+record(lsi, "${pv}"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ${tag}")
+    field(DESC, "${desc}")
+    field(SCAN, "${scan} second")
+    field(SIZV,  "${sizv}")
+}
+"""
+)
+
+lso_template = Template(
+    """
+record(lso, "${pv}"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ${tag}")
+    field(DESC, "${desc}")
+    field(SCAN, "${scan} second")
+    field(SIZV,  "${sizv}")
+}
+"""
+)

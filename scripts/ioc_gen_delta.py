@@ -34,6 +34,7 @@ defaults = {
     "lsv": "$(LSV)",
     "llsv": "$(LLSV)",
     "hyst": "$(HYST)",
+    "sizv": "$(SIZV)",
 }
 
 def config_logger(logger):
@@ -185,6 +186,11 @@ def get_args():
         help="EPICS Alarm Deadband column name."
     )
     parser.add_argument(
+        "--col-sizv",
+        default="SIZV",
+        help="EPICS Long String Size of Buffer column name."
+    )
+    parser.add_argument(
         "--bi",
         nargs='+',
         default="Binary Input",
@@ -207,6 +213,20 @@ def get_args():
         nargs='+',
         default="Analog Output",
         help="EPICS ao data type alias (can be more than one)."
+    )
+    # EPICS base 3.15 only
+    parser.add_argument(
+        "--lsi",
+        nargs='+',
+        default="Long String Input",
+        help="EPICS lsi data type alias (can be more than one)."
+    )
+    # EPICS base 3.15 only
+    parser.add_argument(
+        "--lso",
+        nargs='+',
+        default="Long String Output",
+        help="EPICS lso data type alias (can be more than one)."
     )
 
     args = parser.parse_args()
@@ -294,6 +314,7 @@ def generate(args):
                 lsv = row.get(args.col_lsv, defaults['lsv'])
                 llsv = row.get(args.col_llsv, defaults['llsv'])
                 hyst = row.get(args.col_hyst, defaults['hyst'])
+                sizv = row.get(args.col_sizv, defaults['sizv'])
 
                 if not pv or pv.startswith("-"):
                     continue
@@ -401,6 +422,26 @@ def generate(args):
                             lsv=lsv,
                             llsv=llsv,
                             hyst=hyst,
+                        )
+                    )
+                elif full_type in args.lsi:
+                    f.write(
+                        lsi_template.safe_substitute(
+                            pv=pv,
+                            tag=tag,
+                            desc=desc,
+                            scan=scan,
+                            sizv=sizv,
+                        )
+                    )
+                elif full_type in args.lso:
+                    f.write(
+                        lso_template.safe_substitute(
+                            pv=pv,
+                            tag=tag,
+                            desc=desc,
+                            scan=scan,
+                            sizv=sizv,
                         )
                     )
                 else:
