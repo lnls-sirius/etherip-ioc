@@ -13,7 +13,7 @@ procCtrl_registerRecordDeviceDriver pdbbase
 asSetFilename("$(TOP)/db/Security.as")
 
 dbLoadRecords("$(PROCSERVCONTROL)/db/procServControl.template", "P=$(IOC_PROCSERV_PREFIX),PORT=port1,SHOWOUT=1, MANUALSTART=,name=$(IOC_PROCSERV_PREFIX)")
-drvAsynIPPortConfigure("port1", "unix://$(IOC_PROCSERV_ADDR)")
+drvAsynIPPortConfigure("port1", "unix://$(IOC_PROCSERV_SOCK)")
 
 
 cd "${TOP}/iocBoot/${IOC}"

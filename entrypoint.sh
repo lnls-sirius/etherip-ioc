@@ -7,10 +7,10 @@ echo "##########################################################################
 echo ""
 /usr/local/bin/procServ \
     -L -\
-    -f \
     -c "$(pwd)/procCtrl/iocBoot/iocprocCtrl" \
-    -n "${NAME}-PCTRL-IOC" \
+    -f \
     -i ^D^C \
+    -n "${NAME}-PCTRL-IOC" \
     'unix:'${PCTRL_SOCK} ./st.cmd &
 
 sleep 4
@@ -18,13 +18,13 @@ sleep 4
 echo ""
 echo ""
 echo "##########################################################################"
-echo "# ${NAME} - Port ${IOC_PROCSERV_ADDR}"
+echo "# ${NAME} - Port ${IOC_PROCSERV_SOCK}"
 echo "##########################################################################"
 echo ""
 /usr/local/bin/procServ \
     -L - \
-    -f \
     -c "$(pwd)/iocBoot/iocetheripIOC/" \
-    -n "${NAME}-IOC" \
+    -f \
     -i ^D^C \
+    -n "${NAME}-IOC" \
     unix:${IOC_PROCSERV_SOCK} ./${CMD}

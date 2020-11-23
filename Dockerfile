@@ -36,7 +36,7 @@ RUN cd /opt/etheripIOC/procCtrl && envsubst < configure/RELEASE.tmplt > configur
     cat configure/RELEASE && make distclean && make clean && make -j$(nproc) && mkdir sockets &&\
     \
     cd /opt/etheripIOC/ && mkdir sockets && envsubst < configure/RELEASE.tmplt > configure/RELEASE &&\
-    make -j$(nproc) && make distclean
+    make -j$(nproc)
 
 CMD [ "/bin/bash", "/opt/etheripIOC/entrypoint.sh" ]
 
