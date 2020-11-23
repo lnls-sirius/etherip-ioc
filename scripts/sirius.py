@@ -2,7 +2,6 @@
 import os
 import json
 
-from string import Template
 from templates import bi_template
 
 default = {"onam": "Enable", "znam": "Disable", "desc": ""}
