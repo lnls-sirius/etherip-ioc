@@ -1,3 +1,8 @@
-etc/
-services/
-iocBoot/iocetheripIOC/logEnv
+.dockerignore
+.git
+.gitignore
+.gitmodules
+Dockerfile
+README.md
+docker-compose.yml
+etc

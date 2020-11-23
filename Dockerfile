@@ -28,11 +28,7 @@ ENV ETHER_IP ${EPICS_MODULES}/ether_ip-ether_ip-3-2
 RUN mkdir -p /opt/etheripIOC
 WORKDIR /opt/etheripIOC
 
-COPY ./etheripIOCApp    /opt/etheripIOC/etheripIOCApp
-COPY ./Makefile         /opt/etheripIOC/Makefile
-COPY ./configure        /opt/etheripIOC/configure
-COPY ./iocBoot          /opt/etheripIOC/iocBoot
-COPY ./database         /opt/etheripIOC/database
+COPY . /opt/etheripIOC
 
 RUN envsubst < configure/RELEASE.tmplt > configure/RELEASE && make && make distclean
 
