@@ -10,3 +10,17 @@ services:
       context: .
       dockerfile: Dockerfile
       target: sirius
+
+  rf_bo:
+    image: "lnlscon/etheripioc_rf_bo:v1.0"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: rf_bo
+
+  rf_si:
+    image: "lnlscon/etheripioc_rf_si:v1.0"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: rf_si

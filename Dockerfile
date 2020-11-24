@@ -43,17 +43,17 @@ CMD [ "/bin/bash", "/opt/etheripIOC/entrypoint.sh" ]
 FROM base AS sirius
 ENV NAME SIRIUS-INTLK
 ENV CMD Sirius.cmd
-ENV IOC_PROCSERV_PREFIX PCtrl:SiriusIntlk
+ENV IOC_PROCSERV_PREFIX PCtrl:${NAME}
 ENV DEVIP localhost
 
 FROM base AS rf_bo
 ENV NAME RF-BO-INTLK
 ENV CMD RF-Booster.cmd
-ENV IOC_PROCSERV_PREFIX PCtrl:RF-BO-Intlk
 ENV DEVIP localhost
+ENV IOC_PROCSERV_PREFIX PCtrl:${NAME}
 
 FROM base AS rf_si
 ENV NAME RF-SI-INTLK
 ENV CMD RF-Booster.cmd
-ENV IOC_PROCSERV_PREFIX PCtrl:RF-BO-Intlk
 ENV DEVIP localhost
+ENV IOC_PROCSERV_PREFIX PCtrl:${NAME}
