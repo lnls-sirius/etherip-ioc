@@ -83,7 +83,9 @@ def generate(args):
     sheet_name = args.sheet.split(",")
     logger.info("Args, {}.".format(vars(args)))
 
-    IOC_CMD_PATH = os.path.join(BASE_PATH, "../iocBoot/") + args.ioc_name + ".cmd"
+    IOC_CMD_PATH = (
+        os.path.join(BASE_PATH, "../iocBoot/iocetheripIOC/") + args.ioc_name + ".cmd"
+    )
     IOC_DATABASE_PATH = os.path.join(BASE_PATH, "../database/") + args.ioc_name + ".db"
 
     logger.info('Generating "{}.cmd" file at "{}".'.format(args.ioc_name, IOC_CMD_PATH))
@@ -111,7 +113,7 @@ def generate(args):
             sheet.replace(replace_info, inplace=True, regex=True)
             sheet.fillna("", inplace=True)
             for n, row in sheet.iterrows():
-                pv = row[args.col_pv]
+                name = row[args.col_pv]
                 desc = row[args.col_desc]
                 tag = row[args.col_tag]
                 inout = row[args.col_inout]
@@ -120,74 +122,76 @@ def generate(args):
                 scan = row[args.col_scan]
                 prec = row[args.col_prec]
 
-                if not pv or pv.startswith("-"):
+                if not name or name.startswith("-"):
                     continue
 
                 if len(desc) > 28:
                     desc = desc[0:28]
 
-                if type(egu) == float:
-                    egu = ""
-                else:
-                    egu = re.sub(r"[^A-Za-z0-9 ]+", "", egu)
+                # Filter invalid EGU character
+                egu = "" if type(egu) == float else re.sub(r"[^A-Za-z0-9 ]+", "", egu)
 
                 if scan not in SCAN_VALUES:
                     logger.error(
-                        'Invalid scan value "{}" defined for pv "{}".'.format(scan, pv)
+                        'Invalid scan value "{}" defined for name "{}".'.format(
+                            scan, name
+                        )
                     )
                     continue
 
                 if not tag or type(tag) != str or tag == "" or tag == "N/A":
                     logger.warning(
-                        "Tag not set! {}. EPICS record won't be generated.".format(pv)
+                        "Tag not set! {}. EPICS record won't be generated.".format(name)
                     )
                     continue
 
                 if tag not in tags:
-                    tags[tag] = [pv]
+                    tags[tag] = [name]
                 else:
-                    tags[tag].append(pv)
+                    tags[tag].append(name)
 
                 if dtype == "Digital":
                     if inout == "Input" or inout == "Output":
                         f.write(
                             bi_template.safe_substitute(
-                                pv=pv,
-                                tag=tag,
                                 desc=desc,
+                                name=name,
+                                onam="True",
                                 scan=scan,
-                                highname="True",
-                                lowname="False",
+                                tag=tag,
+                                znam="False",
                             )
                         )
                     elif inout == "Control":
                         f.write(
                             bo_template.safe_substitute(
-                                pv=pv,
-                                tag=tag,
                                 desc=desc,
+                                name=name,
+                                onam="True",
                                 scan=scan,
-                                highname="True",
-                                lowname="False",
+                                tag=tag,
+                                znam="False",
                             )
                         )
                     else:
-                        logger.warning('Invalid Type "{}".'.format(inout + "  " + pv))
+                        logger.warning('Invalid Type "{}".'.format(inout + "  " + name))
 
                 elif dtype == "Analog":
                     if inout == "Input":
                         f.write(
                             ai_template.safe_substitute(
-                                pv=pv,
-                                tag=tag,
                                 desc=desc,
-                                scan=scan,
-                                prec=str(prec),
                                 egu=egu,
+                                name=name,
+                                prec=str(prec),
+                                scan=scan,
+                                tag=tag,
                             )
                         )
                     else:
-                        logger.warning("Type Analog Out Not - Supported {}.".format(pv))
+                        logger.warning(
+                            "Type Analog Out Not - Supported {}.".format(name)
+                        )
 
             for tag, vals in tags.items():
                 if len(vals) > 1:
