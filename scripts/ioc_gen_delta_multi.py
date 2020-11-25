@@ -250,7 +250,7 @@ def get_args():
         "--multi-cmd",
         nargs=4,
         action='append',
-        help="Create a startup script copy for each ioc name, IP address,"
+        help="Create a startup script copy for each cmd name, IP address,"
              " module number, and associated DB file name."
     )
     parser.add_argument(
@@ -416,7 +416,7 @@ def generate(args, db=True, db_name='example',
                     if type(egu) == float:
                         egu = ""
                     else:
-                        egu = re.sub(r"[^A-Za-z0-9 ]+", "", egu)
+                        egu = re.sub(r"[^A-Za-z0-9/% ]+", "", egu)
     
                     if scan not in SCAN_VALUES:
                         logger.error(

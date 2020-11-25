@@ -325,7 +325,7 @@ def generate(args):
                 if type(egu) == float:
                     egu = ""
                 else:
-                    egu = re.sub(r"[^A-Za-z0-9 ]+", "", egu)
+                    egu = re.sub(r"[^A-Za-z0-9/% ]+", "", egu)
 
                 if scan not in SCAN_VALUES:
                     logger.error(
