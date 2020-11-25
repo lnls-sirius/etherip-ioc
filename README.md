@@ -25,7 +25,7 @@ There's a shell script for each application. Just run it (Always check if all pa
 
 ```command
 cd scripts
-./<script>
+make <target>
 ```
 
 These IOCs are meant to run on Docker containers. In order to build a new image the compose file [`docker-compose.yml`](./docker-compose.yml) is used. For each subsystem a new target must be specified at the [`Dockerfile`](./Dockerfile) and referenced on the build section of the previously mentioned [`docker-compose.yml`](./docker-compose.yml).
