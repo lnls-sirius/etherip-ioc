@@ -40,6 +40,18 @@ The build process will **not** execute the database generation scripts. This is 
 
 Deploy the a Docker container with the correct settings e.g. Environment variables and network configuration.
 
+The following environment variables are used to customize the deployment:
+
+| Name  | Default | Desc |
+|------ |---------|------|
+| CMD   |         | iocBoot cmd file |
+| DEVIP |         |PLC IP Address |
+| IOC_PROCSERV_PREFIX || procServControl Prefix |
+|EPICS_IOC_CAPUTLOG_INET|0.0.0.0|EPICS Logging Inet (generic)|
+|EPICS_IOC_CAPUTLOG_PORT|7012|EPICS Logging Port (generic)|
+|EPICS_IOC_LOG_INET|0.0.0.0|EPICS Logging Inet (caput)|
+|EPICS_IOC_LOG_PORT|7011|EPICS Logging Port (caput)|
+
 ## Update
 
-In order to update the IOC, replace the spreadsheet at `etc/<spreadsheet>`, execute the corresponding shell script at `scripts/<script>` and restart the IOC.
+Update the corresponding spreadsheet at `etc/<spreadsheet>`, `cd ./scripts` and run the corresponding `make <target>`.
