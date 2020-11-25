@@ -6,8 +6,6 @@ cmd_template = Template(
 < envPaths
 < logEnv
 
-# epicsEnvSet("EPICS_CAS_INTF_ADDR_LIST", "${epics_cas_intf_addr_list}")
-
 cd "${TOP}"
 
 # Load dbd, register the drvEtherIP .. commands
@@ -22,7 +20,7 @@ iocLogInit
 EIP_buffer_limit(450)
 drvEtherIP_init()
 EIP_verbosity(7)
-drvEtherIP_define_PLC("${plc}", "${ip}", ${module})
+drvEtherIP_define_PLC("${plc}", "$(DEVIP)", ${module})
 
 dbLoadRecords("database/${database}.db", "PLC=${plc}")
 dbLoadRecords("database/${database}-Calc.db", "PLC=${plc}")

@@ -28,7 +28,6 @@ def get_args():
         )
     )
     parser.add_argument("spreadsheet", help="Excel spreadsheet location.")
-    parser.add_argument("--plc-ip", required=True, dest="plc_ip", help="PLC IP.")
     parser.add_argument(
         "--plc-name",
         required=True,
@@ -58,17 +57,6 @@ def get_args():
     parser.add_argument("--sheet", required=True, help="Sheet name.")
 
     parser.add_argument(
-        "--epics-ca-server-port",
-        default=5064,
-        help="EPICS_CA_SERVER_PORT value.",
-        type=int,
-    )
-    parser.add_argument(
-        "--epics-cas-intf-addr-list",
-        default="127.0.0.1",
-        help="EPICS_CAS_INTF_ADDR_LIST ip.",
-    )
-    parser.add_argument(
         "--arch",
         choices=["linux-x86_64", "linux-arm"],
         default="linux-x86_64",
@@ -95,9 +83,6 @@ def generate(args):
             cmd_template.safe_substitute(
                 arch=args.arch,
                 database=args.ioc_name,
-                epics_ca_server_port=args.epics_ca_server_port,
-                epics_cas_intf_addr_list=args.epics_cas_intf_addr_list,
-                ip=args.plc_ip,
                 module=args.plc_module,
                 plc=args.plc_name,
             )
