@@ -27,7 +27,7 @@ There's a shell script for each application. Just run it (Always check if all pa
 
 ```command
 cd scripts
-./<script>
+make <target>
 ```
 
 These IOCs are meant to run on Docker containers. In order to build a new image the compose file [`docker-compose.yml`](./docker-compose.yml) is used. For each subsystem a new target must be specified at the [`Dockerfile`](./Dockerfile) and referenced on the build section of the previously mentioned [`docker-compose.yml`](./docker-compose.yml).
@@ -36,7 +36,7 @@ These IOCs are meant to run on Docker containers. In order to build a new image 
 docker-compose build <service_name>
 ```
 
-The build process will **not** execute the database generation scripts. This is a conscious choice and that aims to keep the content of the Docker container in sync with this repository.
+The build process will **not** execute the database generation scripts. This is a conscious choice that aims to keep the content of the Docker container in sync with this repository.
 
 ## Executing the IOC
 
