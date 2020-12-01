@@ -1,6 +1,6 @@
-PHONY: all rf rf-booster rf-ring clean
+PHONY: all rf rf-booster rf-ring delta clean
 
-all: rf
+all: rf delta
 
 rf: rf-bo rf-ring
 rf-bo:
@@ -23,6 +23,21 @@ rf-ring:
             --plc-module 0 \
             --plc-name plc1 \
             --sheet 'SSAmp Tower 01,SSAmp Tower 02,Interlock,Petra 7,LLRF,Transmission Line'
+delta:
+	@echo "Delta Undulator IOC"
+	./ioc_gen_delta.py \
+            ../etc/delta_example_style_1.xlsx \
+            --arch linux-x86_64 \
+            --ioc-name Delta \
+            --plc-module 0 \
+            --plc-name plc1 \
+            --bi "Bit Input" \
+            --bo "Bit Output" \
+            --ai "Real Input" \
+            --ao "Real Output" \
+            --lsi "String Input" \
+            --lso "String Output" \
+            --sheet 'Delta'
 
 clean:
 	 find . -name '*.pyc' -exec rm --force {} +
