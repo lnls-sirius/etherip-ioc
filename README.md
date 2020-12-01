@@ -4,6 +4,8 @@ This project is an EPICS IOC based on Ether_IP. All etherip-ioc-based EPICS inte
 
 Wiki-Sirius DOC - https://wiki-sirius.lnls.br/mediawiki/index.php/CON:EPICS_clients_on_Allen_Bradley_PLC
 
+[Dockerhub](https://hub.docker.com/r/lnlscon/etheripioc_base/tags?page=1&ordering=last_updated)
+
 ## Supported devices
 
 Currently etherip-ioc provides EPICS interfaces for:
@@ -42,15 +44,15 @@ Deploy the a Docker container with the correct settings e.g. Environment variabl
 
 The following environment variables are used to customize the deployment:
 
-| Name  | Default | Desc |
-|------ |---------|------|
-| CMD   |         | iocBoot cmd file |
-| DEVIP |         |PLC IP Address |
-| IOC_PROCSERV_PREFIX || procServControl Prefix |
-|EPICS_IOC_CAPUTLOG_INET|0.0.0.0|EPICS Logging Inet (generic)|
-|EPICS_IOC_CAPUTLOG_PORT|7012|EPICS Logging Port (generic)|
-|EPICS_IOC_LOG_INET|0.0.0.0|EPICS Logging Inet (caput)|
-|EPICS_IOC_LOG_PORT|7011|EPICS Logging Port (caput)|
+| Name                    | Default | Desc                         |
+| ----------------------- | ------- | ---------------------------- |
+| CMD                     |         | iocBoot cmd file             |
+| DEVIP                   |         | PLC IP Address               |
+| IOC_PROCSERV_PREFIX     |         | procServControl Prefix       |
+| EPICS_IOC_CAPUTLOG_INET | 0.0.0.0 | EPICS Logging Inet (generic) |
+| EPICS_IOC_CAPUTLOG_PORT | 7012    | EPICS Logging Port (generic) |
+| EPICS_IOC_LOG_INET      | 0.0.0.0 | EPICS Logging Inet (caput)   |
+| EPICS_IOC_LOG_PORT      | 7011    | EPICS Logging Port (caput)   |
 
 ## Update
 

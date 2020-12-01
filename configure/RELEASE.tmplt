@@ -2,6 +2,7 @@
 ETHER_IP=${ETHER_IP}
 CALC=${CALC}
 CAPUTLOG=${CAPUTLOG}
+AUTOSAVE=${AUTOSAVE}
 EPICS_BASE=${EPICS_BASE}
 
 # Set RULES here if you want to use build rules from somewhere

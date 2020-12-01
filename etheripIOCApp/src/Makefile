@@ -18,12 +18,14 @@ etheripIOC_DBD += base.dbd
 etheripIOC_DBD += ether_ip.dbd
 etheripIOC_DBD += calcSupport.dbd
 etheripIOC_DBD += caPutLog.dbd
+etheripIOC_DBD += asSupport.dbd
 
 
 # Add all the support libraries needed by this IOC
 etheripIOC_LIBS += ether_ip
 etheripIOC_LIBS += calc
 etheripIOC_LIBS += caPutLog
+etheripIOC_LIBS += autosave
 
 # etheripIOC_registerRecordDeviceDriver.cpp derives from etheripIOC.dbd
 etheripIOC_SRCS += etheripIOC_registerRecordDeviceDriver.cpp
