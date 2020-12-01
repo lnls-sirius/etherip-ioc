@@ -10,12 +10,9 @@ cd "${TOP}"
 
 # Load dbd, register the drvEtherIP .. commands
 dbLoadDatabase("dbd/etheripIOC.dbd")
-eipIoc_registerRecordDeviceDriver(pdbbase)
+etheripIOC_registerRecordDeviceDriver(pdbbase)
 
 asSetFilename("${TOP}/db/Security.as")
-
-#epicsEnvSet("EPICS_CA_SERVER_PORT", "${epics_ca_server_port}")
-epicsEnvSet("EPICS_CAS_INTF_ADDR_LIST", "${epics_cas_intf_addr_list}")
 
 iocLogInit
 
@@ -23,17 +20,18 @@ iocLogInit
 EIP_buffer_limit(450)
 drvEtherIP_init()
 EIP_verbosity(7)
-drvEtherIP_define_PLC("${plc}", "${ip}", ${module})
+drvEtherIP_define_PLC("${plc}", "$(DEVIP)", ${module})
 
-dbLoadRecords("../database/${database}", "PLC=${plc}")
+dbLoadRecords("database/${database}.db", "PLC=${plc}")
 iocInit()
 
+caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
 """
 )
 
 ao_template = Template(
     """
-record(ao, "${pv}"){
+record(ao, "${name}"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) ${tag}")
     field(DESC, "${desc}")
@@ -59,7 +57,7 @@ record(ao, "${pv}"){
 
 ai_template = Template(
     """
-record(ai, "${pv}"){
+record(ai, "${name}"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ${tag}")
     field(DESC, "${desc}")
@@ -83,7 +81,7 @@ record(ai, "${pv}"){
 
 bo_template = Template(
     """
-record(bo, "${pv}"){
+record(bo, "${name}"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) ${tag}")
     field(DESC, "${desc}")
@@ -98,7 +96,7 @@ record(bo, "${pv}"){
 
 bi_template = Template(
     """
-record(bi, "${pv}"){
+record(bi, "${name}"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ${tag}")
     field(DESC, "${desc}")
@@ -113,7 +111,7 @@ record(bi, "${pv}"){
 
 lsi_template = Template(
     """
-record(lsi, "${pv}"){
+record(lsi, "${name}"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ${tag}")
     field(DESC, "${desc}")
@@ -125,7 +123,7 @@ record(lsi, "${pv}"){
 
 lso_template = Template(
     """
-record(lso, "${pv}"){
+record(lso, "${name}"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) ${tag}")
     field(DESC, "${desc}")

@@ -53,7 +53,6 @@ def get_args():
         )
     )
     parser.add_argument("spreadsheet", help="Excel spreadsheet location.")
-    parser.add_argument("--plc-ip", required=True, dest="plc_ip", help="PLC IP.")
     parser.add_argument(
         "--plc-name",
         required=True,
@@ -82,17 +81,6 @@ def get_args():
     parser.add_argument("--ioc-name", required=True, help="IOC name.")
     parser.add_argument("--sheet", required=True, help="Sheet name.")
 
-    parser.add_argument(
-        "--epics-ca-server-port",
-        default=5064,
-        help="EPICS_CA_SERVER_PORT value.",
-        type=int,
-    )
-    parser.add_argument(
-        "--epics-cas-intf-addr-list",
-        default="127.0.0.1",
-        help="EPICS_CAS_INTF_ADDR_LIST ip.",
-    )
     parser.add_argument(
         "--arch",
         choices=["linux-x86_64", "linux-arm"],
@@ -237,7 +225,7 @@ def generate(args):
     sheet_name = args.sheet.split(",")
     logger.info("Args, {}.".format(vars(args)))
 
-    IOC_CMD_PATH = os.path.join(BASE_PATH, "../iocBoot/") + args.ioc_name + ".cmd"
+    IOC_CMD_PATH = os.path.join(BASE_PATH, "../iocBoot/iocetheripIOC/") + args.ioc_name + ".cmd"
     IOC_DATABASE_PATH = os.path.join(BASE_PATH, "../database/") + args.ioc_name + ".db"
 
     logger.info('Generating "{}.cmd" file at "{}".'.format(args.ioc_name, IOC_CMD_PATH))
@@ -248,9 +236,6 @@ def generate(args):
             cmd_template.safe_substitute(
                 arch=args.arch,
                 database=args.ioc_name,
-                epics_ca_server_port=args.epics_ca_server_port,
-                epics_cas_intf_addr_list=args.epics_cas_intf_addr_list,
-                ip=args.plc_ip,
                 module=args.plc_module,
                 plc=args.plc_name,
             )
@@ -288,7 +273,7 @@ def generate(args):
                 continue
             for n, row in sheet.iterrows():
                 # main columnn
-                pv = row[args.col_pv]
+                name = row[args.col_pv]
                 tag = row[args.col_tag]
                 dtype = row[args.col_dtype]
                 # optional columns
@@ -316,7 +301,7 @@ def generate(args):
                 hyst = row.get(args.col_hyst, defaults['hyst'])
                 sizv = row.get(args.col_sizv, defaults['sizv'])
 
-                if not pv or pv.startswith("-"):
+                if not name or name.startswith("-"):
                     continue
 
                 if len(desc) > 28:
@@ -329,20 +314,20 @@ def generate(args):
 
                 if scan not in SCAN_VALUES:
                     logger.error(
-                        'Invalid scan value "{}" defined for pv "{}".'.format(scan, pv)
+                        'Invalid scan value "{}" defined for pv "{}".'.format(scan, name)
                     )
                     continue
 
                 if not tag or type(tag) != str or tag == "" or tag == "N/A":
                     logger.warning(
-                        "Tag not set! {}. EPICS record won't be generated.".format(pv)
+                        "Tag not set! {}. EPICS record won't be generated.".format(name)
                     )
                     continue
 
                 if tag not in tags:
-                    tags[tag] = [pv]
+                    tags[tag] = [name]
                 else:
-                    tags[tag].append(pv)
+                    tags[tag].append(name)
 
                 # Concatenate dtype and inout information.
                 #     Ex: dype='Analog', inout='Ouput' =>
@@ -355,7 +340,7 @@ def generate(args):
                 if full_type in args.bi:
                     f.write(
                         bi_template.safe_substitute(
-                            pv=pv,
+                            name=name,
                             tag=tag,
                             desc=desc,
                             scan=scan,
@@ -368,7 +353,7 @@ def generate(args):
                 elif full_type in args.bo:
                     f.write(
                         bo_template.safe_substitute(
-                            pv=pv,
+                            name=name,
                             tag=tag,
                             desc=desc,
                             scan=scan,
@@ -381,7 +366,7 @@ def generate(args):
                 elif full_type in args.ai:
                     f.write(
                         ai_template.safe_substitute(
-                            pv=pv,
+                            name=name,
                             tag=tag,
                             desc=desc,
                             scan=scan,
@@ -403,7 +388,7 @@ def generate(args):
                 elif full_type in args.ao:
                     f.write(
                         ao_template.safe_substitute(
-                            pv=pv,
+                            name=name,
                             tag=tag,
                             desc=desc,
                             scan=scan,
@@ -427,7 +412,7 @@ def generate(args):
                 elif full_type in args.lsi:
                     f.write(
                         lsi_template.safe_substitute(
-                            pv=pv,
+                            name=name,
                             tag=tag,
                             desc=desc,
                             scan=scan,
@@ -437,7 +422,7 @@ def generate(args):
                 elif full_type in args.lso:
                     f.write(
                         lso_template.safe_substitute(
-                            pv=pv,
+                            name=name,
                             tag=tag,
                             desc=desc,
                             scan=scan,
@@ -445,7 +430,7 @@ def generate(args):
                         )
                     )
                 else:
-                    logger.warning('Invalid Type "{}".'.format(full_type + " for " + pv))
+                    logger.warning('Invalid Type "{}".'.format(full_type + " for " + name))
 
             for tag, vals in tags.items():
                 if len(vals) > 1:
