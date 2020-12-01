@@ -24,3 +24,10 @@ services:
       context: .
       dockerfile: Dockerfile
       target: rf_si
+
+  delta:
+    image: "lnlscon/etheripioc_delta:v0.1"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: delta
