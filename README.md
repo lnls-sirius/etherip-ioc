@@ -34,7 +34,7 @@ These IOCs are meant to run on Docker containers. In order to build a new image 
 docker-compose build <service_name>
 ```
 
-The build process will **not** execute the database generation scripts. This is a conscious choice and that aims to keep the content of the Docker container in sync with this repository.
+The build process will **not** execute the database generation scripts. This is a conscious choice that aims to keep the content of the Docker container in sync with this repository.
 
 ## Executing the IOC
 
