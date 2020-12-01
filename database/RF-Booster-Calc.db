@@ -15,3 +15,8 @@ record(calc, "BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon"){
     field(INPA, "BO-ToBO:RF-ACDCPanel:CurrentVdc-Mon_RAW CP MSS")
 }
 
+record(bi, "BO-ToBO:RF-ACDCPanel:CtrlMode-Mon"){
+    field(ZNAM, "Remote")
+    field(ONAM, "Local")
+}
+
