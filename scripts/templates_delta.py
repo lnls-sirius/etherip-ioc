@@ -14,6 +14,14 @@ etheripIOC_registerRecordDeviceDriver(pdbbase)
 
 asSetFilename("${TOP}/db/Security.as")
 
+# Autosave settings
+set_requestfile_path("$(TOP)", "autosave")
+set_savefile_path("$(TOP)/autosave/save")
+
+save_restoreSet_DatedBackupFiles(1)
+save_restoreSet_NumSeqFiles(2)
+save_restoreSet_SeqPeriodInSeconds(600)
+
 iocLogInit
 
 # Initialize EtherIP driver, define PLCs
