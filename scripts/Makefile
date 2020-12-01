@@ -6,7 +6,7 @@ rf: rf-bo rf-ring
 rf-bo:
 	@echo "RF Booster IOC"
 	./ioc.py \
-           ../etc/BOIlk \
+           ../etc/BOIlk.xlsx \
            --arch linux-x86_64 \
            --ioc-name RF-Booster \
            --plc-module 0 \
@@ -17,7 +17,7 @@ rf-bo:
 rf-ring:
 	@echo "RF Ring IOC"
 	./ioc.py \
-            ../etc/SR1 \
+            ../etc/SR1.xlsx \
             --arch linux-x86_64 \
             --ioc-name RF-Ring1 \
             --plc-module 0 \
