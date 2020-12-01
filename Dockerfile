@@ -27,7 +27,8 @@ RUN cd ${EPICS_MODULES} &&\
 
 ENV ETHER_IP ${EPICS_MODULES}/ether_ip-ether_ip-3-2
 
-RUN mkdir -p /opt/etheripIOC
+RUN mkdir -p /opt/etheripIOC/autosave/save
+
 WORKDIR /opt/etheripIOC
 
 COPY . /opt/etheripIOC
