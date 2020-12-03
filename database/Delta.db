@@ -143,45 +143,97 @@ record(bo, "SI-Glob:Test-Test:EnContactor-Sel"){
 }
 
 record(bo, "SI-Glob:Test-Test:EnClear-Cmd"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[1]")
     field(DESC, "Clear All Axis Faults")
-    field(SCAN, ".1 second")
+    field(OUT, "SI-Glob:Test-Test:EnClearCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "SI-Glob:Test-Test:EnClearCmdAux1"){
+    field(OUT, "SI-Glob:Test-Test:EnClearCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "SI-Glob:Test-Test:EnClearCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[1]")
+    field(DESC, "aux rec 2")
+    field(SCAN, ".1 second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
     field(ZSV, "")
     field(OSV, "")
 }
 
 record(bo, "SI-Glob:Test-Test:EnServo-Cmd"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[2]")
     field(DESC, "Turn On Servo Motors")
-    field(SCAN, ".1 second")
+    field(OUT, "SI-Glob:Test-Test:EnServoCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "SI-Glob:Test-Test:EnServoCmdAux1"){
+    field(OUT, "SI-Glob:Test-Test:EnServoCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "SI-Glob:Test-Test:EnServoCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[2]")
+    field(DESC, "aux rec 2")
+    field(SCAN, ".1 second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
     field(ZSV, "")
     field(OSV, "")
 }
 
 record(bo, "SI-Glob:Test-Test:DisServo-Cmd"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[3]")
     field(DESC, "Turn Off Servo Motors")
-    field(SCAN, ".1 second")
+    field(OUT, "SI-Glob:Test-Test:DisServoCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
+record(calcout, "SI-Glob:Test-Test:DisServoCmdAux1"){
+    field(OUT, "SI-Glob:Test-Test:DisServoCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "SI-Glob:Test-Test:DisServoCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[3]")
+    field(DESC, "aux rec 2")
+    field(SCAN, ".1 second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
+    field(ZSV, "")
+    field(OSV, "")
+}
 
 record(bo, "SI-Glob:Test-Test:EnHome-Cmd"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[4]")
     field(DESC, "Home All Axis")
-    field(SCAN, ".1 second")
+    field(OUT, "SI-Glob:Test-Test:EnHomeCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "SI-Glob:Test-Test:EnHomeCmdAux1"){
+    field(OUT, "SI-Glob:Test-Test:EnHomeCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "SI-Glob:Test-Test:EnHomeCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[4]")
+    field(DESC, "aux rec 2")
+    field(SCAN, ".1 second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
     field(ZSV, "")
     field(OSV, "")
 }
@@ -198,78 +250,169 @@ record(bo, "SI-Glob:Test-Test:EnCmsMode-Sel"){
 }
 
 record(bo, "SI-Glob:Test-Test:EnVIMode-Cmd"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[8]")
     field(DESC, "Select Vertical Intensity Op")
-    field(SCAN, ".1 second")
+    field(OUT, "SI-Glob:Test-Test:EnVIModeCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "SI-Glob:Test-Test:EnVIModeCmdAux1"){
+    field(OUT, "SI-Glob:Test-Test:EnVIModeCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "SI-Glob:Test-Test:EnVIModeCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[8]")
+    field(DESC, "aux rec 2")
+    field(SCAN, ".1 second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
     field(ZSV, "")
     field(OSV, "")
 }
 
 record(bo, "SI-Glob:Test-Test:EnHIMode-Cmd"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[9]")
     field(DESC, "Select Horizontal Intensity ")
-    field(SCAN, ".1 second")
+    field(OUT, "SI-Glob:Test-Test:EnHIModeCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "SI-Glob:Test-Test:EnHIModeCmdAux1"){
+    field(OUT, "SI-Glob:Test-Test:EnHIModeCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "SI-Glob:Test-Test:EnHIModeCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[9]")
+    field(DESC, "aux rec 2")
+    field(SCAN, ".1 second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
     field(ZSV, "")
     field(OSV, "")
 }
 
 record(bo, "SI-Glob:Test-Test:EnEPMode-Cmd"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[10]")
     field(DESC, "Select Eliptical Polarizatio")
-    field(SCAN, ".1 second")
+    field(OUT, "SI-Glob:Test-Test:EnEPModeCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "SI-Glob:Test-Test:EnEPModeCmdAux1"){
+    field(OUT, "SI-Glob:Test-Test:EnEPModeCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "SI-Glob:Test-Test:EnEPModeCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[10]")
+    field(DESC, "aux rec 2")
+    field(SCAN, ".1 second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
     field(ZSV, "")
     field(OSV, "")
 }
 
 record(bo, "SI-Glob:Test-Test:EnLPMode-Cmd"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[11]")
     field(DESC, "Select Linear Polarization O")
-    field(SCAN, ".1 second")
+    field(OUT, "SI-Glob:Test-Test:EnLPModeCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "SI-Glob:Test-Test:EnLPModeCmdAux1"){
+    field(OUT, "SI-Glob:Test-Test:EnLPModeCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "SI-Glob:Test-Test:EnLPModeCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[11]")
+    field(DESC, "aux rec 2")
+    field(SCAN, ".1 second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
     field(ZSV, "")
     field(OSV, "")
 }
 
 record(bo, "SI-Glob:Test-Test:EnMove-Cmd"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[5]")
     field(DESC, "Start axes motion")
-    field(SCAN, ".1 second")
+    field(OUT, "SI-Glob:Test-Test:EnMoveCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "SI-Glob:Test-Test:EnMoveCmdAux1"){
+    field(OUT, "SI-Glob:Test-Test:EnMoveCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "SI-Glob:Test-Test:EnMoveCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[5]")
+    field(DESC, "aux rec 2")
+    field(SCAN, ".1 second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
     field(ZSV, "")
     field(OSV, "")
 }
 
 record(bo, "SI-Glob:Test-Test:EnCam-Cmd"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[6]")
     field(DESC, "Start Cam profile motion")
-    field(SCAN, ".1 second")
+    field(OUT, "SI-Glob:Test-Test:EnCamCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
+record(calcout, "SI-Glob:Test-Test:EnCamCmdAux1"){
+    field(OUT, "SI-Glob:Test-Test:EnCamCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "SI-Glob:Test-Test:EnCamCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[6]")
+    field(DESC, "aux rec 2")
+    field(SCAN, ".1 second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
+    field(ZSV, "")
+    field(OSV, "")
+}
 
 record(bo, "SI-Glob:Test-Test:Stop-Cmd"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[12]")
     field(DESC, "Stop all motors")
-    field(SCAN, ".1 second")
+    field(OUT, "SI-Glob:Test-Test:StopCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "SI-Glob:Test-Test:StopCmdAux1"){
+    field(OUT, "SI-Glob:Test-Test:StopCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "SI-Glob:Test-Test:StopCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[12]")
+    field(DESC, "aux rec 2")
+    field(SCAN, ".1 second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
     field(ZSV, "")
     field(OSV, "")
 }

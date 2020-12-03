@@ -304,6 +304,11 @@ def generate(args):
                 if not name or name.startswith("-"):
                     continue
 
+                # find if record is of command type '-Cmd'
+                is_cmd_rec = False
+                if name.endswith("-Cmd"):
+                    is_cmd_rec = True
+
                 if len(desc) > 28:
                     desc = desc[0:28]
 
@@ -350,7 +355,7 @@ def generate(args):
                             osv=osv,
                         )
                     )
-                elif full_type in args.bo:
+                elif (full_type in args.bo) and (is_cmd_rec == False):
                     f.write(
                         bo_template.safe_substitute(
                             name=name,
@@ -359,8 +364,22 @@ def generate(args):
                             scan=scan,
                             onam=onam,
                             znam=znam,
-                                zsv=zsv,
-                                osv=osv,
+                            zsv=zsv,
+                            osv=osv,
+                        )
+                    )
+                elif (full_type in args.bo) and (is_cmd_rec == True):
+                    f.write(
+                        bo_cmd_template.safe_substitute(
+                            name=name,
+                            auxname=name[:name.rfind('-Cmd')]+'CmdAux',
+                            tag=tag,
+                            desc=desc,
+                            scan=scan,
+                            onam=onam,
+                            znam=znam,
+                            zsv=zsv,
+                            osv=osv,
                         )
                     )
                 elif full_type in args.ai:

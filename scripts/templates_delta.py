@@ -140,3 +140,31 @@ record(lso, "${name}"){
 }
 """
 )
+
+bo_cmd_template = Template(
+    """
+record(bo, "${name}"){
+    field(DESC, "${desc}")
+    field(OUT, "${auxname}1.PROC PP")
+    field(ONAM, "${onam}")
+    field(ZNAM, "${znam}")
+    field(ZSV, "${zsv}")
+    field(OSV, "${osv}")
+}
+record(calcout, "${auxname}1"){
+    field(OUT, "${auxname}2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "${auxname}2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ${tag}")
+    field(DESC, "aux rec 2")
+    field(SCAN, "${scan} second")
+    field(ONAM, "0")
+    field(ZNAM, "1")
+    field(ZSV, "${zsv}")
+    field(OSV, "${osv}")
+}
+"""
+)

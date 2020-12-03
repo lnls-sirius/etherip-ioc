@@ -391,6 +391,11 @@ def generate(args, db=True, db_name='example',
                     if not name or name.startswith("-"):
                         continue
     
+                    # find if record is of command type '-Cmd'
+                    is_cmd_rec = False
+                    if name.endswith("-Cmd"):
+                        is_cmd_rec = True
+
                     # if new prefix specified, replace current prefix
                     if new_prefix != '':
                         name = replace_prefix(name, new_prefix, delimiters=[':', ')'])
@@ -441,10 +446,24 @@ def generate(args, db=True, db_name='example',
                                 osv=osv,
                             )
                         )
-                    elif full_type in args.bo:
+                    elif (full_type in args.bo) and (is_cmd_rec == False):
                         f.write(
                             bo_template.safe_substitute(
                                 name=name,
+                                tag=tag,
+                                desc=desc,
+                                scan=scan,
+                                onam=onam,
+                                znam=znam,
+                                zsv=zsv,
+                                osv=osv,
+                            )
+                        )
+                    elif (full_type in args.bo) and (is_cmd_rec == True):
+                        f.write(
+                            bo_cmd_template.safe_substitute(
+                                name=name,
+                                auxname=name[:name.rfind('-Cmd')]+'CmdAux',
                                 tag=tag,
                                 desc=desc,
                                 scan=scan,
