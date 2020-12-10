@@ -26,7 +26,7 @@ rf-ring:
 delta:
 	@echo "Delta Undulator IOC"
 	./ioc_gen_delta.py \
-            ../etc/delta_example_style_1.xlsx \
+            ../etc/Delta.xlsx \
             --arch linux-x86_64 \
             --ioc-name Delta \
             --plc-module 0 \
