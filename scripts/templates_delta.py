@@ -30,7 +30,7 @@ drvEtherIP_init()
 EIP_verbosity(7)
 drvEtherIP_define_PLC("${plc}", "$(DEVIP)", ${module})
 
-dbLoadRecords("database/${database}.db", "PLC=${plc}")
+dbLoadRecords("database/${database}.db", "P=${P}, R=${R}, PLC=${plc}")
 iocInit()
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
