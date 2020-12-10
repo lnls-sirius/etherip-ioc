@@ -1,5 +1,5 @@
 
-record(bi, "SI-Glob:Test-Test:OvertravelN1-Mon"){
+record(bi, "$(P)$(R)OvertravelN1-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) OvertravelN1")
     field(DESC, "Negative Inductive Limit 1")
@@ -10,7 +10,7 @@ record(bi, "SI-Glob:Test-Test:OvertravelN1-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:OvertravelN2-Mon"){
+record(bi, "$(P)$(R)OvertravelN2-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) OvertravelN2")
     field(DESC, "Negative Inductive Limit 2")
@@ -21,7 +21,7 @@ record(bi, "SI-Glob:Test-Test:OvertravelN2-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:OvertravelN3-Mon"){
+record(bi, "$(P)$(R)OvertravelN3-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) OvertravelN3")
     field(DESC, "Negative Inductive Limit 3")
@@ -32,7 +32,7 @@ record(bi, "SI-Glob:Test-Test:OvertravelN3-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:OvertravelN4-Mon"){
+record(bi, "$(P)$(R)OvertravelN4-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) OvertravelN4")
     field(DESC, "Negative Inductive Limit 4")
@@ -43,7 +43,7 @@ record(bi, "SI-Glob:Test-Test:OvertravelN4-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:OvertravelP1-Mon"){
+record(bi, "$(P)$(R)OvertravelP1-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) OvertravelP1")
     field(DESC, "Positive Inductive Limit 1")
@@ -54,7 +54,7 @@ record(bi, "SI-Glob:Test-Test:OvertravelP1-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:OvertravelP2-Mon"){
+record(bi, "$(P)$(R)OvertravelP2-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) OvertravelP2")
     field(DESC, "Positive Inductive Limit 2")
@@ -65,7 +65,7 @@ record(bi, "SI-Glob:Test-Test:OvertravelP2-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:OvertravelP3-Mon"){
+record(bi, "$(P)$(R)OvertravelP3-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) OvertravelP3")
     field(DESC, "Positive Inductive Limit 3")
@@ -76,7 +76,7 @@ record(bi, "SI-Glob:Test-Test:OvertravelP3-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:OvertravelP4-Mon"){
+record(bi, "$(P)$(R)OvertravelP4-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) OvertravelP4")
     field(DESC, "Positive Inductive Limit 4")
@@ -87,7 +87,7 @@ record(bi, "SI-Glob:Test-Test:OvertravelP4-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:GearVIM-Mon"){
+record(bi, "$(P)$(R)GearVIM-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) GearVIM.IP")
     field(DESC, "Vertical Intensity Mode Enab")
@@ -98,7 +98,7 @@ record(bi, "SI-Glob:Test-Test:GearVIM-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:GearHIM-Mon"){
+record(bi, "$(P)$(R)GearHIM-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) GearHIM.IP")
     field(DESC, "Horizontal Intensity Mode En")
@@ -109,7 +109,7 @@ record(bi, "SI-Glob:Test-Test:GearHIM-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:GearEPM-Mon"){
+record(bi, "$(P)$(R)GearEPM-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) GearEPM.IP")
     field(DESC, "Eliptical Polarization Mode ")
@@ -120,7 +120,7 @@ record(bi, "SI-Glob:Test-Test:GearEPM-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:GearLPM-Mon"){
+record(bi, "$(P)$(R)GearLPM-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) GearLPM.IP")
     field(DESC, "Linear Polarization Mode Ena")
@@ -131,7 +131,7 @@ record(bi, "SI-Glob:Test-Test:GearLPM-Mon"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:EnContactor-Sel"){
+record(bo, "$(P)$(R)EnContactor-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[0]")
     field(DESC, "Enable Power Supply Contacto")
@@ -142,20 +142,20 @@ record(bo, "SI-Glob:Test-Test:EnContactor-Sel"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:EnClear-Cmd"){
+record(bo, "$(P)$(R)EnClear-Cmd"){
     field(DESC, "Clear All Axis Faults")
-    field(OUT, "SI-Glob:Test-Test:EnClearCmdAux1.PROC PP")
+    field(OUT, "$(P)$(R)EnClearCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "SI-Glob:Test-Test:EnClearCmdAux1"){
-    field(OUT, "SI-Glob:Test-Test:EnClearCmdAux2.VAL PP")
+record(calcout, "$(P)$(R)EnClearCmdAux1"){
+    field(OUT, "$(P)$(R)EnClearCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "SI-Glob:Test-Test:EnClearCmdAux2"){
+record(bo, "$(P)$(R)EnClearCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[1]")
     field(DESC, "aux rec 2")
@@ -166,20 +166,20 @@ record(bo, "SI-Glob:Test-Test:EnClearCmdAux2"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:EnServo-Cmd"){
+record(bo, "$(P)$(R)EnServo-Cmd"){
     field(DESC, "Turn On Servo Motors")
-    field(OUT, "SI-Glob:Test-Test:EnServoCmdAux1.PROC PP")
+    field(OUT, "$(P)$(R)EnServoCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "SI-Glob:Test-Test:EnServoCmdAux1"){
-    field(OUT, "SI-Glob:Test-Test:EnServoCmdAux2.VAL PP")
+record(calcout, "$(P)$(R)EnServoCmdAux1"){
+    field(OUT, "$(P)$(R)EnServoCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "SI-Glob:Test-Test:EnServoCmdAux2"){
+record(bo, "$(P)$(R)EnServoCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[2]")
     field(DESC, "aux rec 2")
@@ -190,20 +190,20 @@ record(bo, "SI-Glob:Test-Test:EnServoCmdAux2"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:DisServo-Cmd"){
+record(bo, "$(P)$(R)DisServo-Cmd"){
     field(DESC, "Turn Off Servo Motors")
-    field(OUT, "SI-Glob:Test-Test:DisServoCmdAux1.PROC PP")
+    field(OUT, "$(P)$(R)DisServoCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "SI-Glob:Test-Test:DisServoCmdAux1"){
-    field(OUT, "SI-Glob:Test-Test:DisServoCmdAux2.VAL PP")
+record(calcout, "$(P)$(R)DisServoCmdAux1"){
+    field(OUT, "$(P)$(R)DisServoCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "SI-Glob:Test-Test:DisServoCmdAux2"){
+record(bo, "$(P)$(R)DisServoCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[3]")
     field(DESC, "aux rec 2")
@@ -214,20 +214,20 @@ record(bo, "SI-Glob:Test-Test:DisServoCmdAux2"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:EnHome-Cmd"){
+record(bo, "$(P)$(R)EnHome-Cmd"){
     field(DESC, "Home All Axis")
-    field(OUT, "SI-Glob:Test-Test:EnHomeCmdAux1.PROC PP")
+    field(OUT, "$(P)$(R)EnHomeCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "SI-Glob:Test-Test:EnHomeCmdAux1"){
-    field(OUT, "SI-Glob:Test-Test:EnHomeCmdAux2.VAL PP")
+record(calcout, "$(P)$(R)EnHomeCmdAux1"){
+    field(OUT, "$(P)$(R)EnHomeCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "SI-Glob:Test-Test:EnHomeCmdAux2"){
+record(bo, "$(P)$(R)EnHomeCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[4]")
     field(DESC, "aux rec 2")
@@ -238,7 +238,7 @@ record(bo, "SI-Glob:Test-Test:EnHomeCmdAux2"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:EnCmsMode-Sel"){
+record(bo, "$(P)$(R)EnCmsMode-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[7]")
     field(DESC, "Select Uncoupled Gear - Comi")
@@ -249,20 +249,20 @@ record(bo, "SI-Glob:Test-Test:EnCmsMode-Sel"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:EnVIMode-Cmd"){
+record(bo, "$(P)$(R)EnVIMode-Cmd"){
     field(DESC, "Select Vertical Intensity Op")
-    field(OUT, "SI-Glob:Test-Test:EnVIModeCmdAux1.PROC PP")
+    field(OUT, "$(P)$(R)EnVIModeCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "SI-Glob:Test-Test:EnVIModeCmdAux1"){
-    field(OUT, "SI-Glob:Test-Test:EnVIModeCmdAux2.VAL PP")
+record(calcout, "$(P)$(R)EnVIModeCmdAux1"){
+    field(OUT, "$(P)$(R)EnVIModeCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "SI-Glob:Test-Test:EnVIModeCmdAux2"){
+record(bo, "$(P)$(R)EnVIModeCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[8]")
     field(DESC, "aux rec 2")
@@ -273,20 +273,20 @@ record(bo, "SI-Glob:Test-Test:EnVIModeCmdAux2"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:EnHIMode-Cmd"){
+record(bo, "$(P)$(R)EnHIMode-Cmd"){
     field(DESC, "Select Horizontal Intensity ")
-    field(OUT, "SI-Glob:Test-Test:EnHIModeCmdAux1.PROC PP")
+    field(OUT, "$(P)$(R)EnHIModeCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "SI-Glob:Test-Test:EnHIModeCmdAux1"){
-    field(OUT, "SI-Glob:Test-Test:EnHIModeCmdAux2.VAL PP")
+record(calcout, "$(P)$(R)EnHIModeCmdAux1"){
+    field(OUT, "$(P)$(R)EnHIModeCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "SI-Glob:Test-Test:EnHIModeCmdAux2"){
+record(bo, "$(P)$(R)EnHIModeCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[9]")
     field(DESC, "aux rec 2")
@@ -297,20 +297,20 @@ record(bo, "SI-Glob:Test-Test:EnHIModeCmdAux2"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:EnEPMode-Cmd"){
+record(bo, "$(P)$(R)EnEPMode-Cmd"){
     field(DESC, "Select Eliptical Polarizatio")
-    field(OUT, "SI-Glob:Test-Test:EnEPModeCmdAux1.PROC PP")
+    field(OUT, "$(P)$(R)EnEPModeCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "SI-Glob:Test-Test:EnEPModeCmdAux1"){
-    field(OUT, "SI-Glob:Test-Test:EnEPModeCmdAux2.VAL PP")
+record(calcout, "$(P)$(R)EnEPModeCmdAux1"){
+    field(OUT, "$(P)$(R)EnEPModeCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "SI-Glob:Test-Test:EnEPModeCmdAux2"){
+record(bo, "$(P)$(R)EnEPModeCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[10]")
     field(DESC, "aux rec 2")
@@ -321,20 +321,20 @@ record(bo, "SI-Glob:Test-Test:EnEPModeCmdAux2"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:EnLPMode-Cmd"){
+record(bo, "$(P)$(R)EnLPMode-Cmd"){
     field(DESC, "Select Linear Polarization O")
-    field(OUT, "SI-Glob:Test-Test:EnLPModeCmdAux1.PROC PP")
+    field(OUT, "$(P)$(R)EnLPModeCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "SI-Glob:Test-Test:EnLPModeCmdAux1"){
-    field(OUT, "SI-Glob:Test-Test:EnLPModeCmdAux2.VAL PP")
+record(calcout, "$(P)$(R)EnLPModeCmdAux1"){
+    field(OUT, "$(P)$(R)EnLPModeCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "SI-Glob:Test-Test:EnLPModeCmdAux2"){
+record(bo, "$(P)$(R)EnLPModeCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[11]")
     field(DESC, "aux rec 2")
@@ -345,20 +345,20 @@ record(bo, "SI-Glob:Test-Test:EnLPModeCmdAux2"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:EnMove-Cmd"){
+record(bo, "$(P)$(R)EnMove-Cmd"){
     field(DESC, "Start axes motion")
-    field(OUT, "SI-Glob:Test-Test:EnMoveCmdAux1.PROC PP")
+    field(OUT, "$(P)$(R)EnMoveCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "SI-Glob:Test-Test:EnMoveCmdAux1"){
-    field(OUT, "SI-Glob:Test-Test:EnMoveCmdAux2.VAL PP")
+record(calcout, "$(P)$(R)EnMoveCmdAux1"){
+    field(OUT, "$(P)$(R)EnMoveCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "SI-Glob:Test-Test:EnMoveCmdAux2"){
+record(bo, "$(P)$(R)EnMoveCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[5]")
     field(DESC, "aux rec 2")
@@ -369,20 +369,20 @@ record(bo, "SI-Glob:Test-Test:EnMoveCmdAux2"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:EnCam-Cmd"){
+record(bo, "$(P)$(R)EnCam-Cmd"){
     field(DESC, "Start Cam profile motion")
-    field(OUT, "SI-Glob:Test-Test:EnCamCmdAux1.PROC PP")
+    field(OUT, "$(P)$(R)EnCamCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "SI-Glob:Test-Test:EnCamCmdAux1"){
-    field(OUT, "SI-Glob:Test-Test:EnCamCmdAux2.VAL PP")
+record(calcout, "$(P)$(R)EnCamCmdAux1"){
+    field(OUT, "$(P)$(R)EnCamCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "SI-Glob:Test-Test:EnCamCmdAux2"){
+record(bo, "$(P)$(R)EnCamCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[6]")
     field(DESC, "aux rec 2")
@@ -393,20 +393,20 @@ record(bo, "SI-Glob:Test-Test:EnCamCmdAux2"){
     field(OSV, "")
 }
 
-record(bo, "SI-Glob:Test-Test:Stop-Cmd"){
+record(bo, "$(P)$(R)Stop-Cmd"){
     field(DESC, "Stop all motors")
-    field(OUT, "SI-Glob:Test-Test:StopCmdAux1.PROC PP")
+    field(OUT, "$(P)$(R)StopCmdAux1.PROC PP")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "SI-Glob:Test-Test:StopCmdAux1"){
-    field(OUT, "SI-Glob:Test-Test:StopCmdAux2.VAL PP")
+record(calcout, "$(P)$(R)StopCmdAux1"){
+    field(OUT, "$(P)$(R)StopCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "SI-Glob:Test-Test:StopCmdAux2"){
+record(bo, "$(P)$(R)StopCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EnFlags[12]")
     field(DESC, "aux rec 2")
@@ -417,7 +417,7 @@ record(bo, "SI-Glob:Test-Test:StopCmdAux2"){
     field(OSV, "")
 }
 
-record(ao, "SI-Glob:Test-Test:HomingAccel-SP"){
+record(ao, "$(P)$(R)HomingAccel-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) HomingAccel")
     field(DESC, "Homing acceleration decelera")
@@ -439,7 +439,7 @@ record(ao, "SI-Glob:Test-Test:HomingAccel-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:HomingJerk-SP"){
+record(ao, "$(P)$(R)HomingJerk-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) HomingJerk")
     field(DESC, "Homing acceleration decelera")
@@ -461,7 +461,7 @@ record(ao, "SI-Glob:Test-Test:HomingJerk-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:HomingSpeed-SP"){
+record(ao, "$(P)$(R)HomingSpeed-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) HomingSpeed")
     field(DESC, "Homing speed")
@@ -483,7 +483,7 @@ record(ao, "SI-Glob:Test-Test:HomingSpeed-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:MoveAccel-SP"){
+record(ao, "$(P)$(R)MoveAccel-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) MoveAccel")
     field(DESC, "Motion acceleration decelera")
@@ -505,7 +505,7 @@ record(ao, "SI-Glob:Test-Test:MoveAccel-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:MoveJerk-SP"){
+record(ao, "$(P)$(R)MoveJerk-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) MoveJerk")
     field(DESC, "Motion acceleration decelera")
@@ -527,7 +527,7 @@ record(ao, "SI-Glob:Test-Test:MoveJerk-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:MoveSpeed-SP"){
+record(ao, "$(P)$(R)MoveSpeed-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) MoveSpeed")
     field(DESC, "Motion speed")
@@ -549,7 +549,7 @@ record(ao, "SI-Glob:Test-Test:MoveSpeed-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:OvertravelClearDst-SP"){
+record(ao, "$(P)$(R)OvertravelClearDst-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) OvertravelClearDst")
     field(DESC, "Overtravel clear distance")
@@ -571,7 +571,7 @@ record(ao, "SI-Glob:Test-Test:OvertravelClearDst-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:OvertravelClearSpd-SP"){
+record(ao, "$(P)$(R)OvertravelClearSpd-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) OvertravelClearSpd")
     field(DESC, "Overtravel clear speed")
@@ -593,7 +593,7 @@ record(ao, "SI-Glob:Test-Test:OvertravelClearSpd-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:CamDScaling-SP"){
+record(ao, "$(P)$(R)CamDScaling-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) CamDScaling")
     field(DESC, "Cam profile distance scaling")
@@ -615,7 +615,7 @@ record(ao, "SI-Glob:Test-Test:CamDScaling-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:CamTScaling-SP"){
+record(ao, "$(P)$(R)CamTScaling-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) CamTScaling")
     field(DESC, "Cam profile time scaling")
@@ -637,7 +637,7 @@ record(ao, "SI-Glob:Test-Test:CamTScaling-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisAActualPosition-Mon"){
+record(ao, "$(P)$(R)AxisAActualPosition-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisA.ActualPosition")
     field(DESC, "Axis A position")
@@ -659,7 +659,7 @@ record(ao, "SI-Glob:Test-Test:AxisAActualPosition-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisAActualVelocity-Mon"){
+record(ao, "$(P)$(R)AxisAActualVelocity-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisA.ActualVelocity")
     field(DESC, "Axis A velocity")
@@ -681,7 +681,7 @@ record(ao, "SI-Glob:Test-Test:AxisAActualVelocity-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisAOutputCurrent-Mon"){
+record(ao, "$(P)$(R)AxisAOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisA.OutputCurrent")
     field(DESC, "Axis A output current")
@@ -703,7 +703,7 @@ record(ao, "SI-Glob:Test-Test:AxisAOutputCurrent-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisAAxisStatus-Mon"){
+record(ao, "$(P)$(R)AxisAAxisStatus-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisA.AxisStatus")
     field(DESC, "Axis A status")
@@ -725,7 +725,7 @@ record(ao, "SI-Glob:Test-Test:AxisAAxisStatus-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisAMotionStatus-Mon"){
+record(ao, "$(P)$(R)AxisAMotionStatus-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisA.MotionStatus")
     field(DESC, "Axis A motion status")
@@ -747,7 +747,7 @@ record(ao, "SI-Glob:Test-Test:AxisAMotionStatus-Mon"){
     field(HYST, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisAMoveStatus-Mon"){
+record(bi, "$(P)$(R)AxisAMoveStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisA.MoveStatus")
     field(DESC, "Axis A move status")
@@ -758,7 +758,7 @@ record(bi, "SI-Glob:Test-Test:AxisAMoveStatus-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisADriveEnableStatus-Mon"){
+record(bi, "$(P)$(R)AxisADriveEnableStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisA.DriveEnableStatus")
     field(DESC, "Axis A drive enable status")
@@ -769,7 +769,7 @@ record(bi, "SI-Glob:Test-Test:AxisADriveEnableStatus-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisABrakeStatus-Mon"){
+record(bi, "$(P)$(R)AxisABrakeStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisA.MechanicalBrakeOutputStatus")
     field(DESC, "Axis A mechanical brake outp")
@@ -780,7 +780,7 @@ record(bi, "SI-Glob:Test-Test:AxisABrakeStatus-Mon"){
     field(OSV, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisAHomePos-SP"){
+record(ao, "$(P)$(R)AxisAHomePos-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) HomePos[0]")
     field(DESC, "Axis A home position")
@@ -802,7 +802,7 @@ record(ao, "SI-Glob:Test-Test:AxisAHomePos-SP"){
     field(HYST, "")
 }
 
-record(bo, "SI-Glob:Test-Test:AxisAMove-Sel"){
+record(bo, "$(P)$(R)AxisAMove-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) MoveAxes[0]")
     field(DESC, "Select Axis A to move")
@@ -813,7 +813,7 @@ record(bo, "SI-Glob:Test-Test:AxisAMove-Sel"){
     field(OSV, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisAMovePos-SP"){
+record(ao, "$(P)$(R)AxisAMovePos-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) MovePos[0]")
     field(DESC, "Axis A setpoint position")
@@ -835,7 +835,7 @@ record(ao, "SI-Glob:Test-Test:AxisAMovePos-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisBActualPosition-Mon"){
+record(ao, "$(P)$(R)AxisBActualPosition-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisB.ActualPosition")
     field(DESC, "Axis B position")
@@ -857,7 +857,7 @@ record(ao, "SI-Glob:Test-Test:AxisBActualPosition-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisBActualVelocity-Mon"){
+record(ao, "$(P)$(R)AxisBActualVelocity-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisB.ActualVelocity")
     field(DESC, "Axis B velocity")
@@ -879,7 +879,7 @@ record(ao, "SI-Glob:Test-Test:AxisBActualVelocity-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisBOutputCurrent-Mon"){
+record(ao, "$(P)$(R)AxisBOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisB.OutputCurrent")
     field(DESC, "Axis B output current")
@@ -901,7 +901,7 @@ record(ao, "SI-Glob:Test-Test:AxisBOutputCurrent-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisBAxisStatus-Mon"){
+record(ao, "$(P)$(R)AxisBAxisStatus-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisB.AxisStatus")
     field(DESC, "Axis B status")
@@ -923,7 +923,7 @@ record(ao, "SI-Glob:Test-Test:AxisBAxisStatus-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisBMotionStatus-Mon"){
+record(ao, "$(P)$(R)AxisBMotionStatus-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisB.MotionStatus")
     field(DESC, "Axis B motion status")
@@ -945,7 +945,7 @@ record(ao, "SI-Glob:Test-Test:AxisBMotionStatus-Mon"){
     field(HYST, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisBMoveStatus-Mon"){
+record(bi, "$(P)$(R)AxisBMoveStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisB.MoveStatus")
     field(DESC, "Axis B move status")
@@ -956,7 +956,7 @@ record(bi, "SI-Glob:Test-Test:AxisBMoveStatus-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisBDriveEnableStatus-Mon"){
+record(bi, "$(P)$(R)AxisBDriveEnableStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisB.DriveEnableStatus")
     field(DESC, "Axis B drive enable status")
@@ -967,7 +967,7 @@ record(bi, "SI-Glob:Test-Test:AxisBDriveEnableStatus-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisBBrakeStatus-Mon"){
+record(bi, "$(P)$(R)AxisBBrakeStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisB.MechanicalBrakeOutputStatus")
     field(DESC, "Axis B mechanical brake outp")
@@ -978,7 +978,7 @@ record(bi, "SI-Glob:Test-Test:AxisBBrakeStatus-Mon"){
     field(OSV, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisBHomePos-SP"){
+record(ao, "$(P)$(R)AxisBHomePos-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) HomePos[1]")
     field(DESC, "Axis B home position")
@@ -1000,7 +1000,7 @@ record(ao, "SI-Glob:Test-Test:AxisBHomePos-SP"){
     field(HYST, "")
 }
 
-record(bo, "SI-Glob:Test-Test:AxisBMove-Sel"){
+record(bo, "$(P)$(R)AxisBMove-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) MoveAxes[1]")
     field(DESC, "Select Axis B to move")
@@ -1011,7 +1011,7 @@ record(bo, "SI-Glob:Test-Test:AxisBMove-Sel"){
     field(OSV, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisBMovePos-SP"){
+record(ao, "$(P)$(R)AxisBMovePos-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) MovePos[1]")
     field(DESC, "Axis B setpoint position")
@@ -1033,7 +1033,7 @@ record(ao, "SI-Glob:Test-Test:AxisBMovePos-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisCActualPosition-Mon"){
+record(ao, "$(P)$(R)AxisCActualPosition-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisC.ActualPosition")
     field(DESC, "Axis C position")
@@ -1055,7 +1055,7 @@ record(ao, "SI-Glob:Test-Test:AxisCActualPosition-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisCActualVelocity-Mon"){
+record(ao, "$(P)$(R)AxisCActualVelocity-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisC.ActualVelocity")
     field(DESC, "Axis C velocity")
@@ -1077,7 +1077,7 @@ record(ao, "SI-Glob:Test-Test:AxisCActualVelocity-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisCOutputCurrent-Mon"){
+record(ao, "$(P)$(R)AxisCOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisC.OutputCurrent")
     field(DESC, "Axis C output current")
@@ -1099,7 +1099,7 @@ record(ao, "SI-Glob:Test-Test:AxisCOutputCurrent-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisCAxisStatus-Mon"){
+record(ao, "$(P)$(R)AxisCAxisStatus-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisC.AxisStatus")
     field(DESC, "Axis C status")
@@ -1121,7 +1121,7 @@ record(ao, "SI-Glob:Test-Test:AxisCAxisStatus-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisCMotionStatus-Mon"){
+record(ao, "$(P)$(R)AxisCMotionStatus-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisC.MotionStatus")
     field(DESC, "Axis C motion status")
@@ -1143,7 +1143,7 @@ record(ao, "SI-Glob:Test-Test:AxisCMotionStatus-Mon"){
     field(HYST, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisCMoveStatus-Mon"){
+record(bi, "$(P)$(R)AxisCMoveStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisC.MoveStatus")
     field(DESC, "Axis C move status")
@@ -1154,7 +1154,7 @@ record(bi, "SI-Glob:Test-Test:AxisCMoveStatus-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisCDriveEnableStatus-Mon"){
+record(bi, "$(P)$(R)AxisCDriveEnableStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisC.DriveEnableStatus")
     field(DESC, "Axis C drive enable status")
@@ -1165,7 +1165,7 @@ record(bi, "SI-Glob:Test-Test:AxisCDriveEnableStatus-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisCBrakeStatus-Mon"){
+record(bi, "$(P)$(R)AxisCBrakeStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisC.MechanicalBrakeOutputStatus")
     field(DESC, "Axis C mechanical brake outp")
@@ -1176,7 +1176,7 @@ record(bi, "SI-Glob:Test-Test:AxisCBrakeStatus-Mon"){
     field(OSV, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisCHomePos-SP"){
+record(ao, "$(P)$(R)AxisCHomePos-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) HomePos[2]")
     field(DESC, "Axis C home position")
@@ -1198,7 +1198,7 @@ record(ao, "SI-Glob:Test-Test:AxisCHomePos-SP"){
     field(HYST, "")
 }
 
-record(bo, "SI-Glob:Test-Test:AxisCMove-Sel"){
+record(bo, "$(P)$(R)AxisCMove-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) MoveAxes[2]")
     field(DESC, "Select Axis C to move")
@@ -1209,7 +1209,7 @@ record(bo, "SI-Glob:Test-Test:AxisCMove-Sel"){
     field(OSV, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisCMovePos-SP"){
+record(ao, "$(P)$(R)AxisCMovePos-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) MovePos[2]")
     field(DESC, "Axis C setpoint position")
@@ -1231,7 +1231,7 @@ record(ao, "SI-Glob:Test-Test:AxisCMovePos-SP"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisDActualPosition-Mon"){
+record(ao, "$(P)$(R)AxisDActualPosition-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisD.ActualPosition")
     field(DESC, "Axis D position")
@@ -1253,7 +1253,7 @@ record(ao, "SI-Glob:Test-Test:AxisDActualPosition-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisDActualVelocity-Mon"){
+record(ao, "$(P)$(R)AxisDActualVelocity-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisD.ActualVelocity")
     field(DESC, "Axis D velocity")
@@ -1275,7 +1275,7 @@ record(ao, "SI-Glob:Test-Test:AxisDActualVelocity-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisDOutputCurrent-Mon"){
+record(ao, "$(P)$(R)AxisDOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisD.OutputCurrent")
     field(DESC, "Axis D output current")
@@ -1297,7 +1297,7 @@ record(ao, "SI-Glob:Test-Test:AxisDOutputCurrent-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisDAxisStatus-Mon"){
+record(ao, "$(P)$(R)AxisDAxisStatus-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisD.AxisStatus")
     field(DESC, "Axis D status")
@@ -1319,7 +1319,7 @@ record(ao, "SI-Glob:Test-Test:AxisDAxisStatus-Mon"){
     field(HYST, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisDMotionStatus-Mon"){
+record(ao, "$(P)$(R)AxisDMotionStatus-Mon"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) AxisD.MotionStatus")
     field(DESC, "Axis D motion status")
@@ -1341,7 +1341,7 @@ record(ao, "SI-Glob:Test-Test:AxisDMotionStatus-Mon"){
     field(HYST, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisDMoveStatus-Mon"){
+record(bi, "$(P)$(R)AxisDMoveStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisD.MoveStatus")
     field(DESC, "Axis D move status")
@@ -1352,7 +1352,7 @@ record(bi, "SI-Glob:Test-Test:AxisDMoveStatus-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisDDriveEnableStatus-Mon"){
+record(bi, "$(P)$(R)AxisDDriveEnableStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisD.DriveEnableStatus")
     field(DESC, "Axis D drive enable status")
@@ -1363,7 +1363,7 @@ record(bi, "SI-Glob:Test-Test:AxisDDriveEnableStatus-Mon"){
     field(OSV, "")
 }
 
-record(bi, "SI-Glob:Test-Test:AxisDBrakeStatus-Mon"){
+record(bi, "$(P)$(R)AxisDBrakeStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisD.MechanicalBrakeOutputStatus")
     field(DESC, "Axis D mechanical brake outp")
@@ -1374,7 +1374,7 @@ record(bi, "SI-Glob:Test-Test:AxisDBrakeStatus-Mon"){
     field(OSV, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisDHomePos-SP"){
+record(ao, "$(P)$(R)AxisDHomePos-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) HomePos[3]")
     field(DESC, "Axis D home position")
@@ -1396,7 +1396,7 @@ record(ao, "SI-Glob:Test-Test:AxisDHomePos-SP"){
     field(HYST, "")
 }
 
-record(bo, "SI-Glob:Test-Test:AxisDMove-Sel"){
+record(bo, "$(P)$(R)AxisDMove-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) MoveAxes[3]")
     field(DESC, "Select Axis D to move")
@@ -1407,7 +1407,7 @@ record(bo, "SI-Glob:Test-Test:AxisDMove-Sel"){
     field(OSV, "")
 }
 
-record(ao, "SI-Glob:Test-Test:AxisDMovePos-SP"){
+record(ao, "$(P)$(R)AxisDMovePos-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) MovePos[3]")
     field(DESC, "Axis D setpoint position")
@@ -1429,7 +1429,7 @@ record(ao, "SI-Glob:Test-Test:AxisDMovePos-SP"){
     field(HYST, "")
 }
 
-record(ai, "SI-Glob:Test-Test:RunFlag-Mon"){
+record(ai, "$(P)$(R)RunFlag-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RunFlag")
     field(DESC, "Subroutines run flags status")
@@ -1449,7 +1449,7 @@ record(ai, "SI-Glob:Test-Test:RunFlag-Mon"){
     field(HYST, "")
 }
 
-record(ai, "SI-Glob:Test-Test:ControllerStatus-Mon"){
+record(ai, "$(P)$(R)ControllerStatus-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ControllerStatus")
     field(DESC, "Controller status flag")
@@ -1469,7 +1469,7 @@ record(ai, "SI-Glob:Test-Test:ControllerStatus-Mon"){
     field(HYST, "")
 }
 
-record(ai, "SI-Glob:Test-Test:AxisFault-Mon"){
+record(ai, "$(P)$(R)AxisFault-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) MotionGroup0.AxisFault")
     field(DESC, "Axis fault status")
@@ -1489,7 +1489,7 @@ record(ai, "SI-Glob:Test-Test:AxisFault-Mon"){
     field(HYST, "")
 }
 
-record(ai, "SI-Glob:Test-Test:LastOpSuccessful-Mon"){
+record(ai, "$(P)$(R)LastOpSuccessful-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) LastOpSuccessful")
     field(DESC, "Last operation successful st")
