@@ -1,8 +1,8 @@
-PHONY: all rf rf-booster rf-ring clean
+PHONY: all rf rf-bo rf-si clean
 
 all: rf
 
-rf: rf-bo rf-ring
+rf: rf-bo rf-si
 rf-bo:
 	@echo "RF Booster IOC"
 	./ioc.py \
@@ -14,7 +14,8 @@ rf-bo:
            --sheet 'SSAmp Tower,Interlock,Petra 5,LLRF,Transmission Line'
 
 	sed -i -e  's/\n")/")/g' ../database/RF-Booster.db
-rf-ring:
+
+rf-si:
 	@echo "RF Ring IOC"
 	./ioc.py \
             ../etc/SR1.xlsx \
@@ -25,6 +26,7 @@ rf-ring:
             --sheet 'SSAmp Tower 01,SSAmp Tower 02,Interlock,Petra 7,LLRF,Transmission Line'
 
 clean:
+	 rm -rf __pycache__
 	 find . -name '*.pyc' -exec rm --force {} +
 	 find . -name '*.pyo' -exec rm --force {} +
 	 find . -name '*~' -exec rm --force  {} +
