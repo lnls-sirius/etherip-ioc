@@ -39,7 +39,7 @@ RUN cd /opt/etheripIOC/procCtrl && envsubst < configure/RELEASE.tmplt > configur
     cd /opt/etheripIOC/ && mkdir sockets && envsubst < configure/RELEASE.tmplt > configure/RELEASE &&\
     make -j$(nproc)
 
-CMD [ "/bin/bash", "/opt/etheripIOC/entrypoint.sh" ]
+ENTRYPOINT [ "/bin/bash", "/opt/etheripIOC/entrypoint.sh" ]
 
 FROM base AS sirius
 ENV NAME SIRIUS-INTLK

@@ -1,0 +1,77 @@
+# % macro, P, Device prefix
+# % macro, PORT, Asyn port name
+# % macro, SHOWOUT, Set this to 0 to disable the IOC output display
+# % macro, MANUALSTART, Set this to # if the IOC is manually started. This changes the severity of STATUS
+# % macro, name, Object and gui association name
+# % gui, $(name=), edm, procServControl.edl, procServ=$(P)
+# # \file
+# # This template allows monitoring of an IOC running through procServ in
+# # EPICS. It should be run in a separate IOC, but needs to be running on the
+# # same machine as procServ as procServ only allows localhost access
+# # \image html procServ.png "Gui snapshot"
+record(stringin, "$(P):IOCNAME") {
+  field(DESC, "IOC Name")
+}
+
+#% archiver 10 Monitor
+record(bi, "$(P):AUTORESTART") {
+  field(DESC, "Autorestart readback")
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+}
+
+record(bo, "$(P):SHOWOUT") {
+  field(DESC, "Show IOC output")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
+  field(VAL, "$(SHOWOUT=1)")
+  field(PINI, "YES")
+}
+
+
+#% archiver 10 Monitor
+# %gdatag,template,simpleMbbinary,$(P),Current status for IOC $(P)
+# %gdatag,mbbinary,ro,$(P),RECORD,PV
+# % gui, $(name=), sevr
+record(mbbi, "$(P):STATUS") {
+  field(DESC, "Process status")
+  field(ZRST, "Running")
+  field(ONST, "Shutdown")
+  field(TWST, "procServ Stopped")
+$(MANUALSTART=)  field(ONSV, "MAJOR")
+  field(TWSV, "MAJOR")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+}
+
+#% archiver 10 Monitor
+record(busy, "$(P):TOGGLE") {
+  field(DESC, "Autorestart toggle")
+}
+
+#% archiver 10 Monitor
+record(busy, "$(P):START") {
+  field(DESC, "Start IOC")
+}
+
+#% archiver 10 Monitor
+record(busy, "$(P):STOP") {
+  field(DESC, "Stop IOC")
+}
+
+#% archiver 10 Monitor
+record(busy, "$(P):RESTART") {
+  field(DESC, "Restart IOC")
+}
+
+record(waveform, "$(P):IOCOUT") {
+    field(DESC, "Last 20 lines of IOC output")
+    field(NELM, "5120")
+    field(FTVL, "UCHAR")
+}
+
+record(stringin, "$(P):PORT") {
+  field(VAL, "$(PORT)")
+  field(PINI, "YES")
+}
