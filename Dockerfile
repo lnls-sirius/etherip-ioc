@@ -23,7 +23,7 @@ ENV PCTRL_SOCK /opt/etheripIOC/procCtrl/sockets/pCtrl.sock
 RUN cd ${EPICS_MODULES} &&\
     wget https://github.com/EPICSTools/ether_ip/archive/ether_ip-3-2.tar.gz &&\
     tar -zxvf ether_ip-3-2.tar.gz && rm -f ether_ip-3-2.tar.gz && cd ether_ip-ether_ip-3-2 &&\
-    sed -i -e '1iEPICS_BASE='${EPICS_BASE} configure/RELEASE && make
+    sed -i -e '1iEPICS_BASE='${EPICS_BASE} configure/RELEASE && make -j$(nproc)
 
 ENV ETHER_IP ${EPICS_MODULES}/ether_ip-ether_ip-3-2
 
@@ -48,13 +48,13 @@ ENV IOC_PROCSERV_PREFIX PCtrl:${NAME}
 ENV DEVIP localhost
 
 FROM base AS rf_bo
-ENV NAME RF-BO-INTLK
+ENV NAME RF-BO-Intlk
 ENV CMD RF-Booster.cmd
 ENV DEVIP 10.128.130.150
 ENV IOC_PROCSERV_PREFIX PCtrl:${NAME}
 
 FROM base AS rf_si
-ENV NAME RF-SI-INTLK
+ENV NAME RF-SI-Intlk
 ENV CMD RF-Ring1.cmd
 ENV DEVIP 10.128.130.60
 ENV IOC_PROCSERV_PREFIX PCtrl:${NAME}
