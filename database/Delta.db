@@ -133,9 +133,9 @@ record(bi, "$(P)$(R)GearLPM-Mon"){
 
 record(bo, "$(P)$(R)EnContactor-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[0]")
+    field(OUT, "@$(PLC) EnFlags[0] S .1")
     field(DESC, "Enable Power Supply Contacto")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -145,6 +145,7 @@ record(bo, "$(P)$(R)EnContactor-Sel"){
 record(bo, "$(P)$(R)EnClear-Cmd"){
     field(DESC, "Clear All Axis Faults")
     field(OUT, "$(P)$(R)EnClearCmdAux1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -157,9 +158,9 @@ record(calcout, "$(P)$(R)EnClearCmdAux1"){
 }
 record(bo, "$(P)$(R)EnClearCmdAux2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[1]")
+    field(OUT, "@$(PLC) EnFlags[1] S .1")
     field(DESC, "aux rec 2")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "")
@@ -169,6 +170,7 @@ record(bo, "$(P)$(R)EnClearCmdAux2"){
 record(bo, "$(P)$(R)EnServo-Cmd"){
     field(DESC, "Turn On Servo Motors")
     field(OUT, "$(P)$(R)EnServoCmdAux1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -181,9 +183,9 @@ record(calcout, "$(P)$(R)EnServoCmdAux1"){
 }
 record(bo, "$(P)$(R)EnServoCmdAux2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[2]")
+    field(OUT, "@$(PLC) EnFlags[2] S .1")
     field(DESC, "aux rec 2")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "")
@@ -193,6 +195,7 @@ record(bo, "$(P)$(R)EnServoCmdAux2"){
 record(bo, "$(P)$(R)DisServo-Cmd"){
     field(DESC, "Turn Off Servo Motors")
     field(OUT, "$(P)$(R)DisServoCmdAux1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -205,9 +208,9 @@ record(calcout, "$(P)$(R)DisServoCmdAux1"){
 }
 record(bo, "$(P)$(R)DisServoCmdAux2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[3]")
+    field(OUT, "@$(PLC) EnFlags[3] S .1")
     field(DESC, "aux rec 2")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "")
@@ -217,6 +220,7 @@ record(bo, "$(P)$(R)DisServoCmdAux2"){
 record(bo, "$(P)$(R)EnHome-Cmd"){
     field(DESC, "Home All Axis")
     field(OUT, "$(P)$(R)EnHomeCmdAux1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -229,9 +233,9 @@ record(calcout, "$(P)$(R)EnHomeCmdAux1"){
 }
 record(bo, "$(P)$(R)EnHomeCmdAux2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[4]")
+    field(OUT, "@$(PLC) EnFlags[4] S .1")
     field(DESC, "aux rec 2")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "")
@@ -240,9 +244,9 @@ record(bo, "$(P)$(R)EnHomeCmdAux2"){
 
 record(bo, "$(P)$(R)EnCmsMode-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[7]")
+    field(OUT, "@$(PLC) EnFlags[7] S .1")
     field(DESC, "Select Uncoupled Gear - Comi")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -252,6 +256,7 @@ record(bo, "$(P)$(R)EnCmsMode-Sel"){
 record(bo, "$(P)$(R)EnVIMode-Cmd"){
     field(DESC, "Select Vertical Intensity Op")
     field(OUT, "$(P)$(R)EnVIModeCmdAux1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -264,9 +269,9 @@ record(calcout, "$(P)$(R)EnVIModeCmdAux1"){
 }
 record(bo, "$(P)$(R)EnVIModeCmdAux2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[8]")
+    field(OUT, "@$(PLC) EnFlags[8] S .1")
     field(DESC, "aux rec 2")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "")
@@ -276,6 +281,7 @@ record(bo, "$(P)$(R)EnVIModeCmdAux2"){
 record(bo, "$(P)$(R)EnHIMode-Cmd"){
     field(DESC, "Select Horizontal Intensity ")
     field(OUT, "$(P)$(R)EnHIModeCmdAux1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -288,9 +294,9 @@ record(calcout, "$(P)$(R)EnHIModeCmdAux1"){
 }
 record(bo, "$(P)$(R)EnHIModeCmdAux2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[9]")
+    field(OUT, "@$(PLC) EnFlags[9] S .1")
     field(DESC, "aux rec 2")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "")
@@ -300,6 +306,7 @@ record(bo, "$(P)$(R)EnHIModeCmdAux2"){
 record(bo, "$(P)$(R)EnEPMode-Cmd"){
     field(DESC, "Select Eliptical Polarizatio")
     field(OUT, "$(P)$(R)EnEPModeCmdAux1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -312,9 +319,9 @@ record(calcout, "$(P)$(R)EnEPModeCmdAux1"){
 }
 record(bo, "$(P)$(R)EnEPModeCmdAux2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[10]")
+    field(OUT, "@$(PLC) EnFlags[10] S .1")
     field(DESC, "aux rec 2")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "")
@@ -324,6 +331,7 @@ record(bo, "$(P)$(R)EnEPModeCmdAux2"){
 record(bo, "$(P)$(R)EnLPMode-Cmd"){
     field(DESC, "Select Linear Polarization O")
     field(OUT, "$(P)$(R)EnLPModeCmdAux1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -336,9 +344,9 @@ record(calcout, "$(P)$(R)EnLPModeCmdAux1"){
 }
 record(bo, "$(P)$(R)EnLPModeCmdAux2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[11]")
+    field(OUT, "@$(PLC) EnFlags[11] S .1")
     field(DESC, "aux rec 2")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "")
@@ -348,6 +356,7 @@ record(bo, "$(P)$(R)EnLPModeCmdAux2"){
 record(bo, "$(P)$(R)EnMove-Cmd"){
     field(DESC, "Start axes motion")
     field(OUT, "$(P)$(R)EnMoveCmdAux1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -360,9 +369,9 @@ record(calcout, "$(P)$(R)EnMoveCmdAux1"){
 }
 record(bo, "$(P)$(R)EnMoveCmdAux2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[5]")
+    field(OUT, "@$(PLC) EnFlags[5] S .1")
     field(DESC, "aux rec 2")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "")
@@ -372,6 +381,7 @@ record(bo, "$(P)$(R)EnMoveCmdAux2"){
 record(bo, "$(P)$(R)EnCam-Cmd"){
     field(DESC, "Start Cam profile motion")
     field(OUT, "$(P)$(R)EnCamCmdAux1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -384,9 +394,9 @@ record(calcout, "$(P)$(R)EnCamCmdAux1"){
 }
 record(bo, "$(P)$(R)EnCamCmdAux2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[6]")
+    field(OUT, "@$(PLC) EnFlags[6] S .1")
     field(DESC, "aux rec 2")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "")
@@ -396,6 +406,7 @@ record(bo, "$(P)$(R)EnCamCmdAux2"){
 record(bo, "$(P)$(R)Stop-Cmd"){
     field(DESC, "Stop all motors")
     field(OUT, "$(P)$(R)StopCmdAux1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -408,9 +419,9 @@ record(calcout, "$(P)$(R)StopCmdAux1"){
 }
 record(bo, "$(P)$(R)StopCmdAux2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) EnFlags[12]")
+    field(OUT, "@$(PLC) EnFlags[12] S .1")
     field(DESC, "aux rec 2")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "")
@@ -419,9 +430,9 @@ record(bo, "$(P)$(R)StopCmdAux2"){
 
 record(ao, "$(P)$(R)HomingAccel-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) HomingAccel")
+    field(OUT, "@$(PLC) HomingAccel S .1")
     field(DESC, "Homing acceleration decelera")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s2")
     field(DRVH, "")
@@ -441,9 +452,9 @@ record(ao, "$(P)$(R)HomingAccel-SP"){
 
 record(ao, "$(P)$(R)HomingJerk-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) HomingJerk")
+    field(OUT, "@$(PLC) HomingJerk S .1")
     field(DESC, "Homing acceleration decelera")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s3")
     field(DRVH, "")
@@ -463,9 +474,9 @@ record(ao, "$(P)$(R)HomingJerk-SP"){
 
 record(ao, "$(P)$(R)HomingSpeed-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) HomingSpeed")
+    field(OUT, "@$(PLC) HomingSpeed S .1")
     field(DESC, "Homing speed")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s")
     field(DRVH, "")
@@ -485,9 +496,9 @@ record(ao, "$(P)$(R)HomingSpeed-SP"){
 
 record(ao, "$(P)$(R)MoveAccel-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) MoveAccel")
+    field(OUT, "@$(PLC) MoveAccel S .1")
     field(DESC, "Motion acceleration decelera")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s2")
     field(DRVH, "")
@@ -507,9 +518,9 @@ record(ao, "$(P)$(R)MoveAccel-SP"){
 
 record(ao, "$(P)$(R)MoveJerk-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) MoveJerk")
+    field(OUT, "@$(PLC) MoveJerk S .1")
     field(DESC, "Motion acceleration decelera")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s3")
     field(DRVH, "")
@@ -529,9 +540,9 @@ record(ao, "$(P)$(R)MoveJerk-SP"){
 
 record(ao, "$(P)$(R)MoveSpeed-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) MoveSpeed")
+    field(OUT, "@$(PLC) MoveSpeed S .1")
     field(DESC, "Motion speed")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s")
     field(DRVH, "")
@@ -551,9 +562,9 @@ record(ao, "$(P)$(R)MoveSpeed-SP"){
 
 record(ao, "$(P)$(R)OvertravelClearDst-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) OvertravelClearDst")
+    field(OUT, "@$(PLC) OvertravelClearDst S .1")
     field(DESC, "Overtravel clear distance")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -573,9 +584,9 @@ record(ao, "$(P)$(R)OvertravelClearDst-SP"){
 
 record(ao, "$(P)$(R)OvertravelClearSpd-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) OvertravelClearSpd")
+    field(OUT, "@$(PLC) OvertravelClearSpd S .1")
     field(DESC, "Overtravel clear speed")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s")
     field(DRVH, "")
@@ -595,9 +606,9 @@ record(ao, "$(P)$(R)OvertravelClearSpd-SP"){
 
 record(ao, "$(P)$(R)CamDScaling-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) CamDScaling")
+    field(OUT, "@$(PLC) CamDScaling S .1")
     field(DESC, "Cam profile distance scaling")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "")
     field(DRVH, "")
@@ -617,9 +628,9 @@ record(ao, "$(P)$(R)CamDScaling-SP"){
 
 record(ao, "$(P)$(R)CamTScaling-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) CamTScaling")
+    field(OUT, "@$(PLC) CamTScaling S .1")
     field(DESC, "Cam profile time scaling")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "")
     field(DRVH, "")
@@ -639,9 +650,9 @@ record(ao, "$(P)$(R)CamTScaling-SP"){
 
 record(ao, "$(P)$(R)AxisAActualPosition-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisA.ActualPosition")
+    field(OUT, "@$(PLC) AxisA.ActualPosition S .1")
     field(DESC, "Axis A position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -661,9 +672,9 @@ record(ao, "$(P)$(R)AxisAActualPosition-Mon"){
 
 record(ao, "$(P)$(R)AxisAActualVelocity-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisA.ActualVelocity")
+    field(OUT, "@$(PLC) AxisA.ActualVelocity S .1")
     field(DESC, "Axis A velocity")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s")
     field(DRVH, "")
@@ -683,9 +694,9 @@ record(ao, "$(P)$(R)AxisAActualVelocity-Mon"){
 
 record(ao, "$(P)$(R)AxisAOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisA.OutputCurrent")
+    field(OUT, "@$(PLC) AxisA.OutputCurrent S .1")
     field(DESC, "Axis A output current")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -705,9 +716,9 @@ record(ao, "$(P)$(R)AxisAOutputCurrent-Mon"){
 
 record(ao, "$(P)$(R)AxisAAxisStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisA.AxisStatus")
+    field(OUT, "@$(PLC) AxisA.AxisStatus S .1")
     field(DESC, "Axis A status")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -727,9 +738,9 @@ record(ao, "$(P)$(R)AxisAAxisStatus-Mon"){
 
 record(ao, "$(P)$(R)AxisAMotionStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisA.MotionStatus")
+    field(OUT, "@$(PLC) AxisA.MotionStatus S .1")
     field(DESC, "Axis A motion status")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -782,9 +793,9 @@ record(bi, "$(P)$(R)AxisABrakeStatus-Mon"){
 
 record(ao, "$(P)$(R)AxisAHomePos-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) HomePos[0]")
+    field(OUT, "@$(PLC) HomePos[0] S .1")
     field(DESC, "Axis A home position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -804,9 +815,9 @@ record(ao, "$(P)$(R)AxisAHomePos-SP"){
 
 record(bo, "$(P)$(R)AxisAMove-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) MoveAxes[0]")
+    field(OUT, "@$(PLC) MoveAxes[0] S .1")
     field(DESC, "Select Axis A to move")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -815,9 +826,9 @@ record(bo, "$(P)$(R)AxisAMove-Sel"){
 
 record(ao, "$(P)$(R)AxisAMovePos-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) MovePos[0]")
+    field(OUT, "@$(PLC) MovePos[0] S .1")
     field(DESC, "Axis A setpoint position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -837,9 +848,9 @@ record(ao, "$(P)$(R)AxisAMovePos-SP"){
 
 record(ao, "$(P)$(R)AxisBActualPosition-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisB.ActualPosition")
+    field(OUT, "@$(PLC) AxisB.ActualPosition S .1")
     field(DESC, "Axis B position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -859,9 +870,9 @@ record(ao, "$(P)$(R)AxisBActualPosition-Mon"){
 
 record(ao, "$(P)$(R)AxisBActualVelocity-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisB.ActualVelocity")
+    field(OUT, "@$(PLC) AxisB.ActualVelocity S .1")
     field(DESC, "Axis B velocity")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s")
     field(DRVH, "")
@@ -881,9 +892,9 @@ record(ao, "$(P)$(R)AxisBActualVelocity-Mon"){
 
 record(ao, "$(P)$(R)AxisBOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisB.OutputCurrent")
+    field(OUT, "@$(PLC) AxisB.OutputCurrent S .1")
     field(DESC, "Axis B output current")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -903,9 +914,9 @@ record(ao, "$(P)$(R)AxisBOutputCurrent-Mon"){
 
 record(ao, "$(P)$(R)AxisBAxisStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisB.AxisStatus")
+    field(OUT, "@$(PLC) AxisB.AxisStatus S .1")
     field(DESC, "Axis B status")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -925,9 +936,9 @@ record(ao, "$(P)$(R)AxisBAxisStatus-Mon"){
 
 record(ao, "$(P)$(R)AxisBMotionStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisB.MotionStatus")
+    field(OUT, "@$(PLC) AxisB.MotionStatus S .1")
     field(DESC, "Axis B motion status")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -980,9 +991,9 @@ record(bi, "$(P)$(R)AxisBBrakeStatus-Mon"){
 
 record(ao, "$(P)$(R)AxisBHomePos-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) HomePos[1]")
+    field(OUT, "@$(PLC) HomePos[1] S .1")
     field(DESC, "Axis B home position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -1002,9 +1013,9 @@ record(ao, "$(P)$(R)AxisBHomePos-SP"){
 
 record(bo, "$(P)$(R)AxisBMove-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) MoveAxes[1]")
+    field(OUT, "@$(PLC) MoveAxes[1] S .1")
     field(DESC, "Select Axis B to move")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -1013,9 +1024,9 @@ record(bo, "$(P)$(R)AxisBMove-Sel"){
 
 record(ao, "$(P)$(R)AxisBMovePos-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) MovePos[1]")
+    field(OUT, "@$(PLC) MovePos[1] S .1")
     field(DESC, "Axis B setpoint position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -1035,9 +1046,9 @@ record(ao, "$(P)$(R)AxisBMovePos-SP"){
 
 record(ao, "$(P)$(R)AxisCActualPosition-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisC.ActualPosition")
+    field(OUT, "@$(PLC) AxisC.ActualPosition S .1")
     field(DESC, "Axis C position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -1057,9 +1068,9 @@ record(ao, "$(P)$(R)AxisCActualPosition-Mon"){
 
 record(ao, "$(P)$(R)AxisCActualVelocity-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisC.ActualVelocity")
+    field(OUT, "@$(PLC) AxisC.ActualVelocity S .1")
     field(DESC, "Axis C velocity")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s")
     field(DRVH, "")
@@ -1079,9 +1090,9 @@ record(ao, "$(P)$(R)AxisCActualVelocity-Mon"){
 
 record(ao, "$(P)$(R)AxisCOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisC.OutputCurrent")
+    field(OUT, "@$(PLC) AxisC.OutputCurrent S .1")
     field(DESC, "Axis C output current")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -1101,9 +1112,9 @@ record(ao, "$(P)$(R)AxisCOutputCurrent-Mon"){
 
 record(ao, "$(P)$(R)AxisCAxisStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisC.AxisStatus")
+    field(OUT, "@$(PLC) AxisC.AxisStatus S .1")
     field(DESC, "Axis C status")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -1123,9 +1134,9 @@ record(ao, "$(P)$(R)AxisCAxisStatus-Mon"){
 
 record(ao, "$(P)$(R)AxisCMotionStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisC.MotionStatus")
+    field(OUT, "@$(PLC) AxisC.MotionStatus S .1")
     field(DESC, "Axis C motion status")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -1178,9 +1189,9 @@ record(bi, "$(P)$(R)AxisCBrakeStatus-Mon"){
 
 record(ao, "$(P)$(R)AxisCHomePos-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) HomePos[2]")
+    field(OUT, "@$(PLC) HomePos[2] S .1")
     field(DESC, "Axis C home position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -1200,9 +1211,9 @@ record(ao, "$(P)$(R)AxisCHomePos-SP"){
 
 record(bo, "$(P)$(R)AxisCMove-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) MoveAxes[2]")
+    field(OUT, "@$(PLC) MoveAxes[2] S .1")
     field(DESC, "Select Axis C to move")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -1211,9 +1222,9 @@ record(bo, "$(P)$(R)AxisCMove-Sel"){
 
 record(ao, "$(P)$(R)AxisCMovePos-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) MovePos[2]")
+    field(OUT, "@$(PLC) MovePos[2] S .1")
     field(DESC, "Axis C setpoint position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -1233,9 +1244,9 @@ record(ao, "$(P)$(R)AxisCMovePos-SP"){
 
 record(ao, "$(P)$(R)AxisDActualPosition-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisD.ActualPosition")
+    field(OUT, "@$(PLC) AxisD.ActualPosition S .1")
     field(DESC, "Axis D position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -1255,9 +1266,9 @@ record(ao, "$(P)$(R)AxisDActualPosition-Mon"){
 
 record(ao, "$(P)$(R)AxisDActualVelocity-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisD.ActualVelocity")
+    field(OUT, "@$(PLC) AxisD.ActualVelocity S .1")
     field(DESC, "Axis D velocity")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s")
     field(DRVH, "")
@@ -1277,9 +1288,9 @@ record(ao, "$(P)$(R)AxisDActualVelocity-Mon"){
 
 record(ao, "$(P)$(R)AxisDOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisD.OutputCurrent")
+    field(OUT, "@$(PLC) AxisD.OutputCurrent S .1")
     field(DESC, "Axis D output current")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -1299,9 +1310,9 @@ record(ao, "$(P)$(R)AxisDOutputCurrent-Mon"){
 
 record(ao, "$(P)$(R)AxisDAxisStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisD.AxisStatus")
+    field(OUT, "@$(PLC) AxisD.AxisStatus S .1")
     field(DESC, "Axis D status")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -1321,9 +1332,9 @@ record(ao, "$(P)$(R)AxisDAxisStatus-Mon"){
 
 record(ao, "$(P)$(R)AxisDMotionStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisD.MotionStatus")
+    field(OUT, "@$(PLC) AxisD.MotionStatus S .1")
     field(DESC, "Axis D motion status")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "A")
     field(DRVH, "")
@@ -1376,9 +1387,9 @@ record(bi, "$(P)$(R)AxisDBrakeStatus-Mon"){
 
 record(ao, "$(P)$(R)AxisDHomePos-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) HomePos[3]")
+    field(OUT, "@$(PLC) HomePos[3] S .1")
     field(DESC, "Axis D home position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")
@@ -1398,9 +1409,9 @@ record(ao, "$(P)$(R)AxisDHomePos-SP"){
 
 record(bo, "$(P)$(R)AxisDMove-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) MoveAxes[3]")
+    field(OUT, "@$(PLC) MoveAxes[3] S .1")
     field(DESC, "Select Axis D to move")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(ZSV, "")
@@ -1409,9 +1420,9 @@ record(bo, "$(P)$(R)AxisDMove-Sel"){
 
 record(ao, "$(P)$(R)AxisDMovePos-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) MovePos[3]")
+    field(OUT, "@$(PLC) MovePos[3] S .1")
     field(DESC, "Axis D setpoint position")
-    field(SCAN, ".1 second")
+    field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
     field(DRVH, "")

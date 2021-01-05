@@ -41,9 +41,9 @@ ao_template = Template(
     """
 record(ao, "${name}"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) ${tag}")
+    field(OUT, "@$(PLC) ${tag} S ${scan}")
     field(DESC, "${desc}")
-    field(SCAN, "${scan} second")
+    field(SCAN, "Passive")
     field(PREC, "${prec}")
     field(EGU,  "${egu}")
     field(DRVH, "${drvh}")
@@ -91,9 +91,9 @@ bo_template = Template(
     """
 record(bo, "${name}"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) ${tag}")
+    field(OUT, "@$(PLC) ${tag} S ${scan}")
     field(DESC, "${desc}")
-    field(SCAN, "${scan} second")
+    field(SCAN, "Passive")
     field(ONAM, "${onam}")
     field(ZNAM, "${znam}")
     field(ZSV, "${zsv}")
@@ -146,6 +146,7 @@ bo_cmd_template = Template(
 record(bo, "${name}"){
     field(DESC, "${desc}")
     field(OUT, "${auxname}1.PROC PP")
+    field(SCAN, "Passive")
     field(ONAM, "${onam}")
     field(ZNAM, "${znam}")
     field(ZSV, "${zsv}")
@@ -158,9 +159,9 @@ record(calcout, "${auxname}1"){
 }
 record(bo, "${auxname}2"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) ${tag}")
+    field(OUT, "@$(PLC) ${tag} S ${scan}")
     field(DESC, "aux rec 2")
-    field(SCAN, "${scan} second")
+    field(SCAN, "Passive")
     field(ONAM, "0")
     field(ZNAM, "1")
     field(ZSV, "${zsv}")
