@@ -10,18 +10,18 @@ record(bi, "RA-ToBO:RF-ACDCPanel:300VdcEnbl-Mon"){
 
 record(bo, "RA-ToBO:RF-ACDCPanel:300VdcDsbl-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_ToBO_RF_ACDCPanel_300VdcDsblSel")
+    field(OUT, "@$(PLC) RA_ToBO_RF_ACDCPanel_300VdcDsblSel S .1")
     field(DESC, "Desliga 300VDC")
-    field(SCAN, ".1 second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
 record(bo, "RA-ToBO:RF-ACDCPanel:300VdcEnbl-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_ToBO_RF_ACDCPanel_300VdcEnblSel")
+    field(OUT, "@$(PLC) RA_ToBO_RF_ACDCPanel_300VdcEnblSel S .1")
     field(DESC, "Liga 300 VDC")
-    field(SCAN, ".1 second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -262,18 +262,18 @@ record(bi, "RA-ToBO:RF-SSAmpTower:HdFlwRt-Mon"){
 
 record(bo, "RA-ToBO:RF-SSAmpTower:PwrCnvDsbl-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_ToBO_RF_SSAmpTower_PwrCnvDsblSel")
+    field(OUT, "@$(PLC) RA_ToBO_RF_SSAmpTower_PwrCnvDsblSel S .1")
     field(DESC, "Desliga Conversores DC/DC")
-    field(SCAN, ".1 second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
 record(bo, "RA-ToBO:RF-SSAmpTower:PwrCnvEnbl-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_ToBO_RF_SSAmpTower_PwrCnvEnblSel")
+    field(OUT, "@$(PLC) RA_ToBO_RF_SSAmpTower_PwrCnvEnblSel S .1")
     field(DESC, "Liga Conversores DC/DC")
-    field(SCAN, ".1 second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -289,9 +289,9 @@ record(bi, "RA-ToBO:RF-SSAmpTower:PwrCnv-Sts"){
 
 record(bo, "RA-ToBO:RF-SSAmpTower:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_ToBO_RF_SSAmpTower_StsMon")
+    field(OUT, "@$(PLC) RA_ToBO_RF_SSAmpTower_StsMon S .1")
     field(DESC, "Interlock Geral SSA")
-    field(SCAN, ".1 second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -370,18 +370,18 @@ record(bi, "BO-05D:RF-Intlk:EStop-Mon"){
 
 record(bo, "BO-05D:RF-Intlk:Reset-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) BO_05D_RF_Intlk_ResetSel")
+    field(OUT, "@$(PLC) BO_05D_RF_Intlk_ResetSel S .1")
     field(DESC, "Reset de Falhas ")
-    field(SCAN, ".1 second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
 record(bo, "BO-05D:RF-P5Cav:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) BO_05D_RF_P5Cav_StsMon")
+    field(OUT, "@$(PLC) BO_05D_RF_P5Cav_StsMon S .1")
     field(DESC, "Interlock Geral Petra V")
-    field(SCAN, ".1 second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -703,18 +703,18 @@ record(ai, "BO-05D:RF-P5Cav:PwrRFIntlk-Mon"){
 
 record(bo, "RA-RaBO01:RF-LLRFPreAmp:PinSwEnbl-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_RaBO01_RF_LLRFPreAmp_PinSwEnblSel")
+    field(OUT, "@$(PLC) RA_RaBO01_RF_LLRFPreAmp_PinSwEnblSel S .1")
     field(DESC, "Habilita Chave Pin Lenta")
-    field(SCAN, ".1 second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
 record(bo, "RA-RaBO01:RF-LLRFPreAmp:PinSwDsbl-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_RaBO01_RF_LLRFPreAmp_PinSwDsblSel")
+    field(OUT, "@$(PLC) RA_RaBO01_RF_LLRFPreAmp_PinSwDsblSel S .1")
     field(DESC, "Desabilita Chave Pin Lenta")
-    field(SCAN, ".1 second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -766,9 +766,9 @@ record(bi, "RA-TL:RF-Circulator-BO:Arc-Mon"){
 
 record(bo, "RA-RaBO02:RF-ArcDetec-Circ:Test-Sel"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_RaBO02_RF_ArcDetec_Circ_TestSel")
+    field(OUT, "@$(PLC) RA_RaBO02_RF_ArcDetec_Circ_TestSel S .1")
     field(DESC, "Teste detector de Arco")
-    field(SCAN, ".1 second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -856,9 +856,9 @@ record(bi, "RA-TL:RF-Load-BO:FlwRt-Mon"){
 
 record(bo, "RA-TL:RF-TrLine-BO:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_TL_RF_TrLine_BO_StsMon")
+    field(OUT, "@$(PLC) RA_TL_RF_TrLine_BO_StsMon S .1")
     field(DESC, "Interlock geral Linha de Tra")
-    field(SCAN, ".1 second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "True")
     field(ZNAM, "False")
 }

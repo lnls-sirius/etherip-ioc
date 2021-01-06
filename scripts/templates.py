@@ -55,9 +55,9 @@ bo_template = Template(
     """
 record(bo, "${name}"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) ${tag}")
+    field(OUT, "@$(PLC) ${tag} S .1")
     field(DESC, "${desc}")
-    field(SCAN, "${scan} second")
+    field(SCAN, "PASSIVE")
     field(ONAM, "${onam}")
     field(ZNAM, "${znam}")
 }
