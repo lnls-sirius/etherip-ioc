@@ -12,7 +12,7 @@ record(bo, "RA-ToSIA01:RF-ACPanel:PwrACDsbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_ToSIA01_RF_ACPanel_PwrACDsblSel S .1")
     field(DESC, "AC das Fontes TDK Torre 01 O")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -21,7 +21,7 @@ record(bo, "RA-ToSIA01:RF-ACPanel:PwrACEnbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_ToSIA01_RF_ACPanel_PwrACEnblSel S .1")
     field(DESC, "AC das Fontes TDK Torre 01 O")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -651,7 +651,7 @@ record(bo, "RA-ToSIA01:RF-TDKSource:PwrDCDsbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_ToSIA01_RF_TDKSource_PwrDCDsblSel S .1")
     field(DESC, " 48V das Fontes TDK Torre 01")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -660,7 +660,7 @@ record(bo, "RA-ToSIA01:RF-TDKSource:PwrDCEnbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_ToSIA01_RF_TDKSource_PwrDCEnblSel S .1")
     field(DESC, "48V das Fontes TDK Torre 01 ")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -723,7 +723,7 @@ record(bo, "RA-ToSIA01:RF-SSAmpTower:Enbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_ToSIA01_RF_SSAmpTower_EnblSel S .1")
     field(DESC, "Torre 1 Enbl")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -786,7 +786,7 @@ record(bo, "RA-ToSIA02:RF-ACPanel:PwrACDsbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_ToSIA02_RF_ACPanel_PwrACDsblSel S .1")
     field(DESC, "AC das Fontes TDK Torre 02 O")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -795,7 +795,7 @@ record(bo, "RA-ToSIA02:RF-ACPanel:PwrACEnbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_ToSIA02_RF_ACPanel_PwrACEnblSel S .1")
     field(DESC, "AC das Fontes TDK Torre 02 O")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -1425,7 +1425,7 @@ record(bo, "RA-ToSIA02:RF-TDKSource:PwrDCDsbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_ToSIA02_RF_TDKSource_PwrDCDsblSel S .1")
     field(DESC, "48V das Fontes TDK Torre 02 ")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -1434,7 +1434,7 @@ record(bo, "RA-ToSIA02:RF-TDKSource:PwrDCEnbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_ToSIA02_RF_TDKSource_PwrDCEnblSel S .1")
     field(DESC, "48V das Fontes TDK Torre 02 ")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -1497,7 +1497,7 @@ record(bo, "RA-ToSIA02:RF-SSAmpTower:Enbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_ToSIA02_RF_SSAmpTower_EnblSel S .1")
     field(DESC, "Torre 2 Enbl")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -1578,7 +1578,7 @@ record(bo, "SI-02SB:RF-Intlk:Reset-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) SI_03SP_RF_Intlk_ResetSel S .1")
     field(DESC, "Reset de Falhas")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -1605,7 +1605,7 @@ record(bo, "RA-RaSIA01:RF-CavPlDrivers:DrEnbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_RaSIA01_RF_CavPlDrivers_DrEnblSel S .1")
     field(DESC, "Habilita Plungers")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -2082,7 +2082,7 @@ record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw1Enbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw1EnblSel S .1")
     field(DESC, "Habilita Chave Pin 01")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -2091,7 +2091,7 @@ record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw2Enbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw2EnblSel S .1")
     field(DESC, "Habilita Chave Pin 02")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -2100,7 +2100,7 @@ record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw1Dsbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw1DsblSel S .1")
     field(DESC, "Desabilita Chave Pin 01")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -2109,7 +2109,7 @@ record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw2Dsbl-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw2DsblSel S .1")
     field(DESC, "Desabilita Chave Pin 02")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -2154,7 +2154,7 @@ record(bo, "RA-RaSIA02:RF-ArcDetec-Circ:Test-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_RaSIA02_RF_ArcDetec_Circ_TestSel S .1")
     field(DESC, "Teste detector de Arco Circu")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -2163,7 +2163,7 @@ record(bo, "RA-RaSIA02:RF-ArcDetec-Load:Test-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_RaSIA02_RF_ArcDetec_Load_TestSel S .1")
     field(DESC, "Teste detector de Arco Carga")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }

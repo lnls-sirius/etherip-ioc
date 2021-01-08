@@ -57,7 +57,7 @@ record(bo, "${name}"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) ${tag} S .1")
     field(DESC, "${desc}")
-    field(SCAN, "PASSIVE")
+    field(SCAN, "Passive")
     field(ONAM, "${onam}")
     field(ZNAM, "${znam}")
 }
