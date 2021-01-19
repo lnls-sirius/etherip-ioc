@@ -51,6 +51,16 @@ record(ai, "${name}"){
 """
 )
 
+calcout_template_field = Template(
+    """
+record(calcout, "${name}"){
+    field(CALC, "A${offset}")
+    field(INPA, "${name_clp} CP")
+    field(OUT, "${name_target}.${field} PP")
+}
+"""
+)
+
 bo_template = Template(
     """
 record(bo, "${name}"){

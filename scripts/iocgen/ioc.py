@@ -4,8 +4,15 @@ import pandas
 import logging
 import os
 import re
+import typing
 
-from .templates import cmd_template, ai_template, bi_template, bo_template
+from .templates import (
+    cmd_template,
+    ai_template,
+    bi_template,
+    bo_template,
+    calcout_template_field,
+)
 from .consts import SCAN_VALUES
 
 logger = logging.getLogger()
@@ -72,6 +79,48 @@ class RowData:
 
         if not self.tag or type(self.tag) != str or self.tag == "" or self.tag == "N/A":
             raise ValueError("Invalid tag for record {}".format(self.name))
+
+        self.lower_lim_tag = row[cols.lowerLimitTag]
+        self.upper_lim_tag = row[cols.upperLimitTag]
+
+        self.lower_lim_pv = row[cols.lowerLimitPV]
+        self.upper_lim_pv = row[cols.upperLimitPV]
+
+
+class Limits:
+    def __init__(self):
+        self.lower_tags = {}
+        self.upper_tags = {}
+
+    def add_row(self, row: RowData):
+        count = 0
+        if row.upper_lim_tag != "":
+            if row.upper_lim_tag not in self.upper_tags:
+                self.upper_tags[row.upper_lim_tag] = []
+            self.upper_tags[row.upper_lim_tag].append(row)
+            count += 1
+
+        if row.lower_lim_tag != "":
+            if row.lower_lim_tag not in self.lower_tags:
+                self.lower_tags[row.lower_lim_tag] = []
+            self.lower_tags[row.lower_lim_tag].append(row)
+            count += 1
+
+        return count
+
+    def upper_tags_items(
+        self,
+    ) -> typing.Generator[typing.Tuple[int, RowData], None, None]:
+        for k, v in self.upper_tags.items():
+            for i in v:
+                yield k, i
+
+    def lower_tags_items(
+        self,
+    ) -> typing.Generator[typing.Tuple[int, RowData], None, None]:
+        for k, v in self.lower_tags.items():
+            for i in v:
+                yield k, i
 
 
 def generate_cmd_file(base_path, arch, ioc_name, plc_module, plc_name):
@@ -155,7 +204,70 @@ def rows_from_sheets_generator(spreadsheet_path, sheet_names):
             yield row, sheet_name
 
 
-def generate_records_from_row(row, sheet_name, file, column_names: ColumnNames, tags):
+def generate_limit_records(limit_tags: Limits, f):
+
+    for _, row in limit_tags.upper_tags_items():
+        from_clp_record = ai_template.safe_substitute(
+            name=row.upper_lim_pv,
+            tag=row.upper_lim_tag,
+            desc="Upper limits from PLC",
+            egu=row.egu,
+            prec=row.prec,
+            scan="1",
+        )
+        f.write(from_clp_record)
+        f.write(
+            calcout_template_field.safe_substitute(
+                name=row.upper_lim_pv + "_hihi",
+                name_clp=row.upper_lim_pv,
+                name_target=row.name,
+                offset="-0.5",
+                field="HIHI",
+            )
+        )
+        f.write(
+            calcout_template_field.safe_substitute(
+                name=row.upper_lim_pv + "_high",
+                name_clp=row.upper_lim_pv,
+                name_target=row.name,
+                offset="-1.0",
+                field="HIGH",
+            )
+        )
+
+    for _, row in limit_tags.lower_tags_items():
+        from_clp_record = ai_template.safe_substitute(
+            name=row.lower_lim_pv,
+            tag=row.lower_lim_tag,
+            desc="Upper limits from PLC",
+            egu=row.egu,
+            prec=row.prec,
+            scan="1",
+        )
+        f.write(from_clp_record)
+        f.write(
+            calcout_template_field.safe_substitute(
+                name=row.lower_lim_pv + "_low",
+                name_clp=row.lower_lim_pv,
+                name_target=row.name,
+                offset="+0.5",
+                field="LOW",
+            )
+        )
+        f.write(
+            calcout_template_field.safe_substitute(
+                name=row.lower_lim_pv + "_lolo",
+                name_clp=row.lower_lim_pv,
+                name_target=row.name,
+                offset="+1.0",
+                field="LOLO",
+            )
+        )
+
+
+def generate_records_from_row(
+    row, sheet_name, file, column_names: ColumnNames, tags, limit_tags: Limits
+):
     try:
         data = RowData(row, column_names)
 
@@ -165,6 +277,9 @@ def generate_records_from_row(row, sheet_name, file, column_names: ColumnNames, 
             tags[data.tag].append(data.name)
 
         generate_by_record_type(data, file)
+
+        limit_tags.add_row(data)
+
     except ValueError as e:
         logger.error("Record Generation [{}]: {}".format(sheet_name, e))
 
@@ -180,6 +295,8 @@ def generate_db_file(
     tags = {}
     logger.info('Generating "{}.db" file at "{}".'.format(ioc_name, IOC_DATABASE_PATH))
 
+    limits = Limits()
+
     with open(IOC_DATABASE_PATH, "w+") as f:
         for row, sheet_name in rows_from_sheets_generator(
             spreadsheet_path=spreadsheet_path, sheet_names=sheet_names
@@ -190,7 +307,9 @@ def generate_db_file(
                 column_names=column_names,
                 file=f,
                 tags=tags,
+                limit_tags=limits,
             )
+        generate_limit_records(limits, f)
 
 
 def generate(args, base_path):
