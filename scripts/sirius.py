@@ -2,7 +2,7 @@
 import os
 import json
 
-from templates import bi_template
+from iocgen.templates import bi_template
 
 default = {"onam": "Enable", "znam": "Disable", "desc": ""}
 

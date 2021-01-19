@@ -1,0 +1,28 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "SI Interlock",
+      "type": "python",
+      "request": "launch",
+      "program": "gen-ioc.py",
+      "console": "integratedTerminal",
+      "args": [
+        "../etc/Storage Ring A Interlock EPICS.xlsx",
+        "--arch",
+        "linux-x86_64",
+        "--ioc-name",
+        "RF-Ring1",
+        "--plc-module",
+        "0",
+        "--plc-name",
+        "plc1",
+        "--sheet",
+        "SSAmp Tower 01,SSAmp Tower 02,Interlock,Petra 7,LLRF,Transmission Line"
+      ]
+    }
+  ]
+}
