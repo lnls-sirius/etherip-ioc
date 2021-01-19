@@ -32,6 +32,11 @@ class ColumnNames:
         self.scan = scan
         self.prec = prec
 
+        self.upperLimitTag = "Upper Limit"
+        self.lowerLimitTag = "Lower Limit"
+        self.upperLimitPV = "UPPER LIMIT PV NAME"
+        self.lowerLimitPV = "LOWER LIMIT PV NAME"
+
 
 class RowData:
     def __init__(self, row, cols: ColumnNames):
@@ -140,25 +145,28 @@ def generate_by_record_type(data: RowData, file):
         raise ValueError("Unknown data type {} at {}".format(data.dtype, data.name))
 
 
-def generate_records_from_sheet(
-    spreadsheet_path, sheet_name, file, column_names: ColumnNames, tags
-):
-    sheet = pandas.read_excel(spreadsheet_path, sheet_name=sheet_name, dtype=str)
-    replace_info = {"\n": ""}
-    sheet.replace(replace_info, inplace=True, regex=True)
-    sheet.fillna("", inplace=True)
-    for _, row in sheet.iterrows():
-        try:
-            data = RowData(row, column_names)
+def rows_from_sheets_generator(spreadsheet_path, sheet_names):
+    for sheet_name in sheet_names:
+        sheet = pandas.read_excel(spreadsheet_path, sheet_name=sheet_name, dtype=str)
+        replace_info = {"\n": ""}
+        sheet.replace(replace_info, inplace=True, regex=True)
+        sheet.fillna("", inplace=True)
+        for _, row in sheet.iterrows():
+            yield row, sheet_name
 
-            if data.tag not in tags:
-                tags[data.tag] = [data.name]
-            else:
-                tags[data.tag].append(data.name)
 
-            generate_by_record_type(data, file)
-        except ValueError as e:
-            logger.error("Record Generation [{}]: {}".format(sheet_name, e))
+def generate_records_from_row(row, sheet_name, file, column_names: ColumnNames, tags):
+    try:
+        data = RowData(row, column_names)
+
+        if data.tag not in tags:
+            tags[data.tag] = [data.name]
+        else:
+            tags[data.tag].append(data.name)
+
+        generate_by_record_type(data, file)
+    except ValueError as e:
+        logger.error("Record Generation [{}]: {}".format(sheet_name, e))
 
     for tag, vals in tags.items():
         if len(vals) > 1:
@@ -171,11 +179,14 @@ def generate_db_file(
     IOC_DATABASE_PATH = os.path.join(base_path, "../database/") + ioc_name + ".db"
     tags = {}
     logger.info('Generating "{}.db" file at "{}".'.format(ioc_name, IOC_DATABASE_PATH))
+
     with open(IOC_DATABASE_PATH, "w+") as f:
-        for s_name in sheet_names:
-            generate_records_from_sheet(
-                spreadsheet_path=spreadsheet_path,
-                sheet_name=s_name,
+        for row, sheet_name in rows_from_sheets_generator(
+            spreadsheet_path=spreadsheet_path, sheet_names=sheet_names
+        ):
+            generate_records_from_row(
+                row=row,
+                sheet_name=sheet_name,
                 column_names=column_names,
                 file=f,
                 tags=tags,
