@@ -48,12 +48,16 @@ ENV IOC_PROCSERV_PREFIX PCtrl:${NAME}
 ENV DEVIP localhost
 
 FROM base AS rf_bo
+COPY ./database /opt/etheripIOC/database
+COPY ./iocBoot /opt/etheripIOC/iocBoot
 ENV NAME RF-BO-Intlk
 ENV CMD RF-Booster.cmd
 ENV DEVIP 10.128.130.150
 ENV IOC_PROCSERV_PREFIX PCtrl:${NAME}
 
 FROM base AS rf_si
+COPY ./database /opt/etheripIOC/database
+COPY ./iocBoot /opt/etheripIOC/iocBoot
 ENV NAME RF-SI-Intlk
 ENV CMD RF-Ring1.cmd
 ENV DEVIP 10.128.130.60
