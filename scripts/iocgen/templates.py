@@ -32,7 +32,7 @@ drvEtherIP_define_PLC("${plc}", "$(DEVIP)", ${module})
 
 dbLoadRecords("database/${database}.db", "PLC=${plc}")
 dbLoadRecords("database/${database}-Calc.db", "PLC=${plc}")
-dbLoadRecords("database/${database}-Limits.db", "PLC=${plc},P=$(P)")
+dbLoadRecords("database/${database}-Limits.db", "PLC=${plc},P=$(NAME)")
 iocInit()
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
