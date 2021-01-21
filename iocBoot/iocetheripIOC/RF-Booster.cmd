@@ -28,6 +28,7 @@ drvEtherIP_define_PLC("plc1", "$(DEVIP)", 0)
 
 dbLoadRecords("database/RF-Booster.db", "PLC=plc1")
 dbLoadRecords("database/RF-Booster-Calc.db", "PLC=plc1")
+dbLoadRecords("database/RF-Booster-Limits.db", "PLC=plc1,P=$(NAME)")
 iocInit()
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
