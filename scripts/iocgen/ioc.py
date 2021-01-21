@@ -217,7 +217,7 @@ def generate_tag_record(f, tag_pv, tag):
             desc=tag,
             egu="",
             prec="4",
-            scan="1",
+            scan="5",
         )
     )
 
