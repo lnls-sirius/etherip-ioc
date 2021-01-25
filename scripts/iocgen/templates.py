@@ -32,6 +32,7 @@ drvEtherIP_define_PLC("${plc}", "$(DEVIP)", ${module})
 
 dbLoadRecords("database/${database}.db", "PLC=${plc}")
 dbLoadRecords("database/${database}-Calc.db", "PLC=${plc}")
+dbLoadRecords("database/${database}-Limits.db", "PLC=${plc},P=$(NAME)")
 iocInit()
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
@@ -42,10 +43,21 @@ ai_template = Template(
     """
 record(ai, "${name}"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ${tag}")
+    field(INP,  "@$(PLC) ${tag}")
     field(DESC, "${desc}")
     field(SCAN, "${scan} second")
     field(PREC, "${prec}")
+    field(EGU,  "${egu}")
+}
+"""
+)
+
+ao_template_closed_loop = Template(
+    """
+record(ao, "${name}"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "${name_in} CP")
+    field(DESC, "${desc}")
     field(EGU,  "${egu}")
 }
 """
@@ -56,7 +68,7 @@ calcout_template_field = Template(
 record(calcout, "${name}"){
     field(CALC, "A${offset}")
     field(INPA, "${name_clp} CP")
-    field(OUT, "${name_target}.${field} PP")
+    field(OUT,  "${name_target}.${field} PP")
 }
 """
 )

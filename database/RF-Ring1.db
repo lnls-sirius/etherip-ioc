@@ -55,7 +55,7 @@ record(bi, "RA-ToSIA01:RF-ACPanel:PwrAC-Sts"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H01A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H01A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H01A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -64,7 +64,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H01A:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H01B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H01B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H01B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -73,7 +73,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H01B:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H02A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H02A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H02A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -82,7 +82,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H02A:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H02B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H02B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H02B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -91,7 +91,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H02B:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H03A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H03A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H03A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -100,7 +100,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H03A:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H03B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H03B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H03B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -109,7 +109,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H03B:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H04A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H04A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H04A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -118,7 +118,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H04A:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H04B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H04B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H04B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -127,7 +127,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H04B:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H05A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H05A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H05A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -136,7 +136,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H05A:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H05B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H05B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H05B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -145,7 +145,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H05B:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H06A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H06A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H06A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -154,7 +154,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H06A:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H06B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H06B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H06B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -163,7 +163,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H06B:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H07A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H07A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H07A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -172,7 +172,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H07A:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H07B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H07B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H07B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -181,7 +181,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H07B:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H08A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H08A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H08A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -190,7 +190,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H08A:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-HeatSink-H08B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_HeatSink_H08B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_HeatSink_H08B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -739,7 +739,7 @@ record(bi, "RA-ToSIA01:RF-SSAmpTower:Enbl-Sts"){
 
 record(ai, "RA-ToSIA01:RF-SSAMux-1:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_1_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_Mux_1_TMon")
     field(DESC, "Temperatura Minirack 01")
     field(SCAN, ".5 second")
     field(PREC, "")
@@ -748,7 +748,7 @@ record(ai, "RA-ToSIA01:RF-SSAMux-1:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-SSAMux-2:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_2_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_Mux_2_TMon")
     field(DESC, "Temperatura Minirack 02")
     field(SCAN, ".5 second")
     field(PREC, "")
@@ -757,7 +757,7 @@ record(ai, "RA-ToSIA01:RF-SSAMux-2:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-SSAMux-3:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_3_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_Mux_3_TMon")
     field(DESC, "Temperatura Minirack 03")
     field(SCAN, ".5 second")
     field(PREC, "")
@@ -766,7 +766,7 @@ record(ai, "RA-ToSIA01:RF-SSAMux-3:T-Mon"){
 
 record(ai, "RA-ToSIA01:RF-SSAMux-4:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA01_RF_Mux_4_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA01_RF_Mux_4_TMon")
     field(DESC, "Temperatura Minirack 04")
     field(SCAN, ".5 second")
     field(PREC, "")
@@ -829,7 +829,7 @@ record(bi, "RA-ToSIA02:RF-ACPanel:Intlk-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H01A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H01A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H01A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -838,7 +838,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H01A:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H01B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H01B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H01B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -847,7 +847,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H01B:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H02A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H02A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H02A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -856,7 +856,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H02A:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H02B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H02B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H02B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -865,7 +865,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H02B:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H03A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H03A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H03A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -874,7 +874,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H03A:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H03B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H03B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H03B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -883,7 +883,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H03B:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H04A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H04A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H04A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -892,7 +892,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H04A:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H04B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H04B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H04B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -901,7 +901,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H04B:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H05A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H05A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H05A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -910,7 +910,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H05A:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H05B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H05B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H05B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -919,7 +919,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H05B:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H06A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H06A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H06A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -928,7 +928,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H06A:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H06B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H06B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H06B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -937,7 +937,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H06B:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H07A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H07A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H07A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -946,7 +946,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H07A:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H07B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H07B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H07B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -955,7 +955,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H07B:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H08A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H08A_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H08A_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -964,7 +964,7 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H08A:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-HeatSink-H08B:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_HeatSink_H08B_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_HeatSink_H08B_TMon")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1513,7 +1513,7 @@ record(bi, "RA-ToSIA02:RF-SSAmpTower:Enbl-Sts"){
 
 record(ai, "RA-ToSIA02:RF-SSAMux-1:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_1_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_Mux_1_TMon")
     field(DESC, "Temperatura Minirack 01")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1522,7 +1522,7 @@ record(ai, "RA-ToSIA02:RF-SSAMux-1:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-SSAMux-2:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_2_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_Mux_2_TMon")
     field(DESC, "Temperatura Minirack 02")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1531,7 +1531,7 @@ record(ai, "RA-ToSIA02:RF-SSAMux-2:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-SSAMux-3:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_3_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_Mux_3_TMon")
     field(DESC, "Temperatura Minirack 03")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1540,25 +1540,25 @@ record(ai, "RA-ToSIA02:RF-SSAMux-3:T-Mon"){
 
 record(ai, "RA-ToSIA02:RF-SSAMux-4:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA02_RF_Mux_4_TMon")
+    field(INP,  "@$(PLC) RA_ToSIA02_RF_Mux_4_TMon")
     field(DESC, "Temperatura Minirack 04")
     field(SCAN, ".5 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
 
-record(bi, "SI-02SB:RF-Intlk:SIA-Mon"){
+record(bi, "RA-RaSIA02:RF-IntlkCtrl:IntlkSirius-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_Intlk_SIAMon")
+    field(INP, "@$(PLC) RA_RaSIA02_RF_IntlkCtrl_IntlkSiriusMon")
     field(DESC, "Sistema Anel A Interlock Sir")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "SI-02SB:RF-Intlk:LLRF-Mon"){
+record(bi, "RA-RaSIA02:RF-IntlkCtrl:IntlkLLRF-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_Intlk_LLRFMon")
+    field(INP, "@$(PLC) RA_RaSIA02_RF_IntlkCtrl_IntlkLLRFMon")
     field(DESC, "Interlock para LLRF")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1574,27 +1574,18 @@ record(bi, "RA-RaSIA02:RF-IntlkCtrl:EStop-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "SI-02SB:RF-Intlk:Reset-Sel"){
+record(bo, "RA-RaSIA02:RF-Intlk:Reset-Cmd"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) SI_03SP_RF_Intlk_ResetSel S .1")
+    field(OUT, "@$(PLC) RA_RaSIA02_RF_Intlk_ResetCmd S .1")
     field(DESC, "Reset de Falhas")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-ToSIA:RF-SSAmpTower:RFOn-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_ToSIA_RF_SSAmpTower_RFOnMon")
-    field(DESC, "LLRF AES Ligado")
-    field(SCAN, ".1 second")
-    field(ONAM, "True")
-    field(ZNAM, "False")
-}
-
 record(bi, "SI-02SB:RF-Intlk:RFOn-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_Intlk_RFOnMon")
+    field(INP, "@$(PLC) SI_02SB_RF_Intlk_RFOnMon")
     field(DESC, "RF Operando para Interlock S")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1621,7 +1612,7 @@ record(bi, "RA-RaSIA01:RF-CavPlDrivers:DrEnbl-Sts"){
 
 record(bi, "SI-02SB:RF-P7Cav:Pressure-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_PressureMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_PressureMon")
     field(DESC, "Vácuo Petra VII")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1630,7 +1621,7 @@ record(bi, "SI-02SB:RF-P7Cav:Pressure-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:HDFlwRt1-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_HDFlwRt1Mon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_HDFlwRt1Mon")
     field(DESC, "Chave de Fluxo 01 Petra VII")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1639,7 +1630,7 @@ record(bi, "SI-02SB:RF-P7Cav:HDFlwRt1-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:HDFlwRt2-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_HDFlwRt2Mon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_HDFlwRt2Mon")
     field(DESC, "Chave de Fluxo 02 Petra VII")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1648,7 +1639,7 @@ record(bi, "SI-02SB:RF-P7Cav:HDFlwRt2-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:HDFlwRt3-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_HDFlwRt3Mon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_HDFlwRt3Mon")
     field(DESC, "Chave de Fluxo 03 Petra VII")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1657,7 +1648,7 @@ record(bi, "SI-02SB:RF-P7Cav:HDFlwRt3-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:CoupPressure-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_CoupPressureMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_CoupPressureMon")
     field(DESC, "Sensor de Pressão do Acoplad")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1666,7 +1657,7 @@ record(bi, "SI-02SB:RF-P7Cav:CoupPressure-Mon"){
 
 record(ai, "SI-02SB:RF-P7Cav:Cylin1T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin1TMon")
+    field(INP,  "@$(PLC) SI_02SB_RF_P7Cav_Cylin1TMon")
     field(DESC, "PT - 100 Cilindro 01 PetraVI")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1675,7 +1666,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cylin1T-Mon"){
 
 record(ai, "SI-02SB:RF-P7Cav:Cylin2T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin2TMon")
+    field(INP,  "@$(PLC) SI_02SB_RF_P7Cav_Cylin2TMon")
     field(DESC, "PT - 100 Cilindro 02 PetraVI")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1684,7 +1675,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cylin2T-Mon"){
 
 record(ai, "SI-02SB:RF-P7Cav:Cylin3T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin3TMon")
+    field(INP,  "@$(PLC) SI_02SB_RF_P7Cav_Cylin3TMon")
     field(DESC, "PT - 100 Cilindro 03 PetraVI")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1693,7 +1684,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cylin3T-Mon"){
 
 record(ai, "SI-02SB:RF-P7Cav:Cylin4T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin4TMon")
+    field(INP,  "@$(PLC) SI_02SB_RF_P7Cav_Cylin4TMon")
     field(DESC, "PT - 100 Cilindro 04 PetraVI")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1702,7 +1693,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cylin4T-Mon"){
 
 record(ai, "SI-02SB:RF-P7Cav:Cylin5T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin5TMon")
+    field(INP,  "@$(PLC) SI_02SB_RF_P7Cav_Cylin5TMon")
     field(DESC, "PT - 100 Cilindro 05 PetraVI")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1711,7 +1702,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cylin5T-Mon"){
 
 record(ai, "SI-02SB:RF-P7Cav:Cylin6T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin6TMon")
+    field(INP,  "@$(PLC) SI_02SB_RF_P7Cav_Cylin6TMon")
     field(DESC, "PT - 100 Cilindro 06 PetraVI")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1720,7 +1711,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cylin6T-Mon"){
 
 record(ai, "SI-02SB:RF-P7Cav:Cylin7T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin7TMon")
+    field(INP,  "@$(PLC) SI_02SB_RF_P7Cav_Cylin7TMon")
     field(DESC, "PT - 100 Cilindro 07 PetraVI")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1729,7 +1720,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cylin7T-Mon"){
 
 record(ai, "SI-02SB:RF-P7Cav:CoupT-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_CoupTMon")
+    field(INP,  "@$(PLC) SI_02SB_RF_P7Cav_CoupTMon")
     field(DESC, "Temperatura do Acoplador Pet")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -1738,7 +1729,7 @@ record(ai, "SI-02SB:RF-P7Cav:CoupT-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_StsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_StsMon")
     field(DESC, "Interlock Geral Petra 7")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1747,7 +1738,7 @@ record(bi, "SI-02SB:RF-P7Cav:Sts-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:CoupTDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_CoupTDownMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_CoupTDownMon")
     field(DESC, "PT - 100 Acoplador Abaixo do")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1756,7 +1747,7 @@ record(bi, "SI-02SB:RF-P7Cav:CoupTDown-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:CoupTUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_CoupTUpMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_CoupTUpMon")
     field(DESC, "PT - 100 Acoplador Acima do ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1765,7 +1756,7 @@ record(bi, "SI-02SB:RF-P7Cav:CoupTUp-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin1TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin1TDownMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin1TDownMon")
     field(DESC, "PT100 Cilindro 01 Abaixo do ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1774,7 +1765,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin1TDown-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin2TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin2TDownMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin2TDownMon")
     field(DESC, "PT100 Cilindro 02 Abaixo do ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1783,7 +1774,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin2TDown-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin3TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin3TDownMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin3TDownMon")
     field(DESC, "PT100 Cilindro 03 Abaixo do ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1792,7 +1783,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin3TDown-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin4TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin4TDownMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin4TDownMon")
     field(DESC, "PT100 Cilindro 04 Abaixo do ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1801,7 +1792,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin4TDown-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin5TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin5TDownMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin5TDownMon")
     field(DESC, "PT100 Cilindro 05 Abaixo do ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1810,7 +1801,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin5TDown-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin6TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin6TDownMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin6TDownMon")
     field(DESC, "PT100 Cilindro 06 Abaixo do ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1819,7 +1810,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin6TDown-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin7TDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin7TDownMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin7TDownMon")
     field(DESC, "PT100 Cilindro 07 Abaixo do ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1828,7 +1819,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin7TDown-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin1TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin1TUpMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin1TUpMon")
     field(DESC, "PT100 Cilindro 01 Acima do S")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1837,7 +1828,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin1TUp-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin2TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin2TUpMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin2TUpMon")
     field(DESC, "PT100 Cilindro 02 Acima do S")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1846,7 +1837,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin2TUp-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin3TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin3TUpMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin3TUpMon")
     field(DESC, "PT100 Cilindro 03 Acima do S")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1855,7 +1846,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin3TUp-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin4TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin4TUpMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin4TUpMon")
     field(DESC, "PT100 Cilindro 04 Acima do S")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1864,7 +1855,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin4TUp-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin5TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin5TUpMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin5TUpMon")
     field(DESC, "PT100 Cilindro 05 Acima do S")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1873,7 +1864,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin5TUp-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin6TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin6TUpMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin6TUpMon")
     field(DESC, "PT100 Cilindro 06 Acima do S")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1882,7 +1873,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin6TUp-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin7TUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin7TUpMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin7TUpMon")
     field(DESC, "PT100 Cilindro 07 Acima do S")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1891,7 +1882,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin7TUp-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Disc1Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc1TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Disc1TmsMon")
     field(DESC, "Termostato Disco 01")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1900,7 +1891,7 @@ record(bi, "SI-02SB:RF-P7Cav:Disc1Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Disc2Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc2TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Disc2TmsMon")
     field(DESC, "Termostato Disco 02")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1909,7 +1900,7 @@ record(bi, "SI-02SB:RF-P7Cav:Disc2Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Disc3Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc3TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Disc3TmsMon")
     field(DESC, "Termostato Disco 03")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1918,7 +1909,7 @@ record(bi, "SI-02SB:RF-P7Cav:Disc3Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Disc4Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc4TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Disc4TmsMon")
     field(DESC, "Termostato Disco 04")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1927,7 +1918,7 @@ record(bi, "SI-02SB:RF-P7Cav:Disc4Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Disc5Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc5TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Disc5TmsMon")
     field(DESC, "Termostato Disco 05")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1936,7 +1927,7 @@ record(bi, "SI-02SB:RF-P7Cav:Disc5Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Disc6Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc6TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Disc6TmsMon")
     field(DESC, "Termostato Disco 06")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1945,7 +1936,7 @@ record(bi, "SI-02SB:RF-P7Cav:Disc6Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Disc7Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc7TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Disc7TmsMon")
     field(DESC, "Termostato Disco 07")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1954,7 +1945,7 @@ record(bi, "SI-02SB:RF-P7Cav:Disc7Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Disc8Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Disc8TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Disc8TmsMon")
     field(DESC, "Termostato Disco 08")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1963,7 +1954,7 @@ record(bi, "SI-02SB:RF-P7Cav:Disc8Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin1Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin1TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin1TmsMon")
     field(DESC, "Termostato Cilindro 01")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1972,7 +1963,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin1Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin2Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin2TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin2TmsMon")
     field(DESC, "Termostato Cilindro 02")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1981,7 +1972,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin2Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin3Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin3TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin3TmsMon")
     field(DESC, "Termostato Cilindro 03")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1990,7 +1981,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin3Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin4Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin4TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin4TmsMon")
     field(DESC, "Termostato Cilindro 04")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -1999,7 +1990,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin4Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin5Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin5TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin5TmsMon")
     field(DESC, "Termostato Cilindro 05")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -2008,7 +1999,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin5Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin6Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin6TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin6TmsMon")
     field(DESC, "Termostato Cilindro 06")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -2017,7 +2008,7 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin6Tms-Mon"){
 
 record(bi, "SI-02SB:RF-P7Cav:Cylin7Tms-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_Cylin7TmsMon")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_Cylin7TmsMon")
     field(DESC, "Termostato Cilindro 07")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -2026,25 +2017,16 @@ record(bi, "SI-02SB:RF-P7Cav:Cylin7Tms-Mon"){
 
 record(ai, "SI-02SB:RF-P7Cav:PwrRFIntlk-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_P7Cav_PwrRFIntlkMon")
+    field(INP,  "@$(PLC) SI_02SB_RF_P7Cav_PwrRFIntlkMon")
     field(DESC, "Potencia RF para o Interlock")
     field(SCAN, ".5 second")
     field(PREC, "3")
     field(EGU,  "dBm")
 }
 
-record(bi, "SI-02SB:RF-LLRF:Intlk-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) SI_03SP_RF_LLRF_IntlkMon")
-    field(DESC, "Interlock LLRF")
-    field(SCAN, ".1 second")
-    field(ONAM, "True")
-    field(ZNAM, "False")
-}
-
 record(ai, "RA-RaSIA01:RF-LLRFPreAmp-1:T1-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_T1Mon")
+    field(INP,  "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_T1Mon")
     field(DESC, "PT- 100 01 Pré-Amplificador")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -2053,7 +2035,7 @@ record(ai, "RA-RaSIA01:RF-LLRFPreAmp-1:T1-Mon"){
 
 record(ai, "RA-RaSIA01:RF-LLRFPreAmp-1:T2-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_T2Mon")
+    field(INP,  "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_T2Mon")
     field(DESC, "PT- 100 02 Pré-Amplificador")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -2078,36 +2060,36 @@ record(bi, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw2-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw1Enbl-Sel"){
+record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw1Enbl-Cmd"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw1EnblSel S .1")
+    field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw1EnblCmd S .1")
     field(DESC, "Habilita Chave Pin 01")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw2Enbl-Sel"){
+record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw2Enbl-Cmd"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw2EnblSel S .1")
+    field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw2EnblCmd S .1")
     field(DESC, "Habilita Chave Pin 02")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw1Dsbl-Sel"){
+record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw1Dsbl-Cmd"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw1DsblSel S .1")
+    field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw1DsblCmd S .1")
     field(DESC, "Desabilita Chave Pin 01")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw2Dsbl-Sel"){
+record(bo, "RA-RaSIA01:RF-LLRFPreAmp-1:PINSw2Dsbl-Cmd"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw2DsblSel S .1")
+    field(OUT, "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_PINSw2DsblCmd S .1")
     field(DESC, "Desabilita Chave Pin 02")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -2132,18 +2114,27 @@ record(bi, "RA-RaSIA01:RF-LLRFPreAmp-1:T2Up-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:Arc-Mon"){
+record(bi, "RA-ToSIA:RF-SSAmpTower:RFOn-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_ArcMon")
+    field(INP, "@$(PLC) RA_ToSIA_RF_SSAmpTower_RFOnMon")
+    field(DESC, "LLRF AES Ligado")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-TLSIA:RF-Circulator:Arc-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_TLSIA_RF_Circulator_Arc_Mon")
     field(DESC, "Detector de Arco  Circulador")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Load-SIA:Arc-Mon"){
+record(bi, "RA-TLSIA:RF-Load:Arc-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Load_SIA_ArcMon")
+    field(INP, "@$(PLC) RA_TLSIA_RF_Load_Arc_Mon")
     field(DESC, "Detector de Arco  Carga 300 ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -2186,81 +2177,81 @@ record(bi, "RA-RaSIA02:RF-ArcDetec-Load:Test-Sts"){
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:IntlkOp-Mon"){
+record(bi, "RA-TLSIA:RF-Circulator:IntlkOp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_IntlkOpMon")
+    field(INP, "@$(PLC) RA_TLSIA_RF_Circulator_IntlkOp_Mon")
     field(DESC, "Sistema de Interlock circula")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:FlwRt-Mon"){
+record(bi, "RA-TLSIA:RF-Circulator:FlwRt-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_FlwRtMon")
+    field(INP, "@$(PLC) RA_TLSIA_RF_Circulator_FlwRt_Mon")
     field(DESC, "Vazão Circulador - Via Skid")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:Sts-Mon"){
+record(bi, "RA-TLSIA:RF-Circulator:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_StsMon")
+    field(INP, "@$(PLC) RA_TLSIA_RF_Circulator_Sts_Mon")
     field(DESC, "Bobinas do circulador ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:TinDown-Mon"){
+record(bi, "RA-TLSIA:RF-Circulator:TinDown-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_TinDownMon")
+    field(INP, "@$(PLC) RA_TLSIA_RF_Circulator_TinDown_Mon")
     field(DESC, "Temp. do Circulador Abaixo d")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:TinUp-Mon"){
+record(bi, "RA-TLSIA:RF-Circulator:TinUp-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_TinUpMon")
+    field(INP, "@$(PLC) RA_TLSIA_RF_Circulator_TinUp_Mon")
     field(DESC, "Temp. do Circulador Acima do")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:TDrift-Mon"){
+record(bi, "RA-TLSIA:RF-Circulator:TDrift-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_TDriftMon")
+    field(INP, "@$(PLC) RA_TLSIA_RF_Circulator_TDrift_Mon")
     field(DESC, "Drift de Temp muito Alto")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Circulator-SIA:TEnv-Mon"){
+record(bi, "RA-TLSIA:RF-Circulator:TEnv-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Circulator_SIA_TEnvMon")
+    field(INP, "@$(PLC) RA_TLSIA_RF_Circulator_TEnv_Mon")
     field(DESC, "Temp. Ambiente Abaixo do Set")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-Load-SIA:FlwRt-Mon"){
+record(bi, "RA-TLSIA:RF-Load:FlwRt-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Load_SIA_FlwRtMon")
+    field(INP, "@$(PLC) RA_TLSIA_RF_Load_FlwRt_Mon")
     field(DESC, "Vazão Carga 300kW")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "RA-TL:RF-TrLine-SIA:Sts-Mon"){
+record(bi, "RA-TLSIA:RF-TrLine:Sts-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_TrLine_SIA_StsMon")
+    field(INP, "@$(PLC) RA_TLSIA_RF_TrLine_Sts_Mon")
     field(DESC, "Interlock geral Linha de Tra")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -2285,11 +2276,38 @@ record(bi, "RA-RaSIA02:RF-ArcDetec-Load:Reset-Mon"){
     field(ZNAM, "False")
 }
 
-record(ai, "RA-TL:RF-Combiner-SIA1:Mon"){
+record(ai, "RA-TLSIA:RF-Load:Pwr-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RA_TL_RF_Combiner_SIA1_TMon")
-    field(DESC, "Combinador")
-    field(SCAN, ".1 second")
+    field(INP,  "@$(PLC) RA_TLSIA_RF_Load_Pwr_Mon")
+    field(DESC, "Potencia na carga")
+    field(SCAN, ".5 second")
     field(PREC, "")
     field(EGU,  "")
+}
+
+record(ai, "RA-TLSIA:RF-Combiner:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) RA_TLSIA_RF_Combiner_T_Mon")
+    field(DESC, "Combinador")
+    field(SCAN, ".5 second")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(bi, "RA-RaSIA02:RF-ArcDetec-Circ:PwrFail-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaSIA02_RF_ArcDetec_Circ_PwrFailMon")
+    field(DESC, "Detector de Arco Power Fail ")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaSIA02:RF-ArcDetec-Load:PwrFail-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaSIA02_RF_ArcDetec_Load_PwrFailMon")
+    field(DESC, "Detector de Arco Power Fail ")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
 }

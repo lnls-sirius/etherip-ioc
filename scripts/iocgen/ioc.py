@@ -12,6 +12,7 @@ from .templates import (
     bi_template,
     bo_template,
     calcout_template_field,
+    ao_template_closed_loop,
 )
 from .consts import SCAN_VALUES
 
@@ -204,64 +205,117 @@ def rows_from_sheets_generator(spreadsheet_path, sheet_names):
             yield row, sheet_name
 
 
+def make_pv_from_tag(tag):
+    return "$(P):{}".format(re.sub(r"[^A-Za-z0-9]+", "_", tag))
+
+
+def generate_tag_record(f, tag_pv, tag):
+    f.write(
+        ai_template.safe_substitute(
+            name=tag_pv,
+            tag=tag,
+            desc=tag,
+            egu="",
+            prec="4",
+            scan="5",
+        )
+    )
+
+
+def generate_tag_intermediate_record(f, name, tag_pv, prec, egu):
+    f.write(
+        ao_template_closed_loop.safe_substitute(
+            name=name,
+            name_in=tag_pv,
+            desc="Upper limits from PLC",
+            egu=egu,
+            prec=prec,
+        )
+    )
+
+
+def generate_tag_field_record(
+    f,
+    target_name,
+    target_field,
+    name_in,
+    offset,
+):
+    f.write(
+        calcout_template_field.safe_substitute(
+            name=target_name + "_" + target_field,
+            name_clp=name_in,
+            name_target=target_name,
+            offset=offset,
+            field=target_field,
+        )
+    )
+
+
+def generate_tag_set(
+    generated_tags,
+    f,
+    tag,
+    name,
+    prec,
+    egu,
+    lim_pv,
+    major_name,
+    major_offset,
+    minor_name,
+    minor_offset,
+):
+    tag_pv = make_pv_from_tag(tag)
+    if tag not in generated_tags:
+        generate_tag_record(f, tag_pv, tag)
+        generated_tags.add(tag)
+
+    generate_tag_intermediate_record(f, name=lim_pv, tag_pv=tag_pv, prec=prec, egu=egu)
+    generate_tag_field_record(
+        f,
+        target_name=name,
+        target_field=major_name,
+        name_in=lim_pv,
+        offset=major_offset,
+    )
+    generate_tag_field_record(
+        f,
+        target_name=name,
+        target_field=minor_name,
+        name_in=lim_pv,
+        offset=minor_offset,
+    )
+
+
 def generate_limit_records(limit_tags: Limits, f):
-
-    for _, row in limit_tags.upper_tags_items():
-        from_clp_record = ai_template.safe_substitute(
-            name=row.upper_lim_pv,
-            tag=row.upper_lim_tag,
-            desc="Upper limits from PLC",
-            egu=row.egu,
+    generated_tags = set()
+    for tag, row in limit_tags.upper_tags_items():
+        generate_tag_set(
+            generated_tags,
+            f,
+            tag,
+            name=row.name,
             prec=row.prec,
-            scan="1",
-        )
-        f.write(from_clp_record)
-        f.write(
-            calcout_template_field.safe_substitute(
-                name=row.upper_lim_pv + "_hihi",
-                name_clp=row.upper_lim_pv,
-                name_target=row.name,
-                offset="-0.5",
-                field="HIHI",
-            )
-        )
-        f.write(
-            calcout_template_field.safe_substitute(
-                name=row.upper_lim_pv + "_high",
-                name_clp=row.upper_lim_pv,
-                name_target=row.name,
-                offset="-1.0",
-                field="HIGH",
-            )
-        )
-
-    for _, row in limit_tags.lower_tags_items():
-        from_clp_record = ai_template.safe_substitute(
-            name=row.lower_lim_pv,
-            tag=row.lower_lim_tag,
-            desc="Upper limits from PLC",
             egu=row.egu,
+            lim_pv=row.upper_lim_pv,
+            major_name="HIHI",
+            major_offset="-0.5",
+            minor_name="HIGH",
+            minor_offset="-1.0",
+        )
+    for tag, row in limit_tags.lower_tags_items():
+        generate_tag_set(
+            generated_tags,
+            f=f,
+            tag=tag,
+            name=row.name,
             prec=row.prec,
-            scan="1",
-        )
-        f.write(from_clp_record)
-        f.write(
-            calcout_template_field.safe_substitute(
-                name=row.lower_lim_pv + "_low",
-                name_clp=row.lower_lim_pv,
-                name_target=row.name,
-                offset="+0.5",
-                field="LOW",
-            )
-        )
-        f.write(
-            calcout_template_field.safe_substitute(
-                name=row.lower_lim_pv + "_lolo",
-                name_clp=row.lower_lim_pv,
-                name_target=row.name,
-                offset="+1.0",
-                field="LOLO",
-            )
+            egu=row.egu,
+            lim_pv=row.lower_lim_pv,
+            major_name="LOLO",
+            major_offset="+0.5",
+            minor_name="LOW",
+            minor_offset="+1.0",
         )
 
 
@@ -288,10 +342,17 @@ def generate_records_from_row(
             logger.error('Tag "{}" already exists {}.'.format(tag, tags[tag]))
 
 
+def get_database_path(base_path, name):
+    return os.path.join(base_path, "../database/") + name + ".db"
+
+
 def generate_db_file(
     base_path, spreadsheet_path, ioc_name, sheet_names, column_names: ColumnNames
 ):
-    IOC_DATABASE_PATH = os.path.join(base_path, "../database/") + ioc_name + ".db"
+
+    IOC_DATABASE_PATH = get_database_path(base_path, ioc_name)
+    IOC_LIMITS_DATABASE_PATH = get_database_path(base_path, ioc_name + "-Limits")
+
     tags = {}
     logger.info('Generating "{}.db" file at "{}".'.format(ioc_name, IOC_DATABASE_PATH))
 
@@ -309,6 +370,9 @@ def generate_db_file(
                 tags=tags,
                 limit_tags=limits,
             )
+
+    logger.info('Generating "{}" file.'.format(IOC_LIMITS_DATABASE_PATH))
+    with open(IOC_LIMITS_DATABASE_PATH, "w+") as f:
         generate_limit_records(limits, f)
 
 
