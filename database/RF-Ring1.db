@@ -2024,6 +2024,15 @@ record(ai, "SI-02SB:RF-P7Cav:PwrRFIntlk-Mon"){
     field(EGU,  "dBm")
 }
 
+record(bi, "RA-RaSIA01:RF-LLRF:Intlk-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaSIA01_RF_LLRF_IntlkMon")
+    field(DESC, "Interlock LLRF")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
 record(ai, "RA-RaSIA01:RF-LLRFPreAmp-1:T1-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_T1Mon")
@@ -2276,9 +2285,9 @@ record(bi, "RA-RaSIA02:RF-ArcDetec-Load:Reset-Mon"){
     field(ZNAM, "False")
 }
 
-record(ai, "RA-TLSIA:RF-Load:Pwr-Mon"){
+record(ai, "RA-TLSIA:RF-Circulator:PwrRevIndBm-Mon"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) RA_TLSIA_RF_Load_Pwr_Mon")
+    field(INP,  "@$(PLC) RA_TLSIA_RF_Circulator_PwrRevIndBm_Mon")
     field(DESC, "Potencia na carga")
     field(SCAN, ".5 second")
     field(PREC, "")
