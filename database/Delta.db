@@ -428,6 +428,31 @@ record(bo, "$(P)$(R)StopCmdAux2"){
     field(OSV, "")
 }
 
+record(bo, "$(P)$(R)EnGeneralCoupling-Cmd"){
+    field(DESC, "Enable Generic Coupling of A")
+    field(OUT, "$(P)$(R)EnGeneralCouplingCmdAux1.PROC PP")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "$(P)$(R)EnGeneralCouplingCmdAux1"){
+    field(OUT, "$(P)$(R)EnGeneralCouplingCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "$(P)$(R)EnGeneralCouplingCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EnFlags[13] S .1")
+    field(DESC, "aux rec 2")
+    field(SCAN, "Passive")
+    field(ONAM, "0")
+    field(ZNAM, "1")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
 record(ao, "$(P)$(R)HomingAccel-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) HomingAccel S .1")
@@ -648,15 +673,123 @@ record(ao, "$(P)$(R)CamTScaling-SP"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisAActualPosition-Mon"){
+record(ao, "$(P)$(R)CouplingMaster-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisA.ActualPosition S .1")
-    field(DESC, "Axis A position")
+    field(OUT, "@$(PLC) CouplingMaster S .1")
+    field(DESC, "Select Master Axis for Gener")
     field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ao, "$(P)$(R)CouplingSlaves-SP"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) CouplingSlaves S .1")
+    field(DESC, "Select Slave Axis for Genera")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ao, "$(P)$(R)CouplingDirection0-SP"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) CouplingDirection[0] S .1")
+    field(DESC, "Coupling Direction of First ")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ao, "$(P)$(R)CouplingDirection1-SP"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) CouplingDirection[1] S .1")
+    field(DESC, "Coupling Direction of Second")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ao, "$(P)$(R)CouplingDirection2-SP"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) CouplingDirection[2] S .1")
+    field(DESC, "Coupling Direction of Third ")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ai, "$(P)$(R)AxisAActualPosition-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) AxisA.ActualPosition")
+    field(DESC, "Axis A position")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "mm")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -670,15 +803,13 @@ record(ao, "$(P)$(R)AxisAActualPosition-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisAActualVelocity-Mon"){
+record(ai, "$(P)$(R)AxisAActualVelocity-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisA.ActualVelocity S .1")
+    field(INP, "@$(PLC) AxisA.ActualVelocity")
     field(DESC, "Axis A velocity")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "mm/s")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -692,15 +823,13 @@ record(ao, "$(P)$(R)AxisAActualVelocity-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisAOutputCurrent-Mon"){
+record(ai, "$(P)$(R)AxisAOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisA.OutputCurrent S .1")
+    field(INP, "@$(PLC) AxisA.OutputCurrent")
     field(DESC, "Axis A output current")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -714,15 +843,53 @@ record(ao, "$(P)$(R)AxisAOutputCurrent-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisAAxisStatus-Mon"){
+record(ai, "$(P)$(R)AxisAPositionError-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisA.AxisStatus S .1")
+    field(INP, "@$(PLC) AxisA.PositionError")
+    field(DESC, "Axis A position error")
+    field(SCAN, ".1 second")
+    field(PREC, "3")
+    field(EGU,  "mm")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ai, "$(P)$(R)AxisATorqueReference-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) AxisA.TorqueReference")
+    field(DESC, "Axis A torque reference")
+    field(SCAN, ".1 second")
+    field(PREC, "3")
+    field(EGU,  "%")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ai, "$(P)$(R)AxisAAxisStatus-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) AxisA.AxisStatus")
     field(DESC, "Axis A status")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -736,15 +903,13 @@ record(ao, "$(P)$(R)AxisAAxisStatus-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisAMotionStatus-Mon"){
+record(ai, "$(P)$(R)AxisAMotionStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisA.MotionStatus S .1")
+    field(INP, "@$(PLC) AxisA.MotionStatus")
     field(DESC, "Axis A motion status")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -846,15 +1011,13 @@ record(ao, "$(P)$(R)AxisAMovePos-SP"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisBActualPosition-Mon"){
+record(ai, "$(P)$(R)AxisBActualPosition-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisB.ActualPosition S .1")
+    field(INP, "@$(PLC) AxisB.ActualPosition")
     field(DESC, "Axis B position")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "mm")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -868,15 +1031,13 @@ record(ao, "$(P)$(R)AxisBActualPosition-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisBActualVelocity-Mon"){
+record(ai, "$(P)$(R)AxisBActualVelocity-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisB.ActualVelocity S .1")
+    field(INP, "@$(PLC) AxisB.ActualVelocity")
     field(DESC, "Axis B velocity")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "mm/s")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -890,15 +1051,13 @@ record(ao, "$(P)$(R)AxisBActualVelocity-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisBOutputCurrent-Mon"){
+record(ai, "$(P)$(R)AxisBOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisB.OutputCurrent S .1")
+    field(INP, "@$(PLC) AxisB.OutputCurrent")
     field(DESC, "Axis B output current")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -912,15 +1071,53 @@ record(ao, "$(P)$(R)AxisBOutputCurrent-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisBAxisStatus-Mon"){
+record(ai, "$(P)$(R)AxisBPositionError-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisB.AxisStatus S .1")
+    field(INP, "@$(PLC) AxisB.PositionError")
+    field(DESC, "Axis B position error")
+    field(SCAN, ".1 second")
+    field(PREC, "3")
+    field(EGU,  "mm")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ai, "$(P)$(R)AxisB:TorqueReference-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) AxisB.TorqueReference")
+    field(DESC, "Axis B torque reference")
+    field(SCAN, ".1 second")
+    field(PREC, "3")
+    field(EGU,  "%")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ai, "$(P)$(R)AxisBAxisStatus-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) AxisB.AxisStatus")
     field(DESC, "Axis B status")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -934,15 +1131,13 @@ record(ao, "$(P)$(R)AxisBAxisStatus-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisBMotionStatus-Mon"){
+record(ai, "$(P)$(R)AxisBMotionStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisB.MotionStatus S .1")
+    field(INP, "@$(PLC) AxisB.MotionStatus")
     field(DESC, "Axis B motion status")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -1044,15 +1239,13 @@ record(ao, "$(P)$(R)AxisBMovePos-SP"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisCActualPosition-Mon"){
+record(ai, "$(P)$(R)AxisCActualPosition-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisC.ActualPosition S .1")
+    field(INP, "@$(PLC) AxisC.ActualPosition")
     field(DESC, "Axis C position")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "mm")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -1066,15 +1259,13 @@ record(ao, "$(P)$(R)AxisCActualPosition-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisCActualVelocity-Mon"){
+record(ai, "$(P)$(R)AxisCActualVelocity-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisC.ActualVelocity S .1")
+    field(INP, "@$(PLC) AxisC.ActualVelocity")
     field(DESC, "Axis C velocity")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "mm/s")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -1088,15 +1279,13 @@ record(ao, "$(P)$(R)AxisCActualVelocity-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisCOutputCurrent-Mon"){
+record(ai, "$(P)$(R)AxisCOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisC.OutputCurrent S .1")
+    field(INP, "@$(PLC) AxisC.OutputCurrent")
     field(DESC, "Axis C output current")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -1110,15 +1299,53 @@ record(ao, "$(P)$(R)AxisCOutputCurrent-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisCAxisStatus-Mon"){
+record(ai, "$(P)$(R)AxisCPositionError-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisC.AxisStatus S .1")
+    field(INP, "@$(PLC) AxisC.PositionError")
+    field(DESC, "Axis C position error")
+    field(SCAN, ".1 second")
+    field(PREC, "3")
+    field(EGU,  "mm")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ai, "$(P)$(R)AxisCTorqueReference-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) AxisC.TorqueReference")
+    field(DESC, "Axis C torque reference")
+    field(SCAN, ".1 second")
+    field(PREC, "3")
+    field(EGU,  "%")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ai, "$(P)$(R)AxisCAxisStatus-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) AxisC.AxisStatus")
     field(DESC, "Axis C status")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -1132,15 +1359,13 @@ record(ao, "$(P)$(R)AxisCAxisStatus-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisCMotionStatus-Mon"){
+record(ai, "$(P)$(R)AxisCMotionStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisC.MotionStatus S .1")
+    field(INP, "@$(PLC) AxisC.MotionStatus")
     field(DESC, "Axis C motion status")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -1242,15 +1467,13 @@ record(ao, "$(P)$(R)AxisCMovePos-SP"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisDActualPosition-Mon"){
+record(ai, "$(P)$(R)AxisDActualPosition-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisD.ActualPosition S .1")
+    field(INP, "@$(PLC) AxisD.ActualPosition")
     field(DESC, "Axis D position")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "mm")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -1264,15 +1487,13 @@ record(ao, "$(P)$(R)AxisDActualPosition-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisDActualVelocity-Mon"){
+record(ai, "$(P)$(R)AxisDActualVelocity-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisD.ActualVelocity S .1")
+    field(INP, "@$(PLC) AxisD.ActualVelocity")
     field(DESC, "Axis D velocity")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "mm/s")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -1286,15 +1507,13 @@ record(ao, "$(P)$(R)AxisDActualVelocity-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisDOutputCurrent-Mon"){
+record(ai, "$(P)$(R)AxisDOutputCurrent-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisD.OutputCurrent S .1")
+    field(INP, "@$(PLC) AxisD.OutputCurrent")
     field(DESC, "Axis D output current")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -1308,15 +1527,53 @@ record(ao, "$(P)$(R)AxisDOutputCurrent-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisDAxisStatus-Mon"){
+record(ai, "$(P)$(R)AxisDPositionError-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisD.AxisStatus S .1")
+    field(INP, "@$(PLC) AxisD.PositionError")
+    field(DESC, "Axis D position error")
+    field(SCAN, ".1 second")
+    field(PREC, "3")
+    field(EGU,  "mm")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ai, "$(P)$(R)AxisDTorqueReference-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) AxisD.TorqueReference")
+    field(DESC, "Axis D torque reference")
+    field(SCAN, ".1 second")
+    field(PREC, "3")
+    field(EGU,  "%")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+record(ai, "$(P)$(R)AxisDAxisStatus-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) AxisD.AxisStatus")
     field(DESC, "Axis D status")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
@@ -1330,15 +1587,13 @@ record(ao, "$(P)$(R)AxisDAxisStatus-Mon"){
     field(HYST, "")
 }
 
-record(ao, "$(P)$(R)AxisDMotionStatus-Mon"){
+record(ai, "$(P)$(R)AxisDMotionStatus-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) AxisD.MotionStatus S .1")
+    field(INP, "@$(PLC) AxisD.MotionStatus")
     field(DESC, "Axis D motion status")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(PREC, "3")
     field(EGU,  "A")
-    field(DRVH, "")
-    field(DRVL, "")
     field(HOPR, "")
     field(LOPR, "")
     field(HIHI, "")
