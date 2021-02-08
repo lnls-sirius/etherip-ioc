@@ -2285,15 +2285,6 @@ record(bi, "RA-RaSIA02:RF-ArcDetec-Load:Reset-Mon"){
     field(ZNAM, "False")
 }
 
-record(ai, "RA-TLSIA:RF-Circulator:PwrRevIndBm-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) RA_TLSIA_RF_Circulator_PwrRevIndBm_Mon")
-    field(DESC, "Potencia na carga")
-    field(SCAN, ".5 second")
-    field(PREC, "")
-    field(EGU,  "")
-}
-
 record(ai, "RA-TLSIA:RF-Combiner:T-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) RA_TLSIA_RF_Combiner_T_Mon")
