@@ -1091,7 +1091,7 @@ record(ai, "$(P)$(R)AxisBPositionError-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(P)$(R)AxisB:TorqueReference-Mon"){
+record(ai, "$(P)$(R)AxisBTorqueReference-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) AxisB.TorqueReference")
     field(DESC, "Axis B torque reference")
