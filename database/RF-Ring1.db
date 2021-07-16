@@ -2033,6 +2033,24 @@ record(ai, "SI-02SB:RF-P7Cav:GlassWinT-Mon"){
     field(EGU,  "C")
 }
 
+record(bi, "SI-02SB:RF-P7Cav:GlassWinTUp-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_GlassWinTUpMon")
+    field(DESC, "PT - 100 Janela de Quartzo P")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "SI-02SB:RF-P7Cav:GlassWinTDown-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) SI_02SB_RF_P7Cav_GlassWinTDownMon")
+    field(DESC, "PT - 100 Janela de Quartzo P")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
 record(bi, "RA-RaSIA01:RF-LLRF:Intlk-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RA_RaSIA01_RF_LLRF_IntlkMon")
