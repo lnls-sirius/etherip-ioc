@@ -786,6 +786,34 @@ record(calcout, "SI-02SB:RF-P7Cav:CoupT-Mon_HIGH"){
     field(OUT,  "SI-02SB:RF-P7Cav:CoupT-Mon.HIGH PP")
 }
 
+record(ai, "$(P):Set_Temp_8_"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Set_Temp[8]")
+    field(DESC, "Set_Temp[8]")
+    field(SCAN, "5 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ao, "SI-02SB:RF-P7Cav:GlassWinTUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_8_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "SI-02SB:RF-P7Cav:GlassWinT-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "SI-02SB:RF-P7Cav:GlassWinTUpperLimit-Cte CP")
+    field(OUT,  "SI-02SB:RF-P7Cav:GlassWinT-Mon.HIHI PP")
+}
+
+record(calcout, "SI-02SB:RF-P7Cav:GlassWinT-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "SI-02SB:RF-P7Cav:GlassWinTUpperLimit-Cte CP")
+    field(OUT,  "SI-02SB:RF-P7Cav:GlassWinT-Mon.HIGH PP")
+}
+
 record(ai, "$(P):Set_Temp_4_"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Set_Temp[4]")
@@ -1609,4 +1637,32 @@ record(calcout, "SI-02SB:RF-P7Cav:CoupT-Mon_LOW"){
     field(CALC, "A+1.0")
     field(INPA, "SI-02SB:RF-P7Cav:CoupTLowerLimit-Cte CP")
     field(OUT,  "SI-02SB:RF-P7Cav:CoupT-Mon.LOW PP")
+}
+
+record(ai, "$(P):Set_Temp_9_"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Set_Temp[9]")
+    field(DESC, "Set_Temp[9]")
+    field(SCAN, "5 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ao, "SI-02SB:RF-P7Cav:GlassWinTLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_9_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "SI-02SB:RF-P7Cav:GlassWinT-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "SI-02SB:RF-P7Cav:GlassWinTLowerLimit-Cte CP")
+    field(OUT,  "SI-02SB:RF-P7Cav:GlassWinT-Mon.LOLO PP")
+}
+
+record(calcout, "SI-02SB:RF-P7Cav:GlassWinT-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "SI-02SB:RF-P7Cav:GlassWinTLowerLimit-Cte CP")
+    field(OUT,  "SI-02SB:RF-P7Cav:GlassWinT-Mon.LOW PP")
 }

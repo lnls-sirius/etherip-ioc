@@ -2024,6 +2024,24 @@ record(ai, "SI-02SB:RF-P7Cav:PwrRFIntlk-Mon"){
     field(EGU,  "dBm")
 }
 
+record(ai, "SI-02SB:RF-P7Cav:GlassWinT-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) SI_02SB_RF_P7Cav_GlassWinTMon")
+    field(DESC, "PT - 100 Janela de Quartzo P")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(bi, "RA-RaSIA01:RF-LLRF:Intlk-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaSIA01_RF_LLRF_IntlkMon")
+    field(DESC, "Interlock LLRF")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
 record(ai, "RA-RaSIA01:RF-LLRFPreAmp-1:T1-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) RA_RaSIA01_RF_LLRFPreAmp_1_T1Mon")
@@ -2274,15 +2292,6 @@ record(bi, "RA-RaSIA02:RF-ArcDetec-Load:Reset-Mon"){
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
-}
-
-record(ai, "RA-TLSIA:RF-Load:Pwr-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) RA_TLSIA_RF_Load_Pwr_Mon")
-    field(DESC, "Potencia na carga")
-    field(SCAN, ".5 second")
-    field(PREC, "")
-    field(EGU,  "")
 }
 
 record(ai, "RA-TLSIA:RF-Combiner:T-Mon"){
