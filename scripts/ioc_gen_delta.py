@@ -2,10 +2,10 @@
 import argparse
 import pandas
 import logging
-import os
 import re
 
-from src import config_logger
+
+from src import FileManager, config_logger
 from src.consts import SCAN_VALUES, defaults
 from src.templates.delta import (
     ai_template,
@@ -19,8 +19,6 @@ from src.templates.delta import (
 )
 
 logger = logging.getLogger()
-
-BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 
 def get_args():
@@ -172,20 +170,14 @@ def get_args():
 def generate(args):
     sheet_name = args.sheet.split(",")
     logger.info("Args, {}.".format(vars(args)))
+    fm = FileManager(args.ioc_name)
 
-    IOC_CMD_PATH = (
-        os.path.join(BASE_PATH, "../ioc/iocBoot/iocetheripIOC/")
-        + args.ioc_name
-        + ".cmd"
+    logger.info(
+        'Generating "{}.cmd" file at "{}".'.format(args.ioc_name, fm.ioc_db_file_path())
     )
-    IOC_DATABASE_PATH = (
-        os.path.join(BASE_PATH, "../ioc/database/") + args.ioc_name + ".db"
-    )
-
-    logger.info('Generating "{}.cmd" file at "{}".'.format(args.ioc_name, IOC_CMD_PATH))
 
     # generate CMD file
-    with open(IOC_CMD_PATH, "w+") as f:
+    with open(fm.ioc_cmd_file_path(), "w+") as f:
         f.write(
             cmd_template.safe_substitute(
                 arch=args.arch,
@@ -196,11 +188,11 @@ def generate(args):
         )
     tags = {}
     logger.info(
-        'Generating "{}.db" file at "{}".'.format(args.ioc_name, IOC_DATABASE_PATH)
+        'Generating "{}.db" file at "{}".'.format(args.ioc_name, fm.ioc_db_file_path())
     )
 
     # generate DB file
-    with open(IOC_DATABASE_PATH, "w+") as f:
+    with open(fm.ioc_db_file_path(), "w+") as f:
         for s_name in sheet_name:
             sheet = pandas.read_excel(args.spreadsheet, sheet_name=s_name, dtype=str)
             replace_info = {"\n": ""}

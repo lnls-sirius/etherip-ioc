@@ -5,9 +5,9 @@
       "name": "ioc_gen_rf.py (SI)",
       "type": "python",
       "request": "launch",
-      "program": "ioc_gen_rf.py",
+      "program": "${workspaceFolder}/scripts/ioc_gen_rf.py",
       "console": "integratedTerminal",
-      "env": {"PYTHONPATH": "${workspaceFolder}/scripts"},
+      "env": { "PYTHONPATH": "${workspaceFolder}/scripts" },
       "args": [
         "../etc/Storage Ring A Interlock EPICS.xlsx",
         "--arch",
@@ -20,6 +20,39 @@
         "plc1",
         "--sheet",
         "SSAmp Tower 01,SSAmp Tower 02,Interlock,Petra 7,LLRF,Transmission Line"
+      ]
+    },
+    {
+      "name": "ioc_gen_delta.py",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/ioc_gen_delta.py",
+      "console": "integratedTerminal",
+      "env": { "PYTHONPATH": "${workspaceFolder}/scripts" },
+      "args": [
+        "../etc/Delta.xlsx",
+        "--arch",
+        "linux-x86_64",
+        "--ioc-name",
+        "Delta",
+        "--plc-module",
+        "0",
+        "--plc-name",
+        "plc1",
+        "--bi",
+        "Bit Input",
+        "--bo",
+        "Bit Output",
+        "--ai",
+        "Real Input",
+        "--ao",
+        "Real Output",
+        "--lsi",
+        "String Input",
+        "--lso",
+        "String Output",
+        "--sheet",
+        "Delta"
       ]
     }
   ]
