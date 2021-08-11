@@ -1,0 +1,529 @@
+
+record(ai, "$(P):Set_Temp_3_"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Set_Temp[3]")
+    field(DESC, "Set_Temp[3]")
+    field(SCAN, "1 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H01:TUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_3_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H01:T-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H01:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H01:T-Mon.HIHI PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H01:T-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H01:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H01:T-Mon.HIGH PP")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H02:TUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_3_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H02:T-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H02:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H02:T-Mon.HIHI PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H02:T-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H02:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H02:T-Mon.HIGH PP")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H03:TUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_3_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H03:T-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H03:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H03:T-Mon.HIHI PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H03:T-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H03:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H03:T-Mon.HIGH PP")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H04:TUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_3_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H04:T-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H04:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H04:T-Mon.HIHI PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H04:T-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H04:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H04:T-Mon.HIGH PP")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H05:TUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_3_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H05:T-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H05:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H05:T-Mon.HIHI PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H05:T-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H05:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H05:T-Mon.HIGH PP")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H06:TUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_3_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H06:T-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H06:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H06:T-Mon.HIHI PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H06:T-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H06:TUpperLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H06:T-Mon.HIGH PP")
+}
+
+record(ai, "$(P):Set_Temp_7_"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Set_Temp[7]")
+    field(DESC, "Set_Temp[7]")
+    field(SCAN, "1 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ao, "BO-05D:RF-P5Cav:CoupTUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_7_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:CoupT-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "BO-05D:RF-P5Cav:CoupTUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:CoupT-Mon.HIHI PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:CoupT-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "BO-05D:RF-P5Cav:CoupTUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:CoupT-Mon.HIGH PP")
+}
+
+record(ai, "$(P):Set_Temp_1_"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Set_Temp[1]")
+    field(DESC, "Set_Temp[1]")
+    field(SCAN, "1 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ao, "BO-05D:RF-P5Cav:Cylin1TUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_1_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin1T-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin1TUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin1T-Mon.HIHI PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin1T-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin1TUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin1T-Mon.HIGH PP")
+}
+
+record(ao, "BO-05D:RF-P5Cav:Cylin2TUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_1_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin2T-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin2TUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin2T-Mon.HIHI PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin2T-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin2TUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin2T-Mon.HIGH PP")
+}
+
+record(ao, "BO-05D:RF-P5Cav:Cylin3TUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_1_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin3T-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin3TUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin3T-Mon.HIHI PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin3T-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin3TUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin3T-Mon.HIGH PP")
+}
+
+record(ao, "BO-05D:RF-P5Cav:Cylin4TUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_1_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin4T-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin4TUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin4T-Mon.HIHI PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin4T-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin4TUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin4T-Mon.HIGH PP")
+}
+
+record(ao, "BO-05D:RF-P5Cav:Cylin5TUpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_1_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin5T-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin5TUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin5T-Mon.HIHI PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin5T-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin5TUpperLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin5T-Mon.HIGH PP")
+}
+
+record(ai, "$(P):Set_Temp_4_"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Set_Temp[4]")
+    field(DESC, "Set_Temp[4]")
+    field(SCAN, "1 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ao, "RA-RaBO01:RF-LLRFPreAmp:T1UpperLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_4_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-RaBO01:RF-LLRFPreAmp:T1-Mon_HIHI"){
+    field(CALC, "A-0.5")
+    field(INPA, "RA-RaBO01:RF-LLRFPreAmp:T1UpperLimit-Cte CP")
+    field(OUT,  "RA-RaBO01:RF-LLRFPreAmp:T1-Mon.HIHI PP")
+}
+
+record(calcout, "RA-RaBO01:RF-LLRFPreAmp:T1-Mon_HIGH"){
+    field(CALC, "A-1.0")
+    field(INPA, "RA-RaBO01:RF-LLRFPreAmp:T1UpperLimit-Cte CP")
+    field(OUT,  "RA-RaBO01:RF-LLRFPreAmp:T1-Mon.HIGH PP")
+}
+
+record(ai, "$(P):Set_Temp_2_"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Set_Temp[2]")
+    field(DESC, "Set_Temp[2]")
+    field(SCAN, "1 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H01:TLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_2_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H01:T-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H01:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H01:T-Mon.LOLO PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H01:T-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H01:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H01:T-Mon.LOW PP")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H02:TLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_2_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H02:T-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H02:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H02:T-Mon.LOLO PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H02:T-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H02:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H02:T-Mon.LOW PP")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H03:TLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_2_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H03:T-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H03:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H03:T-Mon.LOLO PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H03:T-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H03:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H03:T-Mon.LOW PP")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H04:TLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_2_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H04:T-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H04:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H04:T-Mon.LOLO PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H04:T-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H04:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H04:T-Mon.LOW PP")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H05:TLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_2_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H05:T-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H05:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H05:T-Mon.LOLO PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H05:T-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H05:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H05:T-Mon.LOW PP")
+}
+
+record(ao, "RA-ToBO:RF-HeatSink-H06:TLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_2_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H06:T-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "RA-ToBO:RF-HeatSink-H06:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H06:T-Mon.LOLO PP")
+}
+
+record(calcout, "RA-ToBO:RF-HeatSink-H06:T-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "RA-ToBO:RF-HeatSink-H06:TLowerLimit-Cte CP")
+    field(OUT,  "RA-ToBO:RF-HeatSink-H06:T-Mon.LOW PP")
+}
+
+record(ai, "$(P):Set_Temp_0_"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Set_Temp[0]")
+    field(DESC, "Set_Temp[0]")
+    field(SCAN, "1 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ao, "BO-05D:RF-P5Cav:CoupTLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_0_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:CoupT-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "BO-05D:RF-P5Cav:CoupTLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:CoupT-Mon.LOLO PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:CoupT-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "BO-05D:RF-P5Cav:CoupTLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:CoupT-Mon.LOW PP")
+}
+
+record(ao, "BO-05D:RF-P5Cav:Cylin1TLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_0_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin1T-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin1TLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin1T-Mon.LOLO PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin1T-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin1TLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin1T-Mon.LOW PP")
+}
+
+record(ao, "BO-05D:RF-P5Cav:Cylin2TLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_0_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin2T-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin2TLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin2T-Mon.LOLO PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin2T-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin2TLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin2T-Mon.LOW PP")
+}
+
+record(ao, "BO-05D:RF-P5Cav:Cylin3TLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_0_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin3T-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin3TLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin3T-Mon.LOLO PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin3T-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin3TLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin3T-Mon.LOW PP")
+}
+
+record(ao, "BO-05D:RF-P5Cav:Cylin4TLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_0_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin4T-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin4TLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin4T-Mon.LOLO PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin4T-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin4TLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin4T-Mon.LOW PP")
+}
+
+record(ao, "BO-05D:RF-P5Cav:Cylin5TLowerLimit-Cte"){
+    field(OMSL, "closed_loop")
+    field(DOL,  "$(P):Set_Temp_0_ CP")
+    field(DESC, "Upper limits from PLC")
+    field(EGU,  "C")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin5T-Mon_LOLO"){
+    field(CALC, "A+0.5")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin5TLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin5T-Mon.LOLO PP")
+}
+
+record(calcout, "BO-05D:RF-P5Cav:Cylin5T-Mon_LOW"){
+    field(CALC, "A+1.0")
+    field(INPA, "BO-05D:RF-P5Cav:Cylin5TLowerLimit-Cte CP")
+    field(OUT,  "BO-05D:RF-P5Cav:Cylin5T-Mon.LOW PP")
+}

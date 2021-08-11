@@ -1,16 +1,20 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v1.2.3
+    rev: v2.3.0
     hooks:
-      - id: trailing-whitespace
+      - id: check-yaml
       - id: check-json
+      - id: trailing-whitespace
+      - id: mixed-line-ending # or whatever the name; you're the boss
+        args: ["--fix", "lf"]
+      - id: requirements-txt-fixer
 
   - repo: https://github.com/psf/black
-    rev: 19.10b0
+    rev: 20.8b1 # https://github.com/psf/black/tags
     hooks:
       - id: black
-        language_version: python3
         args: ["--config", ".black"]
+        language_version: python3 # Should be a command that runs python3.6+
 
   - repo: https://gitlab.com/pycqa/flake8
     rev: 3.8.4

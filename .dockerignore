@@ -6,5 +6,6 @@ Dockerfile
 README.md
 docker-compose.yml
 etc/
-iocBoot/iocetheripIOC/logEnv
+ioc/autosave/save/.gitkeep
+ioc/iocBoot/iocetheripIOC/logEnv
 services/

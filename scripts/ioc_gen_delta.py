@@ -4,45 +4,23 @@ import pandas
 import logging
 import os
 import re
-from templates_delta import *
+
+from src import config_logger
+from src.consts import SCAN_VALUES, defaults
+from src.templates.delta import (
+    ai_template,
+    ao_template,
+    bi_template,
+    bo_cmd_template,
+    bo_template,
+    cmd_template,
+    lsi_template,
+    lso_template,
+)
 
 logger = logging.getLogger()
 
-SCAN_VALUES = [".1", ".2", ".5", "1", "2", "5", "10", "I/O Intr", "Event", "Passive"]
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
-
-# default record field values
-defaults = {
-    "scan": ".1",
-    "egu": "",
-    "desc": "",
-    "onam": "True",
-    "znam": "False",
-    "zsv": "",
-    "osv": "",
-    "prec": "3",
-    "drvh": "",
-    "drvl": "",
-    "hopr": "",
-    "lopr": "",
-    "hihi": "",
-    "high": "",
-    "low": "",
-    "lolo": "",
-    "hhsv": "",
-    "hsv": "",
-    "lsv": "",
-    "llsv": "",
-    "hyst": "",
-    "sizv": "41",
-}
-
-def config_logger(logger):
-    handler = logging.StreamHandler()
-    formatter = logging.Formatter("%(asctime)s %(name)-6s %(levelname)-8s %(message)s")
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-    logger.setLevel(logging.DEBUG)
 
 
 def get_args():
@@ -66,7 +44,9 @@ def get_args():
         help="Modulus of the variables to be archived in PLC.",
     )
 
-    parser.add_argument("--col-desc", default="Description", help="EPICS desc column name.")
+    parser.add_argument(
+        "--col-desc", default="Description", help="EPICS desc column name."
+    )
     parser.add_argument(
         "--col-dtype", default="Data Type", help="Data type column name."
     )
@@ -76,7 +56,9 @@ def get_args():
     )
     parser.add_argument("--col-prec", default="Prec", help="EPICS prec column name.")
     parser.add_argument("--col-pv", default="NAME", help="PV column name.")
-    parser.add_argument("--col-scan", default="Scan", help="EPICS scan time column name.")
+    parser.add_argument(
+        "--col-scan", default="Scan", help="EPICS scan time column name."
+    )
     parser.add_argument("--col-tag", default="TAG", help="PLC tag column name.")
     parser.add_argument("--ioc-name", required=True, help="IOC name.")
     parser.add_argument("--sheet", required=True, help="Sheet name.")
@@ -89,132 +71,98 @@ def get_args():
     )
 
     parser.add_argument(
-        "--col-znam",
-        default="ZNAM",
-        help="EPICS Binary Zero Name column name."
+        "--col-znam", default="ZNAM", help="EPICS Binary Zero Name column name."
     )
     parser.add_argument(
-        "--col-onam",
-        default="ONAM",
-        help="EPICS Binary One Name column name."
+        "--col-onam", default="ONAM", help="EPICS Binary One Name column name."
     )
     parser.add_argument(
-        "--col-zsv",
-        default="ZSV",
-        help="EPICS Binary Zero Severity column name."
+        "--col-zsv", default="ZSV", help="EPICS Binary Zero Severity column name."
     )
     parser.add_argument(
-        "--col-osv",
-        default="OSV",
-        help="EPICS Binary One Severity column name."
+        "--col-osv", default="OSV", help="EPICS Binary One Severity column name."
     )
     parser.add_argument(
-        "--col-drvh",
-        default="DRVH",
-        help="EPICS Analog Out Driver High column name."
+        "--col-drvh", default="DRVH", help="EPICS Analog Out Driver High column name."
     )
     parser.add_argument(
-        "--col-drvl",
-        default="DRVL",
-        help="EPICS Analog Out Driver Low column name."
+        "--col-drvl", default="DRVL", help="EPICS Analog Out Driver Low column name."
     )
     parser.add_argument(
-        "--col-hopr",
-        default="HOPR",
-        help="EPICS High Operating Range column name."
+        "--col-hopr", default="HOPR", help="EPICS High Operating Range column name."
     )
     parser.add_argument(
-        "--col-lopr",
-        default="LOPR",
-        help="EPICS Low Operating Range column name."
+        "--col-lopr", default="LOPR", help="EPICS Low Operating Range column name."
     )
     parser.add_argument(
-        "--col-hihi",
-        default="HIHI",
-        help="EPICS High High Alarm Limit column name."
+        "--col-hihi", default="HIHI", help="EPICS High High Alarm Limit column name."
     )
     parser.add_argument(
-        "--col-high",
-        default="HIGH",
-        help="EPICS High Alarm Limit column name."
+        "--col-high", default="HIGH", help="EPICS High Alarm Limit column name."
     )
     parser.add_argument(
-        "--col-low",
-        default="LOW",
-        help="EPICS Low Alarm Limit column name."
+        "--col-low", default="LOW", help="EPICS Low Alarm Limit column name."
     )
     parser.add_argument(
-        "--col-lolo",
-        default="LOLO",
-        help="EPICS Low Low Alarm Limit column name."
+        "--col-lolo", default="LOLO", help="EPICS Low Low Alarm Limit column name."
     )
     parser.add_argument(
-        "--col-hhsv",
-        default="HHSV",
-        help="EPICS High High Alarm Severity column name."
+        "--col-hhsv", default="HHSV", help="EPICS High High Alarm Severity column name."
     )
     parser.add_argument(
-        "--col-hsv",
-        default="HSV",
-        help="EPICS High Alarm Severity column name."
+        "--col-hsv", default="HSV", help="EPICS High Alarm Severity column name."
     )
     parser.add_argument(
-        "--col-lsv",
-        default="LSV",
-        help="EPICS Low Alarm Severity column name."
+        "--col-lsv", default="LSV", help="EPICS Low Alarm Severity column name."
     )
     parser.add_argument(
-        "--col-llsv",
-        default="LLSV",
-        help="EPICS Low Low Alarm Severity column name."
+        "--col-llsv", default="LLSV", help="EPICS Low Low Alarm Severity column name."
     )
     parser.add_argument(
-        "--col-hyst",
-        default="HYST",
-        help="EPICS Alarm Deadband column name."
+        "--col-hyst", default="HYST", help="EPICS Alarm Deadband column name."
     )
     parser.add_argument(
         "--col-sizv",
         default="SIZV",
-        help="EPICS Long String Size of Buffer column name."
+        help="EPICS Long String Size of Buffer column name.",
     )
     parser.add_argument(
         "--bi",
-        nargs='+',
+        nargs="+",
         default="Binary Input",
-        help="EPICS bi data type alias (can be more than one)."
+        help="EPICS bi data type alias (can be more than one).",
     )
     parser.add_argument(
         "--bo",
-        nargs='+',
+        nargs="+",
         default="Binary Output",
-        help="EPICS bo data type alias (can be more than one)."
+        help="EPICS bo data type alias (can be more than one).",
     )
     parser.add_argument(
         "--ai",
-        nargs='+',
+        nargs="+",
         default="Analog Input",
-        help="EPICS ai data type alias (can be more than one)."
+        help="EPICS ai data type alias (can be more than one).",
     )
     parser.add_argument(
         "--ao",
-        nargs='+',
+        nargs="+",
         default="Analog Output",
-        help="EPICS ao data type alias (can be more than one)."
+        help="EPICS ao data type alias (can be more than one).",
     )
     # EPICS base 3.15 only
     parser.add_argument(
         "--lsi",
-        nargs='+',
+        nargs="+",
         default="Long String Input",
-        help="EPICS lsi data type alias (can be more than one)."
+        help="EPICS lsi data type alias (can be more than one).",
     )
     # EPICS base 3.15 only
     parser.add_argument(
         "--lso",
-        nargs='+',
+        nargs="+",
         default="Long String Output",
-        help="EPICS lso data type alias (can be more than one)."
+        help="EPICS lso data type alias (can be more than one).",
     )
 
     args = parser.parse_args()
@@ -225,8 +173,14 @@ def generate(args):
     sheet_name = args.sheet.split(",")
     logger.info("Args, {}.".format(vars(args)))
 
-    IOC_CMD_PATH = os.path.join(BASE_PATH, "../iocBoot/iocetheripIOC/") + args.ioc_name + ".cmd"
-    IOC_DATABASE_PATH = os.path.join(BASE_PATH, "../database/") + args.ioc_name + ".db"
+    IOC_CMD_PATH = (
+        os.path.join(BASE_PATH, "../ioc/iocBoot/iocetheripIOC/")
+        + args.ioc_name
+        + ".cmd"
+    )
+    IOC_DATABASE_PATH = (
+        os.path.join(BASE_PATH, "../ioc/database/") + args.ioc_name + ".db"
+    )
 
     logger.info('Generating "{}.cmd" file at "{}".'.format(args.ioc_name, IOC_CMD_PATH))
 
@@ -255,20 +209,23 @@ def generate(args):
             # check required columns
             if args.col_pv not in sheet.columns:
                 logger.error(
-                    'Could not find required {} column in {} sheet.'
-                    .format(args.col_pv, s_name)
+                    "Could not find required {} column in {} sheet.".format(
+                        args.col_pv, s_name
+                    )
                 )
                 continue
             if args.col_tag not in sheet.columns:
                 logger.error(
-                    'Could not find required {} column in {} sheet.'
-                    .format(args.col_tag, s_name)
+                    "Could not find required {} column in {} sheet.".format(
+                        args.col_tag, s_name
+                    )
                 )
                 continue
             if args.col_dtype not in sheet.columns:
                 logger.error(
-                    'Could not find required {} column in {} sheet.'
-                    .format(args.col_dtype, s_name)
+                    "Could not find required {} column in {} sheet.".format(
+                        args.col_dtype, s_name
+                    )
                 )
                 continue
             for n, row in sheet.iterrows():
@@ -277,29 +234,29 @@ def generate(args):
                 tag = row[args.col_tag]
                 dtype = row[args.col_dtype]
                 # optional columns
-                inout = row.get(args.col_inout, '')
-                desc = row.get(args.col_desc, defaults['desc'])
-                egu = row.get(args.col_egu, defaults['egu'])
-                scan = row.get(args.col_scan, defaults['scan'])
-                prec = row.get(args.col_prec, defaults['prec'])
-                znam = row.get(args.col_znam, defaults['znam'])
-                onam = row.get(args.col_onam, defaults['onam'])
-                zsv = row.get(args.col_zsv, defaults['zsv'])
-                osv = row.get(args.col_osv, defaults['osv'])
-                drvh = row.get(args.col_drvh, defaults['drvh'])
-                drvl = row.get(args.col_drvl, defaults['drvl'])
-                hopr = row.get(args.col_hopr, defaults['hopr'])
-                lopr = row.get(args.col_lopr, defaults['lopr'])
-                hihi = row.get(args.col_hihi, defaults['hihi'])
-                high = row.get(args.col_high, defaults['high'])
-                low = row.get(args.col_low, defaults['low'])
-                lolo = row.get(args.col_lolo, defaults['lolo'])
-                hhsv = row.get(args.col_hhsv, defaults['hhsv'])
-                hsv = row.get(args.col_hsv, defaults['hsv'])
-                lsv = row.get(args.col_lsv, defaults['lsv'])
-                llsv = row.get(args.col_llsv, defaults['llsv'])
-                hyst = row.get(args.col_hyst, defaults['hyst'])
-                sizv = row.get(args.col_sizv, defaults['sizv'])
+                inout = row.get(args.col_inout, "")
+                desc = row.get(args.col_desc, defaults["desc"])
+                egu = row.get(args.col_egu, defaults["egu"])
+                scan = row.get(args.col_scan, defaults["scan"])
+                prec = row.get(args.col_prec, defaults["prec"])
+                znam = row.get(args.col_znam, defaults["znam"])
+                onam = row.get(args.col_onam, defaults["onam"])
+                zsv = row.get(args.col_zsv, defaults["zsv"])
+                osv = row.get(args.col_osv, defaults["osv"])
+                drvh = row.get(args.col_drvh, defaults["drvh"])
+                drvl = row.get(args.col_drvl, defaults["drvl"])
+                hopr = row.get(args.col_hopr, defaults["hopr"])
+                lopr = row.get(args.col_lopr, defaults["lopr"])
+                hihi = row.get(args.col_hihi, defaults["hihi"])
+                high = row.get(args.col_high, defaults["high"])
+                low = row.get(args.col_low, defaults["low"])
+                lolo = row.get(args.col_lolo, defaults["lolo"])
+                hhsv = row.get(args.col_hhsv, defaults["hhsv"])
+                hsv = row.get(args.col_hsv, defaults["hsv"])
+                lsv = row.get(args.col_lsv, defaults["lsv"])
+                llsv = row.get(args.col_llsv, defaults["llsv"])
+                hyst = row.get(args.col_hyst, defaults["hyst"])
+                sizv = row.get(args.col_sizv, defaults["sizv"])
 
                 if not name or name.startswith("-"):
                     continue
@@ -319,7 +276,9 @@ def generate(args):
 
                 if scan not in SCAN_VALUES:
                     logger.error(
-                        'Invalid scan value "{}" defined for pv "{}".'.format(scan, name)
+                        'Invalid scan value "{}" defined for pv "{}".'.format(
+                            scan, name
+                        )
                     )
                     continue
 
@@ -339,8 +298,8 @@ def generate(args):
                 #         full_type = 'Analog Output'
                 #     If inout has no value, full_type = dtype
                 full_type = dtype
-                if inout != '' and not inout.startswith("-") and inout.lower != 'n/a':
-                    full_type = dtype + ' ' + inout
+                if inout != "" and not inout.startswith("-") and inout.lower != "n/a":
+                    full_type = dtype + " " + inout
 
                 if full_type in args.bi:
                     f.write(
@@ -372,7 +331,7 @@ def generate(args):
                     f.write(
                         bo_cmd_template.safe_substitute(
                             name=name,
-                            auxname=name[:name.rfind('-Cmd')]+'CmdAux',
+                            auxname=name[: name.rfind("-Cmd")] + "CmdAux",
                             tag=tag,
                             desc=desc,
                             scan=scan,
@@ -449,7 +408,9 @@ def generate(args):
                         )
                     )
                 else:
-                    logger.warning('Invalid Type "{}".'.format(full_type + " for " + name))
+                    logger.warning(
+                        'Invalid Type "{}".'.format(full_type + " for " + name)
+                    )
 
             for tag, vals in tags.items():
                 if len(vals) > 1:

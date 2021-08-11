@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ioc_gen_rf.py (SI)",
+      "type": "python",
+      "request": "launch",
+      "program": "ioc_gen_rf.py",
+      "console": "integratedTerminal",
+      "env": {"PYTHONPATH": "${workspaceFolder}/scripts"},
+      "args": [
+        "../etc/Storage Ring A Interlock EPICS.xlsx",
+        "--arch",
+        "linux-x86_64",
+        "--ioc-name",
+        "RF-Ring1",
+        "--plc-module",
+        "0",
+        "--plc-name",
+        "plc1",
+        "--sheet",
+        "SSAmp Tower 01,SSAmp Tower 02,Interlock,Petra 7,LLRF,Transmission Line"
+      ]
+    }
+  ]
+}
