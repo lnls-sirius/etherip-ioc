@@ -6,6 +6,14 @@ This project is an EPICS IOC based on Ether_IP.
 
 Currently etherip-ioc provides EPICS interfaces for:
 
+## Docker image
+In order to build the image, verify the settings at `./scripts/config.sh` then use `docker-compose build`.
+
+```sh
+sh ./scripts/config.sh
+docker-compose build <service_name>
+```
+
 ## IOC Generation and Docker images
 
 There's a shell script for each application. Just run it (Always check if all parameters match the system configuration).
