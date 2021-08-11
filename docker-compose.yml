@@ -33,3 +33,12 @@ services:
       target: rf_si
       labels:
         <<: *default-labels
+
+  delta:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-delta:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: delta
+      labels:
+        <<: *default-labels

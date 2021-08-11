@@ -28,12 +28,14 @@ RUN cd ${EPICS_MODULES} &&\
 
 ENV ETHER_IP ${EPICS_MODULES}/ether_ip-ether_ip-3-2
 
-COPY ./etc /opt/etheripIOC
+COPY ./ioc /opt/etheripIOC
+
 WORKDIR /opt/etheripIOC
 
 RUN cd /opt/etheripIOC/ && mkdir sockets && envsubst < configure/RELEASE.tmplt > configure/RELEASE &&\
     make -j$(nproc)
 
+COPY entrypoint.sh /opt/etheripIOC/entrypoint.sh
 ENTRYPOINT [ "/bin/bash", "/opt/etheripIOC/entrypoint.sh" ]
 
 FROM base AS rf_bo
