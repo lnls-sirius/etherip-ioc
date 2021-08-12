@@ -4,8 +4,8 @@ import argparse
 import logging
 import os
 
-from iocgen.consts import SCAN_VALUES
-from iocgen.ioc import generate
+from src.consts import SCAN_VALUES
+from src.ioc import generate
 
 logger = logging.getLogger()
 

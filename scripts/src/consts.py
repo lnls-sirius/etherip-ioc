@@ -1,0 +1,26 @@
+SCAN_VALUES = [".1", ".2", ".5", "1", "2", "5", "10", "I/O Intr", "Event", "Passive"]
+# default record field values
+defaults = {
+    "scan": ".1",
+    "egu": "",
+    "desc": "",
+    "onam": "True",
+    "znam": "False",
+    "zsv": "",
+    "osv": "",
+    "prec": "3",
+    "drvh": "",
+    "drvl": "",
+    "hopr": "",
+    "lopr": "",
+    "hihi": "",
+    "high": "",
+    "low": "",
+    "lolo": "",
+    "hhsv": "",
+    "hsv": "",
+    "lsv": "",
+    "llsv": "",
+    "hyst": "",
+    "sizv": "41",
+}

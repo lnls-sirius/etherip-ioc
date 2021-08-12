@@ -1,12 +1,10 @@
-#!/usr/bin/env python3
-import argparse
 import pandas
 import logging
 import os
 import re
 import typing
 
-from .templates import (
+from .templates.interlock_rf import (
     cmd_template,
     ai_template,
     bi_template,
@@ -125,7 +123,9 @@ class Limits:
 
 
 def generate_cmd_file(base_path, arch, ioc_name, plc_module, plc_name):
-    filename = os.path.join(base_path, "../iocBoot/iocetheripIOC/") + ioc_name + ".cmd"
+    filename = (
+        os.path.join(base_path, "../ioc/iocBoot/iocetheripIOC/") + ioc_name + ".cmd"
+    )
     logger.info('Generating "{}.cmd" file at "{}".'.format(ioc_name, filename))
     with open(filename, "w+") as f:
         f.write(
@@ -343,7 +343,7 @@ def generate_records_from_row(
 
 
 def get_database_path(base_path, name):
-    return os.path.join(base_path, "../database/") + name + ".db"
+    return os.path.join(base_path, "../ioc/database/") + name + ".db"
 
 
 def generate_db_file(

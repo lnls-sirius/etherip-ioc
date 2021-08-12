@@ -1,25 +1,18 @@
 # etherip-ioc
 
-This project is an EPICS IOC based on Ether_IP. All etherip-ioc-based EPICS interfaces created by LNLS Controls Group for Sirius control system will be contained in this application.
-
-Wiki-Sirius DOC - https://wiki-sirius.lnls.br/mediawiki/index.php/CON:EPICS_clients_on_Allen_Bradley_PLC
-
-[Dockerhub](https://hub.docker.com/r/lnlscon/etheripioc_base/tags?page=1&ordering=last_updated)
+This project is an EPICS IOC based on Ether_IP.
 
 ## Supported devices
 
 Currently etherip-ioc provides EPICS interfaces for:
 
-- ControlLogix 5000 - Rockwell Allen Bradley PLCs
+## Docker image
+In order to build the image, verify the settings at `./scripts/config.sh` then use `docker-compose build`.
 
-## Directory structure
-
-Here is a brief explanation of the directory structure (by default, this repository is located at `/opt/etherip-ioc`):
-
-- **database** - Contains files with record definitions for all devices this application supports.
-- **iocBoot** - Directory where the IOC initialization scripts reside. These files must be properly configured, as described at the "Executing the IOC" section. In the future, definition of control system nodes structure will lead to many specific initialization scripts.
-- **etc** - Spreasheets with records definitions.
-- **scripts** - IOC generation scripts.
+```sh
+sh ./scripts/config.sh
+docker-compose build <service_name>
+```
 
 ## IOC Generation and Docker images
 
@@ -48,7 +41,6 @@ The following environment variables are used to customize the deployment:
 | ----------------------- | ------- | ---------------------------- |
 | CMD                     |         | iocBoot cmd file             |
 | DEVIP                   |         | PLC IP Address               |
-| IOC_PROCSERV_PREFIX     |         | procServControl Prefix       |
 | EPICS_IOC_CAPUTLOG_INET | 0.0.0.0 | EPICS Logging Inet (generic) |
 | EPICS_IOC_CAPUTLOG_PORT | 7012    | EPICS Logging Port (generic) |
 | EPICS_IOC_LOG_INET      | 0.0.0.0 | EPICS Logging Inet (caput)   |

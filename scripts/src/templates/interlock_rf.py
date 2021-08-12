@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 from string import Template
 
 cmd_template = Template(
