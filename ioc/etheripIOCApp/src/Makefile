@@ -26,6 +26,39 @@ etheripIOC_LIBS += ether_ip
 etheripIOC_LIBS += calc
 etheripIOC_LIBS += caPutLog
 etheripIOC_LIBS += autosave
+etheripIOC_LIBS += seq
+
+# | Option | Description |
+# | ------ | ----------- |
+# | +a | Asynchronous pvGet: the program continues without waiting for completion of the pvGet operation. |
+# | -a | Synchronous pvGet: the program waits for completion. This is the default if an option is not specified. |
+# | +c | Wait for process variables to connect before allowing the program to begin execution. This is the default. |
+# | -c | Allow the program to begin execution before connections are established to all channel. |
+# | +d | Turn on run-time debug messages. |
+# | -d | Turn off run-time debug messages. This is the default. |
+# | +e | Use the new event flag mode. This is the default. |
+# | -e | Use the old event flag mode (clear flags after executing a when statement). |
+# | +i | Generate registrar procedure that registers shell commands and programs with an IOC shell. This is the default. |
+# | -i | Do not generate registrar procedure. |
+# | +l | Add line markers to the generated code, so that C compiler messages refer to the SNL source file. This is the default. |
+# | -l | Do not produce line markers. |
+# | +m | Include main procedure (seqMain.c) for a stand-alone program. |
+# | -m | Do not include seqMain.c. This is the default. |
+# | +r | Make the generated code reentrant, thus allowing more than one instance of the program to run on an IOC. |
+# | -r | Generated code is not reentrant. This is the default. |
+# | +s | Safe Mode: variables are local to state set and must be communicated explicitly. Implies +r. |
+# | -s | Traditional (non-safe) mode. This is the default for compatibility. |
+# | +w | Display warning messages. This is the default. |
+# | -w | Suppress warnings. |
+# | -o | To change the name of the generated C file. Requires an argument. |
+# | +W | Display extra warnings for undefined objects. |
+# | -W | Suppress extra warnings. This is the default. |
+
+etheripIOC_SNCFLAGS += +W
+etheripIOC_SNCFLAGS += +c
+etheripIOC_SNCFLAGS += +s
+etheripIOC_SNCFLAGS += -a
+
 
 # etheripIOC_registerRecordDeviceDriver.cpp derives from etheripIOC.dbd
 etheripIOC_SRCS += etheripIOC_registerRecordDeviceDriver.cpp

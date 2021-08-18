@@ -2,6 +2,7 @@
 ETHER_IP=
 CALC=
 CAPUTLOG=
+SNCSEQ=/opt/epics-R3.15.8/modules/seq-2.2.6
 EPICS_BASE=/opt/epics-R3.15.8/base
 
 # Set RULES here if you want to use build rules from somewhere
