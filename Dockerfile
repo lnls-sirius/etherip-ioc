@@ -58,3 +58,10 @@ COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME DELTA
 ENV CMD Delta.cmd
 ENV DEVIP 1.1.1.1
+
+FROM base AS delta_v2
+COPY ./ioc/database /opt/etheripIOC/database
+COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
+ENV NAME DELTA-V2
+ENV CMD Delta_v2.cmd
+ENV DEVIP 1.1.1.1

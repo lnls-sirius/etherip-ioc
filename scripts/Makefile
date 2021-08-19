@@ -35,6 +35,26 @@ delta:
             --bo "Bit Output" \
             --ai "Real Input" \
             --ao "Real Output" \
+            --mbbi "Enum Input" \
+            --mbbo "Enum Output" \
+            --lsi "String Input" \
+            --lso "String Output" \
+            --sheet 'Delta'
+
+delta-v2:
+	@echo "Delta Undulator IOC v2"
+	./ioc_gen_delta.py \
+            ../etc/Delta_v2.xlsx \
+            --arch linux-x86_64 \
+            --ioc-name Delta_v2 \
+            --plc-module 0 \
+            --plc-name plc1 \
+            --bi "Bit Input" \
+            --bo "Bit Output" \
+            --ai "Real Input" \
+            --ao "Real Output" \
+            --mbbi "Enum Input" \
+            --mbbo "Enum Output" \
             --lsi "String Input" \
             --lso "String Output" \
             --sheet 'Delta'

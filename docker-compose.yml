@@ -42,3 +42,12 @@ services:
       target: delta
       labels:
         <<: *default-labels
+
+  delta_v2:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-delta-v2:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: delta_v2
+      labels:
+        <<: *default-labels
