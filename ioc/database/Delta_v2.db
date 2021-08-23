@@ -2276,40 +2276,7 @@ record(bo, "$(P)$(R)Mod03SoftTrigCmdAux2"){
     field(OSV, "")
 }
 
-record(bo, "$(P)$(R)Mod01Enbl-Sel"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Modulo01.Enable S .1")
-    field(DESC, "Enable module 01")
-    field(SCAN, "Passive")
-    field(ONAM, "On")
-    field(ZNAM, "Off")
-    field(ZSV, "")
-    field(OSV, "")
-}
-
-record(bo, "$(P)$(R)Mod02Enbl-Sel"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Modulo02.Enable S .1")
-    field(DESC, "Enable module 02")
-    field(SCAN, "Passive")
-    field(ONAM, "On")
-    field(ZNAM, "Off")
-    field(ZSV, "")
-    field(OSV, "")
-}
-
-record(bo, "$(P)$(R)Mod03Enbl-Sel"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Modulo03.Enable S .1")
-    field(DESC, "Enable module 03")
-    field(SCAN, "Passive")
-    field(ONAM, "On")
-    field(ZNAM, "Off")
-    field(ZSV, "")
-    field(OSV, "")
-}
-
-record(bi, "$(P)$(R)Mod01Enbl-Sts"){
+record(bi, "$(P)$(R)Mod01Enbl-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Modulo01.Enable")
     field(DESC, "Enable status module 01")
@@ -2320,7 +2287,7 @@ record(bi, "$(P)$(R)Mod01Enbl-Sts"){
     field(OSV, "")
 }
 
-record(bi, "$(P)$(R)Mod02Enbl-Sts"){
+record(bi, "$(P)$(R)Mod02Enbl-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Modulo02.Enable")
     field(DESC, "Enable status module 02")
@@ -2331,7 +2298,7 @@ record(bi, "$(P)$(R)Mod02Enbl-Sts"){
     field(OSV, "")
 }
 
-record(bi, "$(P)$(R)Mod03Enbl-Sts"){
+record(bi, "$(P)$(R)Mod03Enbl-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Modulo03.Enable")
     field(DESC, "Enable status module 03")
