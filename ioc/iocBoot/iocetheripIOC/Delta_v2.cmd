@@ -27,6 +27,7 @@ EIP_verbosity(7)
 drvEtherIP_define_PLC("plc1", "$(DEVIP)", 0)
 
 dbLoadRecords("database/Delta_v2.db", "P=${P}, R=${R}, PLC=plc1")
+dbLoadRecords("database/Delta_Sabia.db", "P=${P}, R=${R}")
 iocInit()
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
