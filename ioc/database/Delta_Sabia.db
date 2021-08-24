@@ -432,9 +432,8 @@ record(bo, "$(P)$(R)BeamLineCtrlEnbl-Sel"){
 record(bi, "$(P)$(R)BeamLineCtrlEnbl-Sts"){
     field(INP, "$(P)$(R)BeamLineCtrlEnbl-Sel")
     field(DESC, "Enable status of ctrl by beam lines")
-    field(SCAN, ".5 second")
-    field(ONAM, "On")
-    field(ZNAM, "Off")
+    field(ONAM, "Yes")
+    field(ZNAM, "No")
 }
 
 ###########################################################
@@ -456,8 +455,8 @@ record(calc, "$(P)$(R)ParkingRequestFlg"){
 }
 
 # read/set by sncSabia
-record(ao, "$(P)$(R)ParkingPhase-SP"){
-    field(DESC, "Parking position phase")
+record(ao, "$(P)$(R)ParkingPol-SP"){
+    field(DESC, "Parking position polarization")
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "")
@@ -466,8 +465,8 @@ record(ao, "$(P)$(R)ParkingPhase-SP"){
 }
 
 # read/set by sncSabia
-record(ai, "$(P)$(R)ParkingPhase-RB"){
-    field(DESC, "Parking position phase RB")
+record(ai, "$(P)$(R)ParkingPol-RB"){
+    field(DESC, "Parking position polarization RB")
     field(PREC, "3")
     field(EGU,  "")
 }
@@ -483,7 +482,7 @@ record(ao, "$(P)$(R)ParkingEnergy-SP"){
 }
 
 # read/set by sncSabia
-record(ai, "$(P)$(R)ParkingPhase-RB"){
+record(ai, "$(P)$(R)ParkingEnergy-RB"){
     field(DESC, "Parking position energy RB")
     field(PREC, "3")
     field(EGU,  "")
@@ -503,7 +502,6 @@ record(calc, "$(P)$(R)GetParkingRequestFlg"){
     field(CALC, "VAL+1")
     field(VAL, "0")
 }
-
 
 ###########################################################
 # Low Level PVs Access Control
