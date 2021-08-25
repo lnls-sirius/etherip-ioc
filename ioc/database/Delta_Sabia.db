@@ -113,6 +113,61 @@ record(ai, "$(P)$(R)Energy-RB"){
     field(HYST, "")
 }
 
+# axis CID relative position related to polarization
+record(calc, "$(P)$(R)ActualPolDisplacement-Mon"){
+    field(DESC, "Actual pos displacement for pol mon")
+    field(EGU, "mm")
+    field(PREC, "3")
+    # monitor axis that move only in Phase mode
+    field(INPA, "$(P)$(R)Mod01PhyCIDActualPos-Mon CPP")
+    # no conversion is needed
+    field(CALC, "A")
+}
+
+# axis CID position defines degree of polarization
+record(calc, "$(P)$(R)ActualPol-Mon"){
+    field(DESC, "Actual polarization mon")
+    field(EGU, "pol rate")
+    field(PREC, "3")
+    # monitor axis that move only in Phase mode
+    field(INPA, "$(P)$(R)Mod01PhyCIDActualPos-Mon CPP")
+    # convert from mm to polarization rate
+    field(CALC, "A")
+}
+
+# axis CIE relative position related to K (energy)
+record(calc, "$(P)$(R)ActualKDisplacement-Mon"){
+    field(DESC, "Actual pos displacement for K mon")
+    field(EGU, "mm")
+    field(PREC, "3")
+    # monitor axis that move only in Energy mode
+    field(INPA, "$(P)$(R)Mod01PhyCIEActualPos-Mon CPP")
+    # no conversion is needed
+    field(CALC, "A")
+}
+
+# axis CIE position defines K value (in GH mode)
+record(calc, "$(P)$(R)ActualK-Mon"){
+    field(DESC, "Actual K mon")
+#    field(EGU, "ND")
+    field(PREC, "3")
+    # monitor axis that move only in Energy mode
+    field(INPA, "$(P)$(R)Mod01PhyCIEActualPos-Mon CPP")
+    # convert from mm to K value (dimensionless)
+    field(CALC, "A")
+}
+
+# axis CIE position defines energy value (in GH mode)
+record(calc, "$(P)$(R)ActualEnergy-Mon"){
+    field(DESC, "Actual energy mon")
+    field(EGU, "eV")
+    field(PREC, "3")
+    # monitor axis that move only in Energy mode
+    field(INPA, "$(P)$(R)Mod01PhyCIEActualPos-Mon CPP")
+    # convert from mm to eV
+    field(CALC, "A")
+}
+
 ###########################################################
 # Energy Scan Control
 
