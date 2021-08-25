@@ -1,0 +1,65 @@
+program sncSabia
+
+%%//----------------------------------------
+%%// 	      Variables
+%%//----------------------------------------
+
+float var_target_pos;
+float var_pos_diff;
+
+%%//----------------------------------------
+%%// 	      Monitored PVs
+%%//----------------------------------------
+
+
+
+
+
+
+
+
+%%// int example;
+%%// assign example to "{P}{R}Example-Mon";
+%%// monitor example;
+%%// evflag example_flg;
+%%// sync example example_flg;
+
+
+%%//----------------------------------------
+%%//        Escaped C Code
+%%//----------------------------------------
+
+// required for calling seq_pvPut, seq_pvGet from embedded C code
+foreign ssId;
+
+%%#include <unistd.h>
+%%#include <string.h>
+%%#include "Logger.h"
+
+// coupling modes
+%%#define COUPLING_UNCOUPLED 0
+%%#define COUPLING_ALL 1
+%%#define COUPLING_PHASE 2
+%%#define COUPLING_COUNTERPHASE 3
+%%#define COUPLING_GV 4
+%%#define COUPLING_GH 5
+
+// main polarization positions (mm)
+%%#define POL_LIN_VERT -26.25
+%%#define POL_CIRC_RIGHT -13.125
+%%#define POL_LIN_HOR 0.0
+%%#define POL_CIRC_LEFT 13.125
+%%#define POL_LIN_VERT 26.25
+
+%%//----------------------------------------
+%%//        State Notation Language
+%%//----------------------------------------
+
+ss motion_control {
+    state init {
+	when (delay(5.0)) {
+
+            LOG_INFO("[%s%s] Initialization start\n", macValueGet("P"), macValueGet("R"));
+	} state ready
+    }
+}
