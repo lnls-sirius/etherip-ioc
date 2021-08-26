@@ -11,11 +11,11 @@ float var_pos_diff;
 %%//    Monitored PVs - High Level
 %%//----------------------------------------
 
-int change_pol_cmd;
-assign change_pol_cmd to "{P}{R}ChangePolFlg";
-monitor change_pol_cmd;
-evflag change_pol_cmd_flg;
-sync change_pol_cmd change_pol_cmd_flg;
+int change_pol_evt;
+assign change_pol_evt to "{P}{R}ChangePolFlg";
+monitor change_pol_evt;
+evflag change_pol_evt_flg;
+sync change_pol_evt change_pol_evt_flg;
 
 int pol_type_sel;
 assign pol_type_sel to "{P}{R}PolType-Sel";
@@ -23,11 +23,11 @@ monitor pol_type_sel;
 evflag pol_type_sel_flg;
 sync pol_type_sel pol_type_sel_flg;
 
-int change_energy_cmd;
-assign change_energy_cmd to "{P}{R}ChangeEnergyFlg";
-monitor change_energy_cmd;
-evflag change_energy_cmd_flg;
-sync change_energy_cmd change_energy_cmd_flg;
+int change_energy_evt;
+assign change_energy_evt to "{P}{R}ChangeEnergyFlg";
+monitor change_energy_evt;
+evflag change_energy_evt_flg;
+sync change_energy_evt change_energy_evt_flg;
 
 int gain_motion_type_sel;
 assign gain_motion_type_sel to "{P}{R}GainMotionType-Sel";
@@ -53,11 +53,11 @@ monitor shift_sp;
 evflag shift_sp_flg;
 sync shift_sp shift_sp_flg;
 
-int start_escan_cmd;
-assign start_escan_cmd to "{P}{R}StartEScanFlg";
-monitor start_escan_cmd;
-evflag start_escan_cmd_flg;
-sync start_escan_cmd start_escan_cmd_flg;
+int start_escan_evt;
+assign start_escan_evt to "{P}{R}StartEScanFlg";
+monitor start_escan_evt;
+evflag start_escan_evt_flg;
+sync start_escan_evt start_escan_evt_flg;
 
 int escan_start_pos_sp;
 assign escan_start_pos_sp to "{P}{R}EScanStartPos-SP";
@@ -107,11 +107,11 @@ monitor max_acc_sp;
 evflag max_acc_sp_flg;
 sync max_acc_sp max_acc_sp_flg;
 
-int parking_request_cmd;
-assign parking_request_cmd to "{P}{R}ParkingRequestFlg";
-monitor parking_request_cmd;
-evflag parking_request_cmd_flg;
-sync parking_request_cmd parking_request_cmd_flg;
+int parking_request_evt;
+assign parking_request_evt to "{P}{R}ParkingRequestFlg";
+monitor parking_request_evt;
+evflag parking_request_evt_flg;
+sync parking_request_evt parking_request_evt_flg;
 
 int parking_pol_sp;
 assign parking_pol_sp to "{P}{R}ParkingPol-SP";
@@ -125,11 +125,11 @@ monitor parking_energy_sp;
 evflag parking_energy_sp_flg;
 sync parking_energy_sp parking_energy_sp_flg;
 
-int get_parking_request_cmd;
-assign get_parking_request_cmd to "{P}{R}GetParkingRequestFlg";
-monitor get_parking_request_cmd;
-evflag get_parking_request_cmd_flg;
-sync get_parking_request_cmd get_parking_request_cmd_flg;
+int get_parking_request_evt;
+assign get_parking_request_evt to "{P}{R}GetParkingRequestFlg";
+monitor get_parking_request_evt;
+evflag get_parking_request_evt_flg;
+sync get_parking_request_evt get_parking_request_evt_flg;
 
 %%// Conversion Coefficients - Shift to K
 
