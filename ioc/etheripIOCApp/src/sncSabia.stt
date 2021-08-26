@@ -8,7 +8,7 @@ float var_target_pos;
 float var_pos_diff;
 
 %%//----------------------------------------
-%%// 	      Monitored PVs
+%%//    Monitored PVs - High Level
 %%//----------------------------------------
 
 int change_pol_cmd;
@@ -206,6 +206,52 @@ monitor conv_k_to_energy_a7_sp;
 int conv_k_to_energy_a8_sp;
 assign conv_k_to_energy_a8_sp to "{P}{R}ConvKToEnergyA8-SP";
 monitor conv_k_to_energy_a8_sp;
+
+%%//----------------------------------------
+%%//    Output PVs - Low Level
+%%//----------------------------------------
+
+int mod_01_rel_pos_sp;
+assign mod_01_rel_pos_sp to "{P}{R}Mod01RelPos-SP";
+
+int mod_01_velo_sp;
+assign mod_01_velo_sp to "{P}{R}Mod01Velo-SP";
+
+int mod_01_acc_sp;
+assign mod_01_acc_sp to "{P}{R}Mod01Acc-SP";
+
+int mod_01_decel_sp;
+assign mod_01_decel_sp to "{P}{R}Mod01Decel-SP";
+
+int mod_01_phy_cid_actual_pos_mon;
+assign mod_01_phy_cid_actual_pos_mon to "{P}{R}Mod01PhyCIDActualPos-Mon";
+
+int mod_01_phy_cie_actual_pos_mon;
+assign mod_01_phy_cie_actual_pos_mon to "{P}{R}Mod01PhyCIEActualPos-Mon";
+
+int mod_01_phy_csd_actual_pos_mon;
+assign mod_01_phy_csd_actual_pos_mon to "{P}{R}Mod01PhyCSDActualPos-Mon";
+
+int mod_01_phy_cse_actual_pos_mon;
+assign mod_01_phy_cse_actual_pos_mon to "{P}{R}Mod01PhyCSEActualPos-Mon";
+
+int mod_01_coup_sel;
+assign mod_01_coup_sel to "{P}{R}Mod01Coup-Sel";
+
+int mod_01_trig_type_sel;
+assign mod_01_trig_type_sel to "{P}{R}Mod01TrigType-Sel";
+
+int mod_01_motion_type_sel;
+assign mod_01_motion_type_sel to "{P}{R}Mod01MotionType-Sel";
+
+int inter_mod_coup_sel;
+assign inter_mod_coup_sel to "{P}{R}InterModCoup-Sel";
+
+int mod_01_mirror_sel;
+assign mod_01_mirror_sel to "{P}{R}Mod01Mirror-Sel";
+
+int mod_01_soft_trig_cmd;
+assign mod_01_soft_trig_cmd to "{P}{R}Mod01SoftTrig-Cmd";
 
 %%//----------------------------------------
 %%//        Escaped C Code
