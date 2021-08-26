@@ -11,19 +11,201 @@ float var_pos_diff;
 %%// 	      Monitored PVs
 %%//----------------------------------------
 
+int change_pol_cmd;
+assign change_pol_cmd to "{P}{R}ChangePolFlg";
+monitor change_pol_cmd;
+evflag change_pol_cmd_flg;
+sync change_pol_cmd change_pol_cmd_flg;
 
+int pol_type_sel;
+assign pol_type_sel to "{P}{R}PolType-Sel";
+monitor pol_type_sel;
+evflag pol_type_sel_flg;
+sync pol_type_sel pol_type_sel_flg;
 
+int change_energy_cmd;
+assign change_energy_cmd to "{P}{R}ChangeEnergyFlg";
+monitor change_energy_cmd;
+evflag change_energy_cmd_flg;
+sync change_energy_cmd change_energy_cmd_flg;
 
+int gain_motion_type_sel;
+assign gain_motion_type_sel to "{P}{R}GainMotionType-Sel";
+monitor gain_motion_type_sel;
+evflag gain_motion_type_sel_flg;
+sync gain_motion_type_sel gain_motion_type_sel_flg;
 
+int energy_sp;
+assign energy_sp to "{P}{R}Energy-SP";
+monitor energy_sp;
+evflag energy_sp_flg;
+sync energy_sp energy_sp_flg;
 
+int k_sp;
+assign k_sp to "{P}{R}K-SP";
+monitor k_sp;
+evflag k_sp_flg;
+sync k_sp k_sp_flg;
 
+int shift_sp;
+assign shift_sp to "{P}{R}Shift-SP";
+monitor shift_sp;
+evflag shift_sp_flg;
+sync shift_sp shift_sp_flg;
 
-%%// int example;
-%%// assign example to "{P}{R}Example-Mon";
-%%// monitor example;
-%%// evflag example_flg;
-%%// sync example example_flg;
+int start_escan_cmd;
+assign start_escan_cmd to "{P}{R}StartEScanFlg";
+monitor start_escan_cmd;
+evflag start_escan_cmd_flg;
+sync start_escan_cmd start_escan_cmd_flg;
 
+int escan_start_pos_sp;
+assign escan_start_pos_sp to "{P}{R}EScanStartPos-SP";
+monitor escan_start_pos_sp;
+evflag escan_start_pos_sp_flg;
+sync escan_start_pos_sp escan_start_pos_sp_flg;
+
+int escan_end_pos_sp;
+assign escan_end_pos_sp to "{P}{R}EScanEndPos-SP";
+monitor escan_end_pos_sp;
+evflag escan_end_pos_sp_flg;
+sync escan_end_pos_sp escan_end_pos_sp_flg;
+
+int pol_mode_velo_sp;
+assign pol_mode_velo_sp to "{P}{R}PolModeVelo-SP";
+monitor pol_mode_velo_sp;
+evflag pol_mode_velo_sp_flg;
+sync pol_mode_velo_sp pol_mode_velo_sp_flg;
+
+int pol_mode_acc_sp;
+assign pol_mode_acc_sp to "{P}{R}PolModeAcc-SP";
+monitor pol_mode_acc_sp;
+evflag pol_mode_acc_sp_flg;
+sync pol_mode_acc_sp pol_mode_acc_sp_flg;
+
+int energy_mode_velo_sp;
+assign energy_mode_velo_sp to "{P}{R}EnergyModeVelo-SP";
+monitor energy_mode_velo_sp;
+evflag energy_mode_velo_sp_flg;
+sync energy_mode_velo_sp energy_mode_velo_sp_flg;
+
+int energy_mode_acc_sp;
+assign energy_mode_acc_sp to "{P}{R}EnergyModeAcc-SP";
+monitor energy_mode_acc_sp;
+evflag energy_mode_acc_sp_flg;
+sync energy_mode_acc_sp energy_mode_acc_sp_flg;
+
+int max_velo_sp;
+assign max_velo_sp to "{P}{R}MaxVelo-SP";
+monitor max_velo_sp;
+evflag max_velo_sp_flg;
+sync max_velo_sp max_velo_sp_flg;
+
+int max_acc_sp;
+assign max_acc_sp to "{P}{R}MaxAcc-SP";
+monitor max_acc_sp;
+evflag max_acc_sp_flg;
+sync max_acc_sp max_acc_sp_flg;
+
+int parking_request_cmd;
+assign parking_request_cmd to "{P}{R}ParkingRequestFlg";
+monitor parking_request_cmd;
+evflag parking_request_cmd_flg;
+sync parking_request_cmd parking_request_cmd_flg;
+
+int parking_pol_sp;
+assign parking_pol_sp to "{P}{R}ParkingPol-SP";
+monitor parking_pol_sp;
+evflag parking_pol_sp_flg;
+sync parking_pol_sp parking_pol_sp_flg;
+
+int parking_energy_sp;
+assign parking_energy_sp to "{P}{R}ParkingEnergy-SP";
+monitor parking_energy_sp;
+evflag parking_energy_sp_flg;
+sync parking_energy_sp parking_energy_sp_flg;
+
+int get_parking_request_cmd;
+assign get_parking_request_cmd to "{P}{R}GetParkingRequestFlg";
+monitor get_parking_request_cmd;
+evflag get_parking_request_cmd_flg;
+sync get_parking_request_cmd get_parking_request_cmd_flg;
+
+%%// Conversion Coefficients - Shift to K
+
+int conv_shift_to_k_a0_sp;
+assign conv_shift_to_k_a0_sp to "{P}{R}ConvShiftToKA0-SP";
+monitor conv_shift_to_k_a0_sp;
+
+int conv_shift_to_k_a1_sp;
+assign conv_shift_to_k_a1_sp to "{P}{R}ConvShiftToKA1-SP";
+monitor conv_shift_to_k_a1_sp;
+
+int conv_shift_to_k_a2_sp;
+assign conv_shift_to_k_a2_sp to "{P}{R}ConvShiftToKA2-SP";
+monitor conv_shift_to_k_a2_sp;
+
+int conv_shift_to_k_a3_sp;
+assign conv_shift_to_k_a3_sp to "{P}{R}ConvShiftToKA3-SP";
+monitor conv_shift_to_k_a3_sp;
+
+int conv_shift_to_k_a4_sp;
+assign conv_shift_to_k_a4_sp to "{P}{R}ConvShiftToKA4-SP";
+monitor conv_shift_to_k_a4_sp;
+
+int conv_shift_to_k_a5_sp;
+assign conv_shift_to_k_a5_sp to "{P}{R}ConvShiftToKA5-SP";
+monitor conv_shift_to_k_a5_sp;
+
+int conv_shift_to_k_a6_sp;
+assign conv_shift_to_k_a6_sp to "{P}{R}ConvShiftToKA6-SP";
+monitor conv_shift_to_k_a6_sp;
+
+int conv_shift_to_k_a7_sp;
+assign conv_shift_to_k_a7_sp to "{P}{R}ConvShiftToKA7-SP";
+monitor conv_shift_to_k_a7_sp;
+
+int conv_shift_to_k_a8_sp;
+assign conv_shift_to_k_a8_sp to "{P}{R}ConvShiftToKA8-SP";
+monitor conv_shift_to_k_a8_sp;
+
+%%// Conversion Coefficients - K to Energy
+
+int conv_k_to_energy_a0_sp;
+assign conv_k_to_energy_a0_sp to "{P}{R}ConvKToEnergyA0-SP";
+monitor conv_k_to_energy_a0_sp;
+
+int conv_k_to_energy_a1_sp;
+assign conv_k_to_energy_a1_sp to "{P}{R}ConvKToEnergyA1-SP";
+monitor conv_k_to_energy_a1_sp;
+
+int conv_k_to_energy_a2_sp;
+assign conv_k_to_energy_a2_sp to "{P}{R}ConvKToEnergyA2-SP";
+monitor conv_k_to_energy_a2_sp;
+
+int conv_k_to_energy_a3_sp;
+assign conv_k_to_energy_a3_sp to "{P}{R}ConvKToEnergyA3-SP";
+monitor conv_k_to_energy_a3_sp;
+
+int conv_k_to_energy_a4_sp;
+assign conv_k_to_energy_a4_sp to "{P}{R}ConvKToEnergyA4-SP";
+monitor conv_k_to_energy_a4_sp;
+
+int conv_k_to_energy_a5_sp;
+assign conv_k_to_energy_a5_sp to "{P}{R}ConvKToEnergyA5-SP";
+monitor conv_k_to_energy_a5_sp;
+
+int conv_k_to_energy_a6_sp;
+assign conv_k_to_energy_a6_sp to "{P}{R}ConvKToEnergyA6-SP";
+monitor conv_k_to_energy_a6_sp;
+
+int conv_k_to_energy_a7_sp;
+assign conv_k_to_energy_a7_sp to "{P}{R}ConvKToEnergyA7-SP";
+monitor conv_k_to_energy_a7_sp;
+
+int conv_k_to_energy_a8_sp;
+assign conv_k_to_energy_a8_sp to "{P}{R}ConvKToEnergyA8-SP";
+monitor conv_k_to_energy_a8_sp;
 
 %%//----------------------------------------
 %%//        Escaped C Code
