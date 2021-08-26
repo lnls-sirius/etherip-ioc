@@ -254,6 +254,7 @@ record(calc, "$(P)$(R)ActualK-Mon"){
     field(INPJ, "$(P)$(R)ConvShiftToKA8-SP")
     # convert from mm to K value (dimensionless)
     field(CALC, "J*A^8+I*A^7+H*A^6+G*A^5+F*A^4+E*A^3+D*A^2+C*A+B")
+    field(FLNK, "$(P)$(R)ActualEnergy-Mon")
 }
 
 # axis CIE position defines energy value (in GH mode)
@@ -262,7 +263,7 @@ record(calc, "$(P)$(R)ActualEnergy-Mon"){
     field(EGU, "eV")
     field(PREC, "3")
     # monitor axis that move only in Energy mode
-    field(INPA, "$(P)$(R)Mod01PhyCIEActualPos-Mon CPP")
+    field(INPA, "$(P)$(R)ActualK-Mon")
     field(INPB, "$(P)$(R)ConvKToEnergyA0-SP")
     field(INPC, "$(P)$(R)ConvKToEnergyA1-SP")
     field(INPD, "$(P)$(R)ConvKToEnergyA2-SP")
@@ -272,7 +273,7 @@ record(calc, "$(P)$(R)ActualEnergy-Mon"){
     field(INPH, "$(P)$(R)ConvKToEnergyA6-SP")
     field(INPI, "$(P)$(R)ConvKToEnergyA7-SP")
     field(INPJ, "$(P)$(R)ConvKToEnergyA8-SP")
-    # convert from mm to eV
+    # convert from K to eV
     field(CALC, "J*A^8+I*A^7+H*A^6+G*A^5+F*A^4+E*A^3+D*A^2+C*A+B")
 }
 
