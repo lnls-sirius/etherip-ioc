@@ -74,15 +74,35 @@ record(calc, "$(P)$(R)ChangeEnergyFlg"){
 }
 
 # read by sncSabia
+record(mbbo, "$(P)$(R)GainMotionType-Sel"){
+    field(DESC, "Gain motion type")
+    field(SCAN, "Passive")
+    field(OMSL, "supervisory")
+    field(IVOA, "Don't drive outputs")
+    field(UNSV, "MINOR")
+    field(ZRST, "mm")
+    field(ONST, "K")
+    field(TWST, "Energy")
+    field(FLNK, "$(P)$(R)GainMotionType-Sts")
+}
+
+record(mbbi, "$(P)$(R)GainMotionType-Sts"){
+    field(INP, "$(P)$(R)GainMotionType-Sel")
+    field(DESC, "Gain motion type sts")
+    field(UNSV, "MINOR")
+    field(ZRST, "mm")
+    field(ONST, "K")
+    field(TWST, "Energy")
+}
+
+# read by sncSabia
 record(ao, "$(P)$(R)Energy-SP"){
-    field(DESC, "Energy value")
+    field(DESC, "Energy value in Gain config")
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "eV")
     field(DRVH, "")
     field(DRVL, "")
-    field(HOPR, "")
-    field(LOPR, "")
     field(HIHI, "")
     field(HIGH, "")
     field(LOW, "")
@@ -97,11 +117,81 @@ record(ao, "$(P)$(R)Energy-SP"){
 
 record(ai, "$(P)$(R)Energy-RB"){
     field(INP, "$(P)$(R)Energy-SP")
-    field(DESC, "Energy value RB")
+    field(DESC, "Energy value in Gain config RB")
     field(PREC, "3")
     field(EGU,  "eV")
-    field(HOPR, "")
-    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)K-SP"){
+    field(DESC, "K value in Gain config")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "ND")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+    field(FLNK, "$(P)$(R)K-RB")
+}
+
+record(ai, "$(P)$(R)K-RB"){
+    field(INP, "$(P)$(R)K-SP")
+    field(DESC, "K value in Gain config RB")
+    field(PREC, "3")
+    field(EGU,  "ND")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)Shift-SP"){
+    field(DESC, "Shift value in Gain config")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+    field(FLNK, "$(P)$(R)Shift-RB")
+}
+
+record(ai, "$(P)$(R)Shift-RB"){
+    field(INP, "$(P)$(R)Shift-SP")
+    field(DESC, "Shift value in Gain config RB")
+    field(PREC, "3")
+    field(EGU,  "mm")
     field(HIHI, "")
     field(HIGH, "")
     field(LOW, "")
@@ -149,12 +239,21 @@ record(calc, "$(P)$(R)ActualKDisplacement-Mon"){
 # axis CIE position defines K value (in GH mode)
 record(calc, "$(P)$(R)ActualK-Mon"){
     field(DESC, "Actual K mon")
-#    field(EGU, "ND")
+    field(EGU, "ND")
     field(PREC, "3")
     # monitor axis that move only in Energy mode
     field(INPA, "$(P)$(R)Mod01PhyCIEActualPos-Mon CPP")
+    field(INPB, "$(P)$(R)ConvShiftToKA0-SP")
+    field(INPC, "$(P)$(R)ConvShiftToKA1-SP")
+    field(INPD, "$(P)$(R)ConvShiftToKA2-SP")
+    field(INPE, "$(P)$(R)ConvShiftToKA3-SP")
+    field(INPF, "$(P)$(R)ConvShiftToKA4-SP")
+    field(INPG, "$(P)$(R)ConvShiftToKA5-SP")
+    field(INPH, "$(P)$(R)ConvShiftToKA6-SP")
+    field(INPI, "$(P)$(R)ConvShiftToKA7-SP")
+    field(INPJ, "$(P)$(R)ConvShiftToKA8-SP")
     # convert from mm to K value (dimensionless)
-    field(CALC, "A")
+    field(CALC, "J*A^8+I*A^7+H*A^6+G*A^5+F*A^4+E*A^3+D*A^2+C*A+B")
 }
 
 # axis CIE position defines energy value (in GH mode)
@@ -164,8 +263,186 @@ record(calc, "$(P)$(R)ActualEnergy-Mon"){
     field(PREC, "3")
     # monitor axis that move only in Energy mode
     field(INPA, "$(P)$(R)Mod01PhyCIEActualPos-Mon CPP")
+    field(INPB, "$(P)$(R)ConvKToEnergyA0-SP")
+    field(INPC, "$(P)$(R)ConvKToEnergyA1-SP")
+    field(INPD, "$(P)$(R)ConvKToEnergyA2-SP")
+    field(INPE, "$(P)$(R)ConvKToEnergyA3-SP")
+    field(INPF, "$(P)$(R)ConvKToEnergyA4-SP")
+    field(INPG, "$(P)$(R)ConvKToEnergyA5-SP")
+    field(INPH, "$(P)$(R)ConvKToEnergyA6-SP")
+    field(INPI, "$(P)$(R)ConvKToEnergyA7-SP")
+    field(INPJ, "$(P)$(R)ConvKToEnergyA8-SP")
     # convert from mm to eV
-    field(CALC, "A")
+    field(CALC, "J*A^8+I*A^7+H*A^6+G*A^5+F*A^4+E*A^3+D*A^2+C*A+B")
+}
+
+###########################################################
+# Conversion Coefficients
+
+## Shift to K coefficients
+
+record(ao, "$(P)$(R)ConvShiftToKA0-SP"){
+    field(DESC, "Conv from shift to K polynomial a0")
+    field(FLNK, "$(P)$(R)ConvShiftToKA0-RB")
+}
+record(ai, "$(P)$(R)ConvShiftToKA0-RB"){
+    field(INP, "$(P)$(R)ConvShiftToKA0-SP")
+    field(DESC, "Conv from shift to K polynomial a0 RB")
+}
+
+record(ao, "$(P)$(R)ConvShiftToKA1-SP"){
+    field(DESC, "Conv from shift to K polynomial a1")
+    field(FLNK, "$(P)$(R)ConvShiftToKA1-RB")
+}
+record(ai, "$(P)$(R)ConvShiftToKA1-RB"){
+    field(INP, "$(P)$(R)ConvShiftToKA1-SP")
+    field(DESC, "Conv from shift to K polynomial a1 RB")
+}
+
+record(ao, "$(P)$(R)ConvShiftToKA2-SP"){
+    field(DESC, "Conv from shift to K polynomial a2")
+    field(FLNK, "$(P)$(R)ConvShiftToKA2-RB")
+}
+record(ai, "$(P)$(R)ConvShiftToKA2-RB"){
+    field(INP, "$(P)$(R)ConvShiftToKA2-SP")
+    field(DESC, "Conv from shift to K polynomial a2 RB")
+}
+
+record(ao, "$(P)$(R)ConvShiftToKA3-SP"){
+    field(DESC, "Conv from shift to K polynomial a3")
+    field(FLNK, "$(P)$(R)ConvShiftToKA3-RB")
+}
+record(ai, "$(P)$(R)ConvShiftToKA3-RB"){
+    field(INP, "$(P)$(R)ConvShiftToKA3-SP")
+    field(DESC, "Conv from shift to K polynomial a3 RB")
+}
+
+record(ao, "$(P)$(R)ConvShiftToKA4-SP"){
+    field(DESC, "Conv from shift to K polynomial a4")
+    field(FLNK, "$(P)$(R)ConvShiftToKA4-RB")
+}
+record(ai, "$(P)$(R)ConvShiftToKA4-RB"){
+    field(INP, "$(P)$(R)ConvShiftToKA4-SP")
+    field(DESC, "Conv from shift to K polynomial a4 RB")
+}
+
+record(ao, "$(P)$(R)ConvShiftToKA5-SP"){
+    field(DESC, "Conv from shift to K polynomial a5")
+    field(FLNK, "$(P)$(R)ConvShiftToKA5-RB")
+}
+record(ai, "$(P)$(R)ConvShiftToKA5-RB"){
+    field(INP, "$(P)$(R)ConvShiftToKA5-SP")
+    field(DESC, "Conv from shift to K polynomial a5 RB")
+}
+
+record(ao, "$(P)$(R)ConvShiftToKA6-SP"){
+    field(DESC, "Conv from shift to K polynomial a6")
+    field(FLNK, "$(P)$(R)ConvShiftToKA6-RB")
+}
+record(ai, "$(P)$(R)ConvShiftToKA6-RB"){
+    field(INP, "$(P)$(R)ConvShiftToKA6-SP")
+    field(DESC, "Conv from shift to K polynomial a6 RB")
+}
+
+record(ao, "$(P)$(R)ConvShiftToKA7-SP"){
+    field(DESC, "Conv from shift to K polynomial a7")
+    field(FLNK, "$(P)$(R)ConvShiftToKA7-RB")
+}
+record(ai, "$(P)$(R)ConvShiftToKA7-RB"){
+    field(INP, "$(P)$(R)ConvShiftToKA7-SP")
+    field(DESC, "Conv from shift to K polynomial a7 RB")
+}
+
+record(ao, "$(P)$(R)ConvShiftToKA8-SP"){
+    field(DESC, "Conv from shift to K polynomial a8")
+    field(FLNK, "$(P)$(R)ConvShiftToKA8-RB")
+}
+record(ai, "$(P)$(R)ConvShiftToKA8-RB"){
+    field(INP, "$(P)$(R)ConvShiftToKA8-SP")
+    field(DESC, "Conv from shift to K polynomial a8 RB")
+}
+
+## K to energy coefficients
+
+record(ao, "$(P)$(R)ConvKToEnergyA0-SP"){
+    field(DESC, "Conv from K to energy polynomial a0")
+    field(FLNK, "$(P)$(R)ConvKToEnergyA0-RB")
+}
+record(ai, "$(P)$(R)ConvKToEnergyA0-RB"){
+    field(INP, "$(P)$(R)ConvKToEnergyA0-SP")
+    field(DESC, "Conv from K to energy polynomial a0 RB")
+}
+
+record(ao, "$(P)$(R)ConvKToEnergyA1-SP"){
+    field(DESC, "Conv from K to energy polynomial a1")
+    field(FLNK, "$(P)$(R)ConvKToEnergyA1-RB")
+}
+record(ai, "$(P)$(R)ConvKToEnergyA1-RB"){
+    field(INP, "$(P)$(R)ConvKToEnergyA1-SP")
+    field(DESC, "Conv from K to energy polynomial a1 RB")
+}
+
+record(ao, "$(P)$(R)ConvKToEnergyA2-SP"){
+    field(DESC, "Conv from K to energy polynomial a2")
+    field(FLNK, "$(P)$(R)ConvKToEnergyA2-RB")
+}
+record(ai, "$(P)$(R)ConvKToEnergyA2-RB"){
+    field(INP, "$(P)$(R)ConvKToEnergyA2-SP")
+    field(DESC, "Conv from K to energy polynomial a2 RB")
+}
+
+record(ao, "$(P)$(R)ConvKToEnergyA3-SP"){
+    field(DESC, "Conv from K to energy polynomial a3")
+    field(FLNK, "$(P)$(R)ConvKToEnergyA3-RB")
+}
+record(ai, "$(P)$(R)ConvKToEnergyA3-RB"){
+    field(INP, "$(P)$(R)ConvKToEnergyA3-SP")
+    field(DESC, "Conv from K to energy polynomial a3 RB")
+}
+
+record(ao, "$(P)$(R)ConvKToEnergyA4-SP"){
+    field(DESC, "Conv from K to energy polynomial a4")
+    field(FLNK, "$(P)$(R)ConvKToEnergyA4-RB")
+}
+record(ai, "$(P)$(R)ConvKToEnergyA4-RB"){
+    field(INP, "$(P)$(R)ConvKToEnergyA4-SP")
+    field(DESC, "Conv from K to energy polynomial a4 RB")
+}
+
+record(ao, "$(P)$(R)ConvKToEnergyA5-SP"){
+    field(DESC, "Conv from K to energy polynomial a5")
+    field(FLNK, "$(P)$(R)ConvKToEnergyA5-RB")
+}
+record(ai, "$(P)$(R)ConvKToEnergyA5-RB"){
+    field(INP, "$(P)$(R)ConvKToEnergyA5-SP")
+    field(DESC, "Conv from K to energy polynomial a5 RB")
+}
+
+record(ao, "$(P)$(R)ConvKToEnergyA6-SP"){
+    field(DESC, "Conv from K to energy polynomial a6")
+    field(FLNK, "$(P)$(R)ConvKToEnergyA6-RB")
+}
+record(ai, "$(P)$(R)ConvKToEnergyA6-RB"){
+    field(INP, "$(P)$(R)ConvKToEnergyA6-SP")
+    field(DESC, "Conv from K to energy polynomial a6 RB")
+}
+
+record(ao, "$(P)$(R)ConvKToEnergyA7-SP"){
+    field(DESC, "Conv from K to energy polynomial a7")
+    field(FLNK, "$(P)$(R)ConvKToEnergyA7-RB")
+}
+record(ai, "$(P)$(R)ConvKToEnergyA7-RB"){
+    field(INP, "$(P)$(R)ConvKToEnergyA7-SP")
+    field(DESC, "Conv from K to energy polynomial a7 RB")
+}
+
+record(ao, "$(P)$(R)ConvKToEnergyA8-SP"){
+    field(DESC, "Conv from K to energy polynomial a8")
+    field(FLNK, "$(P)$(R)ConvKToEnergyA8-RB")
+}
+record(ai, "$(P)$(R)ConvKToEnergyA8-RB"){
+    field(INP, "$(P)$(R)ConvKToEnergyA8-SP")
+    field(DESC, "Conv from K to energy polynomial a8 RB")
 }
 
 ###########################################################
