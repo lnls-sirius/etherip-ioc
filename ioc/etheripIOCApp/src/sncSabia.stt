@@ -1,15 +1,18 @@
 program sncSabia
 
 %%//----------------------------------------
-%%// 	      Variables
+%%//    Global Variables
 %%//----------------------------------------
 
-float var_target_pos;
-float var_pos_diff;
+
 
 %%//----------------------------------------
 %%//    Monitored PVs - High Level
 %%//----------------------------------------
+
+int pos_tolerance_sp;
+assign pos_tolerance_sp to "{P}{R}PosTolerance-SP";
+monitor pos_tolerance_sp;
 
 int change_pol_evt;
 assign change_pol_evt to "{P}{R}ChangePolFlg";
@@ -23,11 +26,11 @@ monitor pol_type_sel;
 evflag pol_type_sel_flg;
 sync pol_type_sel pol_type_sel_flg;
 
-int change_energy_evt;
-assign change_energy_evt to "{P}{R}ChangeEnergyFlg";
-monitor change_energy_evt;
-evflag change_energy_evt_flg;
-sync change_energy_evt change_energy_evt_flg;
+int change_gain_evt;
+assign change_gain_evt to "{P}{R}ChangeGainFlg";
+monitor change_gain_evt;
+evflag change_gain_evt_flg;
+sync change_gain_evt change_gain_evt_flg;
 
 int gain_motion_type_sel;
 assign gain_motion_type_sel to "{P}{R}GainMotionType-Sel";
@@ -131,6 +134,26 @@ monitor get_parking_request_evt;
 evflag get_parking_request_evt_flg;
 sync get_parking_request_evt get_parking_request_evt_flg;
 
+int actual_pol_displacement_mon;
+assign actual_pol_displacement_mon to "{P}{R}ActualPolDisplacement-Mon";
+monitor actual_pol_displacement_mon;
+
+int actual_pol_mon;
+assign actual_pol_mon to "{P}{R}ActualPol-Mon";
+monitor actual_pol_mon;
+
+int actual_k_displacement_mon;
+assign actual_k_displacement_mon to "{P}{R}ActualKDisplacement-Mon";
+monitor actual_k_displacement_mon;
+
+int actual_k_mon;
+assign actual_k_mon to "{P}{R}ActualK-Mon";
+monitor actual_k_mon;
+
+int actual_energy_mon;
+assign actual_energy_mon to "{P}{R}ActualEnergy-Mon";
+monitor actual_energy_mon;
+
 %%// Conversion Coefficients - Shift to K
 
 int conv_shift_to_k_a0_sp;
@@ -208,6 +231,24 @@ assign conv_k_to_energy_a8_sp to "{P}{R}ConvKToEnergyA8-SP";
 monitor conv_k_to_energy_a8_sp;
 
 %%//----------------------------------------
+%%//    Output PVs - High Level
+%%//----------------------------------------
+
+int enbl_low_lvl_ctrl_proc;
+assign enbl_low_lvl_ctrl_proc to "{P}{R}EnblLowLvlCtrl.PROC";
+
+int dsbl_low_lvl_ctrl_proc;
+assign dsbl_low_lvl_ctrl_proc to "{P}{R}DsblLowLvlCtrl.PROC";
+
+%%//----------------------------------------
+%%//    Monitored PVs - Low Level
+%%//----------------------------------------
+
+int mod_01_motion_state_mon;
+assign mod_01_motion_state_mon to "{P}{R}Mod01MotionState-Mon";
+monitor mod_01_motion_state_mon;
+
+%%//----------------------------------------
 %%//    Output PVs - Low Level
 %%//----------------------------------------
 
@@ -241,8 +282,8 @@ assign mod_01_coup_sel to "{P}{R}Mod01Coup-Sel";
 int mod_01_trig_type_sel;
 assign mod_01_trig_type_sel to "{P}{R}Mod01TrigType-Sel";
 
-int mod_01_motion_type_sel;
-assign mod_01_motion_type_sel to "{P}{R}Mod01MotionType-Sel";
+int mod_01_ref_type_sel;
+assign mod_01_ref_type_sel to "{P}{R}Mod01RefType-Sel";
 
 int inter_mod_coup_sel;
 assign inter_mod_coup_sel to "{P}{R}InterModCoup-Sel";
@@ -277,7 +318,27 @@ foreign ssId;
 %%#define POL_CIRC_RIGHT -13.125
 %%#define POL_LIN_HOR 0.0
 %%#define POL_CIRC_LEFT 13.125
-%%#define POL_LIN_VERT 26.25
+%%// #define POL_LIN_VERT 26.25
+
+// trigger
+%%#define TRIG_TYPE_BOTH 0
+%%#define TRIG_TYPE_SOFT 1
+%%#define TRIG_TYPE_HARD 2
+
+// inter-module coupling
+%%#define INTER_MOD_COUPLING_001 1
+
+// motion reference type
+%%#define REFERENCE_TYPE_INTERNAL 0
+%%#define REFERENCE_TYPE_EXTERNAL 1
+
+// coupling mirror config
+%%#define MIRROR_DISABLE 0
+%%#define MIRROR_ENABLE 1
+
+// motion state
+%%#define MOTION_STATE_MOVING 0
+%%#define MOTION_STATE_DONE 1
 
 %%//----------------------------------------
 %%//        State Notation Language
@@ -290,4 +351,142 @@ ss motion_control {
             LOG_INFO("[%s%s] Initialization start\n", macValueGet("P"), macValueGet("R"));
 	} state ready
     }
+
+    state ready {
+        entry {
+            /* clear event flags to avoid
+               old running invalid commands */
+            efClear(change_pol_evt);
+            efClear(change_gain_evt);
+	    efClear(start_escan_evt);
+            efClear(parking_request_evt);
+            efClear(get_parking_request_evt);
+        }
+
+	when (efTestAndClear(change_pol_evt)) {
+        } state change_pol
+
+	when (efTestAndClear(change_gain_evt)) {
+        } state change_gain
+
+	when (efTestAndClear(start_escan_evt)) {
+        } state start_escan
+
+	when (efTestAndClear(parking_request_evt)) {
+        } state start_parking
+
+	when (efTestAndClear(get_parking_request_evt)) {
+        } state get_parking_pos
+    }
+
+    state change_pol {
+
+        entry {
+
+            // local variables
+            float var_target_pol, var_pos_diff;
+            char var_check;
+
+            // find target polarization
+            if (pol_type_sel == 0) {
+                var_target_pol = POL_CIRC_RIGHT;
+            }
+            else if (pol_type_sel == 1) {
+                var_target_pol = POL_CIRC_LEFT;
+            }
+            else if (pol_type_sel == 2) {
+                var_target_pol = POL_LIN_VERT;
+            }
+            else if (pol_type_sel == 3) {
+                var_target_pol = POL_LIN_HOR;
+            }
+
+            // calculate position diff
+            var_pos_diff = var_target_pol - actual_pol_displacement_mon;
+
+            // check if diff is inside tolerance
+            var_check = 1;
+            if (var_pos_diff > pos_tolerance_sp
+                || var_pos_diff < -pos_tolerance_sp) {
+
+                var_check = 0;
+            }
+
+            // move to position
+            if (check == 1) {
+                // configure trigger to software
+                mod_01_trig_type_sel = TRIG_TYPE_SOFT;
+                pvPut(mod_01_trig_type_sel, SYNC);
+
+                // make sure inter module coupling is right
+                inter_mod_coup_sel = INTER_MOD_COUPLING_001;
+                pvPut(inter_mod_coup_sel, SYNC);
+
+                // configure motion reference type
+                mod_01_ref_type_sel = REFERENCE_TYPE_INTERNAL;
+                pvPut(mod_01_ref_type_sel, SYNC);
+
+                // select phase coupling
+                mod_01_coup_sel = COUPLING_PHASE;
+                pvPut(mod_01_coup_sel, SYNC);
+
+                // make sure mirror is disabled
+                mod_01_mirror_sel = MIRROR_DISABLE;
+                pvPut(mod_01_mirror_sel, SYNC);
+
+                // configure velocity
+                mod_01_velo_sp = pol_mode_velo_sp;
+                pvPut(mod_01_velo_sp, SYNC);
+                // configure acceleration
+                mod_01_acc_sp = pol_mode_acc_sp;
+                pvPut(mod_01_acc_sp, SYNC);
+                // configure deceleration equal acceleration
+                mod_01_decel_sp = pol_mode_acc_sp;
+                pvPut(mod_01_decel_sp, SYNC);
+                // configure relative position
+                mod_01_rel_pos_sp = var_pos_diff;
+                pvPut(mod_01_rel_pos_sp, SYNC);
+
+                // send soft trigger to start motion
+                mod_01_soft_trig_cmd = 1;
+                pvPut(mod_01_soft_trig_cmd, SYNC);
+            }
+        }
+
+        when (delay(1.0) && mod_01_motion_state_mon == MOTION_STATE_DONE) {
+        } state ready
+    }
+
+    state change_gain {
+        entry {
+        }
+
+        when (delay(1.0) && mod_01_motion_state_mon == MOTION_STATE_DONE) {
+        } state ready
+    }
+
+    state start_escan {
+        entry {
+        }
+
+        when (delay(1.0) && mod_01_motion_state_mon == MOTION_STATE_DONE) {
+        } state ready
+    }
+
+    state start_parking {
+        entry {
+        }
+
+        when (delay(1.0) && mod_01_motion_state_mon == MOTION_STATE_DONE) {
+        } state ready
+    }
+
+    state get_parking_pos {
+        entry {
+        }
+
+        when () {
+        } state ready
+    }
+
 }
