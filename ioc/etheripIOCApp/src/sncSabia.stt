@@ -119,14 +119,10 @@ sync parking_request_evt parking_request_evt_flg;
 int parking_pol_shift_sp;
 assign parking_pol_shift_sp to "{P}{R}ParkingPolShift-SP";
 monitor parking_pol_shift_sp;
-evflag parking_pol_shift_sp_flg;
-sync parking_pol_shift_sp parking_pol_shift_sp_flg;
 
 int parking_gain_shift_sp;
 assign parking_gain_shift_sp to "{P}{R}ParkingGainShift-SP";
 monitor parking_gain_shift_sp;
-evflag parking_gain_shift_sp_flg;
-sync parking_gain_shift_sp parking_gain_shift_sp_flg;
 
 int get_parking_request_evt;
 assign get_parking_request_evt to "{P}{R}GetParkingRequestFlg";
@@ -449,6 +445,7 @@ ss motion_control {
                 // configure deceleration equal acceleration
                 mod_01_decel_sp = pol_mode_acc_sp;
                 pvPut(mod_01_decel_sp, SYNC);
+
                 // configure relative position
                 mod_01_rel_pos_sp = var_pos_diff;
                 pvPut(mod_01_rel_pos_sp, SYNC);
@@ -540,6 +537,7 @@ ss motion_control {
                 // configure deceleration equal acceleration
                 mod_01_decel_sp = gain_mode_acc_sp;
                 pvPut(mod_01_decel_sp, SYNC);
+
                 // configure relative position
                 mod_01_rel_pos_sp = var_pos_diff;
                 pvPut(mod_01_rel_pos_sp, SYNC);
@@ -557,6 +555,7 @@ ss motion_control {
     }
 
     state start_escan {
+
         entry {
         }
 
@@ -565,7 +564,73 @@ ss motion_control {
     }
 
     state start_parking {
+
         entry {
+
+            // local variables
+            double var_target_pol, var_target_gain, var_pol_diff, var_gain_diff;
+
+            // calculate polarization position diff
+            var_pol_diff = parking_pol_shift_sp - actual_pol_displacement_mon;
+
+            // calculate gain position diff
+            var_gain_diff = parking_gain_shift_sp - actual_gain_displacement_mon;
+
+            // configure trigger to software
+            mod_01_trig_type_sel = TRIG_TYPE_SOFT;
+            pvPut(mod_01_trig_type_sel, SYNC);
+
+            // make sure inter module coupling is right
+            inter_mod_coup_sel = INTER_MOD_COUPLING_001;
+            pvPut(inter_mod_coup_sel, SYNC);
+
+            // configure motion reference type
+            mod_01_ref_type_sel = REFERENCE_TYPE_INTERNAL;
+            pvPut(mod_01_ref_type_sel, SYNC);
+
+            // make sure mirror is disabled
+            mod_01_mirror_sel = MIRROR_DISABLE;
+            pvPut(mod_01_mirror_sel, SYNC);
+
+            // ADJUST POL
+            // select phase coupling
+            mod_01_coup_sel = COUPLING_PHASE;
+            pvPut(mod_01_coup_sel, SYNC);
+            // configure velocity
+            mod_01_velo_sp = pol_mode_velo_sp;
+            pvPut(mod_01_velo_sp, SYNC);
+            // configure acceleration
+            mod_01_acc_sp = pol_mode_acc_sp;
+            pvPut(mod_01_acc_sp, SYNC);
+            // configure deceleration equal acceleration
+            mod_01_decel_sp = pol_mode_acc_sp;
+            pvPut(mod_01_decel_sp, SYNC);
+            // configure relative position
+            mod_01_rel_pos_sp = var_pol_diff;
+            pvPut(mod_01_rel_pos_sp, SYNC);
+            // send soft trigger to start motion
+            mod_01_soft_trig_cmd = 1;
+            pvPut(mod_01_soft_trig_cmd, SYNC);
+
+            // ADJUST GAIN
+            // select gain coupling (GH)
+            mod_01_coup_sel = COUPLING_GH;
+            pvPut(mod_01_coup_sel, SYNC);
+            // configure velocity
+            mod_01_velo_sp = gain_mode_velo_sp;
+            pvPut(mod_01_velo_sp, SYNC);
+            // configure acceleration
+            mod_01_acc_sp = gain_mode_acc_sp;
+            pvPut(mod_01_acc_sp, SYNC);
+            // configure deceleration equal acceleration
+            mod_01_decel_sp = gain_mode_acc_sp;
+            pvPut(mod_01_decel_sp, SYNC);
+            // configure relative position
+            mod_01_rel_pos_sp = var_gain_diff;
+            pvPut(mod_01_rel_pos_sp, SYNC);
+            // send soft trigger to start motion
+            mod_01_soft_trig_cmd = 1;
+            pvPut(mod_01_soft_trig_cmd, SYNC);
         }
 
         when (delay(1.0) && mod_01_motion_state_mon == MOTION_STATE_DONE) {
@@ -574,6 +639,14 @@ ss motion_control {
 
     state get_parking_pos {
         entry {
+
+            // read current polarization and set parking
+            parking_pol_shift_sp = actual_pol_displacement_mon;
+            pvPut(parking_pol_shift_sp, SYNC);
+
+            // read current gain and set parking
+            parking_gain_shift_sp = actual_gain_displacement_mon;
+            pvPut(parking_gain_shift_sp, SYNC);
         }
 
         when () {
