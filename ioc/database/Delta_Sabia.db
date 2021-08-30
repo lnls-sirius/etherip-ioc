@@ -240,12 +240,12 @@ record(calc, "$(P)$(R)ActualPol-Mon"){
     field(CALC, "A")
 }
 
-# axis CIE relative position related to K (energy)
-record(calc, "$(P)$(R)ActualKDisplacement-Mon"){
-    field(DESC, "Actual pos displacement for K mon")
+# axis CIE relative position related to gain (energy)
+record(calc, "$(P)$(R)ActualGainDisplacement-Mon"){
+    field(DESC, "Actual pos displacement for gain mon")
     field(EGU, "mm")
     field(PREC, "3")
-    # monitor axis that move only in Energy mode
+    # monitor axis that move only in gain mode
     field(INPA, "$(P)$(R)Mod01PhyCIEActualPos-Mon CPP")
     # no conversion is needed
     field(CALC, "A")
@@ -256,7 +256,7 @@ record(calc, "$(P)$(R)ActualK-Mon"){
     field(DESC, "Actual K mon")
     field(EGU, "ND")
     field(PREC, "3")
-    # monitor axis that move only in Energy mode
+    # monitor axis that move only in gain mode
     field(INPA, "$(P)$(R)Mod01PhyCIEActualPos-Mon CPP")
     field(INPB, "$(P)$(R)ConvShiftToKA0-SP")
     field(INPC, "$(P)$(R)ConvShiftToKA1-SP")
@@ -277,7 +277,7 @@ record(calc, "$(P)$(R)ActualEnergy-Mon"){
     field(DESC, "Actual energy mon")
     field(EGU, "eV")
     field(PREC, "3")
-    # monitor axis that move only in Energy mode
+    # monitor K value
     field(INPA, "$(P)$(R)ActualK-Mon")
     field(INPB, "$(P)$(R)ConvKToEnergyA0-SP")
     field(INPC, "$(P)$(R)ConvKToEnergyA1-SP")
@@ -643,8 +643,8 @@ record(ai, "$(P)$(R)PolModeAcc-RB"){
 }
 
 # read by sncSabia
-record(ao, "$(P)$(R)EnergyModeVelo-SP"){
-    field(DESC, "Energy mode velocity")
+record(ao, "$(P)$(R)GainModeVelo-SP"){
+    field(DESC, "Gain mode velocity")
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s")
@@ -661,12 +661,12 @@ record(ao, "$(P)$(R)EnergyModeVelo-SP"){
     field(LSV, "")
     field(LLSV, "")
     field(HYST, "")
-    field(FLNK, "$(P)$(R)EnergeyModeVelo-RB")
+    field(FLNK, "$(P)$(R)GainModeVelo-RB")
 }
 
-record(ai, "$(P)$(R)EnergeyModeVelo-RB"){
-    field(INP, "$(P)$(R)EnergyModeVelo-SP")
-    field(DESC, "Energy mode velocity RB")
+record(ai, "$(P)$(R)GainModeVelo-RB"){
+    field(INP, "$(P)$(R)GainModeVelo-SP")
+    field(DESC, "Gain mode velocity RB")
     field(PREC, "3")
     field(EGU,  "mm/s")
     field(HOPR, "")
@@ -683,8 +683,8 @@ record(ai, "$(P)$(R)EnergeyModeVelo-RB"){
 }
 
 # read by sncSabia
-record(ao, "$(P)$(R)EnergyModeAcc-SP"){
-    field(DESC, "Energy mode acceleration")
+record(ao, "$(P)$(R)GainModeAcc-SP"){
+    field(DESC, "Gain mode acceleration")
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s^2")
@@ -701,12 +701,12 @@ record(ao, "$(P)$(R)EnergyModeAcc-SP"){
     field(LSV, "")
     field(LLSV, "")
     field(HYST, "")
-    field(FLNK, "$(P)$(R)EnergeyModeAcc-RB")
+    field(FLNK, "$(P)$(R)GainModeAcc-RB")
 }
 
-record(ai, "$(P)$(R)EnergeyModeAcc-RB"){
-    field(INP, "$(P)$(R)EnergyModeAcc-SP")
-    field(DESC, "Energy mode acceleration RB")
+record(ai, "$(P)$(R)GainModeAcc-RB"){
+    field(INP, "$(P)$(R)GainModeAcc-SP")
+    field(DESC, "Gain mode acceleration RB")
     field(PREC, "3")
     field(EGU,  "mm/s^2")
     field(HOPR, "")
@@ -803,37 +803,37 @@ record(calc, "$(P)$(R)ParkingRequestFlg"){
 }
 
 # read/set by sncSabia
-record(ao, "$(P)$(R)ParkingPol-SP"){
-    field(DESC, "Parking position polarization")
+record(ao, "$(P)$(R)ParkingPolShift-SP"){
+    field(DESC, "Parking polarization shift")
     field(SCAN, "Passive")
     field(PREC, "3")
-    field(EGU,  "")
+    field(EGU,  "mm")
     field(DRVH, "")
     field(DRVL, "0")
 }
 
 # read/set by sncSabia
-record(ai, "$(P)$(R)ParkingPol-RB"){
-    field(DESC, "Parking position polarization RB")
+record(ai, "$(P)$(R)ParkingPolShift-RB"){
+    field(DESC, "Parking polarization shift RB")
     field(PREC, "3")
-    field(EGU,  "")
+    field(EGU,  "mm")
 }
 
 # read/set by sncSabia
-record(ao, "$(P)$(R)ParkingEnergy-SP"){
-    field(DESC, "Parking position energy")
+record(ao, "$(P)$(R)ParkingGainShift-SP"){
+    field(DESC, "Parking gain shift")
     field(SCAN, "Passive")
     field(PREC, "3")
-    field(EGU,  "eV")
+    field(EGU,  "mm")
     field(DRVH, "")
     field(DRVL, "0")
 }
 
 # read/set by sncSabia
-record(ai, "$(P)$(R)ParkingEnergy-RB"){
-    field(DESC, "Parking position energy RB")
+record(ai, "$(P)$(R)ParkingGainShift-RB"){
+    field(DESC, "Parking gain shift RB")
     field(PREC, "3")
-    field(EGU,  "eV")
+    field(EGU,  "mm")
 }
 
 record(bo, "$(P)$(R)GetParkingPos-Cmd"){

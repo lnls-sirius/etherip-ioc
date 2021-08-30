@@ -86,17 +86,17 @@ monitor pol_mode_acc_sp;
 evflag pol_mode_acc_sp_flg;
 sync pol_mode_acc_sp pol_mode_acc_sp_flg;
 
-int energy_mode_velo_sp;
-assign energy_mode_velo_sp to "{P}{R}EnergyModeVelo-SP";
-monitor energy_mode_velo_sp;
-evflag energy_mode_velo_sp_flg;
-sync energy_mode_velo_sp energy_mode_velo_sp_flg;
+int gain_mode_velo_sp;
+assign gain_mode_velo_sp to "{P}{R}GainModeVelo-SP";
+monitor gain_mode_velo_sp;
+evflag gain_mode_velo_sp_flg;
+sync gain_mode_velo_sp gain_mode_velo_sp_flg;
 
-int energy_mode_acc_sp;
-assign energy_mode_acc_sp to "{P}{R}EnergyModeAcc-SP";
-monitor energy_mode_acc_sp;
-evflag energy_mode_acc_sp_flg;
-sync energy_mode_acc_sp energy_mode_acc_sp_flg;
+int gain_mode_acc_sp;
+assign gain_mode_acc_sp to "{P}{R}GainModeAcc-SP";
+monitor gain_mode_acc_sp;
+evflag gain_mode_acc_sp_flg;
+sync gain_mode_acc_sp gain_mode_acc_sp_flg;
 
 int max_velo_sp;
 assign max_velo_sp to "{P}{R}MaxVelo-SP";
@@ -116,17 +116,17 @@ monitor parking_request_evt;
 evflag parking_request_evt_flg;
 sync parking_request_evt parking_request_evt_flg;
 
-int parking_pol_sp;
-assign parking_pol_sp to "{P}{R}ParkingPol-SP";
-monitor parking_pol_sp;
-evflag parking_pol_sp_flg;
-sync parking_pol_sp parking_pol_sp_flg;
+int parking_pol_shift_sp;
+assign parking_pol_shift_sp to "{P}{R}ParkingPolShift-SP";
+monitor parking_pol_shift_sp;
+evflag parking_pol_shift_sp_flg;
+sync parking_pol_shift_sp parking_pol_shift_sp_flg;
 
-int parking_energy_sp;
-assign parking_energy_sp to "{P}{R}ParkingEnergy-SP";
-monitor parking_energy_sp;
-evflag parking_energy_sp_flg;
-sync parking_energy_sp parking_energy_sp_flg;
+int parking_gain_shift_sp;
+assign parking_gain_shift_sp to "{P}{R}ParkingGainShift-SP";
+monitor parking_gain_shift_sp;
+evflag parking_gain_shift_sp_flg;
+sync parking_gain_shift_sp parking_gain_shift_sp_flg;
 
 int get_parking_request_evt;
 assign get_parking_request_evt to "{P}{R}GetParkingRequestFlg";
@@ -142,9 +142,9 @@ int actual_pol_mon;
 assign actual_pol_mon to "{P}{R}ActualPol-Mon";
 monitor actual_pol_mon;
 
-int actual_k_displacement_mon;
-assign actual_k_displacement_mon to "{P}{R}ActualKDisplacement-Mon";
-monitor actual_k_displacement_mon;
+int actual_gain_displacement_mon;
+assign actual_gain_displacement_mon to "{P}{R}ActualGainDisplacement-Mon";
+monitor actual_gain_displacement_mon;
 
 int actual_k_mon;
 assign actual_k_mon to "{P}{R}ActualK-Mon";
@@ -499,7 +499,7 @@ ss motion_control {
             var_target_mm = var_dir * var_target_mm;
 
             // calculate position diff
-            var_pos_diff = var_target_mm - actual_k_displacement_mon;
+            var_pos_diff = var_target_mm - actual_gain_displacement_mon;
 
             // check if diff is inside tolerance
             var_check = 1;
@@ -532,13 +532,13 @@ ss motion_control {
                 pvPut(mod_01_mirror_sel, SYNC);
 
                 // configure velocity
-                mod_01_velo_sp = energy_mode_velo_sp;
+                mod_01_velo_sp = gain_mode_velo_sp;
                 pvPut(mod_01_velo_sp, SYNC);
                 // configure acceleration
-                mod_01_acc_sp = energy_mode_acc_sp;
+                mod_01_acc_sp = gain_mode_acc_sp;
                 pvPut(mod_01_acc_sp, SYNC);
                 // configure deceleration equal acceleration
-                mod_01_decel_sp = energy_mode_acc_sp;
+                mod_01_decel_sp = gain_mode_acc_sp;
                 pvPut(mod_01_decel_sp, SYNC);
                 // configure relative position
                 mod_01_rel_pos_sp = var_pos_diff;
