@@ -378,6 +378,22 @@ record(ai, "$(P)$(R)ConvShiftToKA8-RB"){
     field(DESC, "Conv from shift to K polynomial a8 RB")
 }
 
+# read by sncSabia
+record(calc, "$(P)$(R)ConvShiftToKFlg"){
+    field(DESC, "Show when conv shift-k has changed")
+    field(INPA, "$(P)$(R)ConvShiftToKA0-SP CPP")
+    field(INPB, "$(P)$(R)ConvShiftToKA1-SP CPP")
+    field(INPC, "$(P)$(R)ConvShiftToKA2-SP CPP")
+    field(INPD, "$(P)$(R)ConvShiftToKA3-SP CPP")
+    field(INPE, "$(P)$(R)ConvShiftToKA4-SP CPP")
+    field(INPF, "$(P)$(R)ConvShiftToKA5-SP CPP")
+    field(INPG, "$(P)$(R)ConvShiftToKA6-SP CPP")
+    field(INPH, "$(P)$(R)ConvShiftToKA7-SP CPP")
+    field(INPI, "$(P)$(R)ConvShiftToKA8-SP CPP")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
+}
+
 ## K to energy coefficients
 
 record(ao, "$(P)$(R)ConvKToEnergyA0-SP"){
@@ -459,6 +475,22 @@ record(ao, "$(P)$(R)ConvKToEnergyA8-SP"){
 record(ai, "$(P)$(R)ConvKToEnergyA8-RB"){
     field(INP, "$(P)$(R)ConvKToEnergyA8-SP")
     field(DESC, "Conv from K to energy polynomial a8 RB")
+}
+
+# read by sncSabia
+record(calc, "$(P)$(R)ConvKToEnergyFlg"){
+    field(DESC, "Show when conv k-energy has changed")
+    field(INPA, "$(P)$(R)ConvKToEnergyA0-SP CPP")
+    field(INPB, "$(P)$(R)ConvKToEnergyA1-SP CPP")
+    field(INPC, "$(P)$(R)ConvKToEnergyA2-SP CPP")
+    field(INPD, "$(P)$(R)ConvKToEnergyA3-SP CPP")
+    field(INPE, "$(P)$(R)ConvKToEnergyA4-SP CPP")
+    field(INPF, "$(P)$(R)ConvKToEnergyA5-SP CPP")
+    field(INPG, "$(P)$(R)ConvKToEnergyA6-SP CPP")
+    field(INPH, "$(P)$(R)ConvKToEnergyA7-SP CPP")
+    field(INPI, "$(P)$(R)ConvKToEnergyA8-SP CPP")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
 }
 
 ###########################################################

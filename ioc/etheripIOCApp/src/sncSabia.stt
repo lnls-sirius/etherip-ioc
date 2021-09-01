@@ -4,7 +4,13 @@ program sncSabia
 %%//    Global Variables
 %%//----------------------------------------
 
+#define DELTA_PERIOD 52.5
+#define ARR_SIVE_CONV_SHIFT_K 262501
+#define ARR_SIVE_CONV_K_ENERGY 525001
+#define POLYNOMIAL_DEGREE 8
 
+double arr_conv_shift_k[2][ARR_SIVE_CONV_SHIFT_K];
+double arr_conv_k_energy[2][ARR_SIVE_CONV_K_ENERGY];
 
 %%//----------------------------------------
 %%//    Monitored PVs - High Level
@@ -152,6 +158,12 @@ monitor actual_energy_mon;
 
 %%// Conversion Coefficients - Shift to K
 
+int conv_shift_to_k_evt;
+assign conv_shift_to_k_evt to "ConvShiftToKFlg";
+monitor conv_shift_to_k_evt;
+evflag conv_shift_to_k_evt_flg;
+sync conv_shift_to_k_evt conv_shift_to_k_evt_flg;
+
 int conv_shift_to_k_a0_sp;
 assign conv_shift_to_k_a0_sp to "{P}{R}ConvShiftToKA0-SP";
 monitor conv_shift_to_k_a0_sp;
@@ -189,6 +201,12 @@ assign conv_shift_to_k_a8_sp to "{P}{R}ConvShiftToKA8-SP";
 monitor conv_shift_to_k_a8_sp;
 
 %%// Conversion Coefficients - K to Energy
+
+int conv_k_to_energy_evt;
+assign conv_k_to_energy_evt to "ConvKToEnergyFlg";
+monitor conv_k_to_energy_evt;
+evflag conv_k_to_energy_evt_flg;
+sync conv_k_to_energy_evt conv_k_to_energy_evt_flg;
 
 int conv_k_to_energy_a0_sp;
 assign conv_k_to_energy_a0_sp to "{P}{R}ConvKToEnergyA0-SP";
@@ -351,6 +369,36 @@ ss motion_control {
 	when (delay(5.0)) {
 
             LOG_INFO("[%s%s] Initialization start\n", macValueGet("P"), macValueGet("R"));
+
+            /* Initialize arrays */
+
+            double step, max_travel, start;
+
+            // initialize Shift - K conversion table x values
+
+            max_travel = DELTA_PERIOD / 2;
+
+            start = 0.0;
+
+            step = max_travel/ (ARR_SIVE_CONV_SHIFT_K - 1);
+
+            for (int i=0; i < ARR_SIVE_CONV_SHIFT_K; i++) {
+                arr_conv_shift_k[0][i] = start + i * step;
+            }
+
+            // initialize K - Energy conversion table x values
+
+            max_travel = DELTA_PERIOD;
+
+            start = -1 * DELTA_PERIOD/2;
+
+            step = max_travel/ (ARR_SIVE_CONV_K_ENERGY - 1);
+
+            for (int i=0; i < ARR_SIVE_CONV_K_ENERGY; i++) {
+                arr_conv_k_energy[0][i] = start + i * step;
+            }
+
+            LOG_INFO("[%s%s] Initialization finished\n", macValueGet("P"), macValueGet("R"));
 	} state ready
     }
 
@@ -365,6 +413,18 @@ ss motion_control {
             efClear(get_parking_request_evt);
         }
 
+        when (efTestAndClear(conv_shift_to_k_evt)) {
+        } state update_shift_to_k_conv
+
+        when (efTestAndClear(conv_k_to_energy_evt)) {
+        } state update_k_to_energy_conv
+
+	when (efTestAndClear(get_parking_request_evt)) {
+        } state get_parking_pos
+
+	when (efTestAndClear(parking_request_evt)) {
+        } state start_parking
+
 	when (efTestAndClear(change_pol_evt)) {
         } state change_pol
 
@@ -374,12 +434,61 @@ ss motion_control {
 	when (efTestAndClear(start_escan_evt)) {
         } state start_escan
 
-	when (efTestAndClear(parking_request_evt)) {
-        } state start_parking
-
-	when (efTestAndClear(get_parking_request_evt)) {
-        } state get_parking_pos
     }
+
+    state update_shift_to_k_conv {
+
+        entry {
+
+            /* Update Shift - K convertion table */
+
+            for (int i=0; i < ARR_SIVE_CONV_SHIFT_K; i++) {
+                double x = arr_conv_shift_k[0][i];
+
+                // calculate corresponding y value
+                arr_conv_shift_k[1][i] = conv_shift_to_k_a8_sp * pow(x, 8)
+                                         + conv_shift_to_k_a7_sp * pow(x, 7)
+                                         + conv_shift_to_k_a6_sp * pow(x, 6)
+                                         + conv_shift_to_k_a5_sp * pow(x, 5)
+                                         + conv_shift_to_k_a4_sp * pow(x, 4)
+                                         + conv_shift_to_k_a3_sp * pow(x, 3)
+                                         + conv_shift_to_k_a2_sp * pow(x, 2)
+                                         + conv_shift_to_k_a1_sp * pow(x, 1)
+                                         + conv_shift_to_k_a0_sp;
+            }
+        }
+
+        when () {
+        } state ready
+    }
+
+    state update_k_to_energy_conv {
+
+        entry {
+
+            /* Update K - Energy convertion table */
+
+            for (int i=0; i < ARR_SIVE_CONV_K_ENERGY; i++) {
+                double x = arr_conv_k_energy[0][i];
+
+                // calculate corresponding y value
+                arr_conv_k_energy[1][i] = conv_k_to_energy_a8_sp * pow(x, 8)
+                                          + conv_k_to_energy_a7_sp * pow(x, 7)
+                                          + conv_k_to_energy_a6_sp * pow(x, 6)
+                                          + conv_k_to_energy_a5_sp * pow(x, 5)
+                                          + conv_k_to_energy_a4_sp * pow(x, 4)
+                                          + conv_k_to_energy_a3_sp * pow(x, 3)
+                                          + conv_k_to_energy_a2_sp * pow(x, 2)
+                                          + conv_k_to_energy_a1_sp * pow(x, 1)
+                                          + conv_k_to_energy_a0_sp;
+            }
+        }
+
+        when () {
+        } state ready
+    }
+
+
 
     state change_pol {
 
