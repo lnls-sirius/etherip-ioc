@@ -122,20 +122,6 @@ monitor parking_request_evt;
 evflag parking_request_evt_flg;
 sync parking_request_evt parking_request_evt_flg;
 
-int parking_pol_shift_sp;
-assign parking_pol_shift_sp to "{P}{R}ParkingPolShift-SP";
-monitor parking_pol_shift_sp;
-
-int parking_gain_shift_sp;
-assign parking_gain_shift_sp to "{P}{R}ParkingGainShift-SP";
-monitor parking_gain_shift_sp;
-
-int get_parking_request_evt;
-assign get_parking_request_evt to "{P}{R}GetParkingRequestFlg";
-monitor get_parking_request_evt;
-evflag get_parking_request_evt_flg;
-sync get_parking_request_evt get_parking_request_evt_flg;
-
 int actual_pol_displacement_mon;
 assign actual_pol_displacement_mon to "{P}{R}ActualPolDisplacement-Mon";
 monitor actual_pol_displacement_mon;
@@ -320,6 +306,10 @@ foreign ssId;
 %%#include <math.h>
 %%#include "Logger.h"
 
+// parking position
+%%#define PARKING_POL_SHIFT 0.0
+%%#define PARKING_GAIN_SHIFT -26.25
+
 // coupling modes
 %%#define COUPLING_UNCOUPLED 0
 %%#define COUPLING_ALL 1
@@ -418,9 +408,6 @@ ss motion_control {
 
         when (efTestAndClear(conv_k_to_energy_evt)) {
         } state update_k_to_energy_conv
-
-	when (efTestAndClear(get_parking_request_evt)) {
-        } state get_parking_pos
 
 	when (efTestAndClear(parking_request_evt)) {
         } state start_parking
@@ -680,10 +667,10 @@ ss motion_control {
             double var_target_pol, var_target_gain, var_pol_diff, var_gain_diff;
 
             // calculate polarization position diff
-            var_pol_diff = parking_pol_shift_sp - actual_pol_displacement_mon;
+            var_pol_diff = PARKING_POL_SHIFT - actual_pol_displacement_mon;
 
             // calculate gain position diff
-            var_gain_diff = parking_gain_shift_sp - actual_gain_displacement_mon;
+            var_gain_diff = PARKING_GAIN_SHIFT - actual_gain_displacement_mon;
 
             // configure trigger to software
             mod_01_trig_type_sel = TRIG_TYPE_SOFT;
@@ -743,22 +730,6 @@ ss motion_control {
         }
 
         when (delay(1.0) && mod_01_motion_state_mon == MOTION_STATE_DONE) {
-        } state ready
-    }
-
-    state get_parking_pos {
-        entry {
-
-            // read current polarization and set parking
-            parking_pol_shift_sp = actual_pol_displacement_mon;
-            pvPut(parking_pol_shift_sp, SYNC);
-
-            // read current gain and set parking
-            parking_gain_shift_sp = actual_gain_displacement_mon;
-            pvPut(parking_gain_shift_sp, SYNC);
-        }
-
-        when () {
         } state ready
     }
 

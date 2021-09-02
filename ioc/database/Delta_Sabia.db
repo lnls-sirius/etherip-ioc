@@ -834,55 +834,6 @@ record(calc, "$(P)$(R)ParkingRequestFlg"){
     field(VAL, "0")
 }
 
-# read/set by sncSabia
-record(ao, "$(P)$(R)ParkingPolShift-SP"){
-    field(DESC, "Parking polarization shift")
-    field(SCAN, "Passive")
-    field(PREC, "3")
-    field(EGU,  "mm")
-    field(DRVH, "")
-    field(DRVL, "0")
-}
-
-# read/set by sncSabia
-record(ai, "$(P)$(R)ParkingPolShift-RB"){
-    field(DESC, "Parking polarization shift RB")
-    field(PREC, "3")
-    field(EGU,  "mm")
-}
-
-# read/set by sncSabia
-record(ao, "$(P)$(R)ParkingGainShift-SP"){
-    field(DESC, "Parking gain shift")
-    field(SCAN, "Passive")
-    field(PREC, "3")
-    field(EGU,  "mm")
-    field(DRVH, "")
-    field(DRVL, "0")
-}
-
-# read/set by sncSabia
-record(ai, "$(P)$(R)ParkingGainShift-RB"){
-    field(DESC, "Parking gain shift RB")
-    field(PREC, "3")
-    field(EGU,  "mm")
-}
-
-record(bo, "$(P)$(R)GetParkingPos-Cmd"){
-    field(DESC, "Get current pos and save as parking")
-    field(SCAN, "Passive")
-    field(ONAM, "Get")
-    field(ZNAM, "Get")
-    field(FLNK, "$(P)$(R)GetParkingRequestFlg")
-}
-
-# read by sncSabia
-record(calc, "$(P)$(R)GetParkingRequestFlg"){
-    field(DESC, "Get parking pos request flag")
-    field(CALC, "VAL+1")
-    field(VAL, "0")
-}
-
 ###########################################################
 # Low Level PVs Access Control
 
