@@ -38,12 +38,6 @@ monitor change_gain_evt;
 evflag change_gain_evt_flg;
 sync change_gain_evt change_gain_evt_flg;
 
-int gain_motion_type_sel;
-assign gain_motion_type_sel to "{P}{R}GainMotionType-Sel";
-monitor gain_motion_type_sel;
-evflag gain_motion_type_sel_flg;
-sync gain_motion_type_sel gain_motion_type_sel_flg;
-
 int energy_sp;
 assign energy_sp to "{P}{R}Energy-SP";
 monitor energy_sp;
@@ -345,11 +339,6 @@ foreign ssId;
 %%#define MOTION_STATE_MOVING 0
 %%#define MOTION_STATE_DONE 1
 
-// gain specification
-%%#define GAIN_MOTION_TYPE_MM 0
-%%#define GAIN_MOTION_TYPE_K 1
-%%#define GAIN_MOTION_TYPE_ENERGY 2
-
 %%//----------------------------------------
 %%//        State Notation Language
 %%//----------------------------------------
@@ -564,22 +553,8 @@ ss motion_control {
             double var_target_k, var_target_energy, var_pos_diff, var_target_mm = 0;
             char var_check, var_dir = 1;
 
-            // find target gain shift
-            if (gain_motion_type_sel == GAIN_MOTION_TYPE_MM) {
-
-                // target position same as shift
-                var_target_mm = shift_sp;
-            }
-            else if (gain_motion_type_sel == GAIN_MOTION_TYPE_K) {
-
-                // convert K to shift in mm
-//                var_target_mm = k2mm(k_sp);
-            }
-            else if (gain_motion_type_sel == GAIN_MOTION_TYPE_ENERGY) {
-
-                // convert energy to shift in mm
-//                var_target_mm = energy2mm(energy_sp);
-            }
+            // target position same as shift
+            var_target_mm = shift_sp;
 
             // find direction of gain motion given current polarization
             if (var_target_pol >=0) {
@@ -731,6 +706,48 @@ ss motion_control {
 
         when (delay(1.0) && mod_01_motion_state_mon == MOTION_STATE_DONE) {
         } state ready
+    }
+
+}
+
+ss gain_sp_update {
+
+    state init {
+
+        /* Init code goes here */
+
+        when () {
+        } state check_update
+    }
+
+    state check_update {
+
+        when (efTestAndClear(shift_sp_flg)) {
+
+            /* update equivalent set points
+               to keep them consistent */
+//            k_sp = mm2k(shift_sp);
+//            energy_sp = mm2energy(shift_sp);
+
+        } state check_update
+
+        when (efTestAndClear(k_sp_flg)) {
+
+            /* update equivalent set points
+               to keep them consistent */
+//            shift_sp = k2mm(k_sp);
+//            energy_sp = k2energy(k_sp);
+
+        } state check_update
+
+        when (efTestAndClear(energy_sp_flg)) {
+
+            /* update equivalent set points
+               to keep them consistent */
+//            shift_sp = energy2mm(energy_sp);
+//            k_sp = energy2k(energy_sp);
+
+        } state check_update
     }
 
 }

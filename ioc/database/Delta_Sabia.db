@@ -96,28 +96,6 @@ record(calc, "$(P)$(R)ChangeGainFlg"){
 }
 
 # read by sncSabia
-record(mbbo, "$(P)$(R)GainMotionType-Sel"){
-    field(DESC, "Gain motion type")
-    field(SCAN, "Passive")
-    field(OMSL, "supervisory")
-    field(IVOA, "Don't drive outputs")
-    field(UNSV, "MINOR")
-    field(ZRST, "mm")
-    field(ONST, "K")
-    field(TWST, "Energy")
-    field(FLNK, "$(P)$(R)GainMotionType-Sts")
-}
-
-record(mbbi, "$(P)$(R)GainMotionType-Sts"){
-    field(INP, "$(P)$(R)GainMotionType-Sel")
-    field(DESC, "Gain motion type sts")
-    field(UNSV, "MINOR")
-    field(ZRST, "mm")
-    field(ONST, "K")
-    field(TWST, "Energy")
-}
-
-# read by sncSabia
 record(ao, "$(P)$(R)Energy-SP"){
     field(DESC, "Energy value in Gain config")
     field(SCAN, "Passive")
