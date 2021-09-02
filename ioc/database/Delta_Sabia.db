@@ -1,6 +1,13 @@
 ###########################################################
 # Basic Undulator Controls
 
+# set by sncSabia
+record(waveform, "$(P)$(R)Log-Mon"){
+    field(DESC, "IOC log message")
+    field(FTVL, "CHAR")
+    field(NELM, "100")
+}
+
 record(bo, "$(P)$(R)Abort-Cmd"){
     field(DESC, "Abort motion cmd")
     field(SCAN, "Passive")
@@ -219,8 +226,8 @@ record(ai, "$(P)$(R)Shift-RB"){
 }
 
 # axis CID relative position related to polarization
-record(calc, "$(P)$(R)ActualPolDisplacement-Mon"){
-    field(DESC, "Actual pos displacement for pol mon")
+record(calc, "$(P)$(R)PolShift-Mon"){
+    field(DESC, "Position shift in pol mode mon")
     field(EGU, "mm")
     field(PREC, "3")
     # monitor axis that move only in Phase mode
@@ -230,8 +237,8 @@ record(calc, "$(P)$(R)ActualPolDisplacement-Mon"){
 }
 
 # axis CID position defines degree of polarization
-record(calc, "$(P)$(R)ActualPol-Mon"){
-    field(DESC, "Actual polarization mon")
+record(calc, "$(P)$(R)Pol-Mon"){
+    field(DESC, "Polarization mon")
     field(EGU, "pol rate")
     field(PREC, "3")
     # monitor axis that move only in Phase mode
@@ -241,8 +248,8 @@ record(calc, "$(P)$(R)ActualPol-Mon"){
 }
 
 # axis CIE relative position related to gain (energy)
-record(calc, "$(P)$(R)ActualGainDisplacement-Mon"){
-    field(DESC, "Actual pos displacement for gain mon")
+record(calc, "$(P)$(R)GainShift-Mon"){
+    field(DESC, "Position shift in gain mode mon")
     field(EGU, "mm")
     field(PREC, "3")
     # monitor axis that move only in gain mode
@@ -252,8 +259,8 @@ record(calc, "$(P)$(R)ActualGainDisplacement-Mon"){
 }
 
 # axis CIE position defines K value (in GH mode)
-record(calc, "$(P)$(R)ActualK-Mon"){
-    field(DESC, "Actual K mon")
+record(calc, "$(P)$(R)K-Mon"){
+    field(DESC, "K mon")
     field(EGU, "ND")
     field(PREC, "3")
     # monitor axis that move only in gain mode
@@ -269,16 +276,16 @@ record(calc, "$(P)$(R)ActualK-Mon"){
     field(INPJ, "$(P)$(R)ConvShiftToKA8-SP")
     # convert from mm to K value (dimensionless)
     field(CALC, "J*A^8+I*A^7+H*A^6+G*A^5+F*A^4+E*A^3+D*A^2+C*A+B")
-    field(FLNK, "$(P)$(R)ActualEnergy-Mon")
+    field(FLNK, "$(P)$(R)Energy-Mon")
 }
 
 # axis CIE position defines energy value (in GH mode)
-record(calc, "$(P)$(R)ActualEnergy-Mon"){
-    field(DESC, "Actual energy mon")
+record(calc, "$(P)$(R)Energy-Mon"){
+    field(DESC, "Energy mon")
     field(EGU, "eV")
     field(PREC, "3")
     # monitor K value
-    field(INPA, "$(P)$(R)ActualK-Mon")
+    field(INPA, "$(P)$(R)K-Mon")
     field(INPB, "$(P)$(R)ConvKToEnergyA0-SP")
     field(INPC, "$(P)$(R)ConvKToEnergyA1-SP")
     field(INPD, "$(P)$(R)ConvKToEnergyA2-SP")

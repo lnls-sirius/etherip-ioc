@@ -122,25 +122,25 @@ monitor parking_request_evt;
 evflag parking_request_evt_flg;
 sync parking_request_evt parking_request_evt_flg;
 
-int actual_pol_displacement_mon;
-assign actual_pol_displacement_mon to "{P}{R}ActualPolDisplacement-Mon";
-monitor actual_pol_displacement_mon;
+int pol_shift_mon;
+assign pol_shift_mon to "{P}{R}PolShift-Mon";
+monitor pol_shift_mon;
 
-int actual_pol_mon;
-assign actual_pol_mon to "{P}{R}ActualPol-Mon";
-monitor actual_pol_mon;
+int pol_mon;
+assign pol_mon to "{P}{R}Pol-Mon";
+monitor pol_mon;
 
-int actual_gain_displacement_mon;
-assign actual_gain_displacement_mon to "{P}{R}ActualGainDisplacement-Mon";
-monitor actual_gain_displacement_mon;
+int gain_shift_mon;
+assign gain_shift_mon to "{P}{R}GainShift-Mon";
+monitor gain_shift_mon;
 
-int actual_k_mon;
-assign actual_k_mon to "{P}{R}ActualK-Mon";
-monitor actual_k_mon;
+int k_mon;
+assign k_mon to "{P}{R}K-Mon";
+monitor k_mon;
 
-int actual_energy_mon;
-assign actual_energy_mon to "{P}{R}ActualEnergy-Mon";
-monitor actual_energy_mon;
+int energy_mon;
+assign energy_mon to "{P}{R}Energy-Mon";
+monitor energy_mon;
 
 %%// Conversion Coefficients - Shift to K
 
@@ -500,7 +500,7 @@ ss motion_control {
             }
 
             // calculate position diff
-            var_pos_diff = var_target_pol - actual_pol_displacement_mon;
+            var_pos_diff = var_target_pol - pol_shift_mon;
 
             // check if diff is inside tolerance
             var_check = 1;
@@ -592,7 +592,7 @@ ss motion_control {
             var_target_mm = var_dir * var_target_mm;
 
             // calculate position diff
-            var_pos_diff = var_target_mm - actual_gain_displacement_mon;
+            var_pos_diff = var_target_mm - gain_shift_mon;
 
             // check if diff is inside tolerance
             var_check = 1;
@@ -667,10 +667,10 @@ ss motion_control {
             double var_target_pol, var_target_gain, var_pol_diff, var_gain_diff;
 
             // calculate polarization position diff
-            var_pol_diff = PARKING_POL_SHIFT - actual_pol_displacement_mon;
+            var_pol_diff = PARKING_POL_SHIFT - pol_shift_mon;
 
             // calculate gain position diff
-            var_gain_diff = PARKING_GAIN_SHIFT - actual_gain_displacement_mon;
+            var_gain_diff = PARKING_GAIN_SHIFT - gain_shift_mon;
 
             // configure trigger to software
             mod_01_trig_type_sel = TRIG_TYPE_SOFT;
