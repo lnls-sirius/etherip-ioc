@@ -1,4 +1,94 @@
 ###########################################################
+# General Information
+
+record(calc, "$(P)$(R)IsOperationalCalc"){
+    field(DESC, "System is operational status calc")
+    field(INPA, "$(P)$(R)MotorsEnbld-Mon CPP")
+#    field(INPB, " critical alarms CPP")
+#    field(CALC, "A && B")
+    field(CALC, "A")
+    field(FLNK, "$(P)$(R)IsOperational-Mon")
+}
+
+record(bi, "$(P)$(R)IsOperational-Mon"){
+    field(DESC, "System is operational status")
+    field(INP, "$(P)$(R)IsOperationalCalc")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+}
+
+record(calc, "$(P)$(R)MotorsEnbldCalc"){
+    field(DESC, "Motors enabled status calc")
+#    field(INPA, "axis CSD CPP")
+#    field(INPB, "axis CSE CPP")
+#    field(INPC, "axis CIE CPP")
+#    field(INPD, "axis CID CPP")
+#    field(CALC, "A && B && C && D")
+    field(FLNK, "$(P)$(R)MotorsEnbld-Mon")
+}
+
+record(bi, "$(P)$(R)MotorsEnbld-Mon"){
+    field(DESC, "Motors enabled status")
+    field(INP, "$(P)$(R)MotorsEnbldCalc")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+}
+
+record(calc, "$(P)$(R)AlarmBits-Mon"){
+    field(DESC, "Combined alarm status calc")
+#    field(INPA, "alarm 1 CPP")
+#    field(INPB, "alarm 2 CPP")
+#    field(INPC, "alarm 3 CPP")
+#    field(INPD, "alarm 4 CPP")
+#    field(INPE, "alarm 5 CPP")
+#    field(INPF, "alarm 6 CPP")
+#    field(INPG, "alarm 7 CPP")
+#    field(CALC, "A+(B<<1)+(C<<2)+(D<<3)+(E<<4)+(F<<5)+(G<<6)")
+    field(FLNK, "$(P)$(R)Alarm-Mon")
+}
+
+record(bi, "$(P)$(R)Alarm-Mon"){
+    field(DESC, "Combined alarm status")
+    field(INP, "$(P)$(R)AlarmBits-Mon")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+}
+
+record(calc, "$(P)$(R)IntlkBits-Mon"){
+    field(DESC, "Combined interlock status calc")
+#    field(INPA, "intlk status 1 CPP")
+#    field(INPB, "intlk status 2 CPP")
+#    field(INPC, "intlk status 3 CPP")
+#    field(INPD, "intlk status 4 CPP")
+#    field(INPE, "intlk status 5 CPP")
+#    field(INPF, "intlk status 6 CPP")
+#    field(INPG, "intlk status 7 CPP")
+#    field(CALC, "A+(B<<1)+(C<<2)+(D<<3)+(E<<4)+(F<<5)+(G<<6)")
+    field(FLNK, "$(P)$(R)Intlk-Mon")
+}
+
+record(bi, "$(P)$(R)Intlk-Mon"){
+    field(DESC, "Combined interlock status")
+    field(INP, "$(P)$(R)IntlkBits-Mon")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+}
+
+record(calc, "$(P)$(R)MovingCalc"){
+    field(DESC, "Axes moving status calc")
+    field(INPA, "$(P)$(R)Mod01MotionState-Mon")
+    field(CALC, "!A")
+    field(FLNK, "$(P)$(R)Moving-Mon")
+}
+
+record(bi, "$(P)$(R)Moving-Mon"){
+    field(DESC, "Axes moving status")
+    field(INP, "$(P)$(R)MovingCalc")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+}
+
+###########################################################
 # Basic Undulator Controls
 
 # set by sncSabia
@@ -778,13 +868,13 @@ record(ai, "$(P)$(R)MaxAcc-RB"){
     field(EGU,  "mm/s^2")
 }
 
-#record(bi, "$(P)$(R)IsRemote-Mon"){
-#    field(INP, "???")
-#    field(DESC, "Remote control enable status")
-#    field(SCAN, ".2 second")
-#    field(ONAM, "Yes")
-#    field(ZNAM, "No")
-#}
+record(bi, "$(P)$(R)IsRemote-Mon"){
+#    field(INP, " tag de controle local/remoto ")
+    field(DESC, "Remote control enable status")
+    field(SCAN, ".2 second")
+    field(ONAM, "Yes")
+    field(ZNAM, "No")
+}
 
 record(bo, "$(P)$(R)BeamLineCtrlEnbl-Sel"){
     field(DESC, "Enable ID control by beam lines")
@@ -799,6 +889,15 @@ record(bi, "$(P)$(R)BeamLineCtrlEnbl-Sts"){
     field(DESC, "Enable status of ctrl by beam lines")
     field(ONAM, "Yes")
     field(ZNAM, "No")
+}
+
+record(calc, "$(P)$(R)BemLineCtrl-Mon"){
+    field(DESC, "Combined status for dev ctrl")
+    field(INPA, "$(P)$(R)BeamLineCtrlEnbl-Sts CPP")
+#    field(INPB, " user shift info CPP")
+#    field(INPC, " shutter status CPP")
+#    field(CALC, "A && B && C")
+    field(CALC, "A")
 }
 
 ###########################################################
