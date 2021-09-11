@@ -57,7 +57,7 @@ delta-v2:
             --mbbo "Enum Output" \
             --lsi "String Input" \
             --lso "String Output" \
-            --sheet 'Delta'
+            --sheet 'Global,Mod01,Mod02,Mod03'
 
 clean:
 	rm -rf __pycache__
