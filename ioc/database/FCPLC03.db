@@ -1,0 +1,47 @@
+record(ai, "$(IOC):Blindagem:02-04"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_12_ValMedia")
+    field(EGU, "ºC")
+    field(DESC, "Temp eixos 02 a 04 blindagem")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(IOC):Blindagem:04-06"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_14_ValMedia")
+    field(EGU, "ºC")
+    field(DESC, "Temp eixos 04 a 06 blindagem")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(IOC):Blindagem:06-08"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_16_ValMedia")
+    field(EGU, "ºC")
+    field(DESC, "Temp eixos 06 a 08 blindagem")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(IOC):Hall:22-28"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC1_614_11_1.PV")
+    field(EGU, "ºC")
+    field(DESC, "Temp. eixos 22 e 28 do Hall")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(IOC):Hall:28-34"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC1_614_13_1.PV")
+    field(EGU, "ºC")
+    field(DESC, "Temp. eixos 28 e 34 do Hall")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(IOC):Hall:34-40"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC1_614_15_1.PV")
+    field(EGU, "ºC")
+    field(DESC, "Temp. eixos 34 e 40 do Hall")
+    field(SCAN, "1 second")
+}

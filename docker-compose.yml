@@ -42,3 +42,30 @@ services:
       target: delta
       labels:
         <<: *default-labels
+
+  FCPLC01:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-fcplc01:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: FCPLC01
+      labels:
+        <<: *default-labels
+
+  FCPLC02:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-fcplc02:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: FCPLC02
+      labels:
+        <<: *default-labels
+
+  FCPLC03:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-fcplc03:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: FCPLC03
+      labels:
+        <<: *default-labels
