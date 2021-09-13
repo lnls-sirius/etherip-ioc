@@ -305,14 +305,28 @@ record(calc, "$(P)$(R)PolShift-Mon"){
 }
 
 # axis CID position defines degree of polarization
-record(calc, "$(P)$(R)Pol-Mon"){
-    field(DESC, "Polarization mon")
-    field(EGU, "pol rate")
-    field(PREC, "3")
+record(calc, "$(P)$(R)PolCalc"){
+    field(DESC, "Polarization mon calc")
+    field(PREC, "4")
     # monitor axis that move only in Phase mode
     field(INPA, "$(P)$(R)Mod01PhyCIDActualPos-Mon CPP")
-    # convert from mm to polarization rate
-    field(CALC, "A")
+    field(INPB, "$(P)$(R)PosTolerance-SP")
+    field(INPC, "-13.125")
+    field(INPD, "13.125")
+    field(INPE, "-26.25")
+    field(INPF, "0")
+    field(CALC, "abs(A-C)<B?0:(abs(A-D)<B?1:(abs(A-E)<B?2:(abs(A-F)<B?3:4)))")
+    field(FLNK, "$(P)$(R)Pol-Mon")
+}
+
+record(mbbi, "$(P)$(R)Pol-Mon"){
+    field(INP, "$(P)$(R)PolCalc")
+    field(DESC, "Polarization mon")
+    field(ZRST, "Circ right")
+    field(ONST, "Circ left")
+    field(TWST, "Linear vert")
+    field(THST, "Linear hor")
+    field(FRST, "Changing")
 }
 
 # axis CIE relative position related to gain (energy)
@@ -333,15 +347,15 @@ record(calc, "$(P)$(R)K-Mon"){
     field(PREC, "3")
     # monitor axis that move only in gain mode
     field(INPA, "$(P)$(R)Mod01PhyCIEActualPos-Mon CPP")
-    field(INPB, "$(P)$(R)ConvShiftToKA0-SP")
-    field(INPC, "$(P)$(R)ConvShiftToKA1-SP")
-    field(INPD, "$(P)$(R)ConvShiftToKA2-SP")
-    field(INPE, "$(P)$(R)ConvShiftToKA3-SP")
-    field(INPF, "$(P)$(R)ConvShiftToKA4-SP")
-    field(INPG, "$(P)$(R)ConvShiftToKA5-SP")
-    field(INPH, "$(P)$(R)ConvShiftToKA6-SP")
-    field(INPI, "$(P)$(R)ConvShiftToKA7-SP")
-    field(INPJ, "$(P)$(R)ConvShiftToKA8-SP")
+    field(INPB, "$(P)$(R)LVShiftToKA0-SP")
+    field(INPC, "$(P)$(R)LVShiftToKA1-SP")
+    field(INPD, "$(P)$(R)LVShiftToKA2-SP")
+    field(INPE, "$(P)$(R)LVShiftToKA3-SP")
+    field(INPF, "$(P)$(R)LVShiftToKA4-SP")
+    field(INPG, "$(P)$(R)LVShiftToKA5-SP")
+    field(INPH, "$(P)$(R)LVShiftToKA6-SP")
+    field(INPI, "$(P)$(R)LVShiftToKA7-SP")
+    field(INPJ, "$(P)$(R)LVShiftToKA8-SP")
     # convert from mm to K value (dimensionless)
     field(CALC, "J*A^8+I*A^7+H*A^6+G*A^5+F*A^4+E*A^3+D*A^2+C*A+B")
     field(FLNK, "$(P)$(R)Energy-Mon")
@@ -354,15 +368,15 @@ record(calc, "$(P)$(R)Energy-Mon"){
     field(PREC, "3")
     # monitor K value
     field(INPA, "$(P)$(R)K-Mon")
-    field(INPB, "$(P)$(R)ConvKToEnergyA0-SP")
-    field(INPC, "$(P)$(R)ConvKToEnergyA1-SP")
-    field(INPD, "$(P)$(R)ConvKToEnergyA2-SP")
-    field(INPE, "$(P)$(R)ConvKToEnergyA3-SP")
-    field(INPF, "$(P)$(R)ConvKToEnergyA4-SP")
-    field(INPG, "$(P)$(R)ConvKToEnergyA5-SP")
-    field(INPH, "$(P)$(R)ConvKToEnergyA6-SP")
-    field(INPI, "$(P)$(R)ConvKToEnergyA7-SP")
-    field(INPJ, "$(P)$(R)ConvKToEnergyA8-SP")
+    field(INPB, "$(P)$(R)KToEnergyA0-SP")
+    field(INPC, "$(P)$(R)KToEnergyA1-SP")
+    field(INPD, "$(P)$(R)KToEnergyA2-SP")
+    field(INPE, "$(P)$(R)KToEnergyA3-SP")
+    field(INPF, "$(P)$(R)KToEnergyA4-SP")
+    field(INPG, "$(P)$(R)KToEnergyA5-SP")
+    field(INPH, "$(P)$(R)KToEnergyA6-SP")
+    field(INPI, "$(P)$(R)KToEnergyA7-SP")
+    field(INPJ, "$(P)$(R)KToEnergyA8-SP")
     # convert from K to eV
     field(CALC, "J*A^8+I*A^7+H*A^6+G*A^5+F*A^4+E*A^3+D*A^2+C*A+B")
 }
@@ -370,200 +384,497 @@ record(calc, "$(P)$(R)Energy-Mon"){
 ###########################################################
 # Conversion Coefficients
 
-## Shift to K coefficients
+## Shift to K coefficients (Polarization Lin Vert)
 
-record(ao, "$(P)$(R)ConvShiftToKA0-SP"){
-    field(DESC, "Conv from shift to K polynomial a0")
-    field(FLNK, "$(P)$(R)ConvShiftToKA0-RB")
+record(ao, "$(P)$(R)LVShiftToKA0-SP"){
+    field(DESC, "Linear Vert Pol Shift to K polyn. a0")
+    field(FLNK, "$(P)$(R)LVShiftToKA0-RB")
 }
-record(ai, "$(P)$(R)ConvShiftToKA0-RB"){
-    field(INP, "$(P)$(R)ConvShiftToKA0-SP")
-    field(DESC, "Conv from shift to K polynomial a0 RB")
-}
-
-record(ao, "$(P)$(R)ConvShiftToKA1-SP"){
-    field(DESC, "Conv from shift to K polynomial a1")
-    field(FLNK, "$(P)$(R)ConvShiftToKA1-RB")
-}
-record(ai, "$(P)$(R)ConvShiftToKA1-RB"){
-    field(INP, "$(P)$(R)ConvShiftToKA1-SP")
-    field(DESC, "Conv from shift to K polynomial a1 RB")
+record(ai, "$(P)$(R)LVShiftToKA0-RB"){
+    field(INP, "$(P)$(R)LVShiftToKA0-SP")
+    field(DESC, "Linear Vert Pol Shift to K polyn. a0 RB")
 }
 
-record(ao, "$(P)$(R)ConvShiftToKA2-SP"){
-    field(DESC, "Conv from shift to K polynomial a2")
-    field(FLNK, "$(P)$(R)ConvShiftToKA2-RB")
+record(ao, "$(P)$(R)LVShiftToKA1-SP"){
+    field(DESC, "Linear Vert Pol Shift to K polyn. a1")
+    field(FLNK, "$(P)$(R)LVShiftToKA1-RB")
 }
-record(ai, "$(P)$(R)ConvShiftToKA2-RB"){
-    field(INP, "$(P)$(R)ConvShiftToKA2-SP")
-    field(DESC, "Conv from shift to K polynomial a2 RB")
-}
-
-record(ao, "$(P)$(R)ConvShiftToKA3-SP"){
-    field(DESC, "Conv from shift to K polynomial a3")
-    field(FLNK, "$(P)$(R)ConvShiftToKA3-RB")
-}
-record(ai, "$(P)$(R)ConvShiftToKA3-RB"){
-    field(INP, "$(P)$(R)ConvShiftToKA3-SP")
-    field(DESC, "Conv from shift to K polynomial a3 RB")
+record(ai, "$(P)$(R)LVShiftToKA1-RB"){
+    field(INP, "$(P)$(R)LVShiftToKA1-SP")
+    field(DESC, "Linear Vert Pol Shift to K polyn. a1 RB")
 }
 
-record(ao, "$(P)$(R)ConvShiftToKA4-SP"){
-    field(DESC, "Conv from shift to K polynomial a4")
-    field(FLNK, "$(P)$(R)ConvShiftToKA4-RB")
+record(ao, "$(P)$(R)LVShiftToKA2-SP"){
+    field(DESC, "Linear Vert Pol Shift to K polyn. a2")
+    field(FLNK, "$(P)$(R)LVShiftToKA2-RB")
 }
-record(ai, "$(P)$(R)ConvShiftToKA4-RB"){
-    field(INP, "$(P)$(R)ConvShiftToKA4-SP")
-    field(DESC, "Conv from shift to K polynomial a4 RB")
-}
-
-record(ao, "$(P)$(R)ConvShiftToKA5-SP"){
-    field(DESC, "Conv from shift to K polynomial a5")
-    field(FLNK, "$(P)$(R)ConvShiftToKA5-RB")
-}
-record(ai, "$(P)$(R)ConvShiftToKA5-RB"){
-    field(INP, "$(P)$(R)ConvShiftToKA5-SP")
-    field(DESC, "Conv from shift to K polynomial a5 RB")
+record(ai, "$(P)$(R)LVShiftToKA2-RB"){
+    field(INP, "$(P)$(R)LVShiftToKA2-SP")
+    field(DESC, "Linear Vert Pol Shift to K polyn. a2 RB")
 }
 
-record(ao, "$(P)$(R)ConvShiftToKA6-SP"){
-    field(DESC, "Conv from shift to K polynomial a6")
-    field(FLNK, "$(P)$(R)ConvShiftToKA6-RB")
+record(ao, "$(P)$(R)LVShiftToKA3-SP"){
+    field(DESC, "Linear Vert Pol Shift to K polyn. a3")
+    field(FLNK, "$(P)$(R)LVShiftToKA3-RB")
 }
-record(ai, "$(P)$(R)ConvShiftToKA6-RB"){
-    field(INP, "$(P)$(R)ConvShiftToKA6-SP")
-    field(DESC, "Conv from shift to K polynomial a6 RB")
-}
-
-record(ao, "$(P)$(R)ConvShiftToKA7-SP"){
-    field(DESC, "Conv from shift to K polynomial a7")
-    field(FLNK, "$(P)$(R)ConvShiftToKA7-RB")
-}
-record(ai, "$(P)$(R)ConvShiftToKA7-RB"){
-    field(INP, "$(P)$(R)ConvShiftToKA7-SP")
-    field(DESC, "Conv from shift to K polynomial a7 RB")
+record(ai, "$(P)$(R)LVShiftToKA3-RB"){
+    field(INP, "$(P)$(R)LVShiftToKA3-SP")
+    field(DESC, "Linear Vert Pol Shift to K polyn. a3 RB")
 }
 
-record(ao, "$(P)$(R)ConvShiftToKA8-SP"){
-    field(DESC, "Conv from shift to K polynomial a8")
-    field(FLNK, "$(P)$(R)ConvShiftToKA8-RB")
+record(ao, "$(P)$(R)LVShiftToKA4-SP"){
+    field(DESC, "Linear Vert Pol Shift to K polyn. a4")
+    field(FLNK, "$(P)$(R)LVShiftToKA4-RB")
 }
-record(ai, "$(P)$(R)ConvShiftToKA8-RB"){
-    field(INP, "$(P)$(R)ConvShiftToKA8-SP")
-    field(DESC, "Conv from shift to K polynomial a8 RB")
+record(ai, "$(P)$(R)LVShiftToKA4-RB"){
+    field(INP, "$(P)$(R)LVShiftToKA4-SP")
+    field(DESC, "Linear Vert Pol Shift to K polyn. a4 RB")
+}
+
+record(ao, "$(P)$(R)LVShiftToKA5-SP"){
+    field(DESC, "Linear Vert Pol Shift to K polyn. a5")
+    field(FLNK, "$(P)$(R)LVShiftToKA5-RB")
+}
+record(ai, "$(P)$(R)LVShiftToKA5-RB"){
+    field(INP, "$(P)$(R)LVShiftToKA5-SP")
+    field(DESC, "Linear Vert Pol Shift to K polyn. a5 RB")
+}
+
+record(ao, "$(P)$(R)LVShiftToKA6-SP"){
+    field(DESC, "Linear Vert Pol Shift to K polyn. a6")
+    field(FLNK, "$(P)$(R)LVShiftToKA6-RB")
+}
+record(ai, "$(P)$(R)LVShiftToKA6-RB"){
+    field(INP, "$(P)$(R)LVShiftToKA6-SP")
+    field(DESC, "Linear Vert Pol Shift to K polyn. a6 RB")
+}
+
+record(ao, "$(P)$(R)LVShiftToKA7-SP"){
+    field(DESC, "Linear Vert Pol Shift to K polyn. a7")
+    field(FLNK, "$(P)$(R)LVShiftToKA7-RB")
+}
+record(ai, "$(P)$(R)LVShiftToKA7-RB"){
+    field(INP, "$(P)$(R)LVShiftToKA7-SP")
+    field(DESC, "Linear Vert Pol Shift to K polyn. a7 RB")
+}
+
+record(ao, "$(P)$(R)LVShiftToKA8-SP"){
+    field(DESC, "Linear Vert Pol Shift to K polyn. a8")
+    field(FLNK, "$(P)$(R)LVShiftToKA8-RB")
+}
+record(ai, "$(P)$(R)LVShiftToKA8-RB"){
+    field(INP, "$(P)$(R)LVShiftToKA8-SP")
+    field(DESC, "Linear Vert Pol Shift to K polyn. a8 RB")
 }
 
 # read by sncSabia
-record(calc, "$(P)$(R)ConvShiftToKFlg"){
-    field(DESC, "Show when conv shift-k has changed")
-    field(INPA, "$(P)$(R)ConvShiftToKA0-SP CPP")
-    field(INPB, "$(P)$(R)ConvShiftToKA1-SP CPP")
-    field(INPC, "$(P)$(R)ConvShiftToKA2-SP CPP")
-    field(INPD, "$(P)$(R)ConvShiftToKA3-SP CPP")
-    field(INPE, "$(P)$(R)ConvShiftToKA4-SP CPP")
-    field(INPF, "$(P)$(R)ConvShiftToKA5-SP CPP")
-    field(INPG, "$(P)$(R)ConvShiftToKA6-SP CPP")
-    field(INPH, "$(P)$(R)ConvShiftToKA7-SP CPP")
-    field(INPI, "$(P)$(R)ConvShiftToKA8-SP CPP")
+record(calc, "$(P)$(R)LVShiftToKFlg"){
+    field(DESC, "Show when conv LV shift-k changed")
+    field(INPA, "$(P)$(R)LVShiftToKA0-SP CPP")
+    field(INPB, "$(P)$(R)LVShiftToKA1-SP CPP")
+    field(INPC, "$(P)$(R)LVShiftToKA2-SP CPP")
+    field(INPD, "$(P)$(R)LVShiftToKA3-SP CPP")
+    field(INPE, "$(P)$(R)LVShiftToKA4-SP CPP")
+    field(INPF, "$(P)$(R)LVShiftToKA5-SP CPP")
+    field(INPG, "$(P)$(R)LVShiftToKA6-SP CPP")
+    field(INPH, "$(P)$(R)LVShiftToKA7-SP CPP")
+    field(INPI, "$(P)$(R)LVShiftToKA8-SP CPP")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
+}
+
+## Shift to K coefficients (Polarization Lin Hor)
+
+record(ao, "$(P)$(R)LHShiftToKA0-SP"){
+    field(DESC, "Linear Hor Pol Shift to K polyn. a0")
+    field(FLNK, "$(P)$(R)LHShiftToKA0-RB")
+}
+record(ai, "$(P)$(R)LHShiftToKA0-RB"){
+    field(INP, "$(P)$(R)LHShiftToKA0-SP")
+    field(DESC, "Linear Hor Pol Shift to K polyn. a0 RB")
+}
+
+record(ao, "$(P)$(R)LHShiftToKA1-SP"){
+    field(DESC, "Linear Hor Pol Shift to K polyn. a1")
+    field(FLNK, "$(P)$(R)LHShiftToKA1-RB")
+}
+record(ai, "$(P)$(R)LHShiftToKA1-RB"){
+    field(INP, "$(P)$(R)LHShiftToKA1-SP")
+    field(DESC, "Linear Hor Pol Shift to K polyn. a1 RB")
+}
+
+record(ao, "$(P)$(R)LHShiftToKA2-SP"){
+    field(DESC, "Linear Hor Pol Shift to K polyn. a2")
+    field(FLNK, "$(P)$(R)LHShiftToKA2-RB")
+}
+record(ai, "$(P)$(R)LHShiftToKA2-RB"){
+    field(INP, "$(P)$(R)LHShiftToKA2-SP")
+    field(DESC, "Linear Hor Pol Shift to K polyn. a2 RB")
+}
+
+record(ao, "$(P)$(R)LHShiftToKA3-SP"){
+    field(DESC, "Linear Hor Pol Shift to K polyn. a3")
+    field(FLNK, "$(P)$(R)LHShiftToKA3-RB")
+}
+record(ai, "$(P)$(R)LHShiftToKA3-RB"){
+    field(INP, "$(P)$(R)LHShiftToKA3-SP")
+    field(DESC, "Linear Hor Pol Shift to K polyn. a3 RB")
+}
+
+record(ao, "$(P)$(R)LHShiftToKA4-SP"){
+    field(DESC, "Linear Hor Pol Shift to K polyn. a4")
+    field(FLNK, "$(P)$(R)LHShiftToKA4-RB")
+}
+record(ai, "$(P)$(R)LHShiftToKA4-RB"){
+    field(INP, "$(P)$(R)LHShiftToKA4-SP")
+    field(DESC, "Linear Hor Pol Shift to K polyn. a4 RB")
+}
+
+record(ao, "$(P)$(R)LHShiftToKA5-SP"){
+    field(DESC, "Linear Hor Pol Shift to K polyn. a5")
+    field(FLNK, "$(P)$(R)LHShiftToKA5-RB")
+}
+record(ai, "$(P)$(R)LHShiftToKA5-RB"){
+    field(INP, "$(P)$(R)LHShiftToKA5-SP")
+    field(DESC, "Linear Hor Pol Shift to K polyn. a5 RB")
+}
+
+record(ao, "$(P)$(R)LHShiftToKA6-SP"){
+    field(DESC, "Linear Hor Pol Shift to K polyn. a6")
+    field(FLNK, "$(P)$(R)LHShiftToKA6-RB")
+}
+record(ai, "$(P)$(R)LHShiftToKA6-RB"){
+    field(INP, "$(P)$(R)LHShiftToKA6-SP")
+    field(DESC, "Linear Hor Pol Shift to K polyn. a6 RB")
+}
+
+record(ao, "$(P)$(R)LHShiftToKA7-SP"){
+    field(DESC, "Linear Hor Pol Shift to K polyn. a7")
+    field(FLNK, "$(P)$(R)LHShiftToKA7-RB")
+}
+record(ai, "$(P)$(R)LHShiftToKA7-RB"){
+    field(INP, "$(P)$(R)LHShiftToKA7-SP")
+    field(DESC, "Linear Hor Pol Shift to K polyn. a7 RB")
+}
+
+record(ao, "$(P)$(R)LHShiftToKA8-SP"){
+    field(DESC, "Linear Hor Pol Shift to K polyn. a8")
+    field(FLNK, "$(P)$(R)LHShiftToKA8-RB")
+}
+record(ai, "$(P)$(R)LHShiftToKA8-RB"){
+    field(INP, "$(P)$(R)LHShiftToKA8-SP")
+    field(DESC, "Linear Hor Pol Shift to K polyn. a8 RB")
+}
+
+# read by sncSabia
+record(calc, "$(P)$(R)LHShiftToKFlg"){
+    field(DESC, "Show when conv LH shift-k changed")
+    field(INPA, "$(P)$(R)LHShiftToKA0-SP CPP")
+    field(INPB, "$(P)$(R)LHShiftToKA1-SP CPP")
+    field(INPC, "$(P)$(R)LHShiftToKA2-SP CPP")
+    field(INPD, "$(P)$(R)LHShiftToKA3-SP CPP")
+    field(INPE, "$(P)$(R)LHShiftToKA4-SP CPP")
+    field(INPF, "$(P)$(R)LHShiftToKA5-SP CPP")
+    field(INPG, "$(P)$(R)LHShiftToKA6-SP CPP")
+    field(INPH, "$(P)$(R)LHShiftToKA7-SP CPP")
+    field(INPI, "$(P)$(R)LHShiftToKA8-SP CPP")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
+}
+
+## Shift to K coefficients (Polarization Circ Right)
+
+record(ao, "$(P)$(R)CRShiftToKA0-SP"){
+    field(DESC, "Circ Right Pol Shift to K polyn. a0")
+    field(FLNK, "$(P)$(R)CRShiftToKA0-RB")
+}
+record(ai, "$(P)$(R)CRShiftToKA0-RB"){
+    field(INP, "$(P)$(R)CRShiftToKA0-SP")
+    field(DESC, "Circ Right Pol Shift to K polyn. a0 RB")
+}
+
+record(ao, "$(P)$(R)CRShiftToKA1-SP"){
+    field(DESC, "Circ Right Pol Shift to K polyn. a1")
+    field(FLNK, "$(P)$(R)CRShiftToKA1-RB")
+}
+record(ai, "$(P)$(R)CRShiftToKA1-RB"){
+    field(INP, "$(P)$(R)CRShiftToKA1-SP")
+    field(DESC, "Circ Right Pol Shift to K polyn. a1 RB")
+}
+
+record(ao, "$(P)$(R)CRShiftToKA2-SP"){
+    field(DESC, "Circ Right Pol Shift to K polyn. a2")
+    field(FLNK, "$(P)$(R)CRShiftToKA2-RB")
+}
+record(ai, "$(P)$(R)CRShiftToKA2-RB"){
+    field(INP, "$(P)$(R)CRShiftToKA2-SP")
+    field(DESC, "Circ Right Pol Shift to K polyn. a2 RB")
+}
+
+record(ao, "$(P)$(R)CRShiftToKA3-SP"){
+    field(DESC, "Circ Right Pol Shift to K polyn. a3")
+    field(FLNK, "$(P)$(R)CRShiftToKA3-RB")
+}
+record(ai, "$(P)$(R)CRShiftToKA3-RB"){
+    field(INP, "$(P)$(R)CRShiftToKA3-SP")
+    field(DESC, "Circ Right Pol Shift to K polyn. a3 RB")
+}
+
+record(ao, "$(P)$(R)CRShiftToKA4-SP"){
+    field(DESC, "Circ Right Pol Shift to K polyn. a4")
+    field(FLNK, "$(P)$(R)CRShiftToKA4-RB")
+}
+record(ai, "$(P)$(R)CRShiftToKA4-RB"){
+    field(INP, "$(P)$(R)CRShiftToKA4-SP")
+    field(DESC, "Circ Right Pol Shift to K polyn. a4 RB")
+}
+
+record(ao, "$(P)$(R)CRShiftToKA5-SP"){
+    field(DESC, "Circ Right Pol Shift to K polyn. a5")
+    field(FLNK, "$(P)$(R)CRShiftToKA5-RB")
+}
+record(ai, "$(P)$(R)CRShiftToKA5-RB"){
+    field(INP, "$(P)$(R)CRShiftToKA5-SP")
+    field(DESC, "Circ Right Pol Shift to K polyn. a5 RB")
+}
+
+record(ao, "$(P)$(R)CRShiftToKA6-SP"){
+    field(DESC, "Circ Right Pol Shift to K polyn. a6")
+    field(FLNK, "$(P)$(R)CRShiftToKA6-RB")
+}
+record(ai, "$(P)$(R)CRShiftToKA6-RB"){
+    field(INP, "$(P)$(R)CRShiftToKA6-SP")
+    field(DESC, "Circ Right Pol Shift to K polyn. a6 RB")
+}
+
+record(ao, "$(P)$(R)CRShiftToKA7-SP"){
+    field(DESC, "Circ Right Pol Shift to K polyn. a7")
+    field(FLNK, "$(P)$(R)CRShiftToKA7-RB")
+}
+record(ai, "$(P)$(R)CRShiftToKA7-RB"){
+    field(INP, "$(P)$(R)CRShiftToKA7-SP")
+    field(DESC, "Circ Right Pol Shift to K polyn. a7 RB")
+}
+
+record(ao, "$(P)$(R)CRShiftToKA8-SP"){
+    field(DESC, "Circ Right Pol Shift to K polyn. a8")
+    field(FLNK, "$(P)$(R)CRShiftToKA8-RB")
+}
+record(ai, "$(P)$(R)CRShiftToKA8-RB"){
+    field(INP, "$(P)$(R)CRShiftToKA8-SP")
+    field(DESC, "Circ Right Pol Shift to K polyn. a8 RB")
+}
+
+# read by sncSabia
+record(calc, "$(P)$(R)CRShiftToKFlg"){
+    field(DESC, "Show when conv CR shift-k changed")
+    field(INPA, "$(P)$(R)CRShiftToKA0-SP CPP")
+    field(INPB, "$(P)$(R)CRShiftToKA1-SP CPP")
+    field(INPC, "$(P)$(R)CRShiftToKA2-SP CPP")
+    field(INPD, "$(P)$(R)CRShiftToKA3-SP CPP")
+    field(INPE, "$(P)$(R)CRShiftToKA4-SP CPP")
+    field(INPF, "$(P)$(R)CRShiftToKA5-SP CPP")
+    field(INPG, "$(P)$(R)CRShiftToKA6-SP CPP")
+    field(INPH, "$(P)$(R)CRShiftToKA7-SP CPP")
+    field(INPI, "$(P)$(R)CRShiftToKA8-SP CPP")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
+}
+
+## Shift to K coefficients (Polarization Circ Left)
+
+record(ao, "$(P)$(R)CLShiftToKA0-SP"){
+    field(DESC, "Circ Left Pol Shift to K polyn. a0")
+    field(FLNK, "$(P)$(R)CLShiftToKA0-RB")
+}
+record(ai, "$(P)$(R)CLShiftToKA0-RB"){
+    field(INP, "$(P)$(R)CLShiftToKA0-SP")
+    field(DESC, "Circ Left Pol Shift to K polyn. a0 RB")
+}
+
+record(ao, "$(P)$(R)CLShiftToKA1-SP"){
+    field(DESC, "Circ Left Pol Shift to K polyn. a1")
+    field(FLNK, "$(P)$(R)CLShiftToKA1-RB")
+}
+record(ai, "$(P)$(R)CLShiftToKA1-RB"){
+    field(INP, "$(P)$(R)CLShiftToKA1-SP")
+    field(DESC, "Circ Left Pol Shift to K polyn. a1 RB")
+}
+
+record(ao, "$(P)$(R)CLShiftToKA2-SP"){
+    field(DESC, "Circ Left Pol Shift to K polyn. a2")
+    field(FLNK, "$(P)$(R)CLShiftToKA2-RB")
+}
+record(ai, "$(P)$(R)CLShiftToKA2-RB"){
+    field(INP, "$(P)$(R)CLShiftToKA2-SP")
+    field(DESC, "Circ Left Pol Shift to K polyn. a2 RB")
+}
+
+record(ao, "$(P)$(R)CLShiftToKA3-SP"){
+    field(DESC, "Circ Left Pol Shift to K polyn. a3")
+    field(FLNK, "$(P)$(R)CLShiftToKA3-RB")
+}
+record(ai, "$(P)$(R)CLShiftToKA3-RB"){
+    field(INP, "$(P)$(R)CLShiftToKA3-SP")
+    field(DESC, "Circ Left Pol Shift to K polyn. a3 RB")
+}
+
+record(ao, "$(P)$(R)CLShiftToKA4-SP"){
+    field(DESC, "Circ Left Pol Shift to K polyn. a4")
+    field(FLNK, "$(P)$(R)CLShiftToKA4-RB")
+}
+record(ai, "$(P)$(R)CLShiftToKA4-RB"){
+    field(INP, "$(P)$(R)CLShiftToKA4-SP")
+    field(DESC, "Circ Left Pol Shift to K polyn. a4 RB")
+}
+
+record(ao, "$(P)$(R)CLShiftToKA5-SP"){
+    field(DESC, "Circ Left Pol Shift to K polyn. a5")
+    field(FLNK, "$(P)$(R)CLShiftToKA5-RB")
+}
+record(ai, "$(P)$(R)CLShiftToKA5-RB"){
+    field(INP, "$(P)$(R)CLShiftToKA5-SP")
+    field(DESC, "Circ Left Pol Shift to K polyn. a5 RB")
+}
+
+record(ao, "$(P)$(R)CLShiftToKA6-SP"){
+    field(DESC, "Circ Left Pol Shift to K polyn. a6")
+    field(FLNK, "$(P)$(R)CLShiftToKA6-RB")
+}
+record(ai, "$(P)$(R)CLShiftToKA6-RB"){
+    field(INP, "$(P)$(R)CLShiftToKA6-SP")
+    field(DESC, "Circ Left Pol Shift to K polyn. a6 RB")
+}
+
+record(ao, "$(P)$(R)CLShiftToKA7-SP"){
+    field(DESC, "Circ Left Pol Shift to K polyn. a7")
+    field(FLNK, "$(P)$(R)CLShiftToKA7-RB")
+}
+record(ai, "$(P)$(R)CLShiftToKA7-RB"){
+    field(INP, "$(P)$(R)CLShiftToKA7-SP")
+    field(DESC, "Circ Left Pol Shift to K polyn. a7 RB")
+}
+
+record(ao, "$(P)$(R)CLShiftToKA8-SP"){
+    field(DESC, "Circ Left Pol Shift to K polyn. a8")
+    field(FLNK, "$(P)$(R)CLShiftToKA8-RB")
+}
+record(ai, "$(P)$(R)CLShiftToKA8-RB"){
+    field(INP, "$(P)$(R)CLShiftToKA8-SP")
+    field(DESC, "Circ Left Pol Shift to K polyn. a8 RB")
+}
+
+# read by sncSabia
+record(calc, "$(P)$(R)CLShiftToKFlg"){
+    field(DESC, "Show when conv CL shift-k changed")
+    field(INPA, "$(P)$(R)CLShiftToKA0-SP CPP")
+    field(INPB, "$(P)$(R)CLShiftToKA1-SP CPP")
+    field(INPC, "$(P)$(R)CLShiftToKA2-SP CPP")
+    field(INPD, "$(P)$(R)CLShiftToKA3-SP CPP")
+    field(INPE, "$(P)$(R)CLShiftToKA4-SP CPP")
+    field(INPF, "$(P)$(R)CLShiftToKA5-SP CPP")
+    field(INPG, "$(P)$(R)CLShiftToKA6-SP CPP")
+    field(INPH, "$(P)$(R)CLShiftToKA7-SP CPP")
+    field(INPI, "$(P)$(R)CLShiftToKA8-SP CPP")
     field(CALC, "VAL+1")
     field(VAL, "0")
 }
 
 ## K to energy coefficients
 
-record(ao, "$(P)$(R)ConvKToEnergyA0-SP"){
-    field(DESC, "Conv from K to energy polynomial a0")
-    field(FLNK, "$(P)$(R)ConvKToEnergyA0-RB")
+record(ao, "$(P)$(R)KToEnergyA0-SP"){
+    field(DESC, "Conv from K to energy polyn. a0")
+    field(FLNK, "$(P)$(R)KToEnergyA0-RB")
 }
-record(ai, "$(P)$(R)ConvKToEnergyA0-RB"){
-    field(INP, "$(P)$(R)ConvKToEnergyA0-SP")
-    field(DESC, "Conv from K to energy polynomial a0 RB")
-}
-
-record(ao, "$(P)$(R)ConvKToEnergyA1-SP"){
-    field(DESC, "Conv from K to energy polynomial a1")
-    field(FLNK, "$(P)$(R)ConvKToEnergyA1-RB")
-}
-record(ai, "$(P)$(R)ConvKToEnergyA1-RB"){
-    field(INP, "$(P)$(R)ConvKToEnergyA1-SP")
-    field(DESC, "Conv from K to energy polynomial a1 RB")
+record(ai, "$(P)$(R)KToEnergyA0-RB"){
+    field(INP, "$(P)$(R)KToEnergyA0-SP")
+    field(DESC, "Conv from K to energy polyn. a0 RB")
 }
 
-record(ao, "$(P)$(R)ConvKToEnergyA2-SP"){
-    field(DESC, "Conv from K to energy polynomial a2")
-    field(FLNK, "$(P)$(R)ConvKToEnergyA2-RB")
+record(ao, "$(P)$(R)KToEnergyA1-SP"){
+    field(DESC, "Conv from K to energy polyn. a1")
+    field(FLNK, "$(P)$(R)KToEnergyA1-RB")
 }
-record(ai, "$(P)$(R)ConvKToEnergyA2-RB"){
-    field(INP, "$(P)$(R)ConvKToEnergyA2-SP")
-    field(DESC, "Conv from K to energy polynomial a2 RB")
-}
-
-record(ao, "$(P)$(R)ConvKToEnergyA3-SP"){
-    field(DESC, "Conv from K to energy polynomial a3")
-    field(FLNK, "$(P)$(R)ConvKToEnergyA3-RB")
-}
-record(ai, "$(P)$(R)ConvKToEnergyA3-RB"){
-    field(INP, "$(P)$(R)ConvKToEnergyA3-SP")
-    field(DESC, "Conv from K to energy polynomial a3 RB")
+record(ai, "$(P)$(R)KToEnergyA1-RB"){
+    field(INP, "$(P)$(R)KToEnergyA1-SP")
+    field(DESC, "Conv from K to energy polyn. a1 RB")
 }
 
-record(ao, "$(P)$(R)ConvKToEnergyA4-SP"){
-    field(DESC, "Conv from K to energy polynomial a4")
-    field(FLNK, "$(P)$(R)ConvKToEnergyA4-RB")
+record(ao, "$(P)$(R)KToEnergyA2-SP"){
+    field(DESC, "Conv from K to energy polyn. a2")
+    field(FLNK, "$(P)$(R)KToEnergyA2-RB")
 }
-record(ai, "$(P)$(R)ConvKToEnergyA4-RB"){
-    field(INP, "$(P)$(R)ConvKToEnergyA4-SP")
-    field(DESC, "Conv from K to energy polynomial a4 RB")
-}
-
-record(ao, "$(P)$(R)ConvKToEnergyA5-SP"){
-    field(DESC, "Conv from K to energy polynomial a5")
-    field(FLNK, "$(P)$(R)ConvKToEnergyA5-RB")
-}
-record(ai, "$(P)$(R)ConvKToEnergyA5-RB"){
-    field(INP, "$(P)$(R)ConvKToEnergyA5-SP")
-    field(DESC, "Conv from K to energy polynomial a5 RB")
+record(ai, "$(P)$(R)KToEnergyA2-RB"){
+    field(INP, "$(P)$(R)KToEnergyA2-SP")
+    field(DESC, "Conv from K to energy polyn. a2 RB")
 }
 
-record(ao, "$(P)$(R)ConvKToEnergyA6-SP"){
-    field(DESC, "Conv from K to energy polynomial a6")
-    field(FLNK, "$(P)$(R)ConvKToEnergyA6-RB")
+record(ao, "$(P)$(R)KToEnergyA3-SP"){
+    field(DESC, "Conv from K to energy polyn. a3")
+    field(FLNK, "$(P)$(R)KToEnergyA3-RB")
 }
-record(ai, "$(P)$(R)ConvKToEnergyA6-RB"){
-    field(INP, "$(P)$(R)ConvKToEnergyA6-SP")
-    field(DESC, "Conv from K to energy polynomial a6 RB")
-}
-
-record(ao, "$(P)$(R)ConvKToEnergyA7-SP"){
-    field(DESC, "Conv from K to energy polynomial a7")
-    field(FLNK, "$(P)$(R)ConvKToEnergyA7-RB")
-}
-record(ai, "$(P)$(R)ConvKToEnergyA7-RB"){
-    field(INP, "$(P)$(R)ConvKToEnergyA7-SP")
-    field(DESC, "Conv from K to energy polynomial a7 RB")
+record(ai, "$(P)$(R)KToEnergyA3-RB"){
+    field(INP, "$(P)$(R)KToEnergyA3-SP")
+    field(DESC, "Conv from K to energy polyn. a3 RB")
 }
 
-record(ao, "$(P)$(R)ConvKToEnergyA8-SP"){
-    field(DESC, "Conv from K to energy polynomial a8")
-    field(FLNK, "$(P)$(R)ConvKToEnergyA8-RB")
+record(ao, "$(P)$(R)KToEnergyA4-SP"){
+    field(DESC, "Conv from K to energy polyn. a4")
+    field(FLNK, "$(P)$(R)KToEnergyA4-RB")
 }
-record(ai, "$(P)$(R)ConvKToEnergyA8-RB"){
-    field(INP, "$(P)$(R)ConvKToEnergyA8-SP")
-    field(DESC, "Conv from K to energy polynomial a8 RB")
+record(ai, "$(P)$(R)KToEnergyA4-RB"){
+    field(INP, "$(P)$(R)KToEnergyA4-SP")
+    field(DESC, "Conv from K to energy polyn. a4 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA5-SP"){
+    field(DESC, "Conv from K to energy polyn. a5")
+    field(FLNK, "$(P)$(R)KToEnergyA5-RB")
+}
+record(ai, "$(P)$(R)KToEnergyA5-RB"){
+    field(INP, "$(P)$(R)KToEnergyA5-SP")
+    field(DESC, "Conv from K to energy polyn. a5 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA6-SP"){
+    field(DESC, "Conv from K to energy polyn. a6")
+    field(FLNK, "$(P)$(R)KToEnergyA6-RB")
+}
+record(ai, "$(P)$(R)KToEnergyA6-RB"){
+    field(INP, "$(P)$(R)KToEnergyA6-SP")
+    field(DESC, "Conv from K to energy polyn. a6 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA7-SP"){
+    field(FLNK, "$(P)$(R)KToEnergyA7-RB")
+    field(DESC, "Conv from K to energy polyn. a7")
+}
+record(ai, "$(P)$(R)KToEnergyA7-RB"){
+    field(INP, "$(P)$(R)KToEnergyA7-SP")
+    field(DESC, "Conv from K to energy polyn. a7 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA8-SP"){
+    field(FLNK, "$(P)$(R)KToEnergyA8-RB")
+    field(DESC, "Conv from K to energy polyn. a8")
+}
+record(ai, "$(P)$(R)KToEnergyA8-RB"){
+    field(INP, "$(P)$(R)KToEnergyA8-SP")
+    field(DESC, "Conv from K to energy polyn. a8 RB")
 }
 
 # read by sncSabia
-record(calc, "$(P)$(R)ConvKToEnergyFlg"){
-    field(DESC, "Show when conv k-energy has changed")
-    field(INPA, "$(P)$(R)ConvKToEnergyA0-SP CPP")
-    field(INPB, "$(P)$(R)ConvKToEnergyA1-SP CPP")
-    field(INPC, "$(P)$(R)ConvKToEnergyA2-SP CPP")
-    field(INPD, "$(P)$(R)ConvKToEnergyA3-SP CPP")
-    field(INPE, "$(P)$(R)ConvKToEnergyA4-SP CPP")
-    field(INPF, "$(P)$(R)ConvKToEnergyA5-SP CPP")
-    field(INPG, "$(P)$(R)ConvKToEnergyA6-SP CPP")
-    field(INPH, "$(P)$(R)ConvKToEnergyA7-SP CPP")
-    field(INPI, "$(P)$(R)ConvKToEnergyA8-SP CPP")
+record(calc, "$(P)$(R)KToEnergyFlg"){
+    field(DESC, "Show when conv k-energy changed")
+    field(INPA, "$(P)$(R)KToEnergyA0-SP CPP")
+    field(INPB, "$(P)$(R)KToEnergyA1-SP CPP")
+    field(INPC, "$(P)$(R)KToEnergyA2-SP CPP")
+    field(INPD, "$(P)$(R)KToEnergyA3-SP CPP")
+    field(INPE, "$(P)$(R)KToEnergyA4-SP CPP")
+    field(INPF, "$(P)$(R)KToEnergyA5-SP CPP")
+    field(INPG, "$(P)$(R)KToEnergyA6-SP CPP")
+    field(INPH, "$(P)$(R)KToEnergyA7-SP CPP")
+    field(INPI, "$(P)$(R)KToEnergyA8-SP CPP")
     field(CALC, "VAL+1")
     field(VAL, "0")
 }
@@ -587,8 +898,8 @@ record(calc, "$(P)$(R)StartEScanFlg"){
 }
 
 # read by sncSabia
-record(ao, "$(P)$(R)EScanStartPos-SP"){
-    field(DESC, "Energy scan start pos")
+record(ao, "$(P)$(R)EScanStart-SP"){
+    field(DESC, "Energy scan start energy")
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "eV")
@@ -605,12 +916,12 @@ record(ao, "$(P)$(R)EScanStartPos-SP"){
     field(LSV, "")
     field(LLSV, "")
     field(HYST, "")
-    field(FLNK, "$(P)$(R)EScanStartPos-RB")
+    field(FLNK, "$(P)$(R)EScanStart-RB")
 }
 
-record(ai, "$(P)$(R)EScanStartPos-RB"){
-    field(INP, "$(P)$(R)EScanStartPos-SP")
-    field(DESC, "Energy scan start pos RB")
+record(ai, "$(P)$(R)EScanStart-RB"){
+    field(INP, "$(P)$(R)EScanStart-SP")
+    field(DESC, "Energy scan start energy RB")
     field(PREC, "3")
     field(EGU,  "eV")
     field(HOPR, "")
@@ -627,8 +938,8 @@ record(ai, "$(P)$(R)EScanStartPos-RB"){
 }
 
 # read by sncSabia
-record(ao, "$(P)$(R)EScanEndPos-SP"){
-    field(DESC, "Energy scan end pos")
+record(ao, "$(P)$(R)EScanEnd-SP"){
+    field(DESC, "Energy scan end energy")
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "eV")
@@ -645,12 +956,12 @@ record(ao, "$(P)$(R)EScanEndPos-SP"){
     field(LSV, "")
     field(LLSV, "")
     field(HYST, "")
-    field(FLNK, "$(P)$(R)EScanEndPos-RB")
+    field(FLNK, "$(P)$(R)EScanEnd-RB")
 }
 
-record(ai, "$(P)$(R)EScanEndPos-RB"){
-    field(INP, "$(P)$(R)EScanEndPos-SP")
-    field(DESC, "Energy scan end pos RB")
+record(ai, "$(P)$(R)EScanEnd-RB"){
+    field(INP, "$(P)$(R)EScanEnd-SP")
+    field(DESC, "Energy scan end energy RB")
     field(PREC, "3")
     field(EGU,  "eV")
     field(HOPR, "")
@@ -664,6 +975,40 @@ record(ai, "$(P)$(R)EScanEndPos-RB"){
     field(LSV, "")
     field(LLSV, "")
     field(HYST, "")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)EScanDuration-SP"){
+    field(DESC, "Energy scan duration")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "sec")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(FLNK, "$(P)$(R)EScanDuration-RB")
+}
+
+record(ai, "$(P)$(R)EScanDuration-RB"){
+    field(INP, "$(P)$(R)EScanDuration-SP")
+    field(DESC, "Energy scan duration RB")
+    field(PREC, "3")
+    field(EGU,  "sec")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
 }
 
 ###########################################################
