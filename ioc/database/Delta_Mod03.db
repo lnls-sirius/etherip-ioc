@@ -1,5 +1,5 @@
 
-record(mbbi, "$(PREFIX_MOD_3)Coup-Sts"){
+record(mbbi, "$(PREFIX_MOD03)Coup-Sts"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ER_Conf_Mov_Mod_03")
     field(DESC, "Coupling mode sts for mod 03")
@@ -57,7 +57,7 @@ record(mbbi, "$(PREFIX_MOD_3)Coup-Sts"){
     field(FFSV, "")
 }
 
-record(mbbi, "$(PREFIX_MOD_3)TrigType-Sts"){
+record(mbbi, "$(PREFIX_MOD03)TrigType-Sts"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ER_Conf_Mov_Trg_03")
     field(DESC, "Trg type config sts for mod ")
@@ -115,7 +115,7 @@ record(mbbi, "$(PREFIX_MOD_3)TrigType-Sts"){
     field(FFSV, "")
 }
 
-record(mbbi, "$(PREFIX_MOD_3)RefType-Sts"){
+record(mbbi, "$(PREFIX_MOD03)RefType-Sts"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ER_Conf_Mov_Typ_03")
     field(DESC, "Motion input type sts for mo")
@@ -173,7 +173,7 @@ record(mbbi, "$(PREFIX_MOD_3)RefType-Sts"){
     field(FFSV, "")
 }
 
-record(bi, "$(PREFIX_MOD_3)Mirror-Sts"){
+record(bi, "$(PREFIX_MOD03)Mirror-Sts"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ER_Mirr_Mov_Mod_03")
     field(DESC, "Mirror status for module 03")
@@ -184,7 +184,7 @@ record(bi, "$(PREFIX_MOD_3)Mirror-Sts"){
     field(OSV, "")
 }
 
-record(bi, "$(PREFIX_MOD_3)ExtTrig-Mon"){
+record(bi, "$(PREFIX_MOD03)ExtTrig-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ER_Mov_Ext_Trg_Mod_03")
     field(DESC, "External trg sts for mod 03")
@@ -195,7 +195,7 @@ record(bi, "$(PREFIX_MOD_3)ExtTrig-Mon"){
     field(OSV, "")
 }
 
-record(bi, "$(PREFIX_MOD_3)SoftTrig-Mon"){
+record(bi, "$(PREFIX_MOD03)SoftTrig-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ER_Mov_Soft_Trg_Mod_03")
     field(DESC, "Software trg signal sts for ")
@@ -206,7 +206,7 @@ record(bi, "$(PREFIX_MOD_3)SoftTrig-Mon"){
     field(OSV, "")
 }
 
-record(mbbi, "$(PREFIX_MOD_3)MotionState-Mon"){
+record(mbbi, "$(PREFIX_MOD03)MotionState-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ER_Mov_Stat_Mod_03")
     field(DESC, "Module 03 motion status")
@@ -264,7 +264,7 @@ record(mbbi, "$(PREFIX_MOD_3)MotionState-Mon"){
     field(FFSV, "")
 }
 
-record(mbbi, "$(PREFIX_MOD_3)CIDMotionState-Mon"){
+record(mbbi, "$(PREFIX_MOD03)CIDMotionState-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ER_Mov_Stat_Mod_03_Axis_CID")
     field(DESC, "Module 03 CID motion status")
@@ -322,7 +322,7 @@ record(mbbi, "$(PREFIX_MOD_3)CIDMotionState-Mon"){
     field(FFSV, "")
 }
 
-record(mbbi, "$(PREFIX_MOD_3)CIEMotionState-Mon"){
+record(mbbi, "$(PREFIX_MOD03)CIEMotionState-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ER_Mov_Stat_Mod_03_Axis_CIE")
     field(DESC, "Module 03 CIE motion status")
@@ -380,7 +380,7 @@ record(mbbi, "$(PREFIX_MOD_3)CIEMotionState-Mon"){
     field(FFSV, "")
 }
 
-record(mbbi, "$(PREFIX_MOD_3)CSDMotionState-Mon"){
+record(mbbi, "$(PREFIX_MOD03)CSDMotionState-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ER_Mov_Stat_Mod_03_Axis_CSD")
     field(DESC, "Module 03 CSD motion status")
@@ -438,7 +438,7 @@ record(mbbi, "$(PREFIX_MOD_3)CSDMotionState-Mon"){
     field(FFSV, "")
 }
 
-record(mbbi, "$(PREFIX_MOD_3)CSEMotionState-Mon"){
+record(mbbi, "$(PREFIX_MOD03)CSEMotionState-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) ER_Mov_Stat_Mod_03_Axis_CSE")
     field(DESC, "Module 03 CSE motion status")
@@ -496,7 +496,7 @@ record(mbbi, "$(PREFIX_MOD_3)CSEMotionState-Mon"){
     field(FFSV, "")
 }
 
-record(mbbo, "$(PREFIX_MOD_3)Coup-Sel"){
+record(mbbo, "$(PREFIX_MOD03)Coup-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EW_Conf_Mov_Mod_03 S .1")
     field(DESC, "Coupling mode for mod 03")
@@ -558,7 +558,7 @@ record(mbbo, "$(PREFIX_MOD_3)Coup-Sel"){
     field(FFSV, "")
 }
 
-record(mbbo, "$(PREFIX_MOD_3)TrigType-Sel"){
+record(mbbo, "$(PREFIX_MOD03)TrigType-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EW_Conf_Mov_Trg_03 S .1")
     field(DESC, "Trg type config for mod 03")
@@ -620,7 +620,7 @@ record(mbbo, "$(PREFIX_MOD_3)TrigType-Sel"){
     field(FFSV, "")
 }
 
-record(mbbo, "$(PREFIX_MOD_3)RefType-Sel"){
+record(mbbo, "$(PREFIX_MOD03)RefType-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EW_Conf_Mov_Typ_03 S .1")
     field(DESC, "Motion input type for mod 03")
@@ -682,7 +682,7 @@ record(mbbo, "$(PREFIX_MOD_3)RefType-Sel"){
     field(FFSV, "")
 }
 
-record(bo, "$(PREFIX_MOD_3)Mirror-Sel"){
+record(bo, "$(PREFIX_MOD03)Mirror-Sel"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EW_Mirr_Mov_Mod_03 S .1")
     field(DESC, "Mirror config for module 03")
@@ -693,21 +693,21 @@ record(bo, "$(PREFIX_MOD_3)Mirror-Sel"){
     field(OSV, "")
 }
 
-record(bo, "$(PREFIX_MOD_3)SoftTrig-Cmd"){
+record(bo, "$(PREFIX_MOD03)SoftTrig-Cmd"){
     field(DESC, "Motion software trg for mod ")
-    field(OUT, "$(PREFIX_MOD_3)SoftTrigCmdAux1.PROC PP")
+    field(OUT, "$(PREFIX_MOD03)SoftTrigCmdAux1.PROC PP")
     field(SCAN, "Passive")
     field(ONAM, "Start")
     field(ZNAM, "Start")
     field(ZSV, "")
     field(OSV, "")
 }
-record(calcout, "$(PREFIX_MOD_3)SoftTrigCmdAux1"){
-    field(OUT, "$(PREFIX_MOD_3)SoftTrigCmdAux2.VAL PP")
+record(calcout, "$(PREFIX_MOD03)SoftTrigCmdAux1"){
+    field(OUT, "$(PREFIX_MOD03)SoftTrigCmdAux2.VAL PP")
     field(DESC, "aux rec 1")
     field(CALC, "1")
 }
-record(bo, "$(PREFIX_MOD_3)SoftTrigCmdAux2"){
+record(bo, "$(PREFIX_MOD03)SoftTrigCmdAux2"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EW_Mov_Soft_Trg_Mod_03 S .1")
     field(DESC, "aux rec 2")
@@ -718,7 +718,7 @@ record(bo, "$(PREFIX_MOD_3)SoftTrigCmdAux2"){
     field(OSV, "")
 }
 
-record(bi, "$(PREFIX_MOD_3)Enbl-Mon"){
+record(bi, "$(PREFIX_MOD03)Enbl-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Modulo03.Enable")
     field(DESC, "Enable status module 03")
@@ -729,7 +729,7 @@ record(bi, "$(PREFIX_MOD_3)Enbl-Mon"){
     field(OSV, "")
 }
 
-record(ao, "$(PREFIX_MOD_3)RelPos-SP"){
+record(ao, "$(PREFIX_MOD03)RelPos-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Modulo03.Posicao S .1")
     field(DESC, "Position module 03")
@@ -751,7 +751,7 @@ record(ao, "$(PREFIX_MOD_3)RelPos-SP"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)RelPos-RB"){
+record(ai, "$(PREFIX_MOD03)RelPos-RB"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Modulo03.Posicao")
     field(DESC, "Position RB module 03")
@@ -771,7 +771,7 @@ record(ai, "$(PREFIX_MOD_3)RelPos-RB"){
     field(HYST, "")
 }
 
-record(ao, "$(PREFIX_MOD_3)Velo-SP"){
+record(ao, "$(PREFIX_MOD03)Velo-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Modulo03.Velocidade S .1")
     field(DESC, "Velocity module 03")
@@ -793,7 +793,7 @@ record(ao, "$(PREFIX_MOD_3)Velo-SP"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)Velo-RB"){
+record(ai, "$(PREFIX_MOD03)Velo-RB"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Modulo03.Velocidade")
     field(DESC, "Velocity RB module 03")
@@ -813,7 +813,7 @@ record(ai, "$(PREFIX_MOD_3)Velo-RB"){
     field(HYST, "")
 }
 
-record(ao, "$(PREFIX_MOD_3)MovTime-SP"){
+record(ao, "$(PREFIX_MOD03)MovTime-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Modulo03.Tempo S .1")
     field(DESC, "Time to complete move mod 03")
@@ -835,7 +835,7 @@ record(ao, "$(PREFIX_MOD_3)MovTime-SP"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)MovTime-RB"){
+record(ai, "$(PREFIX_MOD03)MovTime-RB"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Modulo03.Tempo")
     field(DESC, "Time RB to complete move mod")
@@ -855,7 +855,7 @@ record(ai, "$(PREFIX_MOD_3)MovTime-RB"){
     field(HYST, "")
 }
 
-record(ao, "$(PREFIX_MOD_3)Acc-SP"){
+record(ao, "$(PREFIX_MOD03)Acc-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Modulo03.Accel S .1")
     field(DESC, "Acceleration module 03")
@@ -877,7 +877,7 @@ record(ao, "$(PREFIX_MOD_3)Acc-SP"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)Acc-RB"){
+record(ai, "$(PREFIX_MOD03)Acc-RB"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Modulo03.Accel")
     field(DESC, "Acceleration RB module 03")
@@ -897,7 +897,7 @@ record(ai, "$(PREFIX_MOD_3)Acc-RB"){
     field(HYST, "")
 }
 
-record(ao, "$(PREFIX_MOD_3)Decel-SP"){
+record(ao, "$(PREFIX_MOD03)Decel-SP"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) Modulo03.Decel S .1")
     field(DESC, "Deceleration module 03")
@@ -919,7 +919,7 @@ record(ao, "$(PREFIX_MOD_3)Decel-SP"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)Decel-RB"){
+record(ai, "$(PREFIX_MOD03)Decel-RB"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) Modulo03.Decel")
     field(DESC, "Deceleration RB module 03")
@@ -939,7 +939,7 @@ record(ai, "$(PREFIX_MOD_3)Decel-RB"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)VirtCIDActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)VirtCIDActualPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PTH.ActualPosition")
     field(DESC, "Actual pos virtual CID mod 0")
@@ -959,7 +959,7 @@ record(ai, "$(PREFIX_MOD_3)VirtCIDActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)VirtCIEActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)VirtCIEActualPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PTH.ActualPosition")
     field(DESC, "Actual pos virtual CIE mod 0")
@@ -979,7 +979,7 @@ record(ai, "$(PREFIX_MOD_3)VirtCIEActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)VirtCSDActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)VirtCSDActualPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PTH.ActualPosition")
     field(DESC, "Actual pos virtual CSD mod 0")
@@ -999,7 +999,7 @@ record(ai, "$(PREFIX_MOD_3)VirtCSDActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)VirtCSEActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)VirtCSEActualPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PTH.ActualPosition")
     field(DESC, "Actual pos virtual CSE mod 0")
@@ -1019,7 +1019,7 @@ record(ai, "$(PREFIX_MOD_3)VirtCSEActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)VirtCIDActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)VirtCIDActualVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PTH.ActualVelocity")
     field(DESC, "Actual velocity virtual CID ")
@@ -1039,7 +1039,7 @@ record(ai, "$(PREFIX_MOD_3)VirtCIDActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)VirtCIEActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)VirtCIEActualVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PTH.ActualVelocity")
     field(DESC, "Actual velocity virtual CIE ")
@@ -1059,7 +1059,7 @@ record(ai, "$(PREFIX_MOD_3)VirtCIEActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)VirtCSDActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)VirtCSDActualVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PTH.ActualVelocity")
     field(DESC, "Actual velocity virtual CSD ")
@@ -1079,7 +1079,7 @@ record(ai, "$(PREFIX_MOD_3)VirtCSDActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)VirtCSEActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)VirtCSEActualVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PTH.ActualVelocity")
     field(DESC, "Actual velocity virtual CSE ")
@@ -1099,7 +1099,7 @@ record(ai, "$(PREFIX_MOD_3)VirtCSEActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)PhyCIDActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)PhyCIDActualPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PHY.ActualPosition")
     field(DESC, "Actual position physical CID")
@@ -1119,7 +1119,7 @@ record(ai, "$(PREFIX_MOD_3)PhyCIDActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)PhyCIEActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)PhyCIEActualPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PHY.ActualPosition")
     field(DESC, "Actual position physical CIE")
@@ -1139,7 +1139,7 @@ record(ai, "$(PREFIX_MOD_3)PhyCIEActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)PhyCSDActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)PhyCSDActualPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PHY.ActualPosition")
     field(DESC, "Actual position physical CSD")
@@ -1159,7 +1159,7 @@ record(ai, "$(PREFIX_MOD_3)PhyCSDActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)PhyCSEActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)PhyCSEActualPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PHY.ActualPosition")
     field(DESC, "Actual position physical CSE")
@@ -1179,7 +1179,7 @@ record(ai, "$(PREFIX_MOD_3)PhyCSEActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)PhyCIDActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)PhyCIDActualVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PHY.ActualVelocity")
     field(DESC, "Actual velocity physical CID")
@@ -1199,7 +1199,7 @@ record(ai, "$(PREFIX_MOD_3)PhyCIDActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)PhyCIEActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)PhyCIEActualVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PHY.ActualVelocity")
     field(DESC, "Actual velocity physical CIE")
@@ -1219,7 +1219,7 @@ record(ai, "$(PREFIX_MOD_3)PhyCIEActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)PhyCSDActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)PhyCSDActualVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PHY.ActualVelocity")
     field(DESC, "Actual velocity physical CSD")
@@ -1239,7 +1239,7 @@ record(ai, "$(PREFIX_MOD_3)PhyCSDActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)PhyCSEActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)PhyCSEActualVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PHY.ActualVelocity")
     field(DESC, "Actual velocity physical CSE")
@@ -1259,7 +1259,7 @@ record(ai, "$(PREFIX_MOD_3)PhyCSEActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CIDPosErr-Mon"){
+record(ai, "$(PREFIX_MOD03)CIDPosErr-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PHY.PositionError")
     field(DESC, "Position error physical CID ")
@@ -1279,7 +1279,7 @@ record(ai, "$(PREFIX_MOD_3)CIDPosErr-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CIEPosErr-Mon"){
+record(ai, "$(PREFIX_MOD03)CIEPosErr-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PHY.PositionError")
     field(DESC, "Position error physical CIE ")
@@ -1299,7 +1299,7 @@ record(ai, "$(PREFIX_MOD_3)CIEPosErr-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CSDPosErr-Mon"){
+record(ai, "$(PREFIX_MOD03)CSDPosErr-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PHY.PositionError")
     field(DESC, "Position error physical CSD ")
@@ -1319,7 +1319,7 @@ record(ai, "$(PREFIX_MOD_3)CSDPosErr-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CSEPosErr-Mon"){
+record(ai, "$(PREFIX_MOD03)CSEPosErr-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PHY.PositionError")
     field(DESC, "Position error physical CSE ")
@@ -1339,7 +1339,7 @@ record(ai, "$(PREFIX_MOD_3)CSEPosErr-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CIDRawMtrEnc-Mon"){
+record(ai, "$(PREFIX_MOD03)CIDRawMtrEnc-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PHY.PositionFeedback1")
     field(DESC, "Motor encoder raw CID mod 03")
@@ -1359,7 +1359,7 @@ record(ai, "$(PREFIX_MOD_3)CIDRawMtrEnc-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CIERawMtrEnc-Mon"){
+record(ai, "$(PREFIX_MOD03)CIERawMtrEnc-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PHY.PositionFeedback1")
     field(DESC, "Motor encoder raw CIE mod 03")
@@ -1379,7 +1379,7 @@ record(ai, "$(PREFIX_MOD_3)CIERawMtrEnc-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CSDRawMtrEnc-Mon"){
+record(ai, "$(PREFIX_MOD03)CSDRawMtrEnc-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PHY.PositionFeedback1")
     field(DESC, "Motor encoder raw CSD mod 03")
@@ -1399,7 +1399,7 @@ record(ai, "$(PREFIX_MOD_3)CSDRawMtrEnc-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CSERawMtrEnc-Mon"){
+record(ai, "$(PREFIX_MOD03)CSERawMtrEnc-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PHY.PositionFeedback1")
     field(DESC, "Motor encoder raw CSE mod 03")
@@ -1419,7 +1419,7 @@ record(ai, "$(PREFIX_MOD_3)CSERawMtrEnc-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CIDTorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD03)CIDTorqueRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PHY.TorqueReference")
     field(DESC, "Torque reference CID mod 03")
@@ -1439,7 +1439,7 @@ record(ai, "$(PREFIX_MOD_3)CIDTorqueRef-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CIETorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD03)CIETorqueRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PHY.TorqueReference")
     field(DESC, "Torque reference CIE mod 03")
@@ -1459,7 +1459,7 @@ record(ai, "$(PREFIX_MOD_3)CIETorqueRef-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CSDTorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD03)CSDTorqueRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PHY.TorqueReference")
     field(DESC, "Torque reference CSD mod 03")
@@ -1479,7 +1479,7 @@ record(ai, "$(PREFIX_MOD_3)CSDTorqueRef-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CSETorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD03)CSETorqueRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PHY.TorqueReference")
     field(DESC, "Torque reference CSE mod 03")
@@ -1499,7 +1499,7 @@ record(ai, "$(PREFIX_MOD_3)CSETorqueRef-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CIDFiltTorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD03)CIDFiltTorqueRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PHY.TorqueReferenceFiltered")
     field(DESC, "Filtered torque reference CI")
@@ -1519,7 +1519,7 @@ record(ai, "$(PREFIX_MOD_3)CIDFiltTorqueRef-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CIEFiltTorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD03)CIEFiltTorqueRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PHY.TorqueReferenceFiltered")
     field(DESC, "Filtered torque reference CI")
@@ -1539,7 +1539,7 @@ record(ai, "$(PREFIX_MOD_3)CIEFiltTorqueRef-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CSDFiltTorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD03)CSDFiltTorqueRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PHY.TorqueReferenceFiltered")
     field(DESC, "Filtered torque reference CS")
@@ -1559,7 +1559,7 @@ record(ai, "$(PREFIX_MOD_3)CSDFiltTorqueRef-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD_3)CSEFiltTorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD03)CSEFiltTorqueRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PHY.TorqueReferenceFiltered")
     field(DESC, "Filtered torque reference CS")
