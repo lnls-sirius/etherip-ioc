@@ -43,29 +43,56 @@ services:
       labels:
         <<: *default-labels
 
-  FCPLC01:
+  fcplc01:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-fcplc01:${COMMIT_HASH}-${BUILD_DATE}
     build:
       context: .
       dockerfile: Dockerfile
-      target: FCPLC01
+      target: fcplc01
       labels:
         <<: *default-labels
 
-  FCPLC02:
+  fcplc02:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-fcplc02:${COMMIT_HASH}-${BUILD_DATE}
     build:
       context: .
       dockerfile: Dockerfile
-      target: FCPLC02
+      target: fcplc02
       labels:
         <<: *default-labels
 
-  FCPLC03:
+  fcplc03:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-fcplc03:${COMMIT_HASH}-${BUILD_DATE}
     build:
       context: .
       dockerfile: Dockerfile
-      target: FCPLC03
+      target: fcplc03
+      labels:
+        <<: *default-labels
+
+  linac:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-skidlinac:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: linac
+      labels:
+        <<: *default-labels
+
+  petraV:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-skidpetra5:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: petraV
+      labels:
+        <<: *default-labels
+
+  petraVII:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-skidpetra7:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: petraVII
       labels:
         <<: *default-labels

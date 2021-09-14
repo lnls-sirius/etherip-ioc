@@ -59,23 +59,44 @@ ENV NAME DELTA
 ENV CMD Delta.cmd
 ENV DEVIP 1.1.1.1
 
-FROM base AS FCPLC01
+FROM base AS fcplc01
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME FCPLC01
 ENV CMD FCPLC01.cmd
 ENV DEVIP 10.20.35.211
 
-FROM base AS FCPLC02
+FROM base AS fcplc02
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME FCPLC02
 ENV CMD FCPLC02.cmd
 ENV DEVIP 10.20.35.221
 
-FROM base AS FCPLC03
+FROM base AS fcplc03
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME FCPLC03
 ENV CMD FCPLC03.cmd
 ENV DEVIP 10.20.35.231
+
+FROM base AS linac
+COPY ./ioc/database /opt/etheripIOC/database
+COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
+ENV NAME FCPLC03
+ENV CMD SKID_LINAC.cmd
+ENV DEVIP 10.0.38.250
+
+FROM base AS petraV
+COPY ./ioc/database /opt/etheripIOC/database
+COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
+ENV NAME petraV
+ENV CMD SKID_PetraV.cmd
+ENV DEVIP 10.0.38.246
+
+FROM base AS petraVII
+COPY ./ioc/database /opt/etheripIOC/database
+COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
+ENV NAME petraV
+ENV CMD SKID_PetraVII.cmd
+ENV DEVIP 10.0.38.249

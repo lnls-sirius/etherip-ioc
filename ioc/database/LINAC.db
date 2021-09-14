@@ -1,0 +1,126 @@
+
+record(ai, "$(IOC):PT-421"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PT421.Scaled_Value")
+    field(EGU, "bar")
+    field(DESC, "Pressão de entrada da água fria.")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):PT-422"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PT422.Scaled_Value")
+    field(EGU, "bar")
+    field(DESC, "Pressão de entrada da água fria.")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):PT-423"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PT423.Scaled_Value")
+    field(EGU, "bar")
+    field(DESC, "Pressão de entrada da água fria.")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):PT-424"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PT424.Scaled_Value")
+    field(EGU, "bar")
+    field(DESC, "Pressão de entrada da água fria.")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TT-421"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT421.Scaled_Value")
+    field(EGU, "ºC")
+    field(DESC, "Temperatura.")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TT-422"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT422.Scaled_Value")
+    field(EGU, "ºC")
+    field(DESC, "Temperatura.")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TT-423"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT423.Scaled_Value")
+    field(EGU, "ºC")
+    field(DESC, "Temperatura.")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TT-424"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT424.Scaled_Value")
+    field(EGU, "ºC")
+    field(DESC, "Temperatura.")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TT-425"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT425.Scaled_Value")
+    field(EGU, "ºC")
+    field(DESC, "Temperatura.")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TT-426"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT426.Scaled_Value")
+    field(EGU, "ºC")
+    field(DESC, "Temperatura.")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TT-EXT"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT_EXT.Scaled_Value")
+    field(EGU, "ºC")
+    field(DESC, "Temperatura.")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):FT-421x1000"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) FT421.Scaled_Value")
+    field(EGU, "m³/h")
+    field(DESC, "Temperatura.")
+    field(SCAN, ".5 second")
+}
+
+record(calc, "$(IOC):FT-421"){
+    field(CALC, "A/1000")
+    field(INPA, "$(IOC):FT-421x1000 CP")
+
+record(ai, "$(IOC):FT-422x1000"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) FT422.Scaled_Value")
+    field(EGU, "m³/h")
+    field(DESC, "Temperatura.")
+    field(SCAN, ".5 second")
+}
+
+record(calc, "$(IOC):FT-422"){
+    field(CALC, "A/1000")
+    field(INPA, "$(IOC):FT-422x1000 CP")
+}
+
+record(ai, "$(IOC):FT-423x1000"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) FT423.Scaled_Value")
+    field(EGU, "m³/h")
+    field(DESC, "Temperatura.")
+    field(SCAN, ".5 second")
+}
+
+record(calc, "$(IOC):FT-423"){
+    field(CALC, "A/1000")
+    field(INPA, "$(IOC):FT-423x1000 CP")
+}
