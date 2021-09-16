@@ -28,8 +28,8 @@ drvEtherIP_define_PLC("plc1", "$(DEVIP)", 0)
 
 dbLoadRecords("database/Delta_Global.db", "PREFIX_GLOBAL=${PREFIX_GLOBAL}, PLC=plc1")
 dbLoadRecords("database/Delta_Mod01.db", "PREFIX_MOD01=${PREFIX_MOD01}, PLC=plc1")
-#dbLoadRecords("database/Delta_Mod02.db", "PREFIX_MOD02=${PREFIX_MOD02}, PLC=plc1")
-#dbLoadRecords("database/Delta_Mod02.db", "PREFIX_MOD03=${PREFIX_MOD03}, PLC=plc1")
+dbLoadRecords("database/Delta_Mod02.db", "PREFIX_MOD02=${PREFIX_MOD02}, PLC=plc1")
+dbLoadRecords("database/Delta_Mod03.db", "PREFIX_MOD03=${PREFIX_MOD03}, PLC=plc1")
 dbLoadRecords("database/Delta_Sabia.db", "P=${PREFIX_MOD01}, R=")
 iocInit()
 

@@ -1,7 +1,11 @@
 
-record(mbbo, "$(PREFIX_GLOBAL)InterModCoup-Sel"){
+record(ao, "$(PREFIX_GLOBAL)InterModCoupSelAux1"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EW_Coup_Mov_Mods S .1")
+}
+
+record(mbbo, "$(PREFIX_GLOBAL)InterModCoup-Sel"){
+    field(OUT, "$(PREFIX_GLOBAL)InterModCoupSelAux1 PP")
     field(DESC, "Coupling config between modu")
     field(SCAN, "Passive")
     field(OMSL, "supervisory")
@@ -61,11 +65,16 @@ record(mbbo, "$(PREFIX_GLOBAL)InterModCoup-Sel"){
     field(FFSV, "")
 }
 
-record(mbbi, "$(PREFIX_GLOBAL)InterModCoup-Sts"){
+record(ai, "$(PREFIX_GLOBAL)InterModCoupStsAux1"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) EW_Coup_Mov_Mods")
+    field(INP, "@$(PLC) EW_Coup_Mov_Mods S .1")
+    field(SCAN, "I/O Intr")
+    field(FLNK, "$(PREFIX_GLOBAL)InterModCoup-Sts")
+}
+
+record(mbbi, "$(PREFIX_GLOBAL)InterModCoup-Sts"){
+    field(INP, "$(PREFIX_GLOBAL)InterModCoupStsAux1")
     field(DESC, "Coupling config sts between ")
-    field(SCAN, ".1 second")
     field(SHFT, "")
     field(UNSV, "NO_ALARM")
     field(COSV, "NO_ALARM")

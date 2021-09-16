@@ -747,6 +747,7 @@ def generate(args):
                     f.write(
                         mbbi_template.safe_substitute(
                             name=name,
+                            auxname=name[: name.rfind("-Sts")] + "StsAux",
                             tag=tag,
                             desc=desc,
                             scan=scan,
@@ -807,6 +808,7 @@ def generate(args):
                     f.write(
                         mbbo_template.safe_substitute(
                             name=name,
+                            auxname=name[: name.rfind("-Sel")] + "SelAux",
                             tag=tag,
                             desc=desc,
                             scan=scan,

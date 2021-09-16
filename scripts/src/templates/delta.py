@@ -172,9 +172,13 @@ record(bo, "${auxname}2"){
 
 mbbo_template = Template(
     """
-record(mbbo, "${name}"){
+record(ao, "${auxname}1"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) ${tag} S ${scan}")
+}
+
+record(mbbo, "${name}"){
+    field(OUT, "${auxname}1 PP")
     field(DESC, "${desc}")
     field(SCAN, "Passive")
     field(OMSL, "${omsl}")
@@ -238,11 +242,16 @@ record(mbbo, "${name}"){
 
 mbbi_template = Template(
     """
-record(mbbi, "${name}"){
+record(ai, "${auxname}1"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ${tag}")
+    field(INP, "@$(PLC) ${tag} S ${scan}")
+    field(SCAN, "I/O Intr")
+    field(FLNK, "${name}")
+}
+
+record(mbbi, "${name}"){
+    field(INP, "${auxname}1")
     field(DESC, "${desc}")
-    field(SCAN, "${scan} second")
     field(SHFT, "${shft}")
     field(UNSV, "${unsv}")
     field(COSV, "${cosv}")

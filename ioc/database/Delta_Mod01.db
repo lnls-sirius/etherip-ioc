@@ -1,9 +1,14 @@
 
-record(mbbi, "$(PREFIX_MOD01)Coup-Sts"){
+record(ai, "$(PREFIX_MOD01)CoupStsAux1"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ER_Conf_Mov_Mod_01")
+    field(INP, "@$(PLC) ER_Conf_Mov_Mod_01 S .1")
+    field(SCAN, "I/O Intr")
+    field(FLNK, "$(PREFIX_MOD01)Coup-Sts")
+}
+
+record(mbbi, "$(PREFIX_MOD01)Coup-Sts"){
+    field(INP, "$(PREFIX_MOD01)CoupStsAux1")
     field(DESC, "Coupling mode sts for mod 01")
-    field(SCAN, ".1 second")
     field(SHFT, "")
     field(UNSV, "NO_ALARM")
     field(COSV, "NO_ALARM")
@@ -57,11 +62,16 @@ record(mbbi, "$(PREFIX_MOD01)Coup-Sts"){
     field(FFSV, "")
 }
 
-record(mbbi, "$(PREFIX_MOD01)TrigType-Sts"){
+record(ai, "$(PREFIX_MOD01)TrigTypeStsAux1"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ER_Conf_Mov_Trg_01")
+    field(INP, "@$(PLC) ER_Conf_Mov_Trg_01 S .1")
+    field(SCAN, "I/O Intr")
+    field(FLNK, "$(PREFIX_MOD01)TrigType-Sts")
+}
+
+record(mbbi, "$(PREFIX_MOD01)TrigType-Sts"){
+    field(INP, "$(PREFIX_MOD01)TrigTypeStsAux1")
     field(DESC, "Trg type config sts for mod ")
-    field(SCAN, ".1 second")
     field(SHFT, "")
     field(UNSV, "NO_ALARM")
     field(COSV, "NO_ALARM")
@@ -115,11 +125,16 @@ record(mbbi, "$(PREFIX_MOD01)TrigType-Sts"){
     field(FFSV, "")
 }
 
-record(mbbi, "$(PREFIX_MOD01)RefType-Sts"){
+record(ai, "$(PREFIX_MOD01)RefTypeStsAux1"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ER_Conf_Mov_Typ_01")
+    field(INP, "@$(PLC) ER_Conf_Mov_Typ_01 S .1")
+    field(SCAN, "I/O Intr")
+    field(FLNK, "$(PREFIX_MOD01)RefType-Sts")
+}
+
+record(mbbi, "$(PREFIX_MOD01)RefType-Sts"){
+    field(INP, "$(PREFIX_MOD01)RefTypeStsAux1")
     field(DESC, "Motion input type sts for mo")
-    field(SCAN, ".1 second")
     field(SHFT, "")
     field(UNSV, "NO_ALARM")
     field(COSV, "NO_ALARM")
@@ -206,11 +221,16 @@ record(bi, "$(PREFIX_MOD01)SoftTrig-Mon"){
     field(OSV, "")
 }
 
-record(mbbi, "$(PREFIX_MOD01)MotionState-Mon"){
+record(ai, "$(PREFIX_MOD01)MotionState-MoStsAux1"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ER_Mov_Stat_Mod_01")
+    field(INP, "@$(PLC) ER_Mov_Stat_Mod_01 S .1")
+    field(SCAN, "I/O Intr")
+    field(FLNK, "$(PREFIX_MOD01)MotionState-Mon")
+}
+
+record(mbbi, "$(PREFIX_MOD01)MotionState-Mon"){
+    field(INP, "$(PREFIX_MOD01)MotionState-MoStsAux1")
     field(DESC, "Module 01 motion status")
-    field(SCAN, ".1 second")
     field(SHFT, "")
     field(UNSV, "NO_ALARM")
     field(COSV, "NO_ALARM")
@@ -264,11 +284,16 @@ record(mbbi, "$(PREFIX_MOD01)MotionState-Mon"){
     field(FFSV, "")
 }
 
-record(mbbi, "$(PREFIX_MOD01)CIDMotionState-Mon"){
+record(ai, "$(PREFIX_MOD01)CIDMotionState-MoStsAux1"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ER_Mov_Stat_Mod_01_Axis_CID")
+    field(INP, "@$(PLC) ER_Mov_Stat_Mod_01_Axis_CID S .1")
+    field(SCAN, "I/O Intr")
+    field(FLNK, "$(PREFIX_MOD01)CIDMotionState-Mon")
+}
+
+record(mbbi, "$(PREFIX_MOD01)CIDMotionState-Mon"){
+    field(INP, "$(PREFIX_MOD01)CIDMotionState-MoStsAux1")
     field(DESC, "Module 01 CID motion status")
-    field(SCAN, ".1 second")
     field(SHFT, "")
     field(UNSV, "NO_ALARM")
     field(COSV, "NO_ALARM")
@@ -320,13 +345,18 @@ record(mbbi, "$(PREFIX_MOD01)CIDMotionState-Mon"){
     field(FFVL, "15")
     field(FFST, "")
     field(FFSV, "")
+}
+
+record(ai, "$(PREFIX_MOD01)CIEMotionState-MoStsAux1"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_Mov_Stat_Mod_01_Axis_CIE S .1")
+    field(SCAN, "I/O Intr")
+    field(FLNK, "$(PREFIX_MOD01)CIEMotionState-Mon")
 }
 
 record(mbbi, "$(PREFIX_MOD01)CIEMotionState-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ER_Mov_Stat_Mod_01_Axis_CIE")
+    field(INP, "$(PREFIX_MOD01)CIEMotionState-MoStsAux1")
     field(DESC, "Module 01 CIE motion status")
-    field(SCAN, ".1 second")
     field(SHFT, "")
     field(UNSV, "NO_ALARM")
     field(COSV, "NO_ALARM")
@@ -378,13 +408,18 @@ record(mbbi, "$(PREFIX_MOD01)CIEMotionState-Mon"){
     field(FFVL, "15")
     field(FFST, "")
     field(FFSV, "")
+}
+
+record(ai, "$(PREFIX_MOD01)CSDMotionState-MoStsAux1"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_Mov_Stat_Mod_01_Axis_CSD S .1")
+    field(SCAN, "I/O Intr")
+    field(FLNK, "$(PREFIX_MOD01)CSDMotionState-Mon")
 }
 
 record(mbbi, "$(PREFIX_MOD01)CSDMotionState-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ER_Mov_Stat_Mod_01_Axis_CSD")
+    field(INP, "$(PREFIX_MOD01)CSDMotionState-MoStsAux1")
     field(DESC, "Module 01 CSD motion status")
-    field(SCAN, ".1 second")
     field(SHFT, "")
     field(UNSV, "NO_ALARM")
     field(COSV, "NO_ALARM")
@@ -436,13 +471,18 @@ record(mbbi, "$(PREFIX_MOD01)CSDMotionState-Mon"){
     field(FFVL, "15")
     field(FFST, "")
     field(FFSV, "")
+}
+
+record(ai, "$(PREFIX_MOD01)CSEMotionState-MoStsAux1"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_Mov_Stat_Mod_01_Axis_CSE S .1")
+    field(SCAN, "I/O Intr")
+    field(FLNK, "$(PREFIX_MOD01)CSEMotionState-Mon")
 }
 
 record(mbbi, "$(PREFIX_MOD01)CSEMotionState-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ER_Mov_Stat_Mod_01_Axis_CSE")
+    field(INP, "$(PREFIX_MOD01)CSEMotionState-MoStsAux1")
     field(DESC, "Module 01 CSE motion status")
-    field(SCAN, ".1 second")
     field(SHFT, "")
     field(UNSV, "NO_ALARM")
     field(COSV, "NO_ALARM")
@@ -496,9 +536,13 @@ record(mbbi, "$(PREFIX_MOD01)CSEMotionState-Mon"){
     field(FFSV, "")
 }
 
-record(mbbo, "$(PREFIX_MOD01)Coup-Sel"){
+record(ao, "$(PREFIX_MOD01)CoupSelAux1"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EW_Conf_Mov_Mod_01 S .1")
+}
+
+record(mbbo, "$(PREFIX_MOD01)Coup-Sel"){
+    field(OUT, "$(PREFIX_MOD01)CoupSelAux1 PP")
     field(DESC, "Coupling mode for mod 01")
     field(SCAN, "Passive")
     field(OMSL, "supervisory")
@@ -558,9 +602,13 @@ record(mbbo, "$(PREFIX_MOD01)Coup-Sel"){
     field(FFSV, "")
 }
 
-record(mbbo, "$(PREFIX_MOD01)TrigType-Sel"){
+record(ao, "$(PREFIX_MOD01)TrigTypeSelAux1"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EW_Conf_Mov_Trg_01 S .1")
+}
+
+record(mbbo, "$(PREFIX_MOD01)TrigType-Sel"){
+    field(OUT, "$(PREFIX_MOD01)TrigTypeSelAux1 PP")
     field(DESC, "Trg type config for mod 01")
     field(SCAN, "Passive")
     field(OMSL, "supervisory")
@@ -620,9 +668,13 @@ record(mbbo, "$(PREFIX_MOD01)TrigType-Sel"){
     field(FFSV, "")
 }
 
-record(mbbo, "$(PREFIX_MOD01)RefType-Sel"){
+record(ao, "$(PREFIX_MOD01)RefTypeSelAux1"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) EW_Conf_Mov_Typ_01 S .1")
+}
+
+record(mbbo, "$(PREFIX_MOD01)RefType-Sel"){
+    field(OUT, "$(PREFIX_MOD01)RefTypeSelAux1 PP")
     field(DESC, "Motion input type for mod 01")
     field(SCAN, "Passive")
     field(OMSL, "supervisory")
