@@ -1630,3 +1630,293 @@ record(ai, "$(PREFIX_MOD01)CSEFiltTorqueRef-Mon"){
     field(LLSV, "")
     field(HYST, "")
 }
+
+record(bi, "$(PREFIX_MOD01)CIDPosKillSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_PKillSw_Mod_01_Axis_CID")
+    field(DESC, "Positive kill switch sts CID")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CIEPosKillSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_PKillSw_Mod_01_Axis_CIE")
+    field(DESC, "Positive kill switch sts CIE")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CSDPosKillSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_PKillSw_Mod_01_Axis_CSD")
+    field(DESC, "Positive kill switch sts CSD")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CSEPosKillSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_PKillSw_Mod_01_Axis_CSE")
+    field(DESC, "Positive kill switch sts CSE")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CIDNegKillSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_NKillSw_Mod_01_Axis_CID")
+    field(DESC, "Negative kill switch sts CID")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CIENegKillSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_NKillSw_Mod_01_Axis_CIE")
+    field(DESC, "Negative kill switch sts CIE")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CSDNegKillSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_NKillSw_Mod_01_Axis_CSD")
+    field(DESC, "Negative kill switch sts CSD")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CSENegKillSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_NKillSw_Mod_01_Axis_CSE")
+    field(DESC, "Negative kill switch sts CSE")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CIDPosLimSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_PLimSw_Mod_01_Axis_CID")
+    field(DESC, "Positive limit switch sts CI")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CIEPosLimSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_PLimSw_Mod_01_Axis_CIE")
+    field(DESC, "Positive limit switch sts CI")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CSDPosLimSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_PLimSw_Mod_01_Axis_CSD")
+    field(DESC, "Positive limit switch sts CS")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CSEPosLimSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_PLimSw_Mod_01_Axis_CSE")
+    field(DESC, "Positive limit switch sts CS")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CIDNegLimSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_NLimSw_Mod_01_Axis_CID")
+    field(DESC, "Negative limit switch sts CI")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CIENegLimSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_NLimSw_Mod_01_Axis_CIE")
+    field(DESC, "Negative limit switch sts CI")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CSDNegLimSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_NLimSw_Mod_01_Axis_CSD")
+    field(DESC, "Negative limit switch sts CS")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CSENegLimSw-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_NLimSw_Mod_01_Axis_CSE")
+    field(DESC, "Negative limit switch sts CS")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CIDEnbl-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_Enable_Mod_01_Axis_CID")
+    field(DESC, "CID axis enable sts mod 01")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CIEEnbl-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_Enable_Mod_01_Axis_CIE")
+    field(DESC, "CIE axis enable sts mod 01")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CSDEnbl-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_Enable_Mod_01_Axis_CSD")
+    field(DESC, "CSD axis enable sts mod 01")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bi, "$(PREFIX_MOD01)CSEEnbl-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_Enable_Mod_01_Axis_CSE")
+    field(DESC, "CSE axis enable sts mod 01")
+    field(SCAN, ".1 second")
+    field(ONAM, "On")
+    field(ZNAM, "Off")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bo, "$(PREFIX_MOD01)Stop-Cmd"){
+    field(DESC, "State machine stop cmd mod 0")
+    field(OUT, "$(PREFIX_MOD01)StopCmdAux1.PROC PP")
+    field(SCAN, "Passive")
+    field(ONAM, "Stop")
+    field(ZNAM, "Stop")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "$(PREFIX_MOD01)StopCmdAux1"){
+    field(OUT, "$(PREFIX_MOD01)StopCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "$(PREFIX_MOD01)StopCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EW_Stop_Mod_01 S .1")
+    field(DESC, "aux rec 2")
+    field(SCAN, "Passive")
+    field(ONAM, "0")
+    field(ZNAM, "1")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(bo, "$(PREFIX_MOD01)Rst-Cmd"){
+    field(DESC, "State machine reset cmd mod ")
+    field(OUT, "$(PREFIX_MOD01)RstCmdAux1.PROC PP")
+    field(SCAN, "Passive")
+    field(ONAM, "Reset")
+    field(ZNAM, "Reset")
+    field(ZSV, "")
+    field(OSV, "")
+}
+record(calcout, "$(PREFIX_MOD01)RstCmdAux1"){
+    field(OUT, "$(PREFIX_MOD01)RstCmdAux2.VAL PP")
+    field(DESC, "aux rec 1")
+    field(CALC, "1")
+}
+record(bo, "$(PREFIX_MOD01)RstCmdAux2"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) EW_Reset_Mod_01 S .1")
+    field(DESC, "aux rec 2")
+    field(SCAN, "Passive")
+    field(ONAM, "0")
+    field(ZNAM, "1")
+    field(ZSV, "")
+    field(OSV, "")
+}
+
+record(ai, "$(PREFIX_MOD01)StateIdx-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ER_State_Mod_01")
+    field(DESC, "State machine state idx mod ")
+    field(SCAN, ".1 second")
+    field(PREC, "")
+    field(EGU,  "")
+    field(HOPR, "")
+    field(LOPR, "")
+    field(HIHI, "")
+    field(HIGH, "")
+    field(LOW, "")
+    field(LOLO, "")
+    field(HHSV, "")
+    field(HSV, "")
+    field(LSV, "")
+    field(LLSV, "")
+    field(HYST, "")
+}
