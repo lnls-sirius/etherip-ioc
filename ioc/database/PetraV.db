@@ -15,17 +15,17 @@ record(ai, "$(IOC):PT-412"){
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):PT-413"){
+record(ai, "$(IOC):PT-423"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT413.Scaled_Value")
+    field(INP, "@$(PLC) PT423.Scaled_Value")
     field(EGU, "bar")
     field(DESC, "Pressão de entrada da água fria.")
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):PT-414"){
+record(ai, "$(IOC):PT-424"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT414.Scaled_Value")
+    field(INP, "@$(PLC) PT424.Scaled_Value")
     field(EGU, "bar")
     field(DESC, "Pressão de entrada da água fria.")
     field(SCAN, ".5 second")
@@ -47,33 +47,33 @@ record(ai, "$(IOC):TT-412"){
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):TT-413"){
+record(ai, "$(IOC):TT-423"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) TT413.Scaled_Value")
+    field(INP, "@$(PLC) TT423.Scaled_Value")
     field(EGU, "ºC")
     field(DESC, "Temperatura.")
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):TT-414"){
+record(ai, "$(IOC):TT-424"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) TT414.Scaled_Value")
+    field(INP, "@$(PLC) TT424.Scaled_Value")
     field(EGU, "ºC")
     field(DESC, "Temperatura.")
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):TT-415"){
+record(ai, "$(IOC):TT-425"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) TT415.Scaled_Value")
+    field(INP, "@$(PLC) TT425.Scaled_Value")
     field(EGU, "ºC")
     field(DESC, "Temperatura.")
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):TT-416"){
+record(ai, "$(IOC):TT-426"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) TT416.Scaled_Value")
+    field(INP, "@$(PLC) TT426.Scaled_Value")
     field(EGU, "ºC")
     field(DESC, "Temperatura.")
     field(SCAN, ".5 second")
@@ -113,30 +113,44 @@ record(calc, "$(IOC):FT-412"){
     field(INPA, "$(IOC):FT-412x1000 CP")
 }
 
-record(ai, "$(IOC):FT-413x1000"){
+record(ai, "$(IOC):FT-423x1000"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) FT413.Scaled_Value")
+    field(INP, "@$(PLC) FT423.Scaled_Value")
     field(EGU, "m³/h")
     field(DESC, "Temperatura.")
     field(SCAN, ".5 second")
 }
 
-record(calc, "$(IOC):FT-413"){
+record(calc, "$(IOC):FT-423"){
     field(CALC, "A/1000")
-    field(INPA, "$(IOC):FT-413x1000 CP")
+    field(INPA, "$(IOC):FT-423x1000 CP")
+}
+
+record(ai, "$(IOC):RE-411:Temperatura_Resist"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RE411.Temperatura_Resist")
+    field(EGU, "ºC")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):RE-412:Temperatura_Resist"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RE412.Temperatura_Resist")
+    field(EGU, "ºC")
+    field(SCAN, ".5 second")
 }
 
 record(ai, "$(IOC):RE-411"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RE411.Temperatura_Resist")
-    field(EGU, "%")
+    field(INP, "@$(PLC) RE411_Ref.Reference_Value")
+    field(EGU, "ºC")
     field(SCAN, ".5 second")
 }
 
 record(ai, "$(IOC):RE-412"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) RE412.Temperatura_Resist")
-    field(EGU, "%")
+    field(INP, "@$(PLC) RE412_Ref.Reference_Value")
+    field(EGU, "ºC")
     field(SCAN, ".5 second")
 }
 
@@ -165,5 +179,165 @@ record(ai, "$(IOC):TCV-412"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TCV412.Reference_Value")
     field(EGU, "%")
+    field(SCAN, ".5 second")
+}
+record(ai, "$(IOC):TCV-411"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TCV411.Reference_Value")
+    field(EGU, "%")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-411:KP"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC411.KP")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-411:KD"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC411.KD")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-411:KI"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC411.KI")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-411:SETPOINT"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC411.SP")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-411:PV"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC411.PV")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-411:OUT"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC411.OUT")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-411:SO"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC411.SO")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-412"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TCV412.Reference_Value")
+    field(EGU, "%")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-412:KP"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC412.KP")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-412:KD"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC412.KD")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-412:KI"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC412.KI")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-412:SETPOINT"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC412.SP")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-412:PV"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC412.PV")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-412:OUT"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC412.OUT")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):TCV-412:SO"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC412.SO")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):BC-411:KP"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC411.KP")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):BC-411:KD"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC411.KD")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):BC-411:KI"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC411.KI")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):BC-411:SETPOINT"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC411.SP")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):BC-411:PV"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC411.PV")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):BC-411:OUT"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC411.OUT")
+    field(EGU, "")
+    field(SCAN, ".5 second")
+}
+
+record(ai, "$(IOC):BC-411:SO"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC411.SO")
+    field(EGU, "")
     field(SCAN, ".5 second")
 }
