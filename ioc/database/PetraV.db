@@ -15,17 +15,17 @@ record(ai, "$(IOC):PT-412"){
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):PT-423"){
+record(ai, "$(IOC):PT-413"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT423.Scaled_Value")
+    field(INP, "@$(PLC) PT413.Scaled_Value")
     field(EGU, "bar")
     field(DESC, "Pressão de entrada da água fria.")
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):PT-424"){
+record(ai, "$(IOC):PT-414"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) PT424.Scaled_Value")
+    field(INP, "@$(PLC) PT414.Scaled_Value")
     field(EGU, "bar")
     field(DESC, "Pressão de entrada da água fria.")
     field(SCAN, ".5 second")
@@ -47,33 +47,33 @@ record(ai, "$(IOC):TT-412"){
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):TT-423"){
+record(ai, "$(IOC):TT-413"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) TT423.Scaled_Value")
+    field(INP, "@$(PLC) TT413.Scaled_Value")
     field(EGU, "ºC")
     field(DESC, "Temperatura.")
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):TT-424"){
+record(ai, "$(IOC):TT-414"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) TT424.Scaled_Value")
+    field(INP, "@$(PLC) TT414.Scaled_Value")
     field(EGU, "ºC")
     field(DESC, "Temperatura.")
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):TT-425"){
+record(ai, "$(IOC):TT-415"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) TT425.Scaled_Value")
+    field(INP, "@$(PLC) TT415.Scaled_Value")
     field(EGU, "ºC")
     field(DESC, "Temperatura.")
     field(SCAN, ".5 second")
 }
 
-record(ai, "$(IOC):TT-426"){
+record(ai, "$(IOC):TT-416"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) TT426.Scaled_Value")
+    field(INP, "@$(PLC) TT416.Scaled_Value")
     field(EGU, "ºC")
     field(DESC, "Temperatura.")
     field(SCAN, ".5 second")
@@ -113,17 +113,17 @@ record(calc, "$(IOC):FT-412"){
     field(INPA, "$(IOC):FT-412x1000 CP")
 }
 
-record(ai, "$(IOC):FT-423x1000"){
+record(ai, "$(IOC):FT-413x1000"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) FT423.Scaled_Value")
+    field(INP, "@$(PLC) FT413.Scaled_Value")
     field(EGU, "m³/h")
     field(DESC, "Temperatura.")
     field(SCAN, ".5 second")
 }
 
-record(calc, "$(IOC):FT-423"){
+record(calc, "$(IOC):FT-413"){
     field(CALC, "A/1000")
-    field(INPA, "$(IOC):FT-423x1000 CP")
+    field(INPA, "$(IOC):FT-413x1000 CP")
 }
 
 record(ai, "$(IOC):RE-411:Temperatura_Resist"){

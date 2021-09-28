@@ -83,7 +83,7 @@ ENV DEVIP 10.20.35.231
 FROM base AS linac
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
-ENV NAME FCPLC03
+ENV NAME linac
 ENV CMD SKID_LINAC.cmd
 ENV DEVIP 10.0.38.250
 
