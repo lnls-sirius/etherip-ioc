@@ -43,14 +43,14 @@ COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME RF-BO-Intlk
 ENV CMD RF-Booster.cmd
-ENV DEVIP 10.128.130.150
+ENV DEVIP 10.128.172.150
 
 FROM base AS rf_si
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME RF-SI-Intlk
 ENV CMD RF-Ring1.cmd
-ENV DEVIP 10.128.130.60
+ENV DEVIP 10.128.173.60
 
 FROM base AS delta
 COPY ./ioc/database /opt/etheripIOC/database
