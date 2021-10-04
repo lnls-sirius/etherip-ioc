@@ -238,55 +238,55 @@ assign dsbl_low_lvl_ctrl_proc to "{P}{R}DsblLowLvlCtrl.PROC";
 %%//    Monitored PVs - Low Level
 %%//----------------------------------------
 
-int mod_01_motion_state_mon;
-assign mod_01_motion_state_mon to "{P}{R}Mod01MotionState-Mon";
-monitor mod_01_motion_state_mon;
+int motion_state_mon;
+assign motion_state_mon to "{P}{R}MotionState-Mon";
+monitor motion_state_mon;
 
 %%//----------------------------------------
 %%//    Output PVs - Low Level
 %%//----------------------------------------
 
-int mod_01_rel_pos_sp;
-assign mod_01_rel_pos_sp to "{P}{R}Mod01RelPos-SP";
+int rel_pos_sp;
+assign rel_pos_sp to "{P}{R}RelPos-SP";
 
-int mod_01_velo_sp;
-assign mod_01_velo_sp to "{P}{R}Mod01Velo-SP";
+int velo_sp;
+assign velo_sp to "{P}{R}Velo-SP";
 
-int mod_01_acc_sp;
-assign mod_01_acc_sp to "{P}{R}Mod01Acc-SP";
+int acc_sp;
+assign acc_sp to "{P}{R}Acc-SP";
 
-int mod_01_decel_sp;
-assign mod_01_decel_sp to "{P}{R}Mod01Decel-SP";
+int decel_sp;
+assign decel_sp to "{P}{R}Decel-SP";
 
-int mod_01_phy_cid_actual_pos_mon;
-assign mod_01_phy_cid_actual_pos_mon to "{P}{R}Mod01PhyCIDActualPos-Mon";
+int phy_cid_actual_pos_mon;
+assign phy_cid_actual_pos_mon to "{P}{R}PhyCIDActualPos-Mon";
 
-int mod_01_phy_cie_actual_pos_mon;
-assign mod_01_phy_cie_actual_pos_mon to "{P}{R}Mod01PhyCIEActualPos-Mon";
+int phy_cie_actual_pos_mon;
+assign phy_cie_actual_pos_mon to "{P}{R}PhyCIEActualPos-Mon";
 
-int mod_01_phy_csd_actual_pos_mon;
-assign mod_01_phy_csd_actual_pos_mon to "{P}{R}Mod01PhyCSDActualPos-Mon";
+int phy_csd_actual_pos_mon;
+assign phy_csd_actual_pos_mon to "{P}{R}PhyCSDActualPos-Mon";
 
-int mod_01_phy_cse_actual_pos_mon;
-assign mod_01_phy_cse_actual_pos_mon to "{P}{R}Mod01PhyCSEActualPos-Mon";
+int phy_cse_actual_pos_mon;
+assign phy_cse_actual_pos_mon to "{P}{R}PhyCSEActualPos-Mon";
 
-int mod_01_coup_sel;
-assign mod_01_coup_sel to "{P}{R}Mod01Coup-Sel";
+int coup_sel;
+assign coup_sel to "{P}{R}Coup-Sel";
 
-int mod_01_trig_type_sel;
-assign mod_01_trig_type_sel to "{P}{R}Mod01TrigType-Sel";
+int trig_type_sel;
+assign trig_type_sel to "{P}{R}TrigType-Sel";
 
-int mod_01_ref_type_sel;
-assign mod_01_ref_type_sel to "{P}{R}Mod01RefType-Sel";
+int ref_type_sel;
+assign ref_type_sel to "{P}{R}RefType-Sel";
 
 int inter_mod_coup_sel;
 assign inter_mod_coup_sel to "{P}{R}InterModCoup-Sel";
 
-int mod_01_mirror_sel;
-assign mod_01_mirror_sel to "{P}{R}Mod01Mirror-Sel";
+int mirror_sel;
+assign mirror_sel to "{P}{R}Mirror-Sel";
 
-int mod_01_soft_trig_cmd;
-assign mod_01_soft_trig_cmd to "{P}{R}Mod01SoftTrig-Cmd";
+int soft_trig_cmd;
+assign soft_trig_cmd to "{P}{R}SoftTrig-Cmd";
 
 %%//----------------------------------------
 %%//        Escaped C Code
@@ -502,46 +502,46 @@ ss motion_control {
             // move to position
             if (check == 1) {
                 // configure trigger to software
-                mod_01_trig_type_sel = TRIG_TYPE_SOFT;
-                pvPut(mod_01_trig_type_sel, SYNC);
+                trig_type_sel = TRIG_TYPE_SOFT;
+                pvPut(trig_type_sel, SYNC);
 
                 // make sure inter module coupling is right
                 inter_mod_coup_sel = INTER_MOD_COUPLING_001;
                 pvPut(inter_mod_coup_sel, SYNC);
 
                 // configure motion reference type
-                mod_01_ref_type_sel = REFERENCE_TYPE_INTERNAL;
-                pvPut(mod_01_ref_type_sel, SYNC);
+                ref_type_sel = REFERENCE_TYPE_INTERNAL;
+                pvPut(ref_type_sel, SYNC);
 
                 // select phase coupling
-                mod_01_coup_sel = COUPLING_PHASE;
-                pvPut(mod_01_coup_sel, SYNC);
+                coup_sel = COUPLING_PHASE;
+                pvPut(coup_sel, SYNC);
 
                 // make sure mirror is disabled
-                mod_01_mirror_sel = MIRROR_DISABLE;
-                pvPut(mod_01_mirror_sel, SYNC);
+                mirror_sel = MIRROR_DISABLE;
+                pvPut(mirror_sel, SYNC);
 
                 // configure velocity
-                mod_01_velo_sp = pol_mode_velo_sp;
-                pvPut(mod_01_velo_sp, SYNC);
+                velo_sp = pol_mode_velo_sp;
+                pvPut(velo_sp, SYNC);
                 // configure acceleration
-                mod_01_acc_sp = pol_mode_acc_sp;
-                pvPut(mod_01_acc_sp, SYNC);
+                acc_sp = pol_mode_acc_sp;
+                pvPut(acc_sp, SYNC);
                 // configure deceleration equal acceleration
-                mod_01_decel_sp = pol_mode_acc_sp;
-                pvPut(mod_01_decel_sp, SYNC);
+                decel_sp = pol_mode_acc_sp;
+                pvPut(decel_sp, SYNC);
 
                 // configure relative position
-                mod_01_rel_pos_sp = var_pos_diff;
-                pvPut(mod_01_rel_pos_sp, SYNC);
+                rel_pos_sp = var_pos_diff;
+                pvPut(rel_pos_sp, SYNC);
 
                 // send soft trigger to start motion
-                mod_01_soft_trig_cmd = 1;
-                pvPut(mod_01_soft_trig_cmd, SYNC);
+                soft_trig_cmd = 1;
+                pvPut(soft_trig_cmd, SYNC);
             }
         }
 
-        when (delay(1.0) && mod_01_motion_state_mon == MOTION_STATE_DONE) {
+        when (delay(1.0) && motion_state_mon == MOTION_STATE_DONE) {
         } state ready
     }
 
@@ -580,48 +580,48 @@ ss motion_control {
             // move to position
             if (check == 1) {
                 // configure trigger to software
-                mod_01_trig_type_sel = TRIG_TYPE_SOFT;
-                pvPut(mod_01_trig_type_sel, SYNC);
+                trig_type_sel = TRIG_TYPE_SOFT;
+                pvPut(trig_type_sel, SYNC);
 
                 // make sure inter module coupling is right
                 inter_mod_coup_sel = INTER_MOD_COUPLING_001;
                 pvPut(inter_mod_coup_sel, SYNC);
 
                 // configure motion reference type
-                mod_01_ref_type_sel = REFERENCE_TYPE_INTERNAL;
-                pvPut(mod_01_ref_type_sel, SYNC);
+                ref_type_sel = REFERENCE_TYPE_INTERNAL;
+                pvPut(ref_type_sel, SYNC);
 
                 // select gain coupling (GH)
-                mod_01_coup_sel = COUPLING_GH;
-                pvPut(mod_01_coup_sel, SYNC);
+                coup_sel = COUPLING_GH;
+                pvPut(coup_sel, SYNC);
 
                 // make sure mirror is disabled
-                mod_01_mirror_sel = MIRROR_DISABLE;
-                pvPut(mod_01_mirror_sel, SYNC);
+                mirror_sel = MIRROR_DISABLE;
+                pvPut(mirror_sel, SYNC);
 
                 // configure velocity
-                mod_01_velo_sp = gain_mode_velo_sp;
-                pvPut(mod_01_velo_sp, SYNC);
+                velo_sp = gain_mode_velo_sp;
+                pvPut(velo_sp, SYNC);
                 // configure acceleration
-                mod_01_acc_sp = gain_mode_acc_sp;
-                pvPut(mod_01_acc_sp, SYNC);
+                acc_sp = gain_mode_acc_sp;
+                pvPut(acc_sp, SYNC);
                 // configure deceleration equal acceleration
-                mod_01_decel_sp = gain_mode_acc_sp;
-                pvPut(mod_01_decel_sp, SYNC);
+                decel_sp = gain_mode_acc_sp;
+                pvPut(decel_sp, SYNC);
 
                 // configure relative position
-                mod_01_rel_pos_sp = var_pos_diff;
-                pvPut(mod_01_rel_pos_sp, SYNC);
+                rel_pos_sp = var_pos_diff;
+                pvPut(rel_pos_sp, SYNC);
 
                 // send soft trigger to start motion
-                mod_01_soft_trig_cmd = 1;
-                pvPut(mod_01_soft_trig_cmd, SYNC);
+                soft_trig_cmd = 1;
+                pvPut(soft_trig_cmd, SYNC);
             }
 
 
         }
 
-        when (delay(1.0) && mod_01_motion_state_mon == MOTION_STATE_DONE) {
+        when (delay(1.0) && motion_state_mon == MOTION_STATE_DONE) {
         } state ready
     }
 
@@ -630,7 +630,7 @@ ss motion_control {
         entry {
         }
 
-        when (delay(1.0) && mod_01_motion_state_mon == MOTION_STATE_DONE) {
+        when (delay(1.0) && motion_state_mon == MOTION_STATE_DONE) {
         } state ready
     }
 
@@ -648,63 +648,63 @@ ss motion_control {
             var_gain_diff = PARKING_GAIN_SHIFT - gain_shift_mon;
 
             // configure trigger to software
-            mod_01_trig_type_sel = TRIG_TYPE_SOFT;
-            pvPut(mod_01_trig_type_sel, SYNC);
+            trig_type_sel = TRIG_TYPE_SOFT;
+            pvPut(trig_type_sel, SYNC);
 
             // make sure inter module coupling is right
             inter_mod_coup_sel = INTER_MOD_COUPLING_001;
             pvPut(inter_mod_coup_sel, SYNC);
 
             // configure motion reference type
-            mod_01_ref_type_sel = REFERENCE_TYPE_INTERNAL;
-            pvPut(mod_01_ref_type_sel, SYNC);
+            ref_type_sel = REFERENCE_TYPE_INTERNAL;
+            pvPut(ref_type_sel, SYNC);
 
             // make sure mirror is disabled
-            mod_01_mirror_sel = MIRROR_DISABLE;
-            pvPut(mod_01_mirror_sel, SYNC);
+            mirror_sel = MIRROR_DISABLE;
+            pvPut(mirror_sel, SYNC);
 
             // ADJUST POL
             // select phase coupling
-            mod_01_coup_sel = COUPLING_PHASE;
-            pvPut(mod_01_coup_sel, SYNC);
+            coup_sel = COUPLING_PHASE;
+            pvPut(coup_sel, SYNC);
             // configure velocity
-            mod_01_velo_sp = pol_mode_velo_sp;
-            pvPut(mod_01_velo_sp, SYNC);
+            velo_sp = pol_mode_velo_sp;
+            pvPut(velo_sp, SYNC);
             // configure acceleration
-            mod_01_acc_sp = pol_mode_acc_sp;
-            pvPut(mod_01_acc_sp, SYNC);
+            acc_sp = pol_mode_acc_sp;
+            pvPut(acc_sp, SYNC);
             // configure deceleration equal acceleration
-            mod_01_decel_sp = pol_mode_acc_sp;
-            pvPut(mod_01_decel_sp, SYNC);
+            decel_sp = pol_mode_acc_sp;
+            pvPut(decel_sp, SYNC);
             // configure relative position
-            mod_01_rel_pos_sp = var_pol_diff;
-            pvPut(mod_01_rel_pos_sp, SYNC);
+            rel_pos_sp = var_pol_diff;
+            pvPut(rel_pos_sp, SYNC);
             // send soft trigger to start motion
-            mod_01_soft_trig_cmd = 1;
-            pvPut(mod_01_soft_trig_cmd, SYNC);
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
 
             // ADJUST GAIN
             // select gain coupling (GH)
-            mod_01_coup_sel = COUPLING_GH;
-            pvPut(mod_01_coup_sel, SYNC);
+            coup_sel = COUPLING_GH;
+            pvPut(coup_sel, SYNC);
             // configure velocity
-            mod_01_velo_sp = gain_mode_velo_sp;
-            pvPut(mod_01_velo_sp, SYNC);
+            velo_sp = gain_mode_velo_sp;
+            pvPut(velo_sp, SYNC);
             // configure acceleration
-            mod_01_acc_sp = gain_mode_acc_sp;
-            pvPut(mod_01_acc_sp, SYNC);
+            acc_sp = gain_mode_acc_sp;
+            pvPut(acc_sp, SYNC);
             // configure deceleration equal acceleration
-            mod_01_decel_sp = gain_mode_acc_sp;
-            pvPut(mod_01_decel_sp, SYNC);
+            decel_sp = gain_mode_acc_sp;
+            pvPut(decel_sp, SYNC);
             // configure relative position
-            mod_01_rel_pos_sp = var_gain_diff;
-            pvPut(mod_01_rel_pos_sp, SYNC);
+            rel_pos_sp = var_gain_diff;
+            pvPut(rel_pos_sp, SYNC);
             // send soft trigger to start motion
-            mod_01_soft_trig_cmd = 1;
-            pvPut(mod_01_soft_trig_cmd, SYNC);
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
         }
 
-        when (delay(1.0) && mod_01_motion_state_mon == MOTION_STATE_DONE) {
+        when (delay(1.0) && motion_state_mon == MOTION_STATE_DONE) {
         } state ready
     }
 
