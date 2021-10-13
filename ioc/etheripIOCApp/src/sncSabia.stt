@@ -5,12 +5,24 @@ program sncSabia
 %%//----------------------------------------
 
 #define DELTA_PERIOD 52.5
-#define ARR_SIVE_CONV_SHIFT_K 262501
-#define ARR_SIVE_CONV_K_ENERGY 525001
-#define POLYNOMIAL_DEGREE 8
+#define ARR_SIVE_CONV_SHIFT_K 1001
+#define ARR_SIVE_CONV_K_ENERGY 1001
 
-double arr_conv_shift_k[2][ARR_SIVE_CONV_SHIFT_K];
-double arr_conv_k_energy[2][ARR_SIVE_CONV_K_ENERGY];
+double arr_x_conv_shift_k[ARR_SIVE_CONV_SHIFT_K];
+double arr_y_lv_conv_shift_k[ARR_SIVE_CONV_SHIFT_K];
+double arr_y_lh_conv_shift_k[ARR_SIVE_CONV_SHIFT_K];
+double arr_y_cr_conv_shift_k[ARR_SIVE_CONV_SHIFT_K];
+double arr_y_cl_conv_shift_k[ARR_SIVE_CONV_SHIFT_K];
+
+double arr_x_conv_k_energy[ARR_SIVE_CONV_K_ENERGY];
+double arr_y_conv_k_energy[ARR_SIVE_CONV_K_ENERGY];
+
+typedef enum polarization {
+    polCircRight = 0,
+    polCircLeft = 1,
+    polLinVert = 2,
+    polLinHor = 3
+} polarization;
 
 %%//----------------------------------------
 %%//    Monitored PVs - High Level
@@ -136,93 +148,225 @@ int energy_mon;
 assign energy_mon to "{P}{R}Energy-Mon";
 monitor energy_mon;
 
-%%// Conversion Coefficients - Shift to K
+%%// Conversion Coeff - Linear Vert Pol Shift to K
 
-int conv_shift_to_k_evt;
-assign conv_shift_to_k_evt to "ConvShiftToKFlg";
-monitor conv_shift_to_k_evt;
-evflag conv_shift_to_k_evt_flg;
-sync conv_shift_to_k_evt conv_shift_to_k_evt_flg;
+int lv_shift_to_k_evt;
+assign lv_shift_to_k_evt to "{P}{R}LVShiftToKFlg";
+monitor lv_shift_to_k_evt;
+evflag lv_shift_to_k_evt_flg;
+sync lv_shift_to_k_evt lv_shift_to_k_evt_flg;
 
-int conv_shift_to_k_a0_sp;
-assign conv_shift_to_k_a0_sp to "{P}{R}ConvShiftToKA0-SP";
-monitor conv_shift_to_k_a0_sp;
+int lv_shift_to_k_a0_sp;
+assign lv_shift_to_k_a0_sp to "{P}{R}LVShiftToKA0-SP";
+monitor lv_shift_to_k_a0_sp;
 
-int conv_shift_to_k_a1_sp;
-assign conv_shift_to_k_a1_sp to "{P}{R}ConvShiftToKA1-SP";
-monitor conv_shift_to_k_a1_sp;
+int lv_shift_to_k_a1_sp;
+assign lv_shift_to_k_a1_sp to "{P}{R}LVShiftToKA1-SP";
+monitor lv_shift_to_k_a1_sp;
 
-int conv_shift_to_k_a2_sp;
-assign conv_shift_to_k_a2_sp to "{P}{R}ConvShiftToKA2-SP";
-monitor conv_shift_to_k_a2_sp;
+int lv_shift_to_k_a2_sp;
+assign lv_shift_to_k_a2_sp to "{P}{R}LVShiftToKA2-SP";
+monitor lv_shift_to_k_a2_sp;
 
-int conv_shift_to_k_a3_sp;
-assign conv_shift_to_k_a3_sp to "{P}{R}ConvShiftToKA3-SP";
-monitor conv_shift_to_k_a3_sp;
+int lv_shift_to_k_a3_sp;
+assign lv_shift_to_k_a3_sp to "{P}{R}LVShiftToKA3-SP";
+monitor lv_shift_to_k_a3_sp;
 
-int conv_shift_to_k_a4_sp;
-assign conv_shift_to_k_a4_sp to "{P}{R}ConvShiftToKA4-SP";
-monitor conv_shift_to_k_a4_sp;
+int lv_shift_to_k_a4_sp;
+assign lv_shift_to_k_a4_sp to "{P}{R}LVShiftToKA4-SP";
+monitor lv_shift_to_k_a4_sp;
 
-int conv_shift_to_k_a5_sp;
-assign conv_shift_to_k_a5_sp to "{P}{R}ConvShiftToKA5-SP";
-monitor conv_shift_to_k_a5_sp;
+int lv_shift_to_k_a5_sp;
+assign lv_shift_to_k_a5_sp to "{P}{R}LVShiftToKA5-SP";
+monitor lv_shift_to_k_a5_sp;
 
-int conv_shift_to_k_a6_sp;
-assign conv_shift_to_k_a6_sp to "{P}{R}ConvShiftToKA6-SP";
-monitor conv_shift_to_k_a6_sp;
+int lv_shift_to_k_a6_sp;
+assign lv_shift_to_k_a6_sp to "{P}{R}LVShiftToKA6-SP";
+monitor lv_shift_to_k_a6_sp;
 
-int conv_shift_to_k_a7_sp;
-assign conv_shift_to_k_a7_sp to "{P}{R}ConvShiftToKA7-SP";
-monitor conv_shift_to_k_a7_sp;
+int lv_shift_to_k_a7_sp;
+assign lv_shift_to_k_a7_sp to "{P}{R}LVShiftToKA7-SP";
+monitor lv_shift_to_k_a7_sp;
 
-int conv_shift_to_k_a8_sp;
-assign conv_shift_to_k_a8_sp to "{P}{R}ConvShiftToKA8-SP";
-monitor conv_shift_to_k_a8_sp;
+int lv_shift_to_k_a8_sp;
+assign lv_shift_to_k_a8_sp to "{P}{R}LVShiftToKA8-SP";
+monitor lv_shift_to_k_a8_sp;
+
+%%// Conversion Coeff - Linear Hor Pol Shift to K
+
+int lh_shift_to_k_evt;
+assign lh_shift_to_k_evt to "{P}{R}LHShiftToKFlg";
+monitor lh_shift_to_k_evt;
+evflag lh_shift_to_k_evt_flg;
+sync lh_shift_to_k_evt lh_shift_to_k_evt_flg;
+
+int lh_shift_to_k_a0_sp;
+assign lh_shift_to_k_a0_sp to "{P}{R}LHShiftToKA0-SP";
+monitor lh_shift_to_k_a0_sp;
+
+int lh_shift_to_k_a1_sp;
+assign lh_shift_to_k_a1_sp to "{P}{R}LHShiftToKA1-SP";
+monitor lh_shift_to_k_a1_sp;
+
+int lh_shift_to_k_a2_sp;
+assign lh_shift_to_k_a2_sp to "{P}{R}LHShiftToKA2-SP";
+monitor lh_shift_to_k_a2_sp;
+
+int lh_shift_to_k_a3_sp;
+assign lh_shift_to_k_a3_sp to "{P}{R}LHShiftToKA3-SP";
+monitor lh_shift_to_k_a3_sp;
+
+int lh_shift_to_k_a4_sp;
+assign lh_shift_to_k_a4_sp to "{P}{R}LHShiftToKA4-SP";
+monitor lh_shift_to_k_a4_sp;
+
+int lh_shift_to_k_a5_sp;
+assign lh_shift_to_k_a5_sp to "{P}{R}LHShiftToKA5-SP";
+monitor lh_shift_to_k_a5_sp;
+
+int lh_shift_to_k_a6_sp;
+assign lh_shift_to_k_a6_sp to "{P}{R}LHShiftToKA6-SP";
+monitor lh_shift_to_k_a6_sp;
+
+int lh_shift_to_k_a7_sp;
+assign lh_shift_to_k_a7_sp to "{P}{R}LHShiftToKA7-SP";
+monitor lh_shift_to_k_a7_sp;
+
+int lh_shift_to_k_a8_sp;
+assign lh_shift_to_k_a8_sp to "{P}{R}LHShiftToKA8-SP";
+monitor lh_shift_to_k_a8_sp;
+
+%%// Conversion Coeff - Circ Right Pol Shift to K
+
+int cr_shift_to_k_evt;
+assign cr_shift_to_k_evt to "{P}{R}CRShiftToKFlg";
+monitor cr_shift_to_k_evt;
+evflag cr_shift_to_k_evt_flg;
+sync cr_shift_to_k_evt cr_shift_to_k_evt_flg;
+
+int cr_shift_to_k_a0_sp;
+assign cr_shift_to_k_a0_sp to "{P}{R}CRShiftToKA0-SP";
+monitor cr_shift_to_k_a0_sp;
+
+int cr_shift_to_k_a1_sp;
+assign cr_shift_to_k_a1_sp to "{P}{R}CRShiftToKA1-SP";
+monitor cr_shift_to_k_a1_sp;
+
+int cr_shift_to_k_a2_sp;
+assign cr_shift_to_k_a2_sp to "{P}{R}CRShiftToKA2-SP";
+monitor cr_shift_to_k_a2_sp;
+
+int cr_shift_to_k_a3_sp;
+assign cr_shift_to_k_a3_sp to "{P}{R}CRShiftToKA3-SP";
+monitor cr_shift_to_k_a3_sp;
+
+int cr_shift_to_k_a4_sp;
+assign cr_shift_to_k_a4_sp to "{P}{R}CRShiftToKA4-SP";
+monitor cr_shift_to_k_a4_sp;
+
+int cr_shift_to_k_a5_sp;
+assign cr_shift_to_k_a5_sp to "{P}{R}CRShiftToKA5-SP";
+monitor cr_shift_to_k_a5_sp;
+
+int cr_shift_to_k_a6_sp;
+assign cr_shift_to_k_a6_sp to "{P}{R}CRShiftToKA6-SP";
+monitor cr_shift_to_k_a6_sp;
+
+int cr_shift_to_k_a7_sp;
+assign cr_shift_to_k_a7_sp to "{P}{R}CRShiftToKA7-SP";
+monitor cr_shift_to_k_a7_sp;
+
+int cr_shift_to_k_a8_sp;
+assign cr_shift_to_k_a8_sp to "{P}{R}CRShiftToKA8-SP";
+monitor cr_shift_to_k_a8_sp;
+
+%%// Conversion Coeff - Circ Left Pol Shift to K
+
+int cl_shift_to_k_evt;
+assign cl_shift_to_k_evt to "{P}{R}CLShiftToKFlg";
+monitor cl_shift_to_k_evt;
+evflag cl_shift_to_k_evt_flg;
+sync cl_shift_to_k_evt cl_shift_to_k_evt_flg;
+
+int cl_shift_to_k_a0_sp;
+assign cl_shift_to_k_a0_sp to "{P}{R}CLShiftToKA0-SP";
+monitor cl_shift_to_k_a0_sp;
+
+int cl_shift_to_k_a1_sp;
+assign cl_shift_to_k_a1_sp to "{P}{R}CLShiftToKA1-SP";
+monitor cl_shift_to_k_a1_sp;
+
+int cl_shift_to_k_a2_sp;
+assign cl_shift_to_k_a2_sp to "{P}{R}CLShiftToKA2-SP";
+monitor cl_shift_to_k_a2_sp;
+
+int cl_shift_to_k_a3_sp;
+assign cl_shift_to_k_a3_sp to "{P}{R}CLShiftToKA3-SP";
+monitor cl_shift_to_k_a3_sp;
+
+int cl_shift_to_k_a4_sp;
+assign cl_shift_to_k_a4_sp to "{P}{R}CLShiftToKA4-SP";
+monitor cl_shift_to_k_a4_sp;
+
+int cl_shift_to_k_a5_sp;
+assign cl_shift_to_k_a5_sp to "{P}{R}CLShiftToKA5-SP";
+monitor cl_shift_to_k_a5_sp;
+
+int cl_shift_to_k_a6_sp;
+assign cl_shift_to_k_a6_sp to "{P}{R}CLShiftToKA6-SP";
+monitor cl_shift_to_k_a6_sp;
+
+int cl_shift_to_k_a7_sp;
+assign cl_shift_to_k_a7_sp to "{P}{R}CLShiftToKA7-SP";
+monitor cl_shift_to_k_a7_sp;
+
+int cl_shift_to_k_a8_sp;
+assign cl_shift_to_k_a8_sp to "{P}{R}CLShiftToKA8-SP";
+monitor cl_shift_to_k_a8_sp;
 
 %%// Conversion Coefficients - K to Energy
 
-int conv_k_to_energy_evt;
-assign conv_k_to_energy_evt to "ConvKToEnergyFlg";
-monitor conv_k_to_energy_evt;
-evflag conv_k_to_energy_evt_flg;
-sync conv_k_to_energy_evt conv_k_to_energy_evt_flg;
+int k_to_energy_evt;
+assign k_to_energy_evt to "KToEnergyFlg";
+monitor k_to_energy_evt;
+evflag k_to_energy_evt_flg;
+sync k_to_energy_evt k_to_energy_evt_flg;
 
-int conv_k_to_energy_a0_sp;
-assign conv_k_to_energy_a0_sp to "{P}{R}ConvKToEnergyA0-SP";
-monitor conv_k_to_energy_a0_sp;
+int k_to_energy_a0_sp;
+assign k_to_energy_a0_sp to "{P}{R}KToEnergyA0-SP";
+monitor k_to_energy_a0_sp;
 
-int conv_k_to_energy_a1_sp;
-assign conv_k_to_energy_a1_sp to "{P}{R}ConvKToEnergyA1-SP";
-monitor conv_k_to_energy_a1_sp;
+int k_to_energy_a1_sp;
+assign k_to_energy_a1_sp to "{P}{R}KToEnergyA1-SP";
+monitor k_to_energy_a1_sp;
 
-int conv_k_to_energy_a2_sp;
-assign conv_k_to_energy_a2_sp to "{P}{R}ConvKToEnergyA2-SP";
-monitor conv_k_to_energy_a2_sp;
+int k_to_energy_a2_sp;
+assign k_to_energy_a2_sp to "{P}{R}KToEnergyA2-SP";
+monitor k_to_energy_a2_sp;
 
-int conv_k_to_energy_a3_sp;
-assign conv_k_to_energy_a3_sp to "{P}{R}ConvKToEnergyA3-SP";
-monitor conv_k_to_energy_a3_sp;
+int k_to_energy_a3_sp;
+assign k_to_energy_a3_sp to "{P}{R}KToEnergyA3-SP";
+monitor k_to_energy_a3_sp;
 
-int conv_k_to_energy_a4_sp;
-assign conv_k_to_energy_a4_sp to "{P}{R}ConvKToEnergyA4-SP";
-monitor conv_k_to_energy_a4_sp;
+int k_to_energy_a4_sp;
+assign k_to_energy_a4_sp to "{P}{R}KToEnergyA4-SP";
+monitor k_to_energy_a4_sp;
 
-int conv_k_to_energy_a5_sp;
-assign conv_k_to_energy_a5_sp to "{P}{R}ConvKToEnergyA5-SP";
-monitor conv_k_to_energy_a5_sp;
+int k_to_energy_a5_sp;
+assign k_to_energy_a5_sp to "{P}{R}KToEnergyA5-SP";
+monitor k_to_energy_a5_sp;
 
-int conv_k_to_energy_a6_sp;
-assign conv_k_to_energy_a6_sp to "{P}{R}ConvKToEnergyA6-SP";
-monitor conv_k_to_energy_a6_sp;
+int k_to_energy_a6_sp;
+assign k_to_energy_a6_sp to "{P}{R}KToEnergyA6-SP";
+monitor k_to_energy_a6_sp;
 
-int conv_k_to_energy_a7_sp;
-assign conv_k_to_energy_a7_sp to "{P}{R}ConvKToEnergyA7-SP";
-monitor conv_k_to_energy_a7_sp;
+int k_to_energy_a7_sp;
+assign k_to_energy_a7_sp to "{P}{R}KToEnergyA7-SP";
+monitor k_to_energy_a7_sp;
 
-int conv_k_to_energy_a8_sp;
-assign conv_k_to_energy_a8_sp to "{P}{R}ConvKToEnergyA8-SP";
-monitor conv_k_to_energy_a8_sp;
+int k_to_energy_a8_sp;
+assign k_to_energy_a8_sp to "{P}{R}KToEnergyA8-SP";
+monitor k_to_energy_a8_sp;
 
 %%//----------------------------------------
 %%//    Output PVs - High Level
@@ -299,6 +443,7 @@ foreign ssId;
 %%#include <string.h>
 %%#include <math.h>
 %%#include "Logger.h"
+%%#include "myUtil.h"
 
 // parking position
 %%#define PARKING_POL_SHIFT 0.0
@@ -319,6 +464,9 @@ foreign ssId;
 %%#define POL_CIRC_LEFT 13.125
 %%// #define POL_LIN_VERT 26.25
 
+//main energy positions (mm)
+%%#define GAIN_ZERO_K 0.0
+
 // trigger
 %%#define TRIG_TYPE_BOTH 0
 %%#define TRIG_TYPE_SOFT 1
@@ -338,6 +486,114 @@ foreign ssId;
 // motion state
 %%#define MOTION_STATE_MOVING 0
 %%#define MOTION_STATE_DONE 1
+
+%{
+
+/*
+  Name: mm2k
+
+  Description:
+
+  Converts cassette shift in mm to the corresponding
+  value of K, i.e., undulator strength parameter.
+
+  shift [mm] -> K
+
+  Arguments:
+
+  pol: polarization type.
+  shift: cassette shift in mm.
+  p_k: pointer to undulator current k value.
+
+  Return value:
+
+  0: success
+ -1: error: input value out of table bounds.
+ -2: error: binary search failed.
+ -3: error: division by zero when calculating slope.
+
+*/
+char mm2k(polarization pol, double shift, double* p_k){
+
+    char * k_values;
+
+    // select conversion array
+    if (pol == polLinVert) {k_values = arr_y_lv_conv_shift_k;}
+    else if (pol == polLinHor) {k_values = arr_y_lh_conv_shift_k;}
+    else if (pol == polCircRight) {k_values = arr_y_cr_conv_shift_k;}
+    else if (pol == polCircLeft) {k_values = arr_y_cl_conv_shift_k;}
+
+    // perform conversion through linear interpolation
+    return interpolateFromTable(arr_x_conv_shift_k,
+                                k_values,
+                                ARR_SIVE_CONV_SHIFT_K,
+                                p_k,
+                                shift);
+}
+
+/*
+  Name: k2mm
+
+  Description:
+
+  Converts undulator K value, i.e., the undulator strength parameter,
+  to the corresponding cassette shift, in mm.
+
+  K -> shift [mm]
+
+  Arguments:
+
+  pol: polarization type.
+  k: undulator current k value.
+  p_shift: pointer to cassette shift value in mm.
+
+  Return value:
+
+  0: success
+ -1: error: input value out of table bounds.
+ -2: error: binary search failed.
+ -3: error: division by zero when calculating slope.
+
+*/
+char k2mm(polarization pol, double k, double* p_shift){
+
+    char * k_values;
+
+    // select conversion array
+    if (pol == polLinVert) {k_values = arr_y_lv_conv_shift_k;}
+    else if (pol == polLinHor) {k_values = arr_y_lh_conv_shift_k;}
+    else if (pol == polCircRight) {k_values = arr_y_cr_conv_shift_k;}
+    else if (pol == polCircLeft) {k_values = arr_y_cl_conv_shift_k;}
+
+    // perform conversion through linear interpolation
+    return interpolateFromTable(k_values,
+                                arr_x_conv_shift_k,
+                                ARR_SIVE_CONV_SHIFT_K,
+                                p_shift,
+                                k);
+}
+
+char k2energy(polarization pol, double k, double* p_energy){
+
+    // perform conversion through linear interpolation
+    return interpolateFromTable(arr_x_conv_k_energy,
+                                arr_y_conv_k_energy,
+                                ARR_SIVE_CONV_K_ENERGY,
+                                p_energy,
+                                k);
+}
+
+char energy2k(polarization pol, double energy, double* p_k){
+
+    // perform conversion through linear interpolation
+    return interpolateFromTable(arr_y_conv_k_energy,
+                                arr_x_conv_k_energy,
+                                ARR_SIVE_CONV_K_ENERGY,
+                                p_k,
+                                energy);
+}
+
+}%
 
 %%//----------------------------------------
 %%//        State Notation Language
@@ -362,7 +618,7 @@ ss motion_control {
             step = max_travel/ (ARR_SIVE_CONV_SHIFT_K - 1);
 
             for (int i=0; i < ARR_SIVE_CONV_SHIFT_K; i++) {
-                arr_conv_shift_k[0][i] = start + i * step;
+                arr_x_conv_shift_k[i] = start + i * step;
             }
 
             // initialize K - Energy conversion table x values
@@ -374,7 +630,7 @@ ss motion_control {
             step = max_travel/ (ARR_SIVE_CONV_K_ENERGY - 1);
 
             for (int i=0; i < ARR_SIVE_CONV_K_ENERGY; i++) {
-                arr_conv_k_energy[0][i] = start + i * step;
+                arr_x_conv_k_energy[i] = start + i * step;
             }
 
             LOG_INFO("[%s%s] Initialization finished\n", macValueGet("P"), macValueGet("R"));
@@ -384,18 +640,26 @@ ss motion_control {
     state ready {
         entry {
             /* clear event flags to avoid
-               old running invalid commands */
+               running old invalid commands */
             efClear(change_pol_evt);
             efClear(change_gain_evt);
 	    efClear(start_escan_evt);
             efClear(parking_request_evt);
-            efClear(get_parking_request_evt);
         }
 
-        when (efTestAndClear(conv_shift_to_k_evt)) {
-        } state update_shift_to_k_conv
+        when (efTestAndClear(lv_shift_to_k_evt)) {
+        } state update_lv_shift_to_k_conv
 
-        when (efTestAndClear(conv_k_to_energy_evt)) {
+        when (efTestAndClear(lh_shift_to_k_evt)) {
+        } state update_lh_shift_to_k_conv
+
+        when (efTestAndClear(cr_shift_to_k_evt)) {
+        } state update_cr_shift_to_k_conv
+
+        when (efTestAndClear(cl_shift_to_k_evt)) {
+        } state update_cl_shift_to_k_conv
+
+        when (efTestAndClear(k_to_energy_evt)) {
         } state update_k_to_energy_conv
 
 	when (efTestAndClear(parking_request_evt)) {
@@ -412,25 +676,103 @@ ss motion_control {
 
     }
 
-    state update_shift_to_k_conv {
+    state update_lv_shift_to_k_conv {
 
         entry {
 
-            /* Update Shift - K convertion table */
+            /* Update LV Shift to K convertion table */
 
             for (int i=0; i < ARR_SIVE_CONV_SHIFT_K; i++) {
-                double x = arr_conv_shift_k[0][i];
+                double x = arr_x_conv_shift_k[i];
 
                 // calculate corresponding y value
-                arr_conv_shift_k[1][i] = conv_shift_to_k_a8_sp * pow(x, 8)
-                                         + conv_shift_to_k_a7_sp * pow(x, 7)
-                                         + conv_shift_to_k_a6_sp * pow(x, 6)
-                                         + conv_shift_to_k_a5_sp * pow(x, 5)
-                                         + conv_shift_to_k_a4_sp * pow(x, 4)
-                                         + conv_shift_to_k_a3_sp * pow(x, 3)
-                                         + conv_shift_to_k_a2_sp * pow(x, 2)
-                                         + conv_shift_to_k_a1_sp * pow(x, 1)
-                                         + conv_shift_to_k_a0_sp;
+                arr_y_lv_conv_shift_k[i] = lv_shift_to_k_a8_sp * pow(x, 8)
+                                         + lv_shift_to_k_a7_sp * pow(x, 7)
+                                         + lv_shift_to_k_a6_sp * pow(x, 6)
+                                         + lv_shift_to_k_a5_sp * pow(x, 5)
+                                         + lv_shift_to_k_a4_sp * pow(x, 4)
+                                         + lv_shift_to_k_a3_sp * pow(x, 3)
+                                         + lv_shift_to_k_a2_sp * pow(x, 2)
+                                         + lv_shift_to_k_a1_sp * pow(x, 1)
+                                         + lv_shift_to_k_a0_sp;
+            }
+        }
+
+        when () {
+        } state ready
+    }
+
+    state update_lh_shift_to_k_conv {
+
+        entry {
+
+            /* Update LH Shift to K convertion table */
+
+            for (int i=0; i < ARR_SIVE_CONV_SHIFT_K; i++) {
+                double x = arr_x_conv_shift_k[i];
+
+                // calculate corresponding y value
+                arr_y_lh_conv_shift_k[i] = lh_shift_to_k_a8_sp * pow(x, 8)
+                                         + lh_shift_to_k_a7_sp * pow(x, 7)
+                                         + lh_shift_to_k_a6_sp * pow(x, 6)
+                                         + lh_shift_to_k_a5_sp * pow(x, 5)
+                                         + lh_shift_to_k_a4_sp * pow(x, 4)
+                                         + lh_shift_to_k_a3_sp * pow(x, 3)
+                                         + lh_shift_to_k_a2_sp * pow(x, 2)
+                                         + lh_shift_to_k_a1_sp * pow(x, 1)
+                                         + lh_shift_to_k_a0_sp;
+            }
+        }
+
+        when () {
+        } state ready
+    }
+
+    state update_cr_shift_to_k_conv {
+
+        entry {
+
+            /* Update CR Shift to K convertion table */
+
+            for (int i=0; i < ARR_SIVE_CONV_SHIFT_K; i++) {
+                double x = arr_x_conv_shift_k[i];
+
+                // calculate corresponding y value
+                arr_y_cr_conv_shift_k[i] = cr_shift_to_k_a8_sp * pow(x, 8)
+                                         + cr_shift_to_k_a7_sp * pow(x, 7)
+                                         + cr_shift_to_k_a6_sp * pow(x, 6)
+                                         + cr_shift_to_k_a5_sp * pow(x, 5)
+                                         + cr_shift_to_k_a4_sp * pow(x, 4)
+                                         + cr_shift_to_k_a3_sp * pow(x, 3)
+                                         + cr_shift_to_k_a2_sp * pow(x, 2)
+                                         + cr_shift_to_k_a1_sp * pow(x, 1)
+                                         + cr_shift_to_k_a0_sp;
+            }
+        }
+
+        when () {
+        } state ready
+    }
+
+    state update_cl_shift_to_k_conv {
+
+        entry {
+
+            /* Update CL Shift to K convertion table */
+
+            for (int i=0; i < ARR_SIVE_CONV_SHIFT_K; i++) {
+                double x = arr_x_conv_shift_k[i];
+
+                // calculate corresponding y value
+                arr_y_cl_conv_shift_k[i] = cl_shift_to_k_a8_sp * pow(x, 8)
+                                         + cl_shift_to_k_a7_sp * pow(x, 7)
+                                         + cl_shift_to_k_a6_sp * pow(x, 6)
+                                         + cl_shift_to_k_a5_sp * pow(x, 5)
+                                         + cl_shift_to_k_a4_sp * pow(x, 4)
+                                         + cl_shift_to_k_a3_sp * pow(x, 3)
+                                         + cl_shift_to_k_a2_sp * pow(x, 2)
+                                         + cl_shift_to_k_a1_sp * pow(x, 1)
+                                         + cl_shift_to_k_a0_sp;
             }
         }
 
@@ -442,29 +784,27 @@ ss motion_control {
 
         entry {
 
-            /* Update K - Energy convertion table */
+            /* Update K to Energy convertion table */
 
             for (int i=0; i < ARR_SIVE_CONV_K_ENERGY; i++) {
                 double x = arr_conv_k_energy[0][i];
 
                 // calculate corresponding y value
-                arr_conv_k_energy[1][i] = conv_k_to_energy_a8_sp * pow(x, 8)
-                                          + conv_k_to_energy_a7_sp * pow(x, 7)
-                                          + conv_k_to_energy_a6_sp * pow(x, 6)
-                                          + conv_k_to_energy_a5_sp * pow(x, 5)
-                                          + conv_k_to_energy_a4_sp * pow(x, 4)
-                                          + conv_k_to_energy_a3_sp * pow(x, 3)
-                                          + conv_k_to_energy_a2_sp * pow(x, 2)
-                                          + conv_k_to_energy_a1_sp * pow(x, 1)
-                                          + conv_k_to_energy_a0_sp;
+                arr_conv_k_energy[1][i] = k_to_energy_a8_sp * pow(x, 8)
+                                          + k_to_energy_a7_sp * pow(x, 7)
+                                          + k_to_energy_a6_sp * pow(x, 6)
+                                          + k_to_energy_a5_sp * pow(x, 5)
+                                          + k_to_energy_a4_sp * pow(x, 4)
+                                          + k_to_energy_a3_sp * pow(x, 3)
+                                          + k_to_energy_a2_sp * pow(x, 2)
+                                          + k_to_energy_a1_sp * pow(x, 1)
+                                          + k_to_energy_a0_sp;
             }
         }
 
         when () {
         } state ready
     }
-
-
 
     state change_pol {
 
@@ -714,7 +1054,11 @@ ss gain_sp_update {
 
     state init {
 
-        /* Init code goes here */
+        /* set shift_sp event flag so
+           that other set points are made
+           consistent with it. */
+
+        efSet(shift_sp_flg);
 
         when () {
         } state check_update
@@ -724,28 +1068,58 @@ ss gain_sp_update {
 
         when (efTestAndClear(shift_sp_flg)) {
 
-            /* update equivalent set points
-               to keep them consistent */
-//            k_sp = mm2k(shift_sp);
-//            energy_sp = mm2energy(shift_sp);
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            mm2k(pol_type_sel, shift_sp, &k_sp);
+            pvPut(k_sp, SYNC);
+            k2energy(pol_type_sel, k_sp, &energy_sp);
+            pvPut(energy_sp, SYNC);
+
+            // clear flags for PVs set here
+            efClear(k_sp_flg);
+            efClear(energy_sp_flg);
 
         } state check_update
 
         when (efTestAndClear(k_sp_flg)) {
 
-            /* update equivalent set points
-               to keep them consistent */
-//            shift_sp = k2mm(k_sp);
-//            energy_sp = k2energy(k_sp);
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            k2mm(pol_type_sel, k_sp, &shift_sp);
+            pvPut(shift_sp, SYNC);
+            k2energy(pol_type_sel, k_sp, &energy_sp);
+            pvPut(energy_sp, SYNC);
+
+            // clear flags for PVs set here
+            efClear(shift_sp_flg);
+            efClear(energy_sp_flg);
 
         } state check_update
 
         when (efTestAndClear(energy_sp_flg)) {
 
-            /* update equivalent set points
-               to keep them consistent */
-//            shift_sp = energy2mm(energy_sp);
-//            k_sp = energy2k(energy_sp);
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            energy2k(pol_type_sel, energy_sp, &k_sp);
+            pvPut(k_sp, SYNC);
+            k2mm(pol_type_sel, k_sp, &shift_sp);
+            pvPut(shift_sp, SYNC);
+
+            // clear flags for PVs set here
+            efClear(k_sp_flg);
+            efClear(shift_sp_flg);
 
         } state check_update
     }
