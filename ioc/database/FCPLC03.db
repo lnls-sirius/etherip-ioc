@@ -45,3 +45,17 @@ record(ai, "$(IOC):Hall:34-40"){
     field(DESC, "Temp. eixos 34 e 40 do Hall")
     field(SCAN, "1 second")
 }
+
+record(ai, "$(IOC):LL:49-50"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_27_1.val")
+    field(EGU, "ºC")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(IOC):LL:52-53"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_28_1.val")
+    field(EGU, "ºC")
+    field(SCAN, "1 second")
+}

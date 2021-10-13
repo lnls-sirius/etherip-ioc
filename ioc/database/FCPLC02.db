@@ -53,3 +53,31 @@ record(ai, "$(IOC):Hall:16-22"){
     field(DESC, "Temp. eixos 16 e 22 do Hall")
     field(SCAN, "1 second")
 }
+
+record(ai, "$(IOC):LL:39-40"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_23_1.val")
+    field(EGU, "ºC")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(IOC):LL:42-43"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_24_1.val")
+    field(EGU, "ºC")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(IOC):LL:44-45"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_25_1.val")
+    field(EGU, "ºC")
+    field(SCAN, "1 second")
+}
+
+record(ai, "$(IOC):LL:46-47"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_26_1.val")
+    field(EGU, "ºC")
+    field(SCAN, "1 second")
+}

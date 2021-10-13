@@ -26,7 +26,7 @@ drvEtherIP_init()
 EIP_verbosity(7)
 drvEtherIP_define_PLC("plc1", "$(DEVIP)", 0)
 
-dbLoadRecords("../../db/FCPLC03.db", "PLC=plc1, IOC=FCPLC03")
+dbLoadRecords("database/FCPLC03.db", "PLC=plc1, IOC=FCPLC03")
 iocInit()
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
