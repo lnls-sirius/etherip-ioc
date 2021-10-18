@@ -7,6 +7,7 @@ program sncSabia
 #define DELTA_PERIOD 52.5
 #define ARR_SIVE_CONV_SHIFT_K 1001
 #define ARR_SIVE_CONV_K_ENERGY 1001
+#define LOG_MON_SIZE 120
 
 double arr_x_conv_shift_k[ARR_SIVE_CONV_SHIFT_K];
 double arr_y_lv_conv_shift_k[ARR_SIVE_CONV_SHIFT_K];
@@ -372,6 +373,9 @@ monitor k_to_energy_a8_sp;
 %%//    Output PVs - High Level
 %%//----------------------------------------
 
+char[LOG_MON_SIZE] log_mon;
+assign log_mon to "{P}{R}Log-Mon";
+
 int enbl_low_lvl_ctrl_proc;
 assign enbl_low_lvl_ctrl_proc to "{P}{R}EnblLowLvlCtrl.PROC";
 
@@ -382,6 +386,10 @@ assign dsbl_low_lvl_ctrl_proc to "{P}{R}DsblLowLvlCtrl.PROC";
 %%//    Monitored PVs - Low Level
 %%//----------------------------------------
 
+int state_idx_mon;
+assign state_idx_mon to "{P}{R}StateIdx-Mon";
+monitor state_idx_mon;
+
 int motion_state_mon;
 assign motion_state_mon to "{P}{R}MotionState-Mon";
 monitor motion_state_mon;
@@ -389,6 +397,9 @@ monitor motion_state_mon;
 %%//----------------------------------------
 %%//    Output PVs - Low Level
 %%//----------------------------------------
+
+int rst_cmd;
+assign rst_cmd to "{P}{R}Rst-Cmd";
 
 int rel_pos_sp;
 assign rel_pos_sp to "{P}{R}RelPos-SP";
@@ -440,6 +451,7 @@ assign soft_trig_cmd to "{P}{R}SoftTrig-Cmd";
 foreign ssId;
 
 %%#include <unistd.h>
+%%#include <stdio.h>
 %%#include <string.h>
 %%#include <math.h>
 %%#include "Logger.h"
@@ -486,6 +498,26 @@ foreign ssId;
 // motion state
 %%#define MOTION_STATE_MOVING 0
 %%#define MOTION_STATE_DONE 1
+
+// clp state machine
+%%#define STATE_MACHINE_UNDEFINED 0
+%%#define STATE_MACHINE_CLEARING 1
+%%#define STATE_MACHINE_STOPPED 2
+%%#define STATE_MACHINE_STARTING 3
+%%#define STATE_MACHINE_IDLE 4
+%%#define STATE_MACHINE_SUSPENDED 5
+%%#define STATE_MACHINE_EXECUTE 6
+%%#define STATE_MACHINE_STOPPING 7
+%%#define STATE_MACHINE_ABORTING 8
+%%#define STATE_MACHINE_ABORTED 9
+%%#define STATE_MACHINE_HOLDING 10
+%%#define STATE_MACHINE_HELD 11
+%%#define STATE_MACHINE_UNHOLDING 12
+%%#define STATE_MACHINE_SUSPENDING 13
+%%#define STATE_MACHINE_UNSUSPENDING 14
+%%#define STATE_MACHINE_RESETTING 15
+%%#define STATE_MACHINE_COMPLETING 16
+%%#define STATE_MACHINE_COMPLETE 17
 
 %{
 
@@ -634,7 +666,43 @@ ss motion_control {
             }
 
             LOG_INFO("[%s%s] Initialization finished\n", macValueGet("P"), macValueGet("R"));
-	} state ready
+	} state waiting
+    }
+
+    state waiting {
+
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+        } state ready
+
+        when (state_idx_mon == STATE_MACHINE_STOPPED
+              || state_idx_mon == STATE_MACHINE_COMPLETE) {
+            
+            /* send reset command to
+               PLC state machine */
+            rst_cmd = 1;
+            pvPut(rst_cmd, SYNC);
+
+        } state waiting
+
+	when (efTest(parking_request_evt)
+              || efTest(change_pol_evt)
+              || efTest(change_gain_evt)
+              || efTest(start_escan_evt)) {
+
+            // clear flags
+            efClear(parking_request_evt);
+            efClear(change_pol_evt);
+            efClear(change_gain_evt);
+            efClear(start_escan_evt);
+
+            // print warning log message
+            strlcpy(log_mon,
+                    "Cannot start new move: PLC program state not IDLE",
+                    sizeof(log_mon));
+            pvPut(log_mon, SYNC);
+
+        } state waiting
+
     }
 
     state ready {
@@ -646,6 +714,9 @@ ss motion_control {
 	    efClear(start_escan_evt);
             efClear(parking_request_evt);
         }
+
+        when (state_idx_mon != STATE_MACHINE_IDLE) {
+        } state waiting
 
         when (efTestAndClear(lv_shift_to_k_evt)) {
         } state update_lv_shift_to_k_conv
@@ -882,7 +953,7 @@ ss motion_control {
         }
 
         when (delay(1.0) && motion_state_mon == MOTION_STATE_DONE) {
-        } state ready
+        } state waiting
     }
 
     state change_gain {
@@ -962,7 +1033,7 @@ ss motion_control {
         }
 
         when (delay(1.0) && motion_state_mon == MOTION_STATE_DONE) {
-        } state ready
+        } state waiting
     }
 
     state start_escan {
@@ -971,7 +1042,7 @@ ss motion_control {
         }
 
         when (delay(1.0) && motion_state_mon == MOTION_STATE_DONE) {
-        } state ready
+        } state waiting
     }
 
     state start_parking {
@@ -1045,7 +1116,7 @@ ss motion_control {
         }
 
         when (delay(1.0) && motion_state_mon == MOTION_STATE_DONE) {
-        } state ready
+        } state waiting
     }
 
 }

@@ -95,7 +95,9 @@ record(bi, "$(P)$(R)Moving-Mon"){
 record(waveform, "$(P)$(R)Log-Mon"){
     field(DESC, "IOC log message")
     field(FTVL, "CHAR")
-    field(NELM, "100")
+    # number of elem must be hardcoded
+    # in sncSabia.stt as well
+    field(NELM, "120")
 }
 
 record(bo, "$(P)$(R)Abort-Cmd"){
