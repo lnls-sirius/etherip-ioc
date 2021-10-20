@@ -22,7 +22,7 @@ record(ai, "$(IOC):Blindagem:18-20"){
     field(SCAN, ".1 second")
 }
 
-record(ai, "$(IOC):Blindagem:02-20"){
+record(ai, "$(IOC):Blindagem:20-02"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TEAMB_ST_614_10_ValMedia")
     field(EGU, "ºC")
