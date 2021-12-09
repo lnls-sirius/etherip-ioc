@@ -4,6 +4,30 @@
 
 cd "${TOP}"
 
+# PYTHONPATH points to folders where Python modules are.
+epicsEnvSet("PYTHONPATH","$(TOP)/etheripIOCApp/src/python")
+
+# maximum conversion table length
+epicsEnvSet("MAX_TABLE_LENGTH", 1001)
+
+# conversion table urls
+epicsEnvSet("LOC", "http://0.0.0.0/control-system-constants/data")
+epicsEnvSet("URL_LV", "${LOC}/delta_lv.txt")
+epicsEnvSet("URL_LH", "${LOC}/delta_lh.txt")
+epicsEnvSet("URL_CR", "${LOC}/delta_cr.txt")
+epicsEnvSet("URL_CL", "${LOC}/delta_cl.txt")
+
+# variables used by PyDevice to update PVs
+epicsEnvSet("XLVMM2K", "xLVmm2k")
+epicsEnvSet("XLHMM2K", "xLHmm2k")
+epicsEnvSet("XCRMM2K", "xCRmm2k")
+epicsEnvSet("XCLMM2K", "xCLmm2k")
+epicsEnvSet("YLVMM2K", "yLVmm2k")
+epicsEnvSet("YLHMM2K", "yLHmm2k")
+epicsEnvSet("YCRMM2K", "yCRmm2k")
+epicsEnvSet("YCLMM2K", "yCLmm2k")
+epicsEnvSet("UPDATESTS", "updateSts")
+
 # Load dbd, register the drvEtherIP .. commands
 dbLoadDatabase("dbd/etheripIOC.dbd")
 etheripIOC_registerRecordDeviceDriver(pdbbase)
@@ -30,7 +54,12 @@ dbLoadRecords("database/Delta_Global.db", "PREFIX_GLOBAL=${PREFIX_GLOBAL}, PLC=p
 dbLoadRecords("database/Delta_Mod01.db", "PREFIX_MOD01=${PREFIX_MOD01}, PLC=plc1")
 dbLoadRecords("database/Delta_Mod02.db", "PREFIX_MOD02=${PREFIX_MOD02}, PLC=plc1")
 dbLoadRecords("database/Delta_Mod03.db", "PREFIX_MOD03=${PREFIX_MOD03}, PLC=plc1")
-dbLoadRecords("database/Delta_Sabia.db", "P=${PREFIX_MOD01}, R=")
+dbLoadRecords("database/Delta_Sabia.db", "P=${PREFIX_MOD01}, R=, MAX_TABLE_LENGTH=${MAX_TABLE_LENGTH}, XLVMM2K=${XLVMM2K}, XLHMM2K=${XLHMM2K}, XCRMM2K=${XCRMM2K}, XCLMM2K=${XCLMM2K}, YLVMM2K=${YLVMM2K}, YLHMM2K=${YLHMM2K}, YCRMM2K=${YCRMM2K}, YCLMM2K=${YCLMM2K}, UPDATESTS=${UPDATESTS}")
+
+# PyDevice code init for http requests
+pydev("from deltaUtil import UnitConverter")
+pydev("tables = UnitConverter('${URL_LV}', '${XLVMM2K}', '${YLVMM2K}', '${URL_LH}', '${XLHMM2K}', '${YLHMM2K}', '${URL_CR}', '${XCRMM2K}', '${YCRMM2K}', '${URL_CL}', '${XCLMM2K}', '${YCLMM2K}', '${UPDATESTS}')")
+
 iocInit()
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2

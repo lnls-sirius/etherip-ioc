@@ -13,19 +13,23 @@ PROD_IOC = etheripIOC
 # etheripIOC.dbd will be created and installed
 DBD += etheripIOC.dbd
 
+# For PyDevice module
+SYS_PROD_LIBS += $(shell python-config --ldflags | sed 's/-[^l][^ ]*//g' | sed 's/-l//g')
+
 # etheripIOC.dbd will be made up from these files:
 etheripIOC_DBD += base.dbd
 etheripIOC_DBD += ether_ip.dbd
 etheripIOC_DBD += calcSupport.dbd
 etheripIOC_DBD += caPutLog.dbd
 etheripIOC_DBD += asSupport.dbd
-
+etheripIOC_DBD += pydev.dbd
 
 # Add all the support libraries needed by this IOC
 etheripIOC_LIBS += ether_ip
 etheripIOC_LIBS += calc
 etheripIOC_LIBS += caPutLog
 etheripIOC_LIBS += autosave
+etheripIOC_LIBS += pydev
 etheripIOC_LIBS += seq
 
 # | Option | Description |
