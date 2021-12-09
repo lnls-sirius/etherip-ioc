@@ -5,6 +5,7 @@ CAPUTLOG=${CAPUTLOG}
 AUTOSAVE=${AUTOSAVE}
 EPICS_BASE=${EPICS_BASE}
 SNCSEQ=${SNCSEQ}
+PYDEVICE=${PYDEVICE}
 
 # Set RULES here if you want to use build rules from somewhere
 # other than EPICS_BASE:

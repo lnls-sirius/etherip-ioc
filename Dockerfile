@@ -8,6 +8,7 @@ RUN set -ex; \
         tzdata \
         vim \
         wget \
+        python3-urllib3=1.24.1-1 \
         && rm -rf /var/lib/apt/lists/*  && \
     dpkg-reconfigure --frontend noninteractive tzdata
 
@@ -19,6 +20,17 @@ ENV EPICS_IOC_LOG_INET 0.0.0.0
 ENV EPICS_IOC_LOG_PORT 7011
 
 ENV IOC_PROCSERV_SOCK /opt/etheripIOC/sockets/ioc.sock
+
+# PyDevice
+RUN cd /opt &&\
+    git clone https://github.com/klemenv/PyDevice.git &&\
+    cd PyDevice &&\
+    git checkout 4b6afde9c8c70c223217ff439e9aa9d2927042b1 &&\
+    echo "EPICS_BASE=${EPICS_BASE}" > configure/RELEASE.local &&\
+    sed -i -e 's|^PYTHON_CONFIG=.*$|PYTHON_CONFIG=python3-config|' configure/CONFIG_SITE &&\
+    make
+
+ENV PYDEVICE /opt/PyDevice
 
 # EtherIP
 RUN cd ${EPICS_MODULES} &&\
