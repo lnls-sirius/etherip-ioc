@@ -74,10 +74,19 @@ record(bi, "$(P)$(R)Intlk-Mon"){
     field(ONAM, "Yes")
 }
 
+# set by sncSabia
+record(bi, "$(P)$(R)HighLvlMove-Mon"){
+    field(DESC, "Is high lvl motion in progress")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+    field(FLNK, "$(P)$(R)MovingCalc")
+}
+
 record(calc, "$(P)$(R)MovingCalc"){
     field(DESC, "Axes moving status calc")
-    field(INPA, "$(P)$(R)Mod01MotionState-Mon")
-    field(CALC, "!A")
+    field(INPA, "$(P)$(R)Mod01MotionState-Mon CPP")
+    field(INPB, "$(P)$(R)HighLvlMove-Mon")
+    field(CALC, "(!A) || B")
     field(FLNK, "$(P)$(R)Moving-Mon")
 }
 
