@@ -195,15 +195,6 @@ record(ao, "$(P)$(R)Energy-SP"){
     field(EGU,  "eV")
     field(DRVH, "")
     field(DRVL, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
     field(FLNK, "$(P)$(R)Energy-RB")
 }
 
@@ -212,15 +203,6 @@ record(ai, "$(P)$(R)Energy-RB"){
     field(DESC, "Energy value in Gain config RB")
     field(PREC, "3")
     field(EGU,  "eV")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
 }
 
 # read by sncSabia
@@ -231,15 +213,6 @@ record(ao, "$(P)$(R)K-SP"){
     field(EGU,  "ND")
     field(DRVH, "")
     field(DRVL, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
     field(FLNK, "$(P)$(R)K-RB")
 }
 
@@ -248,14 +221,6 @@ record(ai, "$(P)$(R)K-RB"){
     field(DESC, "K value in Gain config RB")
     field(PREC, "3")
     field(EGU,  "ND")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
     field(HYST, "")
 }
 
@@ -267,15 +232,6 @@ record(ao, "$(P)$(R)Shift-SP"){
     field(EGU,  "mm")
     field(DRVH, "")
     field(DRVL, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
     field(FLNK, "$(P)$(R)Shift-RB")
 }
 
@@ -284,15 +240,6 @@ record(ai, "$(P)$(R)Shift-RB"){
     field(DESC, "Shift value in Gain config RB")
     field(PREC, "3")
     field(EGU,  "mm")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
 }
 
 # axis CID relative position related to polarization
@@ -600,17 +547,6 @@ record(ao, "$(P)$(R)EScanStart-SP"){
     field(EGU,  "eV")
     field(DRVH, "")
     field(DRVL, "")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
     field(FLNK, "$(P)$(R)EScanStart-RB")
 }
 
@@ -619,17 +555,6 @@ record(ai, "$(P)$(R)EScanStart-RB"){
     field(DESC, "Energy scan start energy RB")
     field(PREC, "3")
     field(EGU,  "eV")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
 }
 
 # read by sncSabia
@@ -640,17 +565,6 @@ record(ao, "$(P)$(R)EScanEnd-SP"){
     field(EGU,  "eV")
     field(DRVH, "")
     field(DRVL, "")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
     field(FLNK, "$(P)$(R)EScanEnd-RB")
 }
 
@@ -659,17 +573,6 @@ record(ai, "$(P)$(R)EScanEnd-RB"){
     field(DESC, "Energy scan end energy RB")
     field(PREC, "3")
     field(EGU,  "eV")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
 }
 
 # read by sncSabia
@@ -717,17 +620,6 @@ record(ao, "$(P)$(R)PolModeVelo-SP"){
     field(EGU,  "mm/s")
     field(DRVH, "")
     field(DRVL, "0")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
     field(FLNK, "$(P)$(R)PolModeVelo-RB")
 }
 
@@ -736,17 +628,6 @@ record(ai, "$(P)$(R)PolModeVelo-RB"){
     field(DESC, "Polarity mode velocity RB")
     field(PREC, "3")
     field(EGU,  "mm/s")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
 }
 
 # read by sncSabia
@@ -757,17 +638,6 @@ record(ao, "$(P)$(R)PolModeAcc-SP"){
     field(EGU,  "mm/s^2")
     field(DRVH, "")
     field(DRVL, "0")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
     field(FLNK, "$(P)$(R)PolModeAcc-RB")
 }
 
@@ -776,17 +646,6 @@ record(ai, "$(P)$(R)PolModeAcc-RB"){
     field(DESC, "Polarity mode acceleration RB")
     field(PREC, "3")
     field(EGU,  "mm/s^2")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
 }
 
 # read by sncSabia
@@ -797,17 +656,6 @@ record(ao, "$(P)$(R)GainModeVelo-SP"){
     field(EGU,  "mm/s")
     field(DRVH, "")
     field(DRVL, "0")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
     field(FLNK, "$(P)$(R)GainModeVelo-RB")
 }
 
@@ -816,17 +664,6 @@ record(ai, "$(P)$(R)GainModeVelo-RB"){
     field(DESC, "Gain mode velocity RB")
     field(PREC, "3")
     field(EGU,  "mm/s")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
 }
 
 # read by sncSabia
@@ -837,17 +674,6 @@ record(ao, "$(P)$(R)GainModeAcc-SP"){
     field(EGU,  "mm/s^2")
     field(DRVH, "")
     field(DRVL, "0")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
     field(FLNK, "$(P)$(R)GainModeAcc-RB")
 }
 
@@ -856,17 +682,6 @@ record(ai, "$(P)$(R)GainModeAcc-RB"){
     field(DESC, "Gain mode acceleration RB")
     field(PREC, "3")
     field(EGU,  "mm/s^2")
-    field(HOPR, "")
-    field(LOPR, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(HYST, "")
 }
 
 ###########################################################
