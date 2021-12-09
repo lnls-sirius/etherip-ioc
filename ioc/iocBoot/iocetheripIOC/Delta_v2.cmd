@@ -62,4 +62,7 @@ pydev("tables = UnitConverter('${URL_LV}', '${XLVMM2K}', '${YLVMM2K}', '${URL_LH
 
 iocInit()
 
+## Start any sequence programs
+seq sncSabia, "P_MOD01=$(PREFIX_MOD01), P_GLOBAL=$(PREFIX_GLOBAL)"
+
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2

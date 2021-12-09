@@ -6,6 +6,15 @@ include $(TOP)/configure/CONFIG
 #=============================
 
 #=============================
+# Build an IOC support library
+LIBRARY_IOC += etheripIOCSupport
+
+etheripIOCSupport_SRCS += myUtil.c
+
+INC += myUtil.h
+
+etheripIOCSupport_LIBS += $(EPICS_BASE_IOC_LIBS)
+#=============================
 # Build the IOC application
 
 PROD_IOC = etheripIOC
@@ -31,6 +40,26 @@ etheripIOC_LIBS += caPutLog
 etheripIOC_LIBS += autosave
 etheripIOC_LIBS += pydev
 etheripIOC_LIBS += seq
+
+# To build SNL programs, SNCSEQ must be defined
+# in the <top>/configure/RELEASE file
+ifneq ($(SNCSEQ),)
+    # Build sncSabia into etheripIOCSupport
+    #sncSabia_SNCFLAGS += +r
+    sncSabia_SNCFLAGS += +W
+    sncSabia_SNCFLAGS += +c
+    sncSabia_SNCFLAGS += +s
+    sncSabia_SNCFLAGS += -a
+    etheripIOC_DBD += sncSabia.dbd
+    etheripIOCSupport_SRCS += sncSabiaProgram.st
+    etheripIOCSupport_LIBS += seq pv
+    etheripIOC_LIBS += seq pv
+
+
+endif
+
+# Link in the code from our support library
+etheripIOC_LIBS += etheripIOCSupport
 
 # | Option | Description |
 # | ------ | ----------- |
