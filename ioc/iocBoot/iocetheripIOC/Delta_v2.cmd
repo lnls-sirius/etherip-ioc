@@ -11,11 +11,11 @@ epicsEnvSet("PYTHONPATH","$(TOP)/etheripIOCApp/src/python")
 epicsEnvSet("MAX_TABLE_LENGTH", 1001)
 
 # conversion table urls
-epicsEnvSet("LOC", "http://0.0.0.0/control-system-constants/data")
-epicsEnvSet("URL_LV", "${LOC}/delta_lv.txt")
-epicsEnvSet("URL_LH", "${LOC}/delta_lh.txt")
-epicsEnvSet("URL_CR", "${LOC}/delta_cr.txt")
-epicsEnvSet("URL_CL", "${LOC}/delta_cl.txt")
+epicsEnvSet("LOC", "$(TABLE_URL_COMMON)")
+epicsEnvSet("URL_LV", "${LOC}/$(FILE_LV)")
+epicsEnvSet("URL_LH", "${LOC}/$(FILE_LH)")
+epicsEnvSet("URL_CR", "${LOC}/$(FILE_CR)")
+epicsEnvSet("URL_CL", "${LOC}/$(FILE_CL)")
 
 # variables used by PyDevice to update PVs
 epicsEnvSet("XLVMM2K", "xLVmm2k")

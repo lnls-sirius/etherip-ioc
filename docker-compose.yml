@@ -51,3 +51,9 @@ services:
       target: delta_v2
       labels:
         <<: *default-labels
+    environment:
+      - TABLE_URL_COMMON="http://0.0.0.0/example-constants/delta/mm2k-conv-tables"
+      - FILE_LV="LV-example.txt"
+      - FILE_LH="LH-example.txt"
+      - FILE_CR="CR-example.txt"
+      - FILE_CL="CL-example.txt"
