@@ -522,19 +522,36 @@ record(calc, "$(P)$(R)KToEnergyFlg"){
 ###########################################################
 # Energy Scan Control
 
-record(bo, "$(P)$(R)StartEScan-Cmd"){
-    field(DESC, "Start energy scan cmd")
+record(bo, "$(P)$(R)StartGainScan-Cmd"){
+    field(DESC, "Start gain scan cmd")
     field(SCAN, "Passive")
     field(ONAM, "Start")
     field(ZNAM, "Start")
-    field(FLNK, "$(P)$(R)StartEScanFlg")
+    field(FLNK, "$(P)$(R)StartGainScanFlg")
 }
 
 # read by sncSabia
-record(calc, "$(P)$(R)StartEScanFlg"){
-    field(DESC, "Start energy scan flag")
+record(calc, "$(P)$(R)StartGainScanFlg"){
+    field(DESC, "Start gain scan flag")
     field(CALC, "VAL+1")
     field(VAL, "0")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)GainScanDuration-SP"){
+    field(DESC, "Gain scan duration")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "sec")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)GainScanDuration-RB")
+}
+record(ai, "$(P)$(R)GainScanDuration-RB"){
+    field(INP, "$(P)$(R)GainScanDuration-SP")
+    field(DESC, "Gain scan duration RB")
+    field(PREC, "3")
+    field(EGU,  "sec")
 }
 
 # read by sncSabia
@@ -547,7 +564,6 @@ record(ao, "$(P)$(R)EScanStart-SP"){
     field(DRVL, "")
     field(FLNK, "$(P)$(R)EScanStart-RB")
 }
-
 record(ai, "$(P)$(R)EScanStart-RB"){
     field(INP, "$(P)$(R)EScanStart-SP")
     field(DESC, "Energy scan start energy RB")
@@ -565,7 +581,6 @@ record(ao, "$(P)$(R)EScanEnd-SP"){
     field(DRVL, "")
     field(FLNK, "$(P)$(R)EScanEnd-RB")
 }
-
 record(ai, "$(P)$(R)EScanEnd-RB"){
     field(INP, "$(P)$(R)EScanEnd-SP")
     field(DESC, "Energy scan end energy RB")
@@ -574,37 +589,71 @@ record(ai, "$(P)$(R)EScanEnd-RB"){
 }
 
 # read by sncSabia
-record(ao, "$(P)$(R)EScanDuration-SP"){
-    field(DESC, "Energy scan duration")
+record(ao, "$(P)$(R)KScanStart-SP"){
+    field(DESC, "K scan start value")
     field(SCAN, "Passive")
     field(PREC, "3")
-    field(EGU,  "sec")
+    field(EGU,  "ND")
     field(DRVH, "")
     field(DRVL, "")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
-    field(FLNK, "$(P)$(R)EScanDuration-RB")
+    field(FLNK, "$(P)$(R)KScanStart-RB")
+}
+record(ai, "$(P)$(R)KScanStart-RB"){
+    field(INP, "$(P)$(R)KScanStart-SP")
+    field(DESC, "K scan start value RB")
+    field(PREC, "3")
+    field(EGU,  "ND")
 }
 
-record(ai, "$(P)$(R)EScanDuration-RB"){
-    field(INP, "$(P)$(R)EScanDuration-SP")
-    field(DESC, "Energy scan duration RB")
+# read by sncSabia
+record(ao, "$(P)$(R)KScanEnd-SP"){
+    field(DESC, "K scan end value")
+    field(SCAN, "Passive")
     field(PREC, "3")
-    field(EGU,  "sec")
-    field(HIHI, "")
-    field(HIGH, "")
-    field(LOW, "")
-    field(LOLO, "")
-    field(HHSV, "")
-    field(HSV, "")
-    field(LSV, "")
-    field(LLSV, "")
+    field(EGU,  "ND")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)KScanEnd-RB")
+}
+record(ai, "$(P)$(R)KScanEnd-RB"){
+    field(INP, "$(P)$(R)KScanEnd-SP")
+    field(DESC, "K scan end value RB")
+    field(PREC, "3")
+    field(EGU,  "ND")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)SScanStart-SP"){
+    field(DESC, "Shift scan start position")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)SScanStart-RB")
+}
+record(ai, "$(P)$(R)SScanStart-RB"){
+    field(INP, "$(P)$(R)SScanStart-SP")
+    field(DESC, "Shift scan start position RB")
+    field(PREC, "3")
+    field(EGU,  "mm")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)SScanEnd-SP"){
+    field(DESC, "Shift scan end position")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)SScanEnd-RB")
+}
+record(ai, "$(P)$(R)SScanEnd-RB"){
+    field(INP, "$(P)$(R)SScanEnd-SP")
+    field(DESC, "Shift scan end position RB")
+    field(PREC, "3")
+    field(EGU,  "mm")
 }
 
 ###########################################################
