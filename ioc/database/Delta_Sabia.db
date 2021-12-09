@@ -121,8 +121,8 @@ record(ao, "$(P)$(R)PosTolerance-SP"){
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
-    field(DRVH, "")
-    field(DRVL, "")
+    field(DRVH, "1")
+    field(DRVL, "0")
     field(FLNK, "$(P)$(R)PosTolerance-RB")
 }
 
@@ -136,8 +136,6 @@ record(ai, "$(P)$(R)PosTolerance-RB"){
 record(bo, "$(P)$(R)ChangePol-Cmd"){
     field(DESC, "Change polarization cmd")
     field(SCAN, "Passive")
-    field(ONAM, "Start")
-    field(ZNAM, "Start")
     field(FLNK, "$(P)$(R)ChangePolFlg")
 }
 
@@ -618,7 +616,7 @@ record(ao, "$(P)$(R)PolModeVelo-SP"){
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s")
-    field(DRVH, "")
+    field(DRVH, "10")
     field(DRVL, "0")
     field(FLNK, "$(P)$(R)PolModeVelo-RB")
 }
@@ -636,7 +634,7 @@ record(ao, "$(P)$(R)PolModeAcc-SP"){
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s^2")
-    field(DRVH, "")
+    field(DRVH, "1000")
     field(DRVL, "0")
     field(FLNK, "$(P)$(R)PolModeAcc-RB")
 }
@@ -654,7 +652,7 @@ record(ao, "$(P)$(R)GainModeVelo-SP"){
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s")
-    field(DRVH, "")
+    field(DRVH, "10")
     field(DRVL, "0")
     field(FLNK, "$(P)$(R)GainModeVelo-RB")
 }
@@ -672,7 +670,7 @@ record(ao, "$(P)$(R)GainModeAcc-SP"){
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s^2")
-    field(DRVH, "")
+    field(DRVH, "1000")
     field(DRVL, "0")
     field(FLNK, "$(P)$(R)GainModeAcc-RB")
 }
@@ -693,8 +691,8 @@ record(ao, "$(P)$(R)MaxVelo-SP"){
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s")
-    field(DRVH, "")
-    field(DRVL, "0")
+    field(DRVH, "10")
+    field(DRVL, "0.001")
     field(FLNK, "$(P)$(R)MaxVelo-RB")
 }
 
@@ -703,6 +701,16 @@ record(ai, "$(P)$(R)MaxVelo-RB"){
     field(DESC, "Maximum velocity RB")
     field(PREC, "3")
     field(EGU,  "mm/s")
+    field(FLNK, "$(P)$(R)MaxVeloOut")
+}
+
+record(seq, "$(P)$(R)MaxVeloOut"){
+    field(DESC, "Apply max velo value")
+    field(SELM, "All")
+    field(DOL1, "$(P)$(R)MaxVelo-SP")
+    field(DOL2, "$(P)$(R)MaxVelo-SP")
+    field(LNK1, "$(P)$(R)PolModeVelo-SP.DRVH PP")
+    field(LNK2, "$(P)$(R)GainModeVelo-SP.DRVH PP")
 }
 
 # read by sncSabia
@@ -711,8 +719,8 @@ record(ao, "$(P)$(R)MaxAcc-SP"){
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm/s^2")
-    field(DRVH, "")
-    field(DRVL, "0")
+    field(DRVH, "1000")
+    field(DRVL, "0.001")
     field(FLNK, "$(P)$(R)MaxAcc-RB")
 }
 
@@ -721,6 +729,16 @@ record(ai, "$(P)$(R)MaxAcc-RB"){
     field(DESC, "Maximum acceleration RB")
     field(PREC, "3")
     field(EGU,  "mm/s^2")
+    field(FLNK, "$(P)$(R)MaxAccOut")
+}
+
+record(seq, "$(P)$(R)MaxAccOut"){
+    field(DESC, "Apply max acc value")
+    field(SELM, "All")
+    field(DOL1, "$(P)$(R)MaxAcc-SP")
+    field(DOL2, "$(P)$(R)MaxAcc-SP")
+    field(LNK1, "$(P)$(R)PolModeAcc-SP.DRVH PP")
+    field(LNK2, "$(P)$(R)GainModeAcc-SP.DRVH PP")
 }
 
 record(bi, "$(P)$(R)IsRemote-Mon"){
