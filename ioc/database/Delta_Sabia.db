@@ -112,16 +112,7 @@ record(waveform, "$(P)$(R)Log-Mon"){
 record(bo, "$(P)$(R)Abort-Cmd"){
     field(DESC, "Abort motion cmd")
     field(SCAN, "Passive")
-    field(ONAM, "Start")
-    field(ZNAM, "Start")
-    field(FLNK, "$(P)$(R)AbortFlg")
-}
-
-# read by sncSabia
-record(calc, "$(P)$(R)AbortFlg"){
-    field(DESC, "Abort motion flag")
-    field(CALC, "VAL+1")
-    field(VAL, "0")
+    field(OUT, "$(P)$(R)Stop-Cmd PP")
 }
 
 # read by sncSabia
