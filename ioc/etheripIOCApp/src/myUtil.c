@@ -177,6 +177,7 @@ int binarySearchDesc(double *arr, unsigned int lo, unsigned int up, double value
  -1: error: input value out of table bounds.
  -2: error: binary search failed.
  -3: error: division by zero when calculating slope.
+ -4: error: invalid conversion arrays size.
 
 */
 char interpolateFromTable(double *arrX, double *arrY, 
@@ -184,7 +185,12 @@ char interpolateFromTable(double *arrX, double *arrY,
 {
     // variables
     int index;
-    double slope; 
+    double slope;
+
+    // check array size
+    if (arrSize < 2) {
+        return -4;
+    }
 
     //search index
     if (arrX[0] < arrX[arrSize-1]){
