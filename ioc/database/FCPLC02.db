@@ -1,0 +1,92 @@
+record(ai, "$(IOC):Blindagem:14-16"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_04_ValMedia")
+    field(EGU, "ºC")
+    field(DESC, "Temp eixos 14 a 16 blindagem")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "$(IOC):Blindagem:16-18"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_06_ValMedia")
+    field(EGU, "ºC")
+    field(DESC, "Temp eixos 16 a 18 blindagem")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "$(IOC):Blindagem:18-20"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_08_ValMedia")
+    field(EGU, "ºC")
+    field(DESC, "Temp eixos 18 a 20 blindagem")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "$(IOC):Blindagem:20-02"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_10_ValMedia")
+    field(EGU, "ºC")
+    field(DESC, "Temp eixos 20 a 22 blindagem")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "$(IOC):Hall:04-10"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC1_614_05_1.PV")
+    field(EGU, "ºC")
+    field(DESC, "Temp. eixos 04 e 10 do Hall")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "$(IOC):Hall:10-16"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC1_614_07_1.PV")
+    field(EGU, "ºC")
+    field(DESC, "Temp. eixos 10 e 16 do Hall")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "$(IOC):Hall:58-04"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC1_614_03_1.PV")
+    field(EGU, "ºC")
+    field(DESC, "Temp. eixos 10 e 16 do Hall")
+    field(SCAN, ".1 second")
+}
+
+
+record(ai, "$(IOC):Hall:16-22"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC1_614_09_1.PV")
+    field(EGU, "ºC")
+    field(DESC, "Temp. eixos 16 e 22 do Hall")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "$(IOC):LL:39-40"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_23_1.val")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "$(IOC):LL:42-43"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_24_1.val")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "$(IOC):LL:44-45"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_25_1.val")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "$(IOC):LL:46-47"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TEAMB_ST_614_26_1.val")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
