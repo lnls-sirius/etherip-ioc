@@ -23,7 +23,7 @@ PROD_IOC = etheripIOC
 DBD += etheripIOC.dbd
 
 # For PyDevice module
-SYS_PROD_LIBS += $(shell python-config --ldflags | sed 's/-[^l][^ ]*//g' | sed 's/-l//g')
+SYS_PROD_LIBS += $(shell python3-config --ldflags --embed | sed 's/-[^l][^ ]*//g' | sed 's/-l//g')
 
 # etheripIOC.dbd will be made up from these files:
 etheripIOC_DBD += base.dbd

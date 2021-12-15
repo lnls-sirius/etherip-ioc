@@ -13,8 +13,12 @@ x-labels:
 
 services:
   etherip:
-    build: .
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-base:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      target: base
+      labels:
+        <<: *default-labels
 
   rf-bo:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-bo:${COMMIT_HASH}-${BUILD_DATE}

@@ -1,11 +1,12 @@
 # EPICS_BASE should appear last so earlier modules can override stuff:
-ETHER_IP=${ETHER_IP}
-CALC=${CALC}
-CAPUTLOG=${CAPUTLOG}
-AUTOSAVE=${AUTOSAVE}
-EPICS_BASE=${EPICS_BASE}
-SNCSEQ=${SNCSEQ}
-PYDEVICE=${PYDEVICE}
+AUTOSAVE    = ${AUTOSAVE}
+CALC        = ${CALC}
+CAPUTLOG    = ${CAPUTLOG}
+ETHER_IP    = ${ETHER_IP}
+PYDEVICE    = ${PYDEVICE}
+SNCSEQ      = ${SNCSEQ}
+
+EPICS_BASE  = ${EPICS_BASE}
 
 # Set RULES here if you want to use build rules from somewhere
 # other than EPICS_BASE:
