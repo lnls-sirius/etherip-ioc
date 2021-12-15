@@ -1,0 +1,900 @@
+###########################################################
+# General Information
+
+record(calc, "$(P)$(R)IsOperationalCalc"){
+    field(DESC, "System is operational status calc")
+    field(INPA, "$(P)$(R)MotorsEnbld-Mon CPP")
+#    field(INPB, " critical alarms CPP")
+#    field(CALC, "A && B")
+    field(CALC, "A")
+    field(FLNK, "$(P)$(R)IsOperational-Mon")
+}
+
+record(bi, "$(P)$(R)IsOperational-Mon"){
+    field(DESC, "System is operational status")
+    field(INP, "$(P)$(R)IsOperationalCalc")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+}
+
+record(calc, "$(P)$(R)MotorsEnbldCalc"){
+    field(DESC, "Motors enabled status calc")
+#    field(INPA, "axis CSD CPP")
+#    field(INPB, "axis CSE CPP")
+#    field(INPC, "axis CIE CPP")
+#    field(INPD, "axis CID CPP")
+#    field(CALC, "A && B && C && D")
+    field(FLNK, "$(P)$(R)MotorsEnbld-Mon")
+}
+
+record(bi, "$(P)$(R)MotorsEnbld-Mon"){
+    field(DESC, "Motors enabled status")
+    field(INP, "$(P)$(R)MotorsEnbldCalc")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+}
+
+record(calc, "$(P)$(R)AlarmBits-Mon"){
+    field(DESC, "Combined alarm status calc")
+#    field(INPA, "alarm 1 CPP")
+#    field(INPB, "alarm 2 CPP")
+#    field(INPC, "alarm 3 CPP")
+#    field(INPD, "alarm 4 CPP")
+#    field(INPE, "alarm 5 CPP")
+#    field(INPF, "alarm 6 CPP")
+#    field(INPG, "alarm 7 CPP")
+#    field(CALC, "A+(B<<1)+(C<<2)+(D<<3)+(E<<4)+(F<<5)+(G<<6)")
+    field(FLNK, "$(P)$(R)Alarm-Mon")
+}
+
+record(bi, "$(P)$(R)Alarm-Mon"){
+    field(DESC, "Combined alarm status")
+    field(INP, "$(P)$(R)AlarmBits-Mon")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+}
+
+record(calc, "$(P)$(R)IntlkBits-Mon"){
+    field(DESC, "Combined interlock status calc")
+#    field(INPA, "intlk status 1 CPP")
+#    field(INPB, "intlk status 2 CPP")
+#    field(INPC, "intlk status 3 CPP")
+#    field(INPD, "intlk status 4 CPP")
+#    field(INPE, "intlk status 5 CPP")
+#    field(INPF, "intlk status 6 CPP")
+#    field(INPG, "intlk status 7 CPP")
+#    field(CALC, "A+(B<<1)+(C<<2)+(D<<3)+(E<<4)+(F<<5)+(G<<6)")
+    field(FLNK, "$(P)$(R)Intlk-Mon")
+}
+
+record(bi, "$(P)$(R)Intlk-Mon"){
+    field(DESC, "Combined interlock status")
+    field(INP, "$(P)$(R)IntlkBits-Mon")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+}
+
+# set by sncSabia
+record(bi, "$(P)$(R)HighLvlMove-Mon"){
+    field(DESC, "Is high lvl motion in progress")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+    field(FLNK, "$(P)$(R)MovingCalc")
+}
+
+record(calc, "$(P)$(R)MovingCalc"){
+    field(DESC, "Axes moving status calc")
+    field(INPA, "$(P)$(R)Mod01MotionState-Mon CPP")
+    field(INPB, "$(P)$(R)HighLvlMove-Mon")
+    field(CALC, "(!A) || B")
+    field(FLNK, "$(P)$(R)Moving-Mon")
+}
+
+record(bi, "$(P)$(R)Moving-Mon"){
+    field(DESC, "Axes moving status")
+    field(INP, "$(P)$(R)MovingCalc")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+}
+
+###########################################################
+# Basic Undulator Controls
+
+# set by sncSabia
+record(waveform, "$(P)$(R)Log-Mon"){
+    field(DESC, "IOC log message")
+    field(FTVL, "CHAR")
+    # number of elem must be hardcoded
+    # in sncSabia.stt as well
+    field(NELM, "301")
+}
+
+record(bo, "$(P)$(R)Abort-Cmd"){
+    field(DESC, "Abort motion cmd")
+    field(SCAN, "Passive")
+    field(OUT, "$(P)$(R)Stop-Cmd PP")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)PosTolerance-SP"){
+    field(DESC, "Position tolerance")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm")
+    field(DRVH, "1")
+    field(DRVL, "0")
+    field(FLNK, "$(P)$(R)PosTolerance-RB")
+}
+
+record(ai, "$(P)$(R)PosTolerance-RB"){
+    field(INP, "$(P)$(R)PosTolerance-SP")
+    field(DESC, "Position tolerance RB")
+    field(PREC, "3")
+    field(EGU,  "mm")
+}
+
+record(bo, "$(P)$(R)ChangePol-Cmd"){
+    field(DESC, "Change polarization cmd")
+    field(SCAN, "Passive")
+    field(FLNK, "$(P)$(R)ChangePolFlg")
+}
+
+# read by sncSabia
+record(calc, "$(P)$(R)ChangePolFlg"){
+    field(DESC, "Change polarization flag")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
+}
+
+# read by sncSabia
+record(mbbo, "$(P)$(R)PolType-Sel"){
+    field(DESC, "Polarization type")
+    field(SCAN, "Passive")
+    field(OMSL, "supervisory")
+    field(IVOA, "Don't drive outputs")
+    field(UNSV, "MINOR")
+    field(ZRST, "Circ right")
+    field(ONST, "Circ left")
+    field(TWST, "Linear vert")
+    field(THST, "Linear hor")
+    field(FLNK, "$(P)$(R)PolType-Sts")
+}
+
+record(mbbi, "$(P)$(R)PolType-Sts"){
+    field(INP, "$(P)$(R)PolType-Sel")
+    field(DESC, "Polarization type sts")
+    field(UNSV, "MINOR")
+    field(ZRST, "Circ right")
+    field(ONST, "Circ left")
+    field(TWST, "Linear vert")
+    field(THST, "Linear hor")
+}
+
+record(bo, "$(P)$(R)ChangeGain-Cmd"){
+    field(DESC, "Change undulator gain cmd")
+    field(SCAN, "Passive")
+    field(ONAM, "Start")
+    field(ZNAM, "Start")
+    field(FLNK, "$(P)$(R)ChangeGainFlg")
+}
+
+# read by sncSabia
+record(calc, "$(P)$(R)ChangeGainFlg"){
+    field(DESC, "Change gain flag")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)Energy-SP"){
+    field(DESC, "Energy value in Gain config")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "eV")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)Energy-RB")
+}
+
+record(ai, "$(P)$(R)Energy-RB"){
+    field(INP, "$(P)$(R)Energy-SP")
+    field(DESC, "Energy value in Gain config RB")
+    field(PREC, "3")
+    field(EGU,  "eV")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)K-SP"){
+    field(DESC, "K value in Gain config")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "ND")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)K-RB")
+}
+
+record(ai, "$(P)$(R)K-RB"){
+    field(INP, "$(P)$(R)K-SP")
+    field(DESC, "K value in Gain config RB")
+    field(PREC, "3")
+    field(EGU,  "ND")
+    field(HYST, "")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)Shift-SP"){
+    field(DESC, "Shift value in Gain config")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)Shift-RB")
+}
+
+record(ai, "$(P)$(R)Shift-RB"){
+    field(INP, "$(P)$(R)Shift-SP")
+    field(DESC, "Shift value in Gain config RB")
+    field(PREC, "3")
+    field(EGU,  "mm")
+}
+
+# axis CID relative position related to polarization
+record(calc, "$(P)$(R)PolShift-Mon"){
+    field(DESC, "Position shift in pol mode mon")
+    field(EGU, "mm")
+    field(PREC, "3")
+    # monitor axis that move only in Phase mode
+    field(INPA, "$(P)$(R)Mod01PhyCIDActualPos-Mon CPP")
+    # no conversion is needed
+    field(CALC, "A")
+}
+
+# axis CID position defines degree of polarization
+record(calc, "$(P)$(R)PolCalc"){
+    field(DESC, "Polarization mon calc")
+    field(PREC, "4")
+    # monitor axis that move only in Phase mode
+    field(INPA, "$(P)$(R)Mod01PhyCIDActualPos-Mon CPP")
+    field(INPB, "$(P)$(R)PosTolerance-SP")
+    field(INPC, "-13.125")
+    field(INPD, "13.125")
+    field(INPE, "-26.25")
+    field(INPF, "0")
+    field(CALC, "abs(A-C)<B?0:(abs(A-D)<B?1:(abs(A-E)<B?2:(abs(A-F)<B?3:4)))")
+    field(FLNK, "$(P)$(R)Pol-Mon")
+}
+
+record(mbbi, "$(P)$(R)Pol-Mon"){
+    field(INP, "$(P)$(R)PolCalc")
+    field(DESC, "Polarization mon")
+    field(ZRST, "Circ right")
+    field(ONST, "Circ left")
+    field(TWST, "Linear vert")
+    field(THST, "Linear hor")
+    field(FRST, "Changing")
+}
+
+# axis CIE relative position related to gain (energy)
+record(calc, "$(P)$(R)GainShift-Mon"){
+    field(DESC, "Position shift in gain mode mon")
+    field(EGU, "mm")
+    field(PREC, "3")
+    # monitor axis that move only in gain mode
+    field(INPA, "$(P)$(R)Mod01PhyCIEActualPos-Mon CPP")
+    # no conversion is needed
+    field(CALC, "A")
+}
+
+# set by sncSabia
+record(calc, "$(P)$(R)K-Mon"){
+    field(DESC, "K mon")
+    field(EGU, "ND")
+    field(PREC, "3")
+}
+
+# axis CIE position defines energy value (in GH mode)
+record(calc, "$(P)$(R)Energy-Mon"){
+    field(DESC, "Energy mon")
+    field(EGU, "eV")
+    field(PREC, "3")
+    # monitor K value
+    field(INPA, "$(P)$(R)K-Mon CPP")
+    field(INPB, "$(P)$(R)KToEnergyA0-SP")
+    field(INPC, "$(P)$(R)KToEnergyA1-SP")
+    field(INPD, "$(P)$(R)KToEnergyA2-SP")
+    field(INPE, "$(P)$(R)KToEnergyA3-SP")
+    field(INPF, "$(P)$(R)KToEnergyA4-SP")
+    field(INPG, "$(P)$(R)KToEnergyA5-SP")
+    field(INPH, "$(P)$(R)KToEnergyA6-SP")
+    field(INPI, "$(P)$(R)KToEnergyA7-SP")
+    field(INPJ, "$(P)$(R)KToEnergyA8-SP")
+    # convert from K to eV
+    field(CALC, "J*A^8+I*A^7+H*A^6+G*A^5+F*A^4+E*A^3+D*A^2+C*A+B")
+}
+
+###########################################################
+# Conversion Tables
+
+# update table cmd
+record(bo, "$(P)$(R)UpdateConvTables-Cmd"){
+    field(DESC, "Update table cmd")
+    field(PINI, "YES")
+    field(DTYP, "pydev")
+    field(OUT, "@tables.update()")
+}
+
+# table update status
+record(bi, "$(P)$(R)UpdateStatus-Mon"){
+    field(DESC, "Table update status")
+    field(DTYP, "pydev")
+    field(INP, "@pydev.iointr('$(UPDATESTS)')")
+    field(SCAN, "I/O Intr")
+    field(ZNAM, "Invalid")
+    field(ONAM, "Ok")
+}
+
+# Linear Vertical Table
+record(waveform, "$(P)$(R)xLVmm2k-Cte"){
+    field(DESC, "mm2k LV conversion x array")
+    field(ASG, "Protected")
+    field(DTYP, "pydev")
+    field(INP, "@pydev.iointr('$(XLVMM2K)')")
+    field(SCAN, "I/O Intr")
+    field(NELM, "$(MAX_TABLE_LENGTH)")
+    field(FTVL, "DOUBLE")
+}
+
+record(waveform, "$(P)$(R)yLVmm2k-Cte"){
+    field(DESC, "mm2k LV conversion y array")
+    field(ASG, "Protected")
+    field(DTYP, "pydev")
+    field(INP, "@pydev.iointr('$(YLVMM2K)')")
+    field(SCAN, "I/O Intr")
+    field(NELM, "$(MAX_TABLE_LENGTH)")
+    field(FTVL, "DOUBLE")
+}
+
+# Linear Horizontal Table
+record(waveform, "$(P)$(R)xLHmm2k-Cte"){
+    field(DESC, "mm2k LH conversion x array")
+    field(ASG, "Protected")
+    field(DTYP, "pydev")
+    field(INP, "@pydev.iointr('$(XLHMM2K)')")
+    field(SCAN, "I/O Intr")
+    field(NELM, "$(MAX_TABLE_LENGTH)")
+    field(FTVL, "DOUBLE")
+}
+
+record(waveform, "$(P)$(R)yLHmm2k-Cte"){
+    field(DESC, "mm2k LH conversion y array")
+    field(ASG, "Protected")
+    field(DTYP, "pydev")
+    field(INP, "@pydev.iointr('$(YLHMM2K)')")
+    field(SCAN, "I/O Intr")
+    field(NELM, "$(MAX_TABLE_LENGTH)")
+    field(FTVL, "DOUBLE")
+}
+
+# Circular Right Table
+record(waveform, "$(P)$(R)xCRmm2k-Cte"){
+    field(DESC, "mm2k CR conversion x array")
+    field(ASG, "Protected")
+    field(DTYP, "pydev")
+    field(INP, "@pydev.iointr('$(XCRMM2K)')")
+    field(SCAN, "I/O Intr")
+    field(NELM, "$(MAX_TABLE_LENGTH)")
+    field(FTVL, "DOUBLE")
+}
+
+record(waveform, "$(P)$(R)yCRmm2k-Cte"){
+    field(DESC, "mm2k CR conversion y array")
+    field(ASG, "Protected")
+    field(DTYP, "pydev")
+    field(INP, "@pydev.iointr('$(YCRMM2K)')")
+    field(SCAN, "I/O Intr")
+    field(NELM, "$(MAX_TABLE_LENGTH)")
+    field(FTVL, "DOUBLE")
+}
+
+# Circular Left Table
+record(waveform, "$(P)$(R)xCLmm2k-Cte"){
+    field(DESC, "mm2k CL conversion x array")
+    field(ASG, "Protected")
+    field(DTYP, "pydev")
+    field(INP, "@pydev.iointr('$(XCLMM2K)')")
+    field(SCAN, "I/O Intr")
+    field(NELM, "$(MAX_TABLE_LENGTH)")
+    field(FTVL, "DOUBLE")
+}
+
+record(waveform, "$(P)$(R)yCLmm2k-Cte"){
+    field(DESC, "mm2k CL conversion y array")
+    field(ASG, "Protected")
+    field(DTYP, "pydev")
+    field(INP, "@pydev.iointr('$(YCLMM2K)')")
+    field(SCAN, "I/O Intr")
+    field(NELM, "$(MAX_TABLE_LENGTH)")
+    field(FTVL, "DOUBLE")
+}
+
+## K to energy coefficients
+# read by sncSabia
+
+record(ao, "$(P)$(R)KToEnergyA0-SP"){
+    field(DESC, "Conv from K to energy polyn. a0")
+    field(FLNK, "$(P)$(R)KToEnergyA0-RB")
+}
+record(ai, "$(P)$(R)KToEnergyA0-RB"){
+    field(INP, "$(P)$(R)KToEnergyA0-SP")
+    field(DESC, "Conv from K to energy polyn. a0 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA1-SP"){
+    field(DESC, "Conv from K to energy polyn. a1")
+    field(FLNK, "$(P)$(R)KToEnergyA1-RB")
+}
+record(ai, "$(P)$(R)KToEnergyA1-RB"){
+    field(INP, "$(P)$(R)KToEnergyA1-SP")
+    field(DESC, "Conv from K to energy polyn. a1 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA2-SP"){
+    field(DESC, "Conv from K to energy polyn. a2")
+    field(FLNK, "$(P)$(R)KToEnergyA2-RB")
+}
+record(ai, "$(P)$(R)KToEnergyA2-RB"){
+    field(INP, "$(P)$(R)KToEnergyA2-SP")
+    field(DESC, "Conv from K to energy polyn. a2 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA3-SP"){
+    field(DESC, "Conv from K to energy polyn. a3")
+    field(FLNK, "$(P)$(R)KToEnergyA3-RB")
+}
+record(ai, "$(P)$(R)KToEnergyA3-RB"){
+    field(INP, "$(P)$(R)KToEnergyA3-SP")
+    field(DESC, "Conv from K to energy polyn. a3 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA4-SP"){
+    field(DESC, "Conv from K to energy polyn. a4")
+    field(FLNK, "$(P)$(R)KToEnergyA4-RB")
+}
+record(ai, "$(P)$(R)KToEnergyA4-RB"){
+    field(INP, "$(P)$(R)KToEnergyA4-SP")
+    field(DESC, "Conv from K to energy polyn. a4 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA5-SP"){
+    field(DESC, "Conv from K to energy polyn. a5")
+    field(FLNK, "$(P)$(R)KToEnergyA5-RB")
+}
+record(ai, "$(P)$(R)KToEnergyA5-RB"){
+    field(INP, "$(P)$(R)KToEnergyA5-SP")
+    field(DESC, "Conv from K to energy polyn. a5 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA6-SP"){
+    field(DESC, "Conv from K to energy polyn. a6")
+    field(FLNK, "$(P)$(R)KToEnergyA6-RB")
+}
+record(ai, "$(P)$(R)KToEnergyA6-RB"){
+    field(INP, "$(P)$(R)KToEnergyA6-SP")
+    field(DESC, "Conv from K to energy polyn. a6 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA7-SP"){
+    field(FLNK, "$(P)$(R)KToEnergyA7-RB")
+    field(DESC, "Conv from K to energy polyn. a7")
+}
+record(ai, "$(P)$(R)KToEnergyA7-RB"){
+    field(INP, "$(P)$(R)KToEnergyA7-SP")
+    field(DESC, "Conv from K to energy polyn. a7 RB")
+}
+
+record(ao, "$(P)$(R)KToEnergyA8-SP"){
+    field(FLNK, "$(P)$(R)KToEnergyA8-RB")
+    field(DESC, "Conv from K to energy polyn. a8")
+}
+record(ai, "$(P)$(R)KToEnergyA8-RB"){
+    field(INP, "$(P)$(R)KToEnergyA8-SP")
+    field(DESC, "Conv from K to energy polyn. a8 RB")
+}
+
+# read by sncSabia
+record(calc, "$(P)$(R)KToEnergyFlg"){
+    field(DESC, "Show when conv k-energy changed")
+    field(INPA, "$(P)$(R)KToEnergyA0-SP CPP")
+    field(INPB, "$(P)$(R)KToEnergyA1-SP CPP")
+    field(INPC, "$(P)$(R)KToEnergyA2-SP CPP")
+    field(INPD, "$(P)$(R)KToEnergyA3-SP CPP")
+    field(INPE, "$(P)$(R)KToEnergyA4-SP CPP")
+    field(INPF, "$(P)$(R)KToEnergyA5-SP CPP")
+    field(INPG, "$(P)$(R)KToEnergyA6-SP CPP")
+    field(INPH, "$(P)$(R)KToEnergyA7-SP CPP")
+    field(INPI, "$(P)$(R)KToEnergyA8-SP CPP")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
+}
+
+###########################################################
+# Energy Scan Control
+
+record(bo, "$(P)$(R)StartGainScan-Cmd"){
+    field(DESC, "Start gain scan cmd")
+    field(SCAN, "Passive")
+    field(ONAM, "Start")
+    field(ZNAM, "Start")
+    field(FLNK, "$(P)$(R)StartGainScanFlg")
+}
+
+# read by sncSabia
+record(calc, "$(P)$(R)StartGainScanFlg"){
+    field(DESC, "Start gain scan flag")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)GainScanDuration-SP"){
+    field(DESC, "Gain scan duration")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "sec")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)GainScanDuration-RB")
+}
+record(ai, "$(P)$(R)GainScanDuration-RB"){
+    field(INP, "$(P)$(R)GainScanDuration-SP")
+    field(DESC, "Gain scan duration RB")
+    field(PREC, "3")
+    field(EGU,  "sec")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)EScanStart-SP"){
+    field(DESC, "Energy scan start energy")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "eV")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)EScanStart-RB")
+}
+record(ai, "$(P)$(R)EScanStart-RB"){
+    field(INP, "$(P)$(R)EScanStart-SP")
+    field(DESC, "Energy scan start energy RB")
+    field(PREC, "3")
+    field(EGU,  "eV")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)EScanEnd-SP"){
+    field(DESC, "Energy scan end energy")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "eV")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)EScanEnd-RB")
+}
+record(ai, "$(P)$(R)EScanEnd-RB"){
+    field(INP, "$(P)$(R)EScanEnd-SP")
+    field(DESC, "Energy scan end energy RB")
+    field(PREC, "3")
+    field(EGU,  "eV")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)KScanStart-SP"){
+    field(DESC, "K scan start value")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "ND")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)KScanStart-RB")
+}
+record(ai, "$(P)$(R)KScanStart-RB"){
+    field(INP, "$(P)$(R)KScanStart-SP")
+    field(DESC, "K scan start value RB")
+    field(PREC, "3")
+    field(EGU,  "ND")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)KScanEnd-SP"){
+    field(DESC, "K scan end value")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "ND")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)KScanEnd-RB")
+}
+record(ai, "$(P)$(R)KScanEnd-RB"){
+    field(INP, "$(P)$(R)KScanEnd-SP")
+    field(DESC, "K scan end value RB")
+    field(PREC, "3")
+    field(EGU,  "ND")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)SScanStart-SP"){
+    field(DESC, "Shift scan start position")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)SScanStart-RB")
+}
+record(ai, "$(P)$(R)SScanStart-RB"){
+    field(INP, "$(P)$(R)SScanStart-SP")
+    field(DESC, "Shift scan start position RB")
+    field(PREC, "3")
+    field(EGU,  "mm")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)SScanEnd-SP"){
+    field(DESC, "Shift scan end position")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm")
+    field(DRVH, "")
+    field(DRVL, "")
+    field(FLNK, "$(P)$(R)SScanEnd-RB")
+}
+record(ai, "$(P)$(R)SScanEnd-RB"){
+    field(INP, "$(P)$(R)SScanEnd-SP")
+    field(DESC, "Shift scan end position RB")
+    field(PREC, "3")
+    field(EGU,  "mm")
+}
+
+###########################################################
+# General Motion Parameters
+
+# read by sncSabia
+record(ao, "$(P)$(R)PolModeVelo-SP"){
+    field(DESC, "Polarity mode velocity")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm/s")
+    field(DRVH, "10")
+    field(DRVL, "0")
+    field(FLNK, "$(P)$(R)PolModeVelo-RB")
+}
+
+record(ai, "$(P)$(R)PolModeVelo-RB"){
+    field(INP, "$(P)$(R)PolModeVelo-SP")
+    field(DESC, "Polarity mode velocity RB")
+    field(PREC, "3")
+    field(EGU,  "mm/s")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)PolModeAcc-SP"){
+    field(DESC, "Polarity mode acceleration")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm/s^2")
+    field(DRVH, "1000")
+    field(DRVL, "0")
+    field(FLNK, "$(P)$(R)PolModeAcc-RB")
+}
+
+record(ai, "$(P)$(R)PolModeAcc-RB"){
+    field(INP, "$(P)$(R)PolModeAcc-SP")
+    field(DESC, "Polarity mode acceleration RB")
+    field(PREC, "3")
+    field(EGU,  "mm/s^2")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)GainModeVelo-SP"){
+    field(DESC, "Gain mode velocity")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm/s")
+    field(DRVH, "10")
+    field(DRVL, "0")
+    field(FLNK, "$(P)$(R)GainModeVelo-RB")
+}
+
+record(ai, "$(P)$(R)GainModeVelo-RB"){
+    field(INP, "$(P)$(R)GainModeVelo-SP")
+    field(DESC, "Gain mode velocity RB")
+    field(PREC, "3")
+    field(EGU,  "mm/s")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)GainModeAcc-SP"){
+    field(DESC, "Gain mode acceleration")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm/s^2")
+    field(DRVH, "1000")
+    field(DRVL, "0")
+    field(FLNK, "$(P)$(R)GainModeAcc-RB")
+}
+
+record(ai, "$(P)$(R)GainModeAcc-RB"){
+    field(INP, "$(P)$(R)GainModeAcc-SP")
+    field(DESC, "Gain mode acceleration RB")
+    field(PREC, "3")
+    field(EGU,  "mm/s^2")
+}
+
+###########################################################
+# Restrictions and Protection
+
+# read by sncSabia
+record(ao, "$(P)$(R)MaxVelo-SP"){
+    field(DESC, "Maximum velocity")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm/s")
+    field(DRVH, "10")
+    field(DRVL, "0.001")
+    field(FLNK, "$(P)$(R)MaxVelo-RB")
+}
+
+record(ai, "$(P)$(R)MaxVelo-RB"){
+    field(INP, "$(P)$(R)MaxVelo-SP")
+    field(DESC, "Maximum velocity RB")
+    field(PREC, "3")
+    field(EGU,  "mm/s")
+    field(FLNK, "$(P)$(R)MaxVeloOut")
+}
+
+record(seq, "$(P)$(R)MaxVeloOut"){
+    field(DESC, "Apply max velo value")
+    field(SELM, "All")
+    field(DOL1, "$(P)$(R)MaxVelo-SP")
+    field(DOL2, "$(P)$(R)MaxVelo-SP")
+    field(LNK1, "$(P)$(R)PolModeVelo-SP.DRVH PP")
+    field(LNK2, "$(P)$(R)GainModeVelo-SP.DRVH PP")
+}
+
+# read by sncSabia
+record(ao, "$(P)$(R)MaxAcc-SP"){
+    field(DESC, "Maximum acceleration")
+    field(SCAN, "Passive")
+    field(PREC, "3")
+    field(EGU,  "mm/s^2")
+    field(DRVH, "1000")
+    field(DRVL, "0.001")
+    field(FLNK, "$(P)$(R)MaxAcc-RB")
+}
+
+record(ai, "$(P)$(R)MaxAcc-RB"){
+    field(INP, "$(P)$(R)MaxAcc-SP")
+    field(DESC, "Maximum acceleration RB")
+    field(PREC, "3")
+    field(EGU,  "mm/s^2")
+    field(FLNK, "$(P)$(R)MaxAccOut")
+}
+
+record(seq, "$(P)$(R)MaxAccOut"){
+    field(DESC, "Apply max acc value")
+    field(SELM, "All")
+    field(DOL1, "$(P)$(R)MaxAcc-SP")
+    field(DOL2, "$(P)$(R)MaxAcc-SP")
+    field(LNK1, "$(P)$(R)PolModeAcc-SP.DRVH PP")
+    field(LNK2, "$(P)$(R)GainModeAcc-SP.DRVH PP")
+}
+
+record(bi, "$(P)$(R)IsRemote-Mon"){
+#    field(INP, " tag de controle local/remoto ")
+    field(DESC, "Remote control enable status")
+    field(SCAN, ".2 second")
+    field(ONAM, "Yes")
+    field(ZNAM, "No")
+}
+
+record(bo, "$(P)$(R)BeamLineCtrlEnbl-Sel"){
+    field(DESC, "Enable ID control by beam lines")
+    field(SCAN, "Passive")
+    field(ONAM, "Yes")
+    field(ZNAM, "No")
+    field(FLNK, "$(P)$(R)BeamLineCtrlEnbl-Sts")
+}
+
+record(bi, "$(P)$(R)BeamLineCtrlEnbl-Sts"){
+    field(INP, "$(P)$(R)BeamLineCtrlEnbl-Sel")
+    field(DESC, "Enable status of ctrl by beam lines")
+    field(ONAM, "Yes")
+    field(ZNAM, "No")
+}
+
+record(calc, "$(P)$(R)BemLineCtrl-Mon"){
+    field(DESC, "Combined status for dev ctrl")
+    field(INPA, "$(P)$(R)BeamLineCtrlEnbl-Sts CPP")
+#    field(INPB, " user shift info CPP")
+#    field(INPC, " shutter status CPP")
+#    field(CALC, "A && B && C")
+    field(CALC, "A")
+}
+
+###########################################################
+# Parking control
+
+record(bo, "$(P)$(R)StartParking-Cmd"){
+    field(DESC, "Start parking move")
+    field(SCAN, "Passive")
+    field(ONAM, "Start")
+    field(ZNAM, "Start")
+    field(FLNK, "$(P)$(R)ParkingRequestFlg")
+}
+
+# read by sncSabia
+record(calc, "$(P)$(R)ParkingRequestFlg"){
+    field(DESC, "Parking request flag")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
+}
+
+###########################################################
+# Low Level PVs Access Control
+
+# set by sncSabia
+record(seq, "$(P)$(R)EnblLowLvlCtrl"){
+    field(DESC, "Enable low lvl PVs")
+    field(SELM, "All")
+    field(DOL0, "0")
+    field(DOL1, "0")
+    field(DOL2, "0")
+    field(DOL3, "0")
+    field(DOL4, "0")
+    field(DOL5, "0")
+    field(DOL6, "0")
+    field(DOL7, "0")
+    field(DOL8, "0")
+    field(DOL9, "0")
+    field(DOLA, "0")
+    field(LNK0, "$(P)$(R)Mod01Coup-Sel.DISP PP")
+    field(LNK1, "$(P)$(R)Mod01TrigType-Sel.DISP PP")
+    field(LNK2, "$(P)$(R)Mod01RefType-Sel.DISP PP")
+    field(LNK3, "$(P)$(R)InterModCoup-Sel.DISP PP")
+    field(LNK4, "$(P)$(R)Mod01Mirror-Sel.DISP PP")
+    field(LNK5, "$(P)$(R)Mod01SoftTrig-Cmd.DISP PP")
+    field(LNK6, "$(P)$(R)Mod01RelPos-SP.DISP PP")
+    field(LNK7, "$(P)$(R)Mod01Velo-SP.DISP PP")
+    field(LNK8, "$(P)$(R)Mod01MovTime-SP.DISP PP")
+    field(LNK9, "$(P)$(R)Mod01Acc-SP.DISP PP")
+    field(LNKA, "$(P)$(R)Mod01Decel-SP.DISP PP")
+}
+
+# set by sncSabia
+record(seq, "$(P)$(R)DsblLowLvlCtrl"){
+    field(DESC, "Disable low lvl PVs")
+    field(SELM, "All")
+    field(DOL0, "1")
+    field(DOL1, "1")
+    field(DOL2, "1")
+    field(DOL3, "1")
+    field(DOL4, "1")
+    field(DOL5, "1")
+    field(DOL6, "1")
+    field(DOL7, "1")
+    field(DOL8, "1")
+    field(DOL9, "1")
+    field(DOLA, "1")
+    field(LNK0, "$(P)$(R)Mod01Coup-Sel.DISP PP")
+    field(LNK1, "$(P)$(R)Mod01TrigType-Sel.DISP PP")
+    field(LNK2, "$(P)$(R)Mod01RefType-Sel.DISP PP")
+    field(LNK3, "$(P)$(R)InterModCoup-Sel.DISP PP")
+    field(LNK4, "$(P)$(R)Mod01Mirror-Sel.DISP PP")
+    field(LNK5, "$(P)$(R)Mod01SoftTrig-Cmd.DISP PP")
+    field(LNK6, "$(P)$(R)Mod01RelPos-SP.DISP PP")
+    field(LNK7, "$(P)$(R)Mod01Velo-SP.DISP PP")
+    field(LNK8, "$(P)$(R)Mod01MovTime-SP.DISP PP")
+    field(LNK9, "$(P)$(R)Mod01Acc-SP.DISP PP")
+    field(LNKA, "$(P)$(R)Mod01Decel-SP.DISP PP")
+}

@@ -13,7 +13,7 @@ x-labels:
 
 services:
   etherip:
-    build: "."
+    build: .
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-base:${COMMIT_HASH}-${BUILD_DATE}
 
   rf-bo:
@@ -96,3 +96,18 @@ services:
       target: petraVII
       labels:
         <<: *default-labels
+
+  delta_v2:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-delta-v2:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: delta_v2
+      labels:
+        <<: *default-labels
+    environment:
+      - TABLE_URL_COMMON="http://0.0.0.0/example-constants/delta/mm2k-conv-tables"
+      - FILE_LV="LV-example.txt"
+      - FILE_LH="LH-example.txt"
+      - FILE_CR="CR-example.txt"
+      - FILE_CL="CL-example.txt"

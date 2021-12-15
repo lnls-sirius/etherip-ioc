@@ -1,0 +1,1578 @@
+program sncSabia
+
+// Macro Definitions
+
+#define DELTA_PERIOD 52.5
+#define MIN_K_VALUE 0
+#define MAX_K_VALUE 6.5
+#define ARR_SIZE_CONV_SHIFT_K 1001
+#define ARR_SIZE_CONV_K_ENERGY 1001
+#define LOG_MON_SIZE 301
+
+#define ERR_CONV_OUT_OF_BOUNDS "Unit conversion error: input out of table bounds"
+#define ERR_CONV_SEARCH_FAILED "Unit conversion error: search failed. Table must be strictly monotone"
+#define ERR_CONV_SLOPE_ZERO "Unit conversion error: cannot interpolate a slope of zero"
+#define ERR_CONV_INVALID_TABLE_SIZE "Unit conversion error: conversion table cannot have less than 2 entries"
+#define ERR_CONV_UNKNOWN "Unit conversion error: unknown error"
+#define ERR_CONV_INVALID_POLARIZATION "Unit conversion error: Invalid polarization"
+
+#define ERR_MOVE_SM_STOPPED "Cannot start new move: PLC program state NOT STOPPED"
+#define ERR_MOVE_SM_ABORTED "Cannot start motion: PLC program state is ABORTED"
+#define ERR_MOVING_SM_ABORTED "Motion stopped: PLC program state is ABORTED"
+#define ERR_SEQ_TIMEOUT "Motion failed: sequencer timeout"
+
+#define ERR_INVALID_POLARIZATION "Error: Invalid polarization option"
+
+%%//----------------------------------------
+%%//    Global Variables
+%%//----------------------------------------
+
+double arr_x_conv_k_energy[ARR_SIZE_CONV_K_ENERGY];
+double arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY];
+
+%%//----------------------------------------
+%%//    Monitored PVs - High Level
+%%//----------------------------------------
+
+int update_status_mon;
+assign update_status_mon to "{P_MOD01}UpdateStatus-Mon";
+monitor update_status_mon;
+
+double arr_x_lv_mm2k[ARR_SIZE_CONV_SHIFT_K];
+assign arr_x_lv_mm2k to "{P_MOD01}xLVmm2k-Cte";
+monitor arr_x_lv_mm2k;
+
+int arr_x_lv_mm2k_nord;
+assign arr_x_lv_mm2k_nord to "{P_MOD01}xLVmm2k-Cte.NORD";
+monitor arr_x_lv_mm2k_nord;
+
+double arr_y_lv_mm2k[ARR_SIZE_CONV_SHIFT_K];
+assign arr_y_lv_mm2k to "{P_MOD01}yLVmm2k-Cte";
+monitor arr_y_lv_mm2k;
+
+int arr_y_lv_mm2k_nord;
+assign arr_y_lv_mm2k_nord to "{P_MOD01}yLVmm2k-Cte.NORD";
+monitor arr_y_lv_mm2k_nord;
+
+double arr_x_lh_mm2k[ARR_SIZE_CONV_SHIFT_K];
+assign arr_x_lh_mm2k to "{P_MOD01}xLHmm2k-Cte";
+monitor arr_x_lh_mm2k;
+
+int arr_x_lh_mm2k_nord;
+assign arr_x_lh_mm2k_nord to "{P_MOD01}xLHmm2k-Cte.NORD";
+monitor arr_x_lh_mm2k_nord;
+
+double arr_y_lh_mm2k[ARR_SIZE_CONV_SHIFT_K];
+assign arr_y_lh_mm2k to "{P_MOD01}yLHmm2k-Cte";
+monitor arr_y_lh_mm2k;
+
+int arr_y_lh_mm2k_nord;
+assign arr_y_lh_mm2k_nord to "{P_MOD01}yLHmm2k-Cte.NORD";
+monitor arr_y_lh_mm2k_nord;
+
+double arr_x_cr_mm2k[ARR_SIZE_CONV_SHIFT_K];
+assign arr_x_cr_mm2k to "{P_MOD01}xCRmm2k-Cte";
+monitor arr_x_cr_mm2k;
+
+int arr_x_cr_mm2k_nord;
+assign arr_x_cr_mm2k_nord to "{P_MOD01}xCRmm2k-Cte.NORD";
+monitor arr_x_cr_mm2k_nord;
+
+double arr_y_cr_mm2k[ARR_SIZE_CONV_SHIFT_K];
+assign arr_y_cr_mm2k to "{P_MOD01}yCRmm2k-Cte";
+monitor arr_y_cr_mm2k;
+
+int arr_y_cr_mm2k_nord;
+assign arr_y_cr_mm2k_nord to "{P_MOD01}yCRmm2k-Cte.NORD";
+monitor arr_y_cr_mm2k_nord;
+
+double arr_x_cl_mm2k[ARR_SIZE_CONV_SHIFT_K];
+assign arr_x_cl_mm2k to "{P_MOD01}xCLmm2k-Cte";
+monitor arr_x_cl_mm2k;
+
+int arr_x_cl_mm2k_nord;
+assign arr_x_cl_mm2k_nord to "{P_MOD01}xCLmm2k-Cte.NORD";
+monitor arr_x_cl_mm2k_nord;
+
+double arr_y_cl_mm2k[ARR_SIZE_CONV_SHIFT_K];
+assign arr_y_cl_mm2k to "{P_MOD01}yCLmm2k-Cte";
+monitor arr_y_cl_mm2k;
+
+int arr_y_cl_mm2k_nord;
+assign arr_y_cl_mm2k_nord to "{P_MOD01}yCLmm2k-Cte.NORD";
+monitor arr_y_cl_mm2k_nord;
+
+double pos_tolerance_sp;
+assign pos_tolerance_sp to "{P_MOD01}PosTolerance-SP";
+monitor pos_tolerance_sp;
+
+int change_pol_evt;
+assign change_pol_evt to "{P_MOD01}ChangePolFlg";
+monitor change_pol_evt;
+evflag change_pol_evt_flg;
+sync change_pol_evt change_pol_evt_flg;
+
+int pol_type_sel;
+assign pol_type_sel to "{P_MOD01}PolType-Sel";
+monitor pol_type_sel;
+evflag pol_type_sel_flg;
+sync pol_type_sel pol_type_sel_flg;
+
+int change_gain_evt;
+assign change_gain_evt to "{P_MOD01}ChangeGainFlg";
+monitor change_gain_evt;
+evflag change_gain_evt_flg;
+sync change_gain_evt change_gain_evt_flg;
+
+double energy_sp;
+assign energy_sp to "{P_MOD01}Energy-SP";
+monitor energy_sp;
+evflag energy_sp_flg;
+sync energy_sp energy_sp_flg;
+
+double k_sp;
+assign k_sp to "{P_MOD01}K-SP";
+monitor k_sp;
+evflag k_sp_flg;
+sync k_sp k_sp_flg;
+
+double shift_sp;
+assign shift_sp to "{P_MOD01}Shift-SP";
+monitor shift_sp;
+evflag shift_sp_flg;
+sync shift_sp shift_sp_flg;
+
+int start_gain_scan_evt;
+assign start_gain_scan_evt to "{P_MOD01}StartGainScanFlg";
+monitor start_gain_scan_evt;
+evflag start_gain_scan_evt_flg;
+sync start_gain_scan_evt start_gain_scan_evt_flg;
+
+double gain_scan_duration_sp;
+assign gain_scan_duration_sp to "{P_MOD01}GainScanDuration-SP";
+monitor gain_scan_duration_sp;
+evflag gain_scan_duration_sp_flg;
+sync gain_scan_duration_sp gain_scan_duration_sp_flg;
+
+double escan_start_sp;
+assign escan_start_sp to "{P_MOD01}EScanStart-SP";
+monitor escan_start_sp;
+evflag escan_start_sp_flg;
+sync escan_start_sp escan_start_sp_flg;
+
+double escan_end_sp;
+assign escan_end_sp to "{P_MOD01}EScanEnd-SP";
+monitor escan_end_sp;
+evflag escan_end_sp_flg;
+sync escan_end_sp escan_end_sp_flg;
+
+double kscan_start_sp;
+assign kscan_start_sp to "{P_MOD01}KScanStart-SP";
+monitor kscan_start_sp;
+evflag kscan_start_sp_flg;
+sync kscan_start_sp kscan_start_sp_flg;
+
+double kscan_end_sp;
+assign kscan_end_sp to "{P_MOD01}KScanEnd-SP";
+monitor kscan_end_sp;
+evflag kscan_end_sp_flg;
+sync kscan_end_sp kscan_end_sp_flg;
+
+double sscan_start_sp;
+assign sscan_start_sp to "{P_MOD01}SScanStart-SP";
+monitor sscan_start_sp;
+evflag sscan_start_sp_flg;
+sync sscan_start_sp sscan_start_sp_flg;
+
+double sscan_end_sp;
+assign sscan_end_sp to "{P_MOD01}SScanEnd-SP";
+monitor sscan_end_sp;
+evflag sscan_end_sp_flg;
+sync sscan_end_sp sscan_end_sp_flg;
+
+double pol_mode_velo_sp;
+assign pol_mode_velo_sp to "{P_MOD01}PolModeVelo-SP";
+monitor pol_mode_velo_sp;
+evflag pol_mode_velo_sp_flg;
+sync pol_mode_velo_sp pol_mode_velo_sp_flg;
+
+double pol_mode_acc_sp;
+assign pol_mode_acc_sp to "{P_MOD01}PolModeAcc-SP";
+monitor pol_mode_acc_sp;
+evflag pol_mode_acc_sp_flg;
+sync pol_mode_acc_sp pol_mode_acc_sp_flg;
+
+double gain_mode_velo_sp;
+assign gain_mode_velo_sp to "{P_MOD01}GainModeVelo-SP";
+monitor gain_mode_velo_sp;
+evflag gain_mode_velo_sp_flg;
+sync gain_mode_velo_sp gain_mode_velo_sp_flg;
+
+double gain_mode_acc_sp;
+assign gain_mode_acc_sp to "{P_MOD01}GainModeAcc-SP";
+monitor gain_mode_acc_sp;
+evflag gain_mode_acc_sp_flg;
+sync gain_mode_acc_sp gain_mode_acc_sp_flg;
+
+double max_velo_sp;
+assign max_velo_sp to "{P_MOD01}MaxVelo-SP";
+monitor max_velo_sp;
+evflag max_velo_sp_flg;
+sync max_velo_sp max_velo_sp_flg;
+
+double max_acc_sp;
+assign max_acc_sp to "{P_MOD01}MaxAcc-SP";
+monitor max_acc_sp;
+evflag max_acc_sp_flg;
+sync max_acc_sp max_acc_sp_flg;
+
+int parking_request_evt;
+assign parking_request_evt to "{P_MOD01}ParkingRequestFlg";
+monitor parking_request_evt;
+evflag parking_request_evt_flg;
+sync parking_request_evt parking_request_evt_flg;
+
+double pol_shift_mon;
+assign pol_shift_mon to "{P_MOD01}PolShift-Mon";
+monitor pol_shift_mon;
+
+int pol_mon;
+assign pol_mon to "{P_MOD01}Pol-Mon";
+monitor pol_mon;
+evflag pol_mon_flg;
+sync pol_mon pol_mon_flg;
+
+double gain_shift_mon;
+assign gain_shift_mon to "{P_MOD01}GainShift-Mon";
+monitor gain_shift_mon;
+evflag gain_shift_mon_flg;
+sync gain_shift_mon gain_shift_mon_flg;
+
+%%// Conversion Coefficients - K to Energy
+
+int k_to_energy_evt;
+assign k_to_energy_evt to "{P_MOD01}KToEnergyFlg";
+monitor k_to_energy_evt;
+evflag k_to_energy_evt_flg;
+sync k_to_energy_evt k_to_energy_evt_flg;
+
+double k_to_energy_a0_sp;
+assign k_to_energy_a0_sp to "{P_MOD01}KToEnergyA0-SP";
+monitor k_to_energy_a0_sp;
+
+double k_to_energy_a1_sp;
+assign k_to_energy_a1_sp to "{P_MOD01}KToEnergyA1-SP";
+monitor k_to_energy_a1_sp;
+
+double k_to_energy_a2_sp;
+assign k_to_energy_a2_sp to "{P_MOD01}KToEnergyA2-SP";
+monitor k_to_energy_a2_sp;
+
+double k_to_energy_a3_sp;
+assign k_to_energy_a3_sp to "{P_MOD01}KToEnergyA3-SP";
+monitor k_to_energy_a3_sp;
+
+double k_to_energy_a4_sp;
+assign k_to_energy_a4_sp to "{P_MOD01}KToEnergyA4-SP";
+monitor k_to_energy_a4_sp;
+
+double k_to_energy_a5_sp;
+assign k_to_energy_a5_sp to "{P_MOD01}KToEnergyA5-SP";
+monitor k_to_energy_a5_sp;
+
+double k_to_energy_a6_sp;
+assign k_to_energy_a6_sp to "{P_MOD01}KToEnergyA6-SP";
+monitor k_to_energy_a6_sp;
+
+double k_to_energy_a7_sp;
+assign k_to_energy_a7_sp to "{P_MOD01}KToEnergyA7-SP";
+monitor k_to_energy_a7_sp;
+
+double k_to_energy_a8_sp;
+assign k_to_energy_a8_sp to "{P_MOD01}KToEnergyA8-SP";
+monitor k_to_energy_a8_sp;
+
+%%//----------------------------------------
+%%//    Output PVs - High Level
+%%//----------------------------------------
+
+char log_mon[LOG_MON_SIZE];
+assign log_mon to "{P_MOD01}Log-Mon";
+
+int enbl_low_lvl_ctrl_proc;
+assign enbl_low_lvl_ctrl_proc to "{P_MOD01}EnblLowLvlCtrl.PROC";
+
+int dsbl_low_lvl_ctrl_proc;
+assign dsbl_low_lvl_ctrl_proc to "{P_MOD01}DsblLowLvlCtrl.PROC";
+
+double k_mon;
+assign k_mon to "{P_MOD01}K-Mon";
+
+int high_lvl_move_mon;
+assign high_lvl_move_mon to "{P_MOD01}HighLvlMove-Mon";
+
+%%//----------------------------------------
+%%//    Monitored PVs - Low Level
+%%//----------------------------------------
+
+int state_idx_mon;
+assign state_idx_mon to "{P_MOD01}StateIdx-Mon";
+monitor state_idx_mon;
+
+int motion_state_mon;
+assign motion_state_mon to "{P_MOD01}MotionState-Mon";
+monitor motion_state_mon;
+
+%%//----------------------------------------
+%%//    Output PVs - Low Level
+%%//----------------------------------------
+
+int rst_cmd;
+assign rst_cmd to "{P_MOD01}Rst-Cmd";
+
+int stop_cmd;
+assign stop_cmd to "{P_MOD01}Stop-Cmd";
+
+double rel_pos_sp;
+assign rel_pos_sp to "{P_MOD01}RelPos-SP";
+
+double velo_sp;
+assign velo_sp to "{P_MOD01}Velo-SP";
+
+double acc_sp;
+assign acc_sp to "{P_MOD01}Acc-SP";
+
+double decel_sp;
+assign decel_sp to "{P_MOD01}Decel-SP";
+
+double mov_time_sp;
+assign mov_time_sp to "{P_MOD01}MovTime-SP";
+
+double phy_cid_actual_pos_mon;
+assign phy_cid_actual_pos_mon to "{P_MOD01}PhyCIDActualPos-Mon";
+
+double phy_cie_actual_pos_mon;
+assign phy_cie_actual_pos_mon to "{P_MOD01}PhyCIEActualPos-Mon";
+
+double phy_csd_actual_pos_mon;
+assign phy_csd_actual_pos_mon to "{P_MOD01}PhyCSDActualPos-Mon";
+
+double phy_cse_actual_pos_mon;
+assign phy_cse_actual_pos_mon to "{P_MOD01}PhyCSEActualPos-Mon";
+
+int coup_sel;
+assign coup_sel to "{P_MOD01}Coup-Sel";
+
+int trig_type_sel;
+assign trig_type_sel to "{P_MOD01}TrigType-Sel";
+
+int ref_type_sel;
+assign ref_type_sel to "{P_MOD01}RefType-Sel";
+
+int inter_mod_coup_sel;
+assign inter_mod_coup_sel to "{P_GLOBAL}InterModCoup-Sel";
+
+int mirror_sel;
+assign mirror_sel to "{P_MOD01}Mirror-Sel";
+
+int soft_trig_cmd;
+assign soft_trig_cmd to "{P_MOD01}SoftTrig-Cmd";
+
+%%//----------------------------------------
+%%//        Escaped C Code
+%%//----------------------------------------
+
+%%#include <unistd.h>
+%%#include <stdio.h>
+%%#include <string.h>
+%%#include <math.h>
+%%#include "Logger.h"
+%%#include "myUtil.h"
+
+// state timeouts
+%%#define SEQ_TIMEOUT 10
+
+%%#define TABLE_UPDATE_INVALID 0
+%%#define TABLE_UPDATE_OK 1
+
+// parking configuration
+%%#define PARKING_POL_SHIFT 0.0
+%%#define MINIMUM_GAIN_SHIFT 0.0
+
+// coupling modes
+%%#define COUPLING_UNCOUPLED 0
+%%#define COUPLING_ALL 1
+%%#define COUPLING_PHASE 2
+%%#define COUPLING_COUNTERPHASE 3
+%%#define COUPLING_GV 4
+%%#define COUPLING_GH 5
+
+// main polarization positions (mm)
+%%#define POL_LIN_VERT_SHIFT -26.25
+%%#define POL_CIRC_RIGHT_SHIFT -13.125
+%%#define POL_LIN_HOR_SHIFT 0.0
+%%#define POL_CIRC_LEFT_SHIFT 13.125
+
+// polarization PV options
+%%#define POL_CIRC_RIGHT_OPTION 0
+%%#define POL_CIRC_LEFT_OPTION 1
+%%#define POL_LIN_VERT_OPTION 2
+%%#define POL_LIN_HOR_OPTION 3
+
+//main energy positions (mm)
+%%#define GAIN_ZERO_K 0.0
+
+// trigger
+%%#define TRIG_TYPE_BOTH 0
+%%#define TRIG_TYPE_SOFT 1
+%%#define TRIG_TYPE_HARD 2
+
+// inter-module coupling
+%%#define INTER_MOD_COUPLING_001 1
+
+// motion reference type
+%%#define REFERENCE_TYPE_INTERNAL 0
+%%#define REFERENCE_TYPE_EXTERNAL 1
+
+// coupling mirror config
+%%#define MIRROR_DISABLE 0
+%%#define MIRROR_ENABLE 1
+
+// motion state
+%%#define MOTION_STATE_MOVING 0
+%%#define MOTION_STATE_DONE 1
+
+// clp state machine
+%%#define STATE_MACHINE_UNDEFINED 1
+%%#define STATE_MACHINE_CLEARING 2
+%%#define STATE_MACHINE_STOPPED 4
+%%#define STATE_MACHINE_STARTING 8
+%%#define STATE_MACHINE_IDLE 16
+%%#define STATE_MACHINE_SUSPENDED 32
+%%#define STATE_MACHINE_EXECUTE 64
+%%#define STATE_MACHINE_STOPPING 128
+%%#define STATE_MACHINE_ABORTING 256
+%%#define STATE_MACHINE_ABORTED 512
+%%#define STATE_MACHINE_HOLDING 1024
+%%#define STATE_MACHINE_HELD 2048
+%%#define STATE_MACHINE_UNHOLDING 4096
+%%#define STATE_MACHINE_SUSPENDING 8192
+%%#define STATE_MACHINE_UNSUSPENDING 16384
+%%#define STATE_MACHINE_RESETTING 32768
+%%#define STATE_MACHINE_COMPLETING 65536
+%%#define STATE_MACHINE_COMPLETE 131072
+
+// general PV boolean values
+%%#define BOOL_NO 0
+%%#define BOOL_YES 1
+
+%{
+
+void safecpy (char *dest, char *src, size_t maxSize);
+
+}%
+
+%%//----------------------------------------
+%%//    Un-Escaped C Code Declaration
+%%//----------------------------------------
+
+int mm2k (double x, double* result, int polarization);
+int k2mm (double x, double* result, int polarization);
+int k2energy (double x, double* result);
+int energy2k (double x, double* result);
+
+void configSimpleMove(int coupling, double velo, double acc, double decel, double relPos);
+void configTimedMove(int coupling, double time, double relPos);
+void configPolChange(int polarization, char* stateName);
+void configGainShift(double targetPos);
+void resetToMove(void);
+void printToLogAndMsgPV(char* msg, char* stateName);
+void reportConvStatus(int status, char* stateName);
+char equalWithinTolerance(double num1, double num2, double tolerance);
+
+%%//----------------------------------------
+%%//        State Notation Language
+%%//----------------------------------------
+
+ss motion_control {
+    state init {
+	when (delay(5.0)) {
+
+            LOG_INFO("[%s] Initialization start\n", macValueGet("P_MOD01"));
+
+            /* Initialize arrays */
+
+            %%double step, start;
+            %%int i = 0;
+
+            // initialize K - Energy conversion table x values
+
+            start = MIN_K_VALUE;
+
+            step = (MAX_K_VALUE - MIN_K_VALUE)/ (ARR_SIZE_CONV_K_ENERGY - 1);
+
+            for (i=0; i < ARR_SIZE_CONV_K_ENERGY; i++) {
+                arr_x_conv_k_energy[i] = start + i * step;
+            }
+
+            /* clear event flags to avoid
+               running invalid commands */
+            efClear(change_pol_evt_flg);
+            efClear(change_gain_evt_flg);
+	    efClear(start_gain_scan_evt_flg);
+            efClear(parking_request_evt_flg);
+
+            LOG_INFO("[%s] Initialization finished\n", macValueGet("P_MOD01"));
+	} state wait_completion
+    }
+
+    state wait_completion {
+        entry {
+            // indicate that high level motion stopped
+            high_lvl_move_mon = BOOL_NO;
+            pvPut(high_lvl_move_mon, SYNC);
+        }
+
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        } state ready
+
+        when (efTest(parking_request_evt_flg)
+              || efTest(change_pol_evt_flg)
+              || efTest(change_gain_evt_flg)
+              || efTest(start_gain_scan_evt_flg)) {
+
+            // clear flags
+            efClear(parking_request_evt_flg);
+            efClear(change_pol_evt_flg);
+            efClear(change_gain_evt_flg);
+            efClear(start_gain_scan_evt_flg);
+
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_STOPPED, "motion_control wait_completion");
+        } state wait_completion
+
+    }
+
+    state ready {
+        entry {
+            /* clear event flags to avoid
+               running old invalid commands */
+            efClear(change_pol_evt_flg);
+            efClear(change_gain_evt_flg);
+	    efClear(start_gain_scan_evt_flg);
+            efClear(parking_request_evt_flg);
+        }
+
+        when (state_idx_mon != STATE_MACHINE_STOPPED) {
+        } state wait_completion
+
+        when (efTestAndClear(k_to_energy_evt_flg)) {
+        } state update_k_to_energy_conv
+
+	when (efTestAndClear(parking_request_evt_flg)) {
+
+            // indicate that high level motion started
+            high_lvl_move_mon = BOOL_YES;
+            pvPut(high_lvl_move_mon, SYNC);
+        } state start_parking
+
+	when (efTestAndClear(change_pol_evt_flg)) {
+
+            // indicate that high level motion started
+            high_lvl_move_mon = BOOL_YES;
+            pvPut(high_lvl_move_mon, SYNC);
+        } state change_pol_step1
+
+	when (efTestAndClear(change_gain_evt_flg)) {
+
+            // indicate that high level motion started
+            high_lvl_move_mon = BOOL_YES;
+            pvPut(high_lvl_move_mon, SYNC);
+        } state change_gain
+
+	when (efTestAndClear(start_gain_scan_evt_flg)) {
+
+            // indicate that high level motion started
+            high_lvl_move_mon = BOOL_YES;
+            pvPut(high_lvl_move_mon, SYNC);
+        } state start_gain_scan_step1
+
+    }
+
+    state update_k_to_energy_conv {
+
+        entry {
+
+            /* Update K to Energy convertion table */
+
+            %%int i = 0;
+            %%double x = 0;
+
+            for (i=0; i < ARR_SIZE_CONV_K_ENERGY; i++) {
+                x = arr_x_conv_k_energy[i];
+
+                // calculate corresponding y value
+                arr_y_conv_k_energy[i] = k_to_energy_a8_sp * pow(x, 8)
+                                          + k_to_energy_a7_sp * pow(x, 7)
+                                          + k_to_energy_a6_sp * pow(x, 6)
+                                          + k_to_energy_a5_sp * pow(x, 5)
+                                          + k_to_energy_a4_sp * pow(x, 4)
+                                          + k_to_energy_a3_sp * pow(x, 3)
+                                          + k_to_energy_a2_sp * pow(x, 2)
+                                          + k_to_energy_a1_sp * pow(x, 1)
+                                          + k_to_energy_a0_sp;
+            }
+        }
+
+        when () {
+        } state ready
+    }
+
+    state change_pol_step1 {
+
+        entry {
+
+            // configure move to smallest gain position
+            configGainShift(MINIMUM_GAIN_SHIFT);
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        }
+
+        when (motion_state_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state change_pol_step2
+
+        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control change_pol_step1");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control change_pol_step1");
+        } state wait_completion
+    }
+
+    state change_pol_step2 {
+
+        when (motion_state_mon == STATE_MACHINE_STOPPED) {
+        } state change_pol_step3
+
+        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control change_pol_step2");
+        } state wait_completion
+    }
+
+    state change_pol_step3 {
+
+        entry {
+
+            // config change in polarization
+            configPolChange(pol_type_sel, "change_pol_step3");
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        }
+
+        when (motion_state_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state change_pol_step4
+
+        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control change_pol_step3");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control change_pol_step3");
+        } state wait_completion
+    }
+
+    state change_pol_step4 {
+
+        when (motion_state_mon == STATE_MACHINE_STOPPED) {
+        } state change_pol_step5
+
+        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control change_pol_step4");
+        } state wait_completion
+    }
+
+
+    state change_pol_step5 {
+
+        entry {
+
+            // recover previous gain
+            configGainShift(shift_sp);
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        }
+
+        when (motion_state_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state wait_completion
+
+        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control change_pol_step5");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control change_pol_step5");
+        } state wait_completion
+    }
+
+    state change_gain {
+
+        entry {
+
+            // configure gain move
+            configGainShift(shift_sp);
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        }
+
+        when (motion_state_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state wait_completion
+
+        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control change_gain");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control change_gain");
+        } state wait_completion
+    }
+
+    state start_gain_scan_step1 {
+
+        entry {
+
+            // configure move to initial position
+            configGainShift(sscan_start_sp);
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        }
+
+        when (motion_state_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state start_gain_scan_step2
+
+        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control start_gain_scan_step1");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control start_gain_scan_step1");
+        } state wait_completion
+    }
+
+    state start_gain_scan_step2 {
+
+        when (motion_state_mon == STATE_MACHINE_STOPPED) {
+        } state start_gain_scan_step3
+
+        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control start_gain_scan_step2");
+        } state wait_completion
+    }
+
+    state start_gain_scan_step3 {
+
+        entry {
+
+            // configure timed scan
+            configTimedMove(COUPLING_GH, // coupling
+                            mov_time_sp,     // motion time
+                            sscan_end_sp);  // relPos
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        }
+
+        when (motion_state_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state wait_completion
+
+        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control start_gain_scan_step3");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control start_gain_scan_step3");
+        } state wait_completion
+    }
+
+    state start_parking {
+
+        entry {
+
+            // configure move to smallest gain position
+            configGainShift(MINIMUM_GAIN_SHIFT);
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        }
+
+        when (motion_state_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state wait_completion
+
+        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control start_parking");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control start_parking");
+        } state wait_completion
+    }
+
+}
+
+ss gain_sp_update {
+
+    state init {
+
+        entry {
+
+            /* set shift_sp event flag so
+               that other set points are made
+               consistent with it. */
+            efSet(shift_sp_flg);
+            efClear(k_sp_flg);
+            efClear(energy_sp_flg);
+        }
+
+        when (delay(5.0) && update_status_mon == TABLE_UPDATE_OK) {
+            LOG_INFO("[%s] Starting state machine: gain_sp_update\n", macValueGet("P_MOD01"));
+        } state check_update
+    }
+
+    state check_update {
+
+        when (efTestAndClear(pol_mon_flg)) {
+
+            // force update if polarization changes
+            efSet(shift_sp_flg);
+
+        } state check_update
+
+        when (efTestAndClear(shift_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            %%int status = 0;
+
+            // update k
+            status = mm2k(shift_sp, &k_sp, pol_mon);
+            if (status == 0) {
+                pvPut(k_sp, SYNC);
+            }
+            reportConvStatus(status, "gain_sp_update check_update");
+
+            // update energy
+            status = k2energy(k_sp, &energy_sp);
+            if (status == 0) {
+                pvPut(energy_sp, SYNC);
+            }
+            reportConvStatus(status, "gain_sp_update check_update");
+
+            // clear flags for PVs set here
+            efClear(k_sp_flg);
+            efClear(energy_sp_flg);
+
+        } state check_update
+
+        when (efTestAndClear(k_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            %%int status = 0;
+
+            // update shift
+            status = k2mm(k_sp, &shift_sp, pol_mon);
+            if (status == 0) {
+                pvPut(shift_sp, SYNC);
+            }
+            reportConvStatus(status, "gain_sp_update check_update");
+
+            // update energy
+            status = k2energy(k_sp, &energy_sp);
+            if (status == 0) {
+                pvPut(energy_sp, SYNC);
+            }
+            reportConvStatus(status, "gain_sp_update check_update");
+
+            // clear flags for PVs set here
+            efClear(shift_sp_flg);
+            efClear(energy_sp_flg);
+
+        } state check_update
+
+        when (efTestAndClear(energy_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            %%int status = 0;
+
+            // update k
+            status = energy2k(energy_sp, &k_sp);
+            if (status == 0) {
+                pvPut(k_sp, SYNC);
+            }
+            reportConvStatus(status, "gain_sp_update check_update");
+
+            // update shift
+            status = k2mm(k_sp, &shift_sp, pol_mon);
+            if (status == 0) {
+                pvPut(shift_sp, SYNC);
+            }
+            reportConvStatus(status, "gain_sp_update check_update");
+
+            // clear flags for PVs set here
+            efClear(k_sp_flg);
+            efClear(shift_sp_flg);
+
+        } state check_update
+    }
+
+}
+
+ss scan_limits_sp_update {
+
+    state init {
+
+        entry {
+
+            /* set sscan_start_sp event flag so
+               that other set points are made
+               consistent with it. */
+            efSet(sscan_start_sp_flg);
+            efClear(kscan_start_sp_flg);
+            efClear(escan_start_sp_flg);
+        }
+
+        when (delay(5.0) && update_status_mon == TABLE_UPDATE_OK) {
+            LOG_INFO("[%s] Starting state machine: scan_limits_sp_update\n", macValueGet("P_MOD01"));
+        } state check_update
+    }
+
+    state check_update {
+
+        when (efTestAndClear(pol_mon_flg)) {
+
+            // force update if polarization changes
+            efSet(sscan_start_sp_flg);
+
+        } state check_update
+
+        when (efTestAndClear(sscan_start_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            %%int status = 0;
+
+            // update k
+            status = mm2k(sscan_start_sp, &kscan_start_sp, pol_mon);
+            if (status == 0) {
+                pvPut(kscan_start_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // update energy
+            status = k2energy(kscan_start_sp, &escan_start_sp);
+            if (status == 0) {
+                pvPut(escan_start_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // clear flags for PVs set here
+            efClear(kscan_start_sp_flg);
+            efClear(escan_start_sp_flg);
+
+        } state check_update
+
+        when (efTestAndClear(sscan_end_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            %%int status = 0;
+
+            // update k
+            status = mm2k(sscan_end_sp, &kscan_end_sp, pol_mon);
+            if (status == 0) {
+                pvPut(kscan_end_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // update energy
+            status = k2energy(kscan_end_sp, &escan_end_sp);
+            if (status == 0) {
+                pvPut(escan_end_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // clear flags for PVs set here
+            efClear(kscan_end_sp_flg);
+            efClear(escan_end_sp_flg);
+
+        } state check_update
+
+        when (efTestAndClear(kscan_start_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            %%int status = 0;
+
+            // update shift
+            status = k2mm(kscan_start_sp, &sscan_start_sp, pol_mon);
+            if (status == 0) {
+                pvPut(sscan_start_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // update energy
+            status = k2energy(kscan_start_sp, &escan_start_sp);
+            if (status == 0) {
+                pvPut(escan_start_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // clear flags for PVs set here
+            efClear(sscan_start_sp_flg);
+            efClear(escan_start_sp_flg);
+
+        } state check_update
+
+        when (efTestAndClear(kscan_end_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            %%int status = 0;
+
+            // update shift
+            status = k2mm(kscan_end_sp, &sscan_end_sp, pol_mon);
+            if (status == 0) {
+                pvPut(sscan_end_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // update energy
+            status = k2energy(kscan_end_sp, &escan_end_sp);
+            if (status == 0) {
+                pvPut(escan_end_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // clear flags for PVs set here
+            efClear(sscan_end_sp_flg);
+            efClear(escan_end_sp_flg);
+
+        } state check_update
+
+        when (efTestAndClear(escan_start_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            %%int status = 0;
+
+            // update k
+            status = energy2k(escan_start_sp, &kscan_start_sp);
+            if (status == 0) {
+                pvPut(kscan_start_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // update shift
+            status = k2mm(kscan_start_sp, &sscan_start_sp, pol_mon);
+            if (status == 0) {
+                pvPut(sscan_start_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // clear flags for PVs set here
+            efClear(kscan_start_sp_flg);
+            efClear(sscan_start_sp_flg);
+
+        } state check_update
+
+        when (efTestAndClear(escan_end_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+
+            /* Update equivalent set points
+               to keep them consistent.
+
+               Take polarization in consideration
+               when doing conversions. */
+
+            %%int status = 0;
+
+            // update k
+            status = energy2k(escan_end_sp, &kscan_end_sp);
+            if (status == 0) {
+                pvPut(kscan_end_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // update shift
+            status = k2mm(kscan_end_sp, &sscan_end_sp, pol_mon);
+            if (status == 0) {
+                pvPut(sscan_end_sp, SYNC);
+            }
+            reportConvStatus(status, "scan_limits_sp_update check_update");
+
+            // clear flags for PVs set here
+            efClear(kscan_end_sp_flg);
+            efClear(sscan_end_sp_flg);
+
+        } state check_update
+    }
+
+}
+
+
+
+ss k_mon_update {
+
+    state init {
+
+        when (delay(5.0) && update_status_mon == TABLE_UPDATE_OK) {
+            LOG_INFO("[%s] Starting state machine: k_mon_update\n", macValueGet("P_MOD01"));
+        } state check_update
+    }
+
+    state check_update {
+
+        when (efTestAndClear(gain_shift_mon_flg) && update_status_mon == TABLE_UPDATE_OK) {
+
+            /* Update K mon according to
+               gain shift mon. */
+
+            %%int status = 0;
+
+            // update k mon
+            status = mm2k(gain_shift_mon, &k_mon, pol_mon);
+            if (status == 0) {
+                pvPut(k_mon, SYNC);
+            }
+            reportConvStatus(status, "k_mon_update check_update");
+
+        } state check_update
+    }
+
+}
+
+%%//----------------------------------------
+%%//    Escaped C Code Definition
+%%//----------------------------------------
+
+%{
+
+void safecpy (char *dest, char *src, size_t maxSize) {
+    memset(dest, '\0', sizeof(dest));
+    strncpy(dest, src, maxSize-1);
+}
+
+}%
+
+%%//----------------------------------------
+%%//    Un-Escaped C Code Definition
+%%//----------------------------------------
+
+int mm2k (double x, double* result, int polarization) {
+
+    double * table_x;
+    double * table_y;
+    int table_length = 0;
+    int status;
+
+    // select conversion array
+    if (polarization == POL_LIN_VERT_OPTION) {
+        table_x = arr_x_lv_mm2k;
+        table_y = arr_y_lv_mm2k;
+
+        // table length must be explicitly queried
+        pvGet(arr_y_lv_mm2k_nord, SYNC);
+        table_length = arr_y_lv_mm2k_nord;
+    }
+    else if (polarization == POL_LIN_HOR_OPTION) {
+        table_x = arr_x_lh_mm2k;
+        table_y = arr_y_lh_mm2k;
+
+        // table length must be explicitly queried
+        pvGet(arr_y_lh_mm2k_nord, SYNC);
+        table_length = arr_y_lh_mm2k_nord;
+    }
+    else if (polarization == POL_CIRC_RIGHT_OPTION) {
+        table_x = arr_x_cr_mm2k;
+        table_y = arr_y_cr_mm2k;
+
+        // table length must be explicitly queried
+        pvGet(arr_y_cr_mm2k_nord, SYNC);
+        table_length = arr_y_cr_mm2k_nord;
+    }
+    else if (polarization == POL_CIRC_LEFT_OPTION) {
+        table_x = arr_x_cl_mm2k;
+        table_y = arr_y_cl_mm2k;
+
+        // table length must be explicitly queried
+        pvGet(arr_y_cl_mm2k_nord, SYNC);
+        table_length = arr_y_cl_mm2k_nord;
+    }
+    else {
+        // return code for invalid polarization
+        return -5;
+    }
+
+    // perform conversion through linear interpolation
+    status = interpolateFromTable(table_x,
+                                  table_y,
+                                  table_length,
+                                  result,
+                                  x);
+    return status;
+}
+int k2mm (double x, double* result, int polarization) {
+
+    double * table_x;
+    double * table_y;
+    int table_length = 0;
+    int status = 0;
+
+    // select conversion array
+    if (polarization == POL_LIN_VERT_OPTION) {
+        table_x = arr_y_lv_mm2k;
+        table_y = arr_x_lv_mm2k;
+
+        // table length must be explicitly queried
+        pvGet(arr_x_lv_mm2k_nord, SYNC);
+        table_length = arr_x_lv_mm2k_nord;
+    }
+    else if (polarization == POL_LIN_HOR_OPTION) {
+        table_x = arr_y_lh_mm2k;
+        table_y = arr_x_lh_mm2k;
+
+        // table length must be explicitly queried
+        pvGet(arr_x_lh_mm2k_nord, SYNC);
+        table_length = arr_x_lh_mm2k_nord;
+    }
+    else if (polarization == POL_CIRC_RIGHT_OPTION) {
+        table_x = arr_y_cr_mm2k;
+        table_y = arr_x_cr_mm2k;
+
+        // table length must be explicitly queried
+        pvGet(arr_x_cr_mm2k_nord, SYNC);
+        table_length = arr_x_cr_mm2k_nord;
+    }
+    else if (polarization == POL_CIRC_LEFT_OPTION) {
+        table_x = arr_y_cl_mm2k;
+        table_y = arr_x_cl_mm2k;
+
+        // table length must be explicitly queried
+        pvGet(arr_x_cl_mm2k_nord, SYNC);
+        table_length = arr_x_cl_mm2k_nord;
+    }
+    else {
+        // return code for invalid polarization
+        return -5;
+    }
+
+    // perform conversion through linear interpolation
+    status = interpolateFromTable(table_x,
+                                  table_y,
+                                  table_length,
+                                  result,
+                                  x);
+    return status;
+}
+int k2energy (double x, double* result) {
+
+    int status;
+
+    // perform conversion through linear interpolation
+    status = interpolateFromTable(arr_x_conv_k_energy,
+                                  arr_y_conv_k_energy,
+                                  ARR_SIZE_CONV_K_ENERGY,
+                                  result,
+                                  x);
+    return status;
+}
+int energy2k (double x, double* result) {
+
+    int status;
+
+    // perform conversion through linear interpolation
+    status = interpolateFromTable(arr_y_conv_k_energy,
+                                  arr_x_conv_k_energy,
+                                  ARR_SIZE_CONV_K_ENERGY,
+                                  result,
+                                  x);
+    return status;
+}
+
+void configSimpleMove(int coupling, double velo, double acc, double decel, double relPos) {
+
+    // configure trigger to software
+    trig_type_sel = TRIG_TYPE_SOFT;
+    pvPut(trig_type_sel, SYNC);
+
+    // make sure inter module coupling is right
+    inter_mod_coup_sel = INTER_MOD_COUPLING_001;
+    pvPut(inter_mod_coup_sel, SYNC);
+
+    // configure motion reference type
+    ref_type_sel = REFERENCE_TYPE_INTERNAL;
+    pvPut(ref_type_sel, SYNC);
+
+    // make sure mirror is disabled
+    mirror_sel = MIRROR_DISABLE;
+    pvPut(mirror_sel, SYNC);
+
+    // select phase coupling
+    coup_sel = coupling;
+    pvPut(coup_sel, SYNC);
+
+    // configure velocity
+    velo_sp = velo;
+    pvPut(velo_sp, SYNC);
+    // configure acceleration
+    acc_sp = acc;
+    pvPut(acc_sp, SYNC);
+    // configure deceleration equal acceleration
+    decel_sp = decel;
+    pvPut(decel_sp, SYNC);
+
+    // configure relative position
+    rel_pos_sp = relPos;
+    pvPut(rel_pos_sp, SYNC);
+}
+
+void configTimedMove(int coupling, double time, double relPos) {
+
+    // configure trigger to software
+    trig_type_sel = TRIG_TYPE_SOFT;
+    pvPut(trig_type_sel, SYNC);
+
+    // make sure inter module coupling is right
+    inter_mod_coup_sel = INTER_MOD_COUPLING_001;
+    pvPut(inter_mod_coup_sel, SYNC);
+
+    // configure motion reference type
+    ref_type_sel = REFERENCE_TYPE_INTERNAL;
+    pvPut(ref_type_sel, SYNC);
+
+    // make sure mirror is disabled
+    mirror_sel = MIRROR_DISABLE;
+    pvPut(mirror_sel, SYNC);
+
+    // select phase coupling
+    coup_sel = coupling;
+    pvPut(coup_sel, SYNC);
+
+    // configure motion
+    mov_time_sp = time;
+    pvPut(decel_sp, SYNC);
+
+    // configure relative position
+    rel_pos_sp = relPos;
+    pvPut(rel_pos_sp, SYNC);
+}
+
+void configPolChange(int polarization, char* stateName) {
+
+    // local variables
+    double var_target_pol_shift = 0, var_pos_diff = 0;
+
+    // find target polarization
+    if (polarization == 0) {
+        var_target_pol_shift = POL_CIRC_RIGHT_SHIFT;
+    }
+    else if (polarization == 1) {
+        var_target_pol_shift = POL_CIRC_LEFT_SHIFT;
+    }
+    else if (polarization == 2) {
+        var_target_pol_shift = POL_LIN_VERT_SHIFT;
+    }
+    else if (polarization == 3) {
+        var_target_pol_shift = POL_LIN_HOR_SHIFT;
+    }
+    else {
+        printToLogAndMsgPV(ERR_INVALID_POLARIZATION, stateName);
+        return;
+    }
+
+    // calculate position diff
+    var_pos_diff = var_target_pol_shift - pol_shift_mon;
+
+    // move to position if outside tolerance
+    if (!equalWithinTolerance(var_target_pol_shift, pol_shift_mon, pos_tolerance_sp)) {
+        configSimpleMove(COUPLING_PHASE,
+                         pol_mode_velo_sp, // velo
+                         pol_mode_acc_sp,  // acc
+                         pol_mode_acc_sp,  // decel
+                         var_pos_diff);    // relPos
+    }
+}
+
+void configGainShift(double targetPos) {
+
+    // local variables
+    double var_pos_diff;
+    char var_dir = 1;
+
+    // find direction of gain motion given current polarization
+    if (pol_shift_mon >=0) {
+        var_dir = -1;
+    }
+    else {
+        var_dir = 1;
+    }
+
+    targetPos = var_dir * targetPos;
+
+    // calculate position diff
+    var_pos_diff = targetPos - gain_shift_mon;
+
+    // move to position if outside tolerance
+    if (!equalWithinTolerance(targetPos, gain_shift_mon, pos_tolerance_sp)) {
+        configSimpleMove(COUPLING_GH,
+                         gain_mode_velo_sp, // velo
+                         gain_mode_acc_sp,  // acc
+                         gain_mode_acc_sp,  // decel
+                         var_pos_diff);    // relPos
+    }
+}
+
+void resetToMove() {
+    rst_cmd = 1;
+    pvPut(rst_cmd, SYNC);
+}
+
+void printToLogAndMsgPV(char* msg, char* stateName) {
+    // print warning log message
+    safecpy(log_mon, msg, sizeof(log_mon));
+    pvPut(log_mon, SYNC);
+    LOG_INFO("%s | %s | %s\n",
+             macValueGet("P_MOD01"),
+             stateName,
+             msg);
+}
+
+void reportConvStatus(int status, char* stateName) {
+    // log error if conversion failed
+    if (status == 0) {
+        // NOP
+        return;
+    }
+    else if (status == -1) {
+        printToLogAndMsgPV(ERR_CONV_OUT_OF_BOUNDS, stateName);
+    }
+    else if (status == -2) {
+        printToLogAndMsgPV(ERR_CONV_SEARCH_FAILED, stateName);
+    }
+    else if (status == -3) {
+        printToLogAndMsgPV(ERR_CONV_SLOPE_ZERO, stateName);
+    }
+    else if (status == -4) {
+        printToLogAndMsgPV(ERR_CONV_INVALID_TABLE_SIZE, stateName);
+    }
+    else if (status == -5) {
+        printToLogAndMsgPV(ERR_CONV_INVALID_POLARIZATION, stateName);
+    }
+    else {
+        printToLogAndMsgPV(ERR_CONV_UNKNOWN, stateName);
+    }
+}
+
+char equalWithinTolerance(double num1, double num2, double tolerance){
+
+    return fabs(num1 - num2) < fabs(tolerance);
+}
