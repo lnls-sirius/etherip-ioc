@@ -249,7 +249,7 @@ RUN cd /opt/etheripIOC/ && \
     make -j$(nproc)
 
 COPY entrypoint.sh /opt/etheripIOC/entrypoint.sh
- ENTRYPOINT [ "/bin/bash", "/opt/etheripIOC/entrypoint.sh" ]
+ENTRYPOINT [ "/bin/bash", "/opt/etheripIOC/entrypoint.sh" ]
 
 FROM base AS rf_bo
 COPY ./ioc/database /opt/etheripIOC/database
