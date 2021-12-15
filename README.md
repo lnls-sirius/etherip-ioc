@@ -1,13 +1,13 @@
 # etherip-ioc
 
-This project is an EPICS IOC based on Ether_IP.
+This project is an EPICS IOC based on the [Ether_IP](https://github.com/EPICSTools/ether_ip) module.
 
-## Supported devices
+Python scripts are used to generate EPICS database files and iocBoot cmds. The data sources for generation will vary according to the target device, usually excel spreadsheets.
 
-Currently etherip-ioc provides EPICS interfaces for:
+## Bulding a Docker image
 
-## Docker image
 In order to build the image, verify the settings at `./scripts/config.sh` then use `docker-compose build`.
+The config file will update the `.env` file used by docker-compose.
 
 ```sh
 sh ./scripts/config.sh
@@ -16,6 +16,8 @@ docker-compose build <service_name>
 
 ## IOC Generation and Docker images
 
+Before building the docker image the user should generate the IOC (protocol, database and iocBoot cmds).
+This is by design so we can monitor changes via git.
 There's a shell script for each application. Just run it (Always check if all parameters match the system configuration).
 
 ```command
@@ -23,7 +25,9 @@ cd scripts
 make <target>
 ```
 
-These IOCs are meant to run on Docker containers. In order to build a new image the compose file [`docker-compose.yml`](./docker-compose.yml) is used. For each subsystem a new target must be specified at the [`Dockerfile`](./Dockerfile) and referenced on the build section of the previously mentioned [`docker-compose.yml`](./docker-compose.yml).
+These IOCs are meant to run on Docker containers.
+In order to build a new image the compose file [`docker-compose.yml`](./docker-compose.yml) is used.
+For each subsystem a new target must be specified at the [`Dockerfile`](./Dockerfile) and referenced on the build section of the previously mentioned [`docker-compose.yml`](./docker-compose.yml).
 
 ```command
 docker-compose build <service_name>
