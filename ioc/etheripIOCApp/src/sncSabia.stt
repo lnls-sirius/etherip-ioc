@@ -1304,6 +1304,9 @@ int mm2k (double x, double* result, int polarization) {
 
     // select conversion array
     if (polarization == POL_LIN_VERT_OPTION) {
+        // tables must be explicitly queried
+        pvGet(arr_x_lv_mm2k, SYNC);
+        pvGet(arr_y_lv_mm2k, SYNC);
         table_x = arr_x_lv_mm2k;
         table_y = arr_y_lv_mm2k;
 
@@ -1312,6 +1315,9 @@ int mm2k (double x, double* result, int polarization) {
         table_length = arr_y_lv_mm2k_nord;
     }
     else if (polarization == POL_LIN_HOR_OPTION) {
+        // tables must be explicitly queried
+        pvGet(arr_x_lh_mm2k, SYNC);
+        pvGet(arr_y_lh_mm2k, SYNC);
         table_x = arr_x_lh_mm2k;
         table_y = arr_y_lh_mm2k;
 
@@ -1320,6 +1326,9 @@ int mm2k (double x, double* result, int polarization) {
         table_length = arr_y_lh_mm2k_nord;
     }
     else if (polarization == POL_CIRC_RIGHT_OPTION) {
+        // tables must be explicitly queried
+        pvGet(arr_x_cr_mm2k, SYNC);
+        pvGet(arr_y_cr_mm2k, SYNC);
         table_x = arr_x_cr_mm2k;
         table_y = arr_y_cr_mm2k;
 
@@ -1328,6 +1337,9 @@ int mm2k (double x, double* result, int polarization) {
         table_length = arr_y_cr_mm2k_nord;
     }
     else if (polarization == POL_CIRC_LEFT_OPTION) {
+        // tables must be explicitly queried
+        pvGet(arr_x_cl_mm2k, SYNC);
+        pvGet(arr_y_cl_mm2k, SYNC);
         table_x = arr_x_cl_mm2k;
         table_y = arr_y_cl_mm2k;
 
@@ -1357,6 +1369,9 @@ int k2mm (double x, double* result, int polarization) {
 
     // select conversion array
     if (polarization == POL_LIN_VERT_OPTION) {
+        // tables must be explicitly queried
+        pvGet(arr_x_lv_mm2k, SYNC);
+        pvGet(arr_y_lv_mm2k, SYNC);
         table_x = arr_y_lv_mm2k;
         table_y = arr_x_lv_mm2k;
 
@@ -1365,6 +1380,9 @@ int k2mm (double x, double* result, int polarization) {
         table_length = arr_x_lv_mm2k_nord;
     }
     else if (polarization == POL_LIN_HOR_OPTION) {
+        // tables must be explicitly queried
+        pvGet(arr_x_lh_mm2k, SYNC);
+        pvGet(arr_y_lh_mm2k, SYNC);
         table_x = arr_y_lh_mm2k;
         table_y = arr_x_lh_mm2k;
 
@@ -1373,6 +1391,9 @@ int k2mm (double x, double* result, int polarization) {
         table_length = arr_x_lh_mm2k_nord;
     }
     else if (polarization == POL_CIRC_RIGHT_OPTION) {
+        // tables must be explicitly queried
+        pvGet(arr_x_cr_mm2k, SYNC);
+        pvGet(arr_y_cr_mm2k, SYNC);
         table_x = arr_y_cr_mm2k;
         table_y = arr_x_cr_mm2k;
 
@@ -1381,6 +1402,9 @@ int k2mm (double x, double* result, int polarization) {
         table_length = arr_x_cr_mm2k_nord;
     }
     else if (polarization == POL_CIRC_LEFT_OPTION) {
+        // tables must be explicitly queried
+        pvGet(arr_x_cl_mm2k, SYNC);
+        pvGet(arr_y_cl_mm2k, SYNC);
         table_x = arr_y_cl_mm2k;
         table_y = arr_x_cl_mm2k;
 
