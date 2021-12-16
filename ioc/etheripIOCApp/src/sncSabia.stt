@@ -3,7 +3,7 @@ program sncSabia
 // Macro Definitions
 
 #define DELTA_PERIOD 52.5
-#define MIN_K_VALUE 0
+#define MIN_K_VALUE 0.0
 #define MAX_K_VALUE 6.5
 #define ARR_SIZE_CONV_SHIFT_K 1001
 #define ARR_SIZE_CONV_K_ENERGY 1001
@@ -141,6 +141,18 @@ assign shift_sp to "{P_MOD01}Shift-SP";
 monitor shift_sp;
 evflag shift_sp_flg;
 sync shift_sp shift_sp_flg;
+
+double k_sp_drvh;
+assign k_sp_drvh to "{P_MOD01}K-SP.DRVH";
+
+double k_sp_drvl;
+assign k_sp_drvl to "{P_MOD01}K-SP.DRVL";
+
+double energy_sp_drvh;
+assign energy_sp_drvh to "{P_MOD01}Energy-SP.DRVH";
+
+double energy_sp_drvl;
+assign energy_sp_drvl to "{P_MOD01}Energy-SP.DRVL";
 
 int start_gain_scan_evt;
 assign start_gain_scan_evt to "{P_MOD01}StartGainScanFlg";
@@ -489,6 +501,8 @@ void resetToMove(void);
 void printToLogAndMsgPV(char* msg, char* stateName);
 void reportConvStatus(int status, char* stateName);
 char equalWithinTolerance(double num1, double num2, double tolerance);
+double max(double num1, double num2);
+double min(double num1, double num2);
 
 %%//----------------------------------------
 %%//        State Notation Language
@@ -505,11 +519,17 @@ ss motion_control {
             %%double step, start;
             %%int i = 0;
 
+            // initialize K set point limits according to conversion table limits
+            k_sp_drvh = MAX_K_VALUE;
+            pvPut(k_sp_drvh, SYNC);
+            k_sp_drvl = MIN_K_VALUE;
+            pvPut(k_sp_drvl, SYNC);
+
             // initialize K - Energy conversion table x values
 
             start = MIN_K_VALUE;
 
-            step = (MAX_K_VALUE - MIN_K_VALUE)/ (ARR_SIZE_CONV_K_ENERGY - 1);
+            step = (double) (MAX_K_VALUE - MIN_K_VALUE)/ (double) (ARR_SIZE_CONV_K_ENERGY - 1);
 
             for (i=0; i < ARR_SIZE_CONV_K_ENERGY; i++) {
                 arr_x_conv_k_energy[i] = start + i * step;
@@ -622,6 +642,14 @@ ss motion_control {
                                           + k_to_energy_a1_sp * pow(x, 1)
                                           + k_to_energy_a0_sp;
             }
+
+            // update Energy set point limits according to conversion table
+            energy_sp_drvh = max(arr_y_conv_k_energy[0],
+                                 arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY - 1]);
+            pvPut(energy_sp_drvh, SYNC);
+            energy_sp_drvl = min(arr_y_conv_k_energy[0],
+                                 arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY - 1]);
+            pvPut(energy_sp_drvl, SYNC);
         }
 
         when () {
@@ -1574,5 +1602,15 @@ void reportConvStatus(int status, char* stateName) {
 
 char equalWithinTolerance(double num1, double num2, double tolerance){
 
-    return fabs(num1 - num2) < fabs(tolerance);
+    return fabs(num1 - num2) <= fabs(tolerance);
+}
+
+double max(double num1, double num2){
+    if (num2 > num1) return num2;
+    return num1;
+}
+
+double min(double num1, double num2){
+    if (num2 < num1) return num2;
+    return num1;
 }

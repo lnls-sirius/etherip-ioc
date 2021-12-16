@@ -121,8 +121,9 @@ record(ao, "$(P)$(R)PosTolerance-SP"){
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
-    field(DRVH, "1")
-    field(DRVL, "0")
+    field(DRVH, "10")
+    field(DRVL, "0.001")
+    field(VAL, "0.001")
     field(FLNK, "$(P)$(R)PosTolerance-RB")
 }
 
@@ -186,13 +187,12 @@ record(calc, "$(P)$(R)ChangeGainFlg"){
 }
 
 # read by sncSabia
+# DRVH and DRVL set by sncSabia
 record(ao, "$(P)$(R)Energy-SP"){
     field(DESC, "Energy value in Gain config")
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "eV")
-    field(DRVH, "")
-    field(DRVL, "")
     field(FLNK, "$(P)$(R)Energy-RB")
 }
 
@@ -204,13 +204,12 @@ record(ai, "$(P)$(R)Energy-RB"){
 }
 
 # read by sncSabia
+# DRVH and DRVL set by sncSabia
 record(ao, "$(P)$(R)K-SP"){
     field(DESC, "K value in Gain config")
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "ND")
-    field(DRVH, "")
-    field(DRVL, "")
     field(FLNK, "$(P)$(R)K-RB")
 }
 
@@ -219,7 +218,6 @@ record(ai, "$(P)$(R)K-RB"){
     field(DESC, "K value in Gain config RB")
     field(PREC, "3")
     field(EGU,  "ND")
-    field(HYST, "")
 }
 
 # read by sncSabia
@@ -228,8 +226,8 @@ record(ao, "$(P)$(R)Shift-SP"){
     field(SCAN, "Passive")
     field(PREC, "3")
     field(EGU,  "mm")
-    field(DRVH, "")
-    field(DRVL, "")
+    field(DRVH, "26.25")
+    field(DRVL, "0")
     field(FLNK, "$(P)$(R)Shift-RB")
 }
 
