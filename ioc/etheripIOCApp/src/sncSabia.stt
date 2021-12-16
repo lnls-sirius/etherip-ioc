@@ -22,6 +22,7 @@ program sncSabia
 #define ERR_SEQ_TIMEOUT "Motion failed: sequencer timeout"
 
 #define ERR_INVALID_POLARIZATION "Error: Invalid polarization option"
+#define ERR_MOVE_SCAN_TIME_SMALL "Cannot start move: scan duration too small"
 
 %%//----------------------------------------
 %%//    Global Variables
@@ -29,6 +30,8 @@ program sncSabia
 
 double arr_x_conv_k_energy[ARR_SIZE_CONV_K_ENERGY];
 double arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY];
+double old_gain_shift;
+int must_move;
 
 %%//----------------------------------------
 %%//    Monitored PVs - High Level
@@ -493,16 +496,19 @@ int k2mm (double x, double* result, int polarization);
 int k2energy (double x, double* result);
 int energy2k (double x, double* result);
 
-void configSimpleMove(int coupling, double velo, double acc, double decel, double relPos);
-void configTimedMove(int coupling, double time, double relPos);
-void configPolChange(int polarization, char* stateName);
-void configGainShift(double targetPos);
+void configSimpleMove(int coupling, int mirror, double velo, double acc, double decel, double relPos);
+//int configTimedMove(int coupling, int mirror, double time, double, acc, double decel, double relPos);
+int configPolChange(int polarization, char* stateName);
+int configGainShift(double targetPos);
+int configGainScan(double targetPos, double duration);
 void resetToMove(void);
 void printToLogAndMsgPV(char* msg, char* stateName);
 void reportConvStatus(int status, char* stateName);
 char equalWithinTolerance(double num1, double num2, double tolerance);
 double max(double num1, double num2);
 double min(double num1, double num2);
+int calc_trapezoidal_velo(double acc, double decel, double time, double dist, double* velo);
+int validate_velo_trapezoidal(double velo, double acc, double decel, double dist);
 
 %%//----------------------------------------
 %%//        State Notation Language
@@ -660,8 +666,14 @@ ss motion_control {
 
         entry {
 
+            // store current gain shift
+            old_gain_shift = gain_shift_mon;
+
             // configure move to smallest gain position
-            configGainShift(MINIMUM_GAIN_SHIFT);
+            must_move = configGainShift(MINIMUM_GAIN_SHIFT);
+
+            // DEBUG
+            sleep(5);
 
             /* send reset command to
                PLC state machine */
@@ -669,9 +681,16 @@ ss motion_control {
         }
 
         when (state_idx_mon == STATE_MACHINE_IDLE) {
-            // send soft trigger to start motion
-            soft_trig_cmd = 1;
-            pvPut(soft_trig_cmd, SYNC);
+            if (must_move) {
+                // send soft trigger to start motion
+                soft_trig_cmd = 1;
+                pvPut(soft_trig_cmd, SYNC);
+            }
+            else {
+                // back to stopped state
+                stop_cmd = 1;
+                pvPut(stop_cmd, SYNC);
+            }
         } state change_pol_step2
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
@@ -704,7 +723,10 @@ ss motion_control {
         entry {
 
             // config change in polarization
-            configPolChange(pol_type_sel, "change_pol_step3");
+            must_move = configPolChange(pol_type_sel, "change_pol_step3");
+
+            // DEBUG
+            sleep(5);
 
             /* send reset command to
                PLC state machine */
@@ -712,9 +734,16 @@ ss motion_control {
         }
 
         when (state_idx_mon == STATE_MACHINE_IDLE) {
-            // send soft trigger to start motion
-            soft_trig_cmd = 1;
-            pvPut(soft_trig_cmd, SYNC);
+            if (must_move) {
+                // send soft trigger to start motion
+                soft_trig_cmd = 1;
+                pvPut(soft_trig_cmd, SYNC);
+            }
+            else {
+                // back to stopped state
+                stop_cmd = 1;
+                pvPut(stop_cmd, SYNC);
+            }
         } state change_pol_step4
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
@@ -748,7 +777,10 @@ ss motion_control {
         entry {
 
             // recover previous gain
-            configGainShift(shift_sp);
+            must_move = configGainShift(old_gain_shift);
+
+            // DEBUG
+            sleep(5);
 
             /* send reset command to
                PLC state machine */
@@ -756,9 +788,16 @@ ss motion_control {
         }
 
         when (state_idx_mon == STATE_MACHINE_IDLE) {
-            // send soft trigger to start motion
-            soft_trig_cmd = 1;
-            pvPut(soft_trig_cmd, SYNC);
+            if (must_move) {
+                // send soft trigger to start motion
+                soft_trig_cmd = 1;
+                pvPut(soft_trig_cmd, SYNC);
+            }
+            else {
+                // back to stopped state
+                stop_cmd = 1;
+                pvPut(stop_cmd, SYNC);
+            }
         } state wait_completion
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
@@ -779,7 +818,10 @@ ss motion_control {
         entry {
 
             // configure gain move
-            configGainShift(shift_sp);
+            must_move = configGainShift(shift_sp);
+
+            // DEBUG
+            sleep(5);
 
             /* send reset command to
                PLC state machine */
@@ -787,9 +829,16 @@ ss motion_control {
         }
 
         when (state_idx_mon == STATE_MACHINE_IDLE) {
-            // send soft trigger to start motion
-            soft_trig_cmd = 1;
-            pvPut(soft_trig_cmd, SYNC);
+            if (must_move) {
+                // send soft trigger to start motion
+                soft_trig_cmd = 1;
+                pvPut(soft_trig_cmd, SYNC);
+            }
+            else {
+                // back to stopped state
+                stop_cmd = 1;
+                pvPut(stop_cmd, SYNC);
+            }
         } state wait_completion
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
@@ -810,7 +859,10 @@ ss motion_control {
         entry {
 
             // configure move to initial position
-            configGainShift(sscan_start_sp);
+            must_move = configGainShift(sscan_start_sp);
+
+            // DEBUG
+            sleep(5);
 
             /* send reset command to
                PLC state machine */
@@ -818,9 +870,16 @@ ss motion_control {
         }
 
         when (state_idx_mon == STATE_MACHINE_IDLE) {
-            // send soft trigger to start motion
-            soft_trig_cmd = 1;
-            pvPut(soft_trig_cmd, SYNC);
+            if (must_move) {
+                // send soft trigger to start motion
+                soft_trig_cmd = 1;
+                pvPut(soft_trig_cmd, SYNC);
+            }
+            else {
+                // back to stopped state
+                stop_cmd = 1;
+                pvPut(stop_cmd, SYNC);
+            }
         } state start_gain_scan_step2
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
@@ -852,10 +911,18 @@ ss motion_control {
 
         entry {
 
-            // configure timed scan
-            configTimedMove(COUPLING_GH, // coupling
-                            mov_time_sp,     // motion time
-                            sscan_end_sp);  // relPos
+            // configure gain scan
+            must_move = configGainScan(sscan_end_sp,           // relPos
+                                       gain_scan_duration_sp); // time duration
+
+            if (must_move == -1){
+                // print warning log message
+                printToLogAndMsgPV(ERR_MOVE_SCAN_TIME_SMALL,
+                                   "motion_control start_gain_scan_step3");
+                must_move = 0;
+            }
+            // DEBUG
+            sleep(5);
 
             /* send reset command to
                PLC state machine */
@@ -863,9 +930,16 @@ ss motion_control {
         }
 
         when (state_idx_mon == STATE_MACHINE_IDLE) {
-            // send soft trigger to start motion
-            soft_trig_cmd = 1;
-            pvPut(soft_trig_cmd, SYNC);
+            if (must_move) {
+                // send soft trigger to start motion
+                soft_trig_cmd = 1;
+                pvPut(soft_trig_cmd, SYNC);
+            }
+            else {
+                // back to stopped state
+                stop_cmd = 1;
+                pvPut(stop_cmd, SYNC);
+            }
         } state wait_completion
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
@@ -886,7 +960,10 @@ ss motion_control {
         entry {
 
             // configure move to smallest gain position
-            configGainShift(MINIMUM_GAIN_SHIFT);
+            must_move = configGainShift(MINIMUM_GAIN_SHIFT);
+
+            // DEBUG
+            sleep(5);
 
             /* send reset command to
                PLC state machine */
@@ -894,9 +971,16 @@ ss motion_control {
         }
 
         when (state_idx_mon == STATE_MACHINE_IDLE) {
-            // send soft trigger to start motion
-            soft_trig_cmd = 1;
-            pvPut(soft_trig_cmd, SYNC);
+            if (must_move) {
+                // send soft trigger to start motion
+                soft_trig_cmd = 1;
+                pvPut(soft_trig_cmd, SYNC);
+            }
+            else {
+                // back to stopped state
+                stop_cmd = 1;
+                pvPut(stop_cmd, SYNC);
+            }
         } state wait_completion
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
@@ -1450,7 +1534,7 @@ int energy2k (double x, double* result) {
     return status;
 }
 
-void configSimpleMove(int coupling, double velo, double acc, double decel, double relPos) {
+void configSimpleMove(int coupling, int mirror, double velo, double acc, double decel, double relPos) {
 
     // configure trigger to software
     trig_type_sel = TRIG_TYPE_SOFT;
@@ -1465,7 +1549,7 @@ void configSimpleMove(int coupling, double velo, double acc, double decel, doubl
     pvPut(ref_type_sel, SYNC);
 
     // make sure mirror is disabled
-    mirror_sel = MIRROR_DISABLE;
+    mirror_sel = mirror;
     pvPut(mirror_sel, SYNC);
 
     // select phase coupling
@@ -1484,41 +1568,28 @@ void configSimpleMove(int coupling, double velo, double acc, double decel, doubl
 
     // configure relative position
     rel_pos_sp = relPos;
+
     pvPut(rel_pos_sp, SYNC);
 }
 
-void configTimedMove(int coupling, double time, double relPos) {
+//int configTimedMove(int coupling, int mirror, double time, double acc, double decel, double relPos) {
+//
+//    // local variables
+//    int status_err = 0;
+//    double velocity;
+//
+//    // calculate velocity given desired time
+//    status_err = calc_trapezoidal_velo(acc, decel, time, relPos, &velocity);
+//
+//    // configure move
+//    if (status_err == 0){
+//        configSimpleMove(coupling, mirror, velocity, acc, decel, relPos);
+//    }
+//
+//    return status_err;
+//}
 
-    // configure trigger to software
-    trig_type_sel = TRIG_TYPE_SOFT;
-    pvPut(trig_type_sel, SYNC);
-
-    // make sure inter module coupling is right
-    inter_mod_coup_sel = INTER_MOD_COUPLING_001;
-    pvPut(inter_mod_coup_sel, SYNC);
-
-    // configure motion reference type
-    ref_type_sel = REFERENCE_TYPE_INTERNAL;
-    pvPut(ref_type_sel, SYNC);
-
-    // make sure mirror is disabled
-    mirror_sel = MIRROR_DISABLE;
-    pvPut(mirror_sel, SYNC);
-
-    // select phase coupling
-    coup_sel = coupling;
-    pvPut(coup_sel, SYNC);
-
-    // configure motion
-    mov_time_sp = time;
-    pvPut(decel_sp, SYNC);
-
-    // configure relative position
-    rel_pos_sp = relPos;
-    pvPut(rel_pos_sp, SYNC);
-}
-
-void configPolChange(int polarization, char* stateName) {
+int configPolChange(int polarization, char* stateName) {
 
     // local variables
     double var_target_pol_shift = 0, var_pos_diff = 0;
@@ -1538,7 +1609,7 @@ void configPolChange(int polarization, char* stateName) {
     }
     else {
         printToLogAndMsgPV(ERR_INVALID_POLARIZATION, stateName);
-        return;
+        return 0;
     }
 
     // calculate position diff
@@ -1546,15 +1617,21 @@ void configPolChange(int polarization, char* stateName) {
 
     // move to position if outside tolerance
     if (!equalWithinTolerance(var_target_pol_shift, pol_shift_mon, pos_tolerance_sp)) {
-        configSimpleMove(COUPLING_PHASE,
+        // config move
+        configSimpleMove(COUPLING_PHASE,   // coupling
+                         MIRROR_DISABLE,   // mirror
                          pol_mode_velo_sp, // velo
                          pol_mode_acc_sp,  // acc
                          pol_mode_acc_sp,  // decel
                          var_pos_diff);    // relPos
+        return 1;
+    }
+    else {
+        return 0;
     }
 }
 
-void configGainShift(double targetPos) {
+int configGainShift(double targetPos) {
 
     // local variables
     double var_pos_diff;
@@ -1575,11 +1652,70 @@ void configGainShift(double targetPos) {
 
     // move to position if outside tolerance
     if (!equalWithinTolerance(targetPos, gain_shift_mon, pos_tolerance_sp)) {
+        // config move
         configSimpleMove(COUPLING_GH,
+                         MIRROR_ENABLE,    // mirror
                          gain_mode_velo_sp, // velo
                          gain_mode_acc_sp,  // acc
                          gain_mode_acc_sp,  // decel
+                         var_pos_diff);     // relPos
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+
+int configGainScan(double targetPos, double duration) {
+
+    // local variables
+    double var_pos_diff, var_velo;
+    char var_dir = 1;
+    char velo_err = 0;
+
+    // find direction of gain motion given current polarization
+    if (pol_shift_mon >=0) {
+        var_dir = -1;
+    }
+    else {
+        var_dir = 1;
+    }
+
+    targetPos = var_dir * targetPos;
+
+    // calculate position diff
+    var_pos_diff = targetPos - gain_shift_mon;
+
+    // move to position if outside tolerance
+    if (equalWithinTolerance(targetPos, gain_shift_mon, pos_tolerance_sp)) {
+
+        // no need to move
+        return 0;
+    }
+
+    // calculate velocity given desired time
+    velo_err = calc_trapezoidal_velo(gain_mode_acc_sp, // acc
+                                     gain_mode_acc_sp, // decel
+                                     duration,         // time
+                                     var_pos_diff,     // distance
+                                     &var_velo);       // velo output
+
+    // move to position if trapezoidal profile
+    // is possible given time duration
+    if (!velo_err) {
+        // config move
+        configSimpleMove(COUPLING_GH,
+                         MIRROR_ENABLE,    // mirror
+                         var_velo,             // velo for timed profile
+                         gain_mode_acc_sp, // acc
+                         gain_mode_acc_sp, // decel
                          var_pos_diff);    // relPos
+        // configured to move
+        return 1;
+    }
+    else {
+        // motion time too small
+        return -1;
     }
 }
 
@@ -1637,4 +1773,63 @@ double max(double num1, double num2){
 double min(double num1, double num2){
     if (num2 < num1) return num2;
     return num1;
+}
+
+int calc_trapezoidal_velo(double acc, double decel, double time, double dist, double* velo){
+
+    double a, b, c, delta, v1, v2;
+
+    // make sure values are positive
+    acc = fabs(acc);
+    decel = fabs(decel);
+    dist = fabs(dist);
+
+    a = decel + acc;
+    b = 2*acc*decel*time;
+    c = 2*acc*decel*dist;
+    delta = (b*b) - (4*a*c);
+
+    if (delta < 0) {
+
+        // calculation failed
+        return -1;
+    }
+
+    v1 = (b + sqrt(delta))/(2*a);
+    v2 = (b - sqrt(delta))/(2*a);
+
+    if (validate_velo_trapezoidal(v1, acc, decel, dist)){
+        *velo = v1;
+
+        // return success
+        return 0;
+    }
+    else if (validate_velo_trapezoidal(v2, acc, decel, dist)){
+        *velo = v2;
+
+        // return success
+        return 0;
+    }
+
+    // calculation failed
+    return -1;
+}
+
+int validate_velo_trapezoidal(double velo, double acc, double decel, double dist){
+
+    double ta, td, da, dd, ds;
+
+    if (velo <= 0){
+        return 0;
+    }
+
+    ta = velo/acc;
+    td = velo/decel;
+    da = ta*velo/2;
+    dd = td*velo/2;
+    ds = dist-da-dd;
+    if (ds <= 0){
+        return 0;
+    }
+    return 1;
 }
