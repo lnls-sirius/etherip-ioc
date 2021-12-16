@@ -668,13 +668,13 @@ ss motion_control {
             resetToMove();
         }
 
-        when (motion_state_mon == STATE_MACHINE_IDLE) {
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
             pvPut(soft_trig_cmd, SYNC);
         } state change_pol_step2
 
-        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
                                "motion_control change_pol_step1");
@@ -689,10 +689,10 @@ ss motion_control {
 
     state change_pol_step2 {
 
-        when (motion_state_mon == STATE_MACHINE_STOPPED) {
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
         } state change_pol_step3
 
-        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
                                "motion_control change_pol_step2");
@@ -711,13 +711,13 @@ ss motion_control {
             resetToMove();
         }
 
-        when (motion_state_mon == STATE_MACHINE_IDLE) {
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
             pvPut(soft_trig_cmd, SYNC);
         } state change_pol_step4
 
-        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
                                "motion_control change_pol_step3");
@@ -732,10 +732,10 @@ ss motion_control {
 
     state change_pol_step4 {
 
-        when (motion_state_mon == STATE_MACHINE_STOPPED) {
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
         } state change_pol_step5
 
-        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
                                "motion_control change_pol_step4");
@@ -755,13 +755,13 @@ ss motion_control {
             resetToMove();
         }
 
-        when (motion_state_mon == STATE_MACHINE_IDLE) {
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
             pvPut(soft_trig_cmd, SYNC);
         } state wait_completion
 
-        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
                                "motion_control change_pol_step5");
@@ -786,13 +786,13 @@ ss motion_control {
             resetToMove();
         }
 
-        when (motion_state_mon == STATE_MACHINE_IDLE) {
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
             pvPut(soft_trig_cmd, SYNC);
         } state wait_completion
 
-        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
                                "motion_control change_gain");
@@ -817,13 +817,13 @@ ss motion_control {
             resetToMove();
         }
 
-        when (motion_state_mon == STATE_MACHINE_IDLE) {
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
             pvPut(soft_trig_cmd, SYNC);
         } state start_gain_scan_step2
 
-        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
                                "motion_control start_gain_scan_step1");
@@ -838,10 +838,10 @@ ss motion_control {
 
     state start_gain_scan_step2 {
 
-        when (motion_state_mon == STATE_MACHINE_STOPPED) {
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
         } state start_gain_scan_step3
 
-        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
                                "motion_control start_gain_scan_step2");
@@ -862,13 +862,13 @@ ss motion_control {
             resetToMove();
         }
 
-        when (motion_state_mon == STATE_MACHINE_IDLE) {
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
             pvPut(soft_trig_cmd, SYNC);
         } state wait_completion
 
-        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
                                "motion_control start_gain_scan_step3");
@@ -893,13 +893,13 @@ ss motion_control {
             resetToMove();
         }
 
-        when (motion_state_mon == STATE_MACHINE_IDLE) {
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
             pvPut(soft_trig_cmd, SYNC);
         } state wait_completion
 
-        when (motion_state_mon == STATE_MACHINE_ABORTED) {
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
                                "motion_control start_parking");
