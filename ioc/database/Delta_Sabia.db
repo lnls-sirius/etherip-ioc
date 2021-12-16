@@ -84,8 +84,8 @@ record(bi, "$(P)$(R)HighLvlMove-Mon"){
 
 record(calc, "$(P)$(R)MovingCalc"){
     field(DESC, "Axes moving status calc")
-    field(INPA, "$(P)$(R)Mod01MotionState-Mon CPP")
-    field(INPB, "$(P)$(R)HighLvlMove-Mon")
+    field(INPA, "$(P_AXIS)MotionState-Mon CPP")
+    field(INPB, "$(P)$(R)HighLvlMove-Mon CPP")
     field(CALC, "(!A) || B")
     field(FLNK, "$(P)$(R)Moving-Mon")
 }
@@ -240,29 +240,29 @@ record(ai, "$(P)$(R)Shift-RB"){
     field(EGU,  "mm")
 }
 
-# axis CID relative position related to polarization
+# axis CSE relative position related to polarization
 record(calc, "$(P)$(R)PolShift-Mon"){
     field(DESC, "Position shift in pol mode mon")
     field(EGU, "mm")
     field(PREC, "3")
     # monitor axis that move only in Phase mode
-    field(INPA, "$(P)$(R)Mod01PhyCIDActualPos-Mon CPP")
+    field(INPA, "$(P_AXIS)PhyCSEActualPos-Mon CPP")
     # no conversion is needed
     field(CALC, "A")
 }
 
-# axis CID position defines degree of polarization
+# axis CSE position defines degree of polarization
 record(calc, "$(P)$(R)PolCalc"){
     field(DESC, "Polarization mon calc")
     field(PREC, "4")
     # monitor axis that move only in Phase mode
-    field(INPA, "$(P)$(R)Mod01PhyCIDActualPos-Mon CPP")
-    field(INPB, "$(P)$(R)PosTolerance-SP")
+    field(INPA, "$(P_AXIS)PhyCSEActualPos-Mon CPP")
+    field(INPB, "$(P)$(R)PosTolerance-SP CPP")
     field(INPC, "-13.125")
     field(INPD, "13.125")
     field(INPE, "-26.25")
     field(INPF, "0")
-    field(CALC, "abs(A-C)<B?0:(abs(A-D)<B?1:(abs(A-E)<B?2:(abs(A-F)<B?3:4)))")
+    field(CALC, "abs(A-C)<=B?0:(abs(A-D)<=B?1:(abs(A-E)<=B?2:(abs(A-F)<=B?3:4)))")
     field(FLNK, "$(P)$(R)Pol-Mon")
 }
 
@@ -276,13 +276,13 @@ record(mbbi, "$(P)$(R)Pol-Mon"){
     field(FRST, "Changing")
 }
 
-# axis CIE relative position related to gain (energy)
+# axis CSD relative position related to gain (energy)
 record(calc, "$(P)$(R)GainShift-Mon"){
     field(DESC, "Position shift in gain mode mon")
     field(EGU, "mm")
     field(PREC, "3")
     # monitor axis that move only in gain mode
-    field(INPA, "$(P)$(R)Mod01PhyCIEActualPos-Mon CPP")
+    field(INPA, "$(P_AXIS)PhyCSDActualPos-Mon CPP")
     # no conversion is needed
     field(CALC, "A")
 }
@@ -294,22 +294,21 @@ record(calc, "$(P)$(R)K-Mon"){
     field(PREC, "3")
 }
 
-# axis CIE position defines energy value (in GH mode)
 record(calc, "$(P)$(R)Energy-Mon"){
     field(DESC, "Energy mon")
     field(EGU, "eV")
     field(PREC, "3")
     # monitor K value
     field(INPA, "$(P)$(R)K-Mon CPP")
-    field(INPB, "$(P)$(R)KToEnergyA0-SP")
-    field(INPC, "$(P)$(R)KToEnergyA1-SP")
-    field(INPD, "$(P)$(R)KToEnergyA2-SP")
-    field(INPE, "$(P)$(R)KToEnergyA3-SP")
-    field(INPF, "$(P)$(R)KToEnergyA4-SP")
-    field(INPG, "$(P)$(R)KToEnergyA5-SP")
-    field(INPH, "$(P)$(R)KToEnergyA6-SP")
-    field(INPI, "$(P)$(R)KToEnergyA7-SP")
-    field(INPJ, "$(P)$(R)KToEnergyA8-SP")
+    field(INPB, "$(P)$(R)KToEnergyA0-SP CPP")
+    field(INPC, "$(P)$(R)KToEnergyA1-SP CPP")
+    field(INPD, "$(P)$(R)KToEnergyA2-SP CPP")
+    field(INPE, "$(P)$(R)KToEnergyA3-SP CPP")
+    field(INPF, "$(P)$(R)KToEnergyA4-SP CPP")
+    field(INPG, "$(P)$(R)KToEnergyA5-SP CPP")
+    field(INPH, "$(P)$(R)KToEnergyA6-SP CPP")
+    field(INPI, "$(P)$(R)KToEnergyA7-SP CPP")
+    field(INPJ, "$(P)$(R)KToEnergyA8-SP CPP")
     # convert from K to eV
     field(CALC, "J*A^8+I*A^7+H*A^6+G*A^5+F*A^4+E*A^3+D*A^2+C*A+B")
 }
@@ -858,17 +857,17 @@ record(seq, "$(P)$(R)EnblLowLvlCtrl"){
     field(DOL8, "0")
     field(DOL9, "0")
     field(DOLA, "0")
-    field(LNK0, "$(P)$(R)Mod01Coup-Sel.DISP PP")
-    field(LNK1, "$(P)$(R)Mod01TrigType-Sel.DISP PP")
-    field(LNK2, "$(P)$(R)Mod01RefType-Sel.DISP PP")
-    field(LNK3, "$(P)$(R)InterModCoup-Sel.DISP PP")
-    field(LNK4, "$(P)$(R)Mod01Mirror-Sel.DISP PP")
-    field(LNK5, "$(P)$(R)Mod01SoftTrig-Cmd.DISP PP")
-    field(LNK6, "$(P)$(R)Mod01RelPos-SP.DISP PP")
-    field(LNK7, "$(P)$(R)Mod01Velo-SP.DISP PP")
-    field(LNK8, "$(P)$(R)Mod01MovTime-SP.DISP PP")
-    field(LNK9, "$(P)$(R)Mod01Acc-SP.DISP PP")
-    field(LNKA, "$(P)$(R)Mod01Decel-SP.DISP PP")
+    field(LNK0, "$(P_AXIS)Coup-Sel.DISP PP")
+    field(LNK1, "$(P_AXIS)TrigType-Sel.DISP PP")
+    field(LNK2, "$(P_AXIS)RefType-Sel.DISP PP")
+    field(LNK3, "$(P_GLOB)InterModCoup-Sel.DISP PP")
+    field(LNK4, "$(P_AXIS)Mirror-Sel.DISP PP")
+    field(LNK5, "$(P_AXIS)SoftTrig-Cmd.DISP PP")
+    field(LNK6, "$(P_AXIS)RelPos-SP.DISP PP")
+    field(LNK7, "$(P_AXIS)Velo-SP.DISP PP")
+    field(LNK8, "$(P_AXIS)MovTime-SP.DISP PP")
+    field(LNK9, "$(P_AXIS)Acc-SP.DISP PP")
+    field(LNKA, "$(P_AXIS)Decel-SP.DISP PP")
 }
 
 # set by sncSabia
@@ -886,15 +885,15 @@ record(seq, "$(P)$(R)DsblLowLvlCtrl"){
     field(DOL8, "1")
     field(DOL9, "1")
     field(DOLA, "1")
-    field(LNK0, "$(P)$(R)Mod01Coup-Sel.DISP PP")
-    field(LNK1, "$(P)$(R)Mod01TrigType-Sel.DISP PP")
-    field(LNK2, "$(P)$(R)Mod01RefType-Sel.DISP PP")
+    field(LNK0, "$(P_AXIS)Coup-Sel.DISP PP")
+    field(LNK1, "$(P_AXIS)TrigType-Sel.DISP PP")
+    field(LNK2, "$(P_AXIS)RefType-Sel.DISP PP")
     field(LNK3, "$(P)$(R)InterModCoup-Sel.DISP PP")
-    field(LNK4, "$(P)$(R)Mod01Mirror-Sel.DISP PP")
-    field(LNK5, "$(P)$(R)Mod01SoftTrig-Cmd.DISP PP")
-    field(LNK6, "$(P)$(R)Mod01RelPos-SP.DISP PP")
-    field(LNK7, "$(P)$(R)Mod01Velo-SP.DISP PP")
-    field(LNK8, "$(P)$(R)Mod01MovTime-SP.DISP PP")
-    field(LNK9, "$(P)$(R)Mod01Acc-SP.DISP PP")
-    field(LNKA, "$(P)$(R)Mod01Decel-SP.DISP PP")
+    field(LNK4, "$(P_AXIS)Mirror-Sel.DISP PP")
+    field(LNK5, "$(P_AXIS)SoftTrig-Cmd.DISP PP")
+    field(LNK6, "$(P_AXIS)RelPos-SP.DISP PP")
+    field(LNK7, "$(P_AXIS)Velo-SP.DISP PP")
+    field(LNK8, "$(P_AXIS)MovTime-SP.DISP PP")
+    field(LNK9, "$(P_AXIS)Acc-SP.DISP PP")
+    field(LNKA, "$(P_AXIS)Decel-SP.DISP PP")
 }
