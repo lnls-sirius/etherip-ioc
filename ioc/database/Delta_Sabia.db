@@ -148,7 +148,7 @@ record(calc, "$(P)$(R)ChangePolFlg"){
 }
 
 # read by sncSabia
-record(mbbo, "$(P)$(R)PolType-Sel"){
+record(mbbo, "$(P)$(R)Pol-Sel"){
     field(DESC, "Polarization type")
     field(SCAN, "Passive")
     field(OMSL, "supervisory")
@@ -158,11 +158,11 @@ record(mbbo, "$(P)$(R)PolType-Sel"){
     field(ONST, "Circ left")
     field(TWST, "Linear vert")
     field(THST, "Linear hor")
-    field(FLNK, "$(P)$(R)PolType-Sts")
+    field(FLNK, "$(P)$(R)Pol-Sts")
 }
 
-record(mbbi, "$(P)$(R)PolType-Sts"){
-    field(INP, "$(P)$(R)PolType-Sel")
+record(mbbi, "$(P)$(R)Pol-Sts"){
+    field(INP, "$(P)$(R)Pol-Sel")
     field(DESC, "Polarization type sts")
     field(UNSV, "MINOR")
     field(ZRST, "Circ right")
@@ -244,7 +244,7 @@ record(calc, "$(P)$(R)PolShift-Mon"){
     field(EGU, "mm")
     field(PREC, "3")
     # monitor axis that move only in Phase mode
-    field(INPA, "$(P_AXIS)PhyCSEActualPos-Mon CPP")
+    field(INPA, "$(P_AXIS)CSEPhyPos-Mon CPP")
     # no conversion is needed
     field(CALC, "A")
 }
@@ -254,7 +254,7 @@ record(calc, "$(P)$(R)PolCalc"){
     field(DESC, "Polarization mon calc")
     field(PREC, "4")
     # monitor axis that move only in Phase mode
-    field(INPA, "$(P_AXIS)PhyCSEActualPos-Mon CPP")
+    field(INPA, "$(P_AXIS)CSEPhyPos-Mon CPP")
     field(INPB, "$(P)$(R)PosTolerance-SP CPP")
     field(INPC, "-13.125")
     field(INPD, "13.125")
@@ -280,7 +280,7 @@ record(calc, "$(P)$(R)GainShift-Mon"){
     field(EGU, "mm")
     field(PREC, "3")
     # monitor axis that move only in gain mode
-    field(INPA, "$(P_AXIS)PhyCSDActualPos-Mon CPP")
+    field(INPA, "$(P_AXIS)CSDPhyPos-Mon CPP")
     # no conversion is needed
     field(CALC, "A")
 }

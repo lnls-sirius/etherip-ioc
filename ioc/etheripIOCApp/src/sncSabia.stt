@@ -115,11 +115,11 @@ monitor change_pol_evt;
 evflag change_pol_evt_flg;
 sync change_pol_evt change_pol_evt_flg;
 
-int pol_type_sel;
-assign pol_type_sel to "{P_MOD01}PolType-Sel";
-monitor pol_type_sel;
-evflag pol_type_sel_flg;
-sync pol_type_sel pol_type_sel_flg;
+int pol_sel;
+assign pol_sel to "{P_MOD01}Pol-Sel";
+monitor pol_sel;
+evflag pol_sel_flg;
+sync pol_sel pol_sel_flg;
 
 int change_gain_evt;
 assign change_gain_evt to "{P_MOD01}ChangeGainFlg";
@@ -363,17 +363,17 @@ assign decel_sp to "{P_MOD01}Decel-SP";
 double mov_time_sp;
 assign mov_time_sp to "{P_MOD01}MovTime-SP";
 
-double phy_cid_actual_pos_mon;
-assign phy_cid_actual_pos_mon to "{P_MOD01}PhyCIDActualPos-Mon";
+double cid_phy_pos_mon;
+assign cid_phy_pos_mon to "{P_MOD01}CIDPhyPos-Mon";
 
-double phy_cie_actual_pos_mon;
-assign phy_cie_actual_pos_mon to "{P_MOD01}PhyCIEActualPos-Mon";
+double cie_phy_pos_mon;
+assign cie_phy_pos_mon to "{P_MOD01}CIEPhyPos-Mon";
 
-double phy_csd_actual_pos_mon;
-assign phy_csd_actual_pos_mon to "{P_MOD01}PhyCSDActualPos-Mon";
+double csd_phy_pos_mon;
+assign csd_phy_pos_mon to "{P_MOD01}CSDPhyPos-Mon";
 
-double phy_cse_actual_pos_mon;
-assign phy_cse_actual_pos_mon to "{P_MOD01}PhyCSEActualPos-Mon";
+double cse_phy_pos_mon;
+assign cse_phy_pos_mon to "{P_MOD01}CSEPhyPos-Mon";
 
 int coup_sel;
 assign coup_sel to "{P_MOD01}Coup-Sel";
@@ -723,7 +723,7 @@ ss motion_control {
         entry {
 
             // config change in polarization
-            must_move = configPolChange(pol_type_sel, "change_pol_step3");
+            must_move = configPolChange(pol_sel, "change_pol_step3");
 
             // DEBUG
             sleep(5);
