@@ -64,7 +64,7 @@ record(mbbi, "$(PREFIX_MOD02)Coup-Sts"){
 
 record(ai, "$(PREFIX_MOD02)TrigTypeStsAux1"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ER_Conf_Mov_Trg_02 S .1")
+    field(INP, "@$(PLC) EW_Conf_Mov_Trg_02 S .1")
     field(SCAN, "I/O Intr")
     field(FLNK, "$(PREFIX_MOD02)TrigType-Sts")
 }
