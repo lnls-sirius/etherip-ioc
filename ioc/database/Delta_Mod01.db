@@ -749,8 +749,8 @@ record(bo, "$(PREFIX_MOD01)SoftTrig-Cmd"){
     field(DESC, "Motion software trg for mod ")
     field(OUT, "$(PREFIX_MOD01)SoftTrigCmdAux1.PROC PP")
     field(SCAN, "Passive")
-    field(ONAM, "Start")
-    field(ZNAM, "Start")
+    field(ONAM, "1")
+    field(ZNAM, "0")
     field(ZSV, "")
     field(OSV, "")
 }
@@ -1855,8 +1855,8 @@ record(bo, "$(PREFIX_MOD01)Stop-Cmd"){
     field(DESC, "State machine stop cmd mod 0")
     field(OUT, "$(PREFIX_MOD01)StopCmdAux1.PROC PP")
     field(SCAN, "Passive")
-    field(ONAM, "Stop")
-    field(ZNAM, "Stop")
+    field(ONAM, "1")
+    field(ZNAM, "0")
     field(ZSV, "")
     field(OSV, "")
 }
@@ -1880,8 +1880,8 @@ record(bo, "$(PREFIX_MOD01)Rst-Cmd"){
     field(DESC, "State machine reset cmd mod ")
     field(OUT, "$(PREFIX_MOD01)RstCmdAux1.PROC PP")
     field(SCAN, "Passive")
-    field(ONAM, "Reset")
-    field(ZNAM, "Reset")
+    field(ONAM, "1")
+    field(ZNAM, "0")
     field(ZSV, "")
     field(OSV, "")
 }
