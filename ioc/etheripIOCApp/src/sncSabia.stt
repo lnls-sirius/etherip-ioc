@@ -559,6 +559,7 @@ double max(double num1, double num2);
 double min(double num1, double num2);
 int calc_trapezoidal_velo(double acc, double decel, double time, double dist, double* velo);
 int validate_velo_trapezoidal(double velo, double acc, double decel, double dist);
+int polOption2Shift(int polarization, double* shift);
 
 %%//----------------------------------------
 %%//        State Notation Language
@@ -714,8 +715,17 @@ ss motion_control {
 
     state change_pol_step1 {
 
-        entry {
+        when (pol_mon == pol_sel) {
+            /* polarization does not need to change */
+        } state wait_completion
 
+        when () {
+        } state change_pol_step2
+    }
+
+    state change_pol_step2 {
+
+        entry {
             // store current gain shift
             old_gain_shift = gain_shift_mon;
 
@@ -725,7 +735,7 @@ ss motion_control {
 
         when (!must_move) {
             /* skip the first move */
-        } state change_pol_step4
+        } state change_pol_step5
 
         when (trig_type_sts == trig_type_sel
               && inter_mod_coup_sts == inter_mod_coup_sel
@@ -740,32 +750,11 @@ ss motion_control {
             /* send reset command to
                PLC state machine */
             resetToMove();
-        } state change_pol_step2
-
-        when (state_idx_mon == STATE_MACHINE_ABORTED) {
-            // print warning log message
-            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
-                               "motion_control change_pol_step1");
-        } state wait_completion
-
-        when (delay(SEQ_TIMEOUT)) {
-            // print warning log message
-            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
-                               "motion_control change_pol_step1");
-        } state wait_completion
-    }
-
-    state change_pol_step2 {
-
-        when (state_idx_mon == STATE_MACHINE_IDLE) {
-            // send soft trigger to start motion
-            soft_trig_cmd = 1;
-            pvPut(soft_trig_cmd, SYNC);
         } state change_pol_step3
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
-            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
                                "motion_control change_pol_step2");
         } state wait_completion
 
@@ -778,7 +767,10 @@ ss motion_control {
 
     state change_pol_step3 {
 
-        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
         } state change_pol_step4
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
@@ -786,18 +778,36 @@ ss motion_control {
             printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
                                "motion_control change_pol_step3");
         } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control change_pol_step3");
+        } state wait_completion
     }
 
     state change_pol_step4 {
 
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        } state change_pol_step5
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control change_pol_step4");
+        } state wait_completion
+    }
+
+    state change_pol_step5 {
+
         entry {
             // config change in polarization
-            must_move = configPolChange(pol_sel, "change_pol_step4");
+            must_move = configPolChange(pol_sel, "change_pol_step5");
         }
 
         when (!must_move) {
             /* skip the polarization move */
-        } state change_pol_step7
+        } state change_pol_step8
 
         when (trig_type_sts == trig_type_sel
               && inter_mod_coup_sts == inter_mod_coup_sel
@@ -812,32 +822,11 @@ ss motion_control {
             /* send reset command to
                PLC state machine */
             resetToMove();
-        } state change_pol_step5
-
-        when (state_idx_mon == STATE_MACHINE_ABORTED) {
-            // print warning log message
-            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
-                               "motion_control change_pol_step4");
-        } state wait_completion
-
-        when (delay(SEQ_TIMEOUT)) {
-            // print warning log message
-            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
-                               "motion_control change_pol_step4");
-        } state wait_completion
-    }
-
-    state change_pol_step5 {
-
-        when (state_idx_mon == STATE_MACHINE_IDLE) {
-            // send soft trigger to start motion
-            soft_trig_cmd = 1;
-            pvPut(soft_trig_cmd, SYNC);
         } state change_pol_step6
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
-            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
                                "motion_control change_pol_step5");
         } state wait_completion
 
@@ -850,7 +839,10 @@ ss motion_control {
 
     state change_pol_step6 {
 
-        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
         } state change_pol_step7
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
@@ -858,9 +850,27 @@ ss motion_control {
             printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
                                "motion_control change_pol_step6");
         } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control change_pol_step6");
+        } state wait_completion
     }
 
     state change_pol_step7 {
+
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        } state change_pol_step8
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control change_pol_step7");
+        } state wait_completion
+    }
+
+    state change_pol_step8 {
 
         entry {
             // recover previous gain
@@ -884,22 +894,22 @@ ss motion_control {
             /* send reset command to
                PLC state machine */
             resetToMove();
-        } state change_pol_step8
+        } state change_pol_step9
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
-                               "motion_control change_pol_step7");
+                               "motion_control change_pol_step8");
         } state wait_completion
 
         when (delay(SEQ_TIMEOUT)) {
             // print warning log message
             printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
-                               "motion_control change_pol_step7");
+                               "motion_control change_pol_step8");
         } state wait_completion
     }
 
-    state change_pol_step8 {
+    state change_pol_step9 {
 
         when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
@@ -910,13 +920,13 @@ ss motion_control {
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
-                               "motion_control change_pol_step8");
+                               "motion_control change_pol_step9");
         } state wait_completion
 
         when (delay(SEQ_TIMEOUT)) {
             // print warning log message
             printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
-                               "motion_control change_pol_step8");
+                               "motion_control change_pol_step9");
         } state wait_completion
     }
 
@@ -1775,21 +1785,11 @@ int configPolChange(int polarization, char* stateName) {
 
     // local variables
     double var_target_pol_shift = 0, var_pos_diff = 0;
+    int status;
 
     // find target polarization
-    if (polarization == 0) {
-        var_target_pol_shift = POL_CIRC_RIGHT_SHIFT;
-    }
-    else if (polarization == 1) {
-        var_target_pol_shift = POL_CIRC_LEFT_SHIFT;
-    }
-    else if (polarization == 2) {
-        var_target_pol_shift = POL_LIN_VERT_SHIFT;
-    }
-    else if (polarization == 3) {
-        var_target_pol_shift = POL_LIN_HOR_SHIFT;
-    }
-    else {
+    status = polOption2Shift(polarization, &var_target_pol_shift);
+    if (status == -1) {
         printToLogAndMsgPV(ERR_INVALID_POLARIZATION, stateName);
         return 0;
     }
@@ -2016,3 +2016,29 @@ int validate_velo_trapezoidal(double velo, double acc, double decel, double dist
     }
     return 1;
 }
+
+int polOption2Shift(int polarization, double* shift){
+
+    // return polarization shift
+    if (polarization == 0) {
+        *shift = POL_CIRC_RIGHT_SHIFT;
+        return 0;
+    }
+    else if (polarization == 1) {
+        *shift = POL_CIRC_LEFT_SHIFT;
+        return 0;
+    }
+    else if (polarization == 2) {
+        *shift = POL_LIN_VERT_SHIFT;
+        return 0;
+    }
+    else if (polarization == 3) {
+        *shift = POL_LIN_HOR_SHIFT;
+        return 0;
+    }
+    else {
+        *shift = 0;
+        return -1;
+    }
+}
+
