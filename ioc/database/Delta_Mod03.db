@@ -991,7 +991,7 @@ record(ai, "$(PREFIX_MOD03)Decel-RB"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)VirtCIDActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)CIDVirtPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PTH.ActualPosition")
     field(DESC, "Actual pos virtual CID mod 0")
@@ -1011,7 +1011,7 @@ record(ai, "$(PREFIX_MOD03)VirtCIDActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)VirtCIEActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)CIEVirtPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PTH.ActualPosition")
     field(DESC, "Actual pos virtual CIE mod 0")
@@ -1031,7 +1031,7 @@ record(ai, "$(PREFIX_MOD03)VirtCIEActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)VirtCSDActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)CSDVirtPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PTH.ActualPosition")
     field(DESC, "Actual pos virtual CSD mod 0")
@@ -1051,7 +1051,7 @@ record(ai, "$(PREFIX_MOD03)VirtCSDActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)VirtCSEActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)CSEVirtPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PTH.ActualPosition")
     field(DESC, "Actual pos virtual CSE mod 0")
@@ -1071,7 +1071,7 @@ record(ai, "$(PREFIX_MOD03)VirtCSEActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)VirtCIDActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)CIDVirtVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PTH.ActualVelocity")
     field(DESC, "Actual velocity virtual CID ")
@@ -1091,7 +1091,7 @@ record(ai, "$(PREFIX_MOD03)VirtCIDActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)VirtCIEActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)CIEVirtVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PTH.ActualVelocity")
     field(DESC, "Actual velocity virtual CIE ")
@@ -1111,7 +1111,7 @@ record(ai, "$(PREFIX_MOD03)VirtCIEActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)VirtCSDActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)CSDVirtVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PTH.ActualVelocity")
     field(DESC, "Actual velocity virtual CSD ")
@@ -1131,7 +1131,7 @@ record(ai, "$(PREFIX_MOD03)VirtCSDActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)VirtCSEActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)CSEVirtVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PTH.ActualVelocity")
     field(DESC, "Actual velocity virtual CSE ")
@@ -1151,7 +1151,7 @@ record(ai, "$(PREFIX_MOD03)VirtCSEActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)PhyCIDActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)CIDPhyPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PHY.ActualPosition")
     field(DESC, "Actual position physical CID")
@@ -1171,7 +1171,7 @@ record(ai, "$(PREFIX_MOD03)PhyCIDActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)PhyCIEActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)CIEPhyPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PHY.ActualPosition")
     field(DESC, "Actual position physical CIE")
@@ -1191,7 +1191,7 @@ record(ai, "$(PREFIX_MOD03)PhyCIEActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)PhyCSDActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)CSDPhyPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PHY.ActualPosition")
     field(DESC, "Actual position physical CSD")
@@ -1211,7 +1211,7 @@ record(ai, "$(PREFIX_MOD03)PhyCSDActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)PhyCSEActualPos-Mon"){
+record(ai, "$(PREFIX_MOD03)CSEPhyPos-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PHY.ActualPosition")
     field(DESC, "Actual position physical CSE")
@@ -1231,7 +1231,7 @@ record(ai, "$(PREFIX_MOD03)PhyCSEActualPos-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)PhyCIDActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)CIDPhyVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID3_PHY.ActualVelocity")
     field(DESC, "Actual velocity physical CID")
@@ -1251,7 +1251,7 @@ record(ai, "$(PREFIX_MOD03)PhyCIDActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)PhyCIEActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)CIEPhyVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE3_PHY.ActualVelocity")
     field(DESC, "Actual velocity physical CIE")
@@ -1271,7 +1271,7 @@ record(ai, "$(PREFIX_MOD03)PhyCIEActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)PhyCSDActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)CSDPhyVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD3_PHY.ActualVelocity")
     field(DESC, "Actual velocity physical CSD")
@@ -1291,7 +1291,7 @@ record(ai, "$(PREFIX_MOD03)PhyCSDActualVelo-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD03)PhyCSEActualVelo-Mon"){
+record(ai, "$(PREFIX_MOD03)CSEPhyVelo-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE3_PHY.ActualVelocity")
     field(DESC, "Actual velocity physical CSE")
