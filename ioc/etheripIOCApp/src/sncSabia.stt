@@ -1815,7 +1815,7 @@ int configPolChange(int polarization, char* stateName) {
     var_pos_diff = var_target_pol_shift - pol_shift_mon;
 
     // move to position if outside tolerance
-    if (!equalWithinTolerance(var_target_pol_shift, pol_shift_mon, pos_tolerance_sp)) {
+    if (fabs(var_pos_diff) > fabs(pos_tolerance_sp)) {
         // config move
         configSimpleMove(COUPLING_PHASE,   // coupling
                          MIRROR_DISABLE,   // mirror
@@ -1850,7 +1850,7 @@ int configGainShift(double targetPos) {
     var_pos_diff = targetPos - gain_shift_mon;
 
     // move to position if outside tolerance
-    if (!equalWithinTolerance(targetPos, gain_shift_mon, pos_tolerance_sp)) {
+    if (fabs(var_pos_diff) > fabs(pos_tolerance_sp)) {
 
         // config move
         configSimpleMove(COUPLING_GH,
@@ -1886,21 +1886,19 @@ int configGainScan(double targetPos, double velo) {
     var_pos_diff = targetPos - gain_shift_mon;
 
     // move to position if outside tolerance
-    if (equalWithinTolerance(targetPos, gain_shift_mon, pos_tolerance_sp)) {
-
-        // no need to move
+    if (fabs(var_pos_diff) > fabs(pos_tolerance_sp)) {
+        // config move to end position at given velocity
+        configSimpleMove(COUPLING_GH,
+                         MIRROR_ENABLE,    // mirror
+                         velo,             // velo for timed profile
+                         gain_mode_acc_sp, // acc
+                         gain_mode_acc_sp, // decel
+                         var_pos_diff);    // relPos
+        return 1;
+    }
+    else {
         return 0;
     }
-
-    // config move to end position at given velocity
-    configSimpleMove(COUPLING_GH,
-                     MIRROR_ENABLE,    // mirror
-                     velo,             // velo for timed profile
-                     gain_mode_acc_sp, // acc
-                     gain_mode_acc_sp, // decel
-                     var_pos_diff);    // relPos
-    // success
-    return 1;
 }
 
 void resetToMove() {
