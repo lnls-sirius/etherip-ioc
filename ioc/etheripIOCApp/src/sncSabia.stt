@@ -32,6 +32,8 @@ double arr_x_conv_k_energy[ARR_SIZE_CONV_K_ENERGY];
 double arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY];
 double old_gain_shift;
 int must_move;
+double scan_velo;
+int check;
 
 %%//----------------------------------------
 %%//    Monitored PVs - High Level
@@ -550,7 +552,7 @@ void configSimpleMove(int coupling, int mirror, double velo, double acc, double 
 //int configTimedMove(int coupling, int mirror, double time, double, acc, double decel, double relPos);
 int configPolChange(int polarization, char* stateName);
 int configGainShift(double targetPos);
-int configGainScan(double targetPos, double duration);
+int configGainScan(double targetPos, double velo);
 void resetToMove(void);
 void printToLogAndMsgPV(char* msg, char* stateName);
 void reportConvStatus(int status, char* stateName);
@@ -991,6 +993,27 @@ ss motion_control {
     }
 
     state start_gain_scan_step1 {
+        entry {
+            // calculate velocity given desired time
+            // considering a trapezoidal profile
+            check = calc_trapezoidal_velo(gain_mode_acc_sp,                    // acc
+                                          gain_mode_acc_sp,                    // decel
+                                          gain_scan_duration_sp,               // time
+                                          fabs(sscan_end_sp - sscan_start_sp), // distance
+                                          &scan_velo);                         // velo output
+        }
+
+        when (!check && scan_velo <= max_velo_sp) {
+        } state start_gain_scan_step2
+
+        when () {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SCAN_TIME_SMALL,
+                                   "motion_control start_gain_scan_step1");
+        } state wait_completion
+    }
+
+    state start_gain_scan_step2 {
 
         entry {
             // configure move to initial position
@@ -999,7 +1022,7 @@ ss motion_control {
 
         when (!must_move) {
             /* skip the first move */
-        } state start_gain_scan_step4
+        } state start_gain_scan_step5
 
         when (trig_type_sts == trig_type_sel
               && inter_mod_coup_sts == inter_mod_coup_sel
@@ -1014,32 +1037,11 @@ ss motion_control {
             /* send reset command to
                PLC state machine */
             resetToMove();
-        } state start_gain_scan_step2
-
-        when (state_idx_mon == STATE_MACHINE_ABORTED) {
-            // print warning log message
-            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
-                               "motion_control start_gain_scan_step1");
-        } state wait_completion
-
-        when (delay(SEQ_TIMEOUT)) {
-            // print warning log message
-            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
-                               "motion_control start_gain_scan_step1");
-        } state wait_completion
-    }
-
-    state start_gain_scan_step2 {
-
-        when (state_idx_mon == STATE_MACHINE_IDLE) {
-            // send soft trigger to start motion
-            soft_trig_cmd = 1;
-            pvPut(soft_trig_cmd, SYNC);
         } state start_gain_scan_step3
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
-            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
                                "motion_control start_gain_scan_step2");
         } state wait_completion
 
@@ -1052,7 +1054,10 @@ ss motion_control {
 
     state start_gain_scan_step3 {
 
-        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
         } state start_gain_scan_step4
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
@@ -1060,20 +1065,32 @@ ss motion_control {
             printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
                                "motion_control start_gain_scan_step3");
         } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control start_gain_scan_step3");
+        } state wait_completion
     }
 
     state start_gain_scan_step4 {
 
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        } state start_gain_scan_step5
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control start_gain_scan_step4");
+        } state wait_completion
+    }
+
+    state start_gain_scan_step5 {
+
         entry {
             // configure gain scan
-            must_move = configGainScan(sscan_end_sp,           // relPos
-                                       gain_scan_duration_sp); // time duration
-            if (must_move == -1){
-                // print warning log message
-                printToLogAndMsgPV(ERR_MOVE_SCAN_TIME_SMALL,
-                                   "motion_control start_gain_scan_step4");
-                must_move = 0;
-            }
+            must_move = configGainScan(sscan_end_sp, // relPos
+                                       scan_velo);   // velo
         }
 
         when (!must_move) {
@@ -1093,22 +1110,22 @@ ss motion_control {
             /* send reset command to
                PLC state machine */
             resetToMove();
-        } state start_gain_scan_step5
+        } state start_gain_scan_step6
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
-                               "motion_control start_gain_scan_step4");
+                               "motion_control start_gain_scan_step5");
         } state wait_completion
 
         when (delay(SEQ_TIMEOUT)) {
             // print warning log message
             printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
-                               "motion_control start_gain_scan_step4");
+                               "motion_control start_gain_scan_step5");
         } state wait_completion
     }
 
-    state start_gain_scan_step5 {
+    state start_gain_scan_step6 {
 
         when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
@@ -1119,13 +1136,13 @@ ss motion_control {
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
             printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
-                               "motion_control start_gain_scan_step5");
+                               "motion_control start_gain_scan_step6");
         } state wait_completion
 
         when (delay(SEQ_TIMEOUT)) {
             // print warning log message
             printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
-                               "motion_control start_gain_scan_step5");
+                               "motion_control start_gain_scan_step6");
         } state wait_completion
     }
 
@@ -1849,12 +1866,11 @@ int configGainShift(double targetPos) {
     }
 }
 
-int configGainScan(double targetPos, double duration) {
+int configGainScan(double targetPos, double velo) {
 
     // local variables
-    double var_pos_diff, var_velo;
+    double var_pos_diff;
     char var_dir = 1;
-    char velo_err = 0;
 
     // find direction of gain motion given current polarization
     if (pol_shift_mon >=0) {
@@ -1864,7 +1880,7 @@ int configGainScan(double targetPos, double duration) {
         var_dir = 1;
     }
 
-    targetPos = var_dir * targetPos;
+    targetPos = var_dir * fabs(targetPos);
 
     // calculate position diff
     var_pos_diff = targetPos - gain_shift_mon;
@@ -1876,30 +1892,15 @@ int configGainScan(double targetPos, double duration) {
         return 0;
     }
 
-    // calculate velocity given desired time
-    velo_err = calc_trapezoidal_velo(gain_mode_acc_sp, // acc
-                                     gain_mode_acc_sp, // decel
-                                     duration,         // time
-                                     var_pos_diff,     // distance
-                                     &var_velo);       // velo output
-
-    // move to position if trapezoidal profile
-    // is possible given time duration
-    if (!velo_err) {
-        // config move
-        configSimpleMove(COUPLING_GH,
-                         MIRROR_ENABLE,    // mirror
-                         var_velo,             // velo for timed profile
-                         gain_mode_acc_sp, // acc
-                         gain_mode_acc_sp, // decel
-                         var_pos_diff);    // relPos
-        // configured to move
-        return 1;
-    }
-    else {
-        // motion time too small
-        return -1;
-    }
+    // config move to end position at given velocity
+    configSimpleMove(COUPLING_GH,
+                     MIRROR_ENABLE,    // mirror
+                     velo,             // velo for timed profile
+                     gain_mode_acc_sp, // acc
+                     gain_mode_acc_sp, // decel
+                     var_pos_diff);    // relPos
+    // success
+    return 1;
 }
 
 void resetToMove() {
