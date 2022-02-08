@@ -1,4 +1,5 @@
-FROM debian:11-slim as epics-deps
+ARG DOCKER_IMAGE_BASE
+FROM ${DOCKER_IMAGE_BASE} as epics-deps
 
 # set correct timezone
 ENV DEBIAN_FRONTEND noninteractive
