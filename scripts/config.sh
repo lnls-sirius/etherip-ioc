@@ -4,6 +4,7 @@ set -exu
 DOCKER_REGISTRY=dockerregistry.lnls-sirius.com.br
 DOCKER_USER_GROUP=gas
 DOCKER_IMAGE_PREFIX=${DOCKER_REGISTRY}/${DOCKER_USER_GROUP}
+DOCKER_IMAGE_BASE=debian:11-slim
 
 AUTHOR="Claudio F. Carneiro <claudiofcarneiro@hotmail.com>"
 BRANCH=$(git branch --no-color --show-current)
@@ -14,20 +15,22 @@ DEPARTMENT=GAS
 REPOSITORY=$(git remote show origin |grep Fetch|awk '{ print $3 }')
 VENDOR="CNPEM"
 
-BUILD_ENVS="\
-    BRANCH=${BRANCH} \
-    BUILD_DATE=${BUILD_DATE} \
-    COMMIT_HASH=${COMMIT} \
-    DEPARTMENT=${DEPARTMENT} \
-    DOCKER_IMAGE_PREFIX=${DOCKER_IMAGE_PREFIX} \
-    REPOSITORY=${REPOSITORY} \
-    VENDOR=${VENDOR}"
+cat << EOF > .env
+# Generic
+DOCKER_REGISTRY=${DOCKER_REGISTRY}
+DOCKER_USER_GROUP=${DOCKER_USER_GROUP}
 
-if [ -f .env ]; then
-    > .env
-    echo AUTHOR=${AUTHOR} >> .env
-    echo BUILD_DATE_RFC339=${BUILD_DATE_RFC339} >> .env
-    for var in ${BUILD_ENVS}; do
-        echo ${var} >> .env
-    done
-fi
+AUTHOR=${AUTHOR}
+BRANCH=${BRANCH}
+BUILD_DATE=${BUILD_DATE}
+BUILD_DATE_RFC339=${BUILD_DATE_RFC339}
+COMMIT=${COMMIT}
+DEPARTMENT=${DEPARTMENT}
+REPOSITORY=${REPOSITORY}
+VENDOR=${VENDOR}
+
+# IOC
+DOCKER_ETHERIP_BASE_IMAGE=${DOCKER_IMAGE_PREFIX}/etheripioc-base:${COMMIT_HASH}-${BUILD_DATE}
+DOCKER_IMAGE_PREFIX=${DOCKER_IMAGE_PREFIX}
+DOCKER_IMAGE_BASE=${DOCKER_IMAGE_BASE}
+EOF
