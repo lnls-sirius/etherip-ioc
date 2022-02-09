@@ -1,0 +1,30 @@
+# Position tolerance
+$(PREFIX)PosTolerance-SP
+# Polarization type
+$(PREFIX)Pol-Sel
+# Position Shift (K and energy are not saved)
+$(PREFIX)Shift-SP
+# Polynomial coefficients for K-to-energy conversion
+$(PREFIX)KToEnergyA0-SP
+$(PREFIX)KToEnergyA1-SP
+$(PREFIX)KToEnergyA2-SP
+$(PREFIX)KToEnergyA3-SP
+$(PREFIX)KToEnergyA4-SP
+$(PREFIX)KToEnergyA5-SP
+$(PREFIX)KToEnergyA6-SP
+$(PREFIX)KToEnergyA7-SP
+$(PREFIX)KToEnergyA8-SP
+# Scan configuration (K and energy are not saved)
+$(PREFIX)GainScanDuration-SP
+$(PREFIX)SScanStart-SP
+$(PREFIX)SScanEnd-SP
+# Velocity and acceleration
+$(PREFIX)PolModeVelo-SP
+$(PREFIX)PolModeAcc-SP
+$(PREFIX)GainModeVelo-SP
+$(PREFIX)GainModeAcc-SP
+# Velocity and acceleration limits
+$(PREFIX)MaxVelo-SP
+$(PREFIX)MaxAcc-SP
+# Beamline control
+$(PREFIX)BeamLineCtrlEnbl-Sel

@@ -43,6 +43,9 @@ save_restoreSet_DatedBackupFiles(1)
 save_restoreSet_NumSeqFiles(2)
 save_restoreSet_SeqPeriodInSeconds(600)
 
+set_pass0_restoreFile("Delta_Sabia.sav")
+set_pass1_restoreFile("Delta_Sabia.sav")
+
 iocLogInit
 
 # Initialize EtherIP driver, define PLCs
@@ -65,5 +68,8 @@ iocInit()
 
 ## Start any sequence programs
 seq sncSabia, "P_MOD01=$(PREFIX_MOD01), P_GLOBAL=$(PREFIX_GLOBAL)"
+
+# Save record values every 5 seconds
+create_monitor_set("Delta_Sabia.req", 5, "PREFIX=${PREFIX_MOD01}")
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
