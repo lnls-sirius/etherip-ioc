@@ -122,6 +122,7 @@ record(bo, "$(P)$(R)Abort-Cmd"){
 
 # read by sncSabia
 record(ao, "$(P)$(R)PosTolerance-SP"){
+    field(PINI, "YES")
     field(DESC, "Position tolerance")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -154,6 +155,7 @@ record(calc, "$(P)$(R)ChangePolFlg"){
 
 # read by sncSabia
 record(mbbo, "$(P)$(R)Pol-Sel"){
+    field(PINI, "YES")
     field(DESC, "Polarization type")
     field(SCAN, "Passive")
     field(OMSL, "supervisory")
@@ -227,6 +229,7 @@ record(ai, "$(P)$(R)K-RB"){
 
 # read by sncSabia
 record(ao, "$(P)$(R)Shift-SP"){
+    field(PINI, "YES")
     field(DESC, "Shift value in Gain config")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -545,6 +548,7 @@ record(calc, "$(P)$(R)StartGainScanFlg"){
 
 # read by sncSabia
 record(ao, "$(P)$(R)GainScanDuration-SP"){
+    field(PINI, "YES")
     field(DESC, "Gain scan duration")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -630,6 +634,7 @@ record(ai, "$(P)$(R)KScanEnd-RB"){
 
 # read by sncSabia
 record(ao, "$(P)$(R)SScanStart-SP"){
+    field(PINI, "YES")
     field(DESC, "Shift scan start position")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -647,6 +652,7 @@ record(ai, "$(P)$(R)SScanStart-RB"){
 
 # read by sncSabia
 record(ao, "$(P)$(R)SScanEnd-SP"){
+    field(PINI, "YES")
     field(DESC, "Shift scan end position")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -667,6 +673,7 @@ record(ai, "$(P)$(R)SScanEnd-RB"){
 
 # read by sncSabia
 record(ao, "$(P)$(R)PolModeVelo-SP"){
+    field(PINI, "YES")
     field(DESC, "Polarity mode velocity")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -685,6 +692,7 @@ record(ai, "$(P)$(R)PolModeVelo-RB"){
 
 # read by sncSabia
 record(ao, "$(P)$(R)PolModeAcc-SP"){
+    field(PINI, "YES")
     field(DESC, "Polarity mode acceleration")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -703,6 +711,7 @@ record(ai, "$(P)$(R)PolModeAcc-RB"){
 
 # read by sncSabia
 record(ao, "$(P)$(R)GainModeVelo-SP"){
+    field(PINI, "YES")
     field(DESC, "Gain mode velocity")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -721,6 +730,7 @@ record(ai, "$(P)$(R)GainModeVelo-RB"){
 
 # read by sncSabia
 record(ao, "$(P)$(R)GainModeAcc-SP"){
+    field(PINI, "YES")
     field(DESC, "Gain mode acceleration")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -742,6 +752,7 @@ record(ai, "$(P)$(R)GainModeAcc-RB"){
 
 # read by sncSabia
 record(ao, "$(P)$(R)MaxVelo-SP"){
+    field(PINI, "YES")
     field(DESC, "Maximum velocity")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -770,6 +781,7 @@ record(seq, "$(P)$(R)MaxVeloOut"){
 
 # read by sncSabia
 record(ao, "$(P)$(R)MaxAcc-SP"){
+    field(PINI, "YES")
     field(DESC, "Maximum acceleration")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -805,6 +817,7 @@ record(bi, "$(P)$(R)IsRemote-Mon"){
 }
 
 record(bo, "$(P)$(R)BeamLineCtrlEnbl-Sel"){
+    field(PINI, "YES")
     field(DESC, "Enable ID control by beam lines")
     field(SCAN, "Passive")
     field(ONAM, "Yes")
