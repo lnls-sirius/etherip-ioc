@@ -318,7 +318,7 @@ record(calc, "$(P)$(R)Energy-Mon"){
     field(INPI, "$(P)$(R)KToEnergyA7-SP CPP")
     field(INPJ, "$(P)$(R)KToEnergyA8-SP CPP")
     # convert from K to eV
-    field(CALC, "J*A^8+I*A^7+H*A^6+G*A^5+F*A^4+E*A^3+D*A^2+C*A+B")
+    field(CALC, "abs(J*A^8+I*A^7+H*A^6+G*A^5+F*A^4+E*A^3+D*A^2+C*A+B)")
 }
 
 ###########################################################

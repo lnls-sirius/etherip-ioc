@@ -1564,8 +1564,11 @@ ss k_mon_update {
 
             %%int status = 0;
 
-            // update k mon
+            // get k value
             status = mm2k(gain_shift_mon, &k_mon, pol_mon);
+            // k_mon is always positive
+            k_mon = fabs(k_mon);
+            // update k mon
             if (status == 0) {
                 pvPut(k_mon, SYNC);
             }
