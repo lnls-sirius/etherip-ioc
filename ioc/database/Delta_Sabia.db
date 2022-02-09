@@ -536,6 +536,24 @@ record(calc, "$(P)$(R)KToEnergyFlg"){
     field(MDEL, "-1")
 }
 
+# set by sncSabia
+record(bi, "$(P)$(R)KToEnergyConv-Mon"){
+    field(DESC, "K to energy table update status")
+    field(ZNAM, "Invalid")
+    field(ONAM, "Ok")
+    field(VAL, "0")
+}
+
+## Combined conversion consistency status
+
+# set by sncSabia
+record(bi, "$(P)$(R)ConsistentSetPoints-Mon"){
+    field(DESC, "Show when conversion is consistent")
+    field(ZNAM, "No")
+    field(ONAM, "Yes")
+    field(VAL, "0")
+}
+
 ###########################################################
 # Energy Scan Control
 

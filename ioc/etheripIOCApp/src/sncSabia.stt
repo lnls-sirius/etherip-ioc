@@ -36,12 +36,25 @@ double scan_velo;
 int check;
 
 %%//----------------------------------------
+%%//    Event Flags NOT assigned to PVs
+%%//----------------------------------------
+
+evflag k_to_energy_update_local_flg;
+evflag k_mon_update_local_flg;
+
+%%//----------------------------------------
 %%//    Monitored PVs - High Level
 %%//----------------------------------------
 
 int update_status_mon;
 assign update_status_mon to "{P_MOD01}UpdateStatus-Mon";
 monitor update_status_mon;
+
+int shift_to_k_evt;
+assign shift_to_k_evt to "{P_MOD01}ShiftToKFlg";
+monitor shift_to_k_evt;
+evflag shift_to_k_evt_flg;
+sync shift_to_k_evt shift_to_k_evt_flg;
 
 double arr_x_lv_mm2k[ARR_SIZE_CONV_SHIFT_K];
 assign arr_x_lv_mm2k to "{P_MOD01}xLVmm2k-Cte";
@@ -331,6 +344,12 @@ assign high_lvl_move_mon to "{P_MOD01}HighLvlMove-Mon";
 string plc_state_mon;
 assign plc_state_mon to "{P_MOD01}PLCState-Mon";
 
+int consistent_set_points_mon;
+assign consistent_set_points_mon to "{P_MOD01}ConsistentSetPoints-Mon";
+
+int k_to_energy_conv_mon;
+assign k_to_energy_conv_mon to "{P_MOD01}KToEnergyConv-Mon";
+
 %%//----------------------------------------
 %%//    Monitored PVs - Low Level
 %%//----------------------------------------
@@ -567,6 +586,7 @@ double min(double num1, double num2);
 int calc_trapezoidal_velo(double acc, double decel, double time, double dist, double* velo);
 int validate_velo_trapezoidal(double velo, double acc, double decel, double dist);
 int polOption2Shift(int polarization, double* shift);
+int isPolValid(int polarization);
 
 %%//----------------------------------------
 %%//        State Notation Language
@@ -650,9 +670,6 @@ ss motion_control {
         when (state_idx_mon != STATE_MACHINE_STOPPED) {
         } state wait_completion
 
-        when (efTestAndClear(k_to_energy_evt_flg)) {
-        } state update_k_to_energy_conv
-
 	when (efTestAndClear(parking_request_evt_flg)) {
 
             // indicate that high level motion started
@@ -667,57 +684,22 @@ ss motion_control {
             pvPut(high_lvl_move_mon, SYNC);
         } state change_pol_step1
 
-	when (efTestAndClear(change_gain_evt_flg)) {
+	when (efTestAndClear(change_gain_evt_flg)
+              && consistent_set_points_mon == BOOL_YES) {
 
             // indicate that high level motion started
             high_lvl_move_mon = BOOL_YES;
             pvPut(high_lvl_move_mon, SYNC);
         } state change_gain_step1
 
-	when (efTestAndClear(start_gain_scan_evt_flg)) {
+	when (efTestAndClear(start_gain_scan_evt_flg)
+              && consistent_set_points_mon == BOOL_YES) {
 
             // indicate that high level motion started
             high_lvl_move_mon = BOOL_YES;
             pvPut(high_lvl_move_mon, SYNC);
         } state start_gain_scan_step1
 
-    }
-
-    state update_k_to_energy_conv {
-
-        entry {
-
-            /* Update K to Energy convertion table */
-
-            %%int i = 0;
-            %%double x = 0;
-
-            for (i=0; i < ARR_SIZE_CONV_K_ENERGY; i++) {
-                x = arr_x_conv_k_energy[i];
-
-                // calculate corresponding y value
-                arr_y_conv_k_energy[i] = k_to_energy_a8_sp * pow(x, 8)
-                                          + k_to_energy_a7_sp * pow(x, 7)
-                                          + k_to_energy_a6_sp * pow(x, 6)
-                                          + k_to_energy_a5_sp * pow(x, 5)
-                                          + k_to_energy_a4_sp * pow(x, 4)
-                                          + k_to_energy_a3_sp * pow(x, 3)
-                                          + k_to_energy_a2_sp * pow(x, 2)
-                                          + k_to_energy_a1_sp * pow(x, 1)
-                                          + k_to_energy_a0_sp;
-            }
-
-            // update Energy set point limits according to conversion table
-            energy_sp_drvh = max(arr_y_conv_k_energy[0],
-                                 arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY - 1]);
-            pvPut(energy_sp_drvh, SYNC);
-            energy_sp_drvl = min(arr_y_conv_k_energy[0],
-                                 arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY - 1]);
-            pvPut(energy_sp_drvl, SYNC);
-        }
-
-        when () {
-        } state ready
     }
 
     state change_pol_step1 {
@@ -1212,6 +1194,92 @@ ss motion_control {
     }
 }
 
+ss consistency_check {
+
+    state init {
+
+        when (delay(5.0)) {
+            LOG_INFO(
+                "[%s] Starting state machine: "
+                "consistency check\n",
+                macValueGet("P_MOD01"));
+        } state check_update
+    }
+
+    state check_update {
+
+        when (efTestAndClear(k_to_energy_evt_flg)) {
+
+            /* Update K to Energy convertion table */
+
+            %%int i = 0;
+            %%double x = 0;
+
+            for (i=0; i < ARR_SIZE_CONV_K_ENERGY; i++) {
+                x = arr_x_conv_k_energy[i];
+
+                // calculate corresponding y value
+                arr_y_conv_k_energy[i] = k_to_energy_a8_sp * pow(x, 8)
+                                          + k_to_energy_a7_sp * pow(x, 7)
+                                          + k_to_energy_a6_sp * pow(x, 6)
+                                          + k_to_energy_a5_sp * pow(x, 5)
+                                          + k_to_energy_a4_sp * pow(x, 4)
+                                          + k_to_energy_a3_sp * pow(x, 3)
+                                          + k_to_energy_a2_sp * pow(x, 2)
+                                          + k_to_energy_a1_sp * pow(x, 1)
+                                          + k_to_energy_a0_sp;
+            }
+
+            // update Energy set point limits according to conversion table
+            energy_sp_drvh = max(arr_y_conv_k_energy[0],
+                                 arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY - 1]);
+            pvPut(energy_sp_drvh, SYNC);
+            energy_sp_drvl = min(arr_y_conv_k_energy[0],
+                                 arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY - 1]);
+            pvPut(energy_sp_drvl, SYNC);
+
+            // set conversion initialization status to Ok
+            k_to_energy_conv_mon = TABLE_UPDATE_OK;
+            pvPut(k_to_energy_conv_mon, SYNC);
+
+            // update local event flag
+            efSet(k_to_energy_update_local_flg);
+
+        } state check_update
+
+        when (efTestAndClear(shift_to_k_evt_flg)
+              || efTestAndClear(k_to_energy_update_local_flg)
+              || efTestAndClear(pol_mon_flg)) {
+
+            /* update combined status to
+               be used by the sequencer code */
+            if (update_status_mon == TABLE_UPDATE_OK
+                && k_to_energy_conv_mon == TABLE_UPDATE_OK
+                && isPolValid(pol_mon))
+            {
+                // update consistency status
+                consistent_set_points_mon = BOOL_YES;
+                pvPut(consistent_set_points_mon, SYNC);
+
+                // force update of all gain set points
+                efSet(shift_sp_flg);
+                efSet(sscan_start_sp_flg);
+                efSet(sscan_end_sp_flg);
+
+                // force K mon to update without
+                // position change
+                efSet(k_mon_update_local_flg);
+            }
+            else
+            {
+                // update consistency status
+                consistent_set_points_mon = BOOL_NO;
+                pvPut(consistent_set_points_mon, SYNC);
+            }
+        } state check_update
+    }
+}
+
 ss gain_sp_update {
 
     state init {
@@ -1226,21 +1294,14 @@ ss gain_sp_update {
             efClear(energy_sp_flg);
         }
 
-        when (delay(5.0) && update_status_mon == TABLE_UPDATE_OK) {
+        when (delay(5.0)) {
             LOG_INFO("[%s] Starting state machine: gain_sp_update\n", macValueGet("P_MOD01"));
         } state check_update
     }
 
     state check_update {
 
-        when (efTestAndClear(pol_mon_flg)) {
-
-            // force update if polarization changes
-            efSet(shift_sp_flg);
-
-        } state check_update
-
-        when (efTestAndClear(shift_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+        when (efTestAndClear(shift_sp_flg) && consistent_set_points_mon == BOOL_YES) {
 
             /* Update equivalent set points
                to keep them consistent.
@@ -1270,7 +1331,7 @@ ss gain_sp_update {
 
         } state check_update
 
-        when (efTestAndClear(k_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+        when (efTestAndClear(k_sp_flg) && consistent_set_points_mon == BOOL_YES) {
 
             /* Update equivalent set points
                to keep them consistent.
@@ -1300,7 +1361,7 @@ ss gain_sp_update {
 
         } state check_update
 
-        when (efTestAndClear(energy_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+        when (efTestAndClear(energy_sp_flg) && consistent_set_points_mon == BOOL_YES) {
 
             /* Update equivalent set points
                to keep them consistent.
@@ -1347,21 +1408,14 @@ ss scan_limits_sp_update {
             efClear(escan_start_sp_flg);
         }
 
-        when (delay(5.0) && update_status_mon == TABLE_UPDATE_OK) {
+        when (delay(5.0)) {
             LOG_INFO("[%s] Starting state machine: scan_limits_sp_update\n", macValueGet("P_MOD01"));
         } state check_update
     }
 
     state check_update {
 
-        when (efTestAndClear(pol_mon_flg)) {
-
-            // force update if polarization changes
-            efSet(sscan_start_sp_flg);
-
-        } state check_update
-
-        when (efTestAndClear(sscan_start_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+        when (efTestAndClear(sscan_start_sp_flg) && consistent_set_points_mon == BOOL_YES) {
 
             /* Update equivalent set points
                to keep them consistent.
@@ -1391,7 +1445,7 @@ ss scan_limits_sp_update {
 
         } state check_update
 
-        when (efTestAndClear(sscan_end_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+        when (efTestAndClear(sscan_end_sp_flg) && consistent_set_points_mon == BOOL_YES) {
 
             /* Update equivalent set points
                to keep them consistent.
@@ -1421,7 +1475,7 @@ ss scan_limits_sp_update {
 
         } state check_update
 
-        when (efTestAndClear(kscan_start_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+        when (efTestAndClear(kscan_start_sp_flg) && consistent_set_points_mon == BOOL_YES) {
 
             /* Update equivalent set points
                to keep them consistent.
@@ -1451,7 +1505,7 @@ ss scan_limits_sp_update {
 
         } state check_update
 
-        when (efTestAndClear(kscan_end_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+        when (efTestAndClear(kscan_end_sp_flg) && consistent_set_points_mon == BOOL_YES) {
 
             /* Update equivalent set points
                to keep them consistent.
@@ -1481,7 +1535,7 @@ ss scan_limits_sp_update {
 
         } state check_update
 
-        when (efTestAndClear(escan_start_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+        when (efTestAndClear(escan_start_sp_flg) && consistent_set_points_mon == BOOL_YES) {
 
             /* Update equivalent set points
                to keep them consistent.
@@ -1511,7 +1565,7 @@ ss scan_limits_sp_update {
 
         } state check_update
 
-        when (efTestAndClear(escan_end_sp_flg) && update_status_mon == TABLE_UPDATE_OK) {
+        when (efTestAndClear(escan_end_sp_flg) && consistent_set_points_mon == BOOL_YES) {
 
             /* Update equivalent set points
                to keep them consistent.
@@ -1544,20 +1598,19 @@ ss scan_limits_sp_update {
 
 }
 
-
-
 ss k_mon_update {
 
     state init {
 
-        when (delay(5.0) && update_status_mon == TABLE_UPDATE_OK) {
+        when (delay(5.0)) {
             LOG_INFO("[%s] Starting state machine: k_mon_update\n", macValueGet("P_MOD01"));
         } state check_update
     }
 
     state check_update {
 
-        when (efTestAndClear(gain_shift_mon_flg) && update_status_mon == TABLE_UPDATE_OK) {
+        when ((efTestAndClear(gain_shift_mon_flg) && update_status_mon == TABLE_UPDATE_OK)
+              || efTestAndClear(k_mon_update_local_flg)) {
 
             /* Update K mon according to
                gain shift mon. */
@@ -2103,3 +2156,12 @@ int polOption2Shift(int polarization, double* shift){
     }
 }
 
+int isPolValid(int polarization){
+    double dummy;
+    if (polOption2Shift(polarization, &dummy) == -1) {
+        return BOOL_NO;
+    }
+    else {
+        return BOOL_YES;
+    }
+}
