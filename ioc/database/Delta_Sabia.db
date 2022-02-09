@@ -427,12 +427,14 @@ record(waveform, "$(P)$(R)yCLmm2k-Cte"){
 # read by sncSabia
 
 record(ao, "$(P)$(R)KToEnergyA0-SP"){
+    field(PINI, "YES")
     field(DESC, "Conv from K to energy polyn. a0")
     field(FLNK, "$(P)$(R)KToEnergyA0-RB")
 }
 record(ai, "$(P)$(R)KToEnergyA0-RB"){
     field(INP, "$(P)$(R)KToEnergyA0-SP")
     field(DESC, "Conv from K to energy polyn. a0 RB")
+    field(FLNK, "$(P)$(R)KToEnergyA1-SP")
 }
 
 record(ao, "$(P)$(R)KToEnergyA1-SP"){
@@ -442,6 +444,7 @@ record(ao, "$(P)$(R)KToEnergyA1-SP"){
 record(ai, "$(P)$(R)KToEnergyA1-RB"){
     field(INP, "$(P)$(R)KToEnergyA1-SP")
     field(DESC, "Conv from K to energy polyn. a1 RB")
+    field(FLNK, "$(P)$(R)KToEnergyA2-SP")
 }
 
 record(ao, "$(P)$(R)KToEnergyA2-SP"){
@@ -451,6 +454,7 @@ record(ao, "$(P)$(R)KToEnergyA2-SP"){
 record(ai, "$(P)$(R)KToEnergyA2-RB"){
     field(INP, "$(P)$(R)KToEnergyA2-SP")
     field(DESC, "Conv from K to energy polyn. a2 RB")
+    field(FLNK, "$(P)$(R)KToEnergyA3-SP")
 }
 
 record(ao, "$(P)$(R)KToEnergyA3-SP"){
@@ -460,6 +464,7 @@ record(ao, "$(P)$(R)KToEnergyA3-SP"){
 record(ai, "$(P)$(R)KToEnergyA3-RB"){
     field(INP, "$(P)$(R)KToEnergyA3-SP")
     field(DESC, "Conv from K to energy polyn. a3 RB")
+    field(FLNK, "$(P)$(R)KToEnergyA4-SP")
 }
 
 record(ao, "$(P)$(R)KToEnergyA4-SP"){
@@ -469,6 +474,7 @@ record(ao, "$(P)$(R)KToEnergyA4-SP"){
 record(ai, "$(P)$(R)KToEnergyA4-RB"){
     field(INP, "$(P)$(R)KToEnergyA4-SP")
     field(DESC, "Conv from K to energy polyn. a4 RB")
+    field(FLNK, "$(P)$(R)KToEnergyA5-SP")
 }
 
 record(ao, "$(P)$(R)KToEnergyA5-SP"){
@@ -478,6 +484,7 @@ record(ao, "$(P)$(R)KToEnergyA5-SP"){
 record(ai, "$(P)$(R)KToEnergyA5-RB"){
     field(INP, "$(P)$(R)KToEnergyA5-SP")
     field(DESC, "Conv from K to energy polyn. a5 RB")
+    field(FLNK, "$(P)$(R)KToEnergyA6-SP")
 }
 
 record(ao, "$(P)$(R)KToEnergyA6-SP"){
@@ -487,6 +494,7 @@ record(ao, "$(P)$(R)KToEnergyA6-SP"){
 record(ai, "$(P)$(R)KToEnergyA6-RB"){
     field(INP, "$(P)$(R)KToEnergyA6-SP")
     field(DESC, "Conv from K to energy polyn. a6 RB")
+    field(FLNK, "$(P)$(R)KToEnergyA7-SP")
 }
 
 record(ao, "$(P)$(R)KToEnergyA7-SP"){
@@ -496,6 +504,7 @@ record(ao, "$(P)$(R)KToEnergyA7-SP"){
 record(ai, "$(P)$(R)KToEnergyA7-RB"){
     field(INP, "$(P)$(R)KToEnergyA7-SP")
     field(DESC, "Conv from K to energy polyn. a7 RB")
+    field(FLNK, "$(P)$(R)KToEnergyA8-SP")
 }
 
 record(ao, "$(P)$(R)KToEnergyA8-SP"){
@@ -505,22 +514,15 @@ record(ao, "$(P)$(R)KToEnergyA8-SP"){
 record(ai, "$(P)$(R)KToEnergyA8-RB"){
     field(INP, "$(P)$(R)KToEnergyA8-SP")
     field(DESC, "Conv from K to energy polyn. a8 RB")
+    field(FLNK, "$(P)$(R)KToEnergyFlg")
 }
 
 # read by sncSabia
 record(calc, "$(P)$(R)KToEnergyFlg"){
     field(DESC, "Show when conv k-energy changed")
-    field(INPA, "$(P)$(R)KToEnergyA0-SP CPP")
-    field(INPB, "$(P)$(R)KToEnergyA1-SP CPP")
-    field(INPC, "$(P)$(R)KToEnergyA2-SP CPP")
-    field(INPD, "$(P)$(R)KToEnergyA3-SP CPP")
-    field(INPE, "$(P)$(R)KToEnergyA4-SP CPP")
-    field(INPF, "$(P)$(R)KToEnergyA5-SP CPP")
-    field(INPG, "$(P)$(R)KToEnergyA6-SP CPP")
-    field(INPH, "$(P)$(R)KToEnergyA7-SP CPP")
-    field(INPI, "$(P)$(R)KToEnergyA8-SP CPP")
     field(CALC, "VAL+1")
     field(VAL, "0")
+    field(MDEL, "-1")
 }
 
 ###########################################################
