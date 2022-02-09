@@ -86,7 +86,7 @@ record(calc, "$(P)$(R)MovingCalc"){
     field(DESC, "Axes moving status calc")
     field(INPA, "$(P_AXIS)MotionState-Mon CPP")
     field(INPB, "$(P)$(R)HighLvlMove-Mon CPP")
-    field(CALC, "(!A) || B")
+    field(CALC, "(A=1) || B")
     field(FLNK, "$(P)$(R)Moving-Mon")
 }
 
