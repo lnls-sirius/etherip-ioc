@@ -328,6 +328,9 @@ assign k_mon to "{P_MOD01}K-Mon";
 int high_lvl_move_mon;
 assign high_lvl_move_mon to "{P_MOD01}HighLvlMove-Mon";
 
+string plc_state_mon;
+assign plc_state_mon to "{P_MOD01}PLCState-Mon";
+
 %%//----------------------------------------
 %%//    Monitored PVs - Low Level
 %%//----------------------------------------
@@ -335,6 +338,8 @@ assign high_lvl_move_mon to "{P_MOD01}HighLvlMove-Mon";
 int state_idx_mon;
 assign state_idx_mon to "{P_MOD01}StateIdx-Mon";
 monitor state_idx_mon;
+evflag state_idx_mon_flg;
+sync state_idx_mon state_idx_mon_flg;
 
 int motion_state_mon;
 assign motion_state_mon to "{P_MOD01}MotionState-Mon";
@@ -1568,7 +1573,61 @@ ss k_mon_update {
 
         } state check_update
     }
+}
 
+ss plc_state_update {
+
+    state init {
+
+        when (delay(5.0)) {
+            LOG_INFO("[%s] Starting state machine: plc_state_update\n", macValueGet("P_MOD01"));
+        } state check_update
+    }
+
+    state check_update {
+        when (efTestAndClear(state_idx_mon_flg)) {
+
+            /* Update PLC state mon */
+            if (state_idx_mon == STATE_MACHINE_CLEARING)
+                safecpy(plc_state_mon, "Clearing", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_STOPPED)
+                safecpy(plc_state_mon, "Stopped", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_STARTING)
+                safecpy(plc_state_mon, "Starting", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_IDLE)
+                safecpy(plc_state_mon, "Idle", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_SUSPENDED)
+                safecpy(plc_state_mon, "Suspended", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_EXECUTE)
+                safecpy(plc_state_mon, "Execute", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_STOPPING)
+                safecpy(plc_state_mon, "Stopping", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_ABORTING)
+                safecpy(plc_state_mon, "Aborting", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_ABORTED)
+                safecpy(plc_state_mon, "Aborted", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_HOLDING)
+                safecpy(plc_state_mon, "Holding", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_HELD)
+                safecpy(plc_state_mon, "Held", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_UNHOLDING)
+                safecpy(plc_state_mon, "Unholding", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_SUSPENDING)
+                safecpy(plc_state_mon, "Suspending", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_UNSUSPENDING)
+                safecpy(plc_state_mon, "Unsuspending", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_RESETTING)
+                safecpy(plc_state_mon, "Resetting", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_COMPLETING)
+                safecpy(plc_state_mon, "Completing", sizeof(plc_state_mon));
+            else if (state_idx_mon == STATE_MACHINE_COMPLETE)
+                safecpy(plc_state_mon, "Complete", sizeof(plc_state_mon));
+            else
+                safecpy(plc_state_mon, "Undefined", sizeof(plc_state_mon));
+
+            pvPut(plc_state_mon, SYNC);
+        } state check_update
+    }
 }
 
 %%//----------------------------------------

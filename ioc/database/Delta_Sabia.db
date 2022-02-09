@@ -97,6 +97,11 @@ record(bi, "$(P)$(R)Moving-Mon"){
     field(ONAM, "Yes")
 }
 
+# set by sncSabia
+record(stringin, "$(P)$(R)PLCState-Mon"){
+    field(DESC, "PLC state machine status")
+}
+
 ###########################################################
 # Basic Undulator Controls
 
