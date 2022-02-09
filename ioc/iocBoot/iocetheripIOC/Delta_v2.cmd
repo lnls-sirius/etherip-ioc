@@ -27,6 +27,7 @@ epicsEnvSet("YLHMM2K", "yLHmm2k")
 epicsEnvSet("YCRMM2K", "yCRmm2k")
 epicsEnvSet("YCLMM2K", "yCLmm2k")
 epicsEnvSet("UPDATESTS", "updateSts")
+epicsEnvSet("UPDATEFLG", "updateFlg")
 
 # Load dbd, register the drvEtherIP .. commands
 dbLoadDatabase("dbd/etheripIOC.dbd")
@@ -54,11 +55,11 @@ dbLoadRecords("database/Delta_Global.db", "PREFIX_GLOBAL=${PREFIX_GLOBAL}, PLC=p
 dbLoadRecords("database/Delta_Mod01.db", "PREFIX_MOD01=${PREFIX_MOD01}, PLC=plc1")
 dbLoadRecords("database/Delta_Mod02.db", "PREFIX_MOD02=${PREFIX_MOD02}, PLC=plc1")
 dbLoadRecords("database/Delta_Mod03.db", "PREFIX_MOD03=${PREFIX_MOD03}, PLC=plc1")
-dbLoadRecords("database/Delta_Sabia.db", "P=${PREFIX_MOD01}, R=, P_AXIS=${PREFIX_MOD01}, P_GLOB=${PREFIX_GLOBAL}, MAX_TABLE_LENGTH=${MAX_TABLE_LENGTH}, XLVMM2K=${XLVMM2K}, XLHMM2K=${XLHMM2K}, XCRMM2K=${XCRMM2K}, XCLMM2K=${XCLMM2K}, YLVMM2K=${YLVMM2K}, YLHMM2K=${YLHMM2K}, YCRMM2K=${YCRMM2K}, YCLMM2K=${YCLMM2K}, UPDATESTS=${UPDATESTS}")
+dbLoadRecords("database/Delta_Sabia.db", "P=${PREFIX_MOD01}, R=, P_AXIS=${PREFIX_MOD01}, P_GLOB=${PREFIX_GLOBAL}, MAX_TABLE_LENGTH=${MAX_TABLE_LENGTH}, XLVMM2K=${XLVMM2K}, XLHMM2K=${XLHMM2K}, XCRMM2K=${XCRMM2K}, XCLMM2K=${XCLMM2K}, YLVMM2K=${YLVMM2K}, YLHMM2K=${YLHMM2K}, YCRMM2K=${YCRMM2K}, YCLMM2K=${YCLMM2K}, UPDATESTS=${UPDATESTS}, UPDATEFLG=${UPDATEFLG}")
 
 # PyDevice code init for http requests
 pydev("from deltaUtil import UnitConverter")
-pydev("tables = UnitConverter('${URL_LV}', '${XLVMM2K}', '${YLVMM2K}', '${URL_LH}', '${XLHMM2K}', '${YLHMM2K}', '${URL_CR}', '${XCRMM2K}', '${YCRMM2K}', '${URL_CL}', '${XCLMM2K}', '${YCLMM2K}', '${UPDATESTS}')")
+pydev("tables = UnitConverter('${URL_LV}', '${XLVMM2K}', '${YLVMM2K}', '${URL_LH}', '${XLHMM2K}', '${YLHMM2K}', '${URL_CR}', '${XCRMM2K}', '${YCRMM2K}', '${URL_CL}', '${XCLMM2K}', '${YCLMM2K}', '${UPDATESTS}', '${UPDATEFLG}')")
 
 iocInit()
 

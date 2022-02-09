@@ -1,3 +1,4 @@
+import sys as _sys
 import urllib.request as _request
 import traceback as _traceback
 import re
@@ -24,7 +25,7 @@ class UnitConverter(object):
                  urlLHTable, xVarLHTable, yVarLHTable,
                  urlCRTable, xVarCRTable, yVarCRTable,
                  urlCLTable, xVarCLTable, yVarCLTable,
-                 statusVar, port=80):
+                 statusVar, updateFlg, port=80):
 
         # properties of conversion tables
         self._urlLVTable = urlLVTable
@@ -42,6 +43,8 @@ class UnitConverter(object):
         self._yVarCLTable = yVarCLTable
 
         self._statusVar = statusVar
+        self._updateFlg = updateFlg
+        self._flg = 0
 
         # init conversion status as invalid
         pydev.iointr(self._statusVar, 0)
@@ -58,6 +61,9 @@ class UnitConverter(object):
             self.getArrays(self._urlCLTable, self._xVarCLTable, self._yVarCLTable)
             # update conversion status
             pydev.iointr(self._statusVar, 1)
+            # update conversion flag
+            self._flg += 1
+            pydev.iointr(self._updateFlg, self._flg)
         except Exception:
             # print exception
             _traceback.print_exc(file=_sys.stdout)

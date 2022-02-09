@@ -334,12 +334,20 @@ record(bo, "$(P)$(R)UpdateConvTables-Cmd"){
 
 # table update status
 record(bi, "$(P)$(R)UpdateStatus-Mon"){
-    field(DESC, "Table update status")
+    field(DESC, "Shift to K table update status")
     field(DTYP, "pydev")
     field(INP, "@pydev.iointr('$(UPDATESTS)')")
     field(SCAN, "I/O Intr")
     field(ZNAM, "Invalid")
     field(ONAM, "Ok")
+}
+
+# table update flag
+record(longin, "$(P)$(R)ShiftToKFlg"){
+    field(DTYP, "pydev")
+    field(INP, "@pydev.iointr('$(UPDATEFLG)')")
+    field(SCAN, "I/O Intr")
+    field(DESC, "Shift to K table update flag")
 }
 
 # Linear Vertical Table
