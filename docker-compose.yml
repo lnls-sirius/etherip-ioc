@@ -1,6 +1,5 @@
 version: "3.7"
-x-labels:
-  &default-labels
+x-labels: &default-labels
   br.com.lnls-sirius.department: ${DEPARTMENT}
   org.opencontainers.image.authors: ${AUTHOR}
   org.opencontainers.image.created: ${BUILD_DATE_RFC339}
@@ -11,11 +10,17 @@ x-labels:
   org.opencontainers.image.vendor: ${VENDOR}
   org.opencontainers.image.version: ${COMMIT_HASH}-${BUILD_DATE}
 
+x-args: &default-build-args
+  DOCKER_IMAGE_PREFIX: ${DOCKER_IMAGE_PREFIX}
+  COMMIT_HASH: ${COMMIT_HASH}
+  BUILD_DATE: ${BUILD_DATE}
+
 services:
   etherip:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-base:${COMMIT_HASH}-${BUILD_DATE}
     build:
       context: .
+      dockerfile: Dockerfile
       target: base
       labels:
         <<: *default-labels
@@ -23,20 +28,28 @@ services:
   rf-bo:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-bo:${COMMIT_HASH}-${BUILD_DATE}
     build:
-      context: .
-      dockerfile: Dockerfile
-      target: rf_bo
+      args:
+        <<: *default-build-args
+        ARG_NAME:  RF-BO-Intlk
+        ARG_CMD:   RF-Booster.cmd
+        ARG_DEVIP: 10.128.172.150
       labels:
         <<: *default-labels
+      context: .
+      dockerfile: Dockerfile.ioc
 
   rf-si:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-si:${COMMIT_HASH}-${BUILD_DATE}
     build:
-      context: .
-      dockerfile: Dockerfile
-      target: rf_si
       labels:
         <<: *default-labels
+      args:
+        <<: *default-build-args
+        ARG_NAME:  RF-SI-Intlk
+        ARG_CMD:   RF-Ring1.cmd
+        ARG_DEVIP: 10.128.173.60
+      context: .
+      dockerfile: Dockerfile.ioc
 
   delta:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-delta:${COMMIT_HASH}-${BUILD_DATE}
