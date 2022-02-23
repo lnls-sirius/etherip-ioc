@@ -197,7 +197,7 @@ def generate_by_record_type(data: RowData, file):
 
 def rows_from_sheets_generator(spreadsheet_path, sheet_names):
     for sheet_name in sheet_names:
-        sheet = pandas.read_excel(spreadsheet_path, sheet_name=sheet_name, dtype=str)
+        sheet = pandas.read_excel(spreadsheet_path, sheet_name=sheet_name, dtype=str, engine="openpyxl")
         replace_info = {"\n": ""}
         sheet.replace(replace_info, inplace=True, regex=True)
         sheet.fillna("", inplace=True)

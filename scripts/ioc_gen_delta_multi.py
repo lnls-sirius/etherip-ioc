@@ -301,7 +301,7 @@ def generate(
         with open(IOC_DATABASE_PATH, "w+") as f:
             for s_name in sheet_name:
                 sheet = pandas.read_excel(
-                    args.spreadsheet, sheet_name=s_name, dtype=str
+                    args.spreadsheet, sheet_name=s_name, dtype=str, engine="openpyxl"
                 )
                 replace_info = {"\n": ""}
                 sheet.replace(replace_info, inplace=True, regex=True)
