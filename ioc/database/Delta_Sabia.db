@@ -4,9 +4,9 @@
 record(calc, "$(P)$(R)IsOperationalCalc"){
     field(DESC, "System is operational status calc")
     field(INPA, "$(P)$(R)MotorsEnbld-Mon CPP")
-#    field(INPB, " critical alarms CPP")
-#    field(CALC, "A && B")
-    field(CALC, "A")
+    field(INPB, "$(P)$(R)Alarm-Mon CPP")
+    field(INPC, "$(P)$(R)Intlk-Mon CPP")
+    field(CALC, "A#0 && B=0 && C=0")
     field(FLNK, "$(P)$(R)IsOperational-Mon")
 }
 
@@ -19,11 +19,11 @@ record(bi, "$(P)$(R)IsOperational-Mon"){
 
 record(calc, "$(P)$(R)MotorsEnbldCalc"){
     field(DESC, "Motors enabled status calc")
-#    field(INPA, "axis CSD CPP")
-#    field(INPB, "axis CSE CPP")
-#    field(INPC, "axis CIE CPP")
-#    field(INPD, "axis CID CPP")
-#    field(CALC, "A && B && C && D")
+    field(INPA, "$(P_AXIS)CSDEnbl-Mon CPP")
+    field(INPB, "$(P_AXIS)CSEEnbl-Mon CPP")
+    field(INPC, "$(P_AXIS)CIEEnbl-Mon CPP")
+    field(INPD, "$(P_AXIS)CIDEnbl-Mon CPP")
+    field(CALC, "A && B && C && D")
     field(FLNK, "$(P)$(R)MotorsEnbld-Mon")
 }
 
@@ -296,7 +296,7 @@ record(calc, "$(P)$(R)GainShift-Mon"){
 }
 
 # set by sncSabia
-record(calc, "$(P)$(R)K-Mon"){
+record(ai, "$(P)$(R)K-Mon"){
     field(DESC, "K mon")
     field(EGU, "ND")
     field(PREC, "3")
