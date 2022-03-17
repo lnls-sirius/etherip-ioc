@@ -59,6 +59,18 @@ class UnitConverter(object):
             self.getArrays(self._urlCRTable, self._xVarCRTable, self._yVarCRTable)
             ## Circular Left
             self.getArrays(self._urlCLTable, self._xVarCLTable, self._yVarCLTable)
+            # verify if arrays are strictly monotonic
+            if (
+                not self.is_strictly_monotonic(self._xVarLVTable)
+                or not self.is_strictly_monotonic(self._yVarLVTable)
+                or not self.is_strictly_monotonic(self._xVarLHTable)
+                or not self.is_strictly_monotonic(self._yVarLHTable)
+                or not self.is_strictly_monotonic(self._xVarCRTable)
+                or not self.is_strictly_monotonic(self._yVarCRTable)
+                or not self.is_strictly_monotonic(self._xVarCLTable)
+                or not self.is_strictly_monotonic(self._yVarCLTable)
+            ):
+                raise RuntimeError('Conversion array is not strictly monotonic')
             # update conversion status
             pydev.iointr(self._statusVar, 1)
             # update conversion flag
@@ -105,3 +117,13 @@ class UnitConverter(object):
             x.append(float(xy[0]))
             y.append(float(xy[1]))
         return x, y
+
+    def is_strictly_monotonic(self, arr):
+        # check if arr strictly increases
+        if all(a<b for a, b in zip(arr[:-1], arr[1:])):
+            return True
+        # check if arr strictly decreases
+        if all(a>b for a, b in zip(arr[:-1], arr[1:])):
+            return True
+        # not strictly monotonic
+        return False
