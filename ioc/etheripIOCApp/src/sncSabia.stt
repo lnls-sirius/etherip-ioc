@@ -3,8 +3,6 @@ program sncSabia
 // Macro Definitions
 
 #define DELTA_PERIOD 52.5
-#define MIN_K_VALUE 0.0
-#define MAX_K_VALUE 6.5
 #define ARR_SIZE_CONV_SHIFT_K 1001
 #define ARR_SIZE_CONV_K_ENERGY 1001
 #define LOG_MON_SIZE 301
@@ -39,7 +37,6 @@ int check;
 %%//    Event Flags NOT assigned to PVs
 %%//----------------------------------------
 
-evflag k_to_energy_update_local_flg;
 evflag k_mon_update_local_flg;
 
 %%//----------------------------------------
@@ -160,17 +157,13 @@ monitor shift_sp;
 evflag shift_sp_flg;
 sync shift_sp shift_sp_flg;
 
-double k_sp_drvh;
-assign k_sp_drvh to "{P_MOD01}K-SP.DRVH";
+double shift_sp_drvh;
+assign shift_sp_drvh to "{P_MOD01}Shift-SP.DRVH";
+monitor shift_sp_drvh;
 
-double k_sp_drvl;
-assign k_sp_drvl to "{P_MOD01}K-SP.DRVL";
-
-double energy_sp_drvh;
-assign energy_sp_drvh to "{P_MOD01}Energy-SP.DRVH";
-
-double energy_sp_drvl;
-assign energy_sp_drvl to "{P_MOD01}Energy-SP.DRVL";
+double shift_sp_drvl;
+assign shift_sp_drvl to "{P_MOD01}Shift-SP.DRVL";
+monitor shift_sp_drvl;
 
 int start_gain_scan_evt;
 assign start_gain_scan_evt to "{P_MOD01}StartGainScanFlg";
@@ -349,6 +342,54 @@ assign consistent_set_points_mon to "{P_MOD01}ConsistentSetPoints-Mon";
 
 int k_to_energy_conv_mon;
 assign k_to_energy_conv_mon to "{P_MOD01}KToEnergyConv-Mon";
+
+double k_sp_drvh;
+assign k_sp_drvh to "{P_MOD01}K-SP.DRVH";
+
+double k_sp_drvl;
+assign k_sp_drvl to "{P_MOD01}K-SP.DRVL";
+
+double energy_sp_drvh;
+assign energy_sp_drvh to "{P_MOD01}Energy-SP.DRVH";
+
+double energy_sp_drvl;
+assign energy_sp_drvl to "{P_MOD01}Energy-SP.DRVL";
+
+double sscan_start_sp_drvh;
+assign sscan_start_sp_drvh to "{P_MOD01}SScanStart-SP.DRVH";
+
+double sscan_start_sp_drvl;
+assign sscan_start_sp_drvl to "{P_MOD01}SScanStart-SP.DRVL";
+
+double kscan_start_sp_drvh;
+assign kscan_start_sp_drvh to "{P_MOD01}KScanStart-SP.DRVH";
+
+double kscan_start_sp_drvl;
+assign kscan_start_sp_drvl to "{P_MOD01}KScanStart-SP.DRVL";
+
+double escan_start_sp_drvh;
+assign escan_start_sp_drvh to "{P_MOD01}EScanStart-SP.DRVH";
+
+double escan_start_sp_drvl;
+assign escan_start_sp_drvl to "{P_MOD01}EScanStart-SP.DRVL";
+
+double sscan_end_sp_drvh;
+assign sscan_end_sp_drvh to "{P_MOD01}SScanEnd-SP.DRVH";
+
+double sscan_end_sp_drvl;
+assign sscan_end_sp_drvl to "{P_MOD01}SScanEnd-SP.DRVL";
+
+double kscan_end_sp_drvh;
+assign kscan_end_sp_drvh to "{P_MOD01}KScanEnd-SP.DRVH";
+
+double kscan_end_sp_drvl;
+assign kscan_end_sp_drvl to "{P_MOD01}KScanEnd-SP.DRVL";
+
+double escan_end_sp_drvh;
+assign escan_end_sp_drvh to "{P_MOD01}EScanEnd-SP.DRVH";
+
+double escan_end_sp_drvl;
+assign escan_end_sp_drvl to "{P_MOD01}EScanEnd-SP.DRVL";
 
 %%//----------------------------------------
 %%//    Monitored PVs - Low Level
@@ -597,27 +638,6 @@ ss motion_control {
 	when (delay(5.0)) {
 
             LOG_INFO("[%s] Initialization start\n", macValueGet("P_MOD01"));
-
-            /* Initialize arrays */
-
-            %%double step, start;
-            %%int i = 0;
-
-            // initialize K set point limits according to conversion table limits
-            k_sp_drvh = MAX_K_VALUE;
-            pvPut(k_sp_drvh, SYNC);
-            k_sp_drvl = MIN_K_VALUE;
-            pvPut(k_sp_drvl, SYNC);
-
-            // initialize K - Energy conversion table x values
-
-            start = MIN_K_VALUE;
-
-            step = (double) (MAX_K_VALUE - MIN_K_VALUE)/ (double) (ARR_SIZE_CONV_K_ENERGY - 1);
-
-            for (i=0; i < ARR_SIZE_CONV_K_ENERGY; i++) {
-                arr_x_conv_k_energy[i] = start + i * step;
-            }
 
             /* clear event flags to avoid
                running invalid commands */
@@ -1208,50 +1228,192 @@ ss consistency_check {
 
     state check_update {
 
-        when (efTestAndClear(k_to_energy_evt_flg)) {
+        when (efTest(shift_to_k_evt_flg)
+              || efTest(k_to_energy_evt_flg)
+              || efTest(pol_mon_flg)) {
+
+            %%double step, start, max_k, min_k, candidate_k, x;
+            %%int status = 0, i = 0;
 
             /* Update K to Energy convertion table */
+            if (efTest(shift_to_k_evt_flg)
+                || efTest(k_to_energy_evt_flg))
+            {
+                // Update X values of K-to-energy conversion table
 
-            %%int i = 0;
-            %%double x = 0;
+                // mm2k conv arrays must be explicitly queried
+                pvGet(arr_y_lh_mm2k, SYNC);
+                pvGet(arr_y_lv_mm2k, SYNC);
+                pvGet(arr_y_cr_mm2k, SYNC);
+                pvGet(arr_y_cl_mm2k, SYNC);
 
-            for (i=0; i < ARR_SIZE_CONV_K_ENERGY; i++) {
-                x = arr_x_conv_k_energy[i];
+                // mm2k conv arrays length must be explicitly queried
+                pvGet(arr_y_lh_mm2k_nord, SYNC);
+                pvGet(arr_y_lv_mm2k_nord, SYNC);
+                pvGet(arr_y_cr_mm2k_nord, SYNC);
+                pvGet(arr_y_cl_mm2k_nord, SYNC);
 
-                // calculate corresponding y value
-                arr_y_conv_k_energy[i] = k_to_energy_a8_sp * pow(x, 8)
-                                          + k_to_energy_a7_sp * pow(x, 7)
-                                          + k_to_energy_a6_sp * pow(x, 6)
-                                          + k_to_energy_a5_sp * pow(x, 5)
-                                          + k_to_energy_a4_sp * pow(x, 4)
-                                          + k_to_energy_a3_sp * pow(x, 3)
-                                          + k_to_energy_a2_sp * pow(x, 2)
-                                          + k_to_energy_a1_sp * pow(x, 1)
-                                          + k_to_energy_a0_sp;
+                // Initialize K-to-energy conversion table X values
+
+                // Find the highest K value from mm-to-K conversion tables
+                max_k = 0;
+                candidate_k = max(arr_y_lh_mm2k[0], arr_y_lh_mm2k[arr_y_lh_mm2k_nord - 1]);
+                if (candidate_k > max_k) { max_k = candidate_k; }
+                candidate_k = max(arr_y_lv_mm2k[0], arr_y_lv_mm2k[arr_y_lv_mm2k_nord - 1]);
+                if (candidate_k > max_k) { max_k = candidate_k; }
+                candidate_k = max(arr_y_cr_mm2k[0], arr_y_cr_mm2k[arr_y_cr_mm2k_nord - 1]);
+                if (candidate_k > max_k) { max_k = candidate_k; }
+                candidate_k = max(arr_y_cl_mm2k[0], arr_y_cl_mm2k[arr_y_cl_mm2k_nord - 1]);
+                if (candidate_k > max_k) { max_k = candidate_k; }
+
+                // Find the lowest K value from mm-to-K conversion tables
+                min_k = max_k;
+                candidate_k = min(arr_y_lh_mm2k[0], arr_y_lh_mm2k[arr_y_lh_mm2k_nord - 1]);
+                if (candidate_k < min_k) { min_k = candidate_k; }
+                candidate_k = min(arr_y_lv_mm2k[0], arr_y_lv_mm2k[arr_y_lv_mm2k_nord - 1]);
+                if (candidate_k < min_k) { min_k = candidate_k; }
+                candidate_k = min(arr_y_cr_mm2k[0], arr_y_cr_mm2k[arr_y_cr_mm2k_nord - 1]);
+                if (candidate_k < min_k) { min_k = candidate_k; }
+                candidate_k = min(arr_y_cl_mm2k[0], arr_y_cl_mm2k[arr_y_cl_mm2k_nord - 1]);
+                if (candidate_k < min_k) { min_k = candidate_k; }
+
+                start = min_k;
+                step = (double) (max_k - min_k)/ (double) (ARR_SIZE_CONV_K_ENERGY - 1);
+
+                for (i=0; i < ARR_SIZE_CONV_K_ENERGY; i++) {
+                    arr_x_conv_k_energy[i] = start + i * step;
+                }
+
+                // Update Y values of K-to-energy conversion table
+
+                for (i=0; i < ARR_SIZE_CONV_K_ENERGY; i++) {
+                    x = arr_x_conv_k_energy[i];
+
+                    // calculate corresponding y value
+                    arr_y_conv_k_energy[i] = k_to_energy_a8_sp * pow(x, 8)
+                                             + k_to_energy_a7_sp * pow(x, 7)
+                                             + k_to_energy_a6_sp * pow(x, 6)
+                                             + k_to_energy_a5_sp * pow(x, 5)
+                                             + k_to_energy_a4_sp * pow(x, 4)
+                                             + k_to_energy_a3_sp * pow(x, 3)
+                                             + k_to_energy_a2_sp * pow(x, 2)
+                                             + k_to_energy_a1_sp * pow(x, 1)
+                                             + k_to_energy_a0_sp;
+                }
+
+                // set conversion initialization status to Ok
+                k_to_energy_conv_mon = TABLE_UPDATE_OK;
+                pvPut(k_to_energy_conv_mon, SYNC);
             }
 
-            // update Energy set point limits according to conversion table
-            energy_sp_drvh = max(arr_y_conv_k_energy[0],
-                                 arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY - 1]);
-            pvPut(energy_sp_drvh, SYNC);
-            energy_sp_drvl = min(arr_y_conv_k_energy[0],
-                                 arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY - 1]);
-            pvPut(energy_sp_drvl, SYNC);
+           /* Update gain and gain scan set point limits */
+            if (isPolValid(pol_mon)
+                && update_status_mon == TABLE_UPDATE_OK
+                && k_to_energy_conv_mon == TABLE_UPDATE_OK
+                && (efTest(shift_to_k_evt_flg)
+                    || efTest(k_to_energy_evt_flg)
+                    || efTest(pol_mon_flg)
+                   )
+               )
+            {
+                // Update high limits of gain set points
+                status = mm2k(shift_sp_drvh, &k_sp_drvh, pol_mon);
+                if (status == 0) {
+                    pvPut(k_sp_drvh, SYNC);
+                }
 
-            // set conversion initialization status to Ok
-            k_to_energy_conv_mon = TABLE_UPDATE_OK;
-            pvPut(k_to_energy_conv_mon, SYNC);
+                if (status == 0) {
+                    status += k2energy(k_sp_drvh, &energy_sp_drvh);
+                }
+                if (status == 0) {
+                    pvPut(energy_sp_drvh, SYNC);
+                }
+                reportConvStatus(status, "consistency_check check_update");
 
-            // update local event flag
-            efSet(k_to_energy_update_local_flg);
+                // Update low limits of gain set points
+                status = mm2k(shift_sp_drvl, &k_sp_drvl, pol_mon);
+                if (status == 0) {
+                    pvPut(k_sp_drvl, SYNC);
+                }
 
-        } state check_update
+                if (status == 0) {
+                    status += k2energy(k_sp_drvl, &energy_sp_drvl);
+                }
+                if (status == 0) {
+                    pvPut(energy_sp_drvl, SYNC);
+                }
+                reportConvStatus(status, "consistency_check check_update");
 
-        when (efTestAndClear(shift_to_k_evt_flg)
-              || efTestAndClear(k_to_energy_update_local_flg)
-              || efTestAndClear(pol_mon_flg)) {
+                // Update high limits of gain SCAN start set points
+                sscan_start_sp_drvh = shift_sp_drvh;
+                pvPut(sscan_start_sp_drvh, SYNC);
 
-            /* update combined status to
+                status = mm2k(sscan_start_sp_drvh, &kscan_start_sp_drvh, pol_mon);
+                if (status == 0) {
+                    pvPut(kscan_start_sp_drvh, SYNC);
+                }
+
+                if (status == 0) {
+                    status += k2energy(kscan_start_sp_drvh, &escan_start_sp_drvh);
+                }
+                if (status == 0) {
+                    pvPut(escan_start_sp_drvh, SYNC);
+                }
+                reportConvStatus(status, "consistency_check check_update");
+
+                // Update low limits of gain SCAN start set points
+                sscan_start_sp_drvl = shift_sp_drvl;
+                pvPut(sscan_start_sp_drvl, SYNC);
+
+                status = mm2k(sscan_start_sp_drvl, &kscan_start_sp_drvl, pol_mon);
+                if (status == 0) {
+                    pvPut(kscan_start_sp_drvl, SYNC);
+                }
+
+                if (status == 0) {
+                    status += k2energy(kscan_start_sp_drvl, &escan_start_sp_drvl);
+                }
+                if (status == 0) {
+                    pvPut(escan_start_sp_drvl, SYNC);
+                }
+                reportConvStatus(status, "consistency_check check_update");
+
+                // Update high limits of gain SCAN end set points
+                sscan_end_sp_drvh = shift_sp_drvh;
+                pvPut(sscan_end_sp_drvh, SYNC);
+
+                status = mm2k(sscan_end_sp_drvh, &kscan_end_sp_drvh, pol_mon);
+                if (status == 0) {
+                    pvPut(kscan_end_sp_drvh, SYNC);
+                }
+
+                if (status == 0) {
+                    status += k2energy(kscan_end_sp_drvh, &escan_end_sp_drvh);
+                }
+                if (status == 0) {
+                    pvPut(escan_end_sp_drvh, SYNC);
+                }
+                reportConvStatus(status, "consistency_check check_update");
+
+                // Update low limits of gain SCAN end set points
+                sscan_end_sp_drvl = shift_sp_drvl;
+                pvPut(sscan_end_sp_drvl, SYNC);
+
+                status = mm2k(sscan_end_sp_drvl, &kscan_end_sp_drvl, pol_mon);
+                if (status == 0) {
+                    pvPut(kscan_end_sp_drvl, SYNC);
+                }
+
+                if (status == 0) {
+                    status += k2energy(kscan_end_sp_drvl, &escan_end_sp_drvl);
+                }
+                if (status == 0) {
+                    pvPut(escan_end_sp_drvl, SYNC);
+                }
+                reportConvStatus(status, "consistency_check check_update");
+            }
+
+            /* Update combined status to
                be used by the sequencer code */
             if (update_status_mon == TABLE_UPDATE_OK
                 && k_to_energy_conv_mon == TABLE_UPDATE_OK
@@ -1276,6 +1438,12 @@ ss consistency_check {
                 consistent_set_points_mon = BOOL_NO;
                 pvPut(consistent_set_points_mon, SYNC);
             }
+
+            /* Clear event flags */
+            efClear(shift_to_k_evt_flg);
+            efClear(k_to_energy_evt_flg);
+            efClear(pol_mon_flg);
+
         } state check_update
     }
 }
@@ -1609,7 +1777,9 @@ ss k_mon_update {
 
     state check_update {
 
-        when ((efTestAndClear(gain_shift_mon_flg) && update_status_mon == TABLE_UPDATE_OK)
+        when ((efTestAndClear(gain_shift_mon_flg)
+              && update_status_mon == TABLE_UPDATE_OK
+              && isPolValid(pol_mon))
               || efTestAndClear(k_mon_update_local_flg)) {
 
             /* Update K mon according to
@@ -2165,3 +2335,4 @@ int isPolValid(int polarization){
         return BOOL_YES;
     }
 }
+
