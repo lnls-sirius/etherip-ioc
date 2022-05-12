@@ -30,26 +30,26 @@ services:
     build:
       args:
         <<: *default-build-args
-        ARG_NAME:  RF-BO-Intlk
-        ARG_CMD:   RF-Booster.cmd
-        ARG_DEVIP: 10.128.172.150
       labels:
         <<: *default-labels
       context: .
       dockerfile: Dockerfile.ioc
+    environment:
+      - ARG_NAME=RF-BO-Intlk
+      - ARG_CMD=RF-Booster.cmd
+      - ARG_DEVIP=10.128.172.150
 
   rf-si:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-si:${COMMIT_HASH}-${BUILD_DATE}
     build:
       labels:
         <<: *default-labels
-      args:
-        <<: *default-build-args
-        ARG_NAME:  RF-SI-Intlk
-        ARG_CMD:   RF-Ring1.cmd
-        ARG_DEVIP: 10.128.173.60
       context: .
       dockerfile: Dockerfile.ioc
+    environment:
+      - ARG_NAME=RF-SI-Intlk
+      - ARG_CMD=RF-Ring1.cmd
+      - ARG_DEVIP=10.128.173.60
 
   delta:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-delta:${COMMIT_HASH}-${BUILD_DATE}
