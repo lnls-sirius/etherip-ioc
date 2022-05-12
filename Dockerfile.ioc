@@ -9,3 +9,7 @@ FROM ${DOCKER_IMAGE_PREFIX}/etheripioc-base:${COMMIT_HASH}-${BUILD_DATE}
 
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
+
+ENV NAME ${ARG_NAME}
+ENV CMD ${ARG_CMD}
+ENV DEVIP ${ARG_DEVIP}
