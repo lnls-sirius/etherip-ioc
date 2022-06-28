@@ -268,7 +268,7 @@ record(calc, "$(P)$(R)PolCalc"){
     field(INPD, "13.125")
     field(INPE, "-26.25")
     field(INPF, "0")
-    field(INPG, "$(P)$(R)Moving-Mon CPP")
+    field(INPG, "$(P)$(R)CSEMotionState-Mon CPP")
     field(CALC, "G=1?4:(abs(A-C)<=B?0:(abs(A-D)<=B?1:(abs(A-E)<=B?2:(abs(A-F)<=B?3:5))))")
     field(FLNK, "$(P)$(R)Pol-Mon")
 }
