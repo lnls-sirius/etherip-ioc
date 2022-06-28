@@ -1471,7 +1471,7 @@ record(ai, "$(PREFIX_MOD02)CSERawMtrEnc-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD02)CIDTorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD02)CIDTorque-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CID2_PHY.TorqueReference")
     field(DESC, "Torque reference CID mod 02")
@@ -1491,7 +1491,7 @@ record(ai, "$(PREFIX_MOD02)CIDTorqueRef-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD02)CIETorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD02)CIETorque-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CIE2_PHY.TorqueReference")
     field(DESC, "Torque reference CIE mod 02")
@@ -1511,7 +1511,7 @@ record(ai, "$(PREFIX_MOD02)CIETorqueRef-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD02)CSDTorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD02)CSDTorque-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSD2_PHY.TorqueReference")
     field(DESC, "Torque reference CSD mod 02")
@@ -1531,7 +1531,7 @@ record(ai, "$(PREFIX_MOD02)CSDTorqueRef-Mon"){
     field(HYST, "")
 }
 
-record(ai, "$(PREFIX_MOD02)CSETorqueRef-Mon"){
+record(ai, "$(PREFIX_MOD02)CSETorque-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) CSE2_PHY.TorqueReference")
     field(DESC, "Torque reference CSE mod 02")
