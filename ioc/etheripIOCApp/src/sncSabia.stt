@@ -21,6 +21,7 @@ program sncSabia
 
 #define ERR_INVALID_POLARIZATION "Error: Invalid polarization option"
 #define ERR_MOVE_SCAN_TIME_SMALL "Cannot start move: scan duration too small"
+#define ERR_USER_ABORT "Procedure aborted: abort command received from user"
 
 %%//----------------------------------------
 %%//    Global Variables
@@ -120,6 +121,12 @@ monitor arr_y_cl_mm2k_nord;
 double pos_tolerance_sp;
 assign pos_tolerance_sp to "{P_MOD01}PosTolerance-SP";
 monitor pos_tolerance_sp;
+
+int abort_evt;
+assign abort_evt to "{P_MOD01}AbortFlg";
+monitor abort_evt;
+evflag abort_evt_flg;
+sync abort_evt abort_evt_flg;
 
 int change_pol_evt;
 assign change_pol_evt to "{P_MOD01}ChangePolFlg";
@@ -645,6 +652,7 @@ ss motion_control {
             efClear(change_gain_evt_flg);
 	    efClear(start_gain_scan_evt_flg);
             efClear(parking_request_evt_flg);
+            efClear(abort_evt_flg);
 
             LOG_INFO("[%s] Initialization finished\n", macValueGet("P_MOD01"));
 	} state wait_completion
@@ -656,6 +664,14 @@ ss motion_control {
             high_lvl_move_mon = BOOL_NO;
             pvPut(high_lvl_move_mon, SYNC);
         }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control wait_completion");
+        } state wait_completion
 
         when (state_idx_mon == STATE_MACHINE_STOPPED) {
         } state ready
@@ -685,9 +701,14 @@ ss motion_control {
             efClear(change_gain_evt_flg);
 	    efClear(start_gain_scan_evt_flg);
             efClear(parking_request_evt_flg);
+            efClear(abort_evt_flg);
         }
 
         when (state_idx_mon != STATE_MACHINE_STOPPED) {
+        } state wait_completion
+
+        when (efTestAndClear(abort_evt_flg)) {
+            // ignore abort since device is stopped
         } state wait_completion
 
 	when (efTestAndClear(parking_request_evt_flg)) {
@@ -742,6 +763,14 @@ ss motion_control {
             must_move = configGainShift(MINIMUM_GAIN_SHIFT);
         }
 
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control change_pol_step2");
+        } state wait_completion
+
         when (!must_move) {
             /* skip the first move */
         } state change_pol_step5
@@ -776,6 +805,14 @@ ss motion_control {
 
     state change_pol_step3 {
 
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control change_pol_step3");
+        } state wait_completion
+
         when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
@@ -797,6 +834,14 @@ ss motion_control {
 
     state change_pol_step4 {
 
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control change_pol_step4");
+        } state wait_completion
+
         when (state_idx_mon == STATE_MACHINE_STOPPED) {
         } state change_pol_step5
 
@@ -813,6 +858,14 @@ ss motion_control {
             // config change in polarization
             must_move = configPolChange(pol_sel, "change_pol_step5");
         }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control change_pol_step5");
+        } state wait_completion
 
         when (!must_move) {
             /* skip the polarization move */
@@ -848,6 +901,14 @@ ss motion_control {
 
     state change_pol_step6 {
 
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control change_pol_step6");
+        } state wait_completion
+
         when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
@@ -869,6 +930,14 @@ ss motion_control {
 
     state change_pol_step7 {
 
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control change_pol_step7");
+        } state wait_completion
+
         when (state_idx_mon == STATE_MACHINE_STOPPED) {
         } state change_pol_step8
 
@@ -885,6 +954,14 @@ ss motion_control {
             // recover previous gain
             must_move = configGainShift(old_gain_shift);
         }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control change_pol_step8");
+        } state wait_completion
 
         when (!must_move) {
             /* skip move */
@@ -920,6 +997,14 @@ ss motion_control {
 
     state change_pol_step9 {
 
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control change_pol_step9");
+        } state wait_completion
+
         when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
@@ -945,6 +1030,14 @@ ss motion_control {
             // configure gain move
             must_move = configGainShift(shift_sp);
         }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control change_gain_step1");
+        } state wait_completion
 
         when (!must_move) {
             /* skip move */
@@ -979,6 +1072,14 @@ ss motion_control {
     }
 
     state change_gain_step2 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control change_gain_step2");
+        } state wait_completion
 
         when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
@@ -1027,6 +1128,14 @@ ss motion_control {
             must_move = configGainShift(sscan_start_sp);
         }
 
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control start_gain_scan_step2");
+        } state wait_completion
+
         when (!must_move) {
             /* skip the first move */
         } state start_gain_scan_step5
@@ -1061,6 +1170,14 @@ ss motion_control {
 
     state start_gain_scan_step3 {
 
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control start_gain_scan_step3");
+        } state wait_completion
+
         when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
@@ -1082,6 +1199,14 @@ ss motion_control {
 
     state start_gain_scan_step4 {
 
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control start_gain_scan_step4");
+        } state wait_completion
+
         when (state_idx_mon == STATE_MACHINE_STOPPED) {
         } state start_gain_scan_step5
 
@@ -1099,6 +1224,14 @@ ss motion_control {
             must_move = configGainScan(sscan_end_sp, // relPos
                                        scan_velo);   // velo
         }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control start_gain_scan_step5");
+        } state wait_completion
 
         when (!must_move) {
             /* skip move */
@@ -1134,6 +1267,14 @@ ss motion_control {
 
     state start_gain_scan_step6 {
 
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control start_gain_scan_step6");
+        } state wait_completion
+
         when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
@@ -1159,6 +1300,14 @@ ss motion_control {
             // configure move to smallest gain position
             must_move = configGainShift(MINIMUM_GAIN_SHIFT);
         }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control start_parking_step1");
+        } state wait_completion
 
         when (!must_move) {
             /* skip move */
@@ -1193,6 +1342,14 @@ ss motion_control {
     }
 
     state start_parking_step2 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control start_parking_step2");
+        } state wait_completion
 
         when (state_idx_mon == STATE_MACHINE_IDLE) {
             // send soft trigger to start motion

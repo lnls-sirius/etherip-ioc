@@ -118,6 +118,14 @@ record(bo, "$(P)$(R)Abort-Cmd"){
     field(DESC, "Abort motion cmd")
     field(SCAN, "Passive")
     field(OUT, "$(P)$(R)Stop-Cmd PP")
+    field(FLNK, "$(P)$(R)AbortFlg")
+}
+
+# read by sncSabia
+record(calc, "$(P)$(R)AbortFlg"){
+    field(DESC, "Abort flag")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
 }
 
 # read by sncSabia
