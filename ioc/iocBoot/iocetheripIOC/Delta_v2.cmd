@@ -7,8 +7,14 @@ cd "${TOP}"
 # PYTHONPATH points to folders where Python modules are.
 epicsEnvSet("PYTHONPATH","$(TOP)/etheripIOCApp/src/python")
 
+# maximum array size the IOC can send through CA
+epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES", 100000)
+
 # maximum conversion table length
 epicsEnvSet("MAX_TABLE_LENGTH", 1001)
+
+# maximum profile length
+epicsEnvSet("PROFILE_BUFF_SIZE", 10000)
 
 # conversion table urls
 epicsEnvSet("LOC", "$(TABLE_URL_COMMON)")

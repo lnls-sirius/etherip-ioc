@@ -894,6 +894,1661 @@ record(calc, "$(P)$(R)ParkingRequestFlg"){
 }
 
 ###########################################################
+# Device Health Monitoring
+
+record(bo, "$(P)$(R)StartCheckup-Cmd"){
+    field(DESC, "Start check-up procedure")
+    field(SCAN, "Passive")
+    field(FLNK, "$(P)$(R)CheckupFlg")
+}
+
+# read by sncSabia
+record(calc, "$(P)$(R)CheckupFlg"){
+    field(DESC, "Check-up procedure flag")
+    field(CALC, "VAL+1")
+    field(VAL, "0")
+}
+
+# scale factor for enc cnt to motor angle
+# 360/(enc_count/rev_motor)
+# 360/(262144)
+record(ai, "$(P)$(R)MtrAngleScale-Cte"){
+    field(ASG, "Reserved")
+    field(DESC, "Enc count to mtr angle scale factor")
+    field(VAL, "0.001373291015625")
+    # disable dbPutFields
+    field(DISP, "1")
+}
+
+# offset for enc cnt to motor angle
+record(ai, "$(P)$(R)MtrAngleOffset-Cte"){
+    field(ASG, "Reserved")
+    field(DESC, "Enc count to mtr angle offset")
+    field(VAL, "0")
+    # disable dbPutFields
+    field(DISP, "1")
+}
+
+# scale factor for enc cnt to motor theoretical linear position
+# (mm/rev_gearbox)*(rev_gearbox/rev_motor)*(rev_motor/enc_count)
+# 5*(1/25)*(1/262144)
+record(ai, "$(P)$(R)MtrDistScale-Cte"){
+    field(ASG, "Reserved")
+    field(DESC, "Enc count to mtr linear dist scale")
+    field(VAL, "7.62939453125e-07")
+    # disable dbPutFields
+    field(DISP, "1")
+}
+
+# offset for enc cnt to motor theoretical linear position
+record(ai, "$(P)$(R)MtrDistOffset-Cte"){
+    field(ASG, "Reserved")
+    field(DESC, "Enc count to mtr linear dist offset")
+    field(VAL, "0")
+    # disable dbPutFields
+    field(DISP, "1")
+}
+
+# CSE Motor Info
+record(calc, "$(P)$(R)CSEMtrAngle-Mon"){
+    field(DESC, "CSE motor angle")
+    field(EGU, "degrees")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CSERawMtrEnc-Mon CPP")
+    field(INPB, "$(P)$(R)MtrAngleScale-Cte CPP")
+    field(INPC, "$(P)$(R)MtrAngleOffset-Cte CPP")
+    field(CALC, "A*B + C")
+}
+record(calc, "$(P)$(R)CSEMtrDist-Mon"){
+    field(DESC, "CSE motor theoretical distance")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CSERawMtrEnc-Mon CPP")
+    field(INPB, "$(P)$(R)MtrDistScale-Cte CPP")
+    field(INPC, "$(P)$(R)MtrDistOffset-Cte CPP")
+    field(CALC, "A*B + C")
+    field(FLNK, "$(P)$(R)CSEEncDiff-Mon")
+}
+record(calc, "$(P)$(R)CSEEncDiff-Mon"){
+    field(DESC, "CSE rotary and linear enc diff")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CSEPhyPos-Mon")
+    field(INPB, "$(P)$(R)CSEMtrDist-Mon")
+    field(CALC, "B-A")
+}
+
+# CSD Motor Info
+record(calc, "$(P)$(R)CSDMtrAngle-Mon"){
+    field(DESC, "CSD motor angle")
+    field(EGU, "degrees")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CSDRawMtrEnc-Mon CPP")
+    field(INPB, "$(P)$(R)MtrAngleScale-Cte CPP")
+    field(INPC, "$(P)$(R)MtrAngleOffset-Cte CPP")
+    field(CALC, "A*B + C")
+}
+record(calc, "$(P)$(R)CSDMtrDist-Mon"){
+    field(DESC, "CSD motor theoretical distance")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CSDRawMtrEnc-Mon CPP")
+    field(INPB, "$(P)$(R)MtrDistScale-Cte CPP")
+    field(INPC, "$(P)$(R)MtrDistOffset-Cte CPP")
+    field(CALC, "A*B + C")
+    field(FLNK, "$(P)$(R)CSDEncDiff-Mon")
+}
+record(calc, "$(P)$(R)CSDEncDiff-Mon"){
+    field(DESC, "CSD rotary and linear enc diff")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CSDPhyPos-Mon")
+    field(INPB, "$(P)$(R)CSDMtrDist-Mon")
+    field(CALC, "B-A")
+}
+
+# CIE Motor Info
+record(calc, "$(P)$(R)CIEMtrAngle-Mon"){
+    field(DESC, "CIE motor angle")
+    field(EGU, "degrees")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CIERawMtrEnc-Mon CPP")
+    field(INPB, "$(P)$(R)MtrAngleScale-Cte CPP")
+    field(INPC, "$(P)$(R)MtrAngleOffset-Cte CPP")
+    field(CALC, "A*B + C")
+}
+record(calc, "$(P)$(R)CIEMtrDist-Mon"){
+    field(DESC, "CIE motor theoretical distance")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CIERawMtrEnc-Mon CPP")
+    field(INPB, "$(P)$(R)MtrDistScale-Cte CPP")
+    field(INPC, "$(P)$(R)MtrDistOffset-Cte CPP")
+    field(CALC, "A*B + C")
+    field(FLNK, "$(P)$(R)CIEEncDiff-Mon")
+}
+record(calc, "$(P)$(R)CIEEncDiff-Mon"){
+    field(DESC, "CIE rotary and linear enc diff")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CIEPhyPos-Mon")
+    field(INPB, "$(P)$(R)CIEMtrDist-Mon")
+    field(CALC, "B-A")
+}
+
+# CID Motor Info
+record(calc, "$(P)$(R)CIDMtrAngle-Mon"){
+    field(DESC, "CID motor angle")
+    field(EGU, "degrees")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CIDRawMtrEnc-Mon CPP")
+    field(INPB, "$(P)$(R)MtrAngleScale-Cte CPP")
+    field(INPC, "$(P)$(R)MtrAngleOffset-Cte CPP")
+    field(CALC, "A*B + C")
+}
+record(calc, "$(P)$(R)CIDMtrDist-Mon"){
+    field(DESC, "CID motor theoretical distance")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CIDRawMtrEnc-Mon CPP")
+    field(INPB, "$(P)$(R)MtrDistScale-Cte CPP")
+    field(INPC, "$(P)$(R)MtrDistOffset-Cte CPP")
+    field(CALC, "A*B + C")
+    field(FLNK, "$(P)$(R)CIDEncDiff-Mon")
+}
+record(calc, "$(P)$(R)CIDEncDiff-Mon"){
+    field(DESC, "CID rotary and linear enc diff")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INPA, "$(P_AXIS)CIDPhyPos-Mon")
+    field(INPB, "$(P)$(R)CIDMtrDist-Mon")
+    field(CALC, "B-A")
+}
+
+###########################################################
+# Checkup test profiles
+
+# set also by sncSabia
+record(bo, "$(P)$(R)EnblPrf-Sel"){
+    field(DESC, "Enable profile acquisition")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(FLNK, "$(P)$(R)EnblPrfAux")
+}
+
+record(calcout, "$(P)$(R)EnblPrfAux"){
+    field(DESC, "Aux to enable prf aquisition")
+    field(INPA, "$(P)$(R)EnblPrf-Sel")
+    field(CALC, "!A")
+    field(OUT, "$(P)$(R)TrgPrfs.DISA PP")
+    field(FLNK, "$(P)$(R)EnblPrf-Sts")
+}
+
+record(bi, "$(P)$(R)EnblPrf-Sts"){
+    field(DESC, "Enable profile acquisition sts")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(INP, "$(P)$(R)EnblPrf-Sel")
+}
+
+# trigger profiles from encoder update
+record(ai, "$(P)$(R)TrgPrfs"){
+    field(DISA, "1")
+    field(ASG, "Reserved")
+    field(DESC, "Trigger profile records")
+    field(INP, "$(P)$(R)CIDEncDiff-Mon CP")
+    field(FLNK, "$(P)$(R)ProcPrfs")
+}
+
+record(fanout, "$(P)$(R)ProcPrfs"){
+    field(ASG, "Reserved")
+    field(DESC, "Process profile records")
+    field(SELM, "All")
+    field(LNK0, "$(P)$(R)CSEEncDiffPrf-Mon PP")
+    field(LNK1, "$(P)$(R)CSDEncDiffPrf-Mon PP")
+    field(LNK2, "$(P)$(R)CIEEncDiffPrf-Mon PP")
+    field(LNK3, "$(P)$(R)CIDEncDiffPrf-Mon PP")
+    field(LNK4, "$(P)$(R)CSEPosErrPrf-Mon PP")
+    field(LNK5, "$(P)$(R)CSDPosErrPrf-Mon PP")
+    field(LNK6, "$(P)$(R)CIEPosErrPrf-Mon PP")
+    field(LNK7, "$(P)$(R)CIDPosErrPrf-Mon PP")
+    field(LNK8, "$(P)$(R)CSETorquePrf-Mon PP")
+    field(LNK9, "$(P)$(R)CSDTorquePrf-Mon PP")
+    field(LNKA, "$(P)$(R)CIETorquePrf-Mon PP")
+    field(LNKB, "$(P)$(R)CIDTorquePrf-Mon PP")
+    field(LNKC, "$(P)$(R)CSEPhyPosPrf-Mon PP")
+    field(LNKD, "$(P)$(R)CSDPhyPosPrf-Mon PP")
+    field(LNKE, "$(P)$(R)CIEPhyPosPrf-Mon PP")
+    field(LNKF, "$(P)$(R)CIDPhyPosPrf-Mon PP")
+    field(FLNK, "$(P)$(R)PrfTimestampAux1")
+}
+
+# Profile of difference between
+# linear and rotary encoders
+record(compress, "$(P)$(R)CSEEncDiffPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CSE encoders diff")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSEEncDiff-Mon")
+}
+
+record(compress, "$(P)$(R)CSDEncDiffPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CSD encoders diff")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSDEncDiff-Mon")
+}
+
+record(compress, "$(P)$(R)CIEEncDiffPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CIE encoders diff")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIEEncDiff-Mon")
+}
+
+record(compress, "$(P)$(R)CIDEncDiffPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CID encoders diff")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIDEncDiff-Mon")
+}
+
+# Profile of cassette position error
+record(compress, "$(P)$(R)CSEPosErrPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CSE pos error")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P_AXIS)CSEPosErr-Mon")
+}
+
+record(compress, "$(P)$(R)CSDPosErrPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CSD pos error")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P_AXIS)CSDPosErr-Mon")
+}
+
+record(compress, "$(P)$(R)CIEPosErrPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CIE pos error")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P_AXIS)CIEPosErr-Mon")
+}
+
+record(compress, "$(P)$(R)CIDPosErrPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CID pos error")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P_AXIS)CIDPosErr-Mon")
+}
+
+# Profile of torque
+record(compress, "$(P)$(R)CSETorquePrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CSE torque")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P_AXIS)CSETorque-Mon")
+}
+
+record(compress, "$(P)$(R)CSDTorquePrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CSD torque")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P_AXIS)CSDTorque-Mon")
+}
+
+record(compress, "$(P)$(R)CIETorquePrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CIE torque")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P_AXIS)CIETorque-Mon")
+}
+
+record(compress, "$(P)$(R)CIDTorquePrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CID torque")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P_AXIS)CIDTorque-Mon")
+}
+
+# Profile of cassette position
+record(compress, "$(P)$(R)CSEPhyPosPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CSE physical position")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P_AXIS)CSEPhyPosPrf-Mon")
+}
+
+record(compress, "$(P)$(R)CSDPhyPosPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CSD physical position")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P_AXIS)CSDPhyPosPrf-Mon")
+}
+
+record(compress, "$(P)$(R)CIEPhyPosPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CIE physical position")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P_AXIS)CIEPhyPosPrf-Mon")
+}
+
+record(compress, "$(P)$(R)CIDPhyPosPrf-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Profile of CID physical position")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P_AXIS)CIDPhyPosPrf-Mon")
+}
+
+# Timestamp of profiles samples
+record(stringin, "$(P)$(R)PrfTimestampAux1"){
+    field(DTYP, "Soft Timestamp")
+    field(TSEL, "$(P)$(R)TrgPrfs.TIME")
+    field(INP, "@%s.%09f")
+    field(FLNK, "$(P)$(R)PrfTimestampAux2")
+}
+record(calc, "$(P)$(R)PrfTimestampAux2"){
+    field(INPA, "$(P)$(R)PrfTimestampAux1")
+    field(INPB, "0")
+    field(CALC, "B==0?0:(A-B);B:=(B==0?A:B)")
+    field(PREC, "9")
+    field(FLNK, "$(P)$(R)PrfTimestamp-Mon")
+}
+record(compress, "$(P)$(R)PrfTimestamp-Mon"){
+    field(ASG, "Reserved")
+    field(DESC, "Timestamps of profiles samples")
+    field(ALG, "Circular Buffer")
+    field(NSAM, "$(PROFILE_BUFF_SIZE)")
+    field(EGU, "sec")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)PrfTimestampAux2")
+}
+
+# Reference profile for encoder diff
+record(waveform,"$(P)$(R)CSEEncDiffRefPrf-Mon"){
+    field(DESC, "Reference profile for CSE enc diff")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+record(waveform,"$(P)$(R)CSDEncDiffRefPrf-Mon"){
+    field(DESC, "Reference profile for CSD enc diff")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+record(waveform,"$(P)$(R)CIEEncDiffRefPrf-Mon"){
+    field(DESC, "Reference profile for CIE enc diff")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+record(waveform,"$(P)$(R)CIDEncDiffRefPrf-Mon"){
+    field(DESC, "Reference profile for CID enc diff")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+
+# Reference profile for position error
+record(waveform,"$(P)$(R)CSEPosErrRefPrf-Mon"){
+    field(DESC, "Reference profile for CSE pos error")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+record(waveform,"$(P)$(R)CSDPosErrRefPrf-Mon"){
+    field(DESC, "Reference profile for CSD pos error")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+record(waveform,"$(P)$(R)CIEPosErrRefPrf-Mon"){
+    field(DESC, "Reference profile for CIE pos error")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+record(waveform,"$(P)$(R)CIDPosErrRefPrf-Mon"){
+    field(DESC, "Reference profile for CID pos error")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+
+# Reference profile for torque
+record(waveform,"$(P)$(R)CSETorqueRefPrf-Mon"){
+    field(DESC, "Reference profile for CSE torque")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "Nm")
+    field(PREC, "3")
+}
+record(waveform,"$(P)$(R)CSDTorqueRefPrf-Mon"){
+    field(DESC, "Reference profile for CSD torque")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "Nm")
+    field(PREC, "3")
+}
+record(waveform,"$(P)$(R)CIETorqueRefPrf-Mon"){
+    field(DESC, "Reference profile for CIE torque")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "Nm")
+    field(PREC, "3")
+}
+record(waveform,"$(P)$(R)CIDTorqueRefPrf-Mon"){
+    field(DESC, "Reference profile for CID torque")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "Nm")
+    field(PREC, "3")
+}
+
+# Reference profile for physical position
+record(waveform,"$(P)$(R)CSEPhyPosRefPrf-Mon"){
+    field(DESC, "Reference profile for CSE physical pos")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+record(waveform,"$(P)$(R)CSDPhyPosRefPrf-Mon"){
+    field(DESC, "Reference profile for CSD physical pos")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+record(waveform,"$(P)$(R)CIEPhyPosRefPrf-Mon"){
+    field(DESC, "Reference profile for CIE physical pos")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+record(waveform,"$(P)$(R)CIDPhyPosRefPrf-Mon"){
+    field(DESC, "Reference profile for CID physical pos")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+
+# Timestamp for reference profiles
+record(waveform,"$(P)$(R)RefPrfTimestamp-Mon"){
+    field(DESC, "Reference profiles timestamp")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(FTVL, "DOUBLE")
+    field(EGU, "mm")
+    field(PREC, "6")
+}
+
+## Move current profiles to reference arrays
+record(bo, "$(P)$(R)UpdateRefPrfs-Cmd"){
+    field(DESC, "Overwrite ref profiles")
+    field(ZNAM, "0")
+    field(ONAM, "1")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux1")
+}
+# enc diff
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux1"){
+    field(DESC, "Tranfer CSE enc diff profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSEEncDiffPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CSEEncDiffRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux2")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux2"){
+    field(DESC, "Tranfer CSD enc diff profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSDEncDiffPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CSDEncDiffRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux3")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux3"){
+    field(DESC, "Tranfer CIE enc diff profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIEEncDiffPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CIEEncDiffRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux4")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux4"){
+    field(DESC, "Tranfer CID enc diff profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIDEncDiffPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CIDEncDiffRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux5")
+}
+# pos err
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux5"){
+    field(DESC, "Tranfer CSE err profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSEPosErrPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CSEPosErrRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux6")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux6"){
+    field(DESC, "Tranfer CSD err profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSDPosErrPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CSDPosErrRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux7")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux7"){
+    field(DESC, "Tranfer CIE err profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIEPosErrPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CIEPosErrRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux8")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux8"){
+    field(DESC, "Tranfer CID err profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIDPosErrPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CIDPosErrRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux9")
+}
+# torque
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux9"){
+    field(DESC, "Tranfer CSE torque profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSETorquePrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CSETorqueRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux10")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux10"){
+    field(DESC, "Tranfer CSD torque profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSDTorquePrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CSDTorqueRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux11")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux11"){
+    field(DESC, "Tranfer CIE torque profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIETorquePrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CIETorqueRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux12")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux12"){
+    field(DESC, "Tranfer CID torque profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIDTorquePrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CIDTorqueRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux13")
+}
+# physical pos
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux13"){
+    field(DESC, "Tranfer CSE pos profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSEPhyPosPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CSEPhyPosRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux14")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux14"){
+    field(DESC, "Tranfer CSD pos profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSDPhyPosPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CSDPhyPosRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux15")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux15"){
+    field(DESC, "Tranfer CIE pos profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIEPhyPosPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CIEPhyPosRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux16")
+}
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux16"){
+    field(DESC, "Tranfer CID pos profile to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIDPhyPosPrf-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)CIDPhyPosRefPrf-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux17")
+}
+# timestamp
+record(acalcout, "$(P)$(R)UpdateRefPrfsAux17"){
+    field(DESC, "Tranfer profile timestamp to ref")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)PrfTimestamp-Mon")
+    field(CALC, "AA")
+    field(OUT, "$(P)$(R)RefPrfTimestamp-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux18")
+}
+
+# move statistics results to reference PVs
+
+## enc diff
+record(seq, "$(P)$(R)UpdateRefPrfsAux18"){
+    field(DOL1, "$(P)$(R)CSEEncDiffPrfAvg-Mon")
+    field(LNK1, "$(P)$(R)CSEEncDiffRefPrfAvg-Mon PP")
+    field(DOL2, "$(P)$(R)CSDEncDiffPrfAvg-Mon")
+    field(LNK2, "$(P)$(R)CSDEncDiffRefPrfAvg-Mon PP")
+    field(DOL3, "$(P)$(R)CIEEncDiffPrfAvg-Mon")
+    field(LNK3, "$(P)$(R)CIEEncDiffRefPrfAvg-Mon PP")
+    field(DOL4, "$(P)$(R)CIDEncDiffPrfAvg-Mon")
+    field(LNK4, "$(P)$(R)CIDEncDiffRefPrfAvg-Mon PP")
+    field(DOL5, "$(P)$(R)CSEEncDiffPrfMax-Mon")
+    field(LNK5, "$(P)$(R)CSEEncDiffRefPrfMax-Mon PP")
+    field(DOL6, "$(P)$(R)CSDEncDiffPrfMax-Mon")
+    field(LNK6, "$(P)$(R)CSDEncDiffRefPrfMax-Mon PP")
+    field(DOL7, "$(P)$(R)CIEEncDiffPrfMax-Mon")
+    field(LNK7, "$(P)$(R)CIEEncDiffRefPrfMax-Mon PP")
+    field(DOL8, "$(P)$(R)CIDEncDiffPrfMax-Mon")
+    field(LNK8, "$(P)$(R)CIDEncDiffRefPrfMax-Mon PP")
+    field(DOL9, "$(P)$(R)CSEEncDiffPrfMin-Mon")
+    field(LNK9, "$(P)$(R)CSEEncDiffRefPrfMin-Mon PP")
+    field(DOLA, "$(P)$(R)CSDEncDiffPrfMin-Mon")
+    field(LNKA, "$(P)$(R)CSDEncDiffRefPrfMin-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux19")
+}
+record(seq, "$(P)$(R)UpdateRefPrfsAux19"){
+    field(DOL1, "$(P)$(R)CIEEncDiffPrfMin-Mon")
+    field(LNK1, "$(P)$(R)CIEEncDiffRefPrfMin-Mon PP")
+    field(DOL2, "$(P)$(R)CIDEncDiffPrfMin-Mon")
+    field(LNK2, "$(P)$(R)CIDEncDiffRefPrfMin-Mon PP")
+    field(DOL3, "$(P)$(R)CSEEncDiffPrfStd-Mon")
+    field(LNK3, "$(P)$(R)CSEEncDiffRefPrfStd-Mon PP")
+    field(DOL4, "$(P)$(R)CSDEncDiffPrfStd-Mon")
+    field(LNK4, "$(P)$(R)CSDEncDiffRefPrfStd-Mon PP")
+    field(DOL5, "$(P)$(R)CIEEncDiffPrfStd-Mon")
+    field(LNK5, "$(P)$(R)CIEEncDiffRefPrfStd-Mon PP")
+    field(DOL6, "$(P)$(R)CIDEncDiffPrfStd-Mon")
+    field(LNK6, "$(P)$(R)CIDEncDiffRefPrfStd-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux20")
+}
+
+## pos err
+record(seq, "$(P)$(R)UpdateRefPrfsAux20"){
+    field(DOL1, "$(P)$(R)CSEPosErrPrfAvg-Mon")
+    field(LNK1, "$(P)$(R)CSEPosErrRefPrfAvg-Mon PP")
+    field(DOL2, "$(P)$(R)CSDPosErrPrfAvg-Mon")
+    field(LNK2, "$(P)$(R)CSDPosErrRefPrfAvg-Mon PP")
+    field(DOL3, "$(P)$(R)CIEPosErrPrfAvg-Mon")
+    field(LNK3, "$(P)$(R)CIEPosErrRefPrfAvg-Mon PP")
+    field(DOL4, "$(P)$(R)CIDPosErrPrfAvg-Mon")
+    field(LNK4, "$(P)$(R)CIDPosErrRefPrfAvg-Mon PP")
+    field(DOL5, "$(P)$(R)CSEPosErrPrfMax-Mon")
+    field(LNK5, "$(P)$(R)CSEPosErrRefPrfMax-Mon PP")
+    field(DOL6, "$(P)$(R)CSDPosErrPrfMax-Mon")
+    field(LNK6, "$(P)$(R)CSDPosErrRefPrfMax-Mon PP")
+    field(DOL7, "$(P)$(R)CIEPosErrPrfMax-Mon")
+    field(LNK7, "$(P)$(R)CIEPosErrRefPrfMax-Mon PP")
+    field(DOL8, "$(P)$(R)CIDPosErrPrfMax-Mon")
+    field(LNK8, "$(P)$(R)CIDPosErrRefPrfMax-Mon PP")
+    field(DOL9, "$(P)$(R)CSEPosErrPrfMin-Mon")
+    field(LNK9, "$(P)$(R)CSEPosErrRefPrfMin-Mon PP")
+    field(DOLA, "$(P)$(R)CSDPosErrPrfMin-Mon")
+    field(LNKA, "$(P)$(R)CSDPosErrRefPrfMin-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux21")
+}
+record(seq, "$(P)$(R)UpdateRefPrfsAux21"){
+    field(DOL1, "$(P)$(R)CIEPosErrPrfMin-Mon")
+    field(LNK1, "$(P)$(R)CIEPosErrRefPrfMin-Mon PP")
+    field(DOL2, "$(P)$(R)CIDPosErrPrfMin-Mon")
+    field(LNK2, "$(P)$(R)CIDPosErrRefPrfMin-Mon PP")
+    field(DOL3, "$(P)$(R)CSEPosErrPrfStd-Mon")
+    field(LNK3, "$(P)$(R)CSEPosErrRefPrfStd-Mon PP")
+    field(DOL4, "$(P)$(R)CSDPosErrPrfStd-Mon")
+    field(LNK4, "$(P)$(R)CSDPosErrRefPrfStd-Mon PP")
+    field(DOL5, "$(P)$(R)CIEPosErrPrfStd-Mon")
+    field(LNK5, "$(P)$(R)CIEPosErrRefPrfStd-Mon PP")
+    field(DOL6, "$(P)$(R)CIDPosErrPrfStd-Mon")
+    field(LNK6, "$(P)$(R)CIDPosErrRefPrfStd-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux22")
+}
+
+## torque
+record(seq, "$(P)$(R)UpdateRefPrfsAux22"){
+    field(DOL1, "$(P)$(R)CSETorquePrfAvg-Mon")
+    field(LNK1, "$(P)$(R)CSETorqueRefPrfAvg-Mon PP")
+    field(DOL2, "$(P)$(R)CSDTorquePrfAvg-Mon")
+    field(LNK2, "$(P)$(R)CSDTorqueRefPrfAvg-Mon PP")
+    field(DOL3, "$(P)$(R)CIETorquePrfAvg-Mon")
+    field(LNK3, "$(P)$(R)CIETorqueRefPrfAvg-Mon PP")
+    field(DOL4, "$(P)$(R)CIDTorquePrfAvg-Mon")
+    field(LNK4, "$(P)$(R)CIDTorqueRefPrfAvg-Mon PP")
+    field(DOL5, "$(P)$(R)CSETorquePrfMax-Mon")
+    field(LNK5, "$(P)$(R)CSETorqueRefPrfMax-Mon PP")
+    field(DOL6, "$(P)$(R)CSDTorquePrfMax-Mon")
+    field(LNK6, "$(P)$(R)CSDTorqueRefPrfMax-Mon PP")
+    field(DOL7, "$(P)$(R)CIETorquePrfMax-Mon")
+    field(LNK7, "$(P)$(R)CIETorqueRefPrfMax-Mon PP")
+    field(DOL8, "$(P)$(R)CIDTorquePrfMax-Mon")
+    field(LNK8, "$(P)$(R)CIDTorqueRefPrfMax-Mon PP")
+    field(DOL9, "$(P)$(R)CSETorquePrfMin-Mon")
+    field(LNK9, "$(P)$(R)CSETorqueRefPrfMin-Mon PP")
+    field(DOLA, "$(P)$(R)CSDTorquePrfMin-Mon")
+    field(LNKA, "$(P)$(R)CSDTorqueRefPrfMin-Mon PP")
+    field(FLNK, "$(P)$(R)UpdateRefPrfsAux23")
+}
+record(seq, "$(P)$(R)UpdateRefPrfsAux23"){
+    field(DOL1, "$(P)$(R)CIETorquePrfMin-Mon")
+    field(LNK1, "$(P)$(R)CIETorqueRefPrfMin-Mon PP")
+    field(DOL2, "$(P)$(R)CIDTorquePrfMin-Mon")
+    field(LNK2, "$(P)$(R)CIDTorqueRefPrfMin-Mon PP")
+    field(DOL3, "$(P)$(R)CSETorquePrfStd-Mon")
+    field(LNK3, "$(P)$(R)CSETorqueRefPrfStd-Mon PP")
+    field(DOL4, "$(P)$(R)CSDTorquePrfStd-Mon")
+    field(LNK4, "$(P)$(R)CSDTorqueRefPrfStd-Mon PP")
+    field(DOL5, "$(P)$(R)CIETorquePrfStd-Mon")
+    field(LNK5, "$(P)$(R)CIETorqueRefPrfStd-Mon PP")
+    field(DOL6, "$(P)$(R)CIDTorquePrfStd-Mon")
+    field(LNK6, "$(P)$(R)CIDTorqueRefPrfStd-Mon PP")
+}
+
+# Reference statistics values
+
+## enc diff
+record(ai, "$(P)$(R)CSEEncDiffRefPrfAvg-Mon"){
+    field(DESC, "Reference CSE enc diff prf avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDEncDiffRefPrfAvg-Mon"){
+    field(DESC, "Reference CSD enc diff prf avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIEEncDiffRefPrfAvg-Mon"){
+    field(DESC, "Reference CIE enc diff prf avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDEncDiffRefPrfAvg-Mon"){
+    field(DESC, "Reference CID enc diff prf avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSEEncDiffRefPrfMax-Mon"){
+    field(DESC, "Reference CSE enc diff prf max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDEncDiffRefPrfMax-Mon"){
+    field(DESC, "Reference CSD enc diff prf max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIEEncDiffRefPrfMax-Mon"){
+    field(DESC, "Reference CIE enc diff prf max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDEncDiffRefPrfMax-Mon"){
+    field(DESC, "Reference CID enc diff prf max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSEEncDiffRefPrfMin-Mon"){
+    field(DESC, "Reference CSE enc diff prf min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDEncDiffRefPrfMin-Mon"){
+    field(DESC, "Reference CSD enc diff prf min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIEEncDiffRefPrfMin-Mon"){
+    field(DESC, "Reference CIE enc diff prf min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDEncDiffRefPrfMin-Mon"){
+    field(DESC, "Reference CID enc diff prf min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSEEncDiffRefPrfStd-Mon"){
+    field(DESC, "Reference CSE enc diff prf stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDEncDiffRefPrfStd-Mon"){
+    field(DESC, "Reference CSD enc diff prf stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIEEncDiffRefPrfStd-Mon"){
+    field(DESC, "Reference CIE enc diff prf stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDEncDiffRefPrfStd-Mon"){
+    field(DESC, "Reference CID enc diff prf stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+
+## pos error
+record(ai, "$(P)$(R)CSEPosErrRefPrfAvg-Mon"){
+    field(DESC, "Reference CSE pos err prf avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDPosErrRefPrfAvg-Mon"){
+    field(DESC, "Reference CSD pos err prf avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIEPosErrRefPrfAvg-Mon"){
+    field(DESC, "Reference CIE pos err prf avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDPosErrRefPrfAvg-Mon"){
+    field(DESC, "Reference CID pos err prf avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSEPosErrRefPrfMax-Mon"){
+    field(DESC, "Reference CSE pos err prf max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDPosErrRefPrfMax-Mon"){
+    field(DESC, "Reference CSD pos err prf max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIEPosErrRefPrfMax-Mon"){
+    field(DESC, "Reference CIE pos err prf max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDPosErrRefPrfMax-Mon"){
+    field(DESC, "Reference CID pos err prf max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSEPosErrRefPrfMin-Mon"){
+    field(DESC, "Reference CSE pos err prf min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDPosErrRefPrfMin-Mon"){
+    field(DESC, "Reference CSD pos err prf min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIEPosErrRefPrfMin-Mon"){
+    field(DESC, "Reference CIE pos err prf min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDPosErrRefPrfMin-Mon"){
+    field(DESC, "Reference CID pos err prf min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSEPosErrRefPrfStd-Mon"){
+    field(DESC, "Reference CSE pos err prf stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDPosErrRefPrfStd-Mon"){
+    field(DESC, "Reference CSD pos err prf stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIEPosErrRefPrfStd-Mon"){
+    field(DESC, "Reference CIE pos err prf stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDPosErrRefPrfStd-Mon"){
+    field(DESC, "Reference CID pos err prf stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(MDEL, "-1")
+}
+
+## torque
+record(ai, "$(P)$(R)CSETorqueRefPrfAvg-Mon"){
+    field(DESC, "Reference CSE torque prf avg")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDTorqueRefPrfAvg-Mon"){
+    field(DESC, "Reference CSD torque prf avg")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIETorqueRefPrfAvg-Mon"){
+    field(DESC, "Reference CIE torque prf avg")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDTorqueRefPrfAvg-Mon"){
+    field(DESC, "Reference CID torque prf avg")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSETorqueRefPrfMax-Mon"){
+    field(DESC, "Reference CSE torque prf max")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDTorqueRefPrfMax-Mon"){
+    field(DESC, "Reference CSD torque prf max")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIETorqueRefPrfMax-Mon"){
+    field(DESC, "Reference CIE torque prf max")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDTorqueRefPrfMax-Mon"){
+    field(DESC, "Reference CID torque prf max")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSETorqueRefPrfMin-Mon"){
+    field(DESC, "Reference CSE torque prf min")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDTorqueRefPrfMin-Mon"){
+    field(DESC, "Reference CSD torque prf min")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIETorqueRefPrfMin-Mon"){
+    field(DESC, "Reference CIE torque prf min")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDTorqueRefPrfMin-Mon"){
+    field(DESC, "Reference CID torque prf min")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSETorqueRefPrfStd-Mon"){
+    field(DESC, "Reference CSE torque prf stddev")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CSDTorqueRefPrfStd-Mon"){
+    field(DESC, "Reference CSD torque prf stddev")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIETorqueRefPrfStd-Mon"){
+    field(DESC, "Reference CIE torque prf stddev")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+record(ai, "$(P)$(R)CIDTorqueRefPrfStd-Mon"){
+    field(DESC, "Reference CID torque prf stddev")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+}
+
+# Clear profile records
+# set by sncSabia
+record(bo, "$(P)$(R)ClearPrfs-Cmd"){
+    field(DESC, "Clear profiles cmd")
+    field(FLNK, "$(P)$(R)ClearPrfsAux1")
+}
+
+record(dfanout, "$(P)$(R)ClearPrfsAux1"){
+    field(DESC, "Clear profiles aux 1")
+    field(OMSL, "supervisory")
+    field(SELM, "All")
+    field(VAL, "1")
+    field(OUTA, "$(P)$(R)CSEEncDiffPrf-Mon.RES PP")
+    field(OUTB, "$(P)$(R)CSDEncDiffPrf-Mon.RES PP")
+    field(OUTC, "$(P)$(R)CIEEncDiffPrf-Mon.RES PP")
+    field(OUTD, "$(P)$(R)CIDEncDiffPrf-Mon.RES PP")
+    field(OUTE, "$(P)$(R)CSEPosErrPrf-Mon.RES PP")
+    field(OUTF, "$(P)$(R)CSDPosErrPrf-Mon.RES PP")
+    field(OUTG, "$(P)$(R)CIEPosErrPrf-Mon.RES PP")
+    field(OUTH, "$(P)$(R)CIDPosErrPrf-Mon.RES PP")
+    field(FLNK, "$(P)$(R)ClearPrfsAux2")
+}
+
+record(dfanout, "$(P)$(R)ClearPrfsAux2"){
+    field(DESC, "Clear profiles aux 2")
+    field(OMSL, "supervisory")
+    field(SELM, "All")
+    field(VAL, "1")
+    field(OUTA, "$(P)$(R)CSETorquePrf-Mon.RES PP")
+    field(OUTB, "$(P)$(R)CSDTorquePrf-Mon.RES PP")
+    field(OUTC, "$(P)$(R)CIETorquePrf-Mon.RES PP")
+    field(OUTD, "$(P)$(R)CIDTorquePrf-Mon.RES PP")
+    field(OUTF, "$(P)$(R)CSEPhyPosPrf-Mon.RES PP")
+    field(OUTE, "$(P)$(R)CSDPhyPosPrf-Mon.RES PP")
+    field(OUTG, "$(P)$(R)CIEPhyPosPrf-Mon.RES PP")
+    field(OUTH, "$(P)$(R)CIDPhyPosPrf-Mon.RES PP")
+}
+
+# Profile statistics
+record(bo, "$(P)$(R)TrgPrfStatistics-Cmd"){
+    field(DESC, "Trigger calculations with profiles")
+    field(ZNAM, "0")
+    field(ONAM, "1")
+    field(FLNK, "$(P)$(R)CSEEncDiffPrfStat-Mon")
+}
+
+# calc statistics
+
+## enc diff
+record(acalcout, "$(P)$(R)CSEEncDiffPrfStat-Mon"){
+    field(DESC, "CSE enc diff profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSEEncDiffPrf-Mon")
+    field(INPE, "$(P)$(R)CSEEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CSDEncDiffPrfStat-Mon")
+}
+record(acalcout, "$(P)$(R)CSDEncDiffPrfStat-Mon"){
+    field(DESC, "CSD enc diff profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSDEncDiffPrf-Mon")
+    field(INPE, "$(P)$(R)CSDEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CIEEncDiffPrfStat-Mon")
+}
+record(acalcout, "$(P)$(R)CIEEncDiffPrfStat-Mon"){
+    field(DESC, "CIE enc diff profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIEEncDiffPrf-Mon")
+    field(INPE, "$(P)$(R)CIEEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CIDEncDiffPrfStat-Mon")
+}
+record(acalcout, "$(P)$(R)CIDEncDiffPrfStat-Mon"){
+    field(DESC, "CID enc diff profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIDEncDiffPrf-Mon")
+    field(INPE, "$(P)$(R)CIDEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CSEPosErrPrfStat-Mon")
+}
+
+## pos err
+record(acalcout, "$(P)$(R)CSEPosErrPrfStat-Mon"){
+    field(DESC, "CSE pos err profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSEPosErrPrf-Mon")
+    field(INPE, "$(P)$(R)CSEEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CSDPosErrPrfStat-Mon")
+}
+record(acalcout, "$(P)$(R)CSDPosErrPrfStat-Mon"){
+    field(DESC, "CSD pos err profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSDPosErrPrf-Mon")
+    field(INPE, "$(P)$(R)CSDEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CIEPosErrPrfStat-Mon")
+}
+record(acalcout, "$(P)$(R)CIEPosErrPrfStat-Mon"){
+    field(DESC, "CIE pos err profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIEPosErrPrf-Mon")
+    field(INPE, "$(P)$(R)CIEEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CIDPosErrPrfStat-Mon")
+}
+record(acalcout, "$(P)$(R)CIDPosErrPrfStat-Mon"){
+    field(DESC, "CID pos err profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIDPosErrPrf-Mon")
+    field(INPE, "$(P)$(R)CIDEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CSETorquePrfStat-Mon")
+}
+
+## torque
+record(acalcout, "$(P)$(R)CSETorquePrfStat-Mon"){
+    field(DESC, "CSE torque profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSETorquePrf-Mon")
+    field(INPE, "$(P)$(R)CSEEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CSDTorquePrfStat-Mon")
+}
+record(acalcout, "$(P)$(R)CSDTorquePrfStat-Mon"){
+    field(DESC, "CSD torque profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CSDTorquePrf-Mon")
+    field(INPE, "$(P)$(R)CSDEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CIETorquePrfStat-Mon")
+}
+record(acalcout, "$(P)$(R)CIETorquePrfStat-Mon"){
+    field(DESC, "CIE torque profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIETorquePrf-Mon")
+    field(INPE, "$(P)$(R)CIEEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CIDTorquePrfStat-Mon")
+}
+record(acalcout, "$(P)$(R)CIDTorquePrfStat-Mon"){
+    field(DESC, "CID torque profile stat")
+    field(NELM, "$(PROFILE_BUFF_SIZE)")
+    field(INAA, "$(P)$(R)CIDTorquePrf-Mon")
+    field(INPE, "$(P)$(R)CIDEncDiffPrf-Mon.NUSE")
+    field(CALC, "A:=avg(AA[0,E-1]);B:=amax(AA[0,E-1]);C:=amin(AA[0,E-1]);D:=std(AA[0,E-1]);1")
+    field(FLNK, "$(P)$(R)CSEEncDiffPrfAvg-Mon")
+}
+
+# display statistics
+
+## enc diff
+record(ai, "$(P)$(R)CSEEncDiffPrfAvg-Mon"){
+    field(DESC, "CSE enc diff profile avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSEEncDiffPrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDEncDiffPrfAvg-Mon")
+}
+record(ai, "$(P)$(R)CSDEncDiffPrfAvg-Mon"){
+    field(DESC, "CSD enc diff profile avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSDEncDiffPrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIEEncDiffPrfAvg-Mon")
+}
+record(ai, "$(P)$(R)CIEEncDiffPrfAvg-Mon"){
+    field(DESC, "CIE enc diff profile avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIEEncDiffPrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDEncDiffPrfAvg-Mon")
+}
+record(ai, "$(P)$(R)CIDEncDiffPrfAvg-Mon"){
+    field(DESC, "CID enc diff profile avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIDEncDiffPrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSEEncDiffPrfMax-Mon")
+}
+record(ai, "$(P)$(R)CSEEncDiffPrfMax-Mon"){
+    field(DESC, "CSE enc diff profile max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSEEncDiffPrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDEncDiffPrfMax-Mon")
+}
+record(ai, "$(P)$(R)CSDEncDiffPrfMax-Mon"){
+    field(DESC, "CSD enc diff profile max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSDEncDiffPrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIEEncDiffPrfMax-Mon")
+}
+record(ai, "$(P)$(R)CIEEncDiffPrfMax-Mon"){
+    field(DESC, "CIE enc diff profile max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIEEncDiffPrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDEncDiffPrfMax-Mon")
+}
+record(ai, "$(P)$(R)CIDEncDiffPrfMax-Mon"){
+    field(DESC, "CID enc diff profile max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIDEncDiffPrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSEEncDiffPrfMin-Mon")
+}
+record(ai, "$(P)$(R)CSEEncDiffPrfMin-Mon"){
+    field(DESC, "CSE enc diff profile min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSEEncDiffPrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDEncDiffPrfMin-Mon")
+}
+record(ai, "$(P)$(R)CSDEncDiffPrfMin-Mon"){
+    field(DESC, "CSD enc diff profile min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSDEncDiffPrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIEEncDiffPrfMin-Mon")
+}
+record(ai, "$(P)$(R)CIEEncDiffPrfMin-Mon"){
+    field(DESC, "CIE enc diff profile min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIEEncDiffPrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDEncDiffPrfMin-Mon")
+}
+record(ai, "$(P)$(R)CIDEncDiffPrfMin-Mon"){
+    field(DESC, "CID enc diff profile min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIDEncDiffPrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSEEncDiffPrfStd-Mon")
+}
+record(ai, "$(P)$(R)CSEEncDiffPrfStd-Mon"){
+    field(DESC, "CSE enc diff profile stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSEEncDiffPrfStat-Mon.D")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDEncDiffPrfStd-Mon")
+}
+record(ai, "$(P)$(R)CSDEncDiffPrfStd-Mon"){
+    field(DESC, "CSD enc diff profile stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSDEncDiffPrfStat-Mon.D")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIEEncDiffPrfStd-Mon")
+}
+record(ai, "$(P)$(R)CIEEncDiffPrfStd-Mon"){
+    field(DESC, "CIE enc diff profile stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIEEncDiffPrfStat-Mon.D")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDEncDiffPrfStd-Mon")
+}
+record(ai, "$(P)$(R)CIDEncDiffPrfStd-Mon"){
+    field(DESC, "CID enc diff profile stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIDEncDiffPrfStat-Mon.D")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSEPosErrPrfAvg-Mon")
+}
+
+## pos err
+record(ai, "$(P)$(R)CSEPosErrPrfAvg-Mon"){
+    field(DESC, "CSE pos err profile avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSEPosErrPrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDPosErrPrfAvg-Mon")
+}
+record(ai, "$(P)$(R)CSDPosErrPrfAvg-Mon"){
+    field(DESC, "CSD pos err profile avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSDPosErrPrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIEPosErrPrfAvg-Mon")
+}
+record(ai, "$(P)$(R)CIEPosErrPrfAvg-Mon"){
+    field(DESC, "CIE pos err profile avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIEPosErrPrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDPosErrPrfAvg-Mon")
+}
+record(ai, "$(P)$(R)CIDPosErrPrfAvg-Mon"){
+    field(DESC, "CID pos err profile avg")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIDPosErrPrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSEPosErrPrfMax-Mon")
+}
+record(ai, "$(P)$(R)CSEPosErrPrfMax-Mon"){
+    field(DESC, "CSE pos err profile max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSEPosErrPrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDPosErrPrfMax-Mon")
+}
+record(ai, "$(P)$(R)CSDPosErrPrfMax-Mon"){
+    field(DESC, "CSD pos err profile max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSDPosErrPrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIEPosErrPrfMax-Mon")
+}
+record(ai, "$(P)$(R)CIEPosErrPrfMax-Mon"){
+    field(DESC, "CIE pos err profile max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIEPosErrPrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDPosErrPrfMax-Mon")
+}
+record(ai, "$(P)$(R)CIDPosErrPrfMax-Mon"){
+    field(DESC, "CID pos err profile max")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIDPosErrPrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSEPosErrPrfMin-Mon")
+}
+record(ai, "$(P)$(R)CSEPosErrPrfMin-Mon"){
+    field(DESC, "CSE pos err profile min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSEPosErrPrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDPosErrPrfMin-Mon")
+}
+record(ai, "$(P)$(R)CSDPosErrPrfMin-Mon"){
+    field(DESC, "CSD pos err profile min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSDPosErrPrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIEPosErrPrfMin-Mon")
+}
+record(ai, "$(P)$(R)CIEPosErrPrfMin-Mon"){
+    field(DESC, "CIE pos err profile min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIEPosErrPrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDPosErrPrfMin-Mon")
+}
+record(ai, "$(P)$(R)CIDPosErrPrfMin-Mon"){
+    field(DESC, "CID pos err profile min")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIDPosErrPrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSEPosErrPrfStd-Mon")
+}
+record(ai, "$(P)$(R)CSEPosErrPrfStd-Mon"){
+    field(DESC, "CSE pos err profile stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSEPosErrPrfStat-Mon.D")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDPosErrPrfStd-Mon")
+}
+record(ai, "$(P)$(R)CSDPosErrPrfStd-Mon"){
+    field(DESC, "CSD pos err profile stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CSDPosErrPrfStat-Mon.D")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIEPosErrPrfStd-Mon")
+}
+record(ai, "$(P)$(R)CIEPosErrPrfStd-Mon"){
+    field(DESC, "CIE pos err profile stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIEPosErrPrfStat-Mon.D")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDPosErrPrfStd-Mon")
+}
+record(ai, "$(P)$(R)CIDPosErrPrfStd-Mon"){
+    field(DESC, "CID pos err profile stddev")
+    field(EGU, "mm")
+    field(PREC, "6")
+    field(INP, "$(P)$(R)CIDPosErrPrfStat-Mon.D")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSETorquePrfAvg-Mon")
+}
+
+## torque
+record(ai, "$(P)$(R)CSETorquePrfAvg-Mon"){
+    field(DESC, "CSE torque profile avg")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CSETorquePrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDTorquePrfAvg-Mon")
+}
+record(ai, "$(P)$(R)CSDTorquePrfAvg-Mon"){
+    field(DESC, "CSD torque profile avg")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CSDTorquePrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIETorquePrfAvg-Mon")
+}
+record(ai, "$(P)$(R)CIETorquePrfAvg-Mon"){
+    field(DESC, "CIE torque profile avg")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CIETorquePrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDTorquePrfAvg-Mon")
+}
+record(ai, "$(P)$(R)CIDTorquePrfAvg-Mon"){
+    field(DESC, "CID torque profile avg")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CIDTorquePrfStat-Mon.A")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSETorquePrfMax-Mon")
+}
+record(ai, "$(P)$(R)CSETorquePrfMax-Mon"){
+    field(DESC, "CSE torque profile max")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CSETorquePrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDTorquePrfMax-Mon")
+}
+record(ai, "$(P)$(R)CSDTorquePrfMax-Mon"){
+    field(DESC, "CSD torque profile max")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CSDTorquePrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIETorquePrfMax-Mon")
+}
+record(ai, "$(P)$(R)CIETorquePrfMax-Mon"){
+    field(DESC, "CIE torque profile max")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CIETorquePrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDTorquePrfMax-Mon")
+}
+record(ai, "$(P)$(R)CIDTorquePrfMax-Mon"){
+    field(DESC, "CID torque profile max")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CIDTorquePrfStat-Mon.B")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSETorquePrfMin-Mon")
+}
+record(ai, "$(P)$(R)CSETorquePrfMin-Mon"){
+    field(DESC, "CSE torque profile min")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CSETorquePrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDTorquePrfMin-Mon")
+}
+record(ai, "$(P)$(R)CSDTorquePrfMin-Mon"){
+    field(DESC, "CSD torque profile min")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CSDTorquePrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIETorquePrfMin-Mon")
+}
+record(ai, "$(P)$(R)CIETorquePrfMin-Mon"){
+    field(DESC, "CIE torque profile min")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CIETorquePrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDTorquePrfMin-Mon")
+}
+record(ai, "$(P)$(R)CIDTorquePrfMin-Mon"){
+    field(DESC, "CID torque profile min")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CIDTorquePrfStat-Mon.C")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSETorquePrfStd-Mon")
+}
+record(ai, "$(P)$(R)CSETorquePrfStd-Mon"){
+    field(DESC, "CSE torque profile stddev")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CSETorquePrfStat-Mon.D")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CSDTorquePrfStd-Mon")
+}
+record(ai, "$(P)$(R)CSDTorquePrfStd-Mon"){
+    field(DESC, "CSD torque profile stddev")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CSDTorquePrfStat-Mon.D")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIETorquePrfStd-Mon")
+}
+record(ai, "$(P)$(R)CIETorquePrfStd-Mon"){
+    field(DESC, "CIE torque profile stddev")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(INP, "$(P)$(R)CIETorquePrfStat-Mon.D")
+    field(MDEL, "-1")
+    field(FLNK, "$(P)$(R)CIDTorquePrfStd-Mon")
+}
+record(ai, "$(P)$(R)CIDTorquePrfStd-Mon"){
+    field(DESC, "CID torque profile stddev")
+    field(EGU, "Nm")
+    field(PREC, "3")
+    field(MDEL, "-1")
+    field(INP, "$(P)$(R)CIDTorquePrfStat-Mon.D")
+}
+
+###########################################################
 # Low Level PVs Access Control
 
 # set by sncSabia

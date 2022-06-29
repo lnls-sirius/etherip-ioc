@@ -30,6 +30,7 @@ program sncSabia
 double arr_x_conv_k_energy[ARR_SIZE_CONV_K_ENERGY];
 double arr_y_conv_k_energy[ARR_SIZE_CONV_K_ENERGY];
 double old_gain_shift;
+int old_pol_option;
 int must_move;
 double scan_velo;
 int check;
@@ -121,6 +122,12 @@ monitor arr_y_cl_mm2k_nord;
 double pos_tolerance_sp;
 assign pos_tolerance_sp to "{P_MOD01}PosTolerance-SP";
 monitor pos_tolerance_sp;
+
+int checkup_evt;
+assign checkup_evt to "{P_MOD01}CheckupFlg";
+monitor checkup_evt;
+evflag checkup_evt_flg;
+sync checkup_evt checkup_evt_flg;
 
 int abort_evt;
 assign abort_evt to "{P_MOD01}AbortFlg";
@@ -329,12 +336,6 @@ monitor k_to_energy_a8_sp;
 char log_mon[LOG_MON_SIZE];
 assign log_mon to "{P_MOD01}Log-Mon";
 
-int enbl_low_lvl_ctrl_proc;
-assign enbl_low_lvl_ctrl_proc to "{P_MOD01}EnblLowLvlCtrl.PROC";
-
-int dsbl_low_lvl_ctrl_proc;
-assign dsbl_low_lvl_ctrl_proc to "{P_MOD01}DsblLowLvlCtrl.PROC";
-
 double k_mon;
 assign k_mon to "{P_MOD01}K-Mon";
 
@@ -397,6 +398,15 @@ assign escan_end_sp_drvh to "{P_MOD01}EScanEnd-SP.DRVH";
 
 double escan_end_sp_drvl;
 assign escan_end_sp_drvl to "{P_MOD01}EScanEnd-SP.DRVL";
+
+int enbl_prf_sel;
+assign enbl_prf_sel to "{P_MOD01}EnblPrf-Sel";
+
+int clear_profiles_cmd;
+assign clear_profiles_cmd to "{P_MOD01}ClearPrfs-Cmd.PROC";
+
+int trg_prf_statistics_cmd;
+assign trg_prf_statistics_cmd to "{P_MOD01}TrgPrfStatistics-Cmd.PROC";
 
 %%//----------------------------------------
 %%//    Monitored PVs - Low Level
@@ -558,6 +568,12 @@ assign soft_trig_cmd to "{P_MOD01}SoftTrig-Cmd";
 %%#define POL_LIN_VERT_OPTION 2
 %%#define POL_LIN_HOR_OPTION 3
 
+// check-up mode
+%%#define CHECKUP_POL POL_LIN_HOR_OPTION
+%%#define CHECKUP_MIN_GAIN 0
+%%#define CHECKUP_MAX_GAIN 26.25
+%%#define CHECKUP_DELAY_BEFORE_MOVE 2.0
+
 //main energy positions (mm)
 %%#define GAIN_ZERO_K 0.0
 
@@ -652,6 +668,7 @@ ss motion_control {
             efClear(change_gain_evt_flg);
 	    efClear(start_gain_scan_evt_flg);
             efClear(parking_request_evt_flg);
+            efClear(checkup_evt_flg);
             efClear(abort_evt_flg);
 
             LOG_INFO("[%s] Initialization finished\n", macValueGet("P_MOD01"));
@@ -679,13 +696,15 @@ ss motion_control {
         when (efTest(parking_request_evt_flg)
               || efTest(change_pol_evt_flg)
               || efTest(change_gain_evt_flg)
-              || efTest(start_gain_scan_evt_flg)) {
+              || efTest(start_gain_scan_evt_flg)
+              || efTest(checkup_evt_flg)) {
 
             // clear flags
             efClear(parking_request_evt_flg);
             efClear(change_pol_evt_flg);
             efClear(change_gain_evt_flg);
             efClear(start_gain_scan_evt_flg);
+            efClear(checkup_evt_flg);
 
             // print warning log message
             printToLogAndMsgPV(ERR_MOVE_SM_STOPPED, "motion_control wait_completion");
@@ -701,6 +720,7 @@ ss motion_control {
             efClear(change_gain_evt_flg);
 	    efClear(start_gain_scan_evt_flg);
             efClear(parking_request_evt_flg);
+            efClear(checkup_evt_flg);
             efClear(abort_evt_flg);
         }
 
@@ -740,6 +760,14 @@ ss motion_control {
             high_lvl_move_mon = BOOL_YES;
             pvPut(high_lvl_move_mon, SYNC);
         } state start_gain_scan_step1
+
+	when (efTestAndClear(checkup_evt_flg)
+              && consistent_set_points_mon == BOOL_YES) {
+
+            // indicate that high level motion started
+            high_lvl_move_mon = BOOL_YES;
+            pvPut(high_lvl_move_mon, SYNC);
+        } state checkup_step1
 
     }
 
@@ -1369,6 +1397,877 @@ ss motion_control {
                                "motion_control start_parking_step2");
         } state wait_completion
     }
+
+    state checkup_step1 {
+
+        entry {
+            // store current gain and polarization shifts
+            old_gain_shift = gain_shift_mon;
+            old_pol_option = pol_mon;
+
+            // configure move to minimum gain position
+            must_move = configGainShift(MINIMUM_GAIN_SHIFT);
+        }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step1");
+        } state wait_completion
+
+        when (!must_move) {
+            /* skip the first move */
+        } state checkup_step4
+
+        when (trig_type_sts == trig_type_sel
+              && inter_mod_coup_sts == inter_mod_coup_sel
+              && ref_type_sts == ref_type_sel
+              && mirror_sts == mirror_sel
+              && coup_sts == coup_sel
+              && velo_rb == velo_sp
+              && acc_rb == acc_sp
+              && decel_rb == decel_sp
+              && rel_pos_rb == rel_pos_sp) {
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        } state checkup_step2
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control checkup_step1");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step1");
+        } state wait_completion
+    }
+
+    state checkup_step2 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step2");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state checkup_step3
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step2");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step2");
+        } state wait_completion
+    }
+
+    state checkup_step3 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step3");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        } state checkup_step4
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step3");
+        } state wait_completion
+    }
+
+    state checkup_step4 {
+
+        entry {
+            // config change in polarization
+            must_move = configPolChange(CHECKUP_POL, "checkup_step4");
+        }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step4");
+        } state wait_completion
+
+        when (!must_move) {
+            /* skip the polarization move */
+        } state checkup_step7
+
+        when (trig_type_sts == trig_type_sel
+              && inter_mod_coup_sts == inter_mod_coup_sel
+              && ref_type_sts == ref_type_sel
+              && mirror_sts == mirror_sel
+              && coup_sts == coup_sel
+              && velo_rb == velo_sp
+              && acc_rb == acc_sp
+              && decel_rb == decel_sp
+              && rel_pos_rb == rel_pos_sp) {
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        } state checkup_step5
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control checkup_step4");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step4");
+        } state wait_completion
+    }
+
+    state checkup_step5 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step5");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state checkup_step6
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step5");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step5");
+        } state wait_completion
+    }
+
+    state checkup_step6 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step6");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        } state checkup_step7
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step6");
+        } state wait_completion
+    }
+
+    state checkup_step7 {
+
+        entry {
+            // go to starting gain of checkup routine
+            must_move = configGainShift(CHECKUP_MIN_GAIN);
+        }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step7");
+        } state wait_completion
+
+        when (!must_move) {
+            /* skip move */
+        } state checkup_step10
+
+        when (trig_type_sts == trig_type_sel
+              && inter_mod_coup_sts == inter_mod_coup_sel
+              && ref_type_sts == ref_type_sel
+              && mirror_sts == mirror_sel
+              && coup_sts == coup_sel
+              && velo_rb == velo_sp
+              && acc_rb == acc_sp
+              && decel_rb == decel_sp
+              && rel_pos_rb == rel_pos_sp) {
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        } state checkup_step8
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control checkup_step7");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step7");
+        } state wait_completion
+    }
+
+    state checkup_step8 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step8");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state checkup_step9
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step8");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step8");
+        } state wait_completion
+    }
+
+    state checkup_step9 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step9");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        } state checkup_step10
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step9");
+        } state wait_completion
+    }
+
+    state checkup_step10 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step10");
+        } state wait_completion
+
+        when (delay(CHECKUP_DELAY_BEFORE_MOVE)) {
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+            // clear profile buffers
+            clear_profiles_cmd = BOOL_YES;
+            pvPut(clear_profiles_cmd, SYNC);
+            // enable acquisition of profiles
+            enbl_prf_sel = BOOL_YES;
+            pvPut(enbl_prf_sel, SYNC);
+        } state checkup_step11
+    }
+
+    state checkup_step11 {
+
+        entry {
+            // go to max gain of checkup routine
+            must_move = configGainShift(CHECKUP_MAX_GAIN);
+        }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step11");
+        } state wait_completion
+
+        when (!must_move) {
+            /* skip move */
+        } state checkup_step14
+
+        when (trig_type_sts == trig_type_sel
+              && inter_mod_coup_sts == inter_mod_coup_sel
+              && ref_type_sts == ref_type_sel
+              && mirror_sts == mirror_sel
+              && coup_sts == coup_sel
+              && velo_rb == velo_sp
+              && acc_rb == acc_sp
+              && decel_rb == decel_sp
+              && rel_pos_rb == rel_pos_sp) {
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        } state checkup_step12
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control checkup_step11");
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step11");
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+        } state wait_completion
+    }
+
+    state checkup_step12 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step12");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state checkup_step13
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step12");
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step12");
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+        } state wait_completion
+    }
+
+    state checkup_step13 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step13");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        } state checkup_step14
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step13");
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+        } state wait_completion
+    }
+
+    state checkup_step14 {
+
+        entry {
+            // go to final gain of checkup routine
+            must_move = configGainShift(CHECKUP_MIN_GAIN);
+        }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step14");
+        } state wait_completion
+
+        when (!must_move) {
+            /* skip move */
+        } state checkup_step17
+
+        when (trig_type_sts == trig_type_sel
+              && inter_mod_coup_sts == inter_mod_coup_sel
+              && ref_type_sts == ref_type_sel
+              && mirror_sts == mirror_sel
+              && coup_sts == coup_sel
+              && velo_rb == velo_sp
+              && acc_rb == acc_sp
+              && decel_rb == decel_sp
+              && rel_pos_rb == rel_pos_sp) {
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        } state checkup_step15
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control checkup_step14");
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step14");
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+        } state wait_completion
+    }
+
+    state checkup_step15 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step15");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state checkup_step16
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step15");
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step15");
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+        } state wait_completion
+    }
+
+    state checkup_step16 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step16");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        } state checkup_step17
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step16");
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+        } state wait_completion
+    }
+
+    state checkup_step17 {
+
+        entry {
+            // disable acquisition of profiles
+            enbl_prf_sel = BOOL_NO;
+            pvPut(enbl_prf_sel, SYNC);
+            // trigger calculations with profiles
+            trg_prf_statistics_cmd = BOOL_YES;
+            pvPut(trg_prf_statistics_cmd, SYNC);
+        }
+
+        when () {
+        } state checkup_step18
+    }
+
+    state checkup_step18 {
+
+        entry {
+            /* go to minimum gain position
+               before recovering position
+               from before checkup test */
+            must_move = configGainShift(MINIMUM_GAIN_SHIFT);
+        }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step18");
+        } state wait_completion
+
+        when (!must_move) {
+            /* skip move */
+        } state wait_completion
+
+        when (trig_type_sts == trig_type_sel
+              && inter_mod_coup_sts == inter_mod_coup_sel
+              && ref_type_sts == ref_type_sel
+              && mirror_sts == mirror_sel
+              && coup_sts == coup_sel
+              && velo_rb == velo_sp
+              && acc_rb == acc_sp
+              && decel_rb == decel_sp
+              && rel_pos_rb == rel_pos_sp) {
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        } state checkup_step19
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control checkup_step18");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step18");
+        } state wait_completion
+    }
+
+    state checkup_step19 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step19");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state checkup_step20
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step19");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step19");
+        } state wait_completion
+    }
+
+    state checkup_step20 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step20");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        } state checkup_step21
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step20");
+        } state wait_completion
+    }
+
+    state checkup_step21 {
+
+        entry {
+            // recover previous polarity from before test
+            must_move = configPolChange(old_pol_option, "checkup_step21");
+        }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step21");
+        } state wait_completion
+
+        when (!must_move) {
+            /* skip move */
+        } state wait_completion
+
+        when (trig_type_sts == trig_type_sel
+              && inter_mod_coup_sts == inter_mod_coup_sel
+              && ref_type_sts == ref_type_sel
+              && mirror_sts == mirror_sel
+              && coup_sts == coup_sel
+              && velo_rb == velo_sp
+              && acc_rb == acc_sp
+              && decel_rb == decel_sp
+              && rel_pos_rb == rel_pos_sp) {
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        } state checkup_step22
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control checkup_step21");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step21");
+        } state wait_completion
+    }
+
+    state checkup_step22 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step22");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state checkup_step23
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step22");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step22");
+        } state wait_completion
+    }
+
+    state checkup_step23 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step23");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_STOPPED) {
+        } state checkup_step24
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step23");
+        } state wait_completion
+    }
+
+    state checkup_step24 {
+
+        entry {
+            // recover previous gain from before test
+            must_move = configGainShift(old_gain_shift);
+        }
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step24");
+        } state wait_completion
+
+        when (!must_move) {
+            /* skip move */
+        } state wait_completion
+
+        when (trig_type_sts == trig_type_sel
+              && inter_mod_coup_sts == inter_mod_coup_sel
+              && ref_type_sts == ref_type_sel
+              && mirror_sts == mirror_sel
+              && coup_sts == coup_sel
+              && velo_rb == velo_sp
+              && acc_rb == acc_sp
+              && decel_rb == decel_sp
+              && rel_pos_rb == rel_pos_sp) {
+
+            /* send reset command to
+               PLC state machine */
+            resetToMove();
+        } state checkup_step25
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
+                               "motion_control checkup_step24");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step24");
+        } state wait_completion
+    }
+
+    state checkup_step25 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step25");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state checkup_step26
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step25");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step25");
+        } state wait_completion
+    }
+
+    state checkup_step26 {
+
+        when (efTestAndClear(abort_evt_flg)) {
+            stop_cmd = 1;
+            pvPut(stop_cmd, SYNC);
+            // print warning log message
+            printToLogAndMsgPV(ERR_USER_ABORT,
+                               "motion_control checkup_step26");
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_IDLE) {
+            // send soft trigger to start motion
+            soft_trig_cmd = 1;
+            pvPut(soft_trig_cmd, SYNC);
+        } state wait_completion
+
+        when (state_idx_mon == STATE_MACHINE_ABORTED) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
+                               "motion_control checkup_step26");
+        } state wait_completion
+
+        when (delay(SEQ_TIMEOUT)) {
+            // print warning log message
+            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
+                               "motion_control checkup_step26");
+        } state wait_completion
+    }
+
+
 }
 
 ss consistency_check {
