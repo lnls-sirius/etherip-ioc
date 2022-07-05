@@ -1750,13 +1750,27 @@ record(calcout, "$(P)$(R)HealthUpdateAux1"){
     field(INPK, "$(P)$(R)CIETorquePrfLimErr-Mon CP")
     field(INPL, "$(P)$(R)CIDTorquePrfLimErr-Mon CP")
     field(CALC, "A||B||C||D||E||F||G||H||I||J||K||L")
+    field(FLNK, "$(P)$(R)HealthUpdateAux2")
+}
+record(calcout, "$(P)$(R)HealthUpdateAux2"){
+    field(DESC, "Update health check status")
+    field(INPA, "$(P)$(R)HealthUpdateAux1")
+    field(INPB, "$(P)$(R)CSETorquePrfCompLimErr-Mon CP")
+    field(INPC, "$(P)$(R)CSDTorquePrfCompLimErr-Mon CP")
+    field(INPD, "$(P)$(R)CIETorquePrfCompLimErr-Mon CP")
+    field(INPE, "$(P)$(R)CIDTorquePrfCompLimErr-Mon CP")
+    field(INPF, "$(P)$(R)CSEPhyPosPrfCompLimErr-Mon CP")
+    field(INPG, "$(P)$(R)CSDPhyPosPrfCompLimErr-Mon CP")
+    field(INPH, "$(P)$(R)CIEPhyPosPrfCompLimErr-Mon CP")
+    field(INPI, "$(P)$(R)CIDPhyPosPrfCompLimErr-Mon CP")
+    field(CALC, "A||B||C||D||E||F||G||H||I")
     field(FLNK, "$(P)$(R)Health-Mon")
 }
 record(bi, "$(P)$(R)Health-Mon"){
     field(DESC, "Device health check result")
     field(ZNAM, "OK")
     field(ONAM, "Error")
-    field(INP, "$(P)$(R)HealthUpdateAux1")
+    field(INP, "$(P)$(R)HealthUpdateAux2")
 }
 
 ## enc diff
