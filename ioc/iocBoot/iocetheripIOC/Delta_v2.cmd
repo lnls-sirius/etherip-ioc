@@ -35,6 +35,12 @@ epicsEnvSet("YCLMM2K", "yCLmm2k")
 epicsEnvSet("UPDATESTS", "updateSts")
 epicsEnvSet("UPDATEFLG", "updateFlg")
 
+# macros used by autosave files
+epicsEnvSet("AXIS1", "CSE")
+epicsEnvSet("AXIS2", "CSD")
+epicsEnvSet("AXIS3", "CIE")
+epicsEnvSet("AXIS4", "CID")
+
 # Load dbd, register the drvEtherIP .. commands
 dbLoadDatabase("dbd/etheripIOC.dbd")
 etheripIOC_registerRecordDeviceDriver(pdbbase)
@@ -49,8 +55,8 @@ save_restoreSet_DatedBackupFiles(1)
 save_restoreSet_NumSeqFiles(2)
 save_restoreSet_SeqPeriodInSeconds(600)
 
-set_pass0_restoreFile("Delta_Sabia.sav")
-set_pass1_restoreFile("Delta_Sabia.sav")
+set_pass0_restoreFile("delta_sabia_all.sav")
+set_pass1_restoreFile("delta_sabia_all.sav")
 
 iocLogInit
 
@@ -76,6 +82,6 @@ iocInit()
 seq sncSabia, "P_MOD01=$(PREFIX_MOD01), P_GLOBAL=$(PREFIX_GLOBAL)"
 
 # Save record values every 5 seconds
-create_monitor_set("Delta_Sabia.req", 5, "PREFIX=${PREFIX_MOD01}")
+create_monitor_set("delta_sabia_all.req", 5, "PREFIX=${PREFIX_MOD01}, AXIS1=${AXIS1}, AXIS2=${AXIS2}, AXIS3=${AXIS3}, AXIS4=${AXIS4}")
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2

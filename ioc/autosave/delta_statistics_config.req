@@ -1,0 +1,14 @@
+# encoder difference
+$(PREFIX)EncDiffPrfTol-SP
+$(PREFIX)EncDiffPrfTol-RB
+# position error
+$(PREFIX)PosErrPrfTol-SP
+$(PREFIX)PosErrPrfTol-RB
+# torque
+$(PREFIX)TorquePrfTol-SP
+$(PREFIX)TorquePrfTol-RB
+$(PREFIX)TorquePrfCompTol-SP
+$(PREFIX)TorquePrfCompTol-RB
+# physical position
+$(PREFIX)PhyPosPrfCompTol-SP
+$(PREFIX)PhyPosPrfCompTol-RB

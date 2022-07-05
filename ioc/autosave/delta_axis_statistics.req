@@ -1,0 +1,21 @@
+# encoder difference
+$(PREFIX)$(AXIS)EncDiffRefPrf-Mon
+$(PREFIX)$(AXIS)EncDiffRefPrfAvg-Mon
+$(PREFIX)$(AXIS)EncDiffRefPrfMax-Mon
+$(PREFIX)$(AXIS)EncDiffRefPrfMin-Mon
+$(PREFIX)$(AXIS)EncDiffRefPrfStd-Mon
+# position error
+$(PREFIX)$(AXIS)PosErrRefPrf-Mon
+$(PREFIX)$(AXIS)PosErrRefPrfAvg-Mon
+$(PREFIX)$(AXIS)PosErrRefPrfMax-Mon
+$(PREFIX)$(AXIS)PosErrRefPrfMin-Mon
+$(PREFIX)$(AXIS)PosErrRefPrfStd-Mon
+# torque
+$(PREFIX)$(AXIS)TorqueRefPrf-Mon
+$(PREFIX)$(AXIS)TorqueRefPrfAvg-Mon
+$(PREFIX)$(AXIS)TorqueRefPrfMax-Mon
+$(PREFIX)$(AXIS)TorqueRefPrfMin-Mon
+$(PREFIX)$(AXIS)TorqueRefPrfStd-Mon
+# physical position
+$(PREFIX)$(AXIS)PhyPosRefPrf-Mon
+

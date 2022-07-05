@@ -1,0 +1,6 @@
+file delta_sabia.req PREFIX=$(PREFIX)
+file delta_axis_statistics.req PREFIX=$(PREFIX), AXIS=$(AXIS1)
+file delta_axis_statistics.req PREFIX=$(PREFIX), AXIS=$(AXIS2)
+file delta_axis_statistics.req PREFIX=$(PREFIX), AXIS=$(AXIS3)
+file delta_axis_statistics.req PREFIX=$(PREFIX), AXIS=$(AXIS4)
+file delta_statistics_config.req PREFIX=$(PREFIX)
