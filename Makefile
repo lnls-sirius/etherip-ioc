@@ -6,3 +6,7 @@ build-docker-etherip:
 
 build-docker-rf: config build-docker-etherip
 	docker-compose build rf-bo rf-si
+
+build-docker-skids-rf: config
+	docker-compose build p7skid p5skid linacskid
+

@@ -6,7 +6,8 @@ DOCKER_USER_GROUP=gas
 DOCKER_IMAGE_PREFIX=${DOCKER_REGISTRY}/${DOCKER_USER_GROUP}
 
 cat << EOF > .env
-AUTHOR=Claudio F. Carneiro <claudiofcarneiro@hotmail.com>
+AUTHOR=Claudio F. Carneiro
+MAINTAINER=Rafael B. Cardoso
 BRANCH=$(git branch --no-color --show-current)
 BUILD_DATE=$(date -I)
 BUILD_DATE_RFC339=$(date --rfc-3339=seconds)

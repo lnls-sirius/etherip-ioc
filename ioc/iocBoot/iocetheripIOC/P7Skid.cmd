@@ -26,7 +26,7 @@ drvEtherIP_init()
 EIP_verbosity(7)
 drvEtherIP_define_PLC("plc1", "$(DEVIP)", 0)
 
-dbLoadRecords("database/PetraV.db", "PLC=plc1, IOC=PetraV")
+dbLoadRecords("database/P7Skid.db", "PLC=plc1, P=$(NAME)")
 iocInit()
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2

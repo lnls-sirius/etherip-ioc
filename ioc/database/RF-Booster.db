@@ -332,18 +332,18 @@ record(bi, "BO-ToBO:RF-ACDCPanel:Intlk-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:IntlkSirius-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:IntlkSirius-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) BO_RaBO02_RF_IntlkCtrl_IntlkSiriusMon")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_IntlkSiriusMon")
     field(DESC, "Interlock Sirius")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(bi, "BO-RaBO02:RF-IntlkCtrl:IntlkLLRF-Mon"){
+record(bi, "RA-RaBO02:RF-IntlkCtrl:IntlkLLRF-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) BO_RaBO02_RF_IntlkCtrl_IntlkLLRFMon")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_IntlkLLRFMon")
     field(DESC, "Sinal de erro do CLP para o ")
     field(SCAN, ".1 second")
     field(ONAM, "True")
@@ -368,9 +368,9 @@ record(bi, "BO-05D:RF-Intlk:EStop-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "BO-RaBO02:RF-Intlk:Reset-Cmd"){
+record(bo, "RA-RaBO02:RF-Intlk:Reset-Cmd"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) BO_RaBO02_RF_Intlk_ResetCmd S .1")
+    field(OUT, "@$(PLC) RA_RaBO02_RF_Intlk_ResetCmd S .1")
     field(DESC, "Reset de Falhas ")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -701,6 +701,15 @@ record(ai, "BO-05D:RF-P5Cav:PwrRFIntlk-Mon"){
     field(EGU,  "dBm")
 }
 
+record(bi, "BO-05D:RF-P5Cav:Hd4FlwRt-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) BO_05D_RF_P5Cav_Hd4FlwRtMon")
+    field(DESC, "Rotametro Cavidade Petra V")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
 record(bo, "RA-RaBO01:RF-LLRFPreAmp:PinSwEnbl-Cmd"){
     field(DTYP, "EtherIP")
     field(OUT, "@$(PLC) RA_RaBO01_RF_LLRFPreAmp_PinSwEnblCmd S .1")
@@ -728,9 +737,9 @@ record(bi, "RA-RaBO01:RF-LLRFPreAmp:PinSw-Mon"){
     field(ZNAM, "False")
 }
 
-record(bi, "BO-05D:RF-LLRF:Status-Mon"){
+record(bi, "RA-RaBO01:RF-LLRF:Intlk-Mon"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) BO_05D_RF_LLRF_StatusMon")
+    field(INP, "@$(PLC) RA_RaBO01_RF_LLRF_IntlkMon")
     field(DESC, "LLRF Operacional")
     field(SCAN, ".1 second")
     field(ONAM, "True")

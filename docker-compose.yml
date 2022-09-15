@@ -28,34 +28,24 @@ services:
   rf-bo:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-bo:${COMMIT_HASH}-${BUILD_DATE}
     build:
-      args:
-        <<: *default-build-args
-        ARG_NAME:  RF-BO-Intlk
-        ARG_CMD:   RF-Booster.cmd
-        ARG_DEVIP: 10.128.172.150
       labels:
         <<: *default-labels
       context: .
-      dockerfile: Dockerfile.ioc
+      dockerfile: Dockerfile
+      target: rf-bo
 
   rf-si:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-si:${COMMIT_HASH}-${BUILD_DATE}
     build:
-      labels:
-        <<: *default-labels
-      args:
-        <<: *default-build-args
-        ARG_NAME:  RF-SI-Intlk
-        ARG_CMD:   RF-Ring1.cmd
-        ARG_DEVIP: 10.128.173.60
       context: .
-      dockerfile: Dockerfile.ioc
+      dockerfile: Dockerfile
+      target: rf-si
 
   delta:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-delta:${COMMIT_HASH}-${BUILD_DATE}
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: DockerfileCas
       target: delta
       labels:
         <<: *default-labels
@@ -87,30 +77,30 @@ services:
       labels:
         <<: *default-labels
 
-  linac:
+  linacskid:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-skidlinac:${COMMIT_HASH}-${BUILD_DATE}
     build:
       context: .
       dockerfile: Dockerfile
-      target: linac
+      target: linacskid
       labels:
         <<: *default-labels
 
-  petraV:
+  p5skid:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-skidpetra5:${COMMIT_HASH}-${BUILD_DATE}
     build:
       context: .
       dockerfile: Dockerfile
-      target: petraV
+      target: p5skid
       labels:
         <<: *default-labels
 
-  petraVII:
+  p7skid:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-skidpetra7:${COMMIT_HASH}-${BUILD_DATE}
     build:
       context: .
       dockerfile: Dockerfile
-      target: petraVII
+      target: p7skid
       labels:
         <<: *default-labels
 

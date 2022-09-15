@@ -279,25 +279,25 @@ ENV NAME FCPLC03
 ENV CMD FCPLC03.cmd
 ENV DEVIP 10.20.35.231
 
-FROM base AS linac
+FROM base AS linacskid
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
-ENV NAME linac
-ENV CMD SKID_LINAC.cmd
+ENV NAME LinacSkid
+ENV CMD LinacSkid.cmd
 ENV DEVIP 10.0.38.250
 
-FROM base AS petraV
+FROM base AS p5skid
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
-ENV NAME petraV
-ENV CMD SKID_PetraV.cmd
+ENV NAME P5Skid
+ENV CMD P5Skid.cmd
 ENV DEVIP 10.0.38.246
 
-FROM base AS petraVII
+FROM base AS p7skid
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
-ENV NAME petraV
-ENV CMD SKID_PetraVII.cmd
+ENV NAME P7Skid
+ENV CMD P7Skid.cmd
 ENV DEVIP 10.0.38.249
 
 FROM base AS delta_v2
@@ -306,3 +306,17 @@ COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME DELTA-V2
 ENV CMD Delta_v2.cmd
 ENV DEVIP 1.1.1.1
+
+FROM base AS rf-si
+COPY ./ioc/database /opt/etheripIOC/database
+COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
+ENV NAME RF-SI-Intlk
+ENV CMD RF-Ring1.cmd
+ENV DEVIP 10.128.173.60
+
+FROM base AS rf-bo
+COPY ./ioc/database /opt/etheripIOC/database
+COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
+ENV NAME RF-BO-Intlk
+ENV CMD RF-Booster.cmd
+ENV DEVIP 10.128.172.150

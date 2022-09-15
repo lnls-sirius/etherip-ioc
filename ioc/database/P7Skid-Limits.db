@@ -1,0 +1,54 @@
+
+record(ai, "$(P):100"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) 100")
+    field(DESC, "100")
+    field(SCAN, "5 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ai, "$(P):150"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) 150")
+    field(DESC, "150")
+    field(SCAN, "5 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ai, "$(P):2147483647"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) 2147483647")
+    field(DESC, "2147483647")
+    field(SCAN, "5 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ai, "$(P):10"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) 10")
+    field(DESC, "10")
+    field(SCAN, "5 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ai, "$(P):20"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) 20")
+    field(DESC, "20")
+    field(SCAN, "5 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(ai, "$(P):0"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) 0")
+    field(DESC, "0")
+    field(SCAN, "5 second")
+    field(PREC, "4")
+    field(EGU,  "")
+}

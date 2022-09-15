@@ -1,5 +1,42 @@
 all: rf delta
 
+linacskid:
+	@echo "Linac Skid IOC"
+	./ioc_gen_skids.py \
+       ../etc/NewSkidPVs.xlsx\
+       --arch linux-x86_64 \
+       --ioc-name LinacSkid \
+       --plc-module 0 \
+       --plc-name plc1 \
+       --sheet 'Linac'
+
+	sed -i -e  's/\n")/")/g' ../ioc/database/LinacSkid.db
+
+p5skid:
+	@echo "Petra 5 Skid IOC"
+	./ioc_gen_skids.py \
+       ../etc/NewSkidPVs.xlsx\
+       --arch linux-x86_64 \
+       --ioc-name P5Skid \
+       --plc-module 0 \
+       --plc-name plc1 \
+       --sheet 'Petra5'
+
+	sed -i -e  's/\n")/")/g' ../ioc/database/P5Skid.db
+
+p7skid:
+	@echo "Petra 7 Skid IOC"
+	./ioc_gen_skids.py \
+       ../etc/NewSkidPVs.xlsx\
+       --arch linux-x86_64 \
+       --ioc-name P7Skid \
+       --plc-module 0 \
+       --plc-name plc1 \
+       --sheet 'Petra7'
+
+	sed -i -e  's/\n")/")/g' ../ioc/database/P7Skid.db
+
+
 rf: rf-bo rf-si
 rf-bo:
 	@echo "RF Booster IOC"
