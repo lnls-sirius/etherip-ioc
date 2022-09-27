@@ -251,58 +251,23 @@ RUN cd /opt/etheripIOC/ && \
 COPY entrypoint.sh /opt/etheripIOC/entrypoint.sh
 ENTRYPOINT [ "/bin/bash", "/opt/etheripIOC/entrypoint.sh" ]
 
-FROM base AS delta
-COPY ./ioc/database /opt/etheripIOC/database
-COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
-ENV NAME DELTA
-ENV CMD Delta.cmd
-ENV DEVIP 1.1.1.1
-
 FROM base AS fcplc01
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME FCPLC01
-ENV CMD FCPLC01.cmd
+ENV CMD sirius-amb-temp-ioc-1.cmd
 ENV DEVIP 10.20.35.211
 
 FROM base AS fcplc02
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME FCPLC02
-ENV CMD FCPLC02.cmd
+ENV CMD sirius-amb-temp-ioc-2.cmd
 ENV DEVIP 10.20.35.221
 
 FROM base AS fcplc03
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME FCPLC03
-ENV CMD FCPLC03.cmd
+ENV CMD sirius-amb-temp-ioc-3.cmd
 ENV DEVIP 10.20.35.231
-
-FROM base AS linac
-COPY ./ioc/database /opt/etheripIOC/database
-COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
-ENV NAME linac
-ENV CMD SKID_LINAC.cmd
-ENV DEVIP 10.0.38.250
-
-FROM base AS petraV
-COPY ./ioc/database /opt/etheripIOC/database
-COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
-ENV NAME petraV
-ENV CMD SKID_PetraV.cmd
-ENV DEVIP 10.0.38.246
-
-FROM base AS petraVII
-COPY ./ioc/database /opt/etheripIOC/database
-COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
-ENV NAME petraV
-ENV CMD SKID_PetraVII.cmd
-ENV DEVIP 10.0.38.249
-
-FROM base AS delta_v2
-COPY ./ioc/database /opt/etheripIOC/database
-COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
-ENV NAME DELTA-V2
-ENV CMD Delta_v2.cmd
-ENV DEVIP 1.1.1.1

@@ -1,0 +1,144 @@
+
+record(ai, "UA-Hall-22C:HVAC-PT100-FC6-1:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB01_ST_614_11_1.val")
+    field(DESC, "FC-614-26/27/28/29 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-24C:HVAC-PT100-FC6-2:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB02_ST_614_11_2.val")
+    field(DESC, "FC-614-26/27/28/29 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-25C:HVAC-PT100-FC6-3:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB03_ST_614_11_3.val")
+    field(DESC, "FC-614-26/27/28/29 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-26C:HVAC-PT100-FC6-4:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB04_ST_614_11_4.val")
+    field(DESC, "FC-614-26/27/28/29 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-No-loca:HVAC-PT100-FC6-5:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB05_ST_614_11_5.val")
+    field(DESC, "FC-614-26/27/28/29 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-No-loca:HVAC-PT100-FC6-6:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB06_ST_614_11_6.val")
+    field(DESC, "FC-614-26/27/28/29 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-22D:HVAC-PT100-FC6-7:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB07_ST_614_11_7.val")
+    field(DESC, "FC-614-26/27/28/29 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-25D:HVAC-PT100-FC6-8:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB08_ST_614_11_8.val")
+    field(DESC, "FC-614-26/27/28/29 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-32C:HVAC-PT100-FC7-1:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB01_ST_614_13_1.val")
+    field(DESC, "FC-614-32/33/34/35 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-31C:HVAC-PT100-FC7-2:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB02_ST_614_13_2.val")
+    field(DESC, "FC-614-32/33/34/35 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-29C:HVAC-PT100-FC7-3:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB03_ST_614_13_3.val")
+    field(DESC, "FC-614-32/33/34/35 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-28C:HVAC-PT100-FC7-4:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB04_ST_614_13_4.val")
+    field(DESC, "FC-614-32/33/34/35 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-29B:HVAC-PT100-FC7-5:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB05_ST_614_13_5.val")
+    field(DESC, "FC-614-32/33/34/35 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-32B:HVAC-PT100-FC7-6:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB06_ST_614_13_6.val")
+    field(DESC, "FC-614-32/33/34/35 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-28D:HVAC-PT100-FC7-7:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB07_ST_614_13_7.val")
+    field(DESC, "FC-614-32/33/34/35 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-Hall-31D:HVAC-PT100-FC7-8:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB08_ST_614_13_8.val")
+    field(DESC, "FC-614-32/33/34/35 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "5")
+    field(EGU,  "C")
+}
