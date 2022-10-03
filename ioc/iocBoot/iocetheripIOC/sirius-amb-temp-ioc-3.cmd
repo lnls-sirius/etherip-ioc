@@ -24,9 +24,10 @@ iocLogInit
 EIP_buffer_limit(450)
 drvEtherIP_init()
 EIP_verbosity(7)
-drvEtherIP_define_PLC("plc1", "$(DEVIP)", 0)
+drvEtherIP_define_PLC("plc3", "$(DEVIP)", 0)
 
-dbLoadRecords("database/sirius-amb-temp-ioc-3.db", "PLC=plc1, P=$(NAME)")
+dbLoadRecords("database/sirius-amb-temp-ioc-3.db", "PLC=plc3, P=$(NAME)")
+dbLoadRecords("database/sirius-amb-temp-ioc-3-calc.db", "PLC=plc3")
 iocInit()
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2

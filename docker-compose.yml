@@ -25,41 +25,6 @@ services:
       labels:
         <<: *default-labels
 
-  rf-bo:
-    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-bo:${COMMIT_HASH}-${BUILD_DATE}
-    build:
-      args:
-        <<: *default-build-args
-        ARG_NAME:  RF-BO-Intlk
-        ARG_CMD:   RF-Booster.cmd
-        ARG_DEVIP: 10.128.172.150
-      labels:
-        <<: *default-labels
-      context: .
-      dockerfile: Dockerfile.ioc
-
-  rf-si:
-    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-si:${COMMIT_HASH}-${BUILD_DATE}
-    build:
-      labels:
-        <<: *default-labels
-      args:
-        <<: *default-build-args
-        ARG_NAME:  RF-SI-Intlk
-        ARG_CMD:   RF-Ring1.cmd
-        ARG_DEVIP: 10.128.173.60
-      context: .
-      dockerfile: Dockerfile.ioc
-
-  delta:
-    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-delta:${COMMIT_HASH}-${BUILD_DATE}
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: delta
-      labels:
-        <<: *default-labels
-
   fcplc01:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-fcplc01:${COMMIT_HASH}-${BUILD_DATE}
     build:
@@ -87,44 +52,3 @@ services:
       labels:
         <<: *default-labels
 
-  linac:
-    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-skidlinac:${COMMIT_HASH}-${BUILD_DATE}
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: linac
-      labels:
-        <<: *default-labels
-
-  petraV:
-    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-skidpetra5:${COMMIT_HASH}-${BUILD_DATE}
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: petraV
-      labels:
-        <<: *default-labels
-
-  petraVII:
-    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-skidpetra7:${COMMIT_HASH}-${BUILD_DATE}
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: petraVII
-      labels:
-        <<: *default-labels
-
-  delta_v2:
-    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-delta-v2:${COMMIT_HASH}-${BUILD_DATE}
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: delta_v2
-      labels:
-        <<: *default-labels
-    environment:
-      - TABLE_URL_COMMON="http://0.0.0.0/example-constants/delta/mm2k-conv-tables"
-      - FILE_LV="LV-example.txt"
-      - FILE_LH="LH-example.txt"
-      - FILE_CR="CR-example.txt"
-      - FILE_CL="CL-example.txt"
