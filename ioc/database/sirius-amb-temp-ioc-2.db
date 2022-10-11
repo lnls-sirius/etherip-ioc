@@ -1,0 +1,648 @@
+
+record(ai, "UA-58CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB01_ST_614_03_1.val")
+    field(DESC, "FC-614-06/07/08/09 pt100  in")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-60CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB02_ST_614_03_2.val")
+    field(DESC, "FC-614-06/07/08/09 pt100  in")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-01CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB03_ST_614_03_3.val")
+    field(DESC, "FC-614-06/07/08/09 pt100  in")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-02CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB04_ST_614_03_4.val")
+    field(DESC, "FC-614-06/07/08/09 pt100  in")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-03BHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB05_ST_614_03_5.val")
+    field(DESC, "FC-614-06/07/08/09 pt100  in")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-58DHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB06_ST_614_03_6.val")
+    field(DESC, "FC-614-06/07/08/09 pt100  in")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-58DHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB07_ST_614_03_7.val")
+    field(DESC, "FC-614-06/07/08/09 pt100  in")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-NoLocation:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB08_ST_614_03_8.val")
+    field(DESC, "FC-614-06/07/08/09 pt100  in")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-01Hall60:AC-PT100:MeanTemperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TIC1_614_03_1.PV")
+    field(DESC, "FC-614-FC-614-06/07/08/09 mé")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-04CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB01_ST_614_05_1.val")
+    field(DESC, "FC-614-11/12/13/14 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-05CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB02_ST_614_05_2.val")
+    field(DESC, "FC-614-11/12/13/14 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-07CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB03_ST_614_05_3.val")
+    field(DESC, "FC-614-11/12/13/14 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-08CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB04_ST_614_05_4.val")
+    field(DESC, "FC-614-11/12/13/14 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-06BHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB05_ST_614_05_5.val")
+    field(DESC, "FC-614-11/12/13/14 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-08BHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB06_ST_614_05_6.val")
+    field(DESC, "FC-614-11/12/13/14 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-04DHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB07_ST_614_05_7.val")
+    field(DESC, "FC-614-11/12/13/14 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-07DHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB08_ST_614_05_8.val")
+    field(DESC, "FC-614-11/12/13/14 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-04Hall08:AC-PT100:MeanTemperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TIC1_614_05_1.PV")
+    field(DESC, "FC-614-11/12/13/14 média")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-10BHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB01_ST_614_07_1.val")
+    field(DESC, "FC-614-16/17/18/19 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-11BHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB02_ST_614_07_2.val")
+    field(DESC, "FC-614-16/17/18/19 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-13BHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB03_ST_614_07_3.val")
+    field(DESC, "FC-614-16/17/18/19 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-13CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB04_ST_614_07_4.val")
+    field(DESC, "FC-614-16/17/18/19 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-15CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB05_ST_614_07_5.val")
+    field(DESC, "FC-614-16/17/18/19 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-12CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB06_ST_614_07_6.val")
+    field(DESC, "FC-614-16/17/18/19 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-10DHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB07_ST_614_07_7.val")
+    field(DESC, "FC-614-16/17/18/19 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-13DHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB08_ST_614_07_8.val")
+    field(DESC, "FC-614-16/17/18/19 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-10Hall15:AC-PT100:MeanTemperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TIC1_614_07_1.PV")
+    field(DESC, "FC-614-16/17/18/19 média")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-15CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB01_ST_614_09_1.val")
+    field(DESC, "FC-614-21/22/23/24 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-17CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB02_ST_614_09_2.val")
+    field(DESC, "FC-614-21/22/23/24 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-19CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB03_ST_614_09_3.val")
+    field(DESC, "FC-614-21/22/23/24 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-20CHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB04_ST_614_09_4.val")
+    field(DESC, "FC-614-21/22/23/24 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-17BHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB05_ST_614_09_5.val")
+    field(DESC, "FC-614-21/22/23/24 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-21BHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB06_ST_614_09_6.val")
+    field(DESC, "FC-614-21/22/23/24 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-19DHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB07_ST_614_09_7.val")
+    field(DESC, "FC-614-21/22/23/24 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-16DHall:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB08_ST_614_09_8.val")
+    field(DESC, "FC-614-21/22/23/24 pt100 inp")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "UA-15Hall21:AC-PT100:MeanTemperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TIC1_614_09_1.PV")
+    field(DESC, "FC-614-21/22/23/24 média")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-09IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB01_ST_614_08_1.val")
+    field(DESC, "ST-614-08.01")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-10EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB02_ST_614_08_2.val")
+    field(DESC, "ST-614-08.02")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-11IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB03_ST_614_08_4.val")
+    field(DESC, "ST-614-08.04")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-11EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB04_ST_614_08_5.val")
+    field(DESC, "ST-614-08.05")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-12IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB05_ST_614_08_7.val")
+    field(DESC, "ST-614-08.07")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-13EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB06_ST_614_08_8.val")
+    field(DESC, "ST-614-08.08")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-14IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB07_ST_614_08_9.val")
+    field(DESC, "ST-614-08.09")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-14EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB08_ST_614_08_10.val")
+    field(DESC, "ST-614-08.10")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-0914:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) MEDIA_TEAMB_ST_614_08.val")
+    field(DESC, "ST-614-08 média")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-15EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB01_ST_614_10_1.val")
+    field(DESC, "ST-614-10.01")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-16IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB02_ST_614_10_2.val")
+    field(DESC, "ST-614-10.02")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-17IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB03_ST_614_10_4.val")
+    field(DESC, "ST-614-10.04")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-17EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB04_ST_614_10_5.val")
+    field(DESC, "ST-614-10.05")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-18IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB05_ST_614_10_7.val")
+    field(DESC, "ST-614-10.07")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-19EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB06_ST_614_10_8.val")
+    field(DESC, "ST-614-10.08")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-20IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB07_ST_614_10_9.val")
+    field(DESC, "ST-614-10.09")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-20EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB08_ST_614_10_10.val")
+    field(DESC, "ST-614-10.10")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-1520:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) MEDIA_TEAMB_ST_614_10.val")
+    field(DESC, "ST-614-10 média")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-57IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB01_ST_614_04_1.val")
+    field(DESC, "ST-614-04.01")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-58EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB02_ST_614_04_2.val")
+    field(DESC, "ST-614-04.02")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-59IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB03_ST_614_04_4.val")
+    field(DESC, "ST-614-04.04")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-59EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB04_ST_614_04_5.val")
+    field(DESC, "ST-614-04.05")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-60IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB05_ST_614_04_7.val")
+    field(DESC, "ST-614-04.07")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-01EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB06_ST_614_04_8.val")
+    field(DESC, "ST-614-04.08")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-02IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB07_ST_614_04_9.val")
+    field(DESC, "ST-614-04.09")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-02EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB08_ST_614_04_10.val")
+    field(DESC, "ST-614-04.10")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-0160:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) MEDIA_TEAMB_ST_614_04.val")
+    field(DESC, "ST-614-04 média")
+    field(SCAN, ".2 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-03IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB01_ST_614_06_1.val")
+    field(DESC, "ST-614-06.01")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-04EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB02_ST_614_06_2.val")
+    field(DESC, "ST-614-06.02")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-05IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB03_ST_614_06_4.val")
+    field(DESC, "ST-614-06.04")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-05EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB04_ST_614_06_5.val")
+    field(DESC, "ST-614-06.05")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-06IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB05_ST_614_06_7.val")
+    field(DESC, "ST-614-06.07")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-07EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB06_ST_614_06_8.val")
+    field(DESC, "ST-614-06.08")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-08IW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB07_ST_614_06_9.val")
+    field(DESC, "ST-614-06.09")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-08EW:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) TEAMB08_ST_614_06_06.val")
+    field(DESC, "ST-614-06.10")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "TU-308:AC-PT100:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) MEDIA_TEAMB_ST_614_06.val")
+    field(DESC, "ST-614-06 média")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}

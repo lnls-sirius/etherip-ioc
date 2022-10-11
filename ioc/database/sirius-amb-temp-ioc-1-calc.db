@@ -1,0 +1,40 @@
+record(calc, "UA-Hall-55-58:HVAC-FC1:CalcMeanTemperature-Mon"){
+    field(CALC, "(A+B+C+D+E+F+G+H)/8")
+    field(EGU,  "C")
+    field(PREC, "1")
+    field(INPA, "UA-Hall-52C:HVAC-PT100-FC1-1:Temperature-Mon CP MSS")
+    field(INPB, "UA-Hall-54C:HVAC-PT100-FC1-2:Temperature-Mon CP MSS")
+    field(INPC, "UA-Hall-55C:HVAC-PT100-FC1-3:Temperature-Mon CP MSS")
+    field(INPD, "UA-Hall-56C:HVAC-PT100-FC1-4:Temperature-Mon CP MSS")
+    field(INPE, "UA-Hall-53B:HVAC-PT100-FC1-5:Temperature-Mon CP MSS")
+    field(INPF, "UA-Hall-57B:HVAC-PT100-FC1-6:Temperature-Mon CP MSS")
+    field(INPG, "UA-Hall-52D:HVAC-PT100-FC1-7:Temperature-Mon CP MSS")
+    field(INPH, "UA-Hall-55D:HVAC-PT100-FC1-8:Temperature-Mon CP MSS")
+}
+
+record(calc, "UA-Hall-40-46:HVAC-FC9:CalcMeanTemperature-Mon"){
+    field(CALC, "(A+B+C+D+E+F+G+H)/8")
+    field(EGU,  "C")
+    field(PREC, "1")
+    field(INPA, "UA-Hall-44C:HVAC-PT100-FC9-1:Temperature-Mon CP MSS")
+    field(INPB, "UA-Hall-43C:HVAC-PT100-FC9-2:Temperature-Mon CP MSS")
+    field(INPC, "UA-Hall-41C:HVAC-PT100-FC9-3:Temperature-Mon CP MSS")
+    field(INPD, "UA-Hall-40C:HVAC-PT100-FC9-4:Temperature-Mon CP MSS")
+    field(INPE, "UA-Hall-43B:HVAC-PT100-FC9-5:Temperature-Mon CP MSS")
+    field(INPF, "UA-Hall-41B:HVAC-PT100-FC9-6:Temperature-Mon CP MSS")
+    field(INPG, "UA-Hall-40D:HVAC-PT100-FC9-7:Temperature-Mon CP MSS")
+    field(INPH, "UA-Hall-43D:HVAC-PT100-FC9-8:Temperature-Mon CP MSS")
+}
+
+record(calc, "UA-Hall-46-52:HVAC-FC10:CalcTemperature-Mon"){
+    field(CALC, "(A+B+C+D+E+F+G+H)/8")
+    field(EGU,  "C")
+    field(PREC, "1")
+    field(INPA, "UA-Hall-51C:HVAC-PT100-FC10-1:Temperature-Mon CP MSS")
+    field(INPB, "UA-Hall-49C:HVAC-PT100-FC10-2:Temperature-Mon CP MSS")
+    field(INPC, "UA-Hall-47C:HVAC-PT100-FC10-3:Temperature-Mon CP MSS")
+    field(INPD, "UA-Hall-46C:HVAC-PT100-FC10-4:Temperature-Mon CP MSS")
+    field(INPE, "UA-Hall-47B:HVAC-PT100-FC10-5:Temperature-Mon CP MSS")
+    field(INPF, "UA-Hall-50B:HVAC-PT100-FC10-6:Temperature-Mon CP MSS")
+    field(INPG, "UA-Hall-46D:HVAC-PT100-FC10-7:Temperature-Mon CP MSS")
+}

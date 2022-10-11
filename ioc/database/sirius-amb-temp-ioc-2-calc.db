@@ -1,0 +1,53 @@
+record(calc, "UA-Hall-58-04:HVAC-FC2:CalcMeanTemperature-Mon"){
+    field(CALC, "(A+B+C+D+E+F+G+H)/8")
+    field(EGU,  "C")
+    field(PREC, "1")
+    field(INPA, "UA-Hall-58C:HVAC-PT100-FC2-1:Temperature-Mon CP MSS")
+    field(INPB, "UA-Hall-60C:HVAC-PT100-FC2-2:Temperature-Mon CP MSS")
+    field(INPC, "UA-Hall-01C:HVAC-PT100-FC2-3:Temperature-Mon CP MSS")
+    field(INPD, "UA-Hall-02C:HVAC-PT100-FC2-4:Temperature-Mon CP MSS")
+    field(INPE, "UA-Hall-03B:HVAC-PT100-FC2-5:Temperature-Mon CP MSS")
+    field(INPF, "UA-Hall-58D:HVAC-PT100-FC2-6:Temperature-Mon CP MSS")
+    field(INPG, "UA-Hall-58D:HVAC-PT100-FC2-7:Temperature-Mon CP MSS")
+    field(INPH, "UA--:HVAC-PT100-FC2-8:Temperature-Mon CP MSS")
+}
+
+record(calc, "UA-Hall-58-04:HVAC-FC2:CalcMeanTemperature-Mon"){
+    field(CALC, "(A+B+C+D+E+F+G)/8")
+    field(EGU,  "C")
+    field(PREC, "1")
+    field(INPA, "UA-Hall-04C:HVAC-PT100-FC3-1:Temperature-Mon CP MSS")
+    field(INPB, "UA-Hall-05C:HVAC-PT100-FC3-2:Temperature-Mon CP MSS")
+    field(INPC, "UA-Hall-07C:HVAC-PT100-FC3-3:Temperature-Mon CP MSS")
+    field(INPD, "UA-Hall-08C:HVAC-PT100-FC3-4:Temperature-Mon CP MSS")
+    field(INPE, "UA-Halll-06B:HVAC-PT100-FC3-5:Temperature-Mon CP MSS")
+    field(INPF, "UA-Hall-08B:HVAC-PT100-FC3-6:Temperature-Mon CP MSS")
+    field(INPG, "UA-Hall-04D:HVAC-PT100-FC3-7:Temperature-Mon CP MSS")
+    field(INPG, "UA-Hall-07D:HVAC-PT100-FC3-8:Temperature-Mon CP MSS")
+}
+
+record(calc, "UA-Hall-10-16:HVAC-FC4-:CalcMeanTemperature-Mon"){
+    field(CALC, "(A+B+C+D+E+F+G)/8")
+    field(EGU,  "C")
+    field(PREC, "1")
+    field(INPA, "UA-Hall-10B:HVAC-PT100-FC4-1:Temperature-Mon CP MSS")
+    field(INPB, "UA-Hall-11B:HVAC-PT100-FC4-2:Temperature-Mon CP MSS")
+    field(INPC, "UA-Hall-13C:HVAC-PT100-FC4-4:Temperature-Mon CP MSS")
+    field(INPD, "UA-Hall-15C:HVAC-PT100-FC4-5:Temperature-Mon CP MSS")
+    field(INPE, "UA-Hall-12C:HVAC-PT100-FC4-6:Temperature-Mon CP MSS")
+    field(INPF, "UUA-Hall-10D:HVAC-PT100-FC4-7:Temperature-Mon CP MSS")
+    field(INPG, "UA-Hall-13D:HVAC-PT100-FC4-8:Temperature-Mon CP MSS")
+}
+
+record(calc, "UA-Hall-16-22:HVAC-FC5-:CalcMeanTemperature-Mon"){
+    field(CALC, "(A+B+C+D+E+F)/8")
+    field(EGU,  "C")
+    field(PREC, "1")
+    field(INPA, "UA-Hall-15C:HVAC-PT100-FC5-1:Temperature-Mon CP MSS")
+    field(INPB, "UA-Hall-17C:HVAC-PT100-FC5-2:Temperature-Mon CP MSS")
+    field(INPC, "UA-Hall-19C:HVAC-PT100-FC5-3:Temperature-Mon CP MSS")
+    field(INPD, "UA-Hall-20C:HVAC-PT100-FC5-4:Temperature-Mon CP MSS")
+    field(INPE, "UA-Hall-17B:HVAC-PT100-FC5-5:Temperature-Mon CP MSS")
+    field(INPF, "UA-Hall-21B:HVAC-PT100-FC5-6:Temperature-Mon CP MSS")
+}
+

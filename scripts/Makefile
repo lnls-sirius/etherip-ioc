@@ -1,66 +1,39 @@
 all: rf delta
 
-rf: rf-bo rf-si
-rf-bo:
-	@echo "RF Booster IOC"
-	./ioc_gen_rf.py \
-       ../etc/Booster_Interlock_EPICS_2.0.xlsx\
+sirius-temp: fcs-plc1-temp fcs-plc2-temp fcs-plc3-temp
+fcs-plc1-temp:
+	@echo "Sirius Temperature IOC from Fan Coils PLC number 1"
+	./ioc_gen_temp.py \
+       ../etc/SiriusAmbTempPVs.xlsx\
        --arch linux-x86_64 \
-       --ioc-name RF-Booster \
+       --ioc-name sirius-amb-temp-ioc-1 \
        --plc-module 0 \
        --plc-name plc1 \
-       --sheet 'SSAmp Tower,Interlock,Petra 5,LLRF,Transmission Line'
+       --sheet 'plc1'
 
-	sed -i -e  's/\n")/")/g' ../ioc/database/RF-Booster.db
+	sed -i -e  's/\n")/")/g' ../ioc/database/sirius-amb-temp-ioc-1.db
 
-rf-si:
-	@echo "RF Ring IOC"
-	./ioc_gen_rf.py \
-       ../etc/'Storage Ring A Interlock EPICS.xlsx'\
+
+fcs-plc2-temp:
+	@echo "Sirius Temperature IOC from Fan Coils PLC number 2"
+	./ioc_gen_temp.py \
+       ../etc/SiriusAmbTempPVs.xlsx\
        --arch linux-x86_64 \
-       --ioc-name RF-Ring1 \
+       --ioc-name sirius-amb-temp-ioc-2 \
        --plc-module 0 \
-       --plc-name plc1 \
-       --sheet 'SSAmp Tower 01,SSAmp Tower 02,Interlock,Petra 7,LLRF,Transmission Line'
+       --plc-name plc2 \
+       --sheet 'plc2'
 
-delta:
-	@echo "Delta Undulator IOC"
-	./ioc_gen_delta.py \
-            ../etc/Delta.xlsx \
-            --arch linux-x86_64 \
-            --ioc-name Delta \
-            --plc-module 0 \
-            --plc-name plc1 \
-            --bi "Bit Input" \
-            --bo "Bit Output" \
-            --ai "Real Input" \
-            --ao "Real Output" \
-            --mbbi "Enum Input" \
-            --mbbo "Enum Output" \
-            --lsi "String Input" \
-            --lso "String Output" \
-            --sheet 'Delta'
+	sed -i -e  's/\n")/")/g' ../ioc/database/sirius-amb-temp-ioc-2.db
 
-delta-v2:
-	@echo "Delta Undulator IOC v2"
-	./ioc_gen_delta.py \
-            ../etc/Delta_v2.xlsx \
-            --arch linux-x86_64 \
-            --ioc-name Delta_v2 \
-            --plc-module 0 \
-            --plc-name plc1 \
-            --bi "Bit Input" \
-            --bo "Bit Output" \
-            --ai "Real Input" \
-            --ao "Real Output" \
-            --mbbi "Enum Input" \
-            --mbbo "Enum Output" \
-            --lsi "String Input" \
-            --lso "String Output" \
-            --sheet 'Global,Mod01,Mod02,Mod03'
+fcs-plc3-temp:
+	@echo "Sirius Temperature IOC from Fan Coils PLC number 3"
+	./ioc_gen_temp.py \
+       ../etc/SiriusAmbTempPVs.xlsx\
+       --arch linux-x86_64 \
+       --ioc-name sirius-amb-temp-ioc-3 \
+       --plc-module 0 \
+       --plc-name plc3 \
+       --sheet 'plc3'
 
-clean:
-	rm -rf __pycache__
-	find . -name '*.pyc' -exec rm --force {} +
-	find . -name '*.pyo' -exec rm --force {} +
-	find . -name '*~' -exec rm --force  {} +
+	sed -i -e  's/\n")/")/g' ../ioc/database/sirius-amb-temp-ioc-3.db
