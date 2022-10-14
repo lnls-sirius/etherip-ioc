@@ -1,7 +1,7 @@
 record(calc, "UA-22Hall28:AC-PT100-FC61426:CalcMeanTemperature-Mon"){
     field(CALC, "(A+B+C+D+E+F+G+H)/8")
     field(EGU,  "C")
-    field(PREC, "1")
+    field(PREC, "2")
     field(INPA, "UA-22CHall:AC-PT100-FC61426:Temperature-Mon CP MSS")
     field(INPB, "UA-24CHall:AC-PT100-FC61426:Temperature-Mon CP MSS")
     field(INPC, "UA-25CHall:AC-PT100-FC61426:Temperature-Mon CP MSS")
@@ -13,9 +13,9 @@ record(calc, "UA-22Hall28:AC-PT100-FC61426:CalcMeanTemperature-Mon"){
 }
 
 record(calc, "UA-28Hall34:AC-PT100-FC61432:CalcMeanTemperature-Mon"){
-    field(CALC, "(A+B+C+D+E)/5")
+    field(CALC, "(A+B+C+D+E+F+G+H)/5")
     field(EGU,  "C")
-    field(PREC, "1")
+    field(PREC, "2")
     field(INPA, "UA-32CHall:AC-PT100-FC61432:Temperature-Mon CP MSS")
     field(INPB, "UA-31CHall:AC-PT100-FC61432:Temperature-Mon CP MSS")
     field(INPC, "UA-29CHall:AC-PT100-FC61432:Temperature-Mon CP MSS")
@@ -27,9 +27,9 @@ record(calc, "UA-28Hall34:AC-PT100-FC61432:CalcMeanTemperature-Mon"){
 }
 
 record(calc, "UA-33Hall40:AC-PT100-FC61437:CalcMeanTemperature-Mon"){
-    field(CALC, "(A+B+C+D+E+F)/6")
+    field(CALC, "(A+B+C+D+E+F+G+H)/6")
     field(EGU,  "C")
-    field(PREC, "1")
+    field(PREC, "2")
     field(INPA, "UA-33CHall:AC-PT100-FC61437:Temperature-Mon CP MSS")
     field(INPB, "UA-35CHall:AC-PT100-FC61437:Temperature-Mon CP MSS")
     field(INPC, "UA-37CHall:AC-PT100-FC61437:Temperature-Mon CP MSS")
