@@ -323,7 +323,7 @@ record(ai, "UA-15Hall21:AC-PT100-FC61421:MeanTemperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-09IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-09IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB01_ST_614_08_1.val")
     field(DESC, "ST-614-08.01")
@@ -332,7 +332,7 @@ record(ai, "TU-09IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-10EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-10EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB02_ST_614_08_2.val")
     field(DESC, "ST-614-08.02")
@@ -341,7 +341,7 @@ record(ai, "TU-10EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-11IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-11IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB03_ST_614_08_4.val")
     field(DESC, "ST-614-08.04")
@@ -350,7 +350,7 @@ record(ai, "TU-11IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-11EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-11EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB04_ST_614_08_5.val")
     field(DESC, "ST-614-08.05")
@@ -359,7 +359,7 @@ record(ai, "TU-11EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-12IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-12IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB05_ST_614_08_7.val")
     field(DESC, "ST-614-08.07")
@@ -368,7 +368,7 @@ record(ai, "TU-12IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-13EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-13EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB06_ST_614_08_8.val")
     field(DESC, "ST-614-08.08")
@@ -377,7 +377,7 @@ record(ai, "TU-13EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-14IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-14IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB07_ST_614_08_9.val")
     field(DESC, "ST-614-08.09")
@@ -386,7 +386,7 @@ record(ai, "TU-14IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-14EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-14EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB08_ST_614_08_10.val")
     field(DESC, "ST-614-08.10")
@@ -395,7 +395,7 @@ record(ai, "TU-14EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-0914:AC-PT100-:MeanTemperature-Mon"){
+record(ai, "TU-0914:AC-PT100:MeanTemperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) MEDIA_TEAMB_ST_614_08.val")
     field(DESC, "ST-614-08 média")
@@ -404,7 +404,7 @@ record(ai, "TU-0914:AC-PT100-:MeanTemperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-15EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-15EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB01_ST_614_10_1.val")
     field(DESC, "ST-614-10.01")
@@ -413,7 +413,7 @@ record(ai, "TU-15EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-16IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-16IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB02_ST_614_10_2.val")
     field(DESC, "ST-614-10.02")
@@ -422,7 +422,7 @@ record(ai, "TU-16IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-17IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-17IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB03_ST_614_10_4.val")
     field(DESC, "ST-614-10.04")
@@ -431,7 +431,7 @@ record(ai, "TU-17IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-17EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-17EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB04_ST_614_10_5.val")
     field(DESC, "ST-614-10.05")
@@ -440,7 +440,7 @@ record(ai, "TU-17EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-18IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-18IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB05_ST_614_10_7.val")
     field(DESC, "ST-614-10.07")
@@ -449,7 +449,7 @@ record(ai, "TU-18IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-19EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-19EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB06_ST_614_10_8.val")
     field(DESC, "ST-614-10.08")
@@ -458,7 +458,7 @@ record(ai, "TU-19EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-20IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-20IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB07_ST_614_10_9.val")
     field(DESC, "ST-614-10.09")
@@ -467,7 +467,7 @@ record(ai, "TU-20IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-20EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-20EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB08_ST_614_10_10.val")
     field(DESC, "ST-614-10.10")
@@ -476,7 +476,7 @@ record(ai, "TU-20EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-1520:AC-PT100-:MeanTemperature-Mon"){
+record(ai, "TU-1520:AC-PT100:MeanTemperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) MEDIA_TEAMB_ST_614_10.val")
     field(DESC, "ST-614-10 média")
@@ -485,7 +485,7 @@ record(ai, "TU-1520:AC-PT100-:MeanTemperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-57IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-57IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB01_ST_614_04_1.val")
     field(DESC, "ST-614-04.01")
@@ -494,7 +494,7 @@ record(ai, "TU-57IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-58EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-58EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB02_ST_614_04_2.val")
     field(DESC, "ST-614-04.02")
@@ -503,7 +503,7 @@ record(ai, "TU-58EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-59IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-59IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB03_ST_614_04_4.val")
     field(DESC, "ST-614-04.04")
@@ -512,7 +512,7 @@ record(ai, "TU-59IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-59EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-59EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB04_ST_614_04_5.val")
     field(DESC, "ST-614-04.05")
@@ -521,7 +521,7 @@ record(ai, "TU-59EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-60IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-60IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB05_ST_614_04_7.val")
     field(DESC, "ST-614-04.07")
@@ -530,7 +530,7 @@ record(ai, "TU-60IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-01EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-01EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB06_ST_614_04_8.val")
     field(DESC, "ST-614-04.08")
@@ -539,7 +539,7 @@ record(ai, "TU-01EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-02IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-02IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB07_ST_614_04_9.val")
     field(DESC, "ST-614-04.09")
@@ -548,7 +548,7 @@ record(ai, "TU-02IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-02EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-02EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB08_ST_614_04_10.val")
     field(DESC, "ST-614-04.10")
@@ -557,7 +557,7 @@ record(ai, "TU-02EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-0160:AC-PT100-:MeanTemperature-Mon"){
+record(ai, "TU-0160:AC-PT100:MeanTemperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) MEDIA_TEAMB_ST_614_04.val")
     field(DESC, "ST-614-04 média")
@@ -566,7 +566,7 @@ record(ai, "TU-0160:AC-PT100-:MeanTemperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-03IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-03IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB01_ST_614_06_1.val")
     field(DESC, "ST-614-06.01")
@@ -575,7 +575,7 @@ record(ai, "TU-03IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-04EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-04EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB02_ST_614_06_2.val")
     field(DESC, "ST-614-06.02")
@@ -584,7 +584,7 @@ record(ai, "TU-04EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-05IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-05IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB03_ST_614_06_4.val")
     field(DESC, "ST-614-06.04")
@@ -593,7 +593,7 @@ record(ai, "TU-05IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-05EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-05EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB04_ST_614_06_5.val")
     field(DESC, "ST-614-06.05")
@@ -602,7 +602,7 @@ record(ai, "TU-05EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-06IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-06IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB05_ST_614_06_7.val")
     field(DESC, "ST-614-06.07")
@@ -611,7 +611,7 @@ record(ai, "TU-06IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-07EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-07EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB06_ST_614_06_8.val")
     field(DESC, "ST-614-06.08")
@@ -620,7 +620,7 @@ record(ai, "TU-07EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-08IW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-08IW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB07_ST_614_06_9.val")
     field(DESC, "ST-614-06.09")
@@ -629,7 +629,7 @@ record(ai, "TU-08IW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-08EW:AC-PT100-:Temperature-Mon"){
+record(ai, "TU-08EW:AC-PT100:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB08_ST_614_06_06.val")
     field(DESC, "ST-614-06.10")
@@ -638,7 +638,7 @@ record(ai, "TU-08EW:AC-PT100-:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "TU-0308:AC-PT100-:MeanTemperature-Mon"){
+record(ai, "TU-0308:AC-PT100:MeanTemperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) MEDIA_TEAMB_ST_614_06.val")
     field(DESC, "ST-614-06 média")
