@@ -1,333 +1,90 @@
 
-record(ai, "UA-B19C20SkidP7:HD-TCV-421:MVValue-Mon"){
+record(ao, "UA-B19C20SkidP7:HD-TIC-TCV:LoopPIDKd-SP"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TCV421.Reference_Value")
-    field(DESC, "Temperature Indicating Coole")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-TCV-422:MVValue-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TCV422.Reference_Value")
-    field(DESC, "Temperature Indicating Coole")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-TIC-TCV:Tempeture-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TIC421.PV")
-    field(DESC, "Temperature Indicating Coole")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "C")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-TIC-TCV:LoopPIDKd-SP"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TIC421.KD")
+    field(OUT,  "@$(PLC) TIC421.KD")
     field(DESC, "Temperature Indicating Coole")
     field(SCAN, "1 second")
     field(PREC, "5")
     field(EGU,  "")
 }
 
-record(ai, "UA-B19C20SkidP7:HD-TIC-TCV:LoopPIDKi-SP"){
+record(ao, "UA-B19C20SkidP7:HD-TIC-TCV:LoopPIDKi-SP"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TIC421.KI")
+    field(OUT,  "@$(PLC) TIC421.KI")
     field(DESC, "Temperature Indicating Coole")
     field(SCAN, "1 second")
     field(PREC, "5")
     field(EGU,  "")
 }
 
-record(ai, "UA-B19C20SkidP7:HD-TIC-TCV:LoopPIDKp-SP"){
+record(ao, "UA-B19C20SkidP7:HD-TIC-TCV:LoopPIDKp-SP"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TIC421.KP")
+    field(OUT,  "@$(PLC) TIC421.KP")
     field(DESC, "Temperature Indicating Coole")
     field(SCAN, "1 second")
     field(PREC, "5")
     field(EGU,  "")
 }
 
-record(ai, "UA-B19C20SkidP7:HD-TIC-TCV:MVManualRef-SP"){
+record(ao, "UA-B19C20SkidP7:HD-TIC-TCV:MVManualRef-SP"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TIC421.SO")
+    field(OUT,  "@$(PLC) TIC421.SO")
     field(DESC, "Temperature Indicating Coole")
     field(SCAN, "1 second")
     field(PREC, "2")
     field(EGU,  "")
 }
 
-record(ai, "UA-B19C20SkidP7:HD-TIC-:TemperatureRef-SP"){
+record(ao, "UA-B19C20SkidP7:HD-TIC-:TemperatureRef-SP"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TIC422_SP_Local")
+    field(OUT,  "@$(PLC) TIC422_SP_Local")
     field(DESC, "Temperature Indicating Coole")
     field(SCAN, "1 second")
     field(PREC, "2")
     field(EGU,  "C")
 }
 
-record(ai, "UA-B19C20SkidP7:HD-RE-421:MVValue-Mon"){
+record(ao, "UA-B19C20SkidP7:HD-RE-421:MVManualRef-SP"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) RE421_Ref.Reference_Value")
-    field(DESC, "Temperature Indicating Heate")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-RE-422:MVValue-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) RE422_Ref.Reference_Value")
+    field(OUT,  "@$(PLC) RE421.Ref_Man")
     field(DESC, "Temperature Indicating Heate")
     field(SCAN, "1 second")
     field(PREC, "2")
     field(EGU,  "")
 }
 
-record(ai, "UA-B19C20SkidP7:HD-TIC-RE:Temperature-Mon"){
+record(ao, "UA-B19C20SkidP7:HD-RE-422:MVManualRef-SP"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TIC422.PV")
-    field(DESC, "Temperature Indicating Heate")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "C")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-RE-421:MVManualRef-SP"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) RE421.Ref_Man")
+    field(OUT,  "@$(PLC) RE422.Ref_Man")
     field(DESC, "Temperature Indicating Heate")
     field(SCAN, "1 second")
     field(PREC, "2")
     field(EGU,  "")
 }
 
-record(ai, "UA-B19C20SkidP7:HD-RE-422:MVManualRef-SP"){
+record(ao, "UA-B19C20SkidP7:HD-TIC-RE:LoopPIDKd-SP"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) RE422.Ref_Man")
-    field(DESC, "Temperature Indicating Heate")
-    field(SCAN, "1 second")
-    field(PREC, "2")
-    field(EGU,  "")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-TIC-RE:LoopPIDKd-SP"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TIC422.KD")
+    field(OUT,  "@$(PLC) TIC422.KD")
     field(DESC, "Temperature Indicating Heate")
     field(SCAN, "1 second")
     field(PREC, "5")
     field(EGU,  "")
 }
 
-record(ai, "UA-B19C20SkidP7:HD-TIC-RE:LoopPIDKi-SP"){
+record(ao, "UA-B19C20SkidP7:HD-TIC-RE:LoopPIDKi-SP"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TIC422.KI")
+    field(OUT,  "@$(PLC) TIC422.KI")
     field(DESC, "Temperature Indicating Heate")
     field(SCAN, "1 second")
     field(PREC, "5")
     field(EGU,  "")
 }
 
-record(ai, "UA-B19C20SkidP7:HD-TIC-RE:LoopPIDKp-SP"){
+record(ao, "UA-B19C20SkidP7:HD-TIC-RE:LoopPIDKp-SP"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TIC422.KP")
+    field(OUT,  "@$(PLC) TIC422.KP")
     field(DESC, "Temperature Indicating Heate")
     field(SCAN, "1 second")
     field(PREC, "5")
     field(EGU,  "")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-BC-421:MVValue-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) BC421Ref.Reference_Value")
-    field(DESC, "Power Indicating Pump 01 Pow")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-BC-422:MVValue-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) BC422Ref.Reference_Value")
-    field(DESC, "Power Indicating Pump 02 Pow")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-PIC-BC:Pressure-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) PIC421.PV")
-    field(DESC, "Pressure Indicating Pump pv ")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "bar")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-PIC-BC:LoopPIDKd-RB"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) PIC421.KD")
-    field(DESC, "Pressure Indicating Pump ki ")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-PIC-BC:LoopPIDKi-RB"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) PIC421.KI")
-    field(DESC, "Pressure Indicating Pump kd ")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-PIC-BC:LoopPIDKp-RB"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) PIC421.KP")
-    field(DESC, "Pressure Indicating Pump kp ")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-PIC-BC:PressureRef-RB"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) PIC422_SP_Local")
-    field(DESC, "Pressure Indicating Pump Pre")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "bar")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-FT-421:Flow-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) FT421.Scaled_Value")
-    field(DESC, "Water Flow Transmitter 421")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "m3h")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-FT-422:Flow-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) FT422.Scaled_Value")
-    field(DESC, "Water Flow Transmitter 422")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "m3h")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-FT-423:Flow-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) FT423.Scaled_Value")
-    field(DESC, "Water Flow Transmitter 423")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "m3h")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-PT-421:Pressure-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) PT421.Scaled_Value")
-    field(DESC, "Water Pressure Transmitter 4")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "bar")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-PT-422:Pressure-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) PT422.Scaled_Value")
-    field(DESC, "Water Pressure Transmitter 4")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "bar")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-PT-423:Pressure-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) PT423.Scaled_Value")
-    field(DESC, "Water Pressure Transmitter 4")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "bar")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-PT-424:Pressure-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) PT424.Scaled_Value")
-    field(DESC, "Water Pressure Transmitter 4")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "bar")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-TT-EXT:Temperature-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TT_EXT.Scaled_Value")
-    field(DESC, "Water Temperature Transmitte")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "C")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-TT-421:Temperature-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TT421.Scaled_Value")
-    field(DESC, "Water Temperature Transmitte")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "C")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-TT-422:Temperature-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TT422.Scaled_Value")
-    field(DESC, "Water Temperature Transmitte")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "C")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-TT-423:Temperature-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TT423.Scaled_Value")
-    field(DESC, "Water Temperature Transmitte")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "C")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-TT-424:Temperature-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TT424.Scaled_Value")
-    field(DESC, "Water Temperature Transmitte")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "C")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-TT-425:Temperature-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TT425.Scaled_Value")
-    field(DESC, "Water Temperature Transmitte")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "C")
-}
-
-record(ai, "UA-B19C20SkidP7:HD-TT-426:Temperature-Mon"){
-    field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) TT426.Scaled_Value")
-    field(DESC, "Water Temperature Transmitte")
-    field(SCAN, "1 second")
-    field(PREC, "")
-    field(EGU,  "C")
 }
