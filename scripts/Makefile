@@ -32,7 +32,7 @@ p7skid:
        --ioc-name P7Skid \
        --plc-module 0 \
        --plc-name plc1 \
-       --sheet 'Petra7'
+       --sheet 'Revisado'
 
 	sed -i -e  's/\n")/")/g' ../ioc/database/P7Skid.db
 
