@@ -368,11 +368,1298 @@ record(bi, "BO-05D:RF-Intlk:EStop-Mon"){
     field(ZNAM, "False")
 }
 
-record(bo, "RA-RaBO02:RF-Intlk:Reset-Cmd"){
+record(bi, "RA-RaBO02:RF-Intlk:FaultHard-Mon"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) RA_RaBO02_RF_Intlk_ResetCmd S .1")
-    field(DESC, "Reset de Falhas ")
-    field(SCAN, "Passive")
+    field(INP, "@$(PLC) RA_RaBO02_RF_Intlk_FaultHardMon")
+    field(DESC, "Falha Geral Hardware")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:Op-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OpMon")
+    field(DESC, "Falha remota")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:IB1601Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_IB1601FaultMon")
+    field(DESC, "Falha Hardware Cartão 01 Con")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:IB1602Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_IB1602FaultMon")
+    field(DESC, "Falha Hardware Cartão 02 Con")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:IY403Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_IY403FaultMon")
+    field(DESC, "Falha Hardware Cartão 03 Con")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:IY404Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_IY404FaultMon")
+    field(DESC, "Falha Hardware Cartão 04 Con")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:IY405Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_IY405FaultMon")
+    field(DESC, "Falha Hardware Cartão 05 Con")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OB1606Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OB1606FaultMon")
+    field(DESC, "Falha Hardware Cartão 06 Con")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig00-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig00Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig01-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig01Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig02-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig02Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig03-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig03Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig04-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig04Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig05-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig05Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig06-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig06Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig07-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig07Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig08-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig08Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig09-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig09Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig10-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig10Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig11-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig11Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig12-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig12Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig13-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig13Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig14-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig14Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig15-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig15Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig16-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig16Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig17-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig17Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig18-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig18Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig19-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig19Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig20-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig20Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig21-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig21Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig22-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig22Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig23-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig23Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig24-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig24Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig25-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig25Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig26-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig26Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig27-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig27Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig28-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig28Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig29-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig29Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig30-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig30Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InDig31-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InDig31Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng00-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng00Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng01-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng01Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng02-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng02Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng03-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng03Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng04-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng04Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng05-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng05Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng06-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng06Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng07-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng07Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng08-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng08Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng09-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng09Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng10-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng10Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:InAng11-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_InAng11Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig00-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig00Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig01-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig01Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig02-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig02Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig03-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig03Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig04-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig04Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig05-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig05Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig06-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig06Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig07-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig07Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig08-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig08Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig09-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig09Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig10-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig10Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig11-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig11Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig12-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig12Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig13-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig13Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig14-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig14Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkCtrl:OutDig15-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkCtrl_OutDig15Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:IB1601Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_IB1601FaultMon")
+    field(DESC, "Falha Hardware Cartão 01 Rem")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:IB1602Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_IB1602FaultMon")
+    field(DESC, "Falha Hardware Cartão 02 Rem")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:IY403Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_IY403FaultMon")
+    field(DESC, "Falha Hardware Cartão 03 Rem")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:IY404Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_IY404FaultMon")
+    field(DESC, "Falha Hardware Cartão 04 Rem")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:IY405Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_IY405FaultMon")
+    field(DESC, "Falha Hardware Cartão 05 Rem")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:IY406Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_IY406FaultMon")
+    field(DESC, "Falha Hardware Cartão 06 Rem")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:IY407Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_IY407FaultMon")
+    field(DESC, "Falha Hardware Cartão 07 Rem")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OB1608Fault-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OB1608FaultMon")
+    field(DESC, "Falha Hardware Cartão 08 Rem")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig00-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig00Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig01-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig01Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig02-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig02Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig03-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig03Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig04-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig04Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig05-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig05Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig06-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig06Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig07-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig07Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig08-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig08Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig09-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig09Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig10-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig10Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig11-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig11Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig12-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig12Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig13-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig13Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig14-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig14Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig15-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig15Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig16-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig16Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig17-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig17Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig18-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig18Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig19-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig19Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig20-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig20Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig21-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig21Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig22-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig22Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig23-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig23Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig24-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig24Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig25-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig25Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig26-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig26Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig27-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig27Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig28-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig28Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig29-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig29Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig30-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig30Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InDig31-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InDig31Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng00-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng00Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng01-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng01Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng02-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng02Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng03-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng03Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng04-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng04Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng05-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng05Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng06-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng06Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng07-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng07Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng08-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng08Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng09-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng09Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng10-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng10Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng11-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng11Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng12-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng12Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng13-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng13Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng14-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng14Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng15-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng15Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng16-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng16Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng17-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng17Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng18-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng18Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:InAng19-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_InAng19Mon")
+    field(DESC, "Falha Hardware Cartão 5069-I")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig00-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig00Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig01-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig01Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig02-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig02Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig03-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig03Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig04-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig04Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig05-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig05Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig06-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig06Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig07-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig07Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig08-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig08Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig09-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig09Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig10-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig10Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig11-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig11Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig12-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig12Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig13-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig13Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig14-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig14Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-RaBO02:RF-IntlkComp:OutDig15-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RA_RaBO02_RF_IntlkComp_OutDig15Mon")
+    field(DESC, "Falha Hardware Cartão 5069-O")
+    field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
@@ -705,6 +1992,15 @@ record(bi, "BO-05D:RF-P5Cav:Hd4FlwRt-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) BO_05D_RF_P5Cav_Hd4FlwRtMon")
     field(DESC, "Rotametro Cavidade Petra V")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "UA-B19C20SkidP5:HD-Ctrl:IntlkOp-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) UA_B19C20SkidP5_HD_Ctrl_IntlkOpMon")
+    field(DESC, "falha skid")
     field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
