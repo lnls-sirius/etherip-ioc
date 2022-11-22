@@ -239,6 +239,7 @@ ENV EPICS_IOC_LOG_PORT 7011
 ENV IOC_PROCSERV_SOCK /opt/etheripIOC/sockets/ioc.sock
 
 COPY ./ioc /opt/etheripIOC
+RUN chmod +x *.cmd
 
 WORKDIR /opt/etheripIOC
 
