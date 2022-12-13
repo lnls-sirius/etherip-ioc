@@ -35,7 +35,7 @@ record(ai, "UA-26CHall:AC-PT100-FC61426:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "UA-NoLocation:AC-PT100-FC61426:Temperature-1-Mon"){
+record(ai, "UA-19EHall:AC-PT100-FC61426:Temperature-1-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB05_ST_614_11_5.val")
     field(DESC, "FC-614-26/27/28/29 pt100 inp")
@@ -44,7 +44,7 @@ record(ai, "UA-NoLocation:AC-PT100-FC61426:Temperature-1-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "UA-NoLocation:AC-PT100-FC61426:Temperature-2-Mon"){
+record(ai, "UA-19EHall:AC-PT100-FC61426:Temperature-2-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB06_ST_614_11_6.val")
     field(DESC, "FC-614-26/27/28/29 pt100 inp")
@@ -116,7 +116,7 @@ record(ai, "UA-28CHall:AC-PT100-FC61432:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "UA-29BHall:AC-PT100-FC61432:Temperature-Mon"){
+record(ai, "UA-26EHall:AC-PT100-FC61432:Temperature-1-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB05_ST_614_13_5.val")
     field(DESC, "FC-614-32/33/34/35 pt100 inp")
@@ -125,7 +125,7 @@ record(ai, "UA-29BHall:AC-PT100-FC61432:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "UA-32BHall:AC-PT100-FC61432:Temperature-Mon"){
+record(ai, "UA-26EHall:AC-PT100-FC61432:Temperature-2-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB06_ST_614_13_6.val")
     field(DESC, "FC-614-32/33/34/35 pt100 inp")
@@ -197,7 +197,7 @@ record(ai, "UA-38CHall:AC-PT100-FC61437:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "UA-34BHall:AC-PT100-FC61437:Temperature-Mon"){
+record(ai, "UA-36EHall:AC-PT100-FC61437:Temperature-1-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB05_ST_614_15_5.val")
     field(DESC, "FC-614-37/38/39/40 pt100 inp")
@@ -206,7 +206,7 @@ record(ai, "UA-34BHall:AC-PT100-FC61437:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "UA-40BHall:AC-PT100-FC61437:Temperature-Mon"){
+record(ai, "UA-36EHall:AC-PT100-FC61437:Temperature-2-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB06_ST_614_15_6.val")
     field(DESC, "FC-614-37/38/39/40 pt100 inp")
@@ -233,7 +233,7 @@ record(ai, "UA-37DHall:AC-PT100-FC61437:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "UA-33Hall40:AC-PT100-FC61437:MeanTemperature-Mon"){
+record(ai, "UA-34Hall40:AC-PT100-FC61437:MeanTemperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TIC1_614_15_1.PV")
     field(DESC, "FC-614-37/38/39/40 média")
