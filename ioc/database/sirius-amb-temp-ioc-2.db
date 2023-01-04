@@ -4,7 +4,7 @@ record(ai, "UA-58CHall:AC-PT100-FC61406:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB01_ST_614_03_1.val")
     field(DESC, "FC-614-06/07/08/09 pt100  in")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -13,7 +13,7 @@ record(ai, "UA-60CHall:AC-PT100-FC61406:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB02_ST_614_03_2.val")
     field(DESC, "FC-614-06/07/08/09 pt100  in")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -22,7 +22,7 @@ record(ai, "UA-01CHall:AC-PT100-FC61406:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB03_ST_614_03_3.val")
     field(DESC, "FC-614-06/07/08/09 pt100  in")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -31,7 +31,7 @@ record(ai, "UA-02CHall:AC-PT100-FC61406:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB04_ST_614_03_4.val")
     field(DESC, "FC-614-06/07/08/09 pt100  in")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -40,7 +40,7 @@ record(ai, "UA-55EHall:AC-PT100-FC61406:Temperature-1-Mon"){
     field(INP,  "@$(PLC) TEAMB05_ST_614_03_5.val")
     field(DESC, "FC-614-06/07/08/09 pt100  in")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -49,25 +49,25 @@ record(ai, "UA-55EHall:AC-PT100-FC61406:Temperature-2-Mon"){
     field(INP,  "@$(PLC) TEAMB06_ST_614_03_6.val")
     field(DESC, "FC-614-06/07/08/09 pt100  in")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
-record(ai, "UA-58DHall:AC-PT100-FC61406:Temperature--Mon"){
+record(ai, "UA-58DHall:AC-PT100-FC61406:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB07_ST_614_03_7.val")
     field(DESC, "FC-614-06/07/08/09 pt100  in")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
-record(ai, "UA-01DHall:AC-PT100-FC61406:Temperature--Mon"){
+record(ai, "UA-01DHall:AC-PT100-FC61406:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TEAMB08_ST_614_03_8.val")
     field(DESC, "FC-614-06/07/08/09 pt100  in")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -76,7 +76,7 @@ record(ai, "UA-58Hall04:AC-PT100-FC61406:MeanTemperature-Mon"){
     field(INP,  "@$(PLC) TIC1_614_03_1.PV")
     field(DESC, "FC-614-FC-614-06/07/08/09 mé")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -85,7 +85,7 @@ record(ai, "UA-04CHall:AC-PT100-FC61411:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB01_ST_614_05_1.val")
     field(DESC, "FC-614-11/12/13/14 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -94,7 +94,7 @@ record(ai, "UA-05CHall:AC-PT100-FC61411:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB02_ST_614_05_2.val")
     field(DESC, "FC-614-11/12/13/14 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -103,7 +103,7 @@ record(ai, "UA-07CHall:AC-PT100-FC61411:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB03_ST_614_05_3.val")
     field(DESC, "FC-614-11/12/13/14 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -112,7 +112,7 @@ record(ai, "UA-08CHall:AC-PT100-FC61411:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB04_ST_614_05_4.val")
     field(DESC, "FC-614-11/12/13/14 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -121,7 +121,7 @@ record(ai, "UA-03EHall:AC-PT100-FC61411:Temperature-1-Mon"){
     field(INP,  "@$(PLC) TEAMB05_ST_614_05_5.val")
     field(DESC, "FC-614-11/12/13/14 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -130,7 +130,7 @@ record(ai, "UA-03EHall:AC-PT100-FC61411:Temperature-2-Mon"){
     field(INP,  "@$(PLC) TEAMB06_ST_614_05_6.val")
     field(DESC, "FC-614-11/12/13/14 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -139,7 +139,7 @@ record(ai, "UA-04DHall:AC-PT100-FC61411:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB07_ST_614_05_7.val")
     field(DESC, "FC-614-11/12/13/14 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -148,7 +148,7 @@ record(ai, "UA-07DHall:AC-PT100-FC61411:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB08_ST_614_05_8.val")
     field(DESC, "FC-614-11/12/13/14 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -157,7 +157,7 @@ record(ai, "UA-04Hall10:AC-PT100-FC61411:MeanTemperature-Mon"){
     field(INP,  "@$(PLC) TIC1_614_05_1.PV")
     field(DESC, "FC-614-11/12/13/14 média")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -166,7 +166,7 @@ record(ai, "UA-10BHall:AC-PT100-FC61416:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB01_ST_614_07_1.val")
     field(DESC, "FC-614-16/17/18/19 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -175,7 +175,7 @@ record(ai, "UA-11BHall:AC-PT100-FC61416:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB02_ST_614_07_2.val")
     field(DESC, "FC-614-16/17/18/19 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -184,7 +184,7 @@ record(ai, "UA-13BHall:AC-PT100-FC61416:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB03_ST_614_07_3.val")
     field(DESC, "FC-614-16/17/18/19 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -193,7 +193,7 @@ record(ai, "UA-15BHall:AC-PT100-FC61416:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB04_ST_614_07_4.val")
     field(DESC, "FC-614-16/17/18/19 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -202,7 +202,7 @@ record(ai, "UA-12EHall:AC-PT100-FC61416:Temperature-1-Mon"){
     field(INP,  "@$(PLC) TEAMB05_ST_614_07_5.val")
     field(DESC, "FC-614-16/17/18/19 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -211,7 +211,7 @@ record(ai, "UA-12EHall:AC-PT100-FC61416:Temperature-2-Mon"){
     field(INP,  "@$(PLC) TEAMB06_ST_614_07_6.val")
     field(DESC, "FC-614-16/17/18/19 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -220,7 +220,7 @@ record(ai, "UA-10DHall:AC-PT100-FC61416:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB07_ST_614_07_7.val")
     field(DESC, "FC-614-16/17/18/19 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -229,7 +229,7 @@ record(ai, "UA-13DHall:AC-PT100-FC61416:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB08_ST_614_07_8.val")
     field(DESC, "FC-614-16/17/18/19 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -238,7 +238,7 @@ record(ai, "UA-10Hall16:AC-PT100-FC61416:MeanTemperature-Mon"){
     field(INP,  "@$(PLC) TIC1_614_07_1.PV")
     field(DESC, "FC-614-16/17/18/19 média")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -247,7 +247,7 @@ record(ai, "UA-15CHall:AC-PT100-FC61421:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB01_ST_614_09_1.val")
     field(DESC, "FC-614-21/22/23/24 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -256,7 +256,7 @@ record(ai, "UA-17CHall:AC-PT100-FC61421:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB02_ST_614_09_2.val")
     field(DESC, "FC-614-21/22/23/24 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -265,7 +265,7 @@ record(ai, "UA-19CHall:AC-PT100-FC61421:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB03_ST_614_09_3.val")
     field(DESC, "FC-614-21/22/23/24 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -274,7 +274,7 @@ record(ai, "UA-20CHall:AC-PT100-FC61421:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB04_ST_614_09_4.val")
     field(DESC, "FC-614-21/22/23/24 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -283,7 +283,7 @@ record(ai, "UA-19EHall:AC-PT100-FC61421:Temperature-1-Mon"){
     field(INP,  "@$(PLC) TEAMB05_ST_614_09_5.val")
     field(DESC, "FC-614-21/22/23/24 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -292,7 +292,7 @@ record(ai, "UA-19EHall:AC-PT100-FC61421:Temperature-1-Mon"){
     field(INP,  "@$(PLC) TEAMB06_ST_614_09_6.val")
     field(DESC, "FC-614-21/22/23/24 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -301,7 +301,7 @@ record(ai, "UA-16DHall:AC-PT100-FC61421:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB07_ST_614_09_7.val")
     field(DESC, "FC-614-21/22/23/24 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -310,7 +310,7 @@ record(ai, "UA-19DHall:AC-PT100-FC61421:Temperature-Mon"){
     field(INP,  "@$(PLC) TEAMB08_ST_614_09_8.val")
     field(DESC, "FC-614-21/22/23/24 pt100 inp")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
@@ -319,7 +319,7 @@ record(ai, "UA-16Hall22:AC-PT100-FC61421:MeanTemperature-Mon"){
     field(INP,  "@$(PLC) TIC1_614_09_1.PV")
     field(DESC, "FC-614-21/22/23/24 média")
     field(SCAN, ".1 second")
-    field(PREC, "2")
+    field(PREC, "1")
     field(EGU,  "C")
 }
 
