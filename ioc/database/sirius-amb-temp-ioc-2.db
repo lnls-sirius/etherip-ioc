@@ -71,7 +71,7 @@ record(ai, "UA-01DHall:AC-PT100-FC61406:Temperature-Mon"){
     field(EGU,  "C")
 }
 
-record(ai, "UA-58Hall04:AC-PT100-FC61406:MeanTemperature-Mon"){
+record(ai, "UA-55Hall02:AC-PT100-FC61406:MeanTemperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) TIC1_614_03_1.PV")
     field(DESC, "FC-614-FC-614-06/07/08/09 mé")
