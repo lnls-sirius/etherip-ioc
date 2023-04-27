@@ -60,6 +60,16 @@ rf-si:
        --plc-name plc1 \
        --sheet 'SSAmp Tower 01,SSAmp Tower 02,Interlock,Petra 7,LLRF,Transmission Line'
 
+rf-ssamp-tower-3:
+	@echo "RF SSAmp Tower 3 IOC"
+	./ioc_gen_rf.py \
+       ../etc/'Storage Ring A Interlock EPICS.xlsx'\
+       --arch linux-x86_64 \
+       --ioc-name RF-Tower3 \
+       --plc-module 0 \
+       --plc-name plc1 \
+       --sheet 'SSAmp Tower 03 CLP'
+
 delta:
 	@echo "Delta Undulator IOC"
 	./ioc_gen_delta.py \

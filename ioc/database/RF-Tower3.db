@@ -1,0 +1,2330 @@
+
+record(ao, "Memorias_5__32bit"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) Memorias[5] S .1")
+    field(DESC, "32bit PV for tag Memorias[5]")
+    field(SCAN, "Passive")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACOpCalc"){
+    field(CALC, "1 & (A >> 16)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PwrAC")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_5__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-ACPanel:PwrACOp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-ACPanel:PwrACOp-Mon"){
+    field(INP, "RA-ToSIA03:RF-ACPanel:PwrACOpCalc NPP")
+    field(DESC, "AC da Torre 03 do Anel Statu")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(ao, "Memorias_2__32bit"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) Memorias[2] S .1")
+    field(DESC, "32bit PV for tag Memorias[2]")
+    field(SCAN, "Passive")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(bo, "RA-ToSIA03:RF-ACPanel:PwrACDsbl-Sel"){
+    field(OUT, "RA-ToSIA03:RF-ACPanel:PwrACDsblCalc.PROC PP")
+    field(DESC, "AC das Fontes TDK Torre 03 O")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+    field(HIGH, "0.5")
+}
+
+record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACDsblCalc"){
+    field(CALC, "C:=1<<28;((~(B&C))&B)+(A<<28)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PwrAC")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA03:RF-ACPanel:PwrACDsbl-Sel NPP")
+    field(INPB, "Memorias_2__32bit NPP")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "Memorias_2__32bit PP")
+}
+
+record(ao, "Memorias_3__32bit"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) Memorias[3] S .1")
+    field(DESC, "32bit PV for tag Memorias[3]")
+    field(SCAN, "Passive")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(bo, "RA-ToSIA03:RF-ACPanel:PwrACEnbl-Sel"){
+    field(OUT, "RA-ToSIA03:RF-ACPanel:PwrACEnblCalc.PROC PP")
+    field(DESC, "AC das Fontes TDK Torre 03 O")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+    field(HIGH, "0.5")
+}
+
+record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACEnblCalc"){
+    field(CALC, "C:=1<<0;((~(B&C))&B)+(A<<0)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PwrAC")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA03:RF-ACPanel:PwrACEnbl-Sel NPP")
+    field(INPB, "Memorias_3__32bit NPP")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "Memorias_3__32bit PP")
+}
+
+record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACCalc"){
+    field(CALC, "1 & (A >> 24)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PwrAC")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_2__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-ACPanel:PwrAC-Sts PP")
+}
+
+record(bi, "RA-ToSIA03:RF-ACPanel:PwrAC-Sts"){
+    field(INP, "RA-ToSIA03:RF-ACPanel:PwrACCalc NPP")
+    field(DESC, "AC das Fontes TDK Torre 03 S")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(ao, "Memorias_0__32bit"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) Memorias[0] S .1")
+    field(DESC, "32bit PV for tag Memorias[0]")
+    field(SCAN, "Passive")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(calcout, "RA-ToSIA03:RF-ACPanel:PhsFltCalc"){
+    field(CALC, "1 & (A >> 3)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PhsFl")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-ACPanel:PhsFlt-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-ACPanel:PhsFlt-Mon"){
+    field(INP, "RA-ToSIA03:RF-ACPanel:PhsFltCalc NPP")
+    field(DESC, "Falta de Fase do Painel Torr")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-ACPanel:IntlkCalc"){
+    field(CALC, "1 & (A >> 2)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:Intlk")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-ACPanel:Intlk-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-ACPanel:Intlk-Mon"){
+    field(INP, "RA-ToSIA03:RF-ACPanel:IntlkCalc NPP")
+    field(DESC, "Interlock externo do Painel ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H01A:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:1:I.Ch00.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H01B:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:1:I.Ch01.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H02A:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:1:I.Ch02.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H02B:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:1:I.Ch03.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H03A:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:2:I.Ch00.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H03B:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:2:I.Ch01.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H04A:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:2:I.Ch02.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H04B:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:2:I.Ch03.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H05A:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:3:I.Ch00.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H05B:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:3:I.Ch01.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H06A:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:3:I.Ch02.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H06B:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:3:I.Ch03.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H07A:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:4:I.Ch00.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H07B:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:4:I.Ch01.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H08A:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:4:I.Ch02.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ai, "RA-ToSIA03:RF-HeatSink-H08B:T-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:4:I.Ch03.Data")
+    field(DESC, "PT-100 da Barra Dissipadora ")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+}
+
+record(ao, "Memorias_1__32bit"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) Memorias[1] S .1")
+    field(DESC, "32bit PV for tag Memorias[1]")
+    field(SCAN, "Passive")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TDownCalc"){
+    field(CALC, "1 & (A >> 4)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H01A:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H01A:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01A:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TDownCalc"){
+    field(CALC, "1 & (A >> 5)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H01B:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H01B:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01B:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TDownCalc"){
+    field(CALC, "1 & (A >> 6)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H02A:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H02A:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02A:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TDownCalc"){
+    field(CALC, "1 & (A >> 7)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H02B:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H02B:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02B:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TDownCalc"){
+    field(CALC, "1 & (A >> 8)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H03A:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H03A:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03A:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TDownCalc"){
+    field(CALC, "1 & (A >> 9)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H03B:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H03B:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03B:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TDownCalc"){
+    field(CALC, "1 & (A >> 10)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H04A:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H04A:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04A:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TDownCalc"){
+    field(CALC, "1 & (A >> 11)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H04B:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H04B:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04B:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TDownCalc"){
+    field(CALC, "1 & (A >> 12)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H05A:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H05A:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05A:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TDownCalc"){
+    field(CALC, "1 & (A >> 13)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H05B:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H05B:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05B:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TDownCalc"){
+    field(CALC, "1 & (A >> 14)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H06A:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H06A:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06A:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TDownCalc"){
+    field(CALC, "1 & (A >> 15)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H06B:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H06B:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06B:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TDownCalc"){
+    field(CALC, "1 & (A >> 16)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H07A:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H07A:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07A:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TDownCalc"){
+    field(CALC, "1 & (A >> 17)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H07B:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H07B:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07B:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TDownCalc"){
+    field(CALC, "1 & (A >> 18)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H08A:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H08A:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08A:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TDownCalc"){
+    field(CALC, "1 & (A >> 19)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H08B:TDown-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H08B:TDown-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08B:TDownCalc NPP")
+    field(DESC, "Temperatura abaixo do set da")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TUpCalc"){
+    field(CALC, "1 & (A >> 20)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H01A:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H01A:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01A:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TUpCalc"){
+    field(CALC, "1 & (A >> 21)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H01B:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H01B:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01B:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TUpCalc"){
+    field(CALC, "1 & (A >> 22)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H02A:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H02A:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02A:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TUpCalc"){
+    field(CALC, "1 & (A >> 23)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H02B:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H02B:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02B:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TUpCalc"){
+    field(CALC, "1 & (A >> 24)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H03A:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H03A:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03A:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TUpCalc"){
+    field(CALC, "1 & (A >> 25)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H03B:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H03B:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03B:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TUpCalc"){
+    field(CALC, "1 & (A >> 26)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H04A:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H04A:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04A:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TUpCalc"){
+    field(CALC, "1 & (A >> 27)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H04B:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H04B:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04B:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TUpCalc"){
+    field(CALC, "1 & (A >> 28)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H05A:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H05A:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05A:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TUpCalc"){
+    field(CALC, "1 & (A >> 29)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H05B:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H05B:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05B:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TUpCalc"){
+    field(CALC, "1 & (A >> 30)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H06A:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H06A:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06A:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TUpCalc"){
+    field(CALC, "1 & (A >> 31)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H06B:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H06B:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06B:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TUpCalc"){
+    field(CALC, "1 & (A >> 0)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H07A:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H07A:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07A:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TUpCalc"){
+    field(CALC, "1 & (A >> 1)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H07B:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H07B:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07B:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TUpCalc"){
+    field(CALC, "1 & (A >> 2)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H08A:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H08A:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08A:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TUpCalc"){
+    field(CALC, "1 & (A >> 3)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H08B:TUp-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H08B:TUp-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08B:TUpCalc NPP")
+    field(DESC, "Temperatura acima do set da ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TmsCalc"){
+    field(CALC, "1 & (A >> 4)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H01A:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H01A:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01A:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TmsCalc"){
+    field(CALC, "1 & (A >> 5)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H01B:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H01B:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01B:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TmsCalc"){
+    field(CALC, "1 & (A >> 6)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H02A:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H02A:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02A:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TmsCalc"){
+    field(CALC, "1 & (A >> 7)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H02B:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H02B:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02B:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TmsCalc"){
+    field(CALC, "1 & (A >> 8)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H03A:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H03A:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03A:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TmsCalc"){
+    field(CALC, "1 & (A >> 9)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H03B:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H03B:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03B:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TmsCalc"){
+    field(CALC, "1 & (A >> 10)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H04A:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H04A:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04A:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TmsCalc"){
+    field(CALC, "1 & (A >> 11)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H04B:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H04B:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04B:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TmsCalc"){
+    field(CALC, "1 & (A >> 12)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H05A:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H05A:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05A:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TmsCalc"){
+    field(CALC, "1 & (A >> 13)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H05B:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H05B:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05B:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TmsCalc"){
+    field(CALC, "1 & (A >> 14)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H06A:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H06A:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06A:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TmsCalc"){
+    field(CALC, "1 & (A >> 15)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H06B:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H06B:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06B:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TmsCalc"){
+    field(CALC, "1 & (A >> 16)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H07A:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H07A:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07A:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TmsCalc"){
+    field(CALC, "1 & (A >> 17)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H07B:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H07B:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07B:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TmsCalc"){
+    field(CALC, "1 & (A >> 18)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08A")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H08A:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H08A:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08A:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TmsCalc"){
+    field(CALC, "1 & (A >> 19)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08B")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-HeatSink-H08B:Tms-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-HeatSink-H08B:Tms-Mon"){
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08B:TmsCalc NPP")
+    field(DESC, "Termostato da Barra Dissipad")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:StsCalc"){
+    field(CALC, "1 & (A >> 8)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:St")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_2__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-SSAmpTower:Sts-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-SSAmpTower:Sts-Mon"){
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:StsCalc NPP")
+    field(DESC, "Interlock Geral SSA 3")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:HdFlwRtCalc"){
+    field(CALC, "1 & (A >> 20)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:Hd")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-SSAmpTower:HdFlwRt-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-SSAmpTower:HdFlwRt-Mon"){
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:HdFlwRtCalc NPP")
+    field(DESC, "Rotâmetro Torre 03 do Anel ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bo, "RA-ToSIA03:RF-TDKSource:PwrDCDsbl-Sel"){
+    field(OUT, "RA-ToSIA03:RF-TDKSource:PwrDCDsblCalc.PROC PP")
+    field(DESC, "48V das Fontes TDK Torre 03 ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+    field(HIGH, "0.5")
+}
+
+record(calcout, "RA-ToSIA03:RF-TDKSource:PwrDCDsblCalc"){
+    field(CALC, "C:=1<<30;((~(B&C))&B)+(A<<30)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource:Pwr")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA03:RF-TDKSource:PwrDCDsbl-Sel NPP")
+    field(INPB, "Memorias_2__32bit NPP")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "Memorias_2__32bit PP")
+}
+
+record(bo, "RA-ToSIA03:RF-TDKSource:PwrDCEnbl-Sel"){
+    field(OUT, "RA-ToSIA03:RF-TDKSource:PwrDCEnblCalc.PROC PP")
+    field(DESC, "48V das Fontes TDK Torre 03 ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+    field(HIGH, "0.5")
+}
+
+record(calcout, "RA-ToSIA03:RF-TDKSource:PwrDCEnblCalc"){
+    field(CALC, "C:=1<<25;((~(B&C))&B)+(A<<25)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource:Pwr")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA03:RF-TDKSource:PwrDCEnbl-Sel NPP")
+    field(INPB, "Memorias_2__32bit NPP")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "Memorias_2__32bit PP")
+}
+
+record(bi, "RA-ToSIA03:RF-TDKSource:PwrDC-Sts"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Remote_01_Torre_Teste:8:O.Pt05.Data")
+    field(DESC, "48V das Fontes TDK Torre 03 ")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-TDKSource-R1:StsACCalc"){
+    field(CALC, "1 & (A >> 18)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource-R1:")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_2__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-TDKSource-R1:StsAC-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-TDKSource-R1:StsAC-Mon"){
+    field(INP, "RA-ToSIA03:RF-TDKSource-R1:StsACCalc NPP")
+    field(DESC, "Falha Ac Mini Rack 1 Torre 0")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-TDKSource-R2:StsACCalc"){
+    field(CALC, "1 & (A >> 19)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource-R2:")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_2__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-TDKSource-R2:StsAC-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-TDKSource-R2:StsAC-Mon"){
+    field(INP, "RA-ToSIA03:RF-TDKSource-R2:StsACCalc NPP")
+    field(DESC, "Falha Ac Mini Rack 2 Torre 0")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-TDKSource-R3:StsACCalc"){
+    field(CALC, "1 & (A >> 20)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource-R3:")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_2__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-TDKSource-R3:StsAC-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-TDKSource-R3:StsAC-Mon"){
+    field(INP, "RA-ToSIA03:RF-TDKSource-R3:StsACCalc NPP")
+    field(DESC, "Falha Ac Mini Rack 3 Torre 3")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-TDKSource-R4:StsACCalc"){
+    field(CALC, "1 & (A >> 21)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource-R4:")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_2__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-TDKSource-R4:StsAC-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-TDKSource-R4:StsAC-Mon"){
+    field(INP, "RA-ToSIA03:RF-TDKSource-R4:StsACCalc NPP")
+    field(DESC, "Falha Ac Mini Rack 4 Torre 3")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bi, "RA-ToSIA03:RF-Intlk:IntlkACPanel-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Remote_01_Torre_Teste:8:O.Pt04.Data")
+    field(DESC, "Interlock externo do CLP par")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(ao, "Memorias_19__32bit"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) Memorias[19] S .1")
+    field(DESC, "32bit PV for tag Memorias[19]")
+    field(SCAN, "Passive")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(bo, "RA-ToSIA03:RF-SSAmpTower:Enbl-Sel"){
+    field(OUT, "RA-ToSIA03:RF-SSAmpTower:EnblCalc.PROC PP")
+    field(DESC, "Torre 03 Enbl")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+    field(HIGH, "")
+}
+
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblCalc"){
+    field(CALC, "C:=1<<16;((~(B&C))&B)+(A<<16)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:En")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA03:RF-SSAmpTower:Enbl-Sel NPP")
+    field(INPB, "Memorias_19__32bit NPP")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "Memorias_19__32bit PP")
+}
+
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblCalc"){
+    field(CALC, "1 & (A >> 17)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:En")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_19__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-SSAmpTower:Enbl-Sts PP")
+}
+
+record(bi, "RA-ToSIA03:RF-SSAmpTower:Enbl-Sts"){
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:EnblCalc NPP")
+    field(DESC, "Torre 03 Enbl Sts")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-CtrlPanel:PwrStsCalc"){
+    field(CALC, "1 & (A >> 0)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-CtrlPanel:Pwr")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-CtrlPanel:PwrSts-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-CtrlPanel:PwrSts-Mon"){
+    field(INP, "RA-ToSIA03:RF-CtrlPanel:PwrStsCalc NPP")
+    field(DESC, "Falha Fusível eletrônico ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-ACPanel:StsPos24VCalc"){
+    field(CALC, "1 & (A >> 1)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:StsPo")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_0__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-ACPanel:StsPos24V-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-ACPanel:StsPos24V-Mon"){
+    field(INP, "RA-ToSIA03:RF-ACPanel:StsPos24VCalc NPP")
+    field(DESC, "Falha fonte 24VDC")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(ai, "RA-ToSIA03:RF-SSAmpTower:PwrFwdIn-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:5:I.Ch00.Data")
+    field(DESC, "Medida Potencia incidente de")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "")
+}
+
+record(ai, "RA-ToSIA03:RF-SSAmpTower:PwrRevIn-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:5:I.Ch01.Data")
+    field(DESC, "Medida Potencia Refletida de")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "")
+}
+
+record(ai, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOut-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:5:I.Ch02.Data")
+    field(DESC, "Medida Potencia incidente de")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "")
+}
+
+record(ai, "RA-ToSIA03:RF-SSAmpTower:PwrRevOut-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Remote_01_Torre_Teste:5:I.Ch03.Data")
+    field(DESC, "Medida Potencia refletida de")
+    field(SCAN, ".1 second")
+    field(PREC, "2")
+    field(EGU,  "")
+}
+
+record(ao, "Falha_Pot_RF_32bit"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) Falha_Pot_RF S .1")
+    field(DESC, "32bit PV for tag Falha_Pot_RF")
+    field(SCAN, "Passive")
+    field(PREC, "")
+    field(EGU,  "")
+}
+
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInStsCalc"){
+    field(CALC, "1 & (A >> 0)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:Pw")
+    field(SCAN, ".1 second")
+    field(INPA, "Falha_Pot_RF_32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-SSAmpTower:PwrFwdInSts-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInSts-Mon"){
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInStsCalc NPP")
+    field(DESC, "Falha Pot Incidente de entra")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevInStsCalc"){
+    field(CALC, "1 & (A >> 1)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:Pw")
+    field(SCAN, ".1 second")
+    field(INPA, "Falha_Pot_RF_32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-SSAmpTower:PwrRevInSts-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-SSAmpTower:PwrRevInSts-Mon"){
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrRevInStsCalc NPP")
+    field(DESC, "Falha Pot Refletida de entra")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutStsCalc"){
+    field(CALC, "1 & (A >> 2)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:Pw")
+    field(SCAN, ".1 second")
+    field(INPA, "Falha_Pot_RF_32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutSts-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutSts-Mon"){
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutStsCalc NPP")
+    field(DESC, "Falha Pot Incidente de Saída")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutStsCalc"){
+    field(CALC, "1 & (A >> 3)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:Pw")
+    field(SCAN, ".1 second")
+    field(INPA, "Falha_Pot_RF_32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-SSAmpTower:PwrRevOutSts-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutSts-Mon"){
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutStsCalc NPP")
+    field(DESC, "Falha Pot Refletida de Saída")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:RFPwrStsCalc"){
+    field(CALC, "1 & (A >> 4)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:RF")
+    field(SCAN, ".1 second")
+    field(INPA, "Falha_Pot_RF_32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA03:RF-SSAmpTower:RFPwrSts-Mon PP")
+}
+
+record(bi, "RA-ToSIA03:RF-SSAmpTower:RFPwrSts-Mon"){
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:RFPwrStsCalc NPP")
+    field(DESC, "Falha Pot RF torre 03")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(bo, "RA-ToSIA03:RF-CtrlPanel:PINSwEnbl-Cmd"){
+    field(OUT, "RA-ToSIA03:RF-CtrlPanel:PINSwEnblCalc.PROC PP")
+    field(DESC, "Hablita coaxial switch torre")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+    field(HIGH, "0.5")
+}
+
+record(calcout, "RA-ToSIA03:RF-CtrlPanel:PINSwEnblCalc"){
+    field(CALC, "C:=1<<16;((~(B&C))&B)+(A<<16)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-CtrlPanel:PIN")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA03:RF-CtrlPanel:PINSwEnbl-Cmd NPP")
+    field(INPB, "Memorias_3__32bit NPP")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "Memorias_3__32bit PP")
+}
+
+record(bo, "RA-ToSIA03:RF-CtrlPanel:PINSwDsbl-Cmd"){
+    field(OUT, "RA-ToSIA03:RF-CtrlPanel:PINSwDsblCalc.PROC PP")
+    field(DESC, "Desabilita coaxial switch to")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+    field(HIGH, "0.5")
+}
+
+record(calcout, "RA-ToSIA03:RF-CtrlPanel:PINSwDsblCalc"){
+    field(CALC, "C:=1<<18;((~(B&C))&B)+(A<<18)")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-CtrlPanel:PIN")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA03:RF-CtrlPanel:PINSwDsbl-Cmd NPP")
+    field(INPB, "Memorias_3__32bit NPP")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "Memorias_3__32bit PP")
+}
+
+record(bi, "RA-ToSIA03:RF-CtrlPanel:PINSwSts-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) Remote_01_Torre_Teste:8:O.Pt06.Data")
+    field(DESC, "Status coaxial switch torre ")
+    field(SCAN, ".1 second")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(ai, "RA-ToSIA03:RF-SSAmpTower:RunHour-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Real[10]")
+    field(DESC, "Horímetro Torre 03")
+    field(SCAN, ".1 second")
+    field(PREC, "")
+    field(EGU,  "h")
+}

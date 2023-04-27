@@ -321,3 +321,11 @@ COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME RF-BO-Intlk
 ENV CMD RF-Booster.cmd
 ENV DEVIP 10.128.172.150
+
+FROM base AS rf-ssamp-tower-3
+COPY ./ioc/database /opt/etheripIOC/database
+COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
+ENV NAME RF-Tower-3
+ENV CMD RF-Tower3.cmd
+ENV DEVIP 10.0.28.117
+
