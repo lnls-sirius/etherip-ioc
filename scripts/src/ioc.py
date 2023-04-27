@@ -3,19 +3,29 @@ import logging
 import os
 import re
 import typing
+import copy
 
 from .templates.interlock_rf import (
     cmd_template,
     ai_template,
+    ao_template,
     bi_template,
     bo_template,
     calcout_template_field,
     ao_template_closed_loop,
+    calcout_generic_template,
+    bi_soft_channel_template,
+    bo_soft_channel_template,
 )
 from .consts import SCAN_VALUES
 
 logger = logging.getLogger()
 
+# Global variables
+
+list_tags_32bit_for_bool = []
+
+#########################
 
 class ColumnNames:
     def __init__(
@@ -176,10 +186,151 @@ def generate_ai_record(data: RowData, file):
         )
     )
 
+def generate_ao_record(data: RowData, file):
+    file.write(
+        ao_template.safe_substitute(
+            desc=data.desc,
+            egu=data.egu,
+            name=data.name,
+            prec=data.prec,
+            scan=data.scan,
+            tag=data.tag,
+        )
+    )
+
+def generate_bi_from_bit(input_pv, shift_str, data: RowData, file):
+    aux_calc_name = data.name
+    aux_calc_name = aux_calc_name.replace('-SP', '')
+    aux_calc_name = aux_calc_name.replace('-Sel', '')
+    aux_calc_name = aux_calc_name.replace('-RB', '')
+    aux_calc_name = aux_calc_name.replace('-Sts', '')
+    aux_calc_name = aux_calc_name.replace('-Cmd', '')
+    aux_calc_name = aux_calc_name.replace('-Mon', '')
+    aux_calc_name = aux_calc_name + 'Calc'
+    calc_desc = "Aux calc for " + data.name
+    file.write(
+        calcout_generic_template.safe_substitute(
+            name=aux_calc_name,
+            desc=calc_desc[0:40],
+            scan = data.scan + " second",
+            inpa=input_pv + " NPP",
+            calc="1 & (A >> " + shift_str + ")",
+            out=data.name,
+            inpb="",
+            inpc="",
+            inpd="",
+            inpe="",
+            inpf="",
+            inpg="",
+            inph="",
+            inpi="",
+            inpj="",
+            inpk="",
+            inpl="",
+            flnk="",
+        )
+    )
+    file.write(
+        bi_soft_channel_template.safe_substitute(
+            desc=data.desc,
+            name=data.name,
+            onam="True",
+            scan="Passive",
+            inp=aux_calc_name,
+            inp_type="NPP",
+            znam="False",
+        )
+    )
+
+def generate_bo_from_bit(output_pv, shift_str, data: RowData, file):
+    aux_calc_name = data.name
+    aux_calc_name = aux_calc_name.replace('-SP', '')
+    aux_calc_name = aux_calc_name.replace('-Sel', '')
+    aux_calc_name = aux_calc_name.replace('-RB', '')
+    aux_calc_name = aux_calc_name.replace('-Sts', '')
+    aux_calc_name = aux_calc_name.replace('-Cmd', '')
+    aux_calc_name = aux_calc_name.replace('-Mon', '')
+    aux_calc_name = aux_calc_name + 'Calc'
+    file.write(
+        bo_soft_channel_template.safe_substitute(
+            desc=data.desc,
+            name=data.name,
+            onam="True",
+            scan="Passive",
+            out=aux_calc_name + ".PROC",
+            out_type="PP",
+            znam="False",
+        )
+    )
+    calc_desc = "Aux calc for " + data.name
+    file.write(
+        calcout_generic_template.safe_substitute(
+            name=aux_calc_name,
+            desc=calc_desc[0:40],
+            scan="Passive",
+            inpa=data.name + " NPP",
+            inpb=output_pv + " NPP",
+            calc="C:=1<<"+shift_str+";((~(B&C))&B)+(A<<"+shift_str+")",
+            out=output_pv,
+            inpc="",
+            inpd="",
+            inpe="",
+            inpf="",
+            inpg="",
+            inph="",
+            inpi="",
+            inpj="",
+            inpk="",
+            inpl="",
+            flnk="",
+        )
+    )
+
+def has_bit_notation(tag_name):
+    dot_idx = tag_name.rfind('.')
+    return (dot_idx > -1 and dot_idx < len(tag_name)-1
+            and tag_name[dot_idx+1:].isdecimal()
+            )
+
+def split_bit_notation(tag_name):
+    dot_idx = tag_name.rfind('.')
+    return (tag_name[:dot_idx], tag_name[dot_idx+1:])
 
 def generate_by_record_type(data: RowData, file):
     if data.dtype == "Digital":
-        if data.inout == "Input" or data.inout == "Output":
+        # treat the case when bit from tag is specified
+        if has_bit_notation(data.tag):
+            tag_str, shift_str = split_bit_notation(data.tag)
+            data_32bit_tag = copy.copy(data)
+            data_32bit_tag_name = tag_str
+            data_32bit_tag_name = (
+                    data_32bit_tag_name.replace(
+                        '[','_'
+                        ).replace(
+                        ']','_'
+                        ).replace(
+                        '.',''
+                        ).replace(
+                        ':',''
+                        ) + '_32bit'
+                )
+            data_32bit_tag.name = data_32bit_tag_name
+            data_32bit_tag.tag = tag_str
+            data_32bit_tag.scan = ".1"
+            data_32bit_tag.desc = '32bit PV for tag ' + tag_str
+            if not data_32bit_tag.tag in list_tags_32bit_for_bool:
+                list_tags_32bit_for_bool.append(data_32bit_tag.tag)
+                generate_ao_record(data_32bit_tag, file)
+            if data.inout == "Input" or data.inout == "Output":
+                generate_bi_from_bit(
+                    data_32bit_tag.name, shift_str, data, file
+                )
+            elif data.inout == "Control":
+                generate_bo_from_bit(
+                    data_32bit_tag.name, shift_str, data, file
+                )
+        # other cases
+        elif data.inout == "Input" or data.inout == "Output":
             generate_bi_record(data, file)
         elif data.inout == "Control":
             generate_bo_record(data, file)

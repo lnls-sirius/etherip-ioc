@@ -38,6 +38,54 @@ caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
 """
 )
 
+calcout_generic_template = Template(
+    """
+record(calcout, "${name}"){
+    field(CALC, "${calc}")
+    field(DESC, "${desc}")
+    field(SCAN, "${scan}")
+    field(INPA, "${inpa}")
+    field(INPB, "${inpb}")
+    field(INPC, "${inpc}")
+    field(INPD, "${inpd}")
+    field(INPE, "${inpe}")
+    field(INPF, "${inpf}")
+    field(INPG, "${inpg}")
+    field(INPH, "${inph}")
+    field(INPI, "${inpi}")
+    field(INPJ, "${inpj}")
+    field(INPK, "${inpk}")
+    field(INPL, "${inpl}")
+    field(FLNK, "${flnk}")
+    field(OUT,  "${out} PP")
+}
+"""
+)
+
+bi_soft_channel_template = Template(
+    """
+record(bi, "${name}"){
+    field(INP, "${inp} ${inp_type}")
+    field(DESC, "${desc}")
+    field(SCAN, "${scan}")
+    field(ONAM, "${onam}")
+    field(ZNAM, "${znam}")
+}
+"""
+)
+
+bo_soft_channel_template = Template(
+    """
+record(bo, "${name}"){
+    field(OUT, "${out} ${out_type}")
+    field(DESC, "${desc}")
+    field(SCAN, "${scan}")
+    field(ONAM, "${onam}")
+    field(ZNAM, "${znam}")
+}
+"""
+)
+
 ai_template = Template(
     """
 record(ai, "${name}"){
@@ -45,6 +93,19 @@ record(ai, "${name}"){
     field(INP,  "@$(PLC) ${tag}")
     field(DESC, "${desc}")
     field(SCAN, "${scan} second")
+    field(PREC, "${prec}")
+    field(EGU,  "${egu}")
+}
+"""
+)
+
+ao_template = Template(
+    """
+record(ao, "${name}"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ${tag} S ${scan}")
+    field(DESC, "${desc}")
+    field(SCAN, "Passive")
     field(PREC, "${prec}")
     field(EGU,  "${egu}")
 }
