@@ -82,6 +82,7 @@ record(bo, "${name}"){
     field(SCAN, "${scan}")
     field(ONAM, "${onam}")
     field(ZNAM, "${znam}")
+    field(HIGH, "${high}")
 }
 """
 )
@@ -142,6 +143,7 @@ record(bo, "${name}"){
     field(SCAN, "Passive")
     field(ONAM, "${onam}")
     field(ZNAM, "${znam}")
+    field(HIGH, "${high}")
 }
 """
 )

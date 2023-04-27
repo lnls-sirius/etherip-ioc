@@ -51,6 +51,8 @@ def get_args():
     parser.add_argument("--col-pv", default="NAME", help="PV column name.")
     parser.add_argument("--col-scan", default="Scan", help="EPICS scan time.")
     parser.add_argument("--col-tag", default="TAG", help="Desc column name.")
+    parser.add_argument("--col-bo-high", default="Cmd Duration",
+            help="Time before the boolean returns to zero.")
     parser.add_argument("--ioc-name", required=True, help="IOC name.")
     parser.add_argument("--sheet", required=True, help="Sheet name.")
 

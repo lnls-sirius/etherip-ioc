@@ -38,6 +38,7 @@ class ColumnNames:
         egu,
         scan,
         prec,
+        bo_high,
     ):
         self.name = name
         self.desc = desc
@@ -47,6 +48,7 @@ class ColumnNames:
         self.egu = egu
         self.scan = scan
         self.prec = prec
+        self.bo_high = bo_high
 
         self.upperLimitTag = "Upper Limit"
         self.lowerLimitTag = "Lower Limit"
@@ -64,9 +66,13 @@ class RowData:
         self.egu = row[cols.egu]
         self.scan = row[cols.scan]
         self.prec = row[cols.prec]
+        self.bo_high = row[cols.bo_high]
 
         if type(self.prec) != str:
             self.prec = str(self.prec)
+
+        if type(self.bo_high) != str:
+            self.bo_high = str(self.bo_high)
 
         if not self.name or self.name.startswith("-"):
             raise ValueError("Wrong name format {} tag {}".format(self.name, self.tag))
@@ -170,6 +176,7 @@ def generate_bo_record(data: RowData, file):
             scan=data.scan,
             tag=data.tag,
             znam="False",
+            high=data.bo_high,
         )
     )
 
@@ -260,6 +267,7 @@ def generate_bo_from_bit(output_pv, shift_str, data: RowData, file):
             out=aux_calc_name + ".PROC",
             out_type="PP",
             znam="False",
+            high=data.bo_high,
         )
     )
     calc_desc = "Aux calc for " + data.name
@@ -555,6 +563,7 @@ def generate(args, base_path):
         egu=args.col_egu,
         scan=args.col_scan,
         prec=args.col_prec,
+        bo_high=args.col_bo_high,
     )
 
     generate_db_file(
