@@ -53,6 +53,12 @@ def get_args():
     parser.add_argument("--col-tag", default="TAG", help="Desc column name.")
     parser.add_argument("--col-bo-high", default="Cmd Duration",
             help="Time before the boolean returns to zero.")
+    parser.add_argument("--col-main-conv", default="PV Conversion",
+            help="Conversion calc to apply to main tag value.")
+    parser.add_argument("--col-lower-conv", default="Lower Limit Conversion",
+            help="Conversion calc to apply to tag lower limit value.")
+    parser.add_argument("--col-upper-conv", default="Upper Limit Conversion",
+            help="Conversion calc to apply to tag upper limit value.")
     parser.add_argument("--ioc-name", required=True, help="IOC name.")
     parser.add_argument("--sheet", required=True, help="Sheet name.")
 

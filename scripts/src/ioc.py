@@ -39,6 +39,9 @@ class ColumnNames:
         scan,
         prec,
         bo_high,
+        main_conv,
+        lower_conv,
+        upper_conv,
     ):
         self.name = name
         self.desc = desc
@@ -49,6 +52,9 @@ class ColumnNames:
         self.scan = scan
         self.prec = prec
         self.bo_high = bo_high
+        self.main_conv = main_conv
+        self.lower_conv = lower_conv
+        self.upper_conv = upper_conv
 
         self.upperLimitTag = "Upper Limit"
         self.lowerLimitTag = "Lower Limit"
@@ -67,12 +73,33 @@ class RowData:
         self.scan = row[cols.scan]
         self.prec = row[cols.prec]
         self.bo_high = row[cols.bo_high]
+        self.main_conv = row[cols.main_conv]
+        self.lower_conv = row[cols.lower_conv]
+        self.upper_conv = row[cols.upper_conv]
 
         if type(self.prec) != str:
             self.prec = str(self.prec)
 
         if type(self.bo_high) != str:
             self.bo_high = str(self.bo_high)
+
+        self.main_conv = self.main_conv.replace(' ','').replace('\t','')
+        self.main_conv = self.main_conv.replace('\n','').replace('\r','')
+        self.main_conv = self.main_conv.replace('pv','A').replace('**','^')
+        if self.main_conv == "":
+            self.main_conv = "A"
+
+        self.lower_conv = self.lower_conv.replace(' ','').replace('\t','')
+        self.lower_conv = self.lower_conv.replace('\n','').replace('\r','')
+        self.lower_conv = self.lower_conv.replace('pv','A').replace('**','^')
+        if self.lower_conv == "":
+            self.lower_conv = "A"
+
+        self.upper_conv = self.upper_conv.replace(' ','').replace('\t','')
+        self.upper_conv = self.upper_conv.replace('\n','').replace('\r','')
+        self.upper_conv = self.upper_conv.replace('pv','A').replace('**','^')
+        if self.upper_conv == "":
+            self.upper_conv = "A"
 
         if not self.name or self.name.startswith("-"):
             raise ValueError("Wrong name format {} tag {}".format(self.name, self.tag))
@@ -222,7 +249,7 @@ def generate_bi_from_bit(input_pv, shift_str, data: RowData, file):
             scan = data.scan + " second",
             inpa=input_pv + " NPP",
             calc="1 & (A >> " + shift_str + ")",
-            out=data.name,
+            out=data.name + " PP",
             inpb="",
             inpc="",
             inpd="",
@@ -235,6 +262,8 @@ def generate_bi_from_bit(input_pv, shift_str, data: RowData, file):
             inpk="",
             inpl="",
             flnk="",
+            egu="",
+            prec="",
         )
     )
     file.write(
@@ -279,7 +308,7 @@ def generate_bo_from_bit(output_pv, shift_str, data: RowData, file):
             inpa=data.name + " NPP",
             inpb=output_pv + " NPP",
             calc="C:=1<<"+shift_str+";((~(B&C))&B)+(A<<"+shift_str+")",
-            out=output_pv,
+            out=output_pv + " PP",
             inpc="",
             inpd="",
             inpe="",
@@ -291,6 +320,8 @@ def generate_bo_from_bit(output_pv, shift_str, data: RowData, file):
             inpk="",
             inpl="",
             flnk="",
+            egu="",
+            prec="",
         )
     )
 
@@ -347,7 +378,19 @@ def generate_by_record_type(data: RowData, file):
 
     elif data.dtype == "Analog":
         if data.inout == "Input":
-            generate_ai_record(data, file)
+            if data.main_conv == "A":
+                generate_ai_record(data, file)
+            else:
+                data_copy = copy.copy(data)
+                data_copy.name = remove_pv_suffix(data.name) + 'Raw'
+                data_copy.desc = "Raw " + data.desc
+                data_copy.desc = data.desc[0:40]
+                generate_ai_record(data_copy, file)
+                generate_conv_calc(
+                    file, name=data.name, inp=data_copy.name,
+                    calc=data.main_conv, prec=data.prec,
+                    egu=data.egu, desc=data.desc
+                )
         else:
             raise ValueError("Type Analog Out Not - Supported {}.".format(data.name))
     else:
@@ -380,6 +423,31 @@ def generate_tag_record(f, tag_pv, tag):
         )
     )
 
+def generate_conv_calc(f, name, inp, calc, prec, egu, out="", desc=""):
+    f.write(
+        calcout_generic_template.safe_substitute(
+            name=name,
+            desc=desc,
+            scan="Passive",
+            inpa=inp+" CP",
+            calc=calc,
+            egu=egu,
+            prec=prec,
+            out=out,
+            inpb="",
+            inpc="",
+            inpd="",
+            inpe="",
+            inpf="",
+            inpg="",
+            inph="",
+            inpi="",
+            inpj="",
+            inpk="",
+            inpl="",
+            flnk="",
+        )
+    )
 
 def generate_tag_intermediate_record(f, name, tag_pv, prec, egu):
     f.write(
@@ -410,12 +478,22 @@ def generate_tag_field_record(
         )
     )
 
+def remove_pv_suffix(pv_name):
+    pv_name = pv_name.replace('-SP','')
+    pv_name = pv_name.replace('-RB','')
+    pv_name = pv_name.replace('-Sel','')
+    pv_name = pv_name.replace('-Sts','')
+    pv_name = pv_name.replace('-Cmd','')
+    pv_name = pv_name.replace('-Mon','')
+    pv_name = pv_name.replace('-Cte','')
+    return pv_name
 
 def generate_tag_set(
     generated_tags,
     f,
     tag,
     name,
+    calc,
     prec,
     egu,
     lim_pv,
@@ -429,7 +507,16 @@ def generate_tag_set(
         generate_tag_record(f, tag_pv, tag)
         generated_tags.add(tag)
 
-    generate_tag_intermediate_record(f, name=lim_pv, tag_pv=tag_pv, prec=prec, egu=egu)
+    generate_conv_calc(
+            f, name=lim_pv, inp=tag_pv, calc=calc,
+            prec=prec, egu=egu, desc="Upper limits from PLC"
+            )
+
+    #intermediate_pv = remove_pv_suffix(lim_pv)+'Calc'
+    #generate_tag_intermediate_record(
+    #        f, name=intermediate_pv,
+    #        tag_pv=lim_pv, prec=prec, egu=egu
+    #        )
     generate_tag_field_record(
         f,
         target_name=name,
@@ -454,6 +541,7 @@ def generate_limit_records(limit_tags: Limits, f):
             f,
             tag,
             name=row.name,
+            calc=row.upper_conv,
             prec=row.prec,
             egu=row.egu,
             lim_pv=row.upper_lim_pv,
@@ -468,6 +556,7 @@ def generate_limit_records(limit_tags: Limits, f):
             f=f,
             tag=tag,
             name=row.name,
+            calc=row.lower_conv,
             prec=row.prec,
             egu=row.egu,
             lim_pv=row.lower_lim_pv,
@@ -564,6 +653,9 @@ def generate(args, base_path):
         scan=args.col_scan,
         prec=args.col_prec,
         bo_high=args.col_bo_high,
+        main_conv=args.col_main_conv,
+        lower_conv=args.col_lower_conv,
+        upper_conv=args.col_upper_conv,
     )
 
     generate_db_file(

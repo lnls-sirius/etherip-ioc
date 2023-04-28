@@ -43,6 +43,8 @@ calcout_generic_template = Template(
 record(calcout, "${name}"){
     field(CALC, "${calc}")
     field(DESC, "${desc}")
+    field(PREC, "${prec}")
+    field(EGU, "${egu}")
     field(SCAN, "${scan}")
     field(INPA, "${inpa}")
     field(INPB, "${inpb}")
@@ -57,7 +59,7 @@ record(calcout, "${name}"){
     field(INPK, "${inpk}")
     field(INPL, "${inpl}")
     field(FLNK, "${flnk}")
-    field(OUT,  "${out} PP")
+    field(OUT,  "${out}")
 }
 """
 )

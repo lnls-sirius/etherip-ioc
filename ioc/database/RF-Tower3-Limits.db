@@ -8,11 +8,26 @@ record(ai, "$(P):Real_0_"){
     field(EGU,  "")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H01A:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:T-Mon_HIHI"){
@@ -27,11 +42,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H01A:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H01B:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:T-Mon_HIHI"){
@@ -46,11 +76,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H01B:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H02A:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:T-Mon_HIHI"){
@@ -65,11 +110,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H02A:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H02B:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:T-Mon_HIHI"){
@@ -84,11 +144,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H02B:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H03A:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:T-Mon_HIHI"){
@@ -103,11 +178,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H03A:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H03B:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:T-Mon_HIHI"){
@@ -122,11 +212,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H03B:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H04A:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:T-Mon_HIHI"){
@@ -141,11 +246,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H04A:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H04B:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:T-Mon_HIHI"){
@@ -160,11 +280,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H04B:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H05A:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:T-Mon_HIHI"){
@@ -179,11 +314,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H05A:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H05B:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:T-Mon_HIHI"){
@@ -198,11 +348,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H05B:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H06A:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:T-Mon_HIHI"){
@@ -217,11 +382,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H06A:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H06B:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:T-Mon_HIHI"){
@@ -236,11 +416,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H06B:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H07A:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:T-Mon_HIHI"){
@@ -255,11 +450,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H07A:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H07B:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:T-Mon_HIHI"){
@@ -274,11 +484,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H07B:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H08A:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:T-Mon_HIHI"){
@@ -293,11 +518,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:T-Mon_HIGH"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H08A:T-Mon.HIGH PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H08B:TUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_0_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TUpperLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_0_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:T-Mon_HIHI"){
@@ -321,11 +561,26 @@ record(ai, "$(P):Real_4_"){
     field(EGU,  "")
 }
 
-record(ao, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_4_ CP")
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInUpperLimit-Cte"){
+    field(CALC, "0*A^4+0*A^3+0*A^2+1*A+0")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "")
+    field(PREC, "2")
+    field(EGU, "")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_4_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdIn-Mon_HIHI"){
@@ -349,11 +604,26 @@ record(ai, "$(P):Real_5_"){
     field(EGU,  "")
 }
 
-record(ao, "RA-ToSIA03:RF-SSAmpTower:PwrRevInUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_5_ CP")
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevInUpperLimit-Cte"){
+    field(CALC, "0*A^4+0*A^3+0*A^2+1*A+0")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "")
+    field(PREC, "2")
+    field(EGU, "")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_5_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevIn-Mon_HIHI"){
@@ -377,11 +647,26 @@ record(ai, "$(P):Real_6_"){
     field(EGU,  "")
 }
 
-record(ao, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_6_ CP")
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutUpperLimit-Cte"){
+    field(CALC, "0*A^4+0*A^3+0*A^2+1*A+0")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "")
+    field(PREC, "2")
+    field(EGU, "")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_6_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOut-Mon_HIHI"){
@@ -405,11 +690,26 @@ record(ai, "$(P):Real_7_"){
     field(EGU,  "")
 }
 
-record(ao, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutUpperLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_7_ CP")
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutUpperLimit-Cte"){
+    field(CALC, "0*A^4+0*A^3+0*A^2+1*A+0")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "")
+    field(PREC, "2")
+    field(EGU, "")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_7_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOut-Mon_HIHI"){
@@ -433,11 +733,26 @@ record(ai, "$(P):Real_1_"){
     field(EGU,  "")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H01A:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:T-Mon_LOLO"){
@@ -452,11 +767,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H01A:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H01B:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:T-Mon_LOLO"){
@@ -471,11 +801,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H01B:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H02A:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:T-Mon_LOLO"){
@@ -490,11 +835,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H02A:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H02B:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:T-Mon_LOLO"){
@@ -509,11 +869,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H02B:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H03A:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:T-Mon_LOLO"){
@@ -528,11 +903,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H03A:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H03B:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:T-Mon_LOLO"){
@@ -547,11 +937,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H03B:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H04A:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:T-Mon_LOLO"){
@@ -566,11 +971,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H04A:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H04B:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:T-Mon_LOLO"){
@@ -585,11 +1005,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H04B:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H05A:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:T-Mon_LOLO"){
@@ -604,11 +1039,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H05A:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H05B:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:T-Mon_LOLO"){
@@ -623,11 +1073,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H05B:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H06A:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:T-Mon_LOLO"){
@@ -642,11 +1107,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H06A:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H06B:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:T-Mon_LOLO"){
@@ -661,11 +1141,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H06B:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H07A:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:T-Mon_LOLO"){
@@ -680,11 +1175,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H07A:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H07B:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:T-Mon_LOLO"){
@@ -699,11 +1209,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H07B:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H08A:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:T-Mon_LOLO"){
@@ -718,11 +1243,26 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:T-Mon_LOW"){
     field(OUT,  "RA-ToSIA03:RF-HeatSink-H08A:T-Mon.LOW PP")
 }
 
-record(ao, "RA-ToSIA03:RF-HeatSink-H08B:TLowerLimit-Cte"){
-    field(OMSL, "closed_loop")
-    field(DOL,  "$(P):Real_1_ CP")
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TLowerLimit-Cte"){
+    field(CALC, "A")
     field(DESC, "Upper limits from PLC")
-    field(EGU,  "C")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "$(P):Real_1_ CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:T-Mon_LOLO"){
