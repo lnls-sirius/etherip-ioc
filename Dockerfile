@@ -239,7 +239,7 @@ ENV EPICS_IOC_LOG_PORT 7011
 ENV IOC_PROCSERV_SOCK /opt/etheripIOC/sockets/ioc.sock
 
 COPY ./ioc /opt/etheripIOC
-RUN chmod +x *.cmd
+#RUN chmod +x *.cmd
 
 WORKDIR /opt/etheripIOC
 
@@ -329,3 +329,9 @@ ENV NAME RF-Tower-3
 ENV CMD RF-Tower3.cmd
 ENV DEVIP 10.0.28.117
 
+FROM base AS rf-ssamp-tower-3-4
+COPY ./ioc/database /opt/etheripIOC/database
+COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
+ENV NAME RF-Tower-3And4
+ENV CMD RF-Tower3And4.cmd
+ENV DEVIP 10.0.28.117

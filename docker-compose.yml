@@ -110,6 +110,17 @@ services:
       context: .
       dockerfile: Dockerfile
       target: rf-ssamp-tower-3
+    network_mode: "host"
+    restart: always
+
+  rf-ssamp-tower-3-4:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-ssamp-tower-3-4:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: rf-ssamp-tower-3-4
+    network_mode: "host"
+    restart: always
 
   delta_v2:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-delta-v2:${COMMIT_HASH}-${BUILD_DATE}
