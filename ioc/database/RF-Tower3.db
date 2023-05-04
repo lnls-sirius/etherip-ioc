@@ -8,7 +8,7 @@ record(ao, "Memorias_5__32bit"){
     field(EGU,  "")
 }
 
-record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACOpCalc"){
+record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACOpInCalc"){
     field(CALC, "1 & (A >> 16)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PwrAC")
     field(PREC, "")
@@ -31,7 +31,7 @@ record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACOpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-ACPanel:PwrACOp-Mon"){
-    field(INP, "RA-ToSIA03:RF-ACPanel:PwrACOpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-ACPanel:PwrACOpInCalc NPP")
     field(DESC, "AC da Torre 03 do Anel Statu")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -48,7 +48,7 @@ record(ao, "Memorias_2__32bit"){
 }
 
 record(bo, "RA-ToSIA03:RF-ACPanel:PwrACDsbl-Sel"){
-    field(OUT, "RA-ToSIA03:RF-ACPanel:PwrACDsblCalc.PROC PP")
+    field(OUT, "RA-ToSIA03:RF-ACPanel:PwrACDsblOutCalc.PROC PP")
     field(DESC, "AC das Fontes TDK Torre 03 O")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -56,7 +56,7 @@ record(bo, "RA-ToSIA03:RF-ACPanel:PwrACDsbl-Sel"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACDsblCalc"){
+record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACDsblOutCalc"){
     field(CALC, "C:=1<<28;((~(B&C))&B)+(A<<28)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PwrAC")
     field(PREC, "")
@@ -88,7 +88,7 @@ record(ao, "Memorias_3__32bit"){
 }
 
 record(bo, "RA-ToSIA03:RF-ACPanel:PwrACEnbl-Sel"){
-    field(OUT, "RA-ToSIA03:RF-ACPanel:PwrACEnblCalc.PROC PP")
+    field(OUT, "RA-ToSIA03:RF-ACPanel:PwrACEnblOutCalc.PROC PP")
     field(DESC, "AC das Fontes TDK Torre 03 O")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -96,7 +96,7 @@ record(bo, "RA-ToSIA03:RF-ACPanel:PwrACEnbl-Sel"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACEnblCalc"){
+record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACEnblOutCalc"){
     field(CALC, "C:=1<<0;((~(B&C))&B)+(A<<0)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PwrAC")
     field(PREC, "")
@@ -118,7 +118,7 @@ record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACEnblCalc"){
     field(OUT,  "Memorias_3__32bit PP")
 }
 
-record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACCalc"){
+record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACInCalc"){
     field(CALC, "1 & (A >> 24)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PwrAC")
     field(PREC, "")
@@ -141,7 +141,7 @@ record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-ACPanel:PwrAC-Sts"){
-    field(INP, "RA-ToSIA03:RF-ACPanel:PwrACCalc NPP")
+    field(INP, "RA-ToSIA03:RF-ACPanel:PwrACInCalc NPP")
     field(DESC, "AC das Fontes TDK Torre 03 S")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -157,7 +157,7 @@ record(ao, "Memorias_0__32bit"){
     field(EGU,  "")
 }
 
-record(calcout, "RA-ToSIA03:RF-ACPanel:PhsFltCalc"){
+record(calcout, "RA-ToSIA03:RF-ACPanel:PhsFltInCalc"){
     field(CALC, "1 & (A >> 3)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PhsFl")
     field(PREC, "")
@@ -180,14 +180,14 @@ record(calcout, "RA-ToSIA03:RF-ACPanel:PhsFltCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-ACPanel:PhsFlt-Mon"){
-    field(INP, "RA-ToSIA03:RF-ACPanel:PhsFltCalc NPP")
+    field(INP, "RA-ToSIA03:RF-ACPanel:PhsFltInCalc NPP")
     field(DESC, "Falta de Fase do Painel Torr")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-ACPanel:IntlkCalc"){
+record(calcout, "RA-ToSIA03:RF-ACPanel:IntlkInCalc"){
     field(CALC, "1 & (A >> 2)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:Intlk")
     field(PREC, "")
@@ -210,7 +210,7 @@ record(calcout, "RA-ToSIA03:RF-ACPanel:IntlkCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-ACPanel:Intlk-Mon"){
-    field(INP, "RA-ToSIA03:RF-ACPanel:IntlkCalc NPP")
+    field(INP, "RA-ToSIA03:RF-ACPanel:IntlkInCalc NPP")
     field(DESC, "Interlock externo do Painel ")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -255,7 +255,7 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H02B:T-Mon"){
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H03A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) Remote_01_Torre_Teste:2:I.Ch00.Data")
+    field(INP,  "@$(PLC) PT100_B_03A")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -291,7 +291,7 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H04B:T-Mon"){
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H05A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) Remote_01_Torre_Teste:3:I.Ch00.Data")
+    field(INP,  "@$(PLC) PT100_B_05A")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -327,7 +327,7 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H06B:T-Mon"){
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H07A:T-Mon"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) Remote_01_Torre_Teste:4:I.Ch00.Data")
+    field(INP,  "@$(PLC) PT100_B_07A")
     field(DESC, "PT-100 da Barra Dissipadora ")
     field(SCAN, ".5 second")
     field(PREC, "2")
@@ -370,7 +370,7 @@ record(ao, "Memorias_1__32bit"){
     field(EGU,  "")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TDownInCalc"){
     field(CALC, "1 & (A >> 4)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01A")
     field(PREC, "")
@@ -393,14 +393,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H01A:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H01A:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01A:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TDownInCalc"){
     field(CALC, "1 & (A >> 5)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01B")
     field(PREC, "")
@@ -423,14 +423,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H01B:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H01B:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01B:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TDownInCalc"){
     field(CALC, "1 & (A >> 6)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02A")
     field(PREC, "")
@@ -453,14 +453,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H02A:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H02A:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02A:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TDownInCalc"){
     field(CALC, "1 & (A >> 7)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02B")
     field(PREC, "")
@@ -483,14 +483,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H02B:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H02B:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02B:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TDownInCalc"){
     field(CALC, "1 & (A >> 8)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03A")
     field(PREC, "")
@@ -513,14 +513,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H03A:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H03A:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03A:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TDownInCalc"){
     field(CALC, "1 & (A >> 9)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03B")
     field(PREC, "")
@@ -543,14 +543,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H03B:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H03B:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03B:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TDownInCalc"){
     field(CALC, "1 & (A >> 10)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04A")
     field(PREC, "")
@@ -573,14 +573,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H04A:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H04A:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04A:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TDownInCalc"){
     field(CALC, "1 & (A >> 11)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04B")
     field(PREC, "")
@@ -603,14 +603,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H04B:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H04B:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04B:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TDownInCalc"){
     field(CALC, "1 & (A >> 12)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05A")
     field(PREC, "")
@@ -633,14 +633,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H05A:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H05A:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05A:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TDownInCalc"){
     field(CALC, "1 & (A >> 13)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05B")
     field(PREC, "")
@@ -663,14 +663,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H05B:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H05B:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05B:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TDownInCalc"){
     field(CALC, "1 & (A >> 14)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06A")
     field(PREC, "")
@@ -693,14 +693,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H06A:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H06A:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06A:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TDownInCalc"){
     field(CALC, "1 & (A >> 15)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06B")
     field(PREC, "")
@@ -723,14 +723,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H06B:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H06B:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06B:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TDownInCalc"){
     field(CALC, "1 & (A >> 16)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07A")
     field(PREC, "")
@@ -753,14 +753,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H07A:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H07A:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07A:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TDownInCalc"){
     field(CALC, "1 & (A >> 17)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07B")
     field(PREC, "")
@@ -783,14 +783,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H07B:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H07B:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07B:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TDownInCalc"){
     field(CALC, "1 & (A >> 18)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08A")
     field(PREC, "")
@@ -813,14 +813,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H08A:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H08A:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08A:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TDownCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TDownInCalc"){
     field(CALC, "1 & (A >> 19)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08B")
     field(PREC, "")
@@ -843,14 +843,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TDownCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H08B:TDown-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H08B:TDownCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08B:TDownInCalc NPP")
     field(DESC, "Temperatura abaixo do set da")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TUpInCalc"){
     field(CALC, "1 & (A >> 20)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01A")
     field(PREC, "")
@@ -873,14 +873,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H01A:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H01A:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01A:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TUpInCalc"){
     field(CALC, "1 & (A >> 21)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01B")
     field(PREC, "")
@@ -903,14 +903,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H01B:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H01B:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01B:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TUpInCalc"){
     field(CALC, "1 & (A >> 22)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02A")
     field(PREC, "")
@@ -933,14 +933,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H02A:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H02A:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02A:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TUpInCalc"){
     field(CALC, "1 & (A >> 23)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02B")
     field(PREC, "")
@@ -963,14 +963,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H02B:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H02B:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02B:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TUpInCalc"){
     field(CALC, "1 & (A >> 24)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03A")
     field(PREC, "")
@@ -993,14 +993,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H03A:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H03A:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03A:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TUpInCalc"){
     field(CALC, "1 & (A >> 25)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03B")
     field(PREC, "")
@@ -1023,14 +1023,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H03B:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H03B:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03B:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TUpInCalc"){
     field(CALC, "1 & (A >> 26)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04A")
     field(PREC, "")
@@ -1053,14 +1053,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H04A:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H04A:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04A:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TUpInCalc"){
     field(CALC, "1 & (A >> 27)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04B")
     field(PREC, "")
@@ -1083,14 +1083,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H04B:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H04B:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04B:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TUpInCalc"){
     field(CALC, "1 & (A >> 28)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05A")
     field(PREC, "")
@@ -1113,14 +1113,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H05A:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H05A:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05A:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TUpInCalc"){
     field(CALC, "1 & (A >> 29)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05B")
     field(PREC, "")
@@ -1143,14 +1143,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H05B:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H05B:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05B:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TUpInCalc"){
     field(CALC, "1 & (A >> 30)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06A")
     field(PREC, "")
@@ -1173,14 +1173,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H06A:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H06A:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06A:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TUpInCalc"){
     field(CALC, "1 & (A >> 31)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06B")
     field(PREC, "")
@@ -1203,14 +1203,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H06B:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H06B:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06B:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TUpInCalc"){
     field(CALC, "1 & (A >> 0)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07A")
     field(PREC, "")
@@ -1233,14 +1233,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H07A:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H07A:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07A:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TUpInCalc"){
     field(CALC, "1 & (A >> 1)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07B")
     field(PREC, "")
@@ -1263,14 +1263,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H07B:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H07B:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07B:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TUpInCalc"){
     field(CALC, "1 & (A >> 2)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08A")
     field(PREC, "")
@@ -1293,14 +1293,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H08A:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H08A:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08A:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TUpCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TUpInCalc"){
     field(CALC, "1 & (A >> 3)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08B")
     field(PREC, "")
@@ -1323,14 +1323,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TUpCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H08B:TUp-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H08B:TUpCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08B:TUpInCalc NPP")
     field(DESC, "Temperatura acima do set da ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TmsInCalc"){
     field(CALC, "1 & (A >> 4)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01A")
     field(PREC, "")
@@ -1353,14 +1353,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H01A:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H01A:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H01A:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01A:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TmsInCalc"){
     field(CALC, "1 & (A >> 5)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H01B")
     field(PREC, "")
@@ -1383,14 +1383,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H01B:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H01B:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H01B:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H01B:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TmsInCalc"){
     field(CALC, "1 & (A >> 6)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02A")
     field(PREC, "")
@@ -1413,14 +1413,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H02A:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H02A:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H02A:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02A:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TmsInCalc"){
     field(CALC, "1 & (A >> 7)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H02B")
     field(PREC, "")
@@ -1443,14 +1443,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H02B:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H02B:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H02B:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H02B:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TmsInCalc"){
     field(CALC, "1 & (A >> 8)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03A")
     field(PREC, "")
@@ -1473,14 +1473,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H03A:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H03A:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H03A:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03A:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TmsInCalc"){
     field(CALC, "1 & (A >> 9)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H03B")
     field(PREC, "")
@@ -1503,14 +1503,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H03B:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H03B:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H03B:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H03B:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TmsInCalc"){
     field(CALC, "1 & (A >> 10)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04A")
     field(PREC, "")
@@ -1533,14 +1533,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H04A:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H04A:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H04A:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04A:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TmsInCalc"){
     field(CALC, "1 & (A >> 11)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H04B")
     field(PREC, "")
@@ -1563,14 +1563,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H04B:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H04B:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H04B:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H04B:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TmsInCalc"){
     field(CALC, "1 & (A >> 12)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05A")
     field(PREC, "")
@@ -1593,14 +1593,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H05A:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H05A:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H05A:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05A:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TmsInCalc"){
     field(CALC, "1 & (A >> 13)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H05B")
     field(PREC, "")
@@ -1623,14 +1623,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H05B:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H05B:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H05B:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H05B:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TmsInCalc"){
     field(CALC, "1 & (A >> 14)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06A")
     field(PREC, "")
@@ -1653,14 +1653,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H06A:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H06A:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H06A:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06A:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TmsInCalc"){
     field(CALC, "1 & (A >> 15)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H06B")
     field(PREC, "")
@@ -1683,14 +1683,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H06B:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H06B:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H06B:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H06B:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TmsInCalc"){
     field(CALC, "1 & (A >> 16)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07A")
     field(PREC, "")
@@ -1713,14 +1713,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H07A:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H07A:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H07A:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07A:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TmsInCalc"){
     field(CALC, "1 & (A >> 17)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H07B")
     field(PREC, "")
@@ -1743,14 +1743,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H07B:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H07B:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H07B:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H07B:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TmsInCalc"){
     field(CALC, "1 & (A >> 18)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08A")
     field(PREC, "")
@@ -1773,14 +1773,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H08A:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H08A:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H08A:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08A:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TmsCalc"){
+record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TmsInCalc"){
     field(CALC, "1 & (A >> 19)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-HeatSink-H08B")
     field(PREC, "")
@@ -1803,14 +1803,14 @@ record(calcout, "RA-ToSIA03:RF-HeatSink-H08B:TmsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-HeatSink-H08B:Tms-Mon"){
-    field(INP, "RA-ToSIA03:RF-HeatSink-H08B:TmsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-HeatSink-H08B:TmsInCalc NPP")
     field(DESC, "Termostato da Barra Dissipad")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:StsCalc"){
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:StsInCalc"){
     field(CALC, "1 & (A >> 8)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:St")
     field(PREC, "")
@@ -1833,14 +1833,14 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:StsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-SSAmpTower:Sts-Mon"){
-    field(INP, "RA-ToSIA03:RF-SSAmpTower:StsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:StsInCalc NPP")
     field(DESC, "Interlock Geral SSA 3")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:HdFlwRtCalc"){
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:HdFlwRtInCalc"){
     field(CALC, "1 & (A >> 20)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:Hd")
     field(PREC, "")
@@ -1863,7 +1863,7 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:HdFlwRtCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-SSAmpTower:HdFlwRt-Mon"){
-    field(INP, "RA-ToSIA03:RF-SSAmpTower:HdFlwRtCalc NPP")
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:HdFlwRtInCalc NPP")
     field(DESC, "Rotâmetro Torre 03 do Anel ")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -1871,7 +1871,7 @@ record(bi, "RA-ToSIA03:RF-SSAmpTower:HdFlwRt-Mon"){
 }
 
 record(bo, "RA-ToSIA03:RF-TDKSource:PwrDCDsbl-Sel"){
-    field(OUT, "RA-ToSIA03:RF-TDKSource:PwrDCDsblCalc.PROC PP")
+    field(OUT, "RA-ToSIA03:RF-TDKSource:PwrDCDsblOutCalc.PROC PP")
     field(DESC, "48V das Fontes TDK Torre 03 ")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -1879,7 +1879,7 @@ record(bo, "RA-ToSIA03:RF-TDKSource:PwrDCDsbl-Sel"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA03:RF-TDKSource:PwrDCDsblCalc"){
+record(calcout, "RA-ToSIA03:RF-TDKSource:PwrDCDsblOutCalc"){
     field(CALC, "C:=1<<30;((~(B&C))&B)+(A<<30)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource:Pwr")
     field(PREC, "")
@@ -1902,7 +1902,7 @@ record(calcout, "RA-ToSIA03:RF-TDKSource:PwrDCDsblCalc"){
 }
 
 record(bo, "RA-ToSIA03:RF-TDKSource:PwrDCEnbl-Sel"){
-    field(OUT, "RA-ToSIA03:RF-TDKSource:PwrDCEnblCalc.PROC PP")
+    field(OUT, "RA-ToSIA03:RF-TDKSource:PwrDCEnblOutCalc.PROC PP")
     field(DESC, "48V das Fontes TDK Torre 03 ")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -1910,7 +1910,7 @@ record(bo, "RA-ToSIA03:RF-TDKSource:PwrDCEnbl-Sel"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA03:RF-TDKSource:PwrDCEnblCalc"){
+record(calcout, "RA-ToSIA03:RF-TDKSource:PwrDCEnblOutCalc"){
     field(CALC, "C:=1<<25;((~(B&C))&B)+(A<<25)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource:Pwr")
     field(PREC, "")
@@ -1941,7 +1941,7 @@ record(bi, "RA-ToSIA03:RF-TDKSource:PwrDC-Sts"){
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-TDKSource-R1:StsACCalc"){
+record(calcout, "RA-ToSIA03:RF-TDKSource-R1:StsACInCalc"){
     field(CALC, "1 & (A >> 18)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource-R1:")
     field(PREC, "")
@@ -1964,14 +1964,14 @@ record(calcout, "RA-ToSIA03:RF-TDKSource-R1:StsACCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-TDKSource-R1:StsAC-Mon"){
-    field(INP, "RA-ToSIA03:RF-TDKSource-R1:StsACCalc NPP")
+    field(INP, "RA-ToSIA03:RF-TDKSource-R1:StsACInCalc NPP")
     field(DESC, "Falha Ac Mini Rack 1 Torre 0")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-TDKSource-R2:StsACCalc"){
+record(calcout, "RA-ToSIA03:RF-TDKSource-R2:StsACInCalc"){
     field(CALC, "1 & (A >> 19)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource-R2:")
     field(PREC, "")
@@ -1994,14 +1994,14 @@ record(calcout, "RA-ToSIA03:RF-TDKSource-R2:StsACCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-TDKSource-R2:StsAC-Mon"){
-    field(INP, "RA-ToSIA03:RF-TDKSource-R2:StsACCalc NPP")
+    field(INP, "RA-ToSIA03:RF-TDKSource-R2:StsACInCalc NPP")
     field(DESC, "Falha Ac Mini Rack 2 Torre 0")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-TDKSource-R3:StsACCalc"){
+record(calcout, "RA-ToSIA03:RF-TDKSource-R3:StsACInCalc"){
     field(CALC, "1 & (A >> 20)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource-R3:")
     field(PREC, "")
@@ -2024,14 +2024,14 @@ record(calcout, "RA-ToSIA03:RF-TDKSource-R3:StsACCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-TDKSource-R3:StsAC-Mon"){
-    field(INP, "RA-ToSIA03:RF-TDKSource-R3:StsACCalc NPP")
+    field(INP, "RA-ToSIA03:RF-TDKSource-R3:StsACInCalc NPP")
     field(DESC, "Falha Ac Mini Rack 3 Torre 3")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-TDKSource-R4:StsACCalc"){
+record(calcout, "RA-ToSIA03:RF-TDKSource-R4:StsACInCalc"){
     field(CALC, "1 & (A >> 21)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource-R4:")
     field(PREC, "")
@@ -2054,7 +2054,7 @@ record(calcout, "RA-ToSIA03:RF-TDKSource-R4:StsACCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-TDKSource-R4:StsAC-Mon"){
-    field(INP, "RA-ToSIA03:RF-TDKSource-R4:StsACCalc NPP")
+    field(INP, "RA-ToSIA03:RF-TDKSource-R4:StsACInCalc NPP")
     field(DESC, "Falha Ac Mini Rack 4 Torre 3")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -2080,7 +2080,7 @@ record(ao, "Memorias_19__32bit"){
 }
 
 record(bo, "RA-ToSIA03:RF-SSAmpTower:Enbl-Sel"){
-    field(OUT, "RA-ToSIA03:RF-SSAmpTower:EnblCalc.PROC PP")
+    field(OUT, "RA-ToSIA03:RF-SSAmpTower:EnblOutCalc.PROC PP")
     field(DESC, "Torre 03 Enbl")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -2088,7 +2088,7 @@ record(bo, "RA-ToSIA03:RF-SSAmpTower:Enbl-Sel"){
     field(HIGH, "")
 }
 
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblCalc"){
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblOutCalc"){
     field(CALC, "C:=1<<16;((~(B&C))&B)+(A<<16)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:En")
     field(PREC, "")
@@ -2110,7 +2110,7 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblCalc"){
     field(OUT,  "Memorias_19__32bit PP")
 }
 
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblCalc"){
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblInCalc"){
     field(CALC, "1 & (A >> 17)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:En")
     field(PREC, "")
@@ -2133,14 +2133,14 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-SSAmpTower:Enbl-Sts"){
-    field(INP, "RA-ToSIA03:RF-SSAmpTower:EnblCalc NPP")
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:EnblInCalc NPP")
     field(DESC, "Torre 03 Enbl Sts")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-CtrlPanel:PwrStsCalc"){
+record(calcout, "RA-ToSIA03:RF-CtrlPanel:PwrStsInCalc"){
     field(CALC, "1 & (A >> 0)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-CtrlPanel:Pwr")
     field(PREC, "")
@@ -2163,14 +2163,14 @@ record(calcout, "RA-ToSIA03:RF-CtrlPanel:PwrStsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-CtrlPanel:PwrSts-Mon"){
-    field(INP, "RA-ToSIA03:RF-CtrlPanel:PwrStsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-CtrlPanel:PwrStsInCalc NPP")
     field(DESC, "Falha Fusível eletrônico ")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-ACPanel:StsPos24VCalc"){
+record(calcout, "RA-ToSIA03:RF-ACPanel:StsPos24VInCalc"){
     field(CALC, "1 & (A >> 1)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:StsPo")
     field(PREC, "")
@@ -2193,7 +2193,7 @@ record(calcout, "RA-ToSIA03:RF-ACPanel:StsPos24VCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-ACPanel:StsPos24V-Mon"){
-    field(INP, "RA-ToSIA03:RF-ACPanel:StsPos24VCalc NPP")
+    field(INP, "RA-ToSIA03:RF-ACPanel:StsPos24VInCalc NPP")
     field(DESC, "Falha fonte 24VDC")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -2333,7 +2333,7 @@ record(ao, "Falha_Pot_RF_32bit"){
     field(EGU,  "")
 }
 
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInStsCalc"){
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInStsInCalc"){
     field(CALC, "1 & (A >> 0)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:Pw")
     field(PREC, "")
@@ -2356,14 +2356,14 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInStsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInSts-Mon"){
-    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInStsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInStsInCalc NPP")
     field(DESC, "Falha Pot Incidente de entra")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevInStsCalc"){
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevInStsInCalc"){
     field(CALC, "1 & (A >> 1)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:Pw")
     field(PREC, "")
@@ -2386,14 +2386,14 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevInStsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-SSAmpTower:PwrRevInSts-Mon"){
-    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrRevInStsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrRevInStsInCalc NPP")
     field(DESC, "Falha Pot Refletida de entra")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutStsCalc"){
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutStsInCalc"){
     field(CALC, "1 & (A >> 2)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:Pw")
     field(PREC, "")
@@ -2416,14 +2416,14 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutStsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutSts-Mon"){
-    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutStsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutStsInCalc NPP")
     field(DESC, "Falha Pot Incidente de Saída")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutStsCalc"){
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutStsInCalc"){
     field(CALC, "1 & (A >> 3)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:Pw")
     field(PREC, "")
@@ -2446,14 +2446,14 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutStsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutSts-Mon"){
-    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutStsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutStsInCalc NPP")
     field(DESC, "Falha Pot Refletida de Saída")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
 }
 
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:RFPwrStsCalc"){
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:RFPwrStsInCalc"){
     field(CALC, "1 & (A >> 4)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:RF")
     field(PREC, "")
@@ -2476,7 +2476,7 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:RFPwrStsCalc"){
 }
 
 record(bi, "RA-ToSIA03:RF-SSAmpTower:RFPwrSts-Mon"){
-    field(INP, "RA-ToSIA03:RF-SSAmpTower:RFPwrStsCalc NPP")
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:RFPwrStsInCalc NPP")
     field(DESC, "Falha Pot RF torre 03")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -2484,7 +2484,7 @@ record(bi, "RA-ToSIA03:RF-SSAmpTower:RFPwrSts-Mon"){
 }
 
 record(bo, "RA-ToSIA03:RF-CtrlPanel:PINSwEnbl-Cmd"){
-    field(OUT, "RA-ToSIA03:RF-CtrlPanel:PINSwEnblCalc.PROC PP")
+    field(OUT, "RA-ToSIA03:RF-CtrlPanel:PINSwEnblOutCalc.PROC PP")
     field(DESC, "Hablita coaxial switch torre")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -2492,7 +2492,7 @@ record(bo, "RA-ToSIA03:RF-CtrlPanel:PINSwEnbl-Cmd"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA03:RF-CtrlPanel:PINSwEnblCalc"){
+record(calcout, "RA-ToSIA03:RF-CtrlPanel:PINSwEnblOutCalc"){
     field(CALC, "C:=1<<16;((~(B&C))&B)+(A<<16)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-CtrlPanel:PIN")
     field(PREC, "")
@@ -2515,7 +2515,7 @@ record(calcout, "RA-ToSIA03:RF-CtrlPanel:PINSwEnblCalc"){
 }
 
 record(bo, "RA-ToSIA03:RF-CtrlPanel:PINSwDsbl-Cmd"){
-    field(OUT, "RA-ToSIA03:RF-CtrlPanel:PINSwDsblCalc.PROC PP")
+    field(OUT, "RA-ToSIA03:RF-CtrlPanel:PINSwDsblOutCalc.PROC PP")
     field(DESC, "Desabilita coaxial switch to")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -2523,7 +2523,7 @@ record(bo, "RA-ToSIA03:RF-CtrlPanel:PINSwDsbl-Cmd"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA03:RF-CtrlPanel:PINSwDsblCalc"){
+record(calcout, "RA-ToSIA03:RF-CtrlPanel:PINSwDsblOutCalc"){
     field(CALC, "C:=1<<18;((~(B&C))&B)+(A<<18)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-CtrlPanel:PIN")
     field(PREC, "")
@@ -2561,4 +2561,34 @@ record(ai, "RA-ToSIA03:RF-SSAmpTower:RunHour-Mon"){
     field(SCAN, ".1 second")
     field(PREC, "")
     field(EGU,  "h")
+}
+
+record(calcout, "RA-ToSIA04:RF-SSAmpTower:LoadHdFlwRtInCalc"){
+    field(CALC, "1 & (A >> 20)")
+    field(DESC, "Aux calc for RA-ToSIA04:RF-SSAmpTower:Lo")
+    field(PREC, "")
+    field(EGU, "")
+    field(SCAN, ".1 second")
+    field(INPA, "Memorias_1__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA04:RF-SSAmpTower:LoadHdFlwRt-Mon PP")
+}
+
+record(bi, "RA-ToSIA04:RF-SSAmpTower:LoadHdFlwRt-Mon"){
+    field(INP, "RA-ToSIA04:RF-SSAmpTower:LoadHdFlwRtInCalc NPP")
+    field(DESC, "Falha Rotâmetro Carga 80kw")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
 }

@@ -240,7 +240,7 @@ def generate_bi_from_bit(input_pv, shift_str, data: RowData, file):
     aux_calc_name = aux_calc_name.replace('-Sts', '')
     aux_calc_name = aux_calc_name.replace('-Cmd', '')
     aux_calc_name = aux_calc_name.replace('-Mon', '')
-    aux_calc_name = aux_calc_name + 'Calc'
+    aux_calc_name = aux_calc_name + 'InCalc'
     calc_desc = "Aux calc for " + data.name
     file.write(
         calcout_generic_template.safe_substitute(
@@ -286,7 +286,7 @@ def generate_bo_from_bit(output_pv, shift_str, data: RowData, file):
     aux_calc_name = aux_calc_name.replace('-Sts', '')
     aux_calc_name = aux_calc_name.replace('-Cmd', '')
     aux_calc_name = aux_calc_name.replace('-Mon', '')
-    aux_calc_name = aux_calc_name + 'Calc'
+    aux_calc_name = aux_calc_name + 'OutCalc'
     file.write(
         bo_soft_channel_template.safe_substitute(
             desc=data.desc,
