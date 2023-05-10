@@ -2563,9 +2563,9 @@ record(ai, "RA-ToSIA03:RF-SSAmpTower:RunHour-Mon"){
     field(EGU,  "h")
 }
 
-record(calcout, "RA-ToSIA04:RF-WaterLoad:HdFlwRtInCalc"){
+record(calcout, "RA-ToSIA03:RF-WaterLoad:HdFlwRtInCalc"){
     field(CALC, "1 & (A >> 20)")
-    field(DESC, "Aux calc for RA-ToSIA04:RF-WaterLoad:HdF")
+    field(DESC, "Aux calc for RA-ToSIA03:RF-WaterLoad:HdF")
     field(PREC, "")
     field(EGU, "")
     field(SCAN, ".1 second")
@@ -2582,11 +2582,11 @@ record(calcout, "RA-ToSIA04:RF-WaterLoad:HdFlwRtInCalc"){
     field(INPK, "")
     field(INPL, "")
     field(FLNK, "")
-    field(OUT,  "RA-ToSIA04:RF-WaterLoad:HdFlwRt-Mon PP")
+    field(OUT,  "RA-ToSIA03:RF-WaterLoad:HdFlwRt-Mon PP")
 }
 
-record(bi, "RA-ToSIA04:RF-WaterLoad:HdFlwRt-Mon"){
-    field(INP, "RA-ToSIA04:RF-WaterLoad:HdFlwRtInCalc NPP")
+record(bi, "RA-ToSIA03:RF-WaterLoad:HdFlwRt-Mon"){
+    field(INP, "RA-ToSIA03:RF-WaterLoad:HdFlwRtInCalc NPP")
     field(DESC, "Falha Rotâmetro Carga 80kw")
     field(SCAN, "Passive")
     field(ONAM, "True")
