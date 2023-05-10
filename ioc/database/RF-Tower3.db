@@ -2563,9 +2563,9 @@ record(ai, "RA-ToSIA03:RF-SSAmpTower:RunHour-Mon"){
     field(EGU,  "h")
 }
 
-record(calcout, "RA-ToSIA04:RF-SSAmpTower:LoadHdFlwRtInCalc"){
+record(calcout, "RA-ToSIA04:RF-WaterLoad:HdFlwRtInCalc"){
     field(CALC, "1 & (A >> 20)")
-    field(DESC, "Aux calc for RA-ToSIA04:RF-SSAmpTower:Lo")
+    field(DESC, "Aux calc for RA-ToSIA04:RF-WaterLoad:HdF")
     field(PREC, "")
     field(EGU, "")
     field(SCAN, ".1 second")
@@ -2582,13 +2582,44 @@ record(calcout, "RA-ToSIA04:RF-SSAmpTower:LoadHdFlwRtInCalc"){
     field(INPK, "")
     field(INPL, "")
     field(FLNK, "")
-    field(OUT,  "RA-ToSIA04:RF-SSAmpTower:LoadHdFlwRt-Mon PP")
+    field(OUT,  "RA-ToSIA04:RF-WaterLoad:HdFlwRt-Mon PP")
 }
 
-record(bi, "RA-ToSIA04:RF-SSAmpTower:LoadHdFlwRt-Mon"){
-    field(INP, "RA-ToSIA04:RF-SSAmpTower:LoadHdFlwRtInCalc NPP")
+record(bi, "RA-ToSIA04:RF-WaterLoad:HdFlwRt-Mon"){
+    field(INP, "RA-ToSIA04:RF-WaterLoad:HdFlwRtInCalc NPP")
     field(DESC, "Falha Rotâmetro Carga 80kw")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
+}
+
+record(bo, "RA-RaSIB02:RF-Intlk:Reset-Cmd"){
+    field(OUT, "RA-RaSIB02:RF-Intlk:ResetOutCalc.PROC PP")
+    field(DESC, "Reset de Falhas Rack Interlo")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+    field(HIGH, "0.5")
+}
+
+record(calcout, "RA-RaSIB02:RF-Intlk:ResetOutCalc"){
+    field(CALC, "C:=1<<15;((~(B&C))&B)+(A<<15)")
+    field(DESC, "Aux calc for RA-RaSIB02:RF-Intlk:Reset-C")
+    field(PREC, "")
+    field(EGU, "")
+    field(SCAN, "Passive")
+    field(INPA, "RA-RaSIB02:RF-Intlk:Reset-Cmd NPP")
+    field(INPB, "Memorias_19__32bit NPP")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "Memorias_19__32bit PP")
 }

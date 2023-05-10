@@ -68,7 +68,17 @@ rf-ssamp-tower-3:
        --ioc-name RF-Tower3 \
        --plc-module 0 \
        --plc-name plc1 \
-       --sheet 'SSAmp Tower 03 CLP'
+       --sheet 'SSAmp Tower 03 CLP,Interlock_B'
+
+rf-ssamp-tower-4:
+	@echo "RF SSAmp Tower 4 IOC"
+	./ioc_gen_rf.py \
+       ../etc/'Storage Ring A Interlock EPICS.xlsx'\
+       --arch linux-x86_64 \
+       --ioc-name RF-Tower4 \
+       --plc-module 0 \
+       --plc-name plc1 \
+       --sheet 'SSAmp Tower 04 CLP,Interlock_B'
 
 rf-ssamp-tower-3-and-4:
 	@echo "RF SSAmp Tower 3 and 4 IOC"
@@ -78,7 +88,7 @@ rf-ssamp-tower-3-and-4:
        --ioc-name RF-Tower3And4 \
        --plc-module 0 \
        --plc-name plc1 \
-       --sheet 'SSAmp Tower 03 CLP,SSAmp Tower 04 CLP'
+       --sheet 'SSAmp Tower 03 CLP,SSAmp Tower 04 CLP,Interlock_B'
 
 delta:
 	@echo "Delta Undulator IOC"
