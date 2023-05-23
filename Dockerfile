@@ -327,11 +327,11 @@ COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME RF-Tower-3
 ENV CMD RF-Tower3.cmd
-ENV DEVIP 10.0.28.117
+ENV DEVIP 10.0.28.198
 
 FROM base AS rf-ssamp-tower-3-4
 COPY ./ioc/database /opt/etheripIOC/database
 COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME RF-Tower-3And4
 ENV CMD RF-Tower3And4.cmd
-ENV DEVIP 10.0.28.117
+ENV DEVIP 10.0.28.198
