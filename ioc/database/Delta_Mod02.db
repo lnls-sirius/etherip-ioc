@@ -783,7 +783,7 @@ record(bi, "$(PREFIX_MOD02)Enbl-Mon"){
 
 record(ao, "$(PREFIX_MOD02)RelPos-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Modulo02.Posicao S .1")
+    field(OUT, "@$(PLC) EW_Conf_Pos_Mod_02 S .1")
     field(DESC, "Position module 02")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -805,7 +805,7 @@ record(ao, "$(PREFIX_MOD02)RelPos-SP"){
 
 record(ai, "$(PREFIX_MOD02)RelPos-RB"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Modulo02.Posicao")
+    field(INP, "@$(PLC) ER_Conf_Pos_Mod_02")
     field(DESC, "Position RB module 02")
     field(SCAN, ".1 second")
     field(PREC, "3")
@@ -825,7 +825,7 @@ record(ai, "$(PREFIX_MOD02)RelPos-RB"){
 
 record(ao, "$(PREFIX_MOD02)Velo-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Modulo02.Velocidade S .1")
+    field(OUT, "@$(PLC) EW_Conf_Velo_Mod_02 S .1")
     field(DESC, "Velocity module 02")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -847,7 +847,7 @@ record(ao, "$(PREFIX_MOD02)Velo-SP"){
 
 record(ai, "$(PREFIX_MOD02)Velo-RB"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Modulo02.Velocidade")
+    field(INP, "@$(PLC) ER_Conf_Velo_Mod_02")
     field(DESC, "Velocity RB module 02")
     field(SCAN, ".1 second")
     field(PREC, "3")
@@ -867,7 +867,7 @@ record(ai, "$(PREFIX_MOD02)Velo-RB"){
 
 record(ao, "$(PREFIX_MOD02)MovTime-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Modulo02.Tempo S .1")
+    field(OUT, "@$(PLC) EW_Conf_Time_Mod_02 S .1")
     field(DESC, "Time to complete move mod 02")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -889,7 +889,7 @@ record(ao, "$(PREFIX_MOD02)MovTime-SP"){
 
 record(ai, "$(PREFIX_MOD02)MovTime-RB"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Modulo02.Tempo")
+    field(INP, "@$(PLC) ER_Conf_Time_Mod_02")
     field(DESC, "Time RB to complete move mod")
     field(SCAN, ".1 second")
     field(PREC, "3")
@@ -909,7 +909,7 @@ record(ai, "$(PREFIX_MOD02)MovTime-RB"){
 
 record(ao, "$(PREFIX_MOD02)Acc-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Modulo02.Accel S .1")
+    field(OUT, "@$(PLC) EW_Conf_Acc_Mod_02 S .1")
     field(DESC, "Acceleration module 02")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -931,7 +931,7 @@ record(ao, "$(PREFIX_MOD02)Acc-SP"){
 
 record(ai, "$(PREFIX_MOD02)Acc-RB"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Modulo02.Accel")
+    field(INP, "@$(PLC) ER_Conf_Acc_Mod_02")
     field(DESC, "Acceleration RB module 02")
     field(SCAN, ".1 second")
     field(PREC, "3")
@@ -951,7 +951,7 @@ record(ai, "$(PREFIX_MOD02)Acc-RB"){
 
 record(ao, "$(PREFIX_MOD02)Decel-SP"){
     field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Modulo02.Decel S .1")
+    field(OUT, "@$(PLC) EW_Conf_Dec_Mod_02 S .1")
     field(DESC, "Deceleration module 02")
     field(SCAN, "Passive")
     field(PREC, "3")
@@ -973,7 +973,7 @@ record(ao, "$(PREFIX_MOD02)Decel-SP"){
 
 record(ai, "$(PREFIX_MOD02)Decel-RB"){
     field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) Modulo02.Decel")
+    field(INP, "@$(PLC) ER_Conf_Dec_Mod_02")
     field(DESC, "Deceleration RB module 02")
     field(SCAN, ".1 second")
     field(PREC, "3")
