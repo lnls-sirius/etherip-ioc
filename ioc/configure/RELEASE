@@ -1,9 +1,11 @@
 # EPICS_BASE should appear last so earlier modules can override stuff:
-ETHER_IP=
-CALC=
-CAPUTLOG=
-SNCSEQ=/opt/epics-R3.15.8/modules/seq-2.2.6
-EPICS_BASE=/opt/epics-R3.15.8/base
+ETHER_IP=/opt/ether_ip-ether_ip-3-2
+CALC=/opt/epics/synApps-lnls-R1-2-1/support/calc-R3-7-2
+#CAPUTLOG=
+AUTOSAVE=/opt/epics/synApps-lnls-R1-2-1/support/autosave-R5-9
+SNCSEQ=/opt/epics/synApps-lnls-R1-2-1/support/seq-2-2-6
+EPICS_BASE=/opt/epics/base
+PYDEVICE=/opt/PyDevice
 
 # Set RULES here if you want to use build rules from somewhere
 # other than EPICS_BASE:
