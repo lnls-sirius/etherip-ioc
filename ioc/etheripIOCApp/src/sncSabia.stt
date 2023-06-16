@@ -3267,15 +3267,15 @@ int polOption2Shift(int polarization, double* shift){
         return 0;
     }
     else if (polarization == 1) {
-        *shift = POL_CIRC_LEFT_SHIFT;
+        *shift = POL_LIN_HOR_SHIFT;
         return 0;
     }
     else if (polarization == 2) {
-        *shift = POL_LIN_VERT_SHIFT;
+        *shift = POL_CIRC_LEFT_SHIFT;
         return 0;
     }
     else if (polarization == 3) {
-        *shift = POL_LIN_HOR_SHIFT;
+        *shift = POL_LIN_VERT_SHIFT;
         return 0;
     }
     else {

@@ -169,10 +169,10 @@ record(mbbo, "$(P)$(R)Pol-Sel"){
     field(OMSL, "supervisory")
     field(IVOA, "Don't drive outputs")
     field(UNSV, "MINOR")
-    field(ZRST, "Circ right")
-    field(ONST, "Circ left")
-    field(TWST, "Linear vert")
-    field(THST, "Linear hor")
+    field(ZRST, "circular_neg")
+    field(ONST, "linear_horiz")
+    field(TWST, "circular_pos")
+    field(THST, "linear_vert")
     field(FLNK, "$(P)$(R)Pol-Sts")
 }
 
@@ -180,10 +180,10 @@ record(mbbi, "$(P)$(R)Pol-Sts"){
     field(INP, "$(P)$(R)Pol-Sel")
     field(DESC, "Polarization type sts")
     field(UNSV, "MINOR")
-    field(ZRST, "Circ right")
-    field(ONST, "Circ left")
-    field(TWST, "Linear vert")
-    field(THST, "Linear hor")
+    field(ZRST, "circular_neg")
+    field(ONST, "linear_horiz")
+    field(TWST, "circular_pos")
+    field(THST, "linear_vert")
 }
 
 record(bo, "$(P)$(R)ChangeGain-Cmd"){
@@ -277,19 +277,19 @@ record(calc, "$(P)$(R)PolCalc"){
     field(INPE, "-26.25")
     field(INPF, "0")
     field(INPG, "$(P)$(R)CSEMotionState-Mon CPP")
-    field(CALC, "G=1?4:(abs(A-C)<=B?0:(abs(A-D)<=B?1:(abs(A-E)<=B?2:(abs(A-F)<=B?3:5))))")
+    field(CALC, "G=1?4:(abs(A-C)<=B?0:(abs(A-D)<=B?2:(abs(A-E)<=B?3:(abs(A-F)<=B?1:5))))")
     field(FLNK, "$(P)$(R)Pol-Mon")
 }
 
 record(mbbi, "$(P)$(R)Pol-Mon"){
     field(INP, "$(P)$(R)PolCalc")
     field(DESC, "Polarization mon")
-    field(ZRST, "Circ right")
-    field(ONST, "Circ left")
-    field(TWST, "Linear vert")
-    field(THST, "Linear hor")
-    field(FRST, "Changing")
-    field(FVST, "Unknown")
+    field(ZRST, "circular_neg")
+    field(ONST, "linear_horiz")
+    field(TWST, "circular_pos")
+    field(THST, "linear_vert")
+    field(FRST, "changing")
+    field(FVST, "none")
 }
 
 # axis CSD relative position related to gain (energy)
