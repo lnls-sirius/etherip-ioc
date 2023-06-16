@@ -784,8 +784,6 @@ ss motion_control {
     state change_pol_step2 {
 
         entry {
-            // store current gain shift
-            old_gain_shift = gain_shift_mon;
 
             // configure move to smallest gain position
             must_move = configGainShift(MINIMUM_GAIN_SHIFT);
@@ -941,7 +939,7 @@ ss motion_control {
             // send soft trigger to start motion
             soft_trig_cmd = 1;
             pvPut(soft_trig_cmd, SYNC);
-        } state change_pol_step7
+        } state wait_completion
 
         when (state_idx_mon == STATE_MACHINE_ABORTED) {
             // print warning log message
@@ -953,102 +951,6 @@ ss motion_control {
             // print warning log message
             printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
                                "motion_control change_pol_step6");
-        } state wait_completion
-    }
-
-    state change_pol_step7 {
-
-        when (efTestAndClear(abort_evt_flg)) {
-            stop_cmd = 1;
-            pvPut(stop_cmd, SYNC);
-            // print warning log message
-            printToLogAndMsgPV(ERR_USER_ABORT,
-                               "motion_control change_pol_step7");
-        } state wait_completion
-
-        when (state_idx_mon == STATE_MACHINE_STOPPED) {
-        } state change_pol_step8
-
-        when (state_idx_mon == STATE_MACHINE_ABORTED) {
-            // print warning log message
-            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
-                               "motion_control change_pol_step7");
-        } state wait_completion
-    }
-
-    state change_pol_step8 {
-
-        entry {
-            // recover previous gain
-            must_move = configGainShift(old_gain_shift);
-        }
-
-        when (efTestAndClear(abort_evt_flg)) {
-            stop_cmd = 1;
-            pvPut(stop_cmd, SYNC);
-            // print warning log message
-            printToLogAndMsgPV(ERR_USER_ABORT,
-                               "motion_control change_pol_step8");
-        } state wait_completion
-
-        when (!must_move) {
-            /* skip move */
-        } state wait_completion
-
-        when (trig_type_sts == trig_type_sel
-              && inter_mod_coup_sts == inter_mod_coup_sel
-              && ref_type_sts == ref_type_sel
-              && mirror_sts == mirror_sel
-              && coup_sts == coup_sel
-              && velo_rb == velo_sp
-              && acc_rb == acc_sp
-              && decel_rb == decel_sp
-              && rel_pos_rb == rel_pos_sp) {
-
-            /* send reset command to
-               PLC state machine */
-            resetToMove();
-        } state change_pol_step9
-
-        when (state_idx_mon == STATE_MACHINE_ABORTED) {
-            // print warning log message
-            printToLogAndMsgPV(ERR_MOVE_SM_ABORTED,
-                               "motion_control change_pol_step8");
-        } state wait_completion
-
-        when (delay(SEQ_TIMEOUT)) {
-            // print warning log message
-            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
-                               "motion_control change_pol_step8");
-        } state wait_completion
-    }
-
-    state change_pol_step9 {
-
-        when (efTestAndClear(abort_evt_flg)) {
-            stop_cmd = 1;
-            pvPut(stop_cmd, SYNC);
-            // print warning log message
-            printToLogAndMsgPV(ERR_USER_ABORT,
-                               "motion_control change_pol_step9");
-        } state wait_completion
-
-        when (state_idx_mon == STATE_MACHINE_IDLE) {
-            // send soft trigger to start motion
-            soft_trig_cmd = 1;
-            pvPut(soft_trig_cmd, SYNC);
-        } state wait_completion
-
-        when (state_idx_mon == STATE_MACHINE_ABORTED) {
-            // print warning log message
-            printToLogAndMsgPV(ERR_MOVING_SM_ABORTED,
-                               "motion_control change_pol_step9");
-        } state wait_completion
-
-        when (delay(SEQ_TIMEOUT)) {
-            // print warning log message
-            printToLogAndMsgPV(ERR_SEQ_TIMEOUT,
-                               "motion_control change_pol_step9");
         } state wait_completion
     }
 
