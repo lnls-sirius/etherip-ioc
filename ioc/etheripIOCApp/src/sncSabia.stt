@@ -23,6 +23,15 @@ program sncSabia
 #define ERR_MOVE_SCAN_TIME_SMALL "Cannot start move: scan duration too small"
 #define ERR_USER_ABORT "Procedure aborted: abort command received from user"
 
+#define INTLK_BIT_0_MSG "Kill switch active: Please check ID rack and move device to safe position in local mode"
+#define INTLK_BIT_1_MSG "Motors disabled: Please check ID rack and enable all motors"
+#define INTLK_BIT_2_MSG "Invalid PLC program state: Please check ID rack and return ID to operational state in local mode"
+#define INTLK_BIT_3_MSG ""
+#define ALARM_BIT_0_MSG "Limit switch active: Cannot move device in active switch direction"
+#define ALARM_BIT_1_MSG ""
+#define ALARM_BIT_2_MSG ""
+#define ALARM_BIT_3_MSG ""
+
 %%//----------------------------------------
 %%//    Global Variables
 %%//----------------------------------------
@@ -329,12 +338,28 @@ double k_to_energy_a8_sp;
 assign k_to_energy_a8_sp to "{P_MOD01}KToEnergyA8-SP";
 monitor k_to_energy_a8_sp;
 
+int alarm_mon;
+assign alarm_mon to "{P_MOD01}Alarm-Mon";
+monitor alarm_mon;
+evflag alarm_mon_flg;
+sync alarm_mon alarm_mon_flg;
+
+int intlk_mon;
+assign intlk_mon to "{P_MOD01}Intlk-Mon";
+monitor intlk_mon;
+evflag intlk_mon_flg;
+sync intlk_mon intlk_mon_flg;
+
+
 %%//----------------------------------------
 %%//    Output PVs - High Level
 %%//----------------------------------------
 
 char log_mon[LOG_MON_SIZE];
 assign log_mon to "{P_MOD01}Log-Mon";
+
+char state_machine_log_mon[LOG_MON_SIZE];
+assign state_machine_log_mon to "{P_MOD01}StateMachineLog-Mon";
 
 double k_mon;
 assign k_mon to "{P_MOD01}K-Mon";
@@ -2814,6 +2839,60 @@ ss plc_state_update {
     }
 }
 
+ss log_mon_update {
+
+    state init {
+
+        when (delay(5.0)) {
+            LOG_INFO("[%s] Starting state machine: log_mon_update\n", macValueGet("P_MOD01"));
+        } state check_update
+    }
+
+    state check_update {
+
+        when (efTestAndClear(alarm_mon_flg)
+              || efTestAndClear(intlk_mon_flg)) {
+
+            /* Update Log according to
+               new alarm or interlock status. */
+
+            if (intlk_mon & 1 > 0) {
+                printToUserHighLvlLogPV(INTLK_BIT_0_MSG);
+            }
+            else if (intlk_mon & 2 > 0) {
+                printToUserHighLvlLogPV(INTLK_BIT_1_MSG);
+            }
+            else if (intlk_mon & 4 > 0) {
+                printToUserHighLvlLogPV(INTLK_BIT_2_MSG);
+            }
+            else if (intlk_mon & 8 > 0) {
+                printToUserHighLvlLogPV(INTLK_BIT_3_MSG);
+            }
+            else if (alarm_mon & 1 > 0) {
+                printToUserHighLvlLogPV(ALARM_BIT_0_MSG);
+            }
+            else if (alarm_mon & 2 > 0) {
+                printToUserHighLvlLogPV(ALARM_BIT_1_MSG);
+            }
+            else if (alarm_mon & 4 > 0) {
+                printToUserHighLvlLogPV(ALARM_BIT_2_MSG);
+            }
+            else if (alarm_mon & 8 > 0) {
+                printToUserHighLvlLogPV(ALARM_BIT_3_MSG);
+            }
+
+        } state check_update
+    }
+}
+
+
+
+
+
+
+
+
+
 %%//----------------------------------------
 %%//    Escaped C Code Definition
 %%//----------------------------------------
@@ -3151,12 +3230,18 @@ void resetToMove() {
 
 void printToLogAndMsgPV(char* msg, char* stateName) {
     // print warning log message
-    safecpy(log_mon, msg, sizeof(log_mon));
-    pvPut(log_mon, SYNC);
+    safecpy(state_machine_log_mon, msg, sizeof(state_machine_log_mon));
+    pvPut(state_machine_log_mon, SYNC);
     LOG_INFO("%s | %s | %s\n",
              macValueGet("P_MOD01"),
              stateName,
              msg);
+}
+
+void printToUserHighLvlLogPV(char* msg) {
+    // update high level log with instructions for user
+    safecpy(log_mon, msg, sizeof(log_mon));
+    pvPut(log_mon, SYNC);
 }
 
 void reportConvStatus(int status, char* stateName) {

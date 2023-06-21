@@ -34,16 +34,29 @@ record(bi, "$(P)$(R)MotorsEnbld-Mon"){
     field(ONAM, "Yes")
 }
 
+record(calc, "$(P)$(R)LimSw-Mon"){
+    field(DESC, "Combined lim sw status calc")
+    field(INPA, "$(P_AXIS)CIDPosLimSw-Mon CP")
+    field(INPB, "$(P_AXIS)CIEPosLimSw-Mon CP")
+    field(INPC, "$(P_AXIS)CSDPosLimSw-Mon CP")
+    field(INPD, "$(P_AXIS)CSEPosLimSw-Mon CP")
+    field(INPE, "$(P_AXIS)CIDNegLimSw-Mon CP")
+    field(INPF, "$(P_AXIS)CIENegLimSw-Mon CP")
+    field(INPG, "$(P_AXIS)CSDNegLimSw-Mon CP")
+    field(INPH, "$(P_AXIS)CSENegLimSw-Mon CP")
+    field(CALC, "A||B||C||D||E||F||G||H")
+}
+
 record(calc, "$(P)$(R)AlarmBits-Mon"){
     field(DESC, "Combined alarm status calc")
-#    field(INPA, "alarm 1 CPP")
-#    field(INPB, "alarm 2 CPP")
+    field(INPA, "$(P)$(R)LimSw-Mon CPP")
+#    field(INPB, " CP")
 #    field(INPC, "alarm 3 CPP")
 #    field(INPD, "alarm 4 CPP")
-#    field(INPE, "alarm 5 CPP")
+#     field(INPE, " CPP")
 #    field(INPF, "alarm 6 CPP")
 #    field(INPG, "alarm 7 CPP")
-#    field(CALC, "A+(B<<1)+(C<<2)+(D<<3)+(E<<4)+(F<<5)+(G<<6)")
+    field(CALC, "A+(B<<1)+(C<<2)+(D<<3)+(E<<4)+(F<<5)+(G<<6)")
     field(FLNK, "$(P)$(R)Alarm-Mon")
 }
 
@@ -54,16 +67,40 @@ record(bi, "$(P)$(R)Alarm-Mon"){
     field(ONAM, "Yes")
 }
 
+record(calc, "$(P)$(R)KillSw-Mon"){
+    field(DESC, "Combined kill sw status calc")
+    field(INPA, "$(P_AXIS)CIDPosKillSw-Mon CP")
+    field(INPB, "$(P_AXIS)CIEPosKillSw-Mon CP")
+    field(INPC, "$(P_AXIS)CSDPosKillSw-Mon CP")
+    field(INPD, "$(P_AXIS)CSEPosKillSw-Mon CP")
+    field(INPE, "$(P_AXIS)CIDNegKillSw-Mon CP")
+    field(INPF, "$(P_AXIS)CIENegKillSw-Mon CP")
+    field(INPG, "$(P_AXIS)CSDNegKillSw-Mon CP")
+    field(INPH, "$(P_AXIS)CSENegKillSw-Mon CP")
+    field(CALC, "A||B||C||D||E||F||G||H")
+}
+
+record(calc, "$(P)$(R)IsStateValid-Mon"){
+    field(DESC, "Preprocessed state machine sts calc")
+    field(INPA, "$(P)$(R)StateIdx-Mon CP")
+    # IF UNDEFINED
+    # OR CLEARING
+    # OR SUSPENDED
+    # OR ABORTING
+    # OR ABORTED
+    field(CALC, "!(A=1||A=2||A=32||A=256||A=512)")
+}
+
 record(calc, "$(P)$(R)IntlkBits-Mon"){
     field(DESC, "Combined interlock status calc")
-#    field(INPA, "intlk status 1 CPP")
-#    field(INPB, "intlk status 2 CPP")
-#    field(INPC, "intlk status 3 CPP")
-#    field(INPD, "intlk status 4 CPP")
+    field(INPA, "$(P)$(R)KillSw-Mon CP")
+    field(INPB, "$(P)$(R)MotorsEnbld-Mon CPP")
+    field(INPC, "$(P)$(R)IsStateValid-Mon CP")
+#    field(INPD, " CP")
 #    field(INPE, "intlk status 5 CPP")
 #    field(INPF, "intlk status 6 CPP")
 #    field(INPG, "intlk status 7 CPP")
-#    field(CALC, "A+(B<<1)+(C<<2)+(D<<3)+(E<<4)+(F<<5)+(G<<6)")
+    field(CALC, "A+((!B)<<1)+(C<<2)+(D<<3)+(E<<4)+(F<<5)+(G<<6)")
     field(FLNK, "$(P)$(R)Intlk-Mon")
 }
 
@@ -108,6 +145,15 @@ record(stringin, "$(P)$(R)PLCState-Mon"){
 # set by sncSabia
 record(waveform, "$(P)$(R)Log-Mon"){
     field(DESC, "IOC log message")
+    field(FTVL, "CHAR")
+    # number of elem must be hardcoded
+    # in sncSabia.stt as well
+    field(NELM, "301")
+}
+
+# set by sncSabia
+record(waveform, "$(P)$(R)StateMachineLog-Mon"){
+    field(DESC, "Sequencer state machine log msg")
     field(FTVL, "CHAR")
     # number of elem must be hardcoded
     # in sncSabia.stt as well
