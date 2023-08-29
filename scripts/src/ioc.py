@@ -406,6 +406,18 @@ def rows_from_sheets_generator(spreadsheet_path, sheet_names):
         for _, row in sheet.iterrows():
             yield row, sheet_name
 
+def dict_from_sheets_generator(spreadsheet_path, sheet_names):
+    for sheet_name in sheet_names:
+        sheet = pandas.read_excel(spreadsheet_path, sheet_name=sheet_name, dtype=str, engine="openpyxl")
+        replace_info = {"\n": ""}
+        sheet.replace(replace_info, inplace=True, regex=True)
+        sheet.fillna("", inplace=True)
+        row_dict_list = sheet.to_dict(orient='records')
+        with open("../etc/"+sheet_name, 'w+') as f:
+            for line in row_dict_list:
+                f.write("%s\n" % line)
+        for d in row_dict_list:
+            yield d, sheet_name
 
 def make_pv_from_tag(tag):
     return "$(P):{}".format(re.sub(r"[^A-Za-z0-9]+", "_", tag))
@@ -607,7 +619,7 @@ def generate_db_file(
     limits = Limits()
 
     with open(IOC_DATABASE_PATH, "w+") as f:
-        for row, sheet_name in rows_from_sheets_generator(
+        for row, sheet_name in dict_from_sheets_generator(
             spreadsheet_path=spreadsheet_path, sheet_names=sheet_names
         ):
             generate_records_from_row(

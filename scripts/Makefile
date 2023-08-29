@@ -3,7 +3,7 @@ all: rf delta
 linacskid:
 	@echo "Linac Skid IOC"
 	./ioc_gen_skids.py \
-       ../etc/NewSkidPVs.xlsx\
+       ../etc/spreadsheets/NewSkidPVs.xlsx\
        --arch linux-x86_64 \
        --ioc-name LinacSkid \
        --plc-module 0 \
@@ -15,7 +15,7 @@ linacskid:
 p5skid:
 	@echo "Petra 5 Skid IOC"
 	./ioc_gen_skids.py \
-       ../etc/NewSkidPVs.xlsx\
+       ../etc/spreadsheets/NewSkidPVs.xlsx\
        --arch linux-x86_64 \
        --ioc-name P5Skid \
        --plc-module 0 \
@@ -27,7 +27,7 @@ p5skid:
 p7skid:
 	@echo "Petra 7 Skid IOC"
 	./ioc_gen_skids.py \
-       ../etc/NewSkidPVs.xlsx\
+       ../etc/spreadsheets/NewSkidPVs.xlsx\
        --arch linux-x86_64 \
        --ioc-name P7Skid \
        --plc-module 0 \
@@ -41,7 +41,7 @@ rf: rf-bo rf-si
 rf-bo:
 	@echo "RF Booster IOC"
 	./ioc_gen_rf.py \
-       ../etc/Booster_Interlock_EPICS_2.0.xlsx\
+       ../etc/spreadsheets/Booster_Interlock_EPICS_2.0.xlsx\
        --arch linux-x86_64 \
        --ioc-name RF-Booster \
        --plc-module 0 \
@@ -53,7 +53,7 @@ rf-bo:
 rf-si:
 	@echo "RF Ring IOC"
 	./ioc_gen_rf.py \
-       ../etc/'Storage Ring A Interlock EPICS.xlsx'\
+       ../etc/spreadsheets/'Storage Ring A Interlock EPICS.xlsx'\
        --arch linux-x86_64 \
        --ioc-name RF-Ring1 \
        --plc-module 0 \
@@ -63,7 +63,7 @@ rf-si:
 rf-ssamp-tower-3:
 	@echo "RF SSAmp Tower 3 IOC"
 	./ioc_gen_rf.py \
-       ../etc/'Storage Ring A Interlock EPICS.xlsx'\
+       ../etc/spreadsheets/'Storage Ring A Interlock EPICS.xlsx'\
        --arch linux-x86_64 \
        --ioc-name RF-Tower3 \
        --plc-module 0 \
@@ -73,7 +73,7 @@ rf-ssamp-tower-3:
 rf-ssamp-tower-4:
 	@echo "RF SSAmp Tower 4 IOC"
 	./ioc_gen_rf.py \
-       ../etc/'Storage Ring A Interlock EPICS.xlsx'\
+       ../etc/spreadsheets/'Storage Ring A Interlock EPICS.xlsx'\
        --arch linux-x86_64 \
        --ioc-name RF-Tower4 \
        --plc-module 0 \
@@ -83,7 +83,7 @@ rf-ssamp-tower-4:
 rf-ssamp-tower-3-and-4:
 	@echo "RF SSAmp Tower 3 and 4 IOC"
 	./ioc_gen_rf.py \
-       ../etc/'Storage Ring A Interlock EPICS.xlsx'\
+       ../etc/spreadsheets/'Storage Ring A Interlock EPICS.xlsx'\
        --arch linux-x86_64 \
        --ioc-name RF-Tower3And4 \
        --plc-module 0 \
@@ -93,7 +93,7 @@ rf-ssamp-tower-3-and-4:
 delta:
 	@echo "Delta Undulator IOC"
 	./ioc_gen_delta.py \
-            ../etc/Delta.xlsx \
+            ../etc/spreadsheets/Delta.xlsx \
             --arch linux-x86_64 \
             --ioc-name Delta \
             --plc-module 0 \
@@ -111,7 +111,7 @@ delta:
 delta-v2:
 	@echo "Delta Undulator IOC v2"
 	./ioc_gen_delta.py \
-            ../etc/Delta_v2.xlsx \
+            ../etc/spreadsheets/Delta_v2.xlsx \
             --arch linux-x86_64 \
             --ioc-name Delta_v2 \
             --plc-module 0 \
