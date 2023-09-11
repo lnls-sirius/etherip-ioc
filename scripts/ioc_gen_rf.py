@@ -5,7 +5,7 @@ import logging
 import os
 
 from src.consts import SCAN_VALUES
-from src.ioc import generate
+from src.ioc_new import generate
 
 logger = logging.getLogger()
 

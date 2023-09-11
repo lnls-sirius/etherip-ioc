@@ -40,7 +40,7 @@ ENV PATH /opt/procServ:${PATH}
 FROM epics-deps as epics-base
 # --- EPICS BASE ---
 
-ENV EPICS_VERSION R3.15.8
+ENV EPICS_VERSION 7.0.7
 ENV EPICS_HOST_ARCH linux-x86_64
 ENV EPICS_BASE /opt/epics-${EPICS_VERSION}/base
 ENV EPICS_MODULES /opt/epics-${EPICS_VERSION}/modules
@@ -49,16 +49,16 @@ ENV PATH ${EPICS_BASE}/bin/${EPICS_HOST_ARCH}:${PATH}
 ENV EPICS_CA_AUTO_ADDR_LIST YES
 
 
-ARG EPICS_BASE_URL=https://github.com/epics-base/epics-base/archive/${EPICS_VERSION}.tar.gz
+ARG EPICS_BASE_URL=https://epics-controls.org/download/base/base-${EPICS_VERSION}.tar.gz
 LABEL br.cnpem.epics-base=${EPICS_BASE_URL}
 RUN set -x; \
     set -e; \
     mkdir -p ${EPICS_MODULES}; \
-    wget -O /opt/epics-R3.15.8/base-3.15.8.tar.gz ${EPICS_BASE_URL}; \
+    wget -O /opt/epics-${EPICS_VERSION}/base-${EPICS_VERSION}.tar.gz ${EPICS_BASE_URL}; \
     cd /opt/epics-${EPICS_VERSION}; \
-    tar -zxf base-3.15.8.tar.gz; \
-    rm base-3.15.8.tar.gz; \
-    mv epics-base-R3.15.8 base; \
+    tar -zxf base-${EPICS_VERSION}.tar.gz; \
+    rm base-${EPICS_VERSION}.tar.gz; \
+    mv base-${EPICS_VERSION} base; \
     cd base; \
     make -j$(nproc)
 
@@ -69,7 +69,7 @@ FROM epics-base as epics-modules
 # --- EPICS MODULES ---
 
 # sscan-R2-11-3
-ARG SSCAN_VERSION=R2-11-4
+ARG SSCAN_VERSION=R2-11-5
 ARG SSCAN_URL=https://github.com/epics-modules/sscan/archive/${SSCAN_VERSION}.tar.gz
 LABEL br.cnpem.sscan=${SSCAN_URL}
 ENV SSCAN ${EPICS_MODULES}/sscan-${SSCAN_VERSION}
@@ -154,7 +154,7 @@ ARG CAPUTLOG_VERSION=R3.7
 ARG CAPUTLOG_URL=https://github.com/epics-modules/caPutLog/archive/${CAPUTLOG_VERSION}.tar.gz
 ENV CAPUTLOG ${EPICS_MODULES}/asyn-${CAPUTLOG_VERSION}
 LABEL br.cnpem.caputlog=${CAPUTLOG_URL}
-ENV CAPUTLOG /opt/epics-R3.15.8/modules/caPutLog-${CAPUTLOG_VERSION}
+ENV CAPUTLOG /opt/epics-${EPICS_VERSION}/modules/caPutLog-${CAPUTLOG_VERSION}
 RUN set -exu; \
     cd ${EPICS_MODULES}; \
     wget -O ${CAPUTLOG}.tar.gz ${CAPUTLOG_URL}; \
@@ -200,21 +200,6 @@ RUN set -x; \
     sed -i -e '6cEPICS_BASE='${EPICS_BASE} configure/RELEASE; \
     make
 
-# PyDevice
-ARG PYDEVICE_COMMIT=4b6afde9c8c70c223217ff439e9aa9d2927042b1
-ARG PYDEVICE_URL=https://github.com/klemenv/PyDevice
-LABEL br.cnpem.pydevice=${PYDEVICE_URL}/commit/${PYDEVICE_COMMIT}
-
-RUN cd ${EPICS_MODULES} && \
-    git clone ${PYDEVICE_URL} && \
-    cd PyDevice && \
-    git checkout ${PYDEVICE_COMMIT} && \
-    sed -i -e "s|EPICS_BASE=.*$|EPICS_BASE=${EPICS_BASE}|" configure/RELEASE && \
-    sed -i -e 's|^.*PYTHON_CONFIG=.*$|PYTHON_CONFIG=python3-config|' configure/CONFIG && \
-    make
-
-ENV PYDEVICE ${EPICS_MODULES}/PyDevice
-
 # EtherIP
 ARG ETHERIP_URL=https://github.com/EPICSTools/ether_ip/archive/ether_ip-3-2.tar.gz
 LABEL br.cnpem.etherip=${ETHERIP_URL}
@@ -251,13 +236,6 @@ RUN cd /opt/etheripIOC/ && \
 
 COPY entrypoint.sh /opt/etheripIOC/entrypoint.sh
 ENTRYPOINT [ "/bin/bash", "/opt/etheripIOC/entrypoint.sh" ]
-
-FROM base AS delta
-COPY ./ioc/database /opt/etheripIOC/database
-COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
-ENV NAME DELTA
-ENV CMD Delta.cmd
-ENV DEVIP 1.1.1.1
 
 FROM base AS fcplc01
 COPY ./ioc/database /opt/etheripIOC/database
@@ -300,13 +278,6 @@ COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
 ENV NAME P7Skid
 ENV CMD P7Skid.cmd
 ENV DEVIP 10.0.38.249
-
-FROM base AS delta_v2
-COPY ./ioc/database /opt/etheripIOC/database
-COPY ./ioc/iocBoot /opt/etheripIOC/iocBoot
-ENV NAME DELTA-V2
-ENV CMD Delta_v2.cmd
-ENV DEVIP 1.1.1.1
 
 FROM base AS rf-si
 COPY ./ioc/database /opt/etheripIOC/database

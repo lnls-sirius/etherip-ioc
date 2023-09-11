@@ -31,35 +31,33 @@ etheripIOC_DBD += ether_ip.dbd
 etheripIOC_DBD += calcSupport.dbd
 etheripIOC_DBD += caPutLog.dbd
 etheripIOC_DBD += asSupport.dbd
-etheripIOC_DBD += pydev.dbd
 
 # Add all the support libraries needed by this IOC
 etheripIOC_LIBS += ether_ip
 etheripIOC_LIBS += calc
 etheripIOC_LIBS += caPutLog
 etheripIOC_LIBS += autosave
-etheripIOC_LIBS += pydev
-etheripIOC_LIBS += seq
+#etheripIOC_LIBS += seq
 
 # To build SNL programs, SNCSEQ must be defined
 # in the <top>/configure/RELEASE file
-ifneq ($(SNCSEQ),)
-    # Build sncSabia into etheripIOCSupport
-    #sncSabia_SNCFLAGS += +r
-    sncSabia_SNCFLAGS += +W
-    sncSabia_SNCFLAGS += +c
-    sncSabia_SNCFLAGS += +s
-    sncSabia_SNCFLAGS += -a
-    etheripIOC_DBD += sncSabia.dbd
-    etheripIOCSupport_SRCS += sncSabiaProgram.st
-    etheripIOCSupport_LIBS += seq pv
-    etheripIOC_LIBS += seq pv
-
-
-endif
+#ifneq ($(SNCSEQ),)
+#    # Build sncSabia into etheripIOCSupport
+#    #sncSabia_SNCFLAGS += +r
+#    sncSabia_SNCFLAGS += +W
+#    sncSabia_SNCFLAGS += +c
+#    sncSabia_SNCFLAGS += +s
+#    sncSabia_SNCFLAGS += -a
+#    etheripIOC_DBD += sncSabia.dbd
+#    etheripIOCSupport_SRCS += sncSabiaProgram.st
+#    etheripIOCSupport_LIBS += seq pv
+#    etheripIOC_LIBS += seq pv
+#
+#
+#endif
 
 # Link in the code from our support library
-etheripIOC_LIBS += etheripIOCSupport
+#etheripIOC_LIBS += etheripIOCSupport
 
 # | Option | Description |
 # | ------ | ----------- |
@@ -87,10 +85,10 @@ etheripIOC_LIBS += etheripIOCSupport
 # | +W | Display extra warnings for undefined objects. |
 # | -W | Suppress extra warnings. This is the default. |
 
-etheripIOC_SNCFLAGS += +W
-etheripIOC_SNCFLAGS += +c
-etheripIOC_SNCFLAGS += +s
-etheripIOC_SNCFLAGS += -a
+#etheripIOC_SNCFLAGS += +W
+#etheripIOC_SNCFLAGS += +c
+#etheripIOC_SNCFLAGS += +s
+#etheripIOC_SNCFLAGS += -a
 
 
 # etheripIOC_registerRecordDeviceDriver.cpp derives from etheripIOC.dbd

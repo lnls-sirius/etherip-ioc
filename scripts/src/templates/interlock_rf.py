@@ -64,6 +64,44 @@ record(calcout, "${name}"){
 """
 )
 
+acalcout_generic_template = Template(
+    """
+record(acalcout, "${name}"){
+    field(CALC, "${calc}")
+    field(DESC, "${desc}")
+    field(PREC, "${prec}")
+    field(EGU, "${egu}")
+    field(SCAN, "${scan}")
+    field(INPA, "${inpa}")
+    field(INPB, "${inpb}")
+    field(INPC, "${inpc}")
+    field(INPD, "${inpd}")
+    field(INPE, "${inpe}")
+    field(INPF, "${inpf}")
+    field(INPG, "${inpg}")
+    field(INPH, "${inph}")
+    field(INPI, "${inpi}")
+    field(INPJ, "${inpj}")
+    field(INPK, "${inpk}")
+    field(INPL, "${inpl}")
+    field(INAA, "${inaa}")
+    field(INBB, "${inbb}")
+    field(INCC, "${incc}")
+    field(INDD, "${indd}")
+    field(INEE, "${inee}")
+    field(INFF, "${inff}")
+    field(INGG, "${ingg}")
+    field(INHH, "${inhh}")
+    field(INII, "${inii}")
+    field(INJJ, "${injj}")
+    field(INKK, "${inkk}")
+    field(INLL, "${inll}")
+    field(FLNK, "${flnk}")
+    field(OUT,  "${out}")
+}
+"""
+)
+
 bi_soft_channel_template = Template(
     """
 record(bi, "${name}"){
@@ -162,3 +200,17 @@ record(bi, "${name}"){
 }
 """
 )
+
+wfv_template = Template(
+    """
+record(waveform, "${name}"){
+    field(INP,  "${inp}")
+    field(DESC, "${desc}")
+    field(FTVL, "${ftvl}")
+    field(NELM, "${nelm}")
+    field(PREC, "${prec}")
+    field(EGU,  "${egu}")
+}
+"""
+)
+

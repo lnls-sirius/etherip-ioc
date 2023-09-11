@@ -79,3 +79,33 @@ defaults = {
     "ffst": "",
     "ffsv": "",
 }
+class json_info:
+    class keys:
+        gen_type='type'
+        name='name'
+        desc='desc'
+        tag='tag'
+        inout='inout'
+        dtype='dtype'
+        egu='egu'
+        scan='scan'
+        prec='prec'
+        inp='inp'
+        out='out'
+        args='args'
+        cmd_high='cmdtime'
+        conv='conv'
+    class gen_type:
+        tag = 'tag'
+        conv = 'conv'
+        calc = 'calc'
+        var = 'var'
+    class inout:
+        read = 'read'
+        write = 'write'
+    class dtype:
+        bool = 'bool'
+        float = 'float'
+        int = 'int'
+        array = 'array'
+
