@@ -95,13 +95,14 @@ class RowData:
         if not self.name or self.name.startswith("-"):
             raise ValueError("Wrong name format {} tag {}".format(self.name, self.tag))
 
-        if len(self.desc) > 40:
-            self.desc = self.desc[0:40]
+        if len(self.desc) > 39:
+            self.desc = self.desc[0:39]
 
         # remove left zeros from scan period
         self.scan = self.scan.lstrip('0')
 
-        if self.scan not in SCAN_VALUES:
+        if (self.inout == json_info.inout.read
+                and self.scan not in SCAN_VALUES):
             raise ValueError(
                 'Invalid scan value "{}" defined for name "{}".'.format(
                     self.scan, self.name
