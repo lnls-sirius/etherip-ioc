@@ -1,9 +1,11 @@
-import pandas
+import json
 import logging
 import os
+import sys
 import re
 import typing
 import copy
+#import pandas
 
 from .templates.interlock_rf import (
     cmd_template,
@@ -16,8 +18,11 @@ from .templates.interlock_rf import (
     calcout_generic_template,
     bi_soft_channel_template,
     bo_soft_channel_template,
+    acalcout_generic_template,
+    wfm_template
 )
 from .consts import SCAN_VALUES
+from .consts import json_info
 
 logger = logging.getLogger()
 
@@ -27,9 +32,10 @@ list_tags_32bit_for_bool = []
 
 #########################
 
-class ColumnNames:
+class KeyNames:
     def __init__(
         self,
+        gen_type,
         name,
         desc,
         tag,
@@ -38,11 +44,18 @@ class ColumnNames:
         egu,
         scan,
         prec,
-        bo_high,
-        main_conv,
-        lower_conv,
-        upper_conv,
+        inp,
+        out,
+        args,
+        cmd_high,
+        conv,
+        val,
+        hsv,
+        hhsv,
+        lsv,
+        llsv,
     ):
+        self.gen_type = gen_type
         self.name = name
         self.desc = desc
         self.tag = tag
@@ -51,63 +64,68 @@ class ColumnNames:
         self.egu = egu
         self.scan = scan
         self.prec = prec
-        self.bo_high = bo_high
-        self.main_conv = main_conv
-        self.lower_conv = lower_conv
-        self.upper_conv = upper_conv
-
-        self.upperLimitTag = "Upper Limit"
-        self.lowerLimitTag = "Lower Limit"
-        self.upperLimitPV = "UPPER LIMIT PV NAME"
-        self.lowerLimitPV = "LOWER LIMIT PV NAME"
-
+        self.inp = inp
+        self.out = out
+        self.args = args
+        self.cmd_high = cmd_high
+        self.conv = conv
+        self.val = val
+        self.hsv = hsv
+        self.hhsv = hhsv
+        self.lsv = lsv
+        self.llsv = llsv
 
 class RowData:
-    def __init__(self, row, cols: ColumnNames):
-        self.name = row[cols.name]
-        self.desc = row[cols.desc]
-        self.tag = row[cols.tag]
-        self.inout = row[cols.inout]
-        self.dtype = row[cols.dtype]
-        self.egu = row[cols.egu]
-        self.scan = row[cols.scan]
-        self.prec = row[cols.prec]
-        self.bo_high = row[cols.bo_high]
-        self.main_conv = row[cols.main_conv]
-        self.lower_conv = row[cols.lower_conv]
-        self.upper_conv = row[cols.upper_conv]
+    def __init__(self, row, keys: KeyNames):
+        self.gen_type = row.get(keys.gen_type, "")
+        self.name = row.get(keys.name, "")
+        self.desc = row.get(keys.desc, "")
+        self.tag = row.get(keys.tag, "")
+        self.inout = row.get(keys.inout, "")
+        self.dtype = row.get(keys.dtype, "")
+        self.egu = row.get(keys.egu, "")
+        self.scan = row.get(keys.scan, "")
+        self.prec = row.get(keys.prec, "")
+        self.inp = row.get(keys.inp, "")
+        self.out = row.get(keys.out, "")
+        self.args = row.get(keys.args, "")
+        self.cmd_high = row.get(keys.cmd_high, "")
+        self.conv = row.get(keys.conv, "")
+        self.val = row.get(keys.val, "")
+        self.hsv = row.get(keys.hsv, "NO_ALARM")
+        self.hhsv = row.get(keys.hhsv, "NO_ALARM")
+        self.lsv = row.get(keys.lsv, "NO_ALARM")
+        self.llsv = row.get(keys.llsv, "NO_ALARM")
+
+        # convert alarm severity string to upper case
+        self.hsv = self.hsv.upper()
+        self.hhsv = self.hhsv.upper()
+        self.lsv = self.lsv.upper()
+        self.llsv = self.llsv.upper()
 
         if type(self.prec) != str:
             self.prec = str(self.prec)
 
-        if type(self.bo_high) != str:
-            self.bo_high = str(self.bo_high)
+        if type(self.cmd_high) != str:
+            self.cmd_high = str(self.cmd_high)
 
-        self.main_conv = self.main_conv.replace(' ','').replace('\t','')
-        self.main_conv = self.main_conv.replace('\n','').replace('\r','')
-        self.main_conv = self.main_conv.replace('pv','A').replace('**','^')
-        if self.main_conv == "":
-            self.main_conv = "A"
-
-        self.lower_conv = self.lower_conv.replace(' ','').replace('\t','')
-        self.lower_conv = self.lower_conv.replace('\n','').replace('\r','')
-        self.lower_conv = self.lower_conv.replace('pv','A').replace('**','^')
-        if self.lower_conv == "":
-            self.lower_conv = "A"
-
-        self.upper_conv = self.upper_conv.replace(' ','').replace('\t','')
-        self.upper_conv = self.upper_conv.replace('\n','').replace('\r','')
-        self.upper_conv = self.upper_conv.replace('pv','A').replace('**','^')
-        if self.upper_conv == "":
-            self.upper_conv = "A"
+        self.conv = self.conv.replace(' ','').replace('\t','')
+        self.conv = self.conv.replace('\n','').replace('\r','')
+        self.conv = self.conv.replace('pv','A').replace('**','^')
+        if self.conv == "":
+            self.conv = "A"
 
         if not self.name or self.name.startswith("-"):
             raise ValueError("Wrong name format {} tag {}".format(self.name, self.tag))
 
-        if len(self.desc) > 28:
-            self.desc = self.desc[0:28]
+        if len(self.desc) > 39:
+            self.desc = self.desc[0:39]
 
-        if self.scan not in SCAN_VALUES:
+        # remove left zeros from scan period
+        self.scan = self.scan.lstrip('0')
+
+        if (self.inout == json_info.inout.read
+                and self.scan not in SCAN_VALUES):
             raise ValueError(
                 'Invalid scan value "{}" defined for name "{}".'.format(
                     self.scan, self.name
@@ -119,51 +137,10 @@ class RowData:
             "" if type(self.egu) == float else re.sub(r"[^A-Za-z0-9 ]+", "", self.egu)
         )
 
-        if not self.tag or type(self.tag) != str or self.tag == "" or self.tag == "N/A":
+        if (self.gen_type == json_info.gen_type.tag
+                and (not self.tag or type(self.tag) != str
+                    or self.tag == "" or self.tag == "N/A")):
             raise ValueError("Invalid tag for record {}".format(self.name))
-
-        self.lower_lim_tag = row[cols.lowerLimitTag]
-        self.upper_lim_tag = row[cols.upperLimitTag]
-
-        self.lower_lim_pv = row[cols.lowerLimitPV]
-        self.upper_lim_pv = row[cols.upperLimitPV]
-
-
-class Limits:
-    def __init__(self):
-        self.lower_tags = {}
-        self.upper_tags = {}
-
-    def add_row(self, row: RowData):
-        count = 0
-        if row.upper_lim_tag != "":
-            if row.upper_lim_tag not in self.upper_tags:
-                self.upper_tags[row.upper_lim_tag] = []
-            self.upper_tags[row.upper_lim_tag].append(row)
-            count += 1
-
-        if row.lower_lim_tag != "":
-            if row.lower_lim_tag not in self.lower_tags:
-                self.lower_tags[row.lower_lim_tag] = []
-            self.lower_tags[row.lower_lim_tag].append(row)
-            count += 1
-
-        return count
-
-    def upper_tags_items(
-        self,
-    ) -> typing.Generator[typing.Tuple[int, RowData], None, None]:
-        for k, v in self.upper_tags.items():
-            for i in v:
-                yield k, i
-
-    def lower_tags_items(
-        self,
-    ) -> typing.Generator[typing.Tuple[int, RowData], None, None]:
-        for k, v in self.lower_tags.items():
-            for i in v:
-                yield k, i
-
 
 def generate_cmd_file(base_path, arch, ioc_name, plc_module, plc_name):
     filename = (
@@ -180,9 +157,8 @@ def generate_cmd_file(base_path, arch, ioc_name, plc_module, plc_name):
             )
         )
 
-
-def generate_bi_record(data: RowData, file):
-    file.write(
+def generate_bi_record(data: RowData, file_handler):
+    file_handler.write(
         bi_template.safe_substitute(
             desc=data.desc,
             name=data.name,
@@ -190,12 +166,12 @@ def generate_bi_record(data: RowData, file):
             scan=data.scan,
             tag=data.tag,
             znam="False",
+            val=data.val,
         )
     )
 
-
-def generate_bo_record(data: RowData, file):
-    file.write(
+def generate_bo_record(data: RowData, file_handler):
+    file_handler.write(
         bo_template.safe_substitute(
             desc=data.desc,
             name=data.name,
@@ -203,13 +179,12 @@ def generate_bo_record(data: RowData, file):
             scan=data.scan,
             tag=data.tag,
             znam="False",
-            high=data.bo_high,
+            high=data.cmd_high,
         )
     )
 
-
-def generate_ai_record(data: RowData, file):
-    file.write(
+def generate_ai_record(data: RowData, file_handler):
+    file_handler.write(
         ai_template.safe_substitute(
             desc=data.desc,
             egu=data.egu,
@@ -217,11 +192,28 @@ def generate_ai_record(data: RowData, file):
             prec=data.prec,
             scan=data.scan,
             tag=data.tag,
+            val=data.val,
+            hsv=data.hsv,
+            hhsv=data.hhsv,
+            lsv=data.lsv,
+            llsv=data.llsv,
         )
     )
-
-def generate_ao_record(data: RowData, file):
-    file.write(
+def generate_wfm_record(data: RowData, file_handler):
+    elem_count = len(data.val.split(','))
+    file_handler.write(
+        wfm_template.safe_substitute(
+            name=data.name,
+            inp=data.val,
+            desc=data.desc,
+            ftvl='DOUBLE',
+            nelm=elem_count,
+            prec=data.prec,
+            egu=data.egu,
+        )
+    )
+def generate_ao_record(data: RowData, file_handler):
+    file_handler.write(
         ao_template.safe_substitute(
             desc=data.desc,
             egu=data.egu,
@@ -232,7 +224,7 @@ def generate_ao_record(data: RowData, file):
         )
     )
 
-def generate_bi_from_bit(input_pv, shift_str, data: RowData, file):
+def generate_bi_from_bit(input_pv, shift_str, data: RowData, file_handler):
     aux_calc_name = data.name
     aux_calc_name = aux_calc_name.replace('-SP', '')
     aux_calc_name = aux_calc_name.replace('-Sel', '')
@@ -242,7 +234,7 @@ def generate_bi_from_bit(input_pv, shift_str, data: RowData, file):
     aux_calc_name = aux_calc_name.replace('-Mon', '')
     aux_calc_name = aux_calc_name + 'InCalc'
     calc_desc = "Aux calc for " + data.name
-    file.write(
+    file_handler.write(
         calcout_generic_template.safe_substitute(
             name=aux_calc_name,
             desc=calc_desc[0:40],
@@ -266,7 +258,7 @@ def generate_bi_from_bit(input_pv, shift_str, data: RowData, file):
             prec="",
         )
     )
-    file.write(
+    file_handler.write(
         bi_soft_channel_template.safe_substitute(
             desc=data.desc,
             name=data.name,
@@ -278,7 +270,7 @@ def generate_bi_from_bit(input_pv, shift_str, data: RowData, file):
         )
     )
 
-def generate_bo_from_bit(output_pv, shift_str, data: RowData, file):
+def generate_bo_from_bit(output_pv, shift_str, data: RowData, file_handler):
     aux_calc_name = data.name
     aux_calc_name = aux_calc_name.replace('-SP', '')
     aux_calc_name = aux_calc_name.replace('-Sel', '')
@@ -287,7 +279,7 @@ def generate_bo_from_bit(output_pv, shift_str, data: RowData, file):
     aux_calc_name = aux_calc_name.replace('-Cmd', '')
     aux_calc_name = aux_calc_name.replace('-Mon', '')
     aux_calc_name = aux_calc_name + 'OutCalc'
-    file.write(
+    file_handler.write(
         bo_soft_channel_template.safe_substitute(
             desc=data.desc,
             name=data.name,
@@ -296,11 +288,11 @@ def generate_bo_from_bit(output_pv, shift_str, data: RowData, file):
             out=aux_calc_name + ".PROC",
             out_type="PP",
             znam="False",
-            high=data.bo_high,
+            high=data.cmd_high,
         )
     )
     calc_desc = "Aux calc for " + data.name
-    file.write(
+    file_handler.write(
         calcout_generic_template.safe_substitute(
             name=aux_calc_name,
             desc=calc_desc[0:40],
@@ -335,8 +327,31 @@ def split_bit_notation(tag_name):
     dot_idx = tag_name.rfind('.')
     return (tag_name[:dot_idx], tag_name[dot_idx+1:])
 
-def generate_by_record_type(data: RowData, file):
-    if data.dtype == "Digital":
+def generate_var_type_record(data: RowData, file_handler):
+    if data.dtype == json_info.dtype.bool:
+        generate_bi_record(data, file_handler)
+    elif (data.dtype == json_info.dtype.float
+            or data.dtype == json_info.dtype.int):
+        generate_ai_record(data, file_handler)
+    elif data.dtype == json_info.dtype.array:
+        generate_wfm_record(data, file_handler)
+
+def generate_calc_type_record(data: RowData, file_handler):
+    generate_conv_calc(
+            file_handler, name=data.name, inp=data.inp,
+            calc=data.conv, prec=data.prec,
+            egu=data.egu, out=data.out, desc=data.desc)
+    return
+
+def generate_conv_type_record(data: RowData, file_handler):
+    generate_polyn_calc(
+            file_handler, name=data.name, inp=data.inp,
+            prec=data.prec, egu=data.egu, nelm=20,
+            out=data.out, desc=data.desc, args=data.args)
+    return
+
+def generate_tag_type_record(data: RowData, file_handler):
+    if data.dtype == json_info.dtype.bool:
         # treat the case when bit from tag is specified
         if has_bit_notation(data.tag):
             tag_str, shift_str = split_bit_notation(data.tag)
@@ -359,36 +374,36 @@ def generate_by_record_type(data: RowData, file):
             data_32bit_tag.desc = '32bit PV for tag ' + tag_str
             if not data_32bit_tag.tag in list_tags_32bit_for_bool:
                 list_tags_32bit_for_bool.append(data_32bit_tag.tag)
-                generate_ao_record(data_32bit_tag, file)
-            if data.inout == "Input" or data.inout == "Output":
+                generate_ao_record(data_32bit_tag, file_handler)
+            if data.inout == json_info.inout.read:
                 generate_bi_from_bit(
-                    data_32bit_tag.name, shift_str, data, file
+                    data_32bit_tag.name, shift_str, data, file_handler
                 )
-            elif data.inout == "Control":
+            elif data.inout == json_info.inout.write:
                 generate_bo_from_bit(
-                    data_32bit_tag.name, shift_str, data, file
+                    data_32bit_tag.name, shift_str, data, file_handler
                 )
         # other cases
-        elif data.inout == "Input" or data.inout == "Output":
-            generate_bi_record(data, file)
-        elif data.inout == "Control":
-            generate_bo_record(data, file)
+        elif data.inout == json_info.inout.read:
+            generate_bi_record(data, file_handler)
+        elif data.inout == json_info.inout.write:
+            generate_bo_record(data, file_handler)
         else:
             raise ValueError('Invalid Type "{}".'.format(data.inout + "  " + data.name))
 
-    elif data.dtype == "Analog":
-        if data.inout == "Input":
-            if data.main_conv == "A":
-                generate_ai_record(data, file)
+    elif data.dtype == json_info.dtype.float:
+        if data.inout == json_info.inout.read:
+            if data.conv == "A":
+                generate_ai_record(data, file_handler)
             else:
                 data_copy = copy.copy(data)
                 data_copy.name = remove_pv_suffix(data.name) + 'Raw'
                 data_copy.desc = "Raw " + data.desc
                 data_copy.desc = data.desc[0:40]
-                generate_ai_record(data_copy, file)
+                generate_ai_record(data_copy, file_handler)
                 generate_conv_calc(
-                    file, name=data.name, inp=data_copy.name,
-                    calc=data.main_conv, prec=data.prec,
+                    file_handler, name=data.name, inp=data_copy.name,
+                    calc=data.conv, prec=data.prec,
                     egu=data.egu, desc=data.desc
                 )
         else:
@@ -397,43 +412,36 @@ def generate_by_record_type(data: RowData, file):
         raise ValueError("Unknown data type {} at {}".format(data.dtype, data.name))
 
 
-def rows_from_sheets_generator(spreadsheet_path, sheet_names):
-    for sheet_name in sheet_names:
-        sheet = pandas.read_excel(spreadsheet_path, sheet_name=sheet_name, dtype=str, engine="openpyxl")
-        replace_info = {"\n": ""}
-        sheet.replace(replace_info, inplace=True, regex=True)
-        sheet.fillna("", inplace=True)
-        for _, row in sheet.iterrows():
-            yield row, sheet_name
+#def dict_from_sheets_generator(spreadsheet_path, sheet_names):
+#    for sheet_name in sheet_names:
+#        sheet = pandas.read_excel(spreadsheet_path, sheet_name=sheet_name, dtype=str, engine="openpyxl")
+#        replace_info = {"\n": ""}
+#        sheet.replace(replace_info, inplace=True, regex=True)
+#        sheet.fillna("", inplace=True)
+#        row_dict_list = sheet.to_dict(orient='records')
+#        with open("../etc/"+sheet_name, 'w+') as f:
+#            for line in row_dict_list:
+#                f.write("%s\n" % line)
+#        for d in row_dict_list:
+#            yield d, sheet_name
 
-def dict_from_sheets_generator(spreadsheet_path, sheet_names):
-    for sheet_name in sheet_names:
-        sheet = pandas.read_excel(spreadsheet_path, sheet_name=sheet_name, dtype=str, engine="openpyxl")
-        replace_info = {"\n": ""}
-        sheet.replace(replace_info, inplace=True, regex=True)
-        sheet.fillna("", inplace=True)
-        row_dict_list = sheet.to_dict(orient='records')
-        with open("../etc/"+sheet_name, 'w+') as f:
-            for line in row_dict_list:
-                f.write("%s\n" % line)
-        for d in row_dict_list:
-            yield d, sheet_name
+#def json_from_sheets_generator(spreadsheet_path, sheet_names):
+#    for sheet_name in sheet_names:
+#        sheet = pandas.read_excel(spreadsheet_path, sheet_name=sheet_name, dtype=str, engine="openpyxl")
+#        replace_info = {"\n": ""}
+#        sheet.replace(replace_info, inplace=True, regex=True)
+#        sheet.fillna("", inplace=True)
+#        row_dict_list = sheet.to_dict(orient='records')
+#        with open("../etc/"+sheet_name, 'w+') as f:
+#            for line in row_dict_list:
+#                f.write("%s\n" % line)
 
-def make_pv_from_tag(tag):
-    return "$(P):{}".format(re.sub(r"[^A-Za-z0-9]+", "_", tag))
-
-
-def generate_tag_record(f, tag_pv, tag):
-    f.write(
-        ai_template.safe_substitute(
-            name=tag_pv,
-            tag=tag,
-            desc=tag,
-            egu="",
-            prec="4",
-            scan="5",
-        )
-    )
+def parse_json_generator(json_paths):
+    for json_path in json_paths:
+        with open(json_path, 'r') as f:
+            data_list = json.load(f)
+        for data_dict in data_list:
+            yield data_dict, json_path
 
 def generate_conv_calc(f, name, inp, calc, prec, egu, out="", desc=""):
     f.write(
@@ -461,32 +469,42 @@ def generate_conv_calc(f, name, inp, calc, prec, egu, out="", desc=""):
         )
     )
 
-def generate_tag_intermediate_record(f, name, tag_pv, prec, egu):
+def generate_polyn_calc(f, name, inp, prec, egu, nelm, out="", desc="", args=""):
     f.write(
-        ao_template_closed_loop.safe_substitute(
+        acalcout_generic_template.safe_substitute(
             name=name,
-            name_in=tag_pv,
-            desc="Upper limits from PLC",
+            desc=desc,
+            scan="Passive",
+            inpa=inp+" CP",
+            inpb=args+".NELM",
+            inaa=args,
+            calc="L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C",
             egu=egu,
             prec=prec,
-        )
-    )
-
-
-def generate_tag_field_record(
-    f,
-    target_name,
-    target_field,
-    name_in,
-    offset,
-):
-    f.write(
-        calcout_template_field.safe_substitute(
-            name=target_name + "_" + target_field,
-            name_clp=name_in,
-            name_target=target_name,
-            offset=offset,
-            field=target_field,
+            out=out,
+            nelm=nelm,
+            inpc="",
+            inpd="",
+            inpe="",
+            inpf="",
+            inpg="",
+            inph="",
+            inpi="",
+            inpj="",
+            inpk="",
+            inpl="",
+            inbb="",
+            incc="",
+            indd="",
+            inee="",
+            inff="",
+            ingg="",
+            inhh="",
+            inii="",
+            injj="",
+            inkk="",
+            inll="",
+            flnk="",
         )
     )
 
@@ -500,141 +518,47 @@ def remove_pv_suffix(pv_name):
     pv_name = pv_name.replace('-Cte','')
     return pv_name
 
-def generate_tag_set(
-    generated_tags,
-    f,
-    tag,
-    name,
-    calc,
-    prec,
-    egu,
-    lim_pv,
-    major_name,
-    major_offset,
-    minor_name,
-    minor_offset,
-):
-    tag_pv = make_pv_from_tag(tag)
-    if tag not in generated_tags:
-        generate_tag_record(f, tag_pv, tag)
-        generated_tags.add(tag)
-
-    generate_conv_calc(
-            f, name=lim_pv, inp=tag_pv, calc=calc,
-            prec=prec, egu=egu, desc="Upper limits from PLC"
-            )
-
-    #intermediate_pv = remove_pv_suffix(lim_pv)+'Calc'
-    #generate_tag_intermediate_record(
-    #        f, name=intermediate_pv,
-    #        tag_pv=lim_pv, prec=prec, egu=egu
-    #        )
-    generate_tag_field_record(
-        f,
-        target_name=name,
-        target_field=major_name,
-        name_in=lim_pv,
-        offset=major_offset,
-    )
-    generate_tag_field_record(
-        f,
-        target_name=name,
-        target_field=minor_name,
-        name_in=lim_pv,
-        offset=minor_offset,
-    )
-
-
-def generate_limit_records(limit_tags: Limits, f):
-    generated_tags = set()
-    for tag, row in limit_tags.upper_tags_items():
-        generate_tag_set(
-            generated_tags,
-            f,
-            tag,
-            name=row.name,
-            calc=row.upper_conv,
-            prec=row.prec,
-            egu=row.egu,
-            lim_pv=row.upper_lim_pv,
-            major_name="HIHI",
-            major_offset="-0.5",
-            minor_name="HIGH",
-            minor_offset="-1.0",
-        )
-    for tag, row in limit_tags.lower_tags_items():
-        generate_tag_set(
-            generated_tags,
-            f=f,
-            tag=tag,
-            name=row.name,
-            calc=row.lower_conv,
-            prec=row.prec,
-            egu=row.egu,
-            lim_pv=row.lower_lim_pv,
-            major_name="LOLO",
-            major_offset="+0.5",
-            minor_name="LOW",
-            minor_offset="+1.0",
-        )
-
-
 def generate_records_from_row(
-    row, sheet_name, file, column_names: ColumnNames, tags, limit_tags: Limits
-):
+    row, json_name, file_handler, key_names: KeyNames, tags):
     try:
-        data = RowData(row, column_names)
-
-        if data.tag not in tags:
-            tags[data.tag] = [data.name]
-        else:
-            tags[data.tag].append(data.name)
-
-        generate_by_record_type(data, file)
-
-        limit_tags.add_row(data)
-
+        data = RowData(row, key_names)
+        if data.gen_type == json_info.gen_type.tag:
+            if data.tag not in tags:
+                tags[data.tag] = [data.name]
+            else:
+                tags[data.tag].append(data.name)
+            generate_tag_type_record(data, file_handler)
+        elif data.gen_type == json_info.gen_type.conv:
+            generate_conv_type_record(data, file_handler)
+        elif data.gen_type == json_info.gen_type.calc:
+            generate_calc_type_record(data, file_handler)
+        elif data.gen_type == json_info.gen_type.var:
+            generate_var_type_record(data, file_handler)
     except ValueError as e:
-        logger.error("Record Generation [{}]: {}".format(sheet_name, e))
-
+        logger.error("Record Generation [{}]: {}".format(json_name, e))
     for tag, vals in tags.items():
         if len(vals) > 1:
             logger.error('Tag "{}" already exists {}.'.format(tag, tags[tag]))
 
-
 def get_database_path(base_path, name):
     return os.path.join(base_path, "../ioc/database/") + name + ".db"
 
-
 def generate_db_file(
-    base_path, spreadsheet_path, ioc_name, sheet_names, column_names: ColumnNames
+    base_path, json_paths, ioc_name, key_names: KeyNames
 ):
 
-    IOC_DATABASE_PATH = get_database_path(base_path, ioc_name)
-    IOC_LIMITS_DATABASE_PATH = get_database_path(base_path, ioc_name + "-Limits")
-
+    ioc_database_path = get_database_path(base_path, ioc_name)
     tags = {}
-    logger.info('Generating "{}.db" file at "{}".'.format(ioc_name, IOC_DATABASE_PATH))
-
-    limits = Limits()
-
-    with open(IOC_DATABASE_PATH, "w+") as f:
-        for row, sheet_name in dict_from_sheets_generator(
-            spreadsheet_path=spreadsheet_path, sheet_names=sheet_names
-        ):
+    logger.info('Generating "{}.db" file at "{}".'.format(ioc_name, ioc_database_path))
+    with open(ioc_database_path, "w+") as f:
+        for row, json_name in parse_json_generator(json_paths=json_paths):
             generate_records_from_row(
                 row=row,
-                sheet_name=sheet_name,
-                column_names=column_names,
-                file=f,
+                json_name=json_name,
+                key_names=key_names,
+                file_handler=f,
                 tags=tags,
-                limit_tags=limits,
             )
-
-    logger.info('Generating "{}" file.'.format(IOC_LIMITS_DATABASE_PATH))
-    with open(IOC_LIMITS_DATABASE_PATH, "w+") as f:
-        generate_limit_records(limits, f)
-
 
 def generate(args, base_path):
     logger.info("Args, {}.".format(vars(args)))
@@ -646,6 +570,15 @@ def generate(args, base_path):
     plc_name = args.plc_name
     sheet_names = args.sheet.split(",")
     spreadsheet_path = args.spreadsheet
+    json_paths = args.json.split(",")
+
+    if spreadsheet_path != "" and json_paths != "":
+        logger.error("Cannot generated IOC from both JSON and spreadsheet: specify only one option.")
+        sys.exit(1)
+    elif spreadsheet_path != "" and  len(sheet_names) > 0:
+        # create json files and return paths
+        #json_paths = json_from_sheets_generator(spreadsheet_path, sheet_names)
+        logger.error("Spreadsheet option is currently not support: specify json file instead.")
 
     generate_cmd_file(
         base_path=base_path,
@@ -655,25 +588,31 @@ def generate(args, base_path):
         plc_name=plc_name,
     )
 
-    column_names = ColumnNames(
-        name=args.col_pv,
-        desc=args.col_desc,
-        tag=args.col_tag,
-        inout=args.col_inout,
-        dtype=args.col_dtype,
-        egu=args.col_egu,
-        scan=args.col_scan,
-        prec=args.col_prec,
-        bo_high=args.col_bo_high,
-        main_conv=args.col_main_conv,
-        lower_conv=args.col_lower_conv,
-        upper_conv=args.col_upper_conv,
+    key_names = KeyNames(
+        gen_type=json_info.keys.gen_type,
+        name=json_info.keys.name,
+        desc=json_info.keys.desc,
+        tag=json_info.keys.tag,
+        inout=json_info.keys.inout,
+        dtype=json_info.keys.dtype,
+        egu=json_info.keys.egu,
+        scan=json_info.keys.scan,
+        prec=json_info.keys.prec,
+        inp=json_info.keys.inp,
+        out=json_info.keys.out,
+        args=json_info.keys.args,
+        cmd_high=json_info.keys.cmd_high,
+        conv=json_info.keys.conv,
+        val=json_info.keys.val,
+        hsv=json_info.keys.hsv,
+        hhsv=json_info.keys.hhsv,
+        lsv=json_info.keys.lsv,
+        llsv=json_info.keys.llsv,
     )
 
     generate_db_file(
         base_path=base_path,
-        spreadsheet_path=spreadsheet_path,
+        json_paths=json_paths,
         ioc_name=ioc_name,
-        sheet_names=sheet_names,
-        column_names=column_names,
+        key_names=key_names,
     )

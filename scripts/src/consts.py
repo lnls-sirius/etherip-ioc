@@ -95,6 +95,11 @@ class json_info:
         args='args'
         cmd_high='cmdtime'
         conv='conv'
+        val='val'
+        hsv='hsv'
+        hhsv='hhsv'
+        lsv='lsv'
+        llsv='llsv'
     class gen_type:
         tag = 'tag'
         conv = 'conv'

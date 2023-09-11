@@ -5,7 +5,7 @@ import logging
 import os
 
 from src.consts import SCAN_VALUES
-from src.ioc_new import generate
+from src.ioc import generate
 
 logger = logging.getLogger()
 
@@ -25,7 +25,7 @@ def get_args():
             SCAN_VALUES
         )
     )
-    parser.add_argument("spreadsheet", help="Excel spreadsheet location.")
+    parser.add_argument("--json", required=True, help="JSON files with specification.")
     parser.add_argument(
         "--plc-name",
         required=True,
@@ -38,40 +38,17 @@ def get_args():
         dest="plc_module",
         help="Modulus of the variables to be archived in PLC.",
     )
-
-    parser.add_argument("--col-desc", default="Description", help="Desc column name.")
-    parser.add_argument(
-        "--col-dtype", default="Data Type", help="Data type column name."
-    )
-    parser.add_argument("--col-egu", default="EGU", help="EPICS egu column name.")
-    parser.add_argument(
-        "--col-inout", default="In/Out", help="Input/Output column name."
-    )
-    parser.add_argument("--col-prec", default="Prec", help="EPICS scan time.")
-    parser.add_argument("--col-pv", default="NAME", help="PV column name.")
-    parser.add_argument("--col-scan", default="Scan", help="EPICS scan time.")
-    parser.add_argument("--col-tag", default="TAG", help="Desc column name.")
-    parser.add_argument("--col-bo-high", default="Cmd Duration",
-            help="Time before the boolean returns to zero.")
-    parser.add_argument("--col-main-conv", default="PV Conversion",
-            help="Conversion calc to apply to main tag value.")
-    parser.add_argument("--col-lower-conv", default="Lower Limit Conversion",
-            help="Conversion calc to apply to tag lower limit value.")
-    parser.add_argument("--col-upper-conv", default="Upper Limit Conversion",
-            help="Conversion calc to apply to tag upper limit value.")
     parser.add_argument("--ioc-name", required=True, help="IOC name.")
-    parser.add_argument("--sheet", required=True, help="Sheet name.")
-
+    parser.add_argument("--spreadsheet", required=False, default="", help="Excel spreadsheet location.")
+    parser.add_argument("--sheet", required=False, default="", help="Sheet name.")
     parser.add_argument(
         "--arch",
         choices=["linux-x86_64", "linux-arm"],
         default="linux-x86_64",
         help="System architecture.",
     )
-
     args = parser.parse_args()
     return args
-
 
 if __name__ == "__main__":
     config_logger(logger)

@@ -30,8 +30,6 @@ EIP_verbosity(7)
 drvEtherIP_define_PLC("${plc}", "$(DEVIP)", ${module})
 
 dbLoadRecords("database/${database}.db", "PLC=${plc}")
-dbLoadRecords("database/${database}-Calc.db", "PLC=${plc}")
-dbLoadRecords("database/${database}-Limits.db", "PLC=${plc},P=$(NAME)")
 iocInit()
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
@@ -71,6 +69,7 @@ record(acalcout, "${name}"){
     field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU, "${egu}")
+    field(NELM, "${nelm}")
     field(SCAN, "${scan}")
     field(INPA, "${inpa}")
     field(INPB, "${inpb}")
@@ -136,6 +135,11 @@ record(ai, "${name}"){
     field(SCAN, "${scan} second")
     field(PREC, "${prec}")
     field(EGU,  "${egu}")
+    field(VAL,  "${val}")
+    field(HSV,  "${hsv}")
+    field(HHSV,  "${hhsv}")
+    field(LSV,  "${lsv}")
+    field(LLSV,  "${llsv}")
 }
 """
 )
@@ -197,11 +201,12 @@ record(bi, "${name}"){
     field(SCAN, "${scan} second")
     field(ONAM, "${onam}")
     field(ZNAM, "${znam}")
+    field(VAL, "${val}")
 }
 """
 )
 
-wfv_template = Template(
+wfm_template = Template(
     """
 record(waveform, "${name}"){
     field(INP,  "${inp}")
