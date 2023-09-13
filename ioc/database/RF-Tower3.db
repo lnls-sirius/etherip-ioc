@@ -3915,17 +3915,9 @@ record(bi, "RA-ToSIA03:RF-Intlk:IntlkACPanel-Mon"){
     field(VAL, "")
 }
 
-record(ao, "Memorias_19__32bit"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[19] S .1")
-    field(DESC, "32bit PV for tag Memorias[19]")
-    field(SCAN, "Passive")
-    field(PREC, "")
-    field(EGU,  "")
-}
-
 record(bo, "RA-ToSIA03:RF-SSAmpTower:Enbl-Cmd"){
-    field(OUT, "RA-ToSIA03:RF-SSAmpTower:EnblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_03_Enbl S .1")
     field(DESC, "Torre 03 Enbl")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -3933,56 +3925,14 @@ record(bo, "RA-ToSIA03:RF-SSAmpTower:Enbl-Cmd"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblOutCalc"){
-    field(CALC, "C:=1<<16;((~(B&C))&B)+(A<<16)")
-    field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:En")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA03:RF-SSAmpTower:Enbl-Cmd NPP")
-    field(INPB, "Memorias_19__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_19__32bit PP")
-}
-
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblStsInCalc"){
-    field(CALC, "1 & (A >> 17)")
-    field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:En")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, ".1 second")
-    field(INPA, "Memorias_19__32bit NPP")
-    field(INPB, "")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "RA-ToSIA03:RF-SSAmpTower:EnblSts-Mon PP")
-}
-
 record(bi, "RA-ToSIA03:RF-SSAmpTower:EnblSts-Mon"){
-    field(INP, "RA-ToSIA03:RF-SSAmpTower:EnblStsInCalc NPP")
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) ToSIA_03_Enbl_Sts")
     field(DESC, "Torre 03 Enbl Sts")
-    field(SCAN, "Passive")
+    field(SCAN, ".1 second")
     field(ONAM, "True")
     field(ZNAM, "False")
+    field(VAL, "")
 }
 
 record(calcout, "RA-ToSIA03:RF-CtrlPanel:PwrStsInCalc"){
