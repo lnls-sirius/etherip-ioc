@@ -2306,10 +2306,10 @@
   {
     "type": "tag",
     "desc": "Torre 03 Enbl",
-    "name": "RA-ToSIA03:RF-SSAmpTower:Enbl-Sel",
+    "name": "RA-ToSIA03:RF-SSAmpTower:Enbl-Cmd",
     "dtype": "bool",
     "inout": "write",
-    "cmdtime": "",
+    "cmdtime": "0.5",
     "tag": "Memorias[19].16",
     "egu": "",
     "scan": "0.1",
@@ -2322,7 +2322,7 @@
   {
     "type": "tag",
     "desc": "Torre 03 Enbl Sts",
-    "name": "RA-ToSIA03:RF-SSAmpTower:Enbl-Sts",
+    "name": "RA-ToSIA03:RF-SSAmpTower:EnblSts-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",

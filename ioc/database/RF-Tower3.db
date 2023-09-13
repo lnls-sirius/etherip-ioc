@@ -3924,13 +3924,13 @@ record(ao, "Memorias_19__32bit"){
     field(EGU,  "")
 }
 
-record(bo, "RA-ToSIA03:RF-SSAmpTower:Enbl-Sel"){
+record(bo, "RA-ToSIA03:RF-SSAmpTower:Enbl-Cmd"){
     field(OUT, "RA-ToSIA03:RF-SSAmpTower:EnblOutCalc.PROC PP")
     field(DESC, "Torre 03 Enbl")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
-    field(HIGH, "")
+    field(HIGH, "0.5")
 }
 
 record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblOutCalc"){
@@ -3939,7 +3939,7 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblOutCalc"){
     field(PREC, "")
     field(EGU, "")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA03:RF-SSAmpTower:Enbl-Sel NPP")
+    field(INPA, "RA-ToSIA03:RF-SSAmpTower:Enbl-Cmd NPP")
     field(INPB, "Memorias_19__32bit NPP")
     field(INPC, "")
     field(INPD, "")
@@ -3955,7 +3955,7 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblOutCalc"){
     field(OUT,  "Memorias_19__32bit PP")
 }
 
-record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblInCalc"){
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblStsInCalc"){
     field(CALC, "1 & (A >> 17)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:En")
     field(PREC, "")
@@ -3974,11 +3974,11 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:EnblInCalc"){
     field(INPK, "")
     field(INPL, "")
     field(FLNK, "")
-    field(OUT,  "RA-ToSIA03:RF-SSAmpTower:Enbl-Sts PP")
+    field(OUT,  "RA-ToSIA03:RF-SSAmpTower:EnblSts-Mon PP")
 }
 
-record(bi, "RA-ToSIA03:RF-SSAmpTower:Enbl-Sts"){
-    field(INP, "RA-ToSIA03:RF-SSAmpTower:EnblInCalc NPP")
+record(bi, "RA-ToSIA03:RF-SSAmpTower:EnblSts-Mon"){
+    field(INP, "RA-ToSIA03:RF-SSAmpTower:EnblStsInCalc NPP")
     field(DESC, "Torre 03 Enbl Sts")
     field(SCAN, "Passive")
     field(ONAM, "True")
