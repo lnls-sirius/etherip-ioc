@@ -1,0 +1,18 @@
+[
+  {
+    "type": "tag",
+    "desc": "Reset de Falhas Rack Interlock Sistema Anel B",
+    "name": "RA-RaSIB02:RF-Intlk:Reset-Cmd",
+    "dtype": "bool",
+    "inout": "write",
+    "cmdtime": "0.5",
+    "tag": "RaSIB02_Intlk_Reset",
+    "egu": "",
+    "scan": "0.1",
+    "prec": "",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
+  }
+]

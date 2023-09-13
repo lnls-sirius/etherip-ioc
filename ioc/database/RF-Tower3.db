@@ -38,17 +38,9 @@ record(bi, "RA-ToSIA03:RF-ACPanel:PwrACOp-Mon"){
     field(ZNAM, "False")
 }
 
-record(ao, "Memorias_2__32bit"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) Memorias[2] S .1")
-    field(DESC, "32bit PV for tag Memorias[2]")
-    field(SCAN, "Passive")
-    field(PREC, "")
-    field(EGU,  "")
-}
-
 record(bo, "RA-ToSIA03:RF-ACPanel:PwrACDsbl-Cmd"){
-    field(OUT, "RA-ToSIA03:RF-ACPanel:PwrACDsblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_03_Pwr_ACDSBL S .1")
     field(DESC, "AC das Fontes TDK Torre 03 Off")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -56,30 +48,9 @@ record(bo, "RA-ToSIA03:RF-ACPanel:PwrACDsbl-Cmd"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACDsblOutCalc"){
-    field(CALC, "C:=1<<28;((~(B&C))&B)+(A<<28)")
-    field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PwrAC")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA03:RF-ACPanel:PwrACDsbl-Cmd NPP")
-    field(INPB, "Memorias_2__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_2__32bit PP")
-}
-
 record(bo, "RA-ToSIA03:RF-ACPanel:PwrACEnbl-Cmd"){
-    field(OUT, "RA-ToSIA03:RF-ACPanel:PwrACEnblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_03_Pwr_ACENBL S .1")
     field(DESC, "AC das Fontes TDK Torre 03 On")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -87,26 +58,13 @@ record(bo, "RA-ToSIA03:RF-ACPanel:PwrACEnbl-Cmd"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACEnblOutCalc"){
-    field(CALC, "C:=1<<0;((~(B&C))&B)+(A<<0)")
-    field(DESC, "Aux calc for RA-ToSIA03:RF-ACPanel:PwrAC")
-    field(PREC, "")
-    field(EGU, "")
+record(ao, "Memorias_2__32bit"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) Memorias[2] S .1")
+    field(DESC, "32bit PV for tag Memorias[2]")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA03:RF-ACPanel:PwrACEnbl-Cmd NPP")
-    field(INPB, "Memorias_3__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_3__32bit PP")
+    field(PREC, "")
+    field(EGU,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-ACPanel:PwrACInCalc"){
@@ -216,10 +174,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H01A:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H01A:TUpperLimit-Cte"){
@@ -346,10 +304,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H01B:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H01B:TUpperLimit-Cte"){
@@ -476,10 +434,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H02A:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H02A:TUpperLimit-Cte"){
@@ -606,10 +564,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H02B:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H02B:TUpperLimit-Cte"){
@@ -736,10 +694,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H03A:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H03A:TUpperLimit-Cte"){
@@ -866,10 +824,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H03B:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H03B:TUpperLimit-Cte"){
@@ -996,10 +954,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H04A:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H04A:TUpperLimit-Cte"){
@@ -1126,10 +1084,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H04B:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H04B:TUpperLimit-Cte"){
@@ -1256,10 +1214,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H05A:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H05A:TUpperLimit-Cte"){
@@ -1386,10 +1344,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H05B:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H05B:TUpperLimit-Cte"){
@@ -1516,10 +1474,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H06A:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H06A:TUpperLimit-Cte"){
@@ -1646,10 +1604,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H06B:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H06B:TUpperLimit-Cte"){
@@ -1776,10 +1734,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H07A:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H07A:TUpperLimit-Cte"){
@@ -1906,10 +1864,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H07B:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H07B:TUpperLimit-Cte"){
@@ -2036,10 +1994,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H08A:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H08A:TUpperLimit-Cte"){
@@ -2166,10 +2124,10 @@ record(ai, "RA-ToSIA03:RF-HeatSink-H08B:T-Mon"){
     field(PREC, "2")
     field(EGU,  "C")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-HeatSink-H08B:TUpperLimit-Cte"){
@@ -3798,7 +3756,8 @@ record(bi, "RA-ToSIA03:RF-SSAmpTower:HdFlwRt-Mon"){
 }
 
 record(bo, "RA-ToSIA03:RF-TDKSource:PwrDCDsbl-Cmd"){
-    field(OUT, "RA-ToSIA03:RF-TDKSource:PwrDCDsblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_03_Pwr_DCDSBL S .1")
     field(DESC, "48V das Fontes TDK Torre 03 Off")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -3806,57 +3765,14 @@ record(bo, "RA-ToSIA03:RF-TDKSource:PwrDCDsbl-Cmd"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA03:RF-TDKSource:PwrDCDsblOutCalc"){
-    field(CALC, "C:=1<<30;((~(B&C))&B)+(A<<30)")
-    field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource:Pwr")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA03:RF-TDKSource:PwrDCDsbl-Cmd NPP")
-    field(INPB, "Memorias_2__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_2__32bit PP")
-}
-
 record(bo, "RA-ToSIA03:RF-TDKSource:PwrDCEnbl-Cmd"){
-    field(OUT, "RA-ToSIA03:RF-TDKSource:PwrDCEnblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_03_Pwr_DCENBL S .1")
     field(DESC, "48V das Fontes TDK Torre 03 On")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(HIGH, "0.5")
-}
-
-record(calcout, "RA-ToSIA03:RF-TDKSource:PwrDCEnblOutCalc"){
-    field(CALC, "C:=1<<25;((~(B&C))&B)+(A<<25)")
-    field(DESC, "Aux calc for RA-ToSIA03:RF-TDKSource:Pwr")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA03:RF-TDKSource:PwrDCEnbl-Cmd NPP")
-    field(INPB, "Memorias_2__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_2__32bit PP")
 }
 
 record(bi, "RA-ToSIA03:RF-TDKSource:PwrDC-Mon"){
@@ -4137,10 +4053,10 @@ record(ai, "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdIn-Mon"){
     field(PREC, "3")
     field(EGU,  "V")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "")
+    field(HHSV,  "")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte"){
@@ -4209,10 +4125,10 @@ record(ai, "RA-ToSIA03:RF-SSAmpTower:HwPwrRevIn-Mon"){
     field(PREC, "3")
     field(EGU,  "V")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "")
+    field(HHSV,  "")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
 }
 
 record(ai, "RA-ToSIA03:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte"){
@@ -4281,10 +4197,10 @@ record(ai, "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdOut-Mon"){
     field(PREC, "3")
     field(EGU,  "V")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "")
+    field(HHSV,  "")
+    field(LSV,  "")
+    field(LLSV,  "")
 }
 
 record(ai, "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte"){
@@ -4309,10 +4225,10 @@ record(ai, "RA-ToSIA03:RF-SSAmpTower:HwPwrRevOut-Mon"){
     field(PREC, "3")
     field(EGU,  "V")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "")
+    field(HHSV,  "")
+    field(LSV,  "")
+    field(LLSV,  "")
 }
 
 record(ai, "RA-ToSIA03:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte"){
@@ -4489,7 +4405,8 @@ record(bi, "RA-ToSIA03:RF-SSAmpTower:RFPwrSts-Mon"){
 }
 
 record(bo, "RA-ToSIA03:RF-CtrlPanel:PINSwEnbl-Cmd"){
-    field(OUT, "RA-ToSIA03:RF-CtrlPanel:PINSwEnblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_03_PINSwENBL S .1")
     field(DESC, "Hablita coaxial switch torre 03")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -4497,57 +4414,14 @@ record(bo, "RA-ToSIA03:RF-CtrlPanel:PINSwEnbl-Cmd"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA03:RF-CtrlPanel:PINSwEnblOutCalc"){
-    field(CALC, "C:=1<<16;((~(B&C))&B)+(A<<16)")
-    field(DESC, "Aux calc for RA-ToSIA03:RF-CtrlPanel:PIN")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA03:RF-CtrlPanel:PINSwEnbl-Cmd NPP")
-    field(INPB, "Memorias_3__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_3__32bit PP")
-}
-
 record(bo, "RA-ToSIA03:RF-CtrlPanel:PINSwDsbl-Cmd"){
-    field(OUT, "RA-ToSIA03:RF-CtrlPanel:PINSwDsblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_03_PINSwDSBL S .1")
     field(DESC, "Desabilita coaxial switch torre 03")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(HIGH, "0.5")
-}
-
-record(calcout, "RA-ToSIA03:RF-CtrlPanel:PINSwDsblOutCalc"){
-    field(CALC, "C:=1<<18;((~(B&C))&B)+(A<<18)")
-    field(DESC, "Aux calc for RA-ToSIA03:RF-CtrlPanel:PIN")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA03:RF-CtrlPanel:PINSwDsbl-Cmd NPP")
-    field(INPB, "Memorias_3__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_3__32bit PP")
 }
 
 record(bi, "RA-ToSIA03:RF-CtrlPanel:PINSwSts-Mon"){
@@ -4562,25 +4436,25 @@ record(bi, "RA-ToSIA03:RF-CtrlPanel:PINSwSts-Mon"){
 
 record(ai, "RA-ToSIA03:RF-SSAmpTower:RunHour-Mon"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) Real[10]")
+    field(INP,  "@$(PLC) Horimetro[2]")
     field(DESC, "Horímetro Torre 03")
     field(SCAN, ".1 second")
     field(PREC, "")
     field(EGU,  "h")
     field(VAL,  "")
-    field(HSV,  "NO_ALARM")
-    field(HHSV,  "NO_ALARM")
-    field(LSV,  "NO_ALARM")
-    field(LLSV,  "NO_ALARM")
+    field(HSV,  "")
+    field(HHSV,  "")
+    field(LSV,  "")
+    field(LLSV,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-WaterLoad:HdFlwRtInCalc"){
-    field(CALC, "1 & (A >> 20)")
+    field(CALC, "1 & (A >> 24)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-WaterLoad:HdF")
     field(PREC, "")
     field(EGU, "")
     field(SCAN, ".1 second")
-    field(INPA, "Memorias_1__32bit NPP")
+    field(INPA, "Memorias_3__32bit NPP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -4604,8 +4478,8 @@ record(bi, "RA-ToSIA03:RF-WaterLoad:HdFlwRt-Mon"){
     field(ZNAM, "False")
 }
 
-record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-SP"){
-    field(INP,  "[0, 0, 0, -0.25, 1.27]")
+record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte"){
+    field(INP,  "[1.27, -0.25, 0, 0, 0]")
     field(DESC, "Coeficientes de conv Potencia incidente")
     field(FTVL, "DOUBLE")
     field(NELM, "5")
@@ -4613,8 +4487,8 @@ record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-SP"){
     field(EGU,  "")
 }
 
-record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-SP"){
-    field(INP,  "[0, 0, 0, -0.25, 1.27]")
+record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte"){
+    field(INP,  "[1.27, -0.25, 0, 0, 0]")
     field(DESC, "Coeficientes de conv Potencia refletida")
     field(FTVL, "DOUBLE")
     field(NELM, "5")
@@ -4622,8 +4496,8 @@ record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-SP"){
     field(EGU,  "")
 }
 
-record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-SP"){
-    field(INP,  "[0, 0, 0, -0.25, 1.27]")
+record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte"){
+    field(INP,  "[1.27, -0.25, 0, 0, 0]")
     field(DESC, "Coeficientes de conv Potencia incidente")
     field(FTVL, "DOUBLE")
     field(NELM, "5")
@@ -4631,8 +4505,8 @@ record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-SP"){
     field(EGU,  "")
 }
 
-record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-SP"){
-    field(INP,  "[0, 0, 0, -0.25, 1.27]")
+record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte"){
+    field(INP,  "[1.27, -0.25, 0, 0, 0]")
     field(DESC, "Coeficientes de conv Potencia refletida")
     field(FTVL, "DOUBLE")
     field(NELM, "5")
@@ -4648,7 +4522,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdIn-Mon"){
     field(NELM, "20")
     field(SCAN, "Passive")
     field(INPA, "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdIn-Mon CP")
-    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-SP.NELM")
+    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
     field(INPE, "")
@@ -4659,7 +4533,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdIn-Mon"){
     field(INPJ, "")
     field(INPK, "")
     field(INPL, "")
-    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-SP")
+    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte")
     field(INBB, "")
     field(INCC, "")
     field(INDD, "")
@@ -4683,7 +4557,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInUpperLimit-Cte"){
     field(NELM, "20")
     field(SCAN, "Passive")
     field(INPA, "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte CP")
-    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-SP.NELM")
+    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
     field(INPE, "")
@@ -4694,7 +4568,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInUpperLimit-Cte"){
     field(INPJ, "")
     field(INPK, "")
     field(INPL, "")
-    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-SP")
+    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte")
     field(INBB, "")
     field(INCC, "")
     field(INDD, "")
@@ -4762,7 +4636,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevIn-Mon"){
     field(NELM, "20")
     field(SCAN, "Passive")
     field(INPA, "RA-ToSIA03:RF-SSAmpTower:HwPwrRevIn-Mon CP")
-    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-SP.NELM")
+    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
     field(INPE, "")
@@ -4773,7 +4647,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevIn-Mon"){
     field(INPJ, "")
     field(INPK, "")
     field(INPL, "")
-    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-SP")
+    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte")
     field(INBB, "")
     field(INCC, "")
     field(INDD, "")
@@ -4797,7 +4671,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevInUpperLimit-Cte"){
     field(NELM, "20")
     field(SCAN, "Passive")
     field(INPA, "RA-ToSIA03:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte CP")
-    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-SP.NELM")
+    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
     field(INPE, "")
@@ -4808,7 +4682,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevInUpperLimit-Cte"){
     field(INPJ, "")
     field(INPK, "")
     field(INPL, "")
-    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-SP")
+    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte")
     field(INBB, "")
     field(INCC, "")
     field(INDD, "")
@@ -4876,7 +4750,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOut-Mon"){
     field(NELM, "20")
     field(SCAN, "Passive")
     field(INPA, "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdOut-Mon CP")
-    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-SP.NELM")
+    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
     field(INPE, "")
@@ -4887,7 +4761,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOut-Mon"){
     field(INPJ, "")
     field(INPK, "")
     field(INPL, "")
-    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-SP")
+    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte")
     field(INBB, "")
     field(INCC, "")
     field(INDD, "")
@@ -4911,7 +4785,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutUpperLimit-Cte"){
     field(NELM, "20")
     field(SCAN, "Passive")
     field(INPA, "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte CP")
-    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-SP.NELM")
+    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
     field(INPE, "")
@@ -4922,7 +4796,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutUpperLimit-Cte"){
     field(INPJ, "")
     field(INPK, "")
     field(INPL, "")
-    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-SP")
+    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte")
     field(INBB, "")
     field(INCC, "")
     field(INDD, "")
@@ -4990,7 +4864,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOut-Mon"){
     field(NELM, "20")
     field(SCAN, "Passive")
     field(INPA, "RA-ToSIA03:RF-SSAmpTower:HwPwrRevOut-Mon CP")
-    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-SP.NELM")
+    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
     field(INPE, "")
@@ -5001,7 +4875,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOut-Mon"){
     field(INPJ, "")
     field(INPK, "")
     field(INPL, "")
-    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-SP")
+    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte")
     field(INBB, "")
     field(INCC, "")
     field(INDD, "")
@@ -5025,7 +4899,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutUpperLimit-Cte"){
     field(NELM, "20")
     field(SCAN, "Passive")
     field(INPA, "RA-ToSIA03:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte CP")
-    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-SP.NELM")
+    field(INPB, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
     field(INPE, "")
@@ -5036,7 +4910,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutUpperLimit-Cte"){
     field(INPJ, "")
     field(INPK, "")
     field(INPL, "")
-    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-SP")
+    field(INAA, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte")
     field(INBB, "")
     field(INCC, "")
     field(INDD, "")
@@ -5094,4 +4968,14 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutUpperLimitHIHI-Cte"){
     field(INPL, "")
     field(FLNK, "")
     field(OUT,  "RA-ToSIA03:RF-SSAmpTower:PwrRevOutUpper-Mon.HIHI")
+}
+
+record(bo, "RA-RaSIB02:RF-Intlk:Reset-Cmd"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) RaSIB02_Intlk_Reset S .1")
+    field(DESC, "Reset de Falhas Rack Interlock Sistema ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+    field(HIGH, "0.5")
 }

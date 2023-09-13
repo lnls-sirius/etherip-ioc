@@ -63,7 +63,7 @@ rf-si:
 rf-ssamp-tower-3:
 	@echo "RF SSAmp Tower 3 IOC"
 	./ioc_gen_rf.py \
-       --json ../etc/ToSIA03_CLP_json.txt \
+       --json ../etc/ToSIA03_CLP_json.txt,../etc/RaSIB02_CLP_json.txt \
        --arch linux-x86_64 \
        --ioc-name RF-Tower3 \
        --plc-module 0 \
