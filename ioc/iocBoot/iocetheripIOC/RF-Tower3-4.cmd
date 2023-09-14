@@ -33,6 +33,6 @@ dbLoadRecords("database/RF-Tower3-4.db", "PLC=plc1")
 iocInit()
 
 # Save things every 5 seconds
-create_monitor_set("RF-Tower3-4.req", 5, "")
+create_monitor_set("autosave/RF-Tower3-4.req", 5, "")
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
