@@ -112,6 +112,10 @@ services:
       target: rf-ssamp-tower-3
     network_mode: "host"
     restart: always
+    volumes:
+      - type: bind
+        source: ${AUTOSAVE_VOLUME_SOURCE}
+        target: /opt/etheripIOC/autosave
 
   rf-ssamp-tower-4:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-ssamp-tower-4:${COMMIT_HASH}-${BUILD_DATE}
@@ -121,6 +125,10 @@ services:
       target: rf-ssamp-tower-4
     network_mode: "host"
     restart: always
+    volumes:
+      - type: bind
+        source: ${AUTOSAVE_VOLUME_SOURCE}
+        target: /opt/etheripIOC/autosave
 
   rf-ssamp-tower-3-4:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-ssamp-tower-3-4:${COMMIT_HASH}-${BUILD_DATE}
@@ -130,6 +138,10 @@ services:
       target: rf-ssamp-tower-3-4
     network_mode: "host"
     restart: always
+    volumes:
+      - type: bind
+        source: ${AUTOSAVE_VOLUME_SOURCE}
+        target: /opt/etheripIOC/autosave
 
   delta_v2:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-delta-v2:${COMMIT_HASH}-${BUILD_DATE}
