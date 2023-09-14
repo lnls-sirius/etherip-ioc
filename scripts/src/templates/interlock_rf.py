@@ -21,6 +21,9 @@ save_restoreSet_DatedBackupFiles(1)
 save_restoreSet_NumSeqFiles(2)
 save_restoreSet_SeqPeriodInSeconds(600)
 
+set_pass0_restoreFile("${database}.sav")
+set_pass1_restoreFile("${database}.sav")
+
 iocLogInit
 
 # Initialize EtherIP driver, define PLCs
@@ -31,6 +34,9 @@ drvEtherIP_define_PLC("${plc}", "$(DEVIP)", ${module})
 
 dbLoadRecords("database/${database}.db", "PLC=${plc}")
 iocInit()
+
+# Save things every 5 seconds
+create_monitor_set("${database}.req", 5, "")
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
 """

@@ -540,13 +540,24 @@ def generate_records_from_row(
         if len(vals) > 1:
             logger.error('Tag "{}" already exists {}.'.format(tag, tags[tag]))
 
+def write_to_autosave_file(
+    row, json_name, file_handler, key_names: KeyNames):
+    try:
+        data = RowData(row, key_names)
+        if data.gen_type == json_info.gen_type.var:
+            file_handler.write(data.name + "\n")
+    except ValueError as e:
+        logger.error("Autosave req file generation [{}]: {}".format(json_name, e))
+
 def get_database_path(base_path, name):
     return os.path.join(base_path, "../ioc/database/") + name + ".db"
+
+def get_autosave_path(base_path, name):
+    return os.path.join(base_path, "../ioc/autosave/") + name + ".req"
 
 def generate_db_file(
     base_path, json_paths, ioc_name, key_names: KeyNames
 ):
-
     ioc_database_path = get_database_path(base_path, ioc_name)
     tags = {}
     logger.info('Generating "{}.db" file at "{}".'.format(ioc_name, ioc_database_path))
@@ -558,6 +569,20 @@ def generate_db_file(
                 key_names=key_names,
                 file_handler=f,
                 tags=tags,
+            )
+
+def generate_autosave_file(
+    base_path, json_paths, ioc_name, key_names: KeyNames
+):
+    ioc_autosave_path = get_autosave_path(base_path, ioc_name)
+    logger.info('Generating "{}.req" file at "{}".'.format(ioc_name, ioc_autosave_path))
+    with open(ioc_autosave_path, "w+") as f:
+        for row, json_name in parse_json_generator(json_paths=json_paths):
+            write_to_autosave_file(
+                row=row,
+                json_name=json_name,
+                key_names=key_names,
+                file_handler=f,
             )
 
 def generate(args, base_path):
@@ -611,6 +636,13 @@ def generate(args, base_path):
     )
 
     generate_db_file(
+        base_path=base_path,
+        json_paths=json_paths,
+        ioc_name=ioc_name,
+        key_names=key_names,
+    )
+
+    generate_autosave_file(
         base_path=base_path,
         json_paths=json_paths,
         ioc_name=ioc_name,

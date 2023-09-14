@@ -18,6 +18,9 @@ save_restoreSet_DatedBackupFiles(1)
 save_restoreSet_NumSeqFiles(2)
 save_restoreSet_SeqPeriodInSeconds(600)
 
+set_pass0_restoreFile("RF-Tower3-4.sav")
+set_pass1_restoreFile("RF-Tower3-4.sav")
+
 iocLogInit
 
 # Initialize EtherIP driver, define PLCs
@@ -28,5 +31,8 @@ drvEtherIP_define_PLC("plc1", "$(DEVIP)", 0)
 
 dbLoadRecords("database/RF-Tower3-4.db", "PLC=plc1")
 iocInit()
+
+# Save things every 5 seconds
+create_monitor_set("RF-Tower3-4.req", 5, "")
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
