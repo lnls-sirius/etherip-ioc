@@ -39,7 +39,8 @@ record(bi, "RA-ToSIA04:RF-ACPanel:PwrACOp-Mon"){
 }
 
 record(bo, "RA-ToSIA04:RF-ACPanel:PwrACDsbl-Cmd"){
-    field(OUT, "RA-ToSIA04:RF-ACPanel:PwrACDsblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_04_Pwr_ACDSBL S .1")
     field(DESC, "AC das Fontes TDK Torre 04 Off")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -47,26 +48,14 @@ record(bo, "RA-ToSIA04:RF-ACPanel:PwrACDsbl-Cmd"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA04:RF-ACPanel:PwrACDsblOutCalc"){
-    field(CALC, "C:=1<<0;((~(B&C))&B)+(A<<0)")
-    field(DESC, "Aux calc for RA-ToSIA04:RF-ACPanel:PwrAC")
-    field(PREC, "")
-    field(EGU, "")
+record(bo, "RA-ToSIA04:RF-ACPanel:PwrACEnbl-Cmd"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_04_Pwr_ACENBL S .1")
+    field(DESC, "AC das Fontes TDK Torre 04 On")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA04:RF-ACPanel:PwrACDsbl-Cmd NPP")
-    field(INPB, "Memorias_7__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_7__32bit PP")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+    field(HIGH, "0.5")
 }
 
 record(ao, "Memorias_6__32bit"){
@@ -76,37 +65,6 @@ record(ao, "Memorias_6__32bit"){
     field(SCAN, "Passive")
     field(PREC, "")
     field(EGU,  "")
-}
-
-record(bo, "RA-ToSIA04:RF-ACPanel:PwrACEnbl-Cmd"){
-    field(OUT, "RA-ToSIA04:RF-ACPanel:PwrACEnblOutCalc.PROC PP")
-    field(DESC, "AC das Fontes TDK Torre 04 On")
-    field(SCAN, "Passive")
-    field(ONAM, "True")
-    field(ZNAM, "False")
-    field(HIGH, "0.5")
-}
-
-record(calcout, "RA-ToSIA04:RF-ACPanel:PwrACEnblOutCalc"){
-    field(CALC, "C:=1<<28;((~(B&C))&B)+(A<<28)")
-    field(DESC, "Aux calc for RA-ToSIA04:RF-ACPanel:PwrAC")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA04:RF-ACPanel:PwrACEnbl-Cmd NPP")
-    field(INPB, "Memorias_6__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_6__32bit PP")
 }
 
 record(calcout, "RA-ToSIA04:RF-ACPanel:PwrACInCalc"){
@@ -3798,7 +3756,8 @@ record(bi, "RA-ToSIA04:RF-SSAmpTower:HdFlwRt-Mon"){
 }
 
 record(bo, "RA-ToSIA04:RF-TDKSource:PwrDCDsbl-Cmd"){
-    field(OUT, "RA-ToSIA04:RF-TDKSource:PwrDCDsblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_04_Pwr_DCDSBL S .1")
     field(DESC, "48V das Fontes TDK Torre 04 Off")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -3806,57 +3765,14 @@ record(bo, "RA-ToSIA04:RF-TDKSource:PwrDCDsbl-Cmd"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA04:RF-TDKSource:PwrDCDsblOutCalc"){
-    field(CALC, "C:=1<<28;((~(B&C))&B)+(A<<28)")
-    field(DESC, "Aux calc for RA-ToSIA04:RF-TDKSource:Pwr")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA04:RF-TDKSource:PwrDCDsbl-Cmd NPP")
-    field(INPB, "Memorias_6__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_6__32bit PP")
-}
-
 record(bo, "RA-ToSIA04:RF-TDKSource:PwrDCEnbl-Cmd"){
-    field(OUT, "RA-ToSIA04:RF-TDKSource:PwrDCEnblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_04_Pwr_DCENBL S .1")
     field(DESC, "48V das Fontes TDK Torre 04 On")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(HIGH, "0.5")
-}
-
-record(calcout, "RA-ToSIA04:RF-TDKSource:PwrDCEnblOutCalc"){
-    field(CALC, "C:=1<<25;((~(B&C))&B)+(A<<25)")
-    field(DESC, "Aux calc for RA-ToSIA04:RF-TDKSource:Pwr")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA04:RF-TDKSource:PwrDCEnbl-Cmd NPP")
-    field(INPB, "Memorias_6__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_6__32bit PP")
 }
 
 record(bi, "RA-ToSIA04:RF-TDKSource:PwrDC-Mon"){
@@ -4419,7 +4335,8 @@ record(bi, "RA-ToSIA04:RF-SSAmpTower:RFPwrSts-Mon"){
 }
 
 record(bo, "RA-ToSIA04:RF-CtrlPanel:PINSwEnbl-Cmd"){
-    field(OUT, "RA-ToSIA04:RF-CtrlPanel:PINSwEnblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_03_PINSwENBL S .1")
     field(DESC, "Hablita coaxial switch Torre 04")
     field(SCAN, "Passive")
     field(ONAM, "True")
@@ -4427,57 +4344,14 @@ record(bo, "RA-ToSIA04:RF-CtrlPanel:PINSwEnbl-Cmd"){
     field(HIGH, "0.5")
 }
 
-record(calcout, "RA-ToSIA04:RF-CtrlPanel:PINSwEnblOutCalc"){
-    field(CALC, "C:=1<<16;((~(B&C))&B)+(A<<16)")
-    field(DESC, "Aux calc for RA-ToSIA04:RF-CtrlPanel:PIN")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA04:RF-CtrlPanel:PINSwEnbl-Cmd NPP")
-    field(INPB, "Memorias_7__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_7__32bit PP")
-}
-
 record(bo, "RA-ToSIA04:RF-CtrlPanel:PINSwDsbl-Cmd"){
-    field(OUT, "RA-ToSIA04:RF-CtrlPanel:PINSwDsblOutCalc.PROC PP")
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) ToSIA_03_PINSwDSBL S .1")
     field(DESC, "Desabilita coaxial switch Torre 04")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
     field(HIGH, "0.5")
-}
-
-record(calcout, "RA-ToSIA04:RF-CtrlPanel:PINSwDsblOutCalc"){
-    field(CALC, "C:=1<<18;((~(B&C))&B)+(A<<18)")
-    field(DESC, "Aux calc for RA-ToSIA04:RF-CtrlPanel:PIN")
-    field(PREC, "")
-    field(EGU, "")
-    field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA04:RF-CtrlPanel:PINSwDsbl-Cmd NPP")
-    field(INPB, "Memorias_7__32bit NPP")
-    field(INPC, "")
-    field(INPD, "")
-    field(INPE, "")
-    field(INPF, "")
-    field(INPG, "")
-    field(INPH, "")
-    field(INPI, "")
-    field(INPJ, "")
-    field(INPK, "")
-    field(INPL, "")
-    field(FLNK, "")
-    field(OUT,  "Memorias_7__32bit PP")
 }
 
 record(bi, "RA-ToSIA04:RF-CtrlPanel:PINSwSts-Mon"){
