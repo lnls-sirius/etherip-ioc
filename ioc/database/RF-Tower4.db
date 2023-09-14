@@ -3999,26 +3999,6 @@ record(bi, "RA-ToSIA04:RF-Intlk:IntlkACPanel-Mon"){
     field(VAL, "")
 }
 
-record(bo, "RA-ToSIA04:RF-SSAmpTower:Enbl-Sel"){
-    field(DTYP, "EtherIP")
-    field(OUT, "@$(PLC) ToSIA_04_Enbl S .1")
-    field(DESC, "Torre 04 Enbl")
-    field(SCAN, "Passive")
-    field(ONAM, "True")
-    field(ZNAM, "False")
-    field(HIGH, "")
-}
-
-record(bi, "RA-ToSIA04:RF-SSAmpTower:Enbl-Sts"){
-    field(DTYP, "EtherIP")
-    field(INP, "@$(PLC) ToSIA_04_Enbl_Sts")
-    field(DESC, "Torre 04 Enbl Sts")
-    field(SCAN, ".1 second")
-    field(ONAM, "True")
-    field(ZNAM, "False")
-    field(VAL, "")
-}
-
 record(calcout, "RA-ToSIA04:RF-CtrlPanel:PwrStsInCalc"){
     field(CALC, "1 & (A >> 0)")
     field(DESC, "Aux calc for RA-ToSIA04:RF-CtrlPanel:Pwr")
