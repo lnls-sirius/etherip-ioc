@@ -2622,7 +2622,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Horimetro[3]",
+    "tag": "Horimetro_T_04",
     "egu": "min",
     "scan": "0.1",
     "prec": "",

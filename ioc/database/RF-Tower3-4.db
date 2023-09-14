@@ -4366,7 +4366,7 @@ record(bi, "RA-ToSIA03:RF-CtrlPanel:PINSwSts-Mon"){
 
 record(ai, "RA-ToSIA03:RF-SSAmpTower:RunMin-Mon"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) Horimetro[2]")
+    field(INP,  "@$(PLC) Horimetro_T_03")
     field(DESC, "Horímetro Torre 03 em min")
     field(SCAN, ".1 second")
     field(PREC, "")
@@ -9280,7 +9280,7 @@ record(bi, "RA-ToSIA04:RF-CtrlPanel:PINSwSts-Mon"){
 
 record(ai, "RA-ToSIA04:RF-SSAmpTower:RunMin-Mon"){
     field(DTYP, "EtherIP")
-    field(INP,  "@$(PLC) Horimetro[3]")
+    field(INP,  "@$(PLC) Horimetro_T_04")
     field(DESC, "Horímetro Torre 04 em min")
     field(SCAN, ".1 second")
     field(PREC, "")
