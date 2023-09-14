@@ -113,6 +113,15 @@ services:
     network_mode: "host"
     restart: always
 
+  rf-ssamp-tower-4:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-ssamp-tower-4:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: rf-ssamp-tower-4
+    network_mode: "host"
+    restart: always
+
   rf-ssamp-tower-3-4:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-ssamp-tower-3-4:${COMMIT_HASH}-${BUILD_DATE}
     build:
