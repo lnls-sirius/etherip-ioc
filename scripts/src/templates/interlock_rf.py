@@ -36,7 +36,7 @@ dbLoadRecords("database/${database}.db", "PLC=${plc}")
 iocInit()
 
 # Save things every 5 seconds
-create_monitor_set("autosave/${database}.req", 5, "")
+create_monitor_set("${database}.req", 5, "")
 
 caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
 """
