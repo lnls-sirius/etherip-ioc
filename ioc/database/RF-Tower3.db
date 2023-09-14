@@ -4364,18 +4364,40 @@ record(bi, "RA-ToSIA03:RF-CtrlPanel:PINSwSts-Mon"){
     field(VAL, "")
 }
 
-record(ai, "RA-ToSIA03:RF-SSAmpTower:RunHour-Mon"){
+record(ai, "RA-ToSIA03:RF-SSAmpTower:RunMin-Mon"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Horimetro[2]")
-    field(DESC, "Horímetro Torre 03")
+    field(DESC, "Horímetro Torre 03 em min")
     field(SCAN, ".1 second")
     field(PREC, "")
-    field(EGU,  "h")
+    field(EGU,  "min")
     field(VAL,  "")
     field(HSV,  "")
     field(HHSV,  "")
     field(LSV,  "")
     field(LLSV,  "")
+}
+
+record(calcout, "RA-ToSIA03:RF-SSAmpTower:RunHour-Mon"){
+    field(CALC, "A/60")
+    field(DESC, "Horímetro Torre 03")
+    field(PREC, "2")
+    field(EGU, "h")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA03:RF-SSAmpTower:RunMin-Mon CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "")
 }
 
 record(calcout, "RA-ToSIA03:RF-WaterLoad:HdFlwRtInCalc"){

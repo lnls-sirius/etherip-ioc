@@ -2617,19 +2617,29 @@
   },
   {
     "type": "tag",
-    "desc": "Horímetro Torre 03",
-    "name": "RA-ToSIA03:RF-SSAmpTower:RunHour-Mon",
+    "desc": "Horímetro Torre 03 em min",
+    "name": "RA-ToSIA03:RF-SSAmpTower:RunMin-Mon",
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
     "tag": "Horimetro[2]",
-    "egu": "h",
+    "egu": "min",
     "scan": "0.1",
     "prec": "",
     "hsv": "",
     "hhsv": "",
     "lsv": "",
     "llsv": ""
+  },
+  {
+    "type": "calc",
+    "desc": "Horímetro Torre 03",
+    "name": "RA-ToSIA03:RF-SSAmpTower:RunHour-Mon",
+    "inp": "RA-ToSIA03:RF-SSAmpTower:RunMin-Mon",
+    "out": "",
+    "egu": "h",
+    "prec": "2",
+    "conv": "pv / 60"
   },
   {
     "type": "tag",
