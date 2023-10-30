@@ -4467,7 +4467,7 @@ record(waveform, "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte"){
 }
 
 record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdIn-Mon"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia incidente de entrada")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -4502,7 +4502,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdIn-Mon"){
 }
 
 record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInUpperLimit-Cte"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia incidente de entrada, l")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -4581,7 +4581,7 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdInUpperLimitHIHI-Cte"){
 }
 
 record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevIn-Mon"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia refletida de entrada")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -4616,7 +4616,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevIn-Mon"){
 }
 
 record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevInUpperLimit-Cte"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia refletida de entrada, l")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -4695,7 +4695,7 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevInUpperLimitHIHI-Cte"){
 }
 
 record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOut-Mon"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia incidente de saída")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -4730,7 +4730,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOut-Mon"){
 }
 
 record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutUpperLimit-Cte"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia incidente de saída, lim")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -4809,7 +4809,7 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:PwrFwdOutUpperLimitHIHI-Cte"){
 }
 
 record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOut-Mon"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia refletida de saída")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -4844,7 +4844,7 @@ record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOut-Mon"){
 }
 
 record(acalcout, "RA-ToSIA03:RF-SSAmpTower:PwrRevOutUpperLimit-Cte"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia refletida de saída, lim")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -9381,7 +9381,7 @@ record(waveform, "RA-ToSIA04:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte"){
 }
 
 record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrFwdIn-Mon"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia incidente de entrada")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -9416,7 +9416,7 @@ record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrFwdIn-Mon"){
 }
 
 record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrFwdInUpperLimit-Cte"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia incidente de entrada, l")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -9495,7 +9495,7 @@ record(calcout, "RA-ToSIA04:RF-SSAmpTower:PwrFwdInUpperLimitHIHI-Cte"){
 }
 
 record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrRevIn-Mon"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia refletida de entrada")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -9530,7 +9530,7 @@ record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrRevIn-Mon"){
 }
 
 record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrRevInUpperLimit-Cte"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia refletida de entrada, l")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -9609,7 +9609,7 @@ record(calcout, "RA-ToSIA04:RF-SSAmpTower:PwrRevInUpperLimitHIHI-Cte"){
 }
 
 record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrFwdOut-Mon"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia incidente de saída")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -9644,7 +9644,7 @@ record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrFwdOut-Mon"){
 }
 
 record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrFwdOutUpperLimit-Cte"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia incidente de saída, lim")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -9723,7 +9723,7 @@ record(calcout, "RA-ToSIA04:RF-SSAmpTower:PwrFwdOutUpperLimitHIHI-Cte"){
 }
 
 record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrRevOut-Mon"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia refletida de saída")
     field(PREC, "2")
     field(EGU, "dBm")
@@ -9758,7 +9758,7 @@ record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrRevOut-Mon"){
 }
 
 record(acalcout, "RA-ToSIA04:RF-SSAmpTower:PwrRevOutUpperLimit-Cte"){
-    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C")
+    field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Medida Potencia refletida de saída, lim")
     field(PREC, "2")
     field(EGU, "dBm")

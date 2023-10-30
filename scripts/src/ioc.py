@@ -478,7 +478,7 @@ def generate_polyn_calc(f, name, inp, prec, egu, nelm, out="", desc="", args="")
             inpa=inp+" CP",
             inpb=args+".NELM",
             inaa=args,
-            calc="L:=0;C:=0;D:=UNTIL(C:=C+A*AA[L,L]^L;L:=L+1;L>=B);C",
+            calc="L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C",
             egu=egu,
             prec=prec,
             out=out,
