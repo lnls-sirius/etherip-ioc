@@ -6,7 +6,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[3].2",
+    "tag": "Memorias[53].2",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -54,7 +54,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[2].24",
+    "tag": "Memorias[52].24",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -70,7 +70,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].3",
+    "tag": "Memorias[50].3",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -86,7 +86,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].2",
+    "tag": "Memorias[50].2",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -102,7 +102,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:1:I.Ch00.Data",
+    "tag": "AES_03_Control_Panel:1:I.Ch00.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -113,7 +113,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 01A, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 01A",
     "name": "RA-ToSIA03:RF-HeatSink-H01A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -121,11 +121,15 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 01A, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 01A",
     "name": "RA-ToSIA03:RF-HeatSink-H01A:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H01A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H01A:T-Mon.HIGH",
@@ -135,7 +139,7 @@
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 01A, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 01A",
     "name": "RA-ToSIA03:RF-HeatSink-H01A:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H01A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H01A:T-Mon.HIHI",
@@ -145,7 +149,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 01A, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 01A",
     "name": "RA-ToSIA03:RF-HeatSink-H01A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -153,11 +157,15 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 01A, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 01A",
     "name": "RA-ToSIA03:RF-HeatSink-H01A:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H01A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H01A:T-Mon.LOW",
@@ -167,7 +175,7 @@
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 01A, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 01A",
     "name": "RA-ToSIA03:RF-HeatSink-H01A:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H01A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H01A:T-Mon.LOLO",
@@ -182,7 +190,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:1:I.Ch01.Data",
+    "tag": "AES_03_Control_Panel:1:I.Ch01.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -193,7 +201,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 01B, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 01B",
     "name": "RA-ToSIA03:RF-HeatSink-H01B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -201,11 +209,15 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 01B, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 01B",
     "name": "RA-ToSIA03:RF-HeatSink-H01B:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H01B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H01B:T-Mon.HIGH",
@@ -215,7 +227,7 @@
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 01B, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 01B",
     "name": "RA-ToSIA03:RF-HeatSink-H01B:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H01B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H01B:T-Mon.HIHI",
@@ -225,7 +237,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 01B, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 01B",
     "name": "RA-ToSIA03:RF-HeatSink-H01B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -233,11 +245,15 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 01B, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 01B",
     "name": "RA-ToSIA03:RF-HeatSink-H01B:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H01B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H01B:T-Mon.LOW",
@@ -247,7 +263,7 @@
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 01B, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 01B",
     "name": "RA-ToSIA03:RF-HeatSink-H01B:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H01B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H01B:T-Mon.LOLO",
@@ -262,7 +278,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:1:I.Ch02.Data",
+    "tag": "AES_03_Control_Panel:1:I.Ch02.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -273,7 +289,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 02A, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 02A",
     "name": "RA-ToSIA03:RF-HeatSink-H02A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -281,11 +297,15 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 02A, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 02A",
     "name": "RA-ToSIA03:RF-HeatSink-H02A:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H02A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H02A:T-Mon.HIGH",
@@ -295,7 +315,7 @@
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 02A, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 02A",
     "name": "RA-ToSIA03:RF-HeatSink-H02A:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H02A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H02A:T-Mon.HIHI",
@@ -305,7 +325,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 02A, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 02A",
     "name": "RA-ToSIA03:RF-HeatSink-H02A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -313,11 +333,15 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 02A, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 02A",
     "name": "RA-ToSIA03:RF-HeatSink-H02A:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H02A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H02A:T-Mon.LOW",
@@ -327,7 +351,7 @@
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 02A, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 02A",
     "name": "RA-ToSIA03:RF-HeatSink-H02A:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H02A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H02A:T-Mon.LOLO",
@@ -342,7 +366,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:1:I.Ch03.Data",
+    "tag": "AES_03_Control_Panel:1:I.Ch03.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -353,7 +377,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 02B, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 02B",
     "name": "RA-ToSIA03:RF-HeatSink-H02B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -361,11 +385,15 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 02B, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 02B",
     "name": "RA-ToSIA03:RF-HeatSink-H02B:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H02B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H02B:T-Mon.HIGH",
@@ -375,7 +403,7 @@
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 02B, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 02B",
     "name": "RA-ToSIA03:RF-HeatSink-H02B:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H02B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H02B:T-Mon.HIHI",
@@ -385,7 +413,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 02B, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 02B",
     "name": "RA-ToSIA03:RF-HeatSink-H02B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -393,11 +421,15 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 02B, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 02B",
     "name": "RA-ToSIA03:RF-HeatSink-H02B:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H02B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H02B:T-Mon.LOW",
@@ -407,7 +439,7 @@
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 02B, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 02B",
     "name": "RA-ToSIA03:RF-HeatSink-H02B:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H02B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H02B:T-Mon.LOLO",
@@ -433,7 +465,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 03A, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 03A",
     "name": "RA-ToSIA03:RF-HeatSink-H03A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -441,11 +473,15 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 03A, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 03A",
     "name": "RA-ToSIA03:RF-HeatSink-H03A:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H03A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H03A:T-Mon.HIGH",
@@ -455,7 +491,7 @@
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 03A, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 03A",
     "name": "RA-ToSIA03:RF-HeatSink-H03A:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H03A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H03A:T-Mon.HIHI",
@@ -465,7 +501,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 03A, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 03A",
     "name": "RA-ToSIA03:RF-HeatSink-H03A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -473,11 +509,15 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 03A, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 03A",
     "name": "RA-ToSIA03:RF-HeatSink-H03A:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H03A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H03A:T-Mon.LOW",
@@ -487,7 +527,7 @@
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 03A, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 03A",
     "name": "RA-ToSIA03:RF-HeatSink-H03A:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H03A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H03A:T-Mon.LOLO",
@@ -502,7 +542,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:2:I.Ch01.Data",
+    "tag": "AES_03_Control_Panel:2:I.Ch01.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -513,7 +553,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 03B, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 03B",
     "name": "RA-ToSIA03:RF-HeatSink-H03B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -521,11 +561,15 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 03B, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 03B",
     "name": "RA-ToSIA03:RF-HeatSink-H03B:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H03B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H03B:T-Mon.HIGH",
@@ -535,7 +579,7 @@
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 03B, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 03B",
     "name": "RA-ToSIA03:RF-HeatSink-H03B:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H03B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H03B:T-Mon.HIHI",
@@ -545,7 +589,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 03B, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 03B",
     "name": "RA-ToSIA03:RF-HeatSink-H03B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -553,11 +597,15 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 03B, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 03B",
     "name": "RA-ToSIA03:RF-HeatSink-H03B:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H03B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H03B:T-Mon.LOW",
@@ -565,9 +613,10 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 03B, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 03B",
     "name": "RA-ToSIA03:RF-HeatSink-H03B:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H03B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H03B:T-Mon.LOLO",
@@ -575,6 +624,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 04A",
@@ -582,7 +632,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:2:I.Ch02.Data",
+    "tag": "AES_03_Control_Panel:2:I.Ch02.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -591,9 +641,10 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 04A, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 04A",
     "name": "RA-ToSIA03:RF-HeatSink-H04A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -601,11 +652,16 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 04A, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 04A",
     "name": "RA-ToSIA03:RF-HeatSink-H04A:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H04A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H04A:T-Mon.HIGH",
@@ -613,9 +669,10 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 04A, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 04A",
     "name": "RA-ToSIA03:RF-HeatSink-H04A:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H04A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H04A:T-Mon.HIHI",
@@ -623,9 +680,10 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 04A, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 04A",
     "name": "RA-ToSIA03:RF-HeatSink-H04A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -633,11 +691,16 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 04A, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 04A",
     "name": "RA-ToSIA03:RF-HeatSink-H04A:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H04A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H04A:T-Mon.LOW",
@@ -645,9 +708,10 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 04A, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 04A",
     "name": "RA-ToSIA03:RF-HeatSink-H04A:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H04A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H04A:T-Mon.LOLO",
@@ -655,6 +719,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 04B",
@@ -662,7 +727,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:2:I.Ch03.Data",
+    "tag": "AES_03_Control_Panel:2:I.Ch03.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -671,9 +736,10 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 04B, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 04B",
     "name": "RA-ToSIA03:RF-HeatSink-H04B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -681,11 +747,16 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 04B, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 04B",
     "name": "RA-ToSIA03:RF-HeatSink-H04B:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H04B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H04B:T-Mon.HIGH",
@@ -693,9 +764,10 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 04B, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 04B",
     "name": "RA-ToSIA03:RF-HeatSink-H04B:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H04B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H04B:T-Mon.HIHI",
@@ -703,9 +775,10 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 04B, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 04B",
     "name": "RA-ToSIA03:RF-HeatSink-H04B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -713,11 +786,16 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 04B, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 04B",
     "name": "RA-ToSIA03:RF-HeatSink-H04B:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H04B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H04B:T-Mon.LOW",
@@ -725,9 +803,10 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 04B, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 04B",
     "name": "RA-ToSIA03:RF-HeatSink-H04B:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H04B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H04B:T-Mon.LOLO",
@@ -735,6 +814,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 05A",
@@ -751,9 +831,10 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 05A, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 05A",
     "name": "RA-ToSIA03:RF-HeatSink-H05A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -761,11 +842,16 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 05A, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 05A",
     "name": "RA-ToSIA03:RF-HeatSink-H05A:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H05A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H05A:T-Mon.HIGH",
@@ -773,9 +859,10 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 05A, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 05A",
     "name": "RA-ToSIA03:RF-HeatSink-H05A:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H05A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H05A:T-Mon.HIHI",
@@ -783,9 +870,10 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 05A, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 05A",
     "name": "RA-ToSIA03:RF-HeatSink-H05A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -793,11 +881,16 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 05A, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 05A",
     "name": "RA-ToSIA03:RF-HeatSink-H05A:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H05A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H05A:T-Mon.LOW",
@@ -805,9 +898,10 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 05A, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 05A",
     "name": "RA-ToSIA03:RF-HeatSink-H05A:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H05A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H05A:T-Mon.LOLO",
@@ -815,6 +909,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 05B",
@@ -822,7 +917,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:3:I.Ch01.Data",
+    "tag": "AES_03_Control_Panel:3:I.Ch01.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -831,9 +926,10 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 05B, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 05B",
     "name": "RA-ToSIA03:RF-HeatSink-H05B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -841,11 +937,16 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 05B, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 05B",
     "name": "RA-ToSIA03:RF-HeatSink-H05B:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H05B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H05B:T-Mon.HIGH",
@@ -853,9 +954,10 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 05B, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 05B",
     "name": "RA-ToSIA03:RF-HeatSink-H05B:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H05B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H05B:T-Mon.HIHI",
@@ -863,9 +965,10 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 05B, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 05B",
     "name": "RA-ToSIA03:RF-HeatSink-H05B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -873,11 +976,16 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 05B, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 05B",
     "name": "RA-ToSIA03:RF-HeatSink-H05B:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H05B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H05B:T-Mon.LOW",
@@ -885,9 +993,10 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 05B, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 05B",
     "name": "RA-ToSIA03:RF-HeatSink-H05B:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H05B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H05B:T-Mon.LOLO",
@@ -895,6 +1004,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 06A",
@@ -902,7 +1012,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:3:I.Ch02.Data",
+    "tag": "AES_03_Control_Panel:3:I.Ch02.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -911,9 +1021,10 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 06A, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 06A",
     "name": "RA-ToSIA03:RF-HeatSink-H06A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -921,11 +1032,16 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 06A, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 06A",
     "name": "RA-ToSIA03:RF-HeatSink-H06A:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H06A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H06A:T-Mon.HIGH",
@@ -933,9 +1049,10 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 06A, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 06A",
     "name": "RA-ToSIA03:RF-HeatSink-H06A:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H06A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H06A:T-Mon.HIHI",
@@ -943,9 +1060,10 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 06A, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 06A",
     "name": "RA-ToSIA03:RF-HeatSink-H06A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -953,11 +1071,16 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 06A, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 06A",
     "name": "RA-ToSIA03:RF-HeatSink-H06A:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H06A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H06A:T-Mon.LOW",
@@ -965,9 +1088,10 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 06A, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 06A",
     "name": "RA-ToSIA03:RF-HeatSink-H06A:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H06A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H06A:T-Mon.LOLO",
@@ -975,6 +1099,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 06B",
@@ -982,7 +1107,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:3:I.Ch03.Data",
+    "tag": "AES_03_Control_Panel:3:I.Ch03.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -991,9 +1116,10 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 06B, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 06B",
     "name": "RA-ToSIA03:RF-HeatSink-H06B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1001,11 +1127,16 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 06B, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 06B",
     "name": "RA-ToSIA03:RF-HeatSink-H06B:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H06B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H06B:T-Mon.HIGH",
@@ -1013,9 +1144,10 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 06B, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 06B",
     "name": "RA-ToSIA03:RF-HeatSink-H06B:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H06B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H06B:T-Mon.HIHI",
@@ -1023,9 +1155,10 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 06B, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 06B",
     "name": "RA-ToSIA03:RF-HeatSink-H06B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1033,11 +1166,16 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 06B, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 06B",
     "name": "RA-ToSIA03:RF-HeatSink-H06B:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H06B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H06B:T-Mon.LOW",
@@ -1045,9 +1183,10 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 06B, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 06B",
     "name": "RA-ToSIA03:RF-HeatSink-H06B:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H06B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H06B:T-Mon.LOLO",
@@ -1055,6 +1194,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 07A",
@@ -1071,9 +1211,10 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 07A, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 07A",
     "name": "RA-ToSIA03:RF-HeatSink-H07A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1081,11 +1222,16 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 07A, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 07A",
     "name": "RA-ToSIA03:RF-HeatSink-H07A:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H07A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H07A:T-Mon.HIGH",
@@ -1093,9 +1239,10 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 07A, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 07A",
     "name": "RA-ToSIA03:RF-HeatSink-H07A:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H07A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H07A:T-Mon.HIHI",
@@ -1103,9 +1250,10 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 07A, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 07A",
     "name": "RA-ToSIA03:RF-HeatSink-H07A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1113,11 +1261,16 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 07A, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 07A",
     "name": "RA-ToSIA03:RF-HeatSink-H07A:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H07A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H07A:T-Mon.LOW",
@@ -1125,9 +1278,10 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 07A, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 07A",
     "name": "RA-ToSIA03:RF-HeatSink-H07A:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H07A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H07A:T-Mon.LOLO",
@@ -1135,6 +1289,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 07B",
@@ -1142,7 +1297,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:4:I.Ch01.Data",
+    "tag": "AES_03_Control_Panel:4:I.Ch01.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -1151,9 +1306,10 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 07B, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 07B",
     "name": "RA-ToSIA03:RF-HeatSink-H07B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1161,11 +1317,16 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 07B, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 07B",
     "name": "RA-ToSIA03:RF-HeatSink-H07B:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H07B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H07B:T-Mon.HIGH",
@@ -1173,9 +1334,10 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 07B, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 07B",
     "name": "RA-ToSIA03:RF-HeatSink-H07B:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H07B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H07B:T-Mon.HIHI",
@@ -1183,9 +1345,10 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 07B, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 07B",
     "name": "RA-ToSIA03:RF-HeatSink-H07B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1193,11 +1356,16 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 07B, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 07B",
     "name": "RA-ToSIA03:RF-HeatSink-H07B:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H07B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H07B:T-Mon.LOW",
@@ -1205,9 +1373,10 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 07B, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 07B",
     "name": "RA-ToSIA03:RF-HeatSink-H07B:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H07B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H07B:T-Mon.LOLO",
@@ -1215,6 +1384,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 08A",
@@ -1222,7 +1392,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:4:I.Ch02.Data",
+    "tag": "AES_03_Control_Panel:4:I.Ch02.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -1231,9 +1401,10 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 08A, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 08A",
     "name": "RA-ToSIA03:RF-HeatSink-H08A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1241,11 +1412,16 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 08A, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 08A",
     "name": "RA-ToSIA03:RF-HeatSink-H08A:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H08A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H08A:T-Mon.HIGH",
@@ -1253,9 +1429,10 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 08A, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 08A",
     "name": "RA-ToSIA03:RF-HeatSink-H08A:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H08A:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H08A:T-Mon.HIHI",
@@ -1263,9 +1440,10 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 08A, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 08A",
     "name": "RA-ToSIA03:RF-HeatSink-H08A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1273,11 +1451,16 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 08A, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 08A",
     "name": "RA-ToSIA03:RF-HeatSink-H08A:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H08A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H08A:T-Mon.LOW",
@@ -1285,9 +1468,10 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 08A, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 08A",
     "name": "RA-ToSIA03:RF-HeatSink-H08A:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H08A:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H08A:T-Mon.LOLO",
@@ -1295,6 +1479,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 08B",
@@ -1302,7 +1487,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:4:I.Ch03.Data",
+    "tag": "AES_03_Control_Panel:4:I.Ch03.Data",
     "egu": "C",
     "scan": "0.5",
     "prec": "2",
@@ -1311,9 +1496,10 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 08B, limite superior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 08B",
     "name": "RA-ToSIA03:RF-HeatSink-H08B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1321,11 +1507,16 @@
     "tag": "Real[0]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 08B, alarme HIGH",
+    "desc": "PT-100 da Barra Dissipadora 08B",
     "name": "RA-ToSIA03:RF-HeatSink-H08B:TUpperLimitHIGH-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H08B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H08B:T-Mon.HIGH",
@@ -1333,9 +1524,10 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 08B, alarme HIHI",
+    "desc": "PT-100 da Barra Dissipadora 08B",
     "name": "RA-ToSIA03:RF-HeatSink-H08B:TUpperLimitHIHI-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H08B:TUpperLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H08B:T-Mon.HIHI",
@@ -1343,9 +1535,10 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
-    "desc": "PT-100 da Barra Dissipadora 08B, limite inferior de interlock",
+    "desc": "PT-100 da Barra Dissipadora 08B",
     "name": "RA-ToSIA03:RF-HeatSink-H08B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1353,11 +1546,16 @@
     "tag": "Real[1]",
     "egu": "C",
     "scan": "5",
-    "prec": "2"
+    "prec": "2",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 08B, alarme LOW",
+    "desc": "PT-100 da Barra Dissipadora 08B",
     "name": "RA-ToSIA03:RF-HeatSink-H08B:TLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H08B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H08B:T-Mon.LOW",
@@ -1365,9 +1563,10 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
-    "desc": "PT-100 da Barra Dissipadora 08B, alarme LOLO",
+    "desc": "PT-100 da Barra Dissipadora 08B",
     "name": "RA-ToSIA03:RF-HeatSink-H08B:TLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-HeatSink-H08B:TLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-HeatSink-H08B:T-Mon.LOLO",
@@ -1375,6 +1574,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 01A",
@@ -1382,7 +1582,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].4",
+    "tag": "Memorias[51].4",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1391,6 +1591,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 01B",
@@ -1398,7 +1599,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].5",
+    "tag": "Memorias[51].5",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1407,6 +1608,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 02A",
@@ -1414,7 +1616,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].6",
+    "tag": "Memorias[51].6",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1423,6 +1625,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 02B",
@@ -1430,7 +1633,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].7",
+    "tag": "Memorias[51].7",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1439,6 +1642,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 03A",
@@ -1446,7 +1650,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].8",
+    "tag": "Memorias[51].8",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1455,6 +1659,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 03B",
@@ -1462,7 +1667,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].9",
+    "tag": "Memorias[51].9",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1471,6 +1676,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 04A",
@@ -1478,7 +1684,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].10",
+    "tag": "Memorias[51].10",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1487,6 +1693,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 04B",
@@ -1494,7 +1701,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].11",
+    "tag": "Memorias[51].11",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1503,6 +1710,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 05A",
@@ -1510,7 +1718,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].12",
+    "tag": "Memorias[51].12",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1519,6 +1727,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 05B",
@@ -1526,7 +1735,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].13",
+    "tag": "Memorias[51].13",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1535,6 +1744,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 06A",
@@ -1542,7 +1752,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].14",
+    "tag": "Memorias[51].14",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1551,6 +1761,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 06B",
@@ -1558,7 +1769,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].15",
+    "tag": "Memorias[51].15",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1567,6 +1778,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 07A",
@@ -1574,7 +1786,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].16",
+    "tag": "Memorias[51].16",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1583,6 +1795,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 07B",
@@ -1590,7 +1803,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].17",
+    "tag": "Memorias[51].17",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1599,6 +1812,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 08A",
@@ -1606,7 +1820,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].18",
+    "tag": "Memorias[51].18",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1615,6 +1829,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura abaixo do set da Barra Dissipadora 08B",
@@ -1622,7 +1837,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].19",
+    "tag": "Memorias[51].19",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1631,6 +1846,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 01A",
@@ -1638,7 +1854,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].20",
+    "tag": "Memorias[50].20",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1647,6 +1863,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 01B",
@@ -1654,7 +1871,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].21",
+    "tag": "Memorias[50].21",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1663,6 +1880,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 02A",
@@ -1670,7 +1888,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].22",
+    "tag": "Memorias[50].22",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1679,6 +1897,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 02B",
@@ -1686,7 +1905,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].23",
+    "tag": "Memorias[50].23",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1695,6 +1914,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 03A",
@@ -1702,7 +1922,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].24",
+    "tag": "Memorias[50].24",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1711,6 +1931,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 03B",
@@ -1718,7 +1939,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].25",
+    "tag": "Memorias[50].25",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1727,6 +1948,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 04A",
@@ -1734,7 +1956,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].26",
+    "tag": "Memorias[50].26",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1743,6 +1965,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 04B",
@@ -1750,7 +1973,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].27",
+    "tag": "Memorias[50].27",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1759,6 +1982,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 05A",
@@ -1766,7 +1990,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].28",
+    "tag": "Memorias[50].28",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1775,6 +1999,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 05B",
@@ -1782,7 +2007,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].29",
+    "tag": "Memorias[50].29",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1791,6 +2016,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 06A",
@@ -1798,7 +2024,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].30",
+    "tag": "Memorias[50].30",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1807,6 +2033,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 06B",
@@ -1814,7 +2041,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].31",
+    "tag": "Memorias[50].31",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1823,6 +2050,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 07A",
@@ -1830,7 +2058,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].0",
+    "tag": "Memorias[51].0",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1839,6 +2067,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 07B",
@@ -1846,7 +2075,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].1",
+    "tag": "Memorias[51].1",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1855,6 +2084,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 08A",
@@ -1862,7 +2092,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].2",
+    "tag": "Memorias[51].2",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1871,6 +2101,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Temperatura acima do set da Barra Dissipadora 08B",
@@ -1878,7 +2109,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].3",
+    "tag": "Memorias[51].3",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1887,6 +2118,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 01A",
@@ -1894,7 +2126,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].4",
+    "tag": "Memorias[50].4",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1903,6 +2135,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 01B",
@@ -1910,7 +2143,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].5",
+    "tag": "Memorias[50].5",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1919,6 +2152,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 02A",
@@ -1926,7 +2160,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].6",
+    "tag": "Memorias[50].6",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1935,6 +2169,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 02B",
@@ -1942,7 +2177,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].7",
+    "tag": "Memorias[50].7",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1951,6 +2186,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 03A",
@@ -1958,7 +2194,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].8",
+    "tag": "Memorias[50].8",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1967,6 +2203,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 03B",
@@ -1974,7 +2211,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].9",
+    "tag": "Memorias[50].9",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1983,6 +2220,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 04A",
@@ -1990,7 +2228,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].10",
+    "tag": "Memorias[50].10",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -1999,6 +2237,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 04B",
@@ -2006,7 +2245,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].11",
+    "tag": "Memorias[50].11",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2015,6 +2254,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 05A",
@@ -2022,7 +2262,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].12",
+    "tag": "Memorias[50].12",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2031,6 +2271,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 05B",
@@ -2038,7 +2279,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].13",
+    "tag": "Memorias[50].13",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2047,6 +2288,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 06A",
@@ -2054,7 +2296,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].14",
+    "tag": "Memorias[50].14",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2063,6 +2305,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 06B",
@@ -2070,7 +2313,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].15",
+    "tag": "Memorias[50].15",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2079,6 +2322,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 07A",
@@ -2086,7 +2330,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].16",
+    "tag": "Memorias[50].16",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2095,6 +2339,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 07B",
@@ -2102,7 +2347,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].17",
+    "tag": "Memorias[50].17",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2111,6 +2356,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 08A",
@@ -2118,7 +2364,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].18",
+    "tag": "Memorias[50].18",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2127,6 +2373,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Termostato da Barra Dissipadora 08B",
@@ -2134,7 +2381,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].19",
+    "tag": "Memorias[50].19",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2143,6 +2390,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Interlock Geral SSA 3",
@@ -2150,7 +2398,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[2].8",
+    "tag": "Memorias[52].8",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2159,6 +2407,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Rotâmetro Torre 03 do Anel ",
@@ -2166,7 +2415,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[1].20",
+    "tag": "Memorias[51].20",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2214,7 +2463,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:8:O.Pt05.Data",
+    "tag": "AES_03_Control_Panel:8:O.Pt05.Data",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2230,7 +2479,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[2].18",
+    "tag": "Memorias[52].18",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2246,7 +2495,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[2].19",
+    "tag": "Memorias[52].19",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2262,7 +2511,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[2].20",
+    "tag": "Memorias[52].20",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2278,7 +2527,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[2].21",
+    "tag": "Memorias[52].21",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2294,7 +2543,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:8:O.Pt04.Data",
+    "tag": "AES_03_Control_Panel:8:O.Pt04.Data",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2310,7 +2559,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].0",
+    "tag": "Memorias[50].0",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2326,7 +2575,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[0].1",
+    "tag": "Memorias[50].1",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2342,7 +2591,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:5:I.Ch00.Data",
+    "tag": "AES_03_Control_Panel:5:I.Ch00.Data",
     "egu": "V",
     "scan": "0.1",
     "prec": "3",
@@ -2353,7 +2602,7 @@
   },
   {
     "type": "tag",
-    "desc": "Medida Potencia incidente de entrada, leitura raw, limite inferior de interlock",
+    "desc": "Medida Potencia incidente de entrada, leitura raw",
     "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -2361,11 +2610,15 @@
     "tag": "Real[4]",
     "egu": "V",
     "scan": "5",
-    "prec": "3"
+    "prec": "3",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "Medida Potencia incidente de entrada, leitura raw, alarme LOW",
+    "desc": "Medida Potencia incidente de entrada, leitura raw",
     "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdInLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdIn-Mon.LOW",
@@ -2375,7 +2628,7 @@
   },
   {
     "type": "calc",
-    "desc": "Medida Potencia incidente de entrada, leitura raw, alarme LOLO",
+    "desc": "Medida Potencia incidente de entrada, leitura raw",
     "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdInLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdIn-Mon.LOLO",
@@ -2390,7 +2643,7 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:5:I.Ch01.Data",
+    "tag": "AES_03_Control_Panel:5:I.Ch01.Data",
     "egu": "V",
     "scan": "0.1",
     "prec": "3",
@@ -2401,7 +2654,7 @@
   },
   {
     "type": "tag",
-    "desc": "Medida Potencia Refletida de entrada, leitura raw, limite inferior de interlock",
+    "desc": "Medida Potencia Refletida de entrada, leitura raw",
     "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -2409,11 +2662,15 @@
     "tag": "Real[5]",
     "egu": "V",
     "scan": "5",
-    "prec": "3"
+    "prec": "3",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
   },
   {
     "type": "calc",
-    "desc": "Medida Potencia Refletida de entrada, leitura raw, alarme LOW",
+    "desc": "Medida Potencia Refletida de entrada, leitura raw",
     "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevInLowerLimitLOW-Cte",
     "inp": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevIn-Mon.LOW",
@@ -2423,7 +2680,7 @@
   },
   {
     "type": "calc",
-    "desc": "Medida Potencia Refletida de entrada, leitura raw, alarme LOLO",
+    "desc": "Medida Potencia Refletida de entrada, leitura raw",
     "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevInLowerLimitLOLO-Cte",
     "inp": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte",
     "out": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevIn-Mon.LOLO",
@@ -2438,18 +2695,18 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:5:I.Ch02.Data",
+    "tag": "AES_03_Control_Panel:5:I.Ch02.Data",
     "egu": "V",
     "scan": "0.1",
     "prec": "3",
     "hsv": "",
     "hhsv": "",
-    "lsv": "",
-    "llsv": ""
+    "lsv": "minor",
+    "llsv": "major"
   },
   {
     "type": "tag",
-    "desc": "Medida Potencia incidente de saída, leitura raw, limite inferior de interlock",
+    "desc": "Medida Potencia incidente de saída, leitura raw",
     "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -2457,7 +2714,33 @@
     "tag": "Real[6]",
     "egu": "V",
     "scan": "5",
-    "prec": "3"
+    "prec": "3",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
+  },
+
+  {
+    "type": "calc",
+    "desc": "Medida Potencia incidente de saída, leitura raw",
+    "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdOutLowerLimitLOW-Cte",
+    "inp": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte",
+    "out": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdOut-Mon.LOW",
+    "egu": "V",
+    "prec": "3",
+    "conv": ""
+  },
+
+  {
+    "type": "calc",
+    "desc": "Medida Potencia incidente de saída, leitura raw",
+    "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdOutLowerLimitLOLO-Cte",
+    "inp": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte",
+    "out": "RA-ToSIA03:RF-SSAmpTower:HwPwrFwdOut-Mon.LOLO",
+    "egu": "V",
+    "prec": "3",
+    "conv": ""
   },
   {
     "type": "tag",
@@ -2466,18 +2749,18 @@
     "dtype": "float",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:5:I.Ch03.Data",
+    "tag": "AES_03_Control_Panel:5:I.Ch03.Data",
     "egu": "V",
     "scan": "0.1",
     "prec": "3",
     "hsv": "",
     "hhsv": "",
-    "lsv": "",
-    "llsv": ""
+    "lsv": "minor",
+    "llsv": "major"
   },
   {
     "type": "tag",
-    "desc": "Medida Potencia refletida de saída, leitura raw, limite inferior de interlock",
+    "desc": "Medida Potencia refletida de saída, leitura raw",
     "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -2485,7 +2768,33 @@
     "tag": "Real[7]",
     "egu": "V",
     "scan": "5",
-    "prec": "3"
+    "prec": "3",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
+  },
+
+  {
+    "type": "calc",
+    "desc": "Medida Potencia refletida de saída, leitura raw",
+    "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevOutLowerLimitLOW-Cte",
+    "inp": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte",
+    "out": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevOut-Mon.LOW",
+    "egu": "V",
+    "prec": "3",
+    "conv": ""
+  },
+
+  {
+    "type": "calc",
+    "desc": "Medida Potencia refletida de saída, leitura raw",
+    "name": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevOutLowerLimitLOLO-Cte",
+    "inp": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte",
+    "out": "RA-ToSIA03:RF-SSAmpTower:HwPwrRevOut-Mon.LOLO",
+    "egu": "V",
+    "prec": "3",
+    "conv": ""
   },
   {
     "type": "tag",
@@ -2606,7 +2915,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "AES_03_Controll_Panel:8:O.Pt06.Data",
+    "tag": "AES_03_Control_Panel:8:O.Pt06.Data",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2617,7 +2926,7 @@
   },
   {
     "type": "tag",
-    "desc": "Horímetro Torre 03 em min",
+    "desc": "Horímetro Torre 03 em minutos",
     "name": "RA-ToSIA03:RF-SSAmpTower:RunMin-Mon",
     "dtype": "float",
     "inout": "read",
@@ -2648,7 +2957,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[3].24",
+    "tag": "Memorias[53].24",
     "egu": "",
     "scan": "0.1",
     "prec": "",
