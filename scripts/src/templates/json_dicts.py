@@ -56,7 +56,7 @@ var_dict_template = Template(
     "type": "var",
     "desc": "${desc}",
     "name": "${name}",
-    "dtype": "${dtype}",
+    "dtype": "${data_type}",
     "egu": "${egu}",
     "prec": "${prec}",
     "val": "${val}"

@@ -48,6 +48,7 @@ def get_args():
     parser.add_argument("--col-lower-limit-tag", required=True, help="Tag for lower limit.")
     parser.add_argument("--col-upper-limit-pv", required=True, help="PV for upper limit.")
     parser.add_argument("--col-lower-limit-pv", required=True, help="PV for lower limit.")
+    parser.add_argument("--col-val", required=True, help="PV initial value.")
     args = parser.parse_args()
     return args
 
@@ -71,6 +72,7 @@ class ColumnNames:
         lower_limit_tag,
         upper_limit_pv,
         lower_limit_pv,
+        val,
     ):
         self.main_pv = main_pv
         self.desc = desc
@@ -89,46 +91,45 @@ class ColumnNames:
         self.lower_limit_tag = lower_limit_tag
         self.upper_limit_pv = upper_limit_pv
         self.lower_limit_pv = lower_limit_pv
+        self.val = val
 
 
 class RowData:
     def __init__(self, row, cols: ColumnNames):
-        self.main_pv = str(row.get(cols.main_pv, ""))
-        self.desc = str(row.get(cols.desc, ""))
-        self.tag = str(row.get(cols.tag, ""))
-        self.inout = str(row.get(cols.inout, ""))
-        self.data_type = str(row.get(cols.data_type, ""))
-        self.egu = str(row.get(cols.egu, ""))
-        self.scan = str(row.get(cols.scan, ""))
-        self.prec = str(row.get(cols.prec, ""))
-        self.cmd_time = str(row.get(cols.cmd_time, ""))
-        self.lo_conv = str(row.get(cols.lo_conv, ""))
-        self.hi_conv = str(row.get(cols.hi_conv, ""))
-        self.lolo_conv = str(row.get(cols.lolo_conv, ""))
-        self.hihi_conv = str(row.get(cols.hihi_conv, ""))
-        self.upper_limit_tag = str(row.get(cols.upper_limit_tag, ""))
-        self.lower_limit_tag = str(row.get(cols.lower_limit_tag, ""))
-        self.upper_limit_pv = str(row.get(cols.upper_limit_pv, ""))
-        self.lower_limit_pv = str(row.get(cols.lower_limit_pv, ""))
+        self.main_pv = str(row.get(cols.main_pv, "")).strip()
+        self.desc = str(row.get(cols.desc, "")).strip()
+        self.tag = str(row.get(cols.tag, "")).strip()
+        self.inout = str(row.get(cols.inout, "")).strip()
+        self.data_type = str(row.get(cols.data_type, "")).strip()
+        self.egu = str(row.get(cols.egu, "")).strip()
+        self.scan = str(row.get(cols.scan, "")).strip()
+        self.prec = str(row.get(cols.prec, "")).strip()
+        self.cmd_time = str(row.get(cols.cmd_time, "")).strip()
+        self.lo_conv = str(row.get(cols.lo_conv, "")).strip()
+        self.hi_conv = str(row.get(cols.hi_conv, "")).strip()
+        self.lolo_conv = str(row.get(cols.lolo_conv, "")).strip()
+        self.hihi_conv = str(row.get(cols.hihi_conv, "")).strip()
+        self.upper_limit_tag = str(row.get(cols.upper_limit_tag, "")).strip()
+        self.lower_limit_tag = str(row.get(cols.lower_limit_tag, "")).strip()
+        self.upper_limit_pv = str(row.get(cols.upper_limit_pv, "")).strip()
+        self.lower_limit_pv = str(row.get(cols.lower_limit_pv, "")).strip()
+        self.val = str(row.get(cols.val, "")).strip()
         self.hsv = ""
         self.hhsv = ""
         self.lsv = ""
         self.llsv = ""
 
         # post process tag name
-        if not self.tag or self.tag.strip() == "N/A":
+        if self.tag == "N/A":
             self.tag = ""
-        self.tag = self.tag.strip()
 
         # post process upper limit pv name
-        if not self.upper_limit_pv or self.upper_limit_pv.strip() == "N/A":
+        if self.upper_limit_pv == "N/A":
             self.upper_limit_pv = ""
-        self.upper_limit_pv = self.upper_limit_pv.strip()
 
         # post process lower limit pv name
-        if not self.lower_limit_pv or self.lower_limit_pv.strip() == "N/A":
+        if self.lower_limit_pv == "N/A":
             self.lower_limit_pv = ""
-        self.lower_limit_pv = self.lower_limit_pv.strip()
 
         # assign high severity and high high severity for limits
         if self.upper_limit_pv != "":
@@ -166,6 +167,17 @@ def generate_dicts_from_row(
     row, sheet_name, file_handler, column_names: ColumnNames):
     try:
         data = RowData(row, column_names)
+        if data.tag == "":
+            file_handler.write(
+                var_dict_template.safe_substitute(
+                    desc=data.desc,
+                    name=data.main_pv,
+                    data_type=data.data_type,
+                    egu=data.egu,
+                    prec=data.prec,
+                    val=data.val,
+                    )
+                )
         if data.tag != "":
             file_handler.write(
                 tag_dict_template.safe_substitute(
@@ -315,6 +327,7 @@ def generate(args):
         lower_limit_tag=args.col_lower_limit_tag,
         upper_limit_pv=args.col_upper_limit_pv,
         lower_limit_pv=args.col_lower_limit_pv,
+        val=args.col_val,
     )
 
     generate_json_file(
