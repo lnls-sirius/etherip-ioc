@@ -58,7 +58,7 @@ rf-si:
        --ioc-name RF-Ring1 \
        --plc-module 0 \
        --plc-name plc1 \
-       --sheet 'SSAmp Tower 01,SSAmp Tower 02,Interlock,Petra 7,LLRF,Transmission Line'
+       --sheet 'SSAmp Tower 01,SSAmp Tower 02,Petra 7,LLRF,Transmission Line'
 
 delta:
 	@echo "Delta Undulator IOC"
