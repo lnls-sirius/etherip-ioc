@@ -77,7 +77,7 @@ rf-ssamp-tower-3-and-4:
        --plc-name plc1
 	@echo "RF SSAmp Tower 3 and 4 IOC"
 	./ioc_gen_rf.py \
-       --json ../etc/ToSIA03_CLP_json.txt,../etc/ToSIA04_CLP_json.txt \
+       --json ../etc/ToSIA03_CLP_json.txt,../etc/ToSIA04_CLP_json.txt,../etc/RaSIA_CLP_json.txt \
        --arch linux-x86_64 \
        --ioc-name RF-Tower3-4 \
        --plc-module 0 \
