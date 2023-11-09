@@ -1,4 +1,5 @@
 [
+
   {
     "type": "tag",
     "desc": "AC da Torre 03 do Anel Status",
@@ -15,6 +16,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "AC das Fontes TDK Torre 03 Off",
@@ -31,6 +33,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "AC das Fontes TDK Torre 03 On",
@@ -47,6 +50,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "AC das Fontes TDK Torre 03 Status",
@@ -63,6 +67,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Falta de Fase do Painel Torre 03 do Anel",
@@ -79,6 +84,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Interlock externo do Painel Torre 03",
@@ -95,6 +101,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 01A",
@@ -111,6 +118,7 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 01A",
@@ -127,6 +135,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 01A",
@@ -137,6 +146,7 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 01A",
@@ -147,6 +157,7 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 01A",
@@ -163,6 +174,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 01A",
@@ -173,6 +185,7 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 01A",
@@ -183,6 +196,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 01B",
@@ -199,6 +213,7 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 01B",
@@ -215,6 +230,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 01B",
@@ -225,6 +241,7 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 01B",
@@ -235,6 +252,7 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 01B",
@@ -251,6 +269,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 01B",
@@ -261,6 +280,7 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 01B",
@@ -271,6 +291,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 02A",
@@ -287,6 +308,7 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 02A",
@@ -303,6 +325,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 02A",
@@ -313,6 +336,7 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 02A",
@@ -323,6 +347,7 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 02A",
@@ -339,6 +364,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 02A",
@@ -349,6 +375,7 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 02A",
@@ -359,6 +386,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 02B",
@@ -375,6 +403,7 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 02B",
@@ -391,6 +420,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 02B",
@@ -401,6 +431,7 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 02B",
@@ -411,6 +442,7 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 02B",
@@ -427,6 +459,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 02B",
@@ -437,6 +470,7 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 02B",
@@ -447,6 +481,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 03A",
@@ -463,6 +498,7 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 03A",
@@ -479,6 +515,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 03A",
@@ -489,6 +526,7 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 03A",
@@ -499,6 +537,7 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 03A",
@@ -515,6 +554,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 03A",
@@ -525,6 +565,7 @@
     "prec": "2",
     "conv": "pv + 5"
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 03A",
@@ -535,6 +576,7 @@
     "prec": "2",
     "conv": "pv + 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 03B",
@@ -551,6 +593,7 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 03B",
@@ -567,6 +610,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 03B",
@@ -577,6 +621,7 @@
     "prec": "2",
     "conv": "pv - 5"
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 03B",
@@ -587,6 +632,7 @@
     "prec": "2",
     "conv": "pv - 1"
   },
+
   {
     "type": "tag",
     "desc": "PT-100 da Barra Dissipadora 03B",
@@ -603,6 +649,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "PT-100 da Barra Dissipadora 03B",
@@ -2398,7 +2445,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[52].8",
+    "tag": "Memorias[52].12",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2410,7 +2457,7 @@
 
   {
     "type": "tag",
-    "desc": "Rotâmetro Torre 03 do Anel ",
+    "desc": "Rotâmetro Torre 03 do Anel",
     "name": "RA-ToSIA03:RF-SSAmpTower:HdFlwRt-Mon",
     "dtype": "bool",
     "inout": "read",
@@ -2424,6 +2471,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "48V das Fontes TDK Torre 03 Off",
@@ -2440,6 +2488,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "48V das Fontes TDK Torre 03 On",
@@ -2456,6 +2505,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "48V das Fontes TDK Torre 03 Status",
@@ -2472,6 +2522,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Falha Ac Mini Rack 1 Torre 03",
@@ -2488,6 +2539,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Falha Ac Mini Rack 2 Torre 03",
@@ -2504,6 +2556,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Falha Ac Mini Rack 3 Torre 3",
@@ -2520,6 +2573,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Falha Ac Mini Rack 4 Torre 3",
@@ -2536,6 +2590,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Interlock externo do CLP para Painel Torre 03 (Saída)",
@@ -2552,9 +2607,10 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
-    "desc": "Falha Fusível eletrônico ",
+    "desc": "Falha Fusível eletrônico",
     "name": "RA-ToSIA03:RF-CtrlPanel:PwrSts-Mon",
     "dtype": "bool",
     "inout": "read",
@@ -2568,6 +2624,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Falha fonte 24VDC",
@@ -2584,6 +2641,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Medida Potencia incidente de entrada, leitura raw",
@@ -2600,6 +2658,7 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
     "desc": "Medida Potencia incidente de entrada, leitura raw",
@@ -2616,6 +2675,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "Medida Potencia incidente de entrada, leitura raw",
@@ -2626,6 +2686,7 @@
     "prec": "3",
     "conv": "pv + 0.009"
   },
+
   {
     "type": "calc",
     "desc": "Medida Potencia incidente de entrada, leitura raw",
@@ -2636,6 +2697,7 @@
     "prec": "3",
     "conv": "pv + 0.003"
   },
+
   {
     "type": "tag",
     "desc": "Medida Potencia Refletida de entrada, leitura raw",
@@ -2652,6 +2714,7 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
     "desc": "Medida Potencia Refletida de entrada, leitura raw",
@@ -2668,6 +2731,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "calc",
     "desc": "Medida Potencia Refletida de entrada, leitura raw",
@@ -2678,6 +2742,7 @@
     "prec": "3",
     "conv": "pv + 0.009"
   },
+
   {
     "type": "calc",
     "desc": "Medida Potencia Refletida de entrada, leitura raw",
@@ -2688,6 +2753,7 @@
     "prec": "3",
     "conv": "pv + 0.003"
   },
+
   {
     "type": "tag",
     "desc": "Medida Potencia incidente de saída, leitura raw",
@@ -2704,6 +2770,7 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
     "desc": "Medida Potencia incidente de saída, leitura raw",
@@ -2742,6 +2809,7 @@
     "prec": "3",
     "conv": ""
   },
+
   {
     "type": "tag",
     "desc": "Medida Potencia refletida de saída, leitura raw",
@@ -2758,6 +2826,7 @@
     "lsv": "minor",
     "llsv": "major"
   },
+
   {
     "type": "tag",
     "desc": "Medida Potencia refletida de saída, leitura raw",
@@ -2796,6 +2865,7 @@
     "prec": "3",
     "conv": ""
   },
+
   {
     "type": "tag",
     "desc": "Falha Pot Incidente de entrada",
@@ -2812,6 +2882,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Falha Pot Refletida de entrada",
@@ -2828,6 +2899,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Falha Pot Incidente de Saída",
@@ -2844,6 +2916,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Falha Pot Refletida de Saída",
@@ -2860,6 +2933,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Falha Pot RF torre 03",
@@ -2876,6 +2950,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Hablita coaxial switch torre 03",
@@ -2892,6 +2967,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Desabilita coaxial switch torre 03",
@@ -2908,6 +2984,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "tag",
     "desc": "Status coaxial switch torre 03",
@@ -2966,6 +3043,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "var",
     "desc": "Coeficientes de conv Potencia incidente de entrada",
@@ -2975,6 +3053,7 @@
     "prec": "2",
     "val": "[1.27, -0.25, 0, 0, 0]"
   },
+
   {
     "type": "var",
     "desc": "Coeficientes de conv Potencia refletida de entrada",
@@ -2984,6 +3063,7 @@
     "prec": "2",
     "val": "[1.27, -0.25, 0, 0, 0]"
   },
+
   {
     "type": "var",
     "desc": "Coeficientes de conv Potencia incidente de saída",
@@ -2993,6 +3073,7 @@
     "prec": "2",
     "val": "[1.27, -0.25, 0, 0, 0]"
   },
+
   {
     "type": "var",
     "desc": "Coeficientes de conv Potencia refletida de saída",
@@ -3002,6 +3083,7 @@
     "prec": "2",
     "val": "[1.27, -0.25, 0, 0, 0]"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia incidente de entrada",
@@ -3011,6 +3093,7 @@
     "prec": "2",
     "args": "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia incidente de entrada, limite superior de interlock",
@@ -3049,6 +3132,7 @@
     "prec": "2",
     "args": "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia refletida de entrada, limite superior de interlock",
@@ -3068,6 +3152,7 @@
     "prec": "2",
     "conv": "pv - 0.4"
   },
+
   {
     "type": "calc",
     "desc": "alarme HIHI potencia refletida de entrada",
@@ -3087,6 +3172,7 @@
     "prec": "2",
     "args": "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia incidente de saída, limite superior de interlock",
@@ -3096,6 +3182,7 @@
     "prec": "2",
     "args": "RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte"
   },
+
   {
     "type": "calc",
     "desc": "alarme HIGH potencia incidente de saída",
@@ -3106,6 +3193,7 @@
     "prec": "2",
     "conv": "pv - 0.4"
   },
+
   {
     "type": "calc",
     "desc": "alarme HIHI potencia incidente de saída",
@@ -3116,6 +3204,7 @@
     "prec": "2",
     "conv": "pv - 0.1"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia refletida de saída",
@@ -3125,6 +3214,7 @@
     "prec": "2",
     "args": "RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia refletida de saída, limite superior de interlock",

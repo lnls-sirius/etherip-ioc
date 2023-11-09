@@ -1,4 +1,5 @@
 [
+
   {
     "type": "tag",
     "desc": "AC da Torre 04 do Anel Status",
@@ -2444,7 +2445,7 @@
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
-    "tag": "Memorias[56].8",
+    "tag": "Memorias[56].12",
     "egu": "",
     "scan": "0.1",
     "prec": "",
@@ -2456,7 +2457,7 @@
 
   {
     "type": "tag",
-    "desc": "Rotâmetro Torre 04 do Anel ",
+    "desc": "Rotâmetro Torre 04 do Anel",
     "name": "RA-ToSIA04:RF-SSAmpTower:HdFlwRt-Mon",
     "dtype": "bool",
     "inout": "read",
@@ -2609,7 +2610,7 @@
 
   {
     "type": "tag",
-    "desc": "Falha Fusível eletrônico ",
+    "desc": "Falha Fusível eletrônico",
     "name": "RA-ToSIA04:RF-CtrlPanel:PwrSts-Mon",
     "dtype": "bool",
     "inout": "read",
@@ -3044,6 +3045,7 @@
     "lsv": "",
     "llsv": ""
   },
+
   {
     "type": "var",
     "desc": "Coeficientes de conv Potencia incidente de entrada",
@@ -3053,6 +3055,7 @@
     "prec": "2",
     "val": "[1.27, -0.25, 0, 0, 0]"
   },
+
   {
     "type": "var",
     "desc": "Coeficientes de conv Potencia refletida de entrada",
@@ -3062,6 +3065,7 @@
     "prec": "2",
     "val": "[1.27, -0.25, 0, 0, 0]"
   },
+
   {
     "type": "var",
     "desc": "Coeficientes de conv Potencia incidente de saída",
@@ -3071,6 +3075,7 @@
     "prec": "2",
     "val": "[1.27, -0.25, 0, 0, 0]"
   },
+
   {
     "type": "var",
     "desc": "Coeficientes de conv Potencia refletida de saída",
@@ -3080,6 +3085,7 @@
     "prec": "2",
     "val": "[1.27, -0.25, 0, 0, 0]"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia incidente de entrada",
@@ -3089,6 +3095,7 @@
     "prec": "2",
     "args": "RA-ToSIA04:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia incidente de entrada, limite superior de interlock",
@@ -3127,6 +3134,7 @@
     "prec": "2",
     "args": "RA-ToSIA04:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia refletida de entrada, limite superior de interlock",
@@ -3136,6 +3144,7 @@
     "prec": "2",
     "args": "RA-ToSIA04:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte"
   },
+
   {
     "type": "calc",
     "desc": "alarme HIGH potencia refletida de entrada",
@@ -3146,6 +3155,7 @@
     "prec": "2",
     "conv": "pv - 0.4"
   },
+
   {
     "type": "calc",
     "desc": "alarme HIHI potencia refletida de entrada",
@@ -3156,6 +3166,7 @@
     "prec": "2",
     "conv": "pv - 0.1"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia incidente de saída",
@@ -3165,6 +3176,7 @@
     "prec": "2",
     "args": "RA-ToSIA04:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia incidente de saída, limite superior de interlock",
@@ -3174,6 +3186,7 @@
     "prec": "2",
     "args": "RA-ToSIA04:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte"
   },
+
   {
     "type": "calc",
     "desc": "alarme HIGH potencia incidente de saída",
@@ -3184,6 +3197,7 @@
     "prec": "2",
     "conv": "pv - 0.4"
   },
+
   {
     "type": "calc",
     "desc": "alarme HIHI potencia incidente de saída",
@@ -3194,6 +3208,7 @@
     "prec": "2",
     "conv": "pv - 0.1"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia refletida de saída",
@@ -3203,6 +3218,7 @@
     "prec": "2",
     "args": "RA-ToSIA04:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte"
   },
+
   {
     "type": "conv",
     "desc": "Medida Potencia refletida de saída, limite superior de interlock",

@@ -3696,7 +3696,7 @@ record(bi, "RA-ToSIA03:RF-HeatSink-H08B:Tms-Mon"){
 }
 
 record(calcout, "RA-ToSIA03:RF-SSAmpTower:StsInCalc"){
-    field(CALC, "1 & (A >> 8)")
+    field(CALC, "1 & (A >> 12)")
     field(DESC, "Aux calc for RA-ToSIA03:RF-SSAmpTower:St")
     field(PREC, "")
     field(EGU, "")
@@ -3749,7 +3749,7 @@ record(calcout, "RA-ToSIA03:RF-SSAmpTower:HdFlwRtInCalc"){
 
 record(bi, "RA-ToSIA03:RF-SSAmpTower:HdFlwRt-Mon"){
     field(INP, "RA-ToSIA03:RF-SSAmpTower:HdFlwRtInCalc NPP")
-    field(DESC, "Rotâmetro Torre 03 do Anel ")
+    field(DESC, "Rotâmetro Torre 03 do Anel")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
@@ -3939,7 +3939,7 @@ record(calcout, "RA-ToSIA03:RF-CtrlPanel:PwrStsInCalc"){
 
 record(bi, "RA-ToSIA03:RF-CtrlPanel:PwrSts-Mon"){
     field(INP, "RA-ToSIA03:RF-CtrlPanel:PwrStsInCalc NPP")
-    field(DESC, "Falha Fusível eletrônico ")
+    field(DESC, "Falha Fusível eletrônico")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
