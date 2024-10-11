@@ -130,6 +130,19 @@ services:
         source: ${AUTOSAVE_VOLUME_SOURCE}
         target: /opt/etheripIOC/autosave/save
 
+  rf-ssamp-tower-1-2:
+    image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-ssamp-tower-1-2:${COMMIT_HASH}-${BUILD_DATE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: rf-ssamp-tower-1-2
+    network_mode: "host"
+    restart: always
+    volumes:
+      - type: bind
+        source: ${AUTOSAVE_VOLUME_SOURCE}
+        target: /opt/etheripIOC/autosave/save
+
   rf-ssamp-tower-3-4:
     image: ${DOCKER_IMAGE_PREFIX}/etheripioc-rf-ssamp-tower-3-4:${COMMIT_HASH}-${BUILD_DATE}
     build:

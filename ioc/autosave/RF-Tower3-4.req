@@ -1,8 +1,8 @@
-RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte
-RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte
-RA-ToSIA03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte
-RA-ToSIA03:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte
-RA-ToSIA04:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte
-RA-ToSIA04:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte
-RA-ToSIA04:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte
-RA-ToSIA04:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte
+RA-ToSIB03:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte
+RA-ToSIB03:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte
+RA-ToSIB03:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte
+RA-ToSIB03:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte
+RA-ToSIB04:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte
+RA-ToSIB04:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte
+RA-ToSIB04:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte
+RA-ToSIB04:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte

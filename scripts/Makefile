@@ -60,24 +60,19 @@ rf-si:
        --plc-name plc1 \
        --sheet 'SSAmp Tower 01,SSAmp Tower 02,Interlock,Petra 7,LLRF,Transmission Line'
 
+rf-ssamp-tower-1-and-2:
+	@echo "RF SSAmp Tower 1 and 2 IOC"
+	./ioc_gen_rf.py \
+       --json ../etc/System_A_json_17.txt \
+       --arch linux-x86_64 \
+       --ioc-name RF-Tower1-2 \
+       --plc-module 0 \
+       --plc-name plc2
+
 rf-ssamp-tower-3-and-4:
-	@echo "RF SSAmp Tower 3 IOC"
-	./ioc_gen_rf.py \
-       --json ../etc/ToSIA03_CLP_json.txt,../etc/RaSIA_CLP_json.txt \
-       --arch linux-x86_64 \
-       --ioc-name RF-Tower3 \
-       --plc-module 0 \
-       --plc-name plc1
-	@echo "RF SSAmp Tower 4 IOC"
-	./ioc_gen_rf.py \
-       --json ../etc/ToSIA04_CLP_json.txt,../etc/RaSIA_CLP_json.txt \
-       --arch linux-x86_64 \
-       --ioc-name RF-Tower4 \
-       --plc-module 0 \
-       --plc-name plc1
 	@echo "RF SSAmp Tower 3 and 4 IOC"
 	./ioc_gen_rf.py \
-       --json ../etc/ToSIA03_CLP_json.txt,../etc/ToSIA04_CLP_json.txt,../etc/RaSIA_CLP_json.txt \
+       --json ../etc/System_B_json_17.txt \
        --arch linux-x86_64 \
        --ioc-name RF-Tower3-4 \
        --plc-module 0 \
