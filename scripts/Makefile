@@ -63,7 +63,7 @@ rf-si:
 rf-ssamp-tower-1-and-2:
 	@echo "RF SSAmp Tower 1 and 2 IOC"
 	./ioc_gen_rf.py \
-       --json ../etc/System_A_json_17.txt \
+       --json ../etc/System_A.json \
        --arch linux-x86_64 \
        --ioc-name RF-Tower1-2 \
        --plc-module 0 \
@@ -72,7 +72,7 @@ rf-ssamp-tower-1-and-2:
 rf-ssamp-tower-3-and-4:
 	@echo "RF SSAmp Tower 3 and 4 IOC"
 	./ioc_gen_rf.py \
-       --json ../etc/System_B_json_17.txt \
+       --json ../etc/System_B.json \
        --arch linux-x86_64 \
        --ioc-name RF-Tower3-4 \
        --plc-module 0 \
