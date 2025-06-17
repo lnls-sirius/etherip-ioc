@@ -113,7 +113,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 01A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 01A upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H01A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -145,7 +145,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 01A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 01A lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H01A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -193,7 +193,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 01B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 01B upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H01B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -225,7 +225,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 01B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 01B lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H01B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -273,7 +273,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 02A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 02A upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H02A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -305,7 +305,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 02A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 02A lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H02A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -353,7 +353,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 02B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 02B upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H02B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -385,7 +385,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 02B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 02B lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H02B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -433,7 +433,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 03A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 03A upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H03A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -465,7 +465,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 03A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 03A lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H03A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -513,7 +513,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 03B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 03B upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H03B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -545,7 +545,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 03B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 03B lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H03B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -593,7 +593,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 04A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 04A upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H04A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -625,7 +625,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 04A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 04A lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H04A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -673,7 +673,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 04B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 04B upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H04B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -705,7 +705,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 04B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 04B lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H04B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -753,7 +753,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 05A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 05A upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H05A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -785,7 +785,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 05A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 05A lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H05A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -833,7 +833,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 05B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 05B upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H05B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -865,7 +865,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 05B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 05B lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H05B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -913,7 +913,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 06A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 06A upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H06A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -945,7 +945,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 06A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 06A lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H06A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -993,7 +993,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 06B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 06B upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H06B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1025,7 +1025,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 06B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 06B lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H06B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1073,7 +1073,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 07A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 07A upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H07A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1105,7 +1105,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 07A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 07A lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H07A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1153,7 +1153,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 07B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 07B upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H07B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1185,7 +1185,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 07B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 07B lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H07B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1233,7 +1233,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 08A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 08A upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H08A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1265,7 +1265,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 08A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 08A lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H08A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1313,7 +1313,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 08B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 08B upper interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H08B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -1345,7 +1345,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 08B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 08B lower interlock limit",
     "name": "RA-ToSIB03:RF-HeatSink-H08B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -2353,7 +2353,7 @@
   },
   {
     "type": "tag",
-    "desc": "Forward Power Measurement at input raw reading limite inferior de interlock",
+    "desc": "Forward Power Measurement at input raw reading lower interlock limit",
     "name": "RA-ToSIB03:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -2401,7 +2401,7 @@
   },
   {
     "type": "tag",
-    "desc": "Reflected Power Measurement at input raw reading limite inferior de interlock",
+    "desc": "Reflected Power Measurement at input raw reading lower interlock limit",
     "name": "RA-ToSIB03:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -2449,7 +2449,7 @@
   },
   {
     "type": "tag",
-    "desc": "Forward Power Measurement at output raw reading limite inferior de interlock",
+    "desc": "Forward Power Measurement at output raw reading lower interlock limit",
     "name": "RA-ToSIB03:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -2477,7 +2477,7 @@
   },
   {
     "type": "tag",
-    "desc": "Reflected Power Measurement at output raw reading limite inferior de interlock",
+    "desc": "Reflected Power Measurement at output raw reading lower interlock limit",
     "name": "RA-ToSIB03:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -2660,7 +2660,7 @@
   },
   {
     "type": "conv",
-    "desc": "Forward Power Measurement at input limite superior de interlock",
+    "desc": "Forward Power Measurement at input upper interlock limit",
     "name": "RA-ToSIB03:RF-SSAmpTower:PwrFwdInLower-Cte",
     "inp": "RA-ToSIB03:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte",
     "egu": "dBm",
@@ -2687,7 +2687,7 @@
   },
   {
     "type": "conv",
-    "desc": "Reflected Power Measurement at input limite superior de interlock",
+    "desc": "Reflected Power Measurement at input upper interlock limit",
     "name": "RA-ToSIB03:RF-SSAmpTower:PwrRevInLower-Cte",
     "inp": "RA-ToSIB03:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte",
     "egu": "dBm",
@@ -2714,7 +2714,7 @@
   },
   {
     "type": "conv",
-    "desc": "Forward Power Measurement at output limite superior de interlock",
+    "desc": "Forward Power Measurement at output upper interlock limit",
     "name": "RA-ToSIB03:RF-SSAmpTower:PwrFwdOutLower-Cte",
     "inp": "RA-ToSIB03:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte",
     "egu": "dBm",
@@ -2741,7 +2741,7 @@
   },
   {
     "type": "conv",
-    "desc": "Reflected Power Measurement at output limite superior de interlock",
+    "desc": "Reflected Power Measurement at output upper interlock limit",
     "name": "RA-ToSIB03:RF-SSAmpTower:PwrRevOutLower-Cte",
     "inp": "RA-ToSIB03:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte",
     "egu": "dBm",
@@ -2910,7 +2910,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 01A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 01A upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H01A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -2942,7 +2942,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 01A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 01A lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H01A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -2990,7 +2990,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 01B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 01B upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H01B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3022,7 +3022,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 01B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 01B lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H01B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3070,7 +3070,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 02A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 02A upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H02A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3102,7 +3102,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 02A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 02A lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H02A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3150,7 +3150,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 02B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 02B upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H02B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3182,7 +3182,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 02B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 02B lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H02B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3230,7 +3230,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 03A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 03A upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H03A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3262,7 +3262,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 03A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 03A lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H03A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3310,7 +3310,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 03B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 03B upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H03B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3342,7 +3342,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 03B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 03B lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H03B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3390,7 +3390,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 04A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 04A upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H04A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3422,7 +3422,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 04A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 04A lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H04A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3470,7 +3470,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 04B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 04B upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H04B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3502,7 +3502,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 04B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 04B lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H04B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3550,7 +3550,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 05A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 05A upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H05A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3582,7 +3582,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 05A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 05A lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H05A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3630,7 +3630,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 05B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 05B upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H05B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3662,7 +3662,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 05B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 05B lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H05B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3710,7 +3710,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 06A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 06A upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H06A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3742,7 +3742,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 06A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 06A lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H06A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3790,7 +3790,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 06B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 06B upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H06B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3822,7 +3822,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 06B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 06B lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H06B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3870,7 +3870,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 07A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 07A upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H07A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3902,7 +3902,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 07A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 07A lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H07A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3950,7 +3950,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 07B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 07B upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H07B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -3982,7 +3982,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 07B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 07B lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H07B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -4030,7 +4030,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 08A limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 08A upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H08A:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -4062,7 +4062,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 08A limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 08A lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H08A:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -4110,7 +4110,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 08B limite superior de interlock",
+    "desc": "PT-100 of the Heatsink 08B upper interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H08B:TUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -4142,7 +4142,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT-100 of the Heatsink 08B limite inferior de interlock",
+    "desc": "PT-100 of the Heatsink 08B lower interlock limit",
     "name": "RA-ToSIB04:RF-HeatSink-H08B:TLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -5150,7 +5150,7 @@
   },
   {
     "type": "tag",
-    "desc": "Forward Power Measurement at input raw reading limite inferior de interlock",
+    "desc": "Forward Power Measurement at input raw reading lower interlock limit",
     "name": "RA-ToSIB04:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -5198,7 +5198,7 @@
   },
   {
     "type": "tag",
-    "desc": "Reflected Power Measurement at input raw reading limite inferior de interlock",
+    "desc": "Reflected Power Measurement at input raw reading lower interlock limit",
     "name": "RA-ToSIB04:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -5246,7 +5246,7 @@
   },
   {
     "type": "tag",
-    "desc": "Forward Power Measurement at output raw reading limite inferior de interlock",
+    "desc": "Forward Power Measurement at output raw reading lower interlock limit",
     "name": "RA-ToSIB04:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -5274,7 +5274,7 @@
   },
   {
     "type": "tag",
-    "desc": "Reflected Power Measurement at output raw reading limite inferior de interlock",
+    "desc": "Reflected Power Measurement at output raw reading lower interlock limit",
     "name": "RA-ToSIB04:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -5457,7 +5457,7 @@
   },
   {
     "type": "conv",
-    "desc": "Forward Power Measurement at input limite superior de interlock",
+    "desc": "Forward Power Measurement at input upper interlock limit",
     "name": "RA-ToSIB04:RF-SSAmpTower:PwrFwdInLower-Cte",
     "inp": "RA-ToSIB04:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte",
     "egu": "dBm",
@@ -5484,7 +5484,7 @@
   },
   {
     "type": "conv",
-    "desc": "Reflected Power Measurement at input limite superior de interlock",
+    "desc": "Reflected Power Measurement at input upper interlock limit",
     "name": "RA-ToSIB04:RF-SSAmpTower:PwrRevInLower-Cte",
     "inp": "RA-ToSIB04:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte",
     "egu": "dBm",
@@ -5511,7 +5511,7 @@
   },
   {
     "type": "conv",
-    "desc": "Forward Power Measurement at output limite superior de interlock",
+    "desc": "Forward Power Measurement at output upper interlock limit",
     "name": "RA-ToSIB04:RF-SSAmpTower:PwrFwdOutLower-Cte",
     "inp": "RA-ToSIB04:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte",
     "egu": "dBm",
@@ -5538,7 +5538,7 @@
   },
   {
     "type": "conv",
-    "desc": "Reflected Power Measurement at output limite superior de interlock",
+    "desc": "Reflected Power Measurement at output upper interlock limit",
     "name": "RA-ToSIB04:RF-SSAmpTower:PwrRevOutLower-Cte",
     "inp": "RA-ToSIB04:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte",
     "egu": "dBm",
@@ -5947,7 +5947,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT- 100 01 Pré-Amplificador limite superior de interlock",
+    "desc": "PT- 100 01 Pré-Amplificador upper interlock limit",
     "name": "RA-RaSIB01:RF-LLRFPreAmp-1:T1UpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -5975,7 +5975,7 @@
   },
   {
     "type": "tag",
-    "desc": "PT- 100 02 Pré-Amplificador limite superior de interlock",
+    "desc": "PT- 100 02 Pré-Amplificador upper interlock limit",
     "name": "RA-RaSIB01:RF-LLRFPreAmp-1:T2UpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -9603,7 +9603,7 @@
   },
   {
     "type": "tag",
-    "desc": "Temperatura ambiente próximo ao sistema B limite superior de interlock",
+    "desc": "Temperatura ambiente próximo ao sistema B upper interlock limit",
     "name": "RA-RaSIB02:RF-THSensor:TempUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -9635,7 +9635,7 @@
   },
   {
     "type": "tag",
-    "desc": "Temperatura ambiente próximo ao sistema B limite inferior de interlock",
+    "desc": "Temperatura ambiente próximo ao sistema B lower interlock limit",
     "name": "RA-RaSIB02:RF-THSensor:TempLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -9683,7 +9683,7 @@
   },
   {
     "type": "tag",
-    "desc": "Umidade ambiente próximo ao sistema B limite superior de interlock",
+    "desc": "Umidade ambiente próximo ao sistema B upper interlock limit",
     "name": "RA-RaSIB02:RF-THSensor:HumidityUpperLimit-Cte",
     "dtype": "float",
     "inout": "read",
@@ -9715,7 +9715,7 @@
   },
   {
     "type": "tag",
-    "desc": "Umidade ambiente próximo ao sistema B limite inferior de interlock",
+    "desc": "Umidade ambiente próximo ao sistema B lower interlock limit",
     "name": "RA-RaSIB02:RF-THSensor:HumidityLowerLimit-Cte",
     "dtype": "float",
     "inout": "read",
