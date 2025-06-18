@@ -2622,7 +2622,7 @@
     "inp": "RA-ToSIA01:RF-SSAmpTower:RunMin-Mon",
     "egu": "h",
     "prec": "",
-    "conv": "60*pv"
+    "conv": "pv/60"
   },
   {
     "type": "tag",
@@ -5419,7 +5419,7 @@
     "inp": "RA-ToSIA02:RF-SSAmpTower:RunMin-Mon",
     "egu": "h",
     "prec": "",
-    "conv": "60*pv"
+    "conv": "pv/60"
   },
   {
     "type": "tag",
