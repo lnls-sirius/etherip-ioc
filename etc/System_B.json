@@ -7156,7 +7156,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 01 Torre 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:IB1605Fault-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:IB1605Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7172,7 +7172,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 02 Torre 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:IB1606Fault-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:IB1606Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7188,7 +7188,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 03 Torre 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:IY401Fault-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:IY401Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7204,7 +7204,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 04 Torre 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:IY402Fault-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:IY402Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7220,7 +7220,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 05 Torre 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:IY403Fault-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:IY403Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7236,7 +7236,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 06 Torre 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:IY404Fault-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:IY404Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7252,7 +7252,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 07 Torre 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:IY405Fault-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:IY405Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7268,7 +7268,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 08 Torre 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OB1608Fault-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OB1608Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7284,7 +7284,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 06 Torre 03 Entrada 01",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig00-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig00-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7300,7 +7300,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 02",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig01-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig01-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7316,7 +7316,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig02-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig02-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7332,7 +7332,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 04",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig03-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig03-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7348,7 +7348,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 05",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig04-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig04-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7364,7 +7364,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 06",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig05-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig05-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7380,7 +7380,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 07",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig06-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig06-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7396,7 +7396,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 08",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig07-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig07-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7412,7 +7412,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 09",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig08-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig08-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7428,7 +7428,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 10",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig09-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig09-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7444,7 +7444,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 11",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig10-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig10-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7460,7 +7460,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 12",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig11-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig11-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7476,7 +7476,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 13",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig12-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig12-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7492,7 +7492,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 14",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig13-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig13-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7508,7 +7508,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 15",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig14-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig14-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7524,7 +7524,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 03 Entrada 16",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig15-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig15-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7540,7 +7540,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 01",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig16-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig16-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7556,7 +7556,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 02",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig17-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig17-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7572,7 +7572,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig18-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig18-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7588,7 +7588,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 04",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig19-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig19-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7604,7 +7604,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 05",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig20-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig20-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7620,7 +7620,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 06",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig21-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig21-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7636,7 +7636,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 07",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig22-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig22-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7652,7 +7652,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 08",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig23-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig23-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7668,7 +7668,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 09",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig24-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig24-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7684,7 +7684,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 10",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig25-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig25-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7700,7 +7700,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 11",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig26-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig26-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7716,7 +7716,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 12",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig27-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig27-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7732,7 +7732,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 13",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig28-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig28-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7748,7 +7748,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 14",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig29-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig29-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7764,7 +7764,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 15",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig30-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig30-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7780,7 +7780,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 03 Entrada 16",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InDig31-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InDig31-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7796,7 +7796,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 03 Torre 03 Entrada 01",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng00-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng00-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7812,7 +7812,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 03 Torre 03 Entrada 02",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng01-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng01-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7828,7 +7828,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 03 Torre 03 Entrada 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng02-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng02-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7844,7 +7844,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 03 Torre 03 Entrada 04",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng03-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng03-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7860,7 +7860,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 04 Torre 03 Entrada 01",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng04-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng04-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7876,7 +7876,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 04 Torre 03 Entrada 02",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng05-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng05-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7892,7 +7892,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 04 Torre 03 Entrada 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng06-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng06-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7908,7 +7908,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 04 Torre 03 Entrada 04",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng07-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng07-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7924,7 +7924,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 05 Torre 03 Entrada 01",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng08-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng08-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7940,7 +7940,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 05 Torre 03 Entrada 02",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng09-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng09-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7956,7 +7956,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 05 Torre 03 Entrada 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng10-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng10-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7972,7 +7972,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 05 Torre 03 Entrada 04",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng11-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng11-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -7988,7 +7988,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 06 Torre 03 Entrada 01",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng12-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng12-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8004,7 +8004,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 06 Torre 03 Entrada 02",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng13-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng13-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8020,7 +8020,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 06 Torre 03 Entrada 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng14-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng14-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8036,7 +8036,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 06 Torre 03 Entrada 04",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng15-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng15-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8052,7 +8052,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 07 Torre 03 Entrada 01",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng16-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng16-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8068,7 +8068,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 07 Torre 03 Entrada 02",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng17-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng17-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8084,7 +8084,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 07 Torre 03 Entrada 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng18-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng18-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8100,7 +8100,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 07 Torre 03 Entrada 04",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:InAng19-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:InAng19-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8116,7 +8116,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 01",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig00-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig00-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8132,7 +8132,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 02",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig01-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig01-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8148,7 +8148,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 03",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig02-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig02-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8164,7 +8164,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 04",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig03-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig03-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8180,7 +8180,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 05",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig04-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig04-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8196,7 +8196,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 06",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig05-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig05-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8212,7 +8212,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 07",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig06-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig06-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8228,7 +8228,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 08",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig07-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig07-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8244,7 +8244,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 09",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig08-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig08-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8260,7 +8260,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 10",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig09-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig09-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8276,7 +8276,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 11",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig10-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig10-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8292,7 +8292,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 12",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig11-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig11-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8308,7 +8308,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 13",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig12-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig12-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8324,7 +8324,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 14",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig13-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig13-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8340,7 +8340,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 15",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig14-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig14-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8356,7 +8356,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 03 Saída 16",
-    "name": "RA-ToSIB03:RF-CtrlPanel-:OutDig15-Mon",
+    "name": "RA-ToSIB03:RF-CtrlPanel:OutDig15-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8372,7 +8372,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 01 Torre 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:IB1605Fault-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:IB1605Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8388,7 +8388,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 02 Torre 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:IB1606Fault-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:IB1606Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8404,7 +8404,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 03 Torre 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:IY401Fault-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:IY401Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8420,7 +8420,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 04 Torre 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:IY402Fault-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:IY402Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8436,7 +8436,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 05 Torre 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:IY403Fault-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:IY403Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8452,7 +8452,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 06 Torre 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:IY404Fault-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:IY404Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8468,7 +8468,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 07 Torre 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:IY405Fault-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:IY405Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8484,7 +8484,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 08 Torre 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OB1608Fault-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OB1608Fault-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8500,7 +8500,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 01",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig00-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig00-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8516,7 +8516,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 02",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig01-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig01-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8532,7 +8532,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 03",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig02-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig02-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8548,7 +8548,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig03-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig03-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8564,7 +8564,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 05",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig04-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig04-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8580,7 +8580,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 06",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig05-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig05-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8596,7 +8596,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 07",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig06-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig06-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8612,7 +8612,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 08",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig07-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig07-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8628,7 +8628,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 09",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig08-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig08-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8644,7 +8644,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 10",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig09-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig09-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8660,7 +8660,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 11",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig10-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig10-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8676,7 +8676,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 12",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig11-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig11-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8692,7 +8692,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 13",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig12-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig12-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8708,7 +8708,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 14",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig13-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig13-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8724,7 +8724,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 15",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig14-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig14-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8740,7 +8740,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 01 Torre 04 Entrada 16",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig15-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig15-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8756,7 +8756,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 01",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig16-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig16-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8772,7 +8772,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 02",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig17-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig17-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8788,7 +8788,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 03",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig18-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig18-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8804,7 +8804,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig19-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig19-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8820,7 +8820,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 05",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig20-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig20-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8836,7 +8836,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 06",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig21-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig21-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8852,7 +8852,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 07",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig22-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig22-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8868,7 +8868,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 08",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig23-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig23-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8884,7 +8884,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 09",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig24-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig24-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8900,7 +8900,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 10",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig25-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig25-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8916,7 +8916,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 11",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig26-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig26-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8932,7 +8932,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 12",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig27-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig27-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8948,7 +8948,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 13",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig28-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig28-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8964,7 +8964,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 14",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig29-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig29-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8980,7 +8980,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 15",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig30-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig30-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -8996,7 +8996,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IB16 02 Torre 04 Entrada 16",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InDig31-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InDig31-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9012,7 +9012,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 03 Torre 04 Entrada 01",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng00-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng00-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9028,7 +9028,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 03 Torre 04 Entrada 02",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng01-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng01-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9044,7 +9044,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 03 Torre 04 Entrada 03",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng02-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng02-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9060,7 +9060,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 03 Torre 04 Entrada 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng03-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng03-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9076,7 +9076,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 04 Torre 04 Entrada 01",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng04-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng04-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9092,7 +9092,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 04 Torre 04 Entrada 02",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng05-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng05-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9108,7 +9108,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 04 Torre 04 Entrada 03",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng06-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng06-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9124,7 +9124,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 04 Torre 04 Entrada 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng07-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng07-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9140,7 +9140,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 05 Torre 04 Entrada 01",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng08-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng08-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9156,7 +9156,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 05 Torre 04 Entrada 02",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng09-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng09-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9172,7 +9172,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 05 Torre 04 Entrada 03",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng10-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng10-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9188,7 +9188,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 05 Torre 04 Entrada 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng11-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng11-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9204,7 +9204,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 06 Torre 04 Entrada 01",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng12-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng12-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9220,7 +9220,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 06 Torre 04 Entrada 02",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng13-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng13-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9236,7 +9236,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 06 Torre 04 Entrada 03",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng14-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng14-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9252,7 +9252,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 06 Torre 04 Entrada 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng15-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng15-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9268,7 +9268,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 07 Torre 04 Entrada 01",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng16-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng16-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9284,7 +9284,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 07 Torre 04 Entrada 02",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng17-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng17-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9300,7 +9300,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 07 Torre 04 Entrada 03",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng18-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng18-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9316,7 +9316,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-IY4 07 Torre 04 Entrada 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:InAng19-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:InAng19-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9332,7 +9332,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 01",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig00-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig00-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9348,7 +9348,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 02",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig01-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig01-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9364,7 +9364,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 03",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig02-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig02-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9380,7 +9380,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 04",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig03-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig03-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9396,7 +9396,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 05",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig04-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig04-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9412,7 +9412,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 06",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig05-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig05-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9428,7 +9428,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 07",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig06-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig06-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9444,7 +9444,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 08",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig07-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig07-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9460,7 +9460,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 09",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig08-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig08-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9476,7 +9476,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 10",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig09-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig09-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9492,7 +9492,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 11",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig10-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig10-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9508,7 +9508,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 12",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig11-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig11-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9524,7 +9524,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 13",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig12-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig12-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9540,7 +9540,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 14",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig13-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig13-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9556,7 +9556,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 15",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig14-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig14-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
@@ -9572,7 +9572,7 @@
   {
     "type": "tag",
     "desc": "Falha Hardware Cartão 5069-OB16 08 Torre 04 Saída 16",
-    "name": "RA-ToSIB04:RF-CtrlPanel-:OutDig15-Mon",
+    "name": "RA-ToSIB04:RF-CtrlPanel:OutDig15-Mon",
     "dtype": "bool",
     "inout": "read",
     "cmdtime": "",
