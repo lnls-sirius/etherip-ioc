@@ -9699,6 +9699,22 @@
   },
   {
     "type": "tag",
+    "desc": "Status temperatura ambiente próximo ao sistema A Alta",
+    "name": "RA-RaSIA02:RF-THSensor:TempUp-Mon",
+    "dtype": "bool",
+    "inout": "read",
+    "cmdtime": "",
+    "tag": "Memorias[90].0",
+    "egu": "C",
+    "scan": "1",
+    "prec": "",
+    "hsv": "",
+    "hhsv": "",
+    "lsv": "",
+    "llsv": ""
+  },
+  {
+    "type": "tag",
     "desc": "Umidade ambiente próximo ao sistema A",
     "name": "RA-RaSIA02:RF-THSensor:Humidity-Mon",
     "dtype": "float",
