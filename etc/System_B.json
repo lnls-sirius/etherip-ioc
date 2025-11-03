@@ -2807,10 +2807,42 @@
     "egu": "C",
     "scan": ".5",
     "prec": "2",
-    "hsv": "",
-    "hhsv": "",
+    "hsv": "minor",
+    "hhsv": "major",
     "lsv": "",
     "llsv": ""
+  },
+  {
+    "type": "tag",
+    "desc": "Temperature sensor at flexible output upper interlock limit",
+    "name": "RA-ToSIB03:RF-SSAmpTower:OutTUpperLimit-Cte",
+    "dtype": "float",
+    "inout": "read",
+    "cmdtime": "",
+    "tag": "Real[14]",
+    "egu": "C",
+    "scan": "5",
+    "prec": "2"
+  },
+  {
+    "type": "calc",
+    "desc": "Temperature sensor at flexible output alarme HIGH",
+    "name": "RA-ToSIB03:RF-SSAmpTower:OutTUpperLimitHIGH-Cte",
+    "inp": "RA-ToSIB03:RF-SSAmpTower:OutTUpperLimit-Cte",
+    "out": "RA-ToSIB03:RF-SSAmpTower:OutT-Mon.HIGH",
+    "egu": "C",
+    "prec": "2",
+    "conv": "pv - 5"
+  },
+  {
+    "type": "calc",
+    "desc": "Temperature sensor at flexible output alarme HIHI",
+    "name": "RA-ToSIB03:RF-SSAmpTower:OutTUpperLimitHIHI-Cte",
+    "inp": "RA-ToSIB03:RF-SSAmpTower:OutTUpperLimit-Cte",
+    "out": "RA-ToSIB03:RF-SSAmpTower:OutT-Mon.HIHI",
+    "egu": "C",
+    "prec": "2",
+    "conv": "pv - 1"
   },
   {
     "type": "tag",
@@ -5620,10 +5652,42 @@
     "egu": "C",
     "scan": ".5",
     "prec": "2",
-    "hsv": "",
-    "hhsv": "",
+    "hsv": "minor",
+    "hhsv": "major",
     "lsv": "",
     "llsv": ""
+  },
+  {
+    "type": "tag",
+    "desc": "Temperature sensor at flexible output upper interlock limit",
+    "name": "RA-ToSIB04:RF-SSAmpTower:OutTUpperLimit-Cte",
+    "dtype": "float",
+    "inout": "read",
+    "cmdtime": "",
+    "tag": "Real[14]",
+    "egu": "C",
+    "scan": "5",
+    "prec": "2"
+  },
+  {
+    "type": "calc",
+    "desc": "Temperature sensor at flexible output alarme HIGH",
+    "name": "RA-ToSIB04:RF-SSAmpTower:OutTUpperLimitHIGH-Cte",
+    "inp": "RA-ToSIB04:RF-SSAmpTower:OutTUpperLimit-Cte",
+    "out": "RA-ToSIB04:RF-SSAmpTower:OutT-Mon.HIGH",
+    "egu": "C",
+    "prec": "2",
+    "conv": "pv - 5"
+  },
+  {
+    "type": "calc",
+    "desc": "Temperature sensor at flexible output alarme HIHI",
+    "name": "RA-ToSIB04:RF-SSAmpTower:OutTUpperLimitHIHI-Cte",
+    "inp": "RA-ToSIB04:RF-SSAmpTower:OutTUpperLimit-Cte",
+    "out": "RA-ToSIB04:RF-SSAmpTower:OutT-Mon.HIHI",
+    "egu": "C",
+    "prec": "2",
+    "conv": "pv - 1"
   },
   {
     "type": "tag",
