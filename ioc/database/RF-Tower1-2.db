@@ -183,7 +183,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H01A:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H01A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 01A limite super")
+    field(DESC, "PT-100 of the Heatsink 01A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -241,7 +241,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H01A:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H01A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 01A limite infer")
+    field(DESC, "PT-100 of the Heatsink 01A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -313,7 +313,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H01B:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H01B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 01B limite super")
+    field(DESC, "PT-100 of the Heatsink 01B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -371,7 +371,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H01B:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H01B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 01B limite infer")
+    field(DESC, "PT-100 of the Heatsink 01B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -443,7 +443,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H02A:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H02A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 02A limite super")
+    field(DESC, "PT-100 of the Heatsink 02A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -501,7 +501,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H02A:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H02A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 02A limite infer")
+    field(DESC, "PT-100 of the Heatsink 02A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -573,7 +573,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H02B:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H02B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 02B limite super")
+    field(DESC, "PT-100 of the Heatsink 02B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -631,7 +631,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H02B:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H02B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 02B limite infer")
+    field(DESC, "PT-100 of the Heatsink 02B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -703,7 +703,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H03A:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H03A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 03A limite super")
+    field(DESC, "PT-100 of the Heatsink 03A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -761,7 +761,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H03A:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H03A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 03A limite infer")
+    field(DESC, "PT-100 of the Heatsink 03A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -833,7 +833,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H03B:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H03B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 03B limite super")
+    field(DESC, "PT-100 of the Heatsink 03B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -891,7 +891,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H03B:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H03B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 03B limite infer")
+    field(DESC, "PT-100 of the Heatsink 03B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -963,7 +963,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H04A:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H04A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 04A limite super")
+    field(DESC, "PT-100 of the Heatsink 04A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1021,7 +1021,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H04A:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H04A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 04A limite infer")
+    field(DESC, "PT-100 of the Heatsink 04A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1093,7 +1093,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H04B:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H04B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 04B limite super")
+    field(DESC, "PT-100 of the Heatsink 04B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1151,7 +1151,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H04B:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H04B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 04B limite infer")
+    field(DESC, "PT-100 of the Heatsink 04B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1223,7 +1223,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H05A:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H05A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 05A limite super")
+    field(DESC, "PT-100 of the Heatsink 05A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1281,7 +1281,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H05A:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H05A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 05A limite infer")
+    field(DESC, "PT-100 of the Heatsink 05A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1353,7 +1353,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H05B:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H05B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 05B limite super")
+    field(DESC, "PT-100 of the Heatsink 05B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1411,7 +1411,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H05B:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H05B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 05B limite infer")
+    field(DESC, "PT-100 of the Heatsink 05B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1483,7 +1483,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H06A:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H06A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 06A limite super")
+    field(DESC, "PT-100 of the Heatsink 06A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1541,7 +1541,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H06A:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H06A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 06A limite infer")
+    field(DESC, "PT-100 of the Heatsink 06A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1613,7 +1613,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H06B:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H06B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 06B limite super")
+    field(DESC, "PT-100 of the Heatsink 06B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1671,7 +1671,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H06B:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H06B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 06B limite infer")
+    field(DESC, "PT-100 of the Heatsink 06B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1743,7 +1743,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H07A:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H07A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 07A limite super")
+    field(DESC, "PT-100 of the Heatsink 07A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1801,7 +1801,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H07A:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H07A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 07A limite infer")
+    field(DESC, "PT-100 of the Heatsink 07A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1873,7 +1873,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H07B:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H07B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 07B limite super")
+    field(DESC, "PT-100 of the Heatsink 07B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -1931,7 +1931,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H07B:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H07B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 07B limite infer")
+    field(DESC, "PT-100 of the Heatsink 07B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -2003,7 +2003,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H08A:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H08A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 08A limite super")
+    field(DESC, "PT-100 of the Heatsink 08A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -2061,7 +2061,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H08A:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H08A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 08A limite infer")
+    field(DESC, "PT-100 of the Heatsink 08A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -2133,7 +2133,7 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H08B:T-Mon"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H08B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 08B limite super")
+    field(DESC, "PT-100 of the Heatsink 08B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -2191,7 +2191,7 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H08B:TUpperLimitHIHI-Cte"){
 record(ai, "RA-ToSIA01:RF-HeatSink-H08B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 08B limite infer")
+    field(DESC, "PT-100 of the Heatsink 08B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -4365,7 +4365,7 @@ record(bi, "RA-ToSIA01:RF-CtrlPanel:PINSwSts-Mon"){
 }
 
 record(calcout, "RA-ToSIA01:RF-SSAmpTower:RunHour-Mon"){
-    field(CALC, "60*A")
+    field(CALC, "A/60")
     field(DESC, "Hourmeter Tower 01 alarme LOLO")
     field(PREC, "")
     field(EGU, "h")
@@ -4412,7 +4412,7 @@ record(waveform, "RA-ToSIA01:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte"){
 record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrFwdIn-Mon"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Forward Power Measurement at input")
-    field(PREC, "")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -4446,8 +4446,8 @@ record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrFwdIn-Mon"){
 
 record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrFwdInLower-Cte"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
-    field(DESC, "Forward Power Measurement at input limi")
-    field(PREC, "")
+    field(DESC, "Forward Power Measurement at input uppe")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -4491,7 +4491,7 @@ record(waveform, "RA-ToSIA01:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte"){
 record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrRevIn-Mon"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Reflected Power Measurement at input")
-    field(PREC, "")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -4525,8 +4525,8 @@ record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrRevIn-Mon"){
 
 record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrRevInLower-Cte"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
-    field(DESC, "Reflected Power Measurement at input li")
-    field(PREC, "")
+    field(DESC, "Reflected Power Measurement at input up")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -4570,7 +4570,7 @@ record(waveform, "RA-ToSIA01:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte"){
 record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrFwdOut-Mon"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Forward Power Measurement at output")
-    field(PREC, "")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -4604,8 +4604,8 @@ record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrFwdOut-Mon"){
 
 record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrFwdOutLower-Cte"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
-    field(DESC, "Forward Power Measurement at output lim")
-    field(PREC, "")
+    field(DESC, "Forward Power Measurement at output upp")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -4649,7 +4649,7 @@ record(waveform, "RA-ToSIA01:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte"){
 record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrRevOut-Mon"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Reflected Power Measurement at output")
-    field(PREC, "")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -4683,8 +4683,8 @@ record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrRevOut-Mon"){
 
 record(acalcout, "RA-ToSIA01:RF-SSAmpTower:PwrRevOutLower-Cte"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
-    field(DESC, "Reflected Power Measurement at output l")
-    field(PREC, "")
+    field(DESC, "Reflected Power Measurement at output u")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -4721,7 +4721,7 @@ record(ai, "RA-ToSIA01:RF-SSAmpTower:CoaxSwLvlTh-RB"){
     field(INP,  "@$(PLC) ReadBack_Real_0")
     field(DESC, "Minimum power to enable coax switch Rea")
     field(SCAN, ".1 second")
-    field(PREC, "")
+    field(PREC, "2")
     field(EGU,  "V")
     field(VAL,  "")
     field(HSV,  "")
@@ -4738,6 +4738,78 @@ record(bi, "RA-ToSIA01:RF-SSAmpTower:CoaxSwLvlSts-Mon"){
     field(ONAM, "True")
     field(ZNAM, "False")
     field(VAL, "")
+}
+
+record(ai, "RA-ToSIA01:RF-SSAmpTower:OutT-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) AES_01_Control_Panel:9:I.Ch00.Data")
+    field(DESC, "Temperature sensor at flexible output")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+    field(VAL,  "")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "")
+    field(LLSV,  "")
+}
+
+record(ai, "RA-ToSIA01:RF-SSAmpTower:OutTUpperLimit-Cte"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Real[14]")
+    field(DESC, "Temperature sensor at flexible output u")
+    field(SCAN, "5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+    field(VAL,  "")
+    field(HSV,  "NO_ALARM")
+    field(HHSV,  "NO_ALARM")
+    field(LSV,  "NO_ALARM")
+    field(LLSV,  "NO_ALARM")
+}
+
+record(calcout, "RA-ToSIA01:RF-SSAmpTower:OutTUpperLimitHIGH-Cte"){
+    field(CALC, "A-5")
+    field(DESC, "Temperature sensor at flexible output a")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA01:RF-SSAmpTower:OutTUpperLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA01:RF-SSAmpTower:OutT-Mon.HIGH")
+}
+
+record(calcout, "RA-ToSIA01:RF-SSAmpTower:OutTUpperLimitHIHI-Cte"){
+    field(CALC, "A-1")
+    field(DESC, "Temperature sensor at flexible output a")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA01:RF-SSAmpTower:OutTUpperLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA01:RF-SSAmpTower:OutT-Mon.HIHI")
 }
 
 record(ao, "Memorias_57__32bit"){
@@ -4921,10 +4993,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H01A:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H01A:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H01A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 01A limite super")
+    field(DESC, "PT-100 of the Heatsink 01A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -4935,13 +5007,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H01A:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H01A:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H01A:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 01A alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H01A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H01A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -4957,13 +5029,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H01A:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H01A:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H01A:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H01A:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 01A alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H01A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H01A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -4979,10 +5051,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H01A:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H01A:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H01A:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H01A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 01A limite infer")
+    field(DESC, "PT-100 of the Heatsink 01A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -4993,13 +5065,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H01A:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H01A:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H01A:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 01A alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H01A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H01A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5015,13 +5087,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H01A:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H01A:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H01A:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H01A:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 01A alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H01A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H01A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5051,10 +5123,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H01B:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H01B:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H01B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 01B limite super")
+    field(DESC, "PT-100 of the Heatsink 01B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5065,13 +5137,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H01B:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H01B:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H01B:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 01B alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H01B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H01B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5087,13 +5159,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H01B:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H01B:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H01B:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H01B:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 01B alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H01B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H01B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5109,10 +5181,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H01B:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H01B:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H01B:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H01B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 01B limite infer")
+    field(DESC, "PT-100 of the Heatsink 01B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5123,13 +5195,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H01B:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H01B:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H01B:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 01B alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H01B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H01B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5145,13 +5217,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H01B:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H01B:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H01B:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H01B:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 01B alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H01B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H01B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5181,10 +5253,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H02A:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H02A:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H02A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 02A limite super")
+    field(DESC, "PT-100 of the Heatsink 02A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5195,13 +5267,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H02A:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H02A:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H02A:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 02A alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H02A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H02A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5217,13 +5289,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H02A:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H02A:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H02A:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H02A:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 02A alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H02A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H02A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5239,10 +5311,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H02A:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H02A:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H02A:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H02A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 02A limite infer")
+    field(DESC, "PT-100 of the Heatsink 02A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5253,13 +5325,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H02A:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H02A:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H02A:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 02A alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H02A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H02A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5275,13 +5347,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H02A:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H02A:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H02A:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H02A:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 02A alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H02A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H02A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5311,10 +5383,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H02B:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H02B:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H02B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 02B limite super")
+    field(DESC, "PT-100 of the Heatsink 02B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5325,13 +5397,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H02B:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H02B:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H02B:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 02B alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H02B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H02B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5347,13 +5419,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H02B:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H02B:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H02B:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H02B:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 02B alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H02B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H02B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5369,10 +5441,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H02B:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H02B:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H02B:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H02B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 02B limite infer")
+    field(DESC, "PT-100 of the Heatsink 02B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5383,13 +5455,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H02B:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H02B:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H02B:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 02B alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H02B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H02B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5405,13 +5477,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H02B:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H02B:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H02B:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H02B:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 02B alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H02B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H02B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5441,10 +5513,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H03A:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H03A:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H03A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 03A limite super")
+    field(DESC, "PT-100 of the Heatsink 03A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5455,13 +5527,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H03A:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H03A:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H03A:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 03A alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H03A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H03A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5477,13 +5549,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H03A:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H03A:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H03A:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H03A:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 03A alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H03A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H03A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5499,10 +5571,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H03A:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H03A:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H03A:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H03A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 03A limite infer")
+    field(DESC, "PT-100 of the Heatsink 03A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5513,13 +5585,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H03A:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H03A:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H03A:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 03A alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H03A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H03A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5535,13 +5607,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H03A:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H03A:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H03A:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H03A:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 03A alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H03A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H03A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5571,10 +5643,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H03B:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H03B:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H03B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 03B limite super")
+    field(DESC, "PT-100 of the Heatsink 03B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5585,13 +5657,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H03B:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H03B:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H03B:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 03B alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H03B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H03B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5607,13 +5679,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H03B:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H03B:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H03B:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H03B:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 03B alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H03B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H03B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5629,10 +5701,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H03B:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H03B:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H03B:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H03B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 03B limite infer")
+    field(DESC, "PT-100 of the Heatsink 03B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5643,13 +5715,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H03B:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H03B:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H03B:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 03B alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H03B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H03B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5665,13 +5737,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H03B:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H03B:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H03B:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H03B:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 03B alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H03B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H03B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5701,10 +5773,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H04A:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H04A:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H04A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 04A limite super")
+    field(DESC, "PT-100 of the Heatsink 04A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5715,13 +5787,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H04A:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H04A:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H04A:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 04A alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H04A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H04A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5737,13 +5809,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H04A:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H04A:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H04A:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H04A:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 04A alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H04A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H04A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5759,10 +5831,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H04A:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H04A:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H04A:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H04A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 04A limite infer")
+    field(DESC, "PT-100 of the Heatsink 04A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5773,13 +5845,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H04A:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H04A:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H04A:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 04A alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H04A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H04A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5795,13 +5867,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H04A:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H04A:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H04A:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H04A:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 04A alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H04A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H04A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5831,10 +5903,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H04B:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H04B:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H04B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 04B limite super")
+    field(DESC, "PT-100 of the Heatsink 04B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5845,13 +5917,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H04B:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H04B:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H04B:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 04B alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H04B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H04B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5867,13 +5939,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H04B:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H04B:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H04B:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H04B:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 04B alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H04B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H04B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5889,10 +5961,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H04B:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H04B:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H04B:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H04B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 04B limite infer")
+    field(DESC, "PT-100 of the Heatsink 04B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5903,13 +5975,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H04B:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H04B:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H04B:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 04B alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H04B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H04B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5925,13 +5997,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H04B:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H04B:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H04B:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H04B:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 04B alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H04B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H04B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5961,10 +6033,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H05A:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H05A:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H05A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 05A limite super")
+    field(DESC, "PT-100 of the Heatsink 05A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -5975,13 +6047,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H05A:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H05A:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H05A:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 05A alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H05A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H05A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -5997,13 +6069,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H05A:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H05A:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H05A:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H05A:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 05A alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H05A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H05A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6019,10 +6091,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H05A:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H05A:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H05A:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H05A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 05A limite infer")
+    field(DESC, "PT-100 of the Heatsink 05A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6033,13 +6105,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H05A:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H05A:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H05A:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 05A alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H05A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H05A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6055,13 +6127,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H05A:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H05A:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H05A:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H05A:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 05A alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H05A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H05A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6091,10 +6163,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H05B:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H05B:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H05B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 05B limite super")
+    field(DESC, "PT-100 of the Heatsink 05B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6105,13 +6177,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H05B:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H05B:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H05B:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 05B alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H05B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H05B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6127,13 +6199,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H05B:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H05B:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H05B:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H05B:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 05B alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H05B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H05B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6149,10 +6221,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H05B:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H05B:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H05B:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H05B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 05B limite infer")
+    field(DESC, "PT-100 of the Heatsink 05B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6163,13 +6235,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H05B:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H05B:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H05B:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 05B alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H05B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H05B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6185,13 +6257,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H05B:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H05B:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H05B:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H05B:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 05B alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H05B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H05B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6221,10 +6293,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H06A:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H06A:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H06A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 06A limite super")
+    field(DESC, "PT-100 of the Heatsink 06A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6235,13 +6307,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H06A:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H06A:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H06A:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 06A alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H06A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H06A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6257,13 +6329,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H06A:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H06A:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H06A:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H06A:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 06A alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H06A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H06A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6279,10 +6351,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H06A:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H06A:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H06A:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H06A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 06A limite infer")
+    field(DESC, "PT-100 of the Heatsink 06A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6293,13 +6365,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H06A:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H06A:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H06A:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 06A alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H06A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H06A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6315,13 +6387,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H06A:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H06A:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H06A:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H06A:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 06A alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H06A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H06A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6351,10 +6423,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H06B:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H06B:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H06B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 06B limite super")
+    field(DESC, "PT-100 of the Heatsink 06B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6365,13 +6437,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H06B:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H06B:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H06B:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 06B alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H06B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H06B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6387,13 +6459,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H06B:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H06B:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H06B:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H06B:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 06B alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H06B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H06B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6409,10 +6481,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H06B:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H06B:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H06B:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H06B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 06B limite infer")
+    field(DESC, "PT-100 of the Heatsink 06B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6423,13 +6495,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H06B:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H06B:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H06B:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 06B alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H06B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H06B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6445,13 +6517,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H06B:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H06B:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H06B:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H06B:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 06B alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H06B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H06B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6481,10 +6553,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H07A:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H07A:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H07A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 07A limite super")
+    field(DESC, "PT-100 of the Heatsink 07A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6495,13 +6567,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H07A:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H07A:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H07A:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 07A alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H07A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H07A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6517,13 +6589,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H07A:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H07A:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H07A:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H07A:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 07A alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H07A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H07A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6539,10 +6611,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H07A:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H07A:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H07A:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H07A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 07A limite infer")
+    field(DESC, "PT-100 of the Heatsink 07A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6553,13 +6625,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H07A:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H07A:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H07A:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 07A alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H07A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H07A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6575,13 +6647,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H07A:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H07A:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H07A:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H07A:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 07A alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H07A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H07A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6611,10 +6683,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H07B:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H07B:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H07B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 07B limite super")
+    field(DESC, "PT-100 of the Heatsink 07B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6625,13 +6697,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H07B:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H07B:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H07B:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 07B alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H07B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H07B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6647,13 +6719,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H07B:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H07B:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H07B:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H07B:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 07B alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H07B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H07B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6669,10 +6741,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H07B:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H07B:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H07B:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H07B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 07B limite infer")
+    field(DESC, "PT-100 of the Heatsink 07B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6683,13 +6755,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H07B:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H07B:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H07B:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 07B alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H07B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H07B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6705,13 +6777,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H07B:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H07B:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H07B:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H07B:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 07B alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H07B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H07B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6741,10 +6813,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H08A:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H08A:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H08A:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 08A limite super")
+    field(DESC, "PT-100 of the Heatsink 08A upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6755,13 +6827,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H08A:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H08A:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H08A:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 08A alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H08A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H08A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6777,13 +6849,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H08A:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H08A:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H08A:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H08A:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 08A alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H08A:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H08A:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6799,10 +6871,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H08A:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H08A:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H08A:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H08A:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 08A limite infer")
+    field(DESC, "PT-100 of the Heatsink 08A lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6813,13 +6885,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H08A:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H08A:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H08A:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 08A alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H08A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H08A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6835,13 +6907,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H08A:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H08A:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H08A:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H08A:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 08A alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H08A:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H08A:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6871,10 +6943,10 @@ record(ai, "RA-ToSIA02:RF-HeatSink-H08B:T-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H08B:TUpperLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H08B:TUpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[0]")
-    field(DESC, "PT-100 of the Heatsink 08B limite super")
+    field(DESC, "PT-100 of the Heatsink 08B upper interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6885,13 +6957,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H08B:TUpperLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H08B:TUpperLimitHIGH-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H08B:TUpperLimitHIGH-Cte"){
     field(CALC, "A-5")
     field(DESC, "PT-100 of the Heatsink 08B alarme HIGH")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H08B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H08B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6907,13 +6979,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H08B:TUpperLimitHIGH-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H08B:T-Mon.HIGH")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H08B:TUpperLimitHIHI-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H08B:TUpperLimitHIHI-Cte"){
     field(CALC, "A-1")
     field(DESC, "PT-100 of the Heatsink 08B alarme HIHI")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H08B:TUpperLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H08B:TUpperLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6929,10 +7001,10 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H08B:TUpperLimitHIHI-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H08B:T-Mon.HIHI")
 }
 
-record(ai, "RA-ToSIA01:RF-HeatSink-H08B:TLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-HeatSink-H08B:TLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[1]")
-    field(DESC, "PT-100 of the Heatsink 08B limite infer")
+    field(DESC, "PT-100 of the Heatsink 08B lower interl")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -6943,13 +7015,13 @@ record(ai, "RA-ToSIA01:RF-HeatSink-H08B:TLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H08B:TLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H08B:TLowerLimitLOW-Cte"){
     field(CALC, "A+5")
     field(DESC, "PT-100 of the Heatsink 08B alarme LOW")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H08B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H08B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -6965,13 +7037,13 @@ record(calcout, "RA-ToSIA01:RF-HeatSink-H08B:TLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-HeatSink-H08B:T-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-HeatSink-H08B:TLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-HeatSink-H08B:TLowerLimitLOLO-Cte"){
     field(CALC, "A+1")
     field(DESC, "PT-100 of the Heatsink 08B alarme LOLO")
     field(PREC, "2")
     field(EGU, "C")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-HeatSink-H08B:TLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-HeatSink-H08B:TLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -8730,7 +8802,7 @@ record(ai, "RA-ToSIA02:RF-SSAmpTower:HwPwrFwdIn-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[4]")
     field(DESC, "Forward Power Measurement at input raw ")
@@ -8744,13 +8816,13 @@ record(ai, "RA-ToSIA01:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-SSAmpTower:HwPwrFwdInLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-SSAmpTower:HwPwrFwdInLowerLimitLOW-Cte"){
     field(CALC, "A+0.009")
     field(DESC, "Forward Power Measurement at input raw ")
     field(PREC, "3")
     field(EGU, "V")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -8766,13 +8838,13 @@ record(calcout, "RA-ToSIA01:RF-SSAmpTower:HwPwrFwdInLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-SSAmpTower:HwPwrFwdIn-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-SSAmpTower:HwPwrFwdInLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-SSAmpTower:HwPwrFwdInLowerLimitLOLO-Cte"){
     field(CALC, "A+0.003")
     field(DESC, "Forward Power Measurement at input raw ")
     field(PREC, "3")
     field(EGU, "V")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -8802,7 +8874,7 @@ record(ai, "RA-ToSIA02:RF-SSAmpTower:HwPwrRevIn-Mon"){
     field(LLSV,  "MAJOR")
 }
 
-record(ai, "RA-ToSIA01:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[5]")
     field(DESC, "Reflected Power Measurement at input ra")
@@ -8816,13 +8888,13 @@ record(ai, "RA-ToSIA01:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte"){
     field(LLSV,  "NO_ALARM")
 }
 
-record(calcout, "RA-ToSIA01:RF-SSAmpTower:HwPwrRevInLowerLimitLOW-Cte"){
+record(calcout, "RA-ToSIA02:RF-SSAmpTower:HwPwrRevInLowerLimitLOW-Cte"){
     field(CALC, "A+0.009")
     field(DESC, "Reflected Power Measurement at input ra")
     field(PREC, "3")
     field(EGU, "V")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -8838,13 +8910,13 @@ record(calcout, "RA-ToSIA01:RF-SSAmpTower:HwPwrRevInLowerLimitLOW-Cte"){
     field(OUT,  "RA-ToSIA02:RF-SSAmpTower:HwPwrRevIn-Mon.LOW")
 }
 
-record(calcout, "RA-ToSIA01:RF-SSAmpTower:HwPwrRevInLowerLimitLOLO-Cte"){
+record(calcout, "RA-ToSIA02:RF-SSAmpTower:HwPwrRevInLowerLimitLOLO-Cte"){
     field(CALC, "A+0.003")
     field(DESC, "Reflected Power Measurement at input ra")
     field(PREC, "3")
     field(EGU, "V")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte CP")
     field(INPB, "")
     field(INPC, "")
     field(INPD, "")
@@ -8874,7 +8946,7 @@ record(ai, "RA-ToSIA02:RF-SSAmpTower:HwPwrFwdOut-Mon"){
     field(LLSV,  "")
 }
 
-record(ai, "RA-ToSIA01:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[6]")
     field(DESC, "Forward Power Measurement at output raw")
@@ -8902,7 +8974,7 @@ record(ai, "RA-ToSIA02:RF-SSAmpTower:HwPwrRevOut-Mon"){
     field(LLSV,  "")
 }
 
-record(ai, "RA-ToSIA01:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte"){
+record(ai, "RA-ToSIA02:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[7]")
     field(DESC, "Reflected Power Measurement at output r")
@@ -9097,7 +9169,7 @@ record(bi, "RA-ToSIA02:RF-CtrlPanel:PINSwSts-Mon"){
 }
 
 record(calcout, "RA-ToSIA02:RF-SSAmpTower:RunHour-Mon"){
-    field(CALC, "60*A")
+    field(CALC, "A/60")
     field(DESC, "Hourmeter Tower 02 alarme LOLO")
     field(PREC, "")
     field(EGU, "h")
@@ -9144,7 +9216,7 @@ record(waveform, "RA-ToSIA02:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte"){
 record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrFwdIn-Mon"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Forward Power Measurement at input")
-    field(PREC, "")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -9178,12 +9250,12 @@ record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrFwdIn-Mon"){
 
 record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrFwdInLower-Cte"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
-    field(DESC, "Forward Power Measurement at input limi")
-    field(PREC, "")
+    field(DESC, "Forward Power Measurement at input uppe")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-SSAmpTower:HwPwrFwdInLowerLimit-Cte CP")
     field(INPB, "RA-ToSIA02:RF-SSAmpTower:Hw2PwrFwdInCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
@@ -9223,7 +9295,7 @@ record(waveform, "RA-ToSIA02:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte"){
 record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrRevIn-Mon"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Reflected Power Measurement at input")
-    field(PREC, "")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -9257,12 +9329,12 @@ record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrRevIn-Mon"){
 
 record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrRevInLower-Cte"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
-    field(DESC, "Reflected Power Measurement at input li")
-    field(PREC, "")
+    field(DESC, "Reflected Power Measurement at input up")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-SSAmpTower:HwPwrRevInLowerLimit-Cte CP")
     field(INPB, "RA-ToSIA02:RF-SSAmpTower:Hw2PwrRevInCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
@@ -9302,7 +9374,7 @@ record(waveform, "RA-ToSIA02:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte"){
 record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrFwdOut-Mon"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Forward Power Measurement at output")
-    field(PREC, "")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -9336,12 +9408,12 @@ record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrFwdOut-Mon"){
 
 record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrFwdOutLower-Cte"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
-    field(DESC, "Forward Power Measurement at output lim")
-    field(PREC, "")
+    field(DESC, "Forward Power Measurement at output upp")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-SSAmpTower:HwPwrFwdOutLowerLimit-Cte CP")
     field(INPB, "RA-ToSIA02:RF-SSAmpTower:Hw2PwrFwdOutCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
@@ -9381,7 +9453,7 @@ record(waveform, "RA-ToSIA02:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte"){
 record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrRevOut-Mon"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
     field(DESC, "Reflected Power Measurement at output")
-    field(PREC, "")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
@@ -9415,12 +9487,12 @@ record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrRevOut-Mon"){
 
 record(acalcout, "RA-ToSIA02:RF-SSAmpTower:PwrRevOutLower-Cte"){
     field(CALC, "L:=0;C:=0;D:=UNTIL(C:=C+AA[L,L]*A^L;L:=L+1;L>=B);C")
-    field(DESC, "Reflected Power Measurement at output l")
-    field(PREC, "")
+    field(DESC, "Reflected Power Measurement at output u")
+    field(PREC, "3")
     field(EGU, "dBm")
     field(NELM, "20")
     field(SCAN, "Passive")
-    field(INPA, "RA-ToSIA01:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte CP")
+    field(INPA, "RA-ToSIA02:RF-SSAmpTower:HwPwrRevOutLowerLimit-Cte CP")
     field(INPB, "RA-ToSIA02:RF-SSAmpTower:Hw2PwrRevOutCoeff-Cte.NELM")
     field(INPC, "")
     field(INPD, "")
@@ -9453,7 +9525,7 @@ record(ai, "RA-ToSIA02:RF-SSAmpTower:CoaxSwLvlTh-RB"){
     field(INP,  "@$(PLC) ReadBack_Real_1")
     field(DESC, "Minimum power to enable coax switch Rea")
     field(SCAN, ".1 second")
-    field(PREC, "")
+    field(PREC, "2")
     field(EGU,  "V")
     field(VAL,  "")
     field(HSV,  "")
@@ -9470,6 +9542,78 @@ record(bi, "RA-ToSIA02:RF-SSAmpTower:CoaxSwLvlSts-Mon"){
     field(ONAM, "True")
     field(ZNAM, "False")
     field(VAL, "")
+}
+
+record(ai, "RA-ToSIA02:RF-SSAmpTower:OutT-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) AES_02_Control_Panel:9:I.Ch00.Data")
+    field(DESC, "Temperature sensor at flexible output")
+    field(SCAN, ".5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+    field(VAL,  "")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "")
+    field(LLSV,  "")
+}
+
+record(ai, "RA-ToSIA02:RF-SSAmpTower:OutTUpperLimit-Cte"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Real[14]")
+    field(DESC, "Temperature sensor at flexible output u")
+    field(SCAN, "5 second")
+    field(PREC, "2")
+    field(EGU,  "C")
+    field(VAL,  "")
+    field(HSV,  "NO_ALARM")
+    field(HHSV,  "NO_ALARM")
+    field(LSV,  "NO_ALARM")
+    field(LLSV,  "NO_ALARM")
+}
+
+record(calcout, "RA-ToSIA02:RF-SSAmpTower:OutTUpperLimitHIGH-Cte"){
+    field(CALC, "A-5")
+    field(DESC, "Temperature sensor at flexible output a")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA02:RF-SSAmpTower:OutTUpperLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA02:RF-SSAmpTower:OutT-Mon.HIGH")
+}
+
+record(calcout, "RA-ToSIA02:RF-SSAmpTower:OutTUpperLimitHIHI-Cte"){
+    field(CALC, "A-1")
+    field(DESC, "Temperature sensor at flexible output a")
+    field(PREC, "2")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "RA-ToSIA02:RF-SSAmpTower:OutTUpperLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-ToSIA02:RF-SSAmpTower:OutT-Mon.HIHI")
 }
 
 record(ao, "Memorias_70__32bit"){
@@ -9904,7 +10048,7 @@ record(calcout, "RA-RaSIA02:RF-ArcDetec-Circ:PwrFailInCalc"){
 
 record(bi, "RA-RaSIA02:RF-ArcDetec-Circ:PwrFail-Mon"){
     field(INP, "RA-RaSIA02:RF-ArcDetec-Circ:PwrFailInCalc NPP")
-    field(DESC, "Arc Detector Power Fail Out")
+    field(DESC, "Arc Detector Circ Power Fail Out")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
@@ -9934,7 +10078,7 @@ record(calcout, "RA-RaSIA02:RF-ArcDetec-Load:PwrFailInCalc"){
 
 record(bi, "RA-RaSIA02:RF-ArcDetec-Load:PwrFail-Mon"){
     field(INP, "RA-RaSIA02:RF-ArcDetec-Load:PwrFailInCalc NPP")
-    field(DESC, "Arc Detector Power Fail Out")
+    field(DESC, "Arc Detector Load Power Fail Out")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
@@ -9997,7 +10141,7 @@ record(ai, "RA-RaSIA01:RF-LLRFPreAmp-1:T1-Mon"){
 record(ai, "RA-RaSIA01:RF-LLRFPreAmp-1:T1UpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[20]")
-    field(DESC, "PT- 100 01 Pré-Amplificador limite supe")
+    field(DESC, "PT- 100 01 Pré-Amplificador upper inter")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -10025,7 +10169,7 @@ record(ai, "RA-RaSIA01:RF-LLRFPreAmp-1:T2-Mon"){
 record(ai, "RA-RaSIA01:RF-LLRFPreAmp-1:T2UpperLimit-Cte"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) Real[20]")
-    field(DESC, "PT- 100 02 Pré-Amplificador limite supe")
+    field(DESC, "PT- 100 02 Pré-Amplificador upper inter")
     field(SCAN, "5 second")
     field(PREC, "2")
     field(EGU,  "C")
@@ -10388,7 +10532,7 @@ record(calcout, "RA-RaSIA02:RF-IntlkCtrl:IY403FaultInCalc"){
 
 record(bi, "RA-RaSIA02:RF-IntlkCtrl:IY403Fault-Mon"){
     field(INP, "RA-RaSIA02:RF-IntlkCtrl:IY403FaultInCalc NPP")
-    field(DESC, "Falha Hardware Cartão 02 Controladora")
+    field(DESC, "Falha Hardware Cartão 03 Controladora")
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
@@ -16773,4 +16917,303 @@ record(bi, "RA-ToSIA02:RF-CtrlPanel:OutDig15-Mon"){
     field(SCAN, "Passive")
     field(ONAM, "True")
     field(ZNAM, "False")
+}
+
+record(ai, "RA-RaSIA02:RF-THSensor:Temp-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Tamb_SCA")
+    field(DESC, "Temperatura ambiente próximo ao sistema")
+    field(SCAN, "1 second")
+    field(PREC, "")
+    field(EGU,  "C")
+    field(VAL,  "")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
+}
+
+record(ai, "RA-RaSIA02:RF-THSensor:TempUpperLimit-Cte"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Real[30]")
+    field(DESC, "Temperatura ambiente próximo ao sistema")
+    field(SCAN, "5 second")
+    field(PREC, "")
+    field(EGU,  "C")
+    field(VAL,  "")
+    field(HSV,  "NO_ALARM")
+    field(HHSV,  "NO_ALARM")
+    field(LSV,  "NO_ALARM")
+    field(LLSV,  "NO_ALARM")
+}
+
+record(calcout, "RA-RaSIA02:RF-THSensor:TempUpperLimitHIGH-Cte"){
+    field(CALC, "A-1")
+    field(DESC, "Temperatura ambiente próximo ao sistema")
+    field(PREC, "")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "RA-RaSIA02:RF-THSensor:TempUpperLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-RaSIA02:RF-THSensor:Temp-Mon.HIGH")
+}
+
+record(calcout, "RA-RaSIA02:RF-THSensor:TempUpperLimitHIHI-Cte"){
+    field(CALC, "A-5")
+    field(DESC, "Temperatura ambiente próximo ao sistema")
+    field(PREC, "")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "RA-RaSIA02:RF-THSensor:TempUpperLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-RaSIA02:RF-THSensor:Temp-Mon.HIHI")
+}
+
+record(ai, "RA-RaSIA02:RF-THSensor:TempLowerLimit-Cte"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Real[31]")
+    field(DESC, "Temperatura ambiente próximo ao sistema")
+    field(SCAN, "5 second")
+    field(PREC, "")
+    field(EGU,  "C")
+    field(VAL,  "")
+    field(HSV,  "NO_ALARM")
+    field(HHSV,  "NO_ALARM")
+    field(LSV,  "NO_ALARM")
+    field(LLSV,  "NO_ALARM")
+}
+
+record(calcout, "RA-RaSIA02:RF-THSensor:TempLowerLimitLOW-Cte"){
+    field(CALC, "A+1")
+    field(DESC, "Temperatura ambiente próximo ao sistema")
+    field(PREC, "")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "RA-RaSIA02:RF-THSensor:TempLowerLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-RaSIA02:RF-THSensor:Temp-Mon.LOW")
+}
+
+record(calcout, "RA-RaSIA02:RF-THSensor:TempLowerLimitLOLO-Cte"){
+    field(CALC, "A+5")
+    field(DESC, "Temperatura ambiente próximo ao sistema")
+    field(PREC, "")
+    field(EGU, "C")
+    field(SCAN, "Passive")
+    field(INPA, "RA-RaSIA02:RF-THSensor:TempLowerLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-RaSIA02:RF-THSensor:Temp-Mon.LOLO")
+}
+
+record(ao, "Memorias_90__32bit"){
+    field(DTYP, "EtherIP")
+    field(OUT, "@$(PLC) Memorias[90] S .1")
+    field(DESC, "32bit PV for tag Memorias[90]")
+    field(SCAN, "Passive")
+    field(PREC, "")
+    field(EGU,  "C")
+}
+
+record(calcout, "RA-RaSIA02:RF-THSensor:TempUpInCalc"){
+    field(CALC, "1 & (A >> 0)")
+    field(DESC, "Aux calc for RA-RaSIA02:RF-THSensor:Temp")
+    field(PREC, "")
+    field(EGU, "")
+    field(SCAN, "1 second")
+    field(INPA, "Memorias_90__32bit NPP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-RaSIA02:RF-THSensor:TempUp-Mon PP")
+}
+
+record(bi, "RA-RaSIA02:RF-THSensor:TempUp-Mon"){
+    field(INP, "RA-RaSIA02:RF-THSensor:TempUpInCalc NPP")
+    field(DESC, "Status temperatura ambiente próximo ao ")
+    field(SCAN, "Passive")
+    field(ONAM, "True")
+    field(ZNAM, "False")
+}
+
+record(ai, "RA-RaSIA02:RF-THSensor:Humidity-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Uamb_SCA")
+    field(DESC, "Umidade ambiente próximo ao sistema A")
+    field(SCAN, "1 second")
+    field(PREC, "")
+    field(EGU,  "")
+    field(VAL,  "")
+    field(HSV,  "MINOR")
+    field(HHSV,  "MAJOR")
+    field(LSV,  "MINOR")
+    field(LLSV,  "MAJOR")
+}
+
+record(ai, "RA-RaSIA02:RF-THSensor:HumidityUpperLimit-Cte"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Real[32]")
+    field(DESC, "Umidade ambiente próximo ao sistema A u")
+    field(SCAN, "5 second")
+    field(PREC, "")
+    field(EGU,  "")
+    field(VAL,  "")
+    field(HSV,  "NO_ALARM")
+    field(HHSV,  "NO_ALARM")
+    field(LSV,  "NO_ALARM")
+    field(LLSV,  "NO_ALARM")
+}
+
+record(calcout, "RA-RaSIA02:RF-THSensor:HumidityUpperLimitHIGH-Cte"){
+    field(CALC, "A-1")
+    field(DESC, "Umidade ambiente próximo ao sistema A a")
+    field(PREC, "")
+    field(EGU, "")
+    field(SCAN, "Passive")
+    field(INPA, "RA-RaSIA02:RF-THSensor:HumidityUpperLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-RaSIA02:RF-THSensor:Humidity-Mon.HIGH")
+}
+
+record(calcout, "RA-RaSIA02:RF-THSensor:HumidityUpperLimitHIHI-Cte"){
+    field(CALC, "A-5")
+    field(DESC, "Umidade ambiente próximo ao sistema A a")
+    field(PREC, "")
+    field(EGU, "")
+    field(SCAN, "Passive")
+    field(INPA, "RA-RaSIA02:RF-THSensor:HumidityUpperLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-RaSIA02:RF-THSensor:Humidity-Mon.HIHI")
+}
+
+record(ai, "RA-RaSIA02:RF-THSensor:HumidityLowerLimit-Cte"){
+    field(DTYP, "EtherIP")
+    field(INP,  "@$(PLC) Real[33]")
+    field(DESC, "Umidade ambiente próximo ao sistema A l")
+    field(SCAN, "5 second")
+    field(PREC, "")
+    field(EGU,  "")
+    field(VAL,  "")
+    field(HSV,  "NO_ALARM")
+    field(HHSV,  "NO_ALARM")
+    field(LSV,  "NO_ALARM")
+    field(LLSV,  "NO_ALARM")
+}
+
+record(calcout, "RA-RaSIA02:RF-THSensor:HumidityLowerLimitLOW-Cte"){
+    field(CALC, "A+1")
+    field(DESC, "Umidade ambiente próximo ao sistema A a")
+    field(PREC, "")
+    field(EGU, "")
+    field(SCAN, "Passive")
+    field(INPA, "RA-RaSIA02:RF-THSensor:HumidityLowerLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-RaSIA02:RF-THSensor:Humidity-Mon.LOW")
+}
+
+record(calcout, "RA-RaSIA02:RF-THSensor:HumidityLowerLimitLOLO-Cte"){
+    field(CALC, "A+5")
+    field(DESC, "Umidade ambiente próximo ao sistema A a")
+    field(PREC, "")
+    field(EGU, "")
+    field(SCAN, "Passive")
+    field(INPA, "RA-RaSIA02:RF-THSensor:HumidityLowerLimit-Cte CP")
+    field(INPB, "")
+    field(INPC, "")
+    field(INPD, "")
+    field(INPE, "")
+    field(INPF, "")
+    field(INPG, "")
+    field(INPH, "")
+    field(INPI, "")
+    field(INPJ, "")
+    field(INPK, "")
+    field(INPL, "")
+    field(FLNK, "")
+    field(OUT,  "RA-RaSIA02:RF-THSensor:Humidity-Mon.LOLO")
 }

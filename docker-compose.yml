@@ -140,7 +140,8 @@ services:
     restart: always
     volumes:
       - type: bind
-        source: ${AUTOSAVE_VOLUME_SOURCE}
+        #source: ${AUTOSAVE_VOLUME_SOURCE}
+        source: /storage/rf/data/tower_1_2/autosave
         target: /opt/etheripIOC/autosave/save
 
   rf-ssamp-tower-3-4:
@@ -153,7 +154,8 @@ services:
     restart: always
     volumes:
       - type: bind
-        source: ${AUTOSAVE_VOLUME_SOURCE}
+        #source: ${AUTOSAVE_VOLUME_SOURCE}
+        source: /storage/rf/data/tower_3_4/autosave
         target: /opt/etheripIOC/autosave/save
 
   delta_v2:
