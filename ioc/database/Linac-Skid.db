@@ -29,49 +29,49 @@ record(ai, "UA:PH2SkidLI:HD-PT-04:Pressure-Mon"){
 record(ai, "UA:PH2SkidLI:HD-TT-01:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TT01.Scaled_Value")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
 record(ai, "UA:PH2SkidLI:HD-TT-02:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TT02.Scaled_Value")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
 record(ai, "UA:PH2SkidLI:HD-TT-03:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TT03.Scaled_Value")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
 record(ai, "UA:PH2SkidLI:HD-TT-04:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TT04.Scaled_Value")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
 record(ai, "UA:PH2SkidLI:HD-TT-05:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TT05.Scaled_Value")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
 record(ai, "UA:PH2SkidLI:HD-TT-06:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TT06.Scaled_Value")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
 record(ai, "UA:PH2SkidLI:HD-TT-EXT:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TT_EXT.Scaled_Value")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
@@ -84,7 +84,7 @@ record(ai, "UA:PH2SkidLI:HD-FT-01:Flow-Mon-x1000"){
 
 record(calc, "UA:PH2SkidLI:HD-FT-01:Flow-Mon"){
     field(CALC, "A/1000")
-    field(EGU, "m³/h")
+    field(EGU, "m3/h")
     field(INPA, "UA:PH2SkidLI:HD-FT-01:Flow-Mon-x1000 CP")
 }
 
@@ -97,7 +97,7 @@ record(ai, "UA:PH2SkidLI:HD-FT-02:Flow-Mon-x1000"){
 
 record(calc, "UA:PH2SkidLI:HD-FT-02:Flow-Mon"){
     field(CALC, "A/1000")
-    field(EGU, "m³/h")
+    field(EGU, "m3/h")
     field(INPA, "UA:PH2SkidLI:HD-FT-02:Flow-Mon-x1000 CP")
 }
 
@@ -110,35 +110,35 @@ record(ai, "UA:PH2SkidLI:HD-FT-03:Flow-Mon-x1000"){
 
 record(calc, "UA:PH2SkidLI:HD-FT-03:Flow-Mon"){
     field(CALC, "A/1000")
-    field(EGU, "m³/h")
+    field(EGU, "m3/h")
     field(INPA, "UA:PH2SkidLI:HD-FT-03:Flow-Mon-x1000 CP")
 }
 
 record(ai, "UA:PH2SkidLI:HD-RE-01:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RE01.Temperatura_Resist")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
 record(ai, "UA:PH2SkidLI:HD-RE-02:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RE02.Temperatura_Resist")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
 record(ai, "UA:PH2SkidLI:HD-RE-01:TemperatureRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RE01_Ref.Reference_Value")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
 record(ai, "UA:PH2SkidLI:HD-RE-02:TemperatureRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) RE02_Ref.Reference_Value")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
@@ -187,14 +187,14 @@ record(ai, "UA:PH2SkidLI:HD-TIC-01:Ki-RB"){
 record(ai, "UA:PH2SkidLI:HD-TIC-01:TemperatureRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TIC01.SP")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
 record(ai, "UA:PH2SkidLI:HD-TIC-01:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TIC01.PV")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
@@ -238,14 +238,14 @@ record(ai, "UA:PH2SkidLI:HD-TIC-02:Ki-RB"){
 record(ai, "UA:PH2SkidLI:HD-TIC-02:TemperatureRef-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TIC02.SP")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
 record(ai, "UA:PH2SkidLI:HD-TIC-02:Temperature-Mon"){
     field(DTYP, "EtherIP")
     field(INP, "@$(PLC) TIC02.PV")
-    field(EGU, "ºC")
+    field(EGU, "C")
     field(SCAN, ".1 second")
 }
 
