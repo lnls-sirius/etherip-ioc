@@ -1,0 +1,297 @@
+record(ai, "UA:PH2SkidLI:HD-PT-01:Pressure-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PT01.Scaled_Value")
+    field(EGU, "bar")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-PT-02:Pressure-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PT02.Scaled_Value")
+    field(EGU, "bar")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-PT-03:Pressure-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PT03.Scaled_Value")
+    field(EGU, "bar")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-PT-04:Pressure-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PT04.Scaled_Value")
+    field(EGU, "bar")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TT-01:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT01.Scaled_Value")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TT-02:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT02.Scaled_Value")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TT-03:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT03.Scaled_Value")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TT-04:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT04.Scaled_Value")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TT-05:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT05.Scaled_Value")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TT-06:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT06.Scaled_Value")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TT-EXT:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TT_EXT.Scaled_Value")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-FT-01:Flow-Mon-x1000"){
+    field(DTYP, "EtherIP")
+    field(EGU, "L/h")
+    field(INP, "@$(PLC) FT01.Scaled_Value")
+    field(SCAN, ".1 second")
+}
+
+record(calc, "UA:PH2SkidLI:HD-FT-01:Flow-Mon"){
+    field(CALC, "A/1000")
+    field(EGU, "m³/h")
+    field(INPA, "UA:PH2SkidLI:HD-FT-01:Flow-Mon-x1000 CP")
+}
+
+record(ai, "UA:PH2SkidLI:HD-FT-02:Flow-Mon-x1000"){
+    field(DTYP, "EtherIP")
+    field(EGU, "L/h")
+    field(INP, "@$(PLC) FT02.Scaled_Value")
+    field(SCAN, ".1 second")
+}
+
+record(calc, "UA:PH2SkidLI:HD-FT-02:Flow-Mon"){
+    field(CALC, "A/1000")
+    field(EGU, "m³/h")
+    field(INPA, "UA:PH2SkidLI:HD-FT-02:Flow-Mon-x1000 CP")
+}
+
+record(ai, "UA:PH2SkidLI:HD-FT-03:Flow-Mon-x1000"){
+    field(DTYP, "EtherIP")
+    field(EGU, "L/h")
+    field(INP, "@$(PLC) FT03.Scaled_Value")
+    field(SCAN, ".1 second")
+}
+
+record(calc, "UA:PH2SkidLI:HD-FT-03:Flow-Mon"){
+    field(CALC, "A/1000")
+    field(EGU, "m³/h")
+    field(INPA, "UA:PH2SkidLI:HD-FT-03:Flow-Mon-x1000 CP")
+}
+
+record(ai, "UA:PH2SkidLI:HD-RE-01:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RE01.Temperatura_Resist")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-RE-02:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RE02.Temperatura_Resist")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-RE-01:TemperatureRef-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RE01_Ref.Reference_Value")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-RE-02:TemperatureRef-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) RE02_Ref.Reference_Value")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-BC-01:Power-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) BC01.Ref_Aut")
+    field(EGU, "%")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-BC-02:Power-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) BC02.Ref_Aut")
+    field(EGU, "%")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TCV-01:ValveOpening-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TCV01.Reference_Value")
+    field(EGU, "%")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-01:Kp-RB"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC01.KP")
+    field(EGU, "")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-01:Kd-RB"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC01.KD")
+    field(EGU, "")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-01:Ki-RB"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC01.KI")
+    field(EGU, "")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-01:TemperatureRef-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC01.SP")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-01:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC01.PV")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-01:ValveOpening-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC01.OUT")
+    field(EGU, "%")
+    field(SCAN, ".1 second")
+}
+
+################
+
+record(ai, "UA:PH2SkidLI:HD-TCV-02:ValveOpening-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TCV02.Reference_Value")
+    field(EGU, "%")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-02:Kp-RB"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC02.KP")
+    field(EGU, "")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-02:Kd-RB"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC02.KD")
+    field(EGU, "")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-02:Ki-RB"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC02.KI")
+    field(EGU, "")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-02:TemperatureRef-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC02.SP")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-02:Temperature-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC02.PV")
+    field(EGU, "ºC")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-TIC-02:ValveOpening-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) TIC02.OUT")
+    field(EGU, "%")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-PIC-01:Kp-RB"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC01.KP")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-PIC-01:Kd-RB"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC01.KD")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-PIC-01:Ki-RB"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC01.KI")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-PIC-01:PressureRef-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC01.SP")
+    field(EGU, "bar")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-BC-01:Pressure-Mon"){
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC01.PV")
+    field(EGU, "bar")
+    field(SCAN, ".1 second")
+}
+
+record(ai, "UA:PH2SkidLI:HD-BC-01:PowerRef-Mon"){
+    field(DESC, "Pump Power send from controller")
+    field(DTYP, "EtherIP")
+    field(INP, "@$(PLC) PIC01.OUT")
+    field(EGU, "%")
+    field(SCAN, ".1 second")
+}
