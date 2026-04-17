@@ -133,31 +133,49 @@ record(ai, "UA:B19C20SkidP5:HD-PIC-BC:PressureRef-RB"){
     field(EGU,  "bar")
 }
 
-record(ai, "UA:B19C20SkidP5:HD-FT-411:Flow-Mon"){
+record(ai, "UA:B19C20SkidP5:HD-FT-411:Flow-Mon-x1000"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) FT411.Scaled_Value")
     field(DESC, "Water Flow Transmitter 411")
     field(SCAN, "1 second")
     field(PREC, "")
-    field(EGU,  "m3h")
+    field(EGU,  "L/h")
 }
 
-record(ai, "UA:B19C20SkidP5:HD-FT-412:Flow-Mon"){
+record(calc, "UA:B19C20SkidP5:HD-FT-411:Flow-Mon"){
+    field(CALC, "A/1000")
+    field(EGU, "m3/h")
+    field(INPA, "UA:B19C20SkidP5:HD-FT-411:Flow-Mon-x1000 CP")
+}
+
+record(ai, "UA:B19C20SkidP5:HD-FT-412:Flow-Mon-x1000"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) FT412.Scaled_Value")
     field(DESC, "Water Flow Transmitter 412")
     field(SCAN, "1 second")
     field(PREC, "")
-    field(EGU,  "m3h")
+    field(EGU,  "L/h")
 }
 
-record(ai, "UA:B19C20SkidP5:HD-FT-413:Flow-Mon"){
+record(calc, "UA:B19C20SkidP5:HD-FT-412:Flow-Mon"){
+    field(CALC, "A/1000")
+    field(EGU, "m3/h")
+    field(INPA, "UA:B19C20SkidP5:HD-FT-412:Flow-Mon-x1000 CP")
+}
+
+record(ai, "UA:B19C20SkidP5:HD-FT-413:Flow-Mon-x1000"){
     field(DTYP, "EtherIP")
     field(INP,  "@$(PLC) FT413.Scaled_Value")
     field(DESC, "Water Flow Transmitter 413")
     field(SCAN, "1 second")
     field(PREC, "")
-    field(EGU,  "m3h")
+    field(EGU,  "L/h")
+}
+
+record(calc, "UA:B19C20SkidP5:HD-FT-413:Flow-Mon"){
+    field(CALC, "A/1000")
+    field(EGU, "m3/h")
+    field(INPA, "UA:B19C20SkidP5:HD-FT-413:Flow-Mon-x1000 CP")
 }
 
 record(ai, "UA:B19C20SkidP5:HD-PT-411:Pressure-Mon"){
